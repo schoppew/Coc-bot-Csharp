@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace CsharpCocBot
 {
-  public partial class Form1 : Form
+  public partial class MainForm : Form
   {
-    public Form1()
+    public MainForm()
     {
       InitializeComponent();
+    }
+
+    private void Form1_Load(object sender, EventArgs e)
+    {
+        Tools.ClickOnPointTool.ClickOnPoint2(Tools.BlueStackHelper.GetBlueStackWindowHandle(), new Point(209, 699));
     }
   }
 }
