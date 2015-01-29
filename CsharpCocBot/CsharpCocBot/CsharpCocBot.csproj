@@ -66,6 +66,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\BlueStackHelper.cs" />
     <Compile Include="Tools\ClickOnPoint.cs" />
+    <Compile Include="Tools\FastFind\FastFindWrapper.cs" />
+    <Compile Include="Tools\ProcessHelper.cs" />
     <Compile Include="Tools\ScreenCapture.cs" />
     <Compile Include="Tools\Win32.cs" />
     <EmbeddedResource Include="MainForm.resx">
