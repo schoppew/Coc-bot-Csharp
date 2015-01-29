@@ -82,7 +82,7 @@ namespace CsharpCocBot.Tools
     } 
 
     // SendMessage and PostMessage should work on hidden forms, use them with the WM_MOUSEXXXX codes and provide the mouse location in the wp or lp parameter, I forget which.
-    public static bool ClickOnPoint2(IntPtr wndHandle, Point clientPoint)
+    public static bool ClickOnPoint2(IntPtr wndHandle, Point clientPoint, int times)
     {
       BlueStackHelper.ActivateBlueStack();
       try
@@ -90,8 +90,11 @@ namespace CsharpCocBot.Tools
         /// set cursor on coords, and press mouse
         if (wndHandle != IntPtr.Zero)
         {
-          PostMessageSafe(wndHandle, Win32.WM_LBUTTONDOWN, (IntPtr)0x01, (IntPtr)((clientPoint.X) | ((clientPoint.Y) << 16)));
-          PostMessageSafe(wndHandle, Win32.WM_LBUTTONUP, (IntPtr)0x01, (IntPtr)((clientPoint.X) | ((clientPoint.Y) << 16)));
+            for (int x = 0; x < times; x++)
+            {
+                PostMessageSafe(wndHandle, Win32.WM_LBUTTONDOWN, (IntPtr)0x01, (IntPtr)((clientPoint.X) | ((clientPoint.Y) << 16)));
+                PostMessageSafe(wndHandle, Win32.WM_LBUTTONUP, (IntPtr)0x01, (IntPtr)((clientPoint.X) | ((clientPoint.Y) << 16)));
+            }
         }
       }
       catch (System.ComponentModel.Win32Exception ex)
