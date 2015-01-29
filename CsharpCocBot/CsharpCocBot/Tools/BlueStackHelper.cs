@@ -11,7 +11,7 @@ namespace CsharpCocBot.Tools
   {
     static IntPtr bshandle = IntPtr.Zero;
 
-    public static bool IsPlueStackFound { get { return bshandle != IntPtr.Zero; } }
+    public static bool IsBlueStacksFound { get { return bshandle != IntPtr.Zero; } }
 
     public static IntPtr GetBlueStackWindowHandle()
     {      
