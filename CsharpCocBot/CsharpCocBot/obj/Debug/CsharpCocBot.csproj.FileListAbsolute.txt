@@ -1,0 +1,2 @@
+c:\users\bernard.muller\documents\visual studio 2013\Projects\CsharpCocBot\CsharpCocBot\bin\Debug\CsharpCocBot.exe.config
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\CsharpCocBot\bin\Debug\CsharpCocBot.exe.config
