@@ -8,14 +8,9 @@ namespace CsharpCocBot.Functions
 {
     class Other
     {
-        public bool Sleep(int ms)
+        public static void Sleep(int ms)
         {
-            return false;
-        }
-
-        public void Click()
-        {
-
+            System.Threading.Thread.Sleep(ms);
         }
 
         public void CreateLogFile()
@@ -43,7 +38,7 @@ namespace CsharpCocBot.Functions
             return new Point(-1, -1);
         }
 
-        public void SetLog(string msg)
+        public static void SetLog(string msg, Color color)
         {
 
         }

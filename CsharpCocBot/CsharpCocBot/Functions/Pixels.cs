@@ -8,7 +8,7 @@ namespace CsharpCocBot.Functions
 {
     class Pixels
     {
-        public Bitmap CaptureRegion(int left = 0, int top = 0, int right = 720, int bottom = 720, bool returnBmp = false)
+        public static Bitmap CaptureRegion(int left = 0, int top = 0, int right = 720, int bottom = 720, bool returnBmp = false)
         {
             Bitmap b = null;
 
@@ -22,27 +22,27 @@ namespace CsharpCocBot.Functions
             }
         }
 
-        public bool ColorCheck(Color color1, Color color2, int variation = 5)
+        public static bool ColorCheck(Color color1, Color color2, int variation = 5)
         {
             return false;
         }
 
-        public Color GetPixelColor(int _x, int _y)
+        public static Color GetPixelColor(int _x, int _y)
         {
             return Color.Fuchsia;
         }
 
-        public Point MultiPixelSearch(int left, int top, int right, int bottom, int xSkip, int ySkip, Color color1, Object[] offColor, int variation)
+        public static Point MultiPixelSearch(int left, int top, int right, int bottom, int xSkip, int ySkip, Color color1, Object[] offColor, int variation)
         {
             return new Point(-1, -1);
         }
 
-        public Point PixelSearch(int left, int top, int right, int bottom, Color color1, int variation)
+        public static Point PixelSearch(int left, int top, int right, int bottom, Color color1, int variation)
         {
             return new Point(-1, -1);
         }
 
-        public bool BoolPixelSearch(Point pixel1, Point pixel2, Point pixel3, int variation = 10)
+        public static bool BoolPixelSearch(Point pixel1, Point pixel2, Point pixel3, int variation = 10)
         {
             return false;
         }

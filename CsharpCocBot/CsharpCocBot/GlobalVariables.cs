@@ -11,12 +11,15 @@ namespace CsharpCocBot
         public static Bitmap hBitmap;
         public static Bitmap hHBitmap;
 
-        public static int HWnD;
+        public static IntPtr HWnD;
 
         public static string configPath = @"COCBot\config.ini";
         public static string logPath;
         public static int hLogFileHandle;
         public static bool restart = false;
         public static bool runState = false;
+        public static bool backgroundMode = true;
+
+        public static Tools.ScreenCapture screenCap = null;
     }
 }
