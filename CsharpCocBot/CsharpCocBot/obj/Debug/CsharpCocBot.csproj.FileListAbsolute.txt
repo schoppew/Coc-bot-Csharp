@@ -1,2 +1,9 @@
 c:\users\bernard.muller\documents\visual studio 2013\Projects\CsharpCocBot\CsharpCocBot\bin\Debug\CsharpCocBot.exe.config
 C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\CsharpCocBot\bin\Debug\CsharpCocBot.exe.config
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\CsharpCocBot\obj\Debug\CsharpCocBot.csprojResolveAssemblyReference.cache
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\CsharpCocBot\obj\Debug\CsharpCocBot.Properties.Resources.resources
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\CsharpCocBot\obj\Debug\CsharpCocBot.csproj.GenerateResource.Cache
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\CsharpCocBot\bin\Debug\CsharpCocBot.exe
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\CsharpCocBot\bin\Debug\CsharpCocBot.pdb
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\CsharpCocBot\obj\Debug\CsharpCocBot.exe
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\CsharpCocBot\obj\Debug\CsharpCocBot.pdb

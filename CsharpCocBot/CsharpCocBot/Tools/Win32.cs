@@ -83,7 +83,8 @@ namespace CsharpCocBot.Tools
     /// <returns>
     ///        If the function succeeds, the return value is the handle to a memory DC.
     ///        If the function fails, the return value is <see cref="System.IntPtr.Zero"/>.
-    /// </returns>[DllImportAttribute("gdi32.dll")]
+    /// </returns>
+    [DllImportAttribute("gdi32.dll")]
     public extern static IntPtr CreateCompatibleDC(IntPtr hDC);
 
     [DllImportAttribute("gdi32.dll")]

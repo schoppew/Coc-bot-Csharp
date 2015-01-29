@@ -18,20 +18,20 @@ namespace CsharpCocBot.Tools
     public static extern uint SendInput(uint nInputs, [MarshalAs(UnmanagedType.LPArray), In] INPUT[] pInputs, int cbSize);
 
 #pragma warning disable 649
-    internal struct INPUT
+    public struct INPUT
     {
       public UInt32 Type;
       public MOUSEKEYBDHARDWAREINPUT Data;
     }
 
     [StructLayout(LayoutKind.Explicit)]
-    internal struct MOUSEKEYBDHARDWAREINPUT
+    public struct MOUSEKEYBDHARDWAREINPUT
     {
       [FieldOffset(0)]
       public MOUSEINPUT Mouse;
     }
 
-    internal struct MOUSEINPUT
+    public struct MOUSEINPUT
     {
       public Int32 X;
       public Int32 Y;
