@@ -52,6 +52,24 @@ namespace CsharpCocBot.Tools
       }
     }
 
+    /// <summary>
+    /// Activates and displays the window. If the window is 
+    /// minimized or maximized, the system restores it to its original size 
+    /// and position. An application should use this when restoring 
+    /// a minimized window.
+    /// </summary>
+    /// <returns></returns>
+    public static bool RestoreBlueStack()
+    {
+      if (!IsBlueStackRunning) return false;
+      return Win32.ShowWindow(bshandle, Win32.WindowShowStyle.Restore);
+    }
+
+    /// <summary>
+    /// Activates the window and displays it in its current size 
+    /// and position.
+    /// </summary>
+    /// <returns></returns>
     public static bool ActivateBlueStack()
     {
       if (!IsBlueStackRunning) return false;

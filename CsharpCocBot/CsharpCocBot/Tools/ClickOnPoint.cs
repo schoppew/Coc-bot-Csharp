@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -43,7 +44,7 @@ namespace CsharpCocBot.Tools
 
 #pragma warning restore 649
 
-
+    // Mephobia HF reported that this function fails to send mouse clicks to hidden windows 
     public static void ClickOnPoint(IntPtr wndHandle, Win32.Point clientPoint)
     {
       var oldPos = Cursor.Position;
@@ -67,6 +68,38 @@ namespace CsharpCocBot.Tools
 
       /// return mouse 
       Cursor.Position = oldPos;
+    }
+
+
+    static void PostMessageSafe(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+    {
+      bool returnValue = Win32.PostMessage(hWnd, msg, wParam, lParam);
+      if (!returnValue)
+      {
+        // An error occured
+        throw new System.ComponentModel.Win32Exception(Marshal.GetLastWin32Error());
+      }
+    } 
+
+    // SendMessage and PostMessage should work on hidden forms, use them with the WM_MOUSEXXXX codes and provide the mouse location in the wp or lp parameter, I forget which.
+    public static bool ClickOnPoint2(IntPtr wndHandle, Point clientPoint)
+    {
+      BlueStackHelper.ActivateBlueStack();
+      try
+      {
+        /// set cursor on coords, and press mouse
+        if (wndHandle != IntPtr.Zero)
+        {
+          PostMessageSafe(wndHandle, Win32.WM_LBUTTONDOWN, (IntPtr)0x01, (IntPtr)((clientPoint.X) | ((clientPoint.Y) << 16)));
+          PostMessageSafe(wndHandle, Win32.WM_LBUTTONUP, (IntPtr)0x01, (IntPtr)((clientPoint.X) | ((clientPoint.Y) << 16)));
+        }
+      }
+      catch (System.ComponentModel.Win32Exception ex)
+      {
+        Debug.Assert(false, ex.Message);
+        return false;
+      }
+      return true;
     }
 
   }
