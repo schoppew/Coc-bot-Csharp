@@ -43,7 +43,7 @@ namespace CsharpCocBot.Tools
 
     public Bitmap SnapShot(Rectangle rect, bool backgroundMode = true)
     {
-      return SnapShot(rect.Left, rect.Top, rect.Width, rect.Height);
+      return SnapShot(rect.Left, rect.Top, rect.Width, rect.Height, backgroundMode);
     }
     
     

@@ -19,7 +19,22 @@ namespace CsharpCocBot
 
     private void Form1_Load(object sender, EventArgs e)
     {
-        Tools.ClickOnPointTool.ClickOnPoint2(Tools.BlueStackHelper.GetBlueStackWindowHandle(), new Point(209, 699));
+
+    }
+
+    public void RunBot()
+    {
+        do
+        {
+            GlobalVariables.screenCap = new Tools.ScreenCapture();
+            GlobalVariables.restart = false;
+
+            Functions.Other.Sleep(1000);
+            Functions.MainScreen.CheckMainScreen();
+            Functions.Other.Sleep(1000);
+            Functions.MainScreen.ZoomOut();
+
+        } while (true);
     }
   }
 }
