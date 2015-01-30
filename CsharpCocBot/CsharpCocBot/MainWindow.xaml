@@ -223,13 +223,13 @@
                                         <Label Content="{x:Static p:Resources.LabelBarbarians}" Height="25" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelArchers}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="130" />
                                         <Label Content="{x:Static p:Resources.LabelGoblins}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
-                                        <TextBox Text="{Binding BarbariansPercent}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" IsEnabled="False" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,12,40,0" VerticalAlignment="Top" Width="60" />
-                                        <TextBox Text="{Binding ArchersPercent}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" IsEnabled="False" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,40,40,0" VerticalAlignment="Top" Width="60" />
-                                        <TextBox Text="{Binding GoblinsPercent}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" IsEnabled="False" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,68,40,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding BarbariansPercent}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,12,40,0" VerticalAlignment="Top" Width="60" IsEnabled="{Binding IsCustomTroopsEnabled}" />
+                                        <TextBox Text="{Binding ArchersPercent}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,40,40,0" VerticalAlignment="Top" Width="60" IsEnabled="{Binding IsCustomTroopsEnabled}" />
+                                        <TextBox Text="{Binding GoblinsPercent}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,68,40,0" VerticalAlignment="Top" Width="60" IsEnabled="{Binding IsCustomTroopsEnabled}" />
                                         <Label Content="{x:Static p:Resources.Percent}" Height="25" HorizontalAlignment="Right" Margin="0,12,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="20" />
                                         <Label Content="{x:Static p:Resources.Percent}" Height="25" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="20" />
                                         <Label Content="{x:Static p:Resources.Percent}" Height="25" HorizontalAlignment="Right" Margin="0,68,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="20" />
-                                        <ComboBox ItemsSource="{Binding Path=TroopCompositions, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedTroopComposition}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="10,98,10,0" />
+                                        <ComboBox ItemsSource="{Binding Path=TroopCompositions, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedTroopComposition}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="10,145,10,0" />
                                         <TextBlock Text="{x:Static p:Resources.TroopsMessage}" Height="60" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
@@ -237,8 +237,8 @@
                                     <Grid>
                                         <Label Content="{x:Static p:Resources.LabelNumberOfGiants}" Height="25" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelNumberOfWallBreakers}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="130" />
-                                        <TextBox Text="{Binding NumberOfGiants}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" IsEnabled="False" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,12,10,0" VerticalAlignment="Top" Width="40" />
-                                        <TextBox Text="{Binding NumberOfWallBreakers}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" IsEnabled="False" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,40,10,0" VerticalAlignment="Top" Width="40" />
+                                        <TextBox Text="{Binding NumberOfGiants}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,12,10,0" VerticalAlignment="Top" Width="40" IsEnabled="{Binding IsCustomTroopsEnabled}" />
+                                        <TextBox Text="{Binding NumberOfWallBreakers}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,40,10,0" VerticalAlignment="Top" Width="40" IsEnabled="{Binding IsCustomTroopsEnabled}" />
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.Barracks}" HorizontalAlignment="Right" Margin="0,121,16,0" VerticalAlignment="Top" Height="165" Width="210">
@@ -247,10 +247,10 @@
                                         <Label Content="{x:Static p:Resources.LabelBarrack2}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
                                         <Label Content="{x:Static p:Resources.LabelBarrack3}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
                                         <Label Content="{x:Static p:Resources.LabelBarrack4}" Height="25" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
-                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack1}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,14,10,0" IsEnabled="{Binding IsBarracksControlEnabled}" />
-                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack2}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,42,10,0" IsEnabled="{Binding IsBarracksControlEnabled}" />
-                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack3}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,70,10,0" IsEnabled="{Binding IsBarracksControlEnabled}" />
-                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack4}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,98,10,0" IsEnabled="{Binding IsBarracksControlEnabled}" />
+                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack1}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,14,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack2}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,42,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack3}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,70,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack4}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,98,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.OtherTroopsSettings}" HorizontalAlignment="Left" Margin="16,0,0,16" VerticalAlignment="Bottom" Height="100" Width="432">
@@ -259,6 +259,11 @@
                                         <Button Content="{x:Static p:Resources.LocateBarracksManually}" Command="{Binding LocateBarracksCommand}" Height="23" Margin="16,0,16,10" VerticalAlignment="Bottom" Visibility="Visible" />
                                     </Grid>
                                 </GroupBox>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="{x:Static p:Resources.Help}">
+                            <Grid Background="{DynamicResource BackgroundBrush}">
+                                
                             </Grid>
                         </TabItem>
                     </TabControl>

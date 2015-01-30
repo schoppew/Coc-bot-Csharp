@@ -376,7 +376,7 @@
     <value>Barching</value>
   </data>
   <data name="CustomTroops" xml:space="preserve">
-    <value>CustomTroops</value>
+    <value>Custom Troops</value>
   </data>
   <data name="Dragons" xml:space="preserve">
     <value>Dragons</value>
@@ -389,5 +389,8 @@
   </data>
   <data name="UseBarracks" xml:space="preserve">
     <value>Use Barracks</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
   </data>
 </root>

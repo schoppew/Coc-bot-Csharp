@@ -32,7 +32,7 @@
             // Ex. (int)SelectedKingAttackMode <--- Returns the selected king attack mode (dead bases, all bases, none, etc)
             //
             // Under Main Methods you will find the Start(), Stop(), Hide(), etc methods
-            // You can make the async if you wish
+            // You can make them async if you wish
 
 
             // Fill the Troop Compositions
@@ -40,7 +40,7 @@
             {
                 DataCollection.TroopCompositions.Add(Model.CreateNew(1, Properties.Resources.UseBarracks));
                 DataCollection.TroopCompositions.Add(Model.CreateNew(2, Properties.Resources.Barching));
-                DataCollection.TroopCompositions.Add(Model.CreateNew(2, Properties.Resources.CustomTroops));
+                DataCollection.TroopCompositions.Add(Model.CreateNew(3, Properties.Resources.CustomTroops));
             }
 
             // Fill the Troops
@@ -50,12 +50,12 @@
                 DataCollection.Troops.Add(Model.CreateNew(2, Properties.Resources.Archers));
                 //DataCollection.Troops.Add(Model.CreateNew(3, Properties.Resources.Goblins));
                 //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.Giants));
-                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.WallBreakers));
-                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.Balloons));
-                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.Wizards));
-                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.Healers));
-                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.Dragons));
-                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.Pekkas));
+                //DataCollection.Troops.Add(Model.CreateNew(5, Properties.Resources.WallBreakers));
+                //DataCollection.Troops.Add(Model.CreateNew(6, Properties.Resources.Balloons));
+                //DataCollection.Troops.Add(Model.CreateNew(7, Properties.Resources.Wizards));
+                //DataCollection.Troops.Add(Model.CreateNew(8, Properties.Resources.Healers));
+                //DataCollection.Troops.Add(Model.CreateNew(9, Properties.Resources.Dragons));
+                //DataCollection.Troops.Add(Model.CreateNew(10, Properties.Resources.Pekkas));
                 // add more troop types
             }
 
@@ -64,7 +64,7 @@
             {
                 DataCollection.DeployStrategies.Add(Model.CreateNew(1, Properties.Resources.DeployStrategyTwoSides));
                 DataCollection.DeployStrategies.Add(Model.CreateNew(2, Properties.Resources.DeployStrategyThreeSides));
-                DataCollection.DeployStrategies.Add(Model.CreateNew(2, Properties.Resources.DeployStrategyFourSides));
+                DataCollection.DeployStrategies.Add(Model.CreateNew(3, Properties.Resources.DeployStrategyFourSides));
             }
 
             // Fill the Deploy Troops
@@ -547,7 +547,8 @@
                 {
                     _selectedTroopComposition = value;
                     OnPropertyChanged("SelectedTroopComposition");
-                    OnPropertyChanged("IsBarracksControlEnabled");
+                    OnPropertyChanged("IsUseBarracksEnabled");
+                    OnPropertyChanged("IsCustomTroopsEnabled");
                 }
             }
         }
@@ -642,11 +643,22 @@
             }
         }
 
-        public bool IsBarracksControlEnabled
+        public bool IsUseBarracksEnabled
         {
             get
             {
                 if (SelectedTroopComposition.Id == 1)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+        public bool IsCustomTroopsEnabled
+        {
+            get
+            {
+                if (SelectedTroopComposition.Id == 3)
                     return true;
                 else
                     return false;

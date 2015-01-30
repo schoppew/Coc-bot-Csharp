@@ -241,7 +241,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CustomTroops.
+        ///   Looks up a localized string similar to Custom Troops.
         /// </summary>
         public static string CustomTroops {
             get {
@@ -399,6 +399,15 @@ namespace CoC.Bot.Properties {
         public static string Healers {
             get {
                 return ResourceManager.GetString("Healers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help.
+        /// </summary>
+        public static string Help {
+            get {
+                return ResourceManager.GetString("Help", resourceCulture);
             }
         }
         
