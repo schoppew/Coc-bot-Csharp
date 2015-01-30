@@ -127,16 +127,30 @@
 
         #region Search Settings Properties
 
-        private bool _meetGoldAndElixir;
-        public bool MeetGoldAndElixir
+        private bool _meetGold;
+        public bool MeetGold
         {
-            get { return _meetGoldAndElixir; }
+            get { return _meetGold; }
             set
             {
-                if (_meetGoldAndElixir != value)
+                if (_meetGold != value)
                 {
-                    _meetGoldAndElixir = value;
-                    OnPropertyChanged("MeetGoldAndElixir");
+                    _meetGold = value;
+                    OnPropertyChanged("MeetGold");
+                }
+            }
+        }
+
+        private bool _meetElixir;
+        public bool MeetElixir
+        {
+            get { return _meetElixir; }
+            set
+            {
+                if (_meetElixir != value)
+                {
+                    _meetElixir = value;
+                    OnPropertyChanged("MeetElixir");
                 }
             }
         }
@@ -911,7 +925,8 @@
             MaxTrophies = Properties.Settings.Default.MaxTrophies;
 
             // Search Settings
-            MeetGoldAndElixir = Properties.Settings.Default.MeetGoldAndElixir;
+            MeetGold = Properties.Settings.Default.MeetGold;
+            MeetElixir = Properties.Settings.Default.MeetElixir;
             MeetDarkElixir = Properties.Settings.Default.MeetDarkElixir;
             MeetTrophyCount = Properties.Settings.Default.MeetTrophyCount;
 
@@ -969,7 +984,8 @@
             Properties.Settings.Default.MaxTrophies = MaxTrophies;
 
             // Search Settings
-            Properties.Settings.Default.MeetGoldAndElixir = MeetGoldAndElixir;
+            Properties.Settings.Default.MeetGold = MeetGold;
+            Properties.Settings.Default.MeetElixir = MeetElixir;
             Properties.Settings.Default.MeetDarkElixir = MeetDarkElixir;
             Properties.Settings.Default.MeetTrophyCount = MeetTrophyCount;
 

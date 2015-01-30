@@ -110,12 +110,12 @@ namespace CoC.Bot.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool MeetGoldAndElixir {
+        public bool MeetGold {
             get {
-                return ((bool)(this["MeetGoldAndElixir"]));
+                return ((bool)(this["MeetGold"]));
             }
             set {
-                this["MeetGoldAndElixir"] = value;
+                this["MeetGold"] = value;
             }
         }
         
@@ -440,6 +440,18 @@ namespace CoC.Bot.Properties {
             }
             set {
                 this["AttackUsingClanCastle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool MeetElixir {
+            get {
+                return ((bool)(this["MeetElixir"]));
+            }
+            set {
+                this["MeetElixir"] = value;
             }
         }
     }

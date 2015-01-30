@@ -592,11 +592,20 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Meet Gold and Elixir.
+        ///   Looks up a localized string similar to Meet Elixir.
         /// </summary>
-        public static string MeetGoldAndElixir {
+        public static string MeetElixir {
             get {
-                return ResourceManager.GetString("MeetGoldAndElixir", resourceCulture);
+                return ResourceManager.GetString("MeetElixir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meet Gold.
+        /// </summary>
+        public static string MeetGold {
+            get {
+                return ResourceManager.GetString("MeetGold", resourceCulture);
             }
         }
         

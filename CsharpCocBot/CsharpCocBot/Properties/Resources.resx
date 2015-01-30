@@ -294,8 +294,11 @@
   <data name="MeetDarkElixir" xml:space="preserve">
     <value>Meet Dark Elixir</value>
   </data>
-  <data name="MeetGoldAndElixir" xml:space="preserve">
-    <value>Meet Gold and Elixir</value>
+  <data name="MeetElixir" xml:space="preserve">
+    <value>Meet Elixir</value>
+  </data>
+  <data name="MeetGold" xml:space="preserve">
+    <value>Meet Gold</value>
   </data>
   <data name="MeetTrophyCount" xml:space="preserve">
     <value>Meet Trophy Count</value>

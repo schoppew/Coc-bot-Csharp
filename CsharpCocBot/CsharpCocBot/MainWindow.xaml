@@ -131,9 +131,10 @@
                             <Grid Background="{DynamicResource BackgroundBrush}">
                                 <GroupBox Header="{x:Static p:Resources.Conditions}" HorizontalAlignment="Left" Margin="16,16,0,0" VerticalAlignment="Top" Height="210" Width="210">
                                     <Grid>
-                                        <CheckBox Content="{x:Static p:Resources.MeetGoldAndElixir}" IsChecked="{Binding MeetGoldAndElixir}" HorizontalAlignment="Left" Margin="30,17,0,0" VerticalAlignment="Top"/>
-                                        <CheckBox Content="{x:Static p:Resources.MeetDarkElixir}" IsChecked="{Binding MeetDarkElixir}" HorizontalAlignment="Left" Margin="30,39,0,0" VerticalAlignment="Top"/>
-                                        <CheckBox Content="{x:Static p:Resources.MeetTrophyCount}" IsChecked="{Binding MeetTrophyCount}" HorizontalAlignment="Left" Margin="30,61,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.MeetGold}" IsChecked="{Binding MeetGold}" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.MeetElixir}" IsChecked="{Binding MeetElixir}" HorizontalAlignment="Left" Margin="30,32,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.MeetDarkElixir}" IsChecked="{Binding MeetDarkElixir}" HorizontalAlignment="Left" Margin="30,54,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.MeetTrophyCount}" IsChecked="{Binding MeetTrophyCount}" HorizontalAlignment="Left" Margin="30,76,0,0" VerticalAlignment="Top"/>
                                         <TextBlock Text="{x:Static p:Resources.ConditionsMessage}" Height="75" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>

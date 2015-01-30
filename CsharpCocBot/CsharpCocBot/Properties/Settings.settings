@@ -23,7 +23,7 @@
     <Setting Name="MinTrophyCount" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="MeetGoldAndElixir" Type="System.Boolean" Scope="User">
+    <Setting Name="MeetGold" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="MeetDarkElixir" Type="System.Boolean" Scope="User">
@@ -106,6 +106,9 @@
     </Setting>
     <Setting Name="AttackUsingClanCastle" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="MeetElixir" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>
