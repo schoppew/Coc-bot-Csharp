@@ -5,7 +5,7 @@ namespace CoC.Bot.Tools.FastFind
 {
     static public class FastFindWrapper
     {
-        const string fastFindDllName = "FastFind64.dll";
+        const string fastFindDllName = "../../UnmanagedLibs/FastFind64.dll";
 
         // Exclusion areas
         // ===============
