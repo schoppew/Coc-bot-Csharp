@@ -178,11 +178,29 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Balloons.
+        /// </summary>
+        public static string Balloons {
+            get {
+                return ResourceManager.GetString("Balloons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Barbarians.
         /// </summary>
         public static string Barbarians {
             get {
                 return ResourceManager.GetString("Barbarians", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barching.
+        /// </summary>
+        public static string Barching {
+            get {
+                return ResourceManager.GetString("Barching", resourceCulture);
             }
         }
         
@@ -219,6 +237,15 @@ namespace CoC.Bot.Properties {
         public static string Controls {
             get {
                 return ResourceManager.GetString("Controls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CustomTroops.
+        /// </summary>
+        public static string CustomTroops {
+            get {
+                return ResourceManager.GetString("CustomTroops", resourceCulture);
             }
         }
         
@@ -322,6 +349,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dragons.
+        /// </summary>
+        public static string Dragons {
+            get {
+                return ResourceManager.GetString("Dragons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to General.
         /// </summary>
         public static string General {
@@ -354,6 +390,15 @@ namespace CoC.Bot.Properties {
         public static string GroupBoxResources {
             get {
                 return ResourceManager.GetString("GroupBoxResources", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Healers.
+        /// </summary>
+        public static string Healers {
+            get {
+                return ResourceManager.GetString("Healers", resourceCulture);
             }
         }
         
@@ -700,6 +745,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to P.E.K.K.As.
+        /// </summary>
+        public static string Pekkas {
+            get {
+                return ResourceManager.GetString("Pekkas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to %.
         /// </summary>
         public static string Percent {
@@ -777,6 +831,15 @@ namespace CoC.Bot.Properties {
         public static string TrophySettings {
             get {
                 return ResourceManager.GetString("TrophySettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Barracks.
+        /// </summary>
+        public static string UseBarracks {
+            get {
+                return ResourceManager.GetString("UseBarracks", resourceCulture);
             }
         }
         

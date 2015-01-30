@@ -36,9 +36,9 @@
             // Fill the Troop Compositions
             if (DataCollection.TroopCompositions.Count == 0)
             {
-                DataCollection.TroopCompositions.Add(Model.CreateNew(1, "Use Barracks"));
-                DataCollection.TroopCompositions.Add(Model.CreateNew(2, "Barching"));
-                DataCollection.TroopCompositions.Add(Model.CreateNew(2, "Custom Troops"));
+                DataCollection.TroopCompositions.Add(Model.CreateNew(1, Properties.Resources.UseBarracks));
+                DataCollection.TroopCompositions.Add(Model.CreateNew(2, Properties.Resources.Barching));
+                DataCollection.TroopCompositions.Add(Model.CreateNew(2, Properties.Resources.CustomTroops));
             }
 
             // Fill the Troops
@@ -46,8 +46,14 @@
             {
                 DataCollection.Troops.Add(Model.CreateNew(1, Properties.Resources.Barbarians));
                 DataCollection.Troops.Add(Model.CreateNew(2, Properties.Resources.Archers));
-                //DataCollection.Troops.Add(Troop.CreateNew(3, Properties.Resources.Goblins));
-                //DataCollection.Troops.Add(Troop.CreateNew(4, Properties.Resources.Giants));
+                //DataCollection.Troops.Add(Model.CreateNew(3, Properties.Resources.Goblins));
+                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.Giants));
+                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.WallBreakers));
+                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.Balloons));
+                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.Wizards));
+                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.Healers));
+                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.Dragons));
+                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.Pekkas));
                 // add more troop types
             }
 

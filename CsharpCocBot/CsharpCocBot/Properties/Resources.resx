@@ -369,4 +369,25 @@
   <data name="Level" xml:space="preserve">
     <value>Level</value>
   </data>
+  <data name="Balloons" xml:space="preserve">
+    <value>Balloons</value>
+  </data>
+  <data name="Barching" xml:space="preserve">
+    <value>Barching</value>
+  </data>
+  <data name="CustomTroops" xml:space="preserve">
+    <value>CustomTroops</value>
+  </data>
+  <data name="Dragons" xml:space="preserve">
+    <value>Dragons</value>
+  </data>
+  <data name="Healers" xml:space="preserve">
+    <value>Healers</value>
+  </data>
+  <data name="Pekkas" xml:space="preserve">
+    <value>P.E.K.K.As</value>
+  </data>
+  <data name="UseBarracks" xml:space="preserve">
+    <value>Use Barracks</value>
+  </data>
 </root>
