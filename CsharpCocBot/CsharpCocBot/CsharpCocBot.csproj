@@ -121,6 +121,7 @@
     <Compile Include="Data\BuildingLevels.cs" />
     <Compile Include="Data\DataCollection.cs" />
     <Compile Include="Data\Model.cs" />
+    <Compile Include="Data\Troop.cs" />
     <Compile Include="Tools\FastFind\FastFindTesting.cs" />
     <Compile Include="Tools\KeyboardHelper.cs" />
     <Compile Include="UI\Behaviours\TextBoxBehaviour.cs" />
