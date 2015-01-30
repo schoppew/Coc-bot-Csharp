@@ -45,4 +45,8 @@ CsharpCocBot/CsharpCocBot/obj/Debug/CsharpCocBot.csproj.FileListAbsolute.txt
 *.Cache
 *.exe
 *.pdb
+*.suo
 CsharpCocBot/CsharpCocBot/obj/Debug/CsharpCocBot.csproj.FileListAbsolute.txt
+*.resources
+*.suo
+CsharpCocBot/CsharpCocBot.v12.suo
