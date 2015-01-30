@@ -499,6 +499,7 @@
                 {
                     _barbariansPercent = value;
                     OnPropertyChanged("BarbariansPercent");
+                    OnPropertyChanged("TotalPercent");
                 }
             }
         }
@@ -513,6 +514,7 @@
                 {
                     _archersPercent = value;
                     OnPropertyChanged("ArchersPercent");
+                    OnPropertyChanged("TotalPercent");
                 }
             }
         }
@@ -527,8 +529,14 @@
                 {
                     _goblinsPercent = value;
                     OnPropertyChanged("GoblinsPercent");
+                    OnPropertyChanged("TotalPercent");
                 }
             }
+        }
+
+        public int TotalPercent
+        {
+            get { return BarbariansPercent + ArchersPercent + GoblinsPercent; }
         }
 
         /// <summary>
