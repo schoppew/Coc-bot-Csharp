@@ -366,4 +366,7 @@
   <data name="Wizards" xml:space="preserve">
     <value>Wizards</value>
   </data>
+  <data name="Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
 </root>
