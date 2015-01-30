@@ -36,17 +36,27 @@ $RECYCLE.BIN/
 .Trashes
 
 # Directories potentially created on remote AFP share
+*.Cache
+*.cache
+*.exe
+*.pdb
+*.suo
+*.resources
+*.suo
 .AppleDB
 .AppleDesktop
 Network Trash Folder
 Temporary Items
 .apdisk
+CsharpCocBot/CsharpCocBot/obj/*.*
+CsharpCocBot/CsharpCocBot/obj/Debug/*.*
+CsharpCocBot/CsharpCocBot/obj/Debug/Views/*.*
+CsharpCocBot/CsharpCocBot/obj/Release/*.*
+CsharpCocBot/CsharpCocBot/bin/*.*
+CsharpCocBot/CsharpCocBot/bin/Debug/*.*
+CsharpCocBot/CsharpCocBot/bin/Release/*.*
+CsharpCocBot/CsharpCocBot/obj/Release/Views/*.*
 CsharpCocBot/CsharpCocBot/obj/Debug/CsharpCocBot.csproj.FileListAbsolute.txt
-*.Cache
-*.exe
-*.pdb
+*.baml
+*.cache
 *.suo
-CsharpCocBot/CsharpCocBot/obj/Debug/CsharpCocBot.csproj.FileListAbsolute.txt
-*.resources
-*.suo
-CsharpCocBot/CsharpCocBot.v12.suo

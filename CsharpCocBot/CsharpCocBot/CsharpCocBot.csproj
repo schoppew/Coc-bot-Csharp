@@ -143,9 +143,6 @@
     <Resource Include="Assets\Images\Icon.ico" />
     <Resource Include="Assets\Images\Logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="TODO.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

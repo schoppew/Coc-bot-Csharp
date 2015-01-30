@@ -20,10 +20,10 @@
         public bool CanExecute(object parameter)
         {
             // do your checking here to see if the command can execute
-            if (IsExecuted)
-                return false;
-            else
-                return true;
+          if (IsExecuted)
+              return false;
+          else
+              return true;
         }
 
         /// <summary>
@@ -38,10 +38,12 @@
         public void Execute(object parameter)
         {
             IsExecuted = true;
+            if (CanExecuteChanged != null) CanExecuteChanged(this, new EventArgs()); // Mostly to avoid warning. 
             var aboutWindow = new Views.About();
             aboutWindow.Owner = App.Current.MainWindow;
             aboutWindow.ShowDialog();
             IsExecuted = false;
+            if (CanExecuteChanged != null) CanExecuteChanged(this, new EventArgs()); // Mostly to avoid warning.             
         }
     }
 }
