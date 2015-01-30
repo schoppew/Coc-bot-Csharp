@@ -24,10 +24,12 @@
         /// </summary>
         public MainViewModel()
         {
-            // Important Notes for non WPF devs:
+            // Usage Notes for non WPF devs:
             //
             // You access and manipulate the values on the Window/Tabs by accessing their Properties (below). You don't access the controls (-;
             // Ex. MinimumGold, MinimumElixir, etc.
+            // Ex. SelectedTroopComposition.Id <--- Returns the selected troop composition ID (attack all sides, etc)
+            // Ex. (int)SelectedKingAttackMode <--- Returns the selected king attack mode (dead bases, all bases, none, etc)
             //
             // Under Main Methods you will find the Start(), Stop(), Hide(), etc methods
             // You can make the async if you wish
