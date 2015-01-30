@@ -46,3 +46,6 @@ CsharpCocBot/CsharpCocBot/obj/Debug/CsharpCocBot.csproj.FileListAbsolute.txt
 *.exe
 *.pdb
 CsharpCocBot/CsharpCocBot/obj/Debug/CsharpCocBot.csproj.FileListAbsolute.txt
+/CsharpCocBot/CsharpCocBot.sln.GhostDoc.xml
+/CsharpCocBot/CsharpCocBot/obj/Debug
+/CsharpCocBot/CsharpCocBot/bin/Debug
