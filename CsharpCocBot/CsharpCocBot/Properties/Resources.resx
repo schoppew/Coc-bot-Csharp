@@ -117,26 +117,71 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AlertWhenBaseFound" xml:space="preserve">
+    <value>Alert when Base found</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>A Clash of Clans Bot for the masses...</value>
+  </data>
   <data name="AppName" xml:space="preserve">
     <value>Clash of Clans Bot</value>
   </data>
   <data name="AttackSettings" xml:space="preserve">
     <value>Attack Settings</value>
   </data>
+  <data name="Conditions" xml:space="preserve">
+    <value>Conditions</value>
+  </data>
+  <data name="ConditionsMessage" xml:space="preserve">
+    <value>Check the boxes that you want to meet. The bot will stop at a base when it meets the conditions. If all unchecked, bot will stop if gold or elixir are met.</value>
+  </data>
   <data name="Controls" xml:space="preserve">
     <value>Controls</value>
   </data>
   <data name="DonateSettings" xml:space="preserve">
-    <value>DonateSettings</value>
+    <value>Donate Settings</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>General</value>
   </data>
+  <data name="GroupBoxResources" xml:space="preserve">
+    <value>Resources</value>
+  </data>
   <data name="LabelMaxTrophies" xml:space="preserve">
     <value>Max Trophies:</value>
   </data>
+  <data name="LabelMinimumDarkElixir" xml:space="preserve">
+    <value>Min. Dark Elixir:</value>
+  </data>
+  <data name="LabelMinimumElixir" xml:space="preserve">
+    <value>Min. Elixir:</value>
+  </data>
+  <data name="LabelMinimumGold" xml:space="preserve">
+    <value>Min. Gold:</value>
+  </data>
+  <data name="LabelMinimumTrophyCount" xml:space="preserve">
+    <value>Min. Trophy Count:</value>
+  </data>
+  <data name="MeetDarkElixir" xml:space="preserve">
+    <value>Meet Dark Elixir</value>
+  </data>
+  <data name="MeetGoldAndElixir" xml:space="preserve">
+    <value>Meet Gold and Elixir</value>
+  </data>
+  <data name="MeetTrophyCount" xml:space="preserve">
+    <value>Meet Trophy Count</value>
+  </data>
+  <data name="OtherSearchSettings" xml:space="preserve">
+    <value>Other Search Settings</value>
+  </data>
   <data name="OtherSettings" xml:space="preserve">
     <value>Other Settings</value>
+  </data>
+  <data name="ResourcesMessage" xml:space="preserve">
+    <value>Bot will stop when a base is found with resources higher or equal to the minimum resources.</value>
+  </data>
+  <data name="SearchMode" xml:space="preserve">
+    <value>Search Mode</value>
   </data>
   <data name="SearchSettings" xml:space="preserve">
     <value>Search Settings</value>

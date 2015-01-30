@@ -61,6 +61,24 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alert when Base found.
+        /// </summary>
+        public static string AlertWhenBaseFound {
+            get {
+                return ResourceManager.GetString("AlertWhenBaseFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A Clash of Clans Bot for the masses....
+        /// </summary>
+        public static string AppDescription {
+            get {
+                return ResourceManager.GetString("AppDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clash of Clans Bot.
         /// </summary>
         public static string AppName {
@@ -79,6 +97,24 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Conditions.
+        /// </summary>
+        public static string Conditions {
+            get {
+                return ResourceManager.GetString("Conditions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check the boxes that you want to meet. The bot will stop at a base when it meets the conditions. If all unchecked, bot will stop if gold or elixir are met..
+        /// </summary>
+        public static string ConditionsMessage {
+            get {
+                return ResourceManager.GetString("ConditionsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Controls.
         /// </summary>
         public static string Controls {
@@ -88,7 +124,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DonateSettings.
+        ///   Looks up a localized string similar to Donate Settings.
         /// </summary>
         public static string DonateSettings {
             get {
@@ -106,6 +142,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Resources.
+        /// </summary>
+        public static string GroupBoxResources {
+            get {
+                return ResourceManager.GetString("GroupBoxResources", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Max Trophies:.
         /// </summary>
         public static string LabelMaxTrophies {
@@ -115,11 +160,101 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Min. Dark Elixir:.
+        /// </summary>
+        public static string LabelMinimumDarkElixir {
+            get {
+                return ResourceManager.GetString("LabelMinimumDarkElixir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min. Elixir:.
+        /// </summary>
+        public static string LabelMinimumElixir {
+            get {
+                return ResourceManager.GetString("LabelMinimumElixir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min. Gold:.
+        /// </summary>
+        public static string LabelMinimumGold {
+            get {
+                return ResourceManager.GetString("LabelMinimumGold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min. Trophy Count:.
+        /// </summary>
+        public static string LabelMinimumTrophyCount {
+            get {
+                return ResourceManager.GetString("LabelMinimumTrophyCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meet Dark Elixir.
+        /// </summary>
+        public static string MeetDarkElixir {
+            get {
+                return ResourceManager.GetString("MeetDarkElixir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meet Gold and Elixir.
+        /// </summary>
+        public static string MeetGoldAndElixir {
+            get {
+                return ResourceManager.GetString("MeetGoldAndElixir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meet Trophy Count.
+        /// </summary>
+        public static string MeetTrophyCount {
+            get {
+                return ResourceManager.GetString("MeetTrophyCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other Search Settings.
+        /// </summary>
+        public static string OtherSearchSettings {
+            get {
+                return ResourceManager.GetString("OtherSearchSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Other Settings.
         /// </summary>
         public static string OtherSettings {
             get {
                 return ResourceManager.GetString("OtherSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bot will stop when a base is found with resources higher or equal to the minimum resources..
+        /// </summary>
+        public static string ResourcesMessage {
+            get {
+                return ResourceManager.GetString("ResourcesMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Mode.
+        /// </summary>
+        public static string SearchMode {
+            get {
+                return ResourceManager.GetString("SearchMode", resourceCulture);
             }
         }
         

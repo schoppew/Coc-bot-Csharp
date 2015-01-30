@@ -60,8 +60,8 @@
                     </Grid.RowDefinitions>
                     <Grid Background="#808080" Margin="9,0,9,0" Grid.Row="0" >
                         <Image Source="/Assets/Images/Logo.png" Stretch="Uniform" Width="100" Height="50" Margin="25,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="0" />
-                        <Label Name="lblTitle" Content="{Binding AppTitle}" Height="32" HorizontalAlignment="Left" Margin="131,4,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontFamily="Segoe UI Symbol" />
-                        <Label Name="lblInformation" Content="A Clash of Clans Bot for the masses..." Height="28" HorizontalAlignment="Left" Margin="132,26,0,0" VerticalAlignment="Top" FontSize="10" FontFamily="Segoe UI Symbol" />
+                        <Label Content="{Binding AppTitle}" Height="32" HorizontalAlignment="Left" Margin="131,4,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontFamily="Segoe UI Symbol" />
+                        <Label Content="{x:Static p:Resources.AppDescription}" Height="28" HorizontalAlignment="Left" Margin="132,26,0,0" VerticalAlignment="Top" FontSize="10" FontFamily="Segoe UI Symbol" />
                     </Grid>
                     <TabControl Name="Tab" Margin="9,9,9,49" Grid.Row="1">
                         <TabControl.ItemContainerStyle>
@@ -72,10 +72,10 @@
                         <!-- General Tab -->
                         <TabItem Header="{x:Static p:Resources.General}">
                             <Grid Background="{DynamicResource BackgroundBrush}">
-                                <TextBox x:Name="txtOutput" Text="{Binding Output}" b:TextBoxBehaviour.AlwaysScrollToEnd="True" Margin="16,16,18,100" IsReadOnly="True" VerticalScrollBarVisibility="Visible" />
+                                <TextBox Text="{Binding Output}" b:TextBoxBehaviour.AlwaysScrollToEnd="True" Margin="16,16,18,100" IsReadOnly="True" VerticalScrollBarVisibility="Visible" />
                                 <GroupBox Header="{x:Static p:Resources.Controls}" HorizontalAlignment="Left" Margin="16,0,0,18" VerticalAlignment="Bottom" Height="75" Width="210">
                                     <Grid>
-                                        <Button x:Name="btnStart" Command="{Binding StartCommand}" Height="33" Width="75" HorizontalAlignment="Left" Margin="10,0,0,0" Visibility="Visible">
+                                        <Button Command="{Binding StartCommand}" Height="33" Width="75" HorizontalAlignment="Left" Margin="10,0,0,0" Visibility="Visible">
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="Auto" />
@@ -87,7 +87,7 @@
                                                 </StackPanel>
                                             </Grid>
                                         </Button>
-                                        <Button x:Name="btnStop" Command="{Binding StopCommand}" Height="33" Width="75" HorizontalAlignment="Right" Margin="20,0,0,0" Visibility="Hidden">
+                                        <Button Command="{Binding StopCommand}" Height="33" Width="75" HorizontalAlignment="Right" Margin="20,0,0,0" Visibility="Hidden">
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="Auto" />
@@ -99,7 +99,7 @@
                                                 </StackPanel>
                                             </Grid>
                                         </Button>
-                                        <Button x:Name="btnHide" Command="{Binding HideCommand}" Height="33" Width="75" HorizontalAlignment="Right" Margin="0,0,10,0" Visibility="Visible">
+                                        <Button Command="{Binding HideCommand}" Height="33" Width="75" HorizontalAlignment="Right" Margin="0,0,10,0" Visibility="Visible">
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="Auto" />
@@ -116,7 +116,7 @@
                                 <GroupBox Header="{x:Static p:Resources.TrophySettings}" HorizontalAlignment="Right" Margin="0,0,16,18" VerticalAlignment="Bottom" Height="75" Width="210">
                                     <Grid>
                                         <Label Content="{x:Static p:Resources.LabelMaxTrophies}" Height="26" HorizontalAlignment="Left" Margin="10,14,0,13" VerticalContentAlignment="Top" Width="83" Visibility="Visible" />
-                                        <TextBox x:Name="txtMaxTrophies" Text="{Binding MaxTrophies}" MaxLength="4" PreviewTextInput="NumberValidationTextBox" Height="23" Margin="0,0,20,0" TextAlignment="Right" Visibility="Visible" Width="80" HorizontalAlignment="Right" />
+                                        <TextBox Text="{Binding MaxTrophies}" MaxLength="4" PreviewTextInput="NumberValidationTextBox" Height="23" Margin="0,0,20,0" TextAlignment="Right" Width="80" HorizontalAlignment="Right" />
                                     </Grid>
                                 </GroupBox>
                             </Grid>
@@ -124,25 +124,31 @@
                         <!-- Search Settings Tab -->
                         <TabItem Header="{x:Static p:Resources.SearchSettings}">
                             <Grid Background="{DynamicResource BackgroundBrush}">
-                                <Label x:Name="lblInfo" Content="Select first the service you wish to test for an open port." Height="26" HorizontalAlignment="Left" Margin="16,19,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" />
-                                <Label x:Name="lblDevice" Content="Device:" Height="26" HorizontalAlignment="Left" Margin="16,19,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="50" Visibility="Hidden" />
-                                <ComboBox x:Name="cbDevice" Height="23" Margin="71,22,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="375" Visibility="Hidden" />
-                                <Label x:Name="lblService" Content="Service:" Height="26" HorizontalAlignment="Left" Margin="16,47,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="50" />
-                                <!--<ComboBox x:Name="cbService" ItemsSource="{Binding Path=Services, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedService}" DisplayMemberPath="Name" Height="23" Margin="71,48,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="cbService_SelectionChanged" Width="90" />-->
-                                <Label x:Name="lblCustomPort" Content="Port:" Height="26" HorizontalAlignment="Left" Margin="171,47,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="36" Visibility="Hidden" />
-                                <!--<TextBox x:Name="txtCustomPort" Text="{Binding Path=CustomService, UpdateSourceTrigger=PropertyChanged}" MaxLength="5" PreviewTextInput="txtCustomPort_PreviewTextInput" Height="23" Margin="212,48,0,0" TextAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden" Width="40" />-->
-                                <Label x:Name="lblTimeout" Content="Timeout:" Height="26" HorizontalAlignment="Left" Margin="170,47,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="57" Visibility="Visible" />
-                                <!--<TextBox x:Name="txtTimeout" Text="{Binding TimeOut}" MaxLength="5" PreviewTextInput="txtTimeout_PreviewTextInput" Height="23" Margin="232,48,0,0" TextAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="40" />-->
-                                <Label x:Name="lblMilliseconds" Content="milliseconds" Height="26" HorizontalAlignment="Left" Margin="277,47,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="75" Visibility="Visible" />
-                                <Button x:Name="btnAdd" ToolTip="Add IP Address" Command="{Binding AddSingleAddressCommand}" Height="23" HorizontalAlignment="Left" Margin="16,88,0,0" VerticalAlignment="Top" Width="23" Visibility="Visible">
-                                    <Path Data="M19.833,0L32.5,0 32.5,19.833999 52.334,19.833999 52.334,32.500999 32.5,32.500999 32.5,52.333 19.833,52.333 19.833,32.500999 0,32.500999 0,19.833999 19.833,19.833999z" Stretch="Uniform" Fill="#BBFFFFFF" Margin="2" RenderTransformOrigin="0.5,0.5" />
-                                </Button>
-                                <!--<Button x:Name="btnAddDrop" ToolTip="Add IP Address(es)" VerticalAlignment="Top" Focusable="False" Margin="38,88,413,0" Height="23" Width="13" Click="btnAddDrop_Click">
-                                    <Path Data="M 0, 0 L 4, 4 L 8, 0 Z" Fill="#FFFFFF" Stroke="#BBBBBB"/>
-                                </Button>-->
-                                <Button Name="btnRemove" ToolTip="Remove selected IP Address" Command="{Binding RemoveSingleAddressCommand}" Height="23" HorizontalAlignment="Left" Margin="56,88,0,0" VerticalAlignment="Top" Width="23" Visibility="Visible">
-                                    <Path Data="M0,0L53.333,0 53.333,8.888 0,8.888z" Stretch="Uniform" Fill="#BBFFFFFF" Width="23" Height="23" Margin="2" RenderTransformOrigin="0.5,0.5" />
-                                </Button>
+                                <GroupBox Header="{x:Static p:Resources.Conditions}" HorizontalAlignment="Left" Margin="16,16,0,0" VerticalAlignment="Top" Height="210" Width="210">
+                                    <Grid>
+                                        <CheckBox Content="{x:Static p:Resources.MeetGoldAndElixir}" IsChecked="{Binding MeetGoldAndElixir}" HorizontalAlignment="Left" Margin="30,17,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.MeetDarkElixir}" IsChecked="{Binding MeetDarkElixir}" HorizontalAlignment="Left" Margin="30,39,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.MeetTrophyCount}" IsChecked="{Binding MeetTrophyCount}" HorizontalAlignment="Left" Margin="30,61,0,0" VerticalAlignment="Top"/>
+                                        <TextBlock Text="{x:Static p:Resources.ConditionsMessage}" Height="80" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" />
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="{x:Static p:Resources.GroupBoxResources}" HorizontalAlignment="Right" Margin="0,16,16,0" VerticalAlignment="Top" Height="210" Width="210">
+                                    <Grid>
+                                        <Label Content="{x:Static p:Resources.LabelMinimumGold}" Height="25" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
+                                        <Label Content="{x:Static p:Resources.LabelMinimumElixir}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
+                                        <Label Content="{x:Static p:Resources.LabelMinimumDarkElixir}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
+                                        <Label Content="{x:Static p:Resources.LabelMinimumTrophyCount}" Height="25" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="113" />
+                                        <TextBox Text="{Binding MinimumGold}" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,12,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding MinimumElixir}" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,40,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding MinimumDarkElixir}" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,68,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding MinimumTrophyCount}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,96,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBlock Text="{x:Static p:Resources.ResourcesMessage}" Height="50" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" />
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="{x:Static p:Resources.OtherSearchSettings}" Margin="16,240,18,0" VerticalAlignment="Top" Height="120">
+                                    <CheckBox Content="{x:Static p:Resources.AlertWhenBaseFound}" IsChecked="{Binding AlertWhenBaseFound}" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
+                                </GroupBox>
+                                <Button Content="{x:Static p:Resources.SearchMode}" Command="{Binding SearchModeCommand}" Height="23" Margin="16,0,18,10" VerticalAlignment="Bottom" Visibility="Visible" />
                             </Grid>
                         </TabItem>
                         <!-- Attack Settings Tab -->

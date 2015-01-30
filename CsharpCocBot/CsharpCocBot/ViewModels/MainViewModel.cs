@@ -31,23 +31,15 @@
 
         public static string AppTitle { get { return string.Format("{0} v{1}", Properties.Resources.AppName, typeof(App).Assembly.GetName().Version.ToString(3)); } }
 
+        #region Behaviour Properties
+
         private bool IsStarted { get; set; }
 
         private bool IsHidden { get; set; }
 
-        private int _maxTrophies;
-        public int MaxTrophies
-        {
-            get { return _maxTrophies; }
-            set
-            {
-                if (_maxTrophies != value)
-                {
-                    _maxTrophies = value;
-                    OnPropertyChanged("MaxTrophies");
-                }
-            }
-        }
+        #endregion
+
+        #region General Properties
 
         public string Output
         {
@@ -72,6 +64,138 @@
                 }
             }
         }
+
+        private int _maxTrophies;
+        public int MaxTrophies
+        {
+            get { return _maxTrophies; }
+            set
+            {
+                if (_maxTrophies != value)
+                {
+                    _maxTrophies = value;
+                    OnPropertyChanged("MaxTrophies");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Search Settings Properties
+
+        private bool _meetGoldAndElixir;
+        public bool MeetGoldAndElixir
+        {
+            get { return _meetGoldAndElixir; }
+            set
+            {
+                if (_meetGoldAndElixir != value)
+                {
+                    _meetGoldAndElixir = value;
+                    OnPropertyChanged("MeetGoldAndElixir");
+                }
+            }
+        }
+
+        private bool _meetDarkElixir;
+        public bool MeetDarkElixir
+        {
+            get { return _meetDarkElixir; }
+            set
+            {
+                if (_meetDarkElixir != value)
+                {
+                    _meetDarkElixir = value;
+                    OnPropertyChanged("MeetDarkElixir");
+                }
+            }
+        }
+
+        private bool _meetTrophyCount;
+        public bool MeetTrophyCount
+        {
+            get { return _meetTrophyCount; }
+            set
+            {
+                if (_meetTrophyCount != value)
+                {
+                    _meetTrophyCount = value;
+                    OnPropertyChanged("MeetTrophyCount");
+                }
+            }
+        }
+
+        private int _minimumGold;
+        public int MinimumGold
+        {
+            get { return _minimumGold; }
+            set
+            {
+                if (_minimumGold != value)
+                {
+                    _minimumGold = value;
+                    OnPropertyChanged("MinimumGold");
+                }
+            }
+        }
+
+        private int _minimumElixir;
+        public int MinimumElixir
+        {
+            get { return _minimumElixir; }
+            set
+            {
+                if (_minimumElixir != value)
+                {
+                    _minimumElixir = value;
+                    OnPropertyChanged("MinimumElixir");
+                }
+            }
+        }
+
+        private int _minimumDarkElixir;
+        public int MinimumDarkElixir
+        {
+            get { return _minimumDarkElixir; }
+            set
+            {
+                if (_minimumDarkElixir != value)
+                {
+                    _minimumDarkElixir = value;
+                    OnPropertyChanged("MinimumDarkElixir");
+                }
+            }
+        }
+
+        private int _minimumTrophyCount;
+        public int MinimumTrophyCount
+        {
+            get { return _minimumTrophyCount; }
+            set
+            {
+                if (_minimumTrophyCount != value)
+                {
+                    _minimumTrophyCount = value;
+                    OnPropertyChanged("MinimumTrophyCount");
+                }
+            }
+        }
+
+        private bool _alertWhenBaseFound;
+        public bool AlertWhenBaseFound
+        {
+            get { return _alertWhenBaseFound; }
+            set
+            {
+                if (_alertWhenBaseFound != value)
+                {
+                    _alertWhenBaseFound = value;
+                    OnPropertyChanged("AlertWhenBaseFound");
+                }
+            }
+        }
+
+        #endregion
 
         #endregion
 
@@ -218,7 +342,20 @@
         /// </summary>
         private void GetUserSettings()
         {
+            // General
             MaxTrophies = Properties.Settings.Default.MaxTrophies;
+
+            // Search Settings
+            MeetGoldAndElixir = Properties.Settings.Default.MeetGoldAndElixir;
+            MeetDarkElixir = Properties.Settings.Default.MeetDarkElixir;
+            MeetTrophyCount = Properties.Settings.Default.MeetTrophyCount;
+
+            MinimumGold = Properties.Settings.Default.MinGold;
+            MinimumElixir = Properties.Settings.Default.MinElixir;
+            MinimumDarkElixir = Properties.Settings.Default.MinDarkElixir;
+            MinimumTrophyCount = Properties.Settings.Default.MinTrophyCount;
+
+            AlertWhenBaseFound = Properties.Settings.Default.AlertWhenBaseFound;
         }
 
         /// <summary>
@@ -226,7 +363,22 @@
         /// </summary>
         private void SaveUserSettings()
         {
+            // General
             Properties.Settings.Default.MaxTrophies = MaxTrophies;
+
+            // Search Settings
+            Properties.Settings.Default.MeetGoldAndElixir = MeetGoldAndElixir;
+            Properties.Settings.Default.MeetDarkElixir = MeetDarkElixir;
+            Properties.Settings.Default.MeetTrophyCount = MeetTrophyCount;
+
+            Properties.Settings.Default.MinGold = MinimumGold;
+            Properties.Settings.Default.MinElixir = MinimumElixir;
+            Properties.Settings.Default.MinDarkElixir = MinimumDarkElixir;
+            Properties.Settings.Default.MinTrophyCount = MinimumTrophyCount;
+
+            Properties.Settings.Default.AlertWhenBaseFound = AlertWhenBaseFound;
+
+            // Save it!
             Properties.Settings.Default.Save();
         }
 

@@ -58,5 +58,101 @@ namespace CoC.Bot.Properties {
                 this["WindowTop"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("80000")]
+        public int MinGold {
+            get {
+                return ((int)(this["MinGold"]));
+            }
+            set {
+                this["MinGold"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("80000")]
+        public int MinElixir {
+            get {
+                return ((int)(this["MinElixir"]));
+            }
+            set {
+                this["MinElixir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int MinDarkElixir {
+            get {
+                return ((int)(this["MinDarkElixir"]));
+            }
+            set {
+                this["MinDarkElixir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int MinTrophyCount {
+            get {
+                return ((int)(this["MinTrophyCount"]));
+            }
+            set {
+                this["MinTrophyCount"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool MeetGoldAndElixir {
+            get {
+                return ((bool)(this["MeetGoldAndElixir"]));
+            }
+            set {
+                this["MeetGoldAndElixir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MeetDarkElixir {
+            get {
+                return ((bool)(this["MeetDarkElixir"]));
+            }
+            set {
+                this["MeetDarkElixir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MeetTrophyCount {
+            get {
+                return ((bool)(this["MeetTrophyCount"]));
+            }
+            set {
+                this["MeetTrophyCount"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AlertWhenBaseFound {
+            get {
+                return ((bool)(this["AlertWhenBaseFound"]));
+            }
+            set {
+                this["AlertWhenBaseFound"] = value;
+            }
+        }
     }
 }
