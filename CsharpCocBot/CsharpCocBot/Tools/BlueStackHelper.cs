@@ -13,9 +13,10 @@ namespace CoC.Bot.Tools
 
         public static bool IsBlueStacksFound { get { return bshandle != IntPtr.Zero; } }
 
-        public static IntPtr GetBlueStackWindowHandle()
+        public static IntPtr GetBlueStackWindowHandle(bool force = false)
         {
-            bshandle = Win32.FindWindow("WindowsForms10.Window.8.app.0.33c0d9d", "BlueStacks App Player"); // First try
+            if (bshandle == IntPtr.Zero || force)
+              bshandle = Win32.FindWindow("WindowsForms10.Window.8.app.0.33c0d9d", "BlueStacks App Player"); // First try
             if (bshandle == IntPtr.Zero)
                 bshandle = Win32.FindWindow(null, "BlueStacks App Player"); // Maybe the class name has changes
             if (bshandle == IntPtr.Zero)
@@ -39,7 +40,7 @@ namespace CoC.Bot.Tools
                 bshandle = GetBlueStackWindowHandle();
             if (bshandle == IntPtr.Zero)
                 return false;
-            ClickOnPointTool.ClickOnPoint(bshandle, point);
+            MouseHelper.ClickOnPoint(bshandle, point);
             return true;
         }
 

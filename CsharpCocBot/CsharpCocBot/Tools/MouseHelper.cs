@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CoC.Bot.Tools
 {
-    public class ClickOnPointTool
+    public class MouseHelper
     {
         [DllImport("user32.dll")]
         public static extern bool ClientToScreen(IntPtr hWnd, ref Win32.Point lpPoint);

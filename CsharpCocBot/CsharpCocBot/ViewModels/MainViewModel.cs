@@ -1,16 +1,17 @@
 ﻿namespace CoC.Bot.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Windows;
-    using System.Windows.Input;
-
-    using CoC.Bot.Data;
-    using CoC.Bot.UI.Commands;
+  using System;
+  using System.Collections.Generic;
+  using System.ComponentModel;
+  using System.Linq;
+  using System.Text;
+  using System.Threading.Tasks;
+  using System.Windows;
+  using System.Windows.Input;
+  using CoC.Bot.Data;
+  using CoC.Bot.Tools;
+  using CoC.Bot.Tools.FastFind;
+  using CoC.Bot.UI.Commands;
 
     /// <summary>
     /// Provides functionality for the MainWindow
@@ -865,7 +866,11 @@
         /// </summary>
         private void Start()
         {
-            MessageBox.Show("You clicked on the Start button!", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
+          MessageBox.Show("Trying some simple captures within FastFind, and Keyboard injection", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
+          FastFindTesting.Test();
+          KeyboardHelper.BSTest();
+          KeyboardHelper.BSTest2();
+          KeyboardHelper.NotePadTest();          
         }
 
         /// <summary>

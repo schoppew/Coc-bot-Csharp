@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using CoC.Bot.Tools;
 
 namespace CoC.Bot.Functions
 {
@@ -11,6 +12,9 @@ namespace CoC.Bot.Functions
         public static void ZoomOut()
         {
             //ADD SEND KEYBOARD KEY TO BLUESTACKS
+          KeyboardHelper.SendVirtualKeyToBS(KeyboardHelper.VirtualKeys.VK_DOWN);
+          KeyboardHelper.SendVirtualKeyToBS(KeyboardHelper.VirtualKeys.VK_DOWN);
+          KeyboardHelper.SendVirtualKeyToBS(KeyboardHelper.VirtualKeys.VK_DOWN);
         }
 
         public static void WaitForMainScreen()
@@ -58,7 +62,7 @@ namespace CoC.Bot.Functions
 
                 if(!Functions.MainScreen.CheckObstacles())
                 {
-                    Tools.ClickOnPointTool.ClickOnPoint2(GlobalVariables.HWnD, new Point(126, 700), 1);
+                    Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(126, 700), 1);
                     //RESTART APP?
                 }
 
