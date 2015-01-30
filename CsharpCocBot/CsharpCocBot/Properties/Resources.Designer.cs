@@ -88,11 +88,47 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Archers.
+        /// </summary>
+        public static string Archers {
+            get {
+                return ResourceManager.GetString("Archers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attack Mode.
+        /// </summary>
+        public static string AttackMode {
+            get {
+                return ResourceManager.GetString("AttackMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Attack Settings.
         /// </summary>
         public static string AttackSettings {
             get {
                 return ResourceManager.GetString("AttackSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barbarians.
+        /// </summary>
+        public static string Barbarians {
+            get {
+                return ResourceManager.GetString("Barbarians", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barracks.
+        /// </summary>
+        public static string Barracks {
+            get {
+                return ResourceManager.GetString("Barracks", resourceCulture);
             }
         }
         
@@ -124,11 +160,56 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deploy Settings.
+        /// </summary>
+        public static string DeploySettings {
+            get {
+                return ResourceManager.GetString("DeploySettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Donate Archers.
+        /// </summary>
+        public static string DonateArchers {
+            get {
+                return ResourceManager.GetString("DonateArchers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Donate Barbarians.
+        /// </summary>
+        public static string DonateBarbarians {
+            get {
+                return ResourceManager.GetString("DonateBarbarians", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Donate Giants.
+        /// </summary>
+        public static string DonateGiants {
+            get {
+                return ResourceManager.GetString("DonateGiants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Donate Settings.
         /// </summary>
         public static string DonateSettings {
             get {
                 return ResourceManager.GetString("DonateSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Donate to All.
+        /// </summary>
+        public static string DonateToAll {
+            get {
+                return ResourceManager.GetString("DonateToAll", resourceCulture);
             }
         }
         
@@ -142,11 +223,92 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Giants.
+        /// </summary>
+        public static string Giants {
+            get {
+                return ResourceManager.GetString("Giants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Goblins.
+        /// </summary>
+        public static string Goblins {
+            get {
+                return ResourceManager.GetString("Goblins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Resources.
         /// </summary>
         public static string GroupBoxResources {
             get {
                 return ResourceManager.GetString("GroupBoxResources", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Archers:.
+        /// </summary>
+        public static string LabelArchers {
+            get {
+                return ResourceManager.GetString("LabelArchers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barbarians:.
+        /// </summary>
+        public static string LabelBarbarians {
+            get {
+                return ResourceManager.GetString("LabelBarbarians", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barrack 1:.
+        /// </summary>
+        public static string LabelBarrack1 {
+            get {
+                return ResourceManager.GetString("LabelBarrack1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barrack 2:.
+        /// </summary>
+        public static string LabelBarrack2 {
+            get {
+                return ResourceManager.GetString("LabelBarrack2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barrack 3:.
+        /// </summary>
+        public static string LabelBarrack3 {
+            get {
+                return ResourceManager.GetString("LabelBarrack3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barrack 4:.
+        /// </summary>
+        public static string LabelBarrack4 {
+            get {
+                return ResourceManager.GetString("LabelBarrack4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Goblins:.
+        /// </summary>
+        public static string LabelGoblins {
+            get {
+                return ResourceManager.GetString("LabelGoblins", resourceCulture);
             }
         }
         
@@ -196,6 +358,60 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Num. of Giants:.
+        /// </summary>
+        public static string LabelNumberOfGiants {
+            get {
+                return ResourceManager.GetString("LabelNumberOfGiants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Num. of Wall Breakers:.
+        /// </summary>
+        public static string LabelNumberOfWallBreakers {
+            get {
+                return ResourceManager.GetString("LabelNumberOfWallBreakers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request for:.
+        /// </summary>
+        public static string LabelRequestFor {
+            get {
+                return ResourceManager.GetString("LabelRequestFor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locate Barracks Manually.
+        /// </summary>
+        public static string LocateBarracksManually {
+            get {
+                return ResourceManager.GetString("LocateBarracksManually", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locate Clan Castle Manually.
+        /// </summary>
+        public static string LocateClanCastleManually {
+            get {
+                return ResourceManager.GetString("LocateClanCastleManually", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locate Collectors Manually.
+        /// </summary>
+        public static string LocateCollectorsManually {
+            get {
+                return ResourceManager.GetString("LocateCollectorsManually", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Meet Dark Elixir.
         /// </summary>
         public static string MeetDarkElixir {
@@ -223,6 +439,33 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Bases - Attack all that meets search.
+        /// </summary>
+        public static string OptionAllBases {
+            get {
+                return ResourceManager.GetString("OptionAllBases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dead Bases - Meets condition, full collectors.
+        /// </summary>
+        public static string OptionDeadBases {
+            get {
+                return ResourceManager.GetString("OptionDeadBases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weak Bases - Meets condition and able 50%.
+        /// </summary>
+        public static string OptionWeakBases {
+            get {
+                return ResourceManager.GetString("OptionWeakBases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Other Search Settings.
         /// </summary>
         public static string OtherSearchSettings {
@@ -237,6 +480,33 @@ namespace CoC.Bot.Properties {
         public static string OtherSettings {
             get {
                 return ResourceManager.GetString("OtherSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other Troops.
+        /// </summary>
+        public static string OtherTroops {
+            get {
+                return ResourceManager.GetString("OtherTroops", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other Troops Settings.
+        /// </summary>
+        public static string OtherTroopsSettings {
+            get {
+                return ResourceManager.GetString("OtherTroopsSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to %.
+        /// </summary>
+        public static string Percent {
+            get {
+                return ResourceManager.GetString("Percent", resourceCulture);
             }
         }
         
@@ -268,6 +538,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Troops.
+        /// </summary>
+        public static string Troops {
+            get {
+                return ResourceManager.GetString("Troops", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Troop Settings.
         /// </summary>
         public static string TroopSettings {
@@ -277,11 +556,47 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Must equal 100% to fully distribute the troops with maximum amount efficiency. Bot will use this if custom troops is selected..
+        /// </summary>
+        public static string TroopsMessage {
+            get {
+                return ResourceManager.GetString("TroopsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trophy Settings.
         /// </summary>
         public static string TrophySettings {
             get {
                 return ResourceManager.GetString("TrophySettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wall Breakers.
+        /// </summary>
+        public static string WallBreakers {
+            get {
+                return ResourceManager.GetString("WallBreakers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weak Base Settings.
+        /// </summary>
+        public static string WeakBaseSettings {
+            get {
+                return ResourceManager.GetString("WeakBaseSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wizards.
+        /// </summary>
+        public static string Wizards {
+            get {
+                return ResourceManager.GetString("Wizards", resourceCulture);
             }
         }
     }

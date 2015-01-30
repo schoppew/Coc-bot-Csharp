@@ -126,8 +126,20 @@
   <data name="AppName" xml:space="preserve">
     <value>Clash of Clans Bot</value>
   </data>
+  <data name="Archers" xml:space="preserve">
+    <value>Archers</value>
+  </data>
+  <data name="AttackMode" xml:space="preserve">
+    <value>Attack Mode</value>
+  </data>
   <data name="AttackSettings" xml:space="preserve">
     <value>Attack Settings</value>
+  </data>
+  <data name="Barbarians" xml:space="preserve">
+    <value>Barbarians</value>
+  </data>
+  <data name="Barracks" xml:space="preserve">
+    <value>Barracks</value>
   </data>
   <data name="Conditions" xml:space="preserve">
     <value>Conditions</value>
@@ -138,14 +150,56 @@
   <data name="Controls" xml:space="preserve">
     <value>Controls</value>
   </data>
+  <data name="DeploySettings" xml:space="preserve">
+    <value>Deploy Settings</value>
+  </data>
+  <data name="DonateArchers" xml:space="preserve">
+    <value>Donate Archers</value>
+  </data>
+  <data name="DonateBarbarians" xml:space="preserve">
+    <value>Donate Barbarians</value>
+  </data>
+  <data name="DonateGiants" xml:space="preserve">
+    <value>Donate Giants</value>
+  </data>
   <data name="DonateSettings" xml:space="preserve">
     <value>Donate Settings</value>
+  </data>
+  <data name="DonateToAll" xml:space="preserve">
+    <value>Donate to All</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>General</value>
   </data>
+  <data name="Giants" xml:space="preserve">
+    <value>Giants</value>
+  </data>
+  <data name="Goblins" xml:space="preserve">
+    <value>Goblins</value>
+  </data>
   <data name="GroupBoxResources" xml:space="preserve">
     <value>Resources</value>
+  </data>
+  <data name="LabelArchers" xml:space="preserve">
+    <value>Archers:</value>
+  </data>
+  <data name="LabelBarbarians" xml:space="preserve">
+    <value>Barbarians:</value>
+  </data>
+  <data name="LabelBarrack1" xml:space="preserve">
+    <value>Barrack 1:</value>
+  </data>
+  <data name="LabelBarrack2" xml:space="preserve">
+    <value>Barrack 2:</value>
+  </data>
+  <data name="LabelBarrack3" xml:space="preserve">
+    <value>Barrack 3:</value>
+  </data>
+  <data name="LabelBarrack4" xml:space="preserve">
+    <value>Barrack 4:</value>
+  </data>
+  <data name="LabelGoblins" xml:space="preserve">
+    <value>Goblins:</value>
   </data>
   <data name="LabelMaxTrophies" xml:space="preserve">
     <value>Max Trophies:</value>
@@ -162,6 +216,24 @@
   <data name="LabelMinimumTrophyCount" xml:space="preserve">
     <value>Min. Trophy Count:</value>
   </data>
+  <data name="LabelNumberOfGiants" xml:space="preserve">
+    <value>Num. of Giants:</value>
+  </data>
+  <data name="LabelNumberOfWallBreakers" xml:space="preserve">
+    <value>Num. of Wall Breakers:</value>
+  </data>
+  <data name="LabelRequestFor" xml:space="preserve">
+    <value>Request for:</value>
+  </data>
+  <data name="LocateBarracksManually" xml:space="preserve">
+    <value>Locate Barracks Manually</value>
+  </data>
+  <data name="LocateClanCastleManually" xml:space="preserve">
+    <value>Locate Clan Castle Manually</value>
+  </data>
+  <data name="LocateCollectorsManually" xml:space="preserve">
+    <value>Locate Collectors Manually</value>
+  </data>
   <data name="MeetDarkElixir" xml:space="preserve">
     <value>Meet Dark Elixir</value>
   </data>
@@ -171,11 +243,29 @@
   <data name="MeetTrophyCount" xml:space="preserve">
     <value>Meet Trophy Count</value>
   </data>
+  <data name="OptionAllBases" xml:space="preserve">
+    <value>All Bases - Attack all that meets search</value>
+  </data>
+  <data name="OptionDeadBases" xml:space="preserve">
+    <value>Dead Bases - Meets condition, full collectors</value>
+  </data>
+  <data name="OptionWeakBases" xml:space="preserve">
+    <value>Weak Bases - Meets condition and able 50%</value>
+  </data>
   <data name="OtherSearchSettings" xml:space="preserve">
     <value>Other Search Settings</value>
   </data>
   <data name="OtherSettings" xml:space="preserve">
     <value>Other Settings</value>
+  </data>
+  <data name="OtherTroops" xml:space="preserve">
+    <value>Other Troops</value>
+  </data>
+  <data name="OtherTroopsSettings" xml:space="preserve">
+    <value>Other Troops Settings</value>
+  </data>
+  <data name="Percent" xml:space="preserve">
+    <value>%</value>
   </data>
   <data name="ResourcesMessage" xml:space="preserve">
     <value>Bot will stop when a base is found with resources higher or equal to the minimum resources.</value>
@@ -186,10 +276,25 @@
   <data name="SearchSettings" xml:space="preserve">
     <value>Search Settings</value>
   </data>
+  <data name="Troops" xml:space="preserve">
+    <value>Troops</value>
+  </data>
   <data name="TroopSettings" xml:space="preserve">
     <value>Troop Settings</value>
   </data>
+  <data name="TroopsMessage" xml:space="preserve">
+    <value>Must equal 100% to fully distribute the troops with maximum amount efficiency. Bot will use this if custom troops is selected.</value>
+  </data>
   <data name="TrophySettings" xml:space="preserve">
     <value>Trophy Settings</value>
+  </data>
+  <data name="WallBreakers" xml:space="preserve">
+    <value>Wall Breakers</value>
+  </data>
+  <data name="WeakBaseSettings" xml:space="preserve">
+    <value>Weak Base Settings</value>
+  </data>
+  <data name="Wizards" xml:space="preserve">
+    <value>Wizards</value>
   </data>
 </root>

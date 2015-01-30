@@ -348,6 +348,9 @@
                         <Trigger Property="IsFocused" Value="True">
                             <Setter Property="Opacity" Value="0.1" TargetName="HoverBorder"/>
                         </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.05" TargetName="HoverBorder"/>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

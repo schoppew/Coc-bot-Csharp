@@ -154,5 +154,125 @@ namespace CoC.Bot.Properties {
                 this["AlertWhenBaseFound"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        public int BarbariansPercent {
+            get {
+                return ((int)(this["BarbariansPercent"]));
+            }
+            set {
+                this["BarbariansPercent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public int ArchersPercent {
+            get {
+                return ((int)(this["ArchersPercent"]));
+            }
+            set {
+                this["ArchersPercent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int GoblinsPercent {
+            get {
+                return ((int)(this["GoblinsPercent"]));
+            }
+            set {
+                this["GoblinsPercent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("6")]
+        public int NumberOfGiants {
+            get {
+                return ((int)(this["NumberOfGiants"]));
+            }
+            set {
+                this["NumberOfGiants"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public int NumberOfWallBreakers {
+            get {
+                return ((int)(this["NumberOfWallBreakers"]));
+            }
+            set {
+                this["NumberOfWallBreakers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int SelectedTroopComposition {
+            get {
+                return ((int)(this["SelectedTroopComposition"]));
+            }
+            set {
+                this["SelectedTroopComposition"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int SelectedBarrack1 {
+            get {
+                return ((int)(this["SelectedBarrack1"]));
+            }
+            set {
+                this["SelectedBarrack1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int SelectedBarrack2 {
+            get {
+                return ((int)(this["SelectedBarrack2"]));
+            }
+            set {
+                this["SelectedBarrack2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int SelectedBarrack3 {
+            get {
+                return ((int)(this["SelectedBarrack3"]));
+            }
+            set {
+                this["SelectedBarrack3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int SelectedBarrack4 {
+            get {
+                return ((int)(this["SelectedBarrack4"]));
+            }
+            set {
+                this["SelectedBarrack4"] = value;
+            }
+        }
     }
 }

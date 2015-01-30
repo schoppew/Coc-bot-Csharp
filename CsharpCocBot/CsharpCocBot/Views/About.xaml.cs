@@ -33,7 +33,7 @@
 
         void About_Loaded(object sender, EventArgs e)
         {
-            tbDisclaimer.Text = "DISCLAIMER:" + "\r\n\r\nThis software is provided strictly for educational purposes only." + "\r\nYou're responsible for the use of the software." + "\r\nThe 'coder' is not responsible for any misuse of the generated information.";
+            tbDisclaimer.Text = "DISCLAIMER:" + "\r\n\r\nThis software is provided strictly for educational purposes only." + "\r\nYou're responsible for the use of the software." + "\r\nThe 'coders' are not responsible for any misuse of the application.";
         }
 
         private void btnAccept_Click(object sender, RoutedEventArgs e)

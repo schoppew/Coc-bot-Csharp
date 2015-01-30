@@ -2,13 +2,15 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Windows;
     using System.Windows.Input;
 
+    using CoC.Bot.Data;
     using CoC.Bot.UI.Commands;
-    using System.Windows;
 
     /// <summary>
     /// Provides functionality for the MainWindow
@@ -22,6 +24,23 @@
         /// </summary>
         public MainViewModel()
         {
+            // Fill the Troop Compositions
+            if (DataCollection.TroopCompositions.Count == 0)
+            {
+                DataCollection.TroopCompositions.Add(Model.CreateNew(1, "Use Barracks"));
+                DataCollection.TroopCompositions.Add(Model.CreateNew(2, "Barching"));
+                DataCollection.TroopCompositions.Add(Model.CreateNew(2, "Custom Troops"));
+            }
+
+            // Fill the Troops
+            if (DataCollection.Troops.Count == 0)
+            {
+                DataCollection.Troops.Add(Model.CreateNew(1, Properties.Resources.Barbarians));
+                DataCollection.Troops.Add(Model.CreateNew(2, Properties.Resources.Archers));
+                //DataCollection.Troops.Add(Troop.CreateNew(3, Properties.Resources.Goblins));
+                //DataCollection.Troops.Add(Troop.CreateNew(4, Properties.Resources.Giants));
+            }
+
             GetUserSettings();
 
             Message = "Click on Start to initialize the bot";
@@ -197,6 +216,174 @@
 
         #endregion
 
+        #region Attack Settings Properties
+
+
+
+        #endregion
+
+        #region Donate Settings Properties
+
+
+
+        #endregion
+
+        #region Troop Settings Properties
+
+        private int _barbariansPercent;
+        public int BarbariansPercent
+        {
+            get { return _barbariansPercent; }
+            set
+            {
+                if (_barbariansPercent != value)
+                {
+                    _barbariansPercent = value;
+                    OnPropertyChanged("BarbariansPercent");
+                }
+            }
+        }
+
+        private int _archersPercent;
+        public int ArchersPercent
+        {
+            get { return _archersPercent; }
+            set
+            {
+                if (_archersPercent != value)
+                {
+                    _archersPercent = value;
+                    OnPropertyChanged("ArchersPercent");
+                }
+            }
+        }
+
+        private int _goblinsPercent;
+        public int GoblinsPercent
+        {
+            get { return _goblinsPercent; }
+            set
+            {
+                if (_goblinsPercent != value)
+                {
+                    _goblinsPercent = value;
+                    OnPropertyChanged("GoblinsPercent");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets the Troop Compositions.
+        /// </summary>
+        /// <value>The Troop Compositions.</value>
+        public static BindingList<Model> TroopCompositions { get { return DataCollection.TroopCompositions; } }
+
+        private Model _selectedTroopComposition;
+        public Model SelectedTroopComposition
+        {
+            get { return _selectedTroopComposition; }
+            set
+            {
+                if (_selectedTroopComposition != value)
+                {
+                    _selectedTroopComposition = value;
+                    OnPropertyChanged("SelectedTroopComposition");
+                }
+            }
+        }
+
+        private int _numberOfGiants;
+        public int NumberOfGiants
+        {
+            get { return _numberOfGiants; }
+            set
+            {
+                if (_numberOfGiants != value)
+                {
+                    _numberOfGiants = value;
+                    OnPropertyChanged("NumberOfGiants");
+                }
+            }
+        }
+
+        private int _numberOfWallBreakers;
+        public int NumberOfWallBreakers
+        {
+            get { return _numberOfWallBreakers; }
+            set
+            {
+                if (_numberOfWallBreakers != value)
+                {
+                    _numberOfWallBreakers = value;
+                    OnPropertyChanged("NumberOfWallBreakers");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets the Troops.
+        /// </summary>
+        /// <value>The Troops.</value>
+        public static BindingList<Model> Troops { get { return DataCollection.Troops; } }
+
+        private Model _selectedBarrack1;
+        public Model SelectedBarrack1
+        {
+            get { return _selectedBarrack1; }
+            set
+            {
+                if (_selectedBarrack1 != value)
+                {
+                    _selectedBarrack1 = value;
+                    OnPropertyChanged("SelectedBarrack1");
+                }
+            }
+        }
+
+        private Model _selectedBarrack2;
+        public Model SelectedBarrack2
+        {
+            get { return _selectedBarrack2; }
+            set
+            {
+                if (_selectedBarrack2 != value)
+                {
+                    _selectedBarrack2 = value;
+                    OnPropertyChanged("SelectedBarrack2");
+                }
+            }
+        }
+
+        private Model _selectedBarrack3;
+        public Model SelectedBarrack3
+        {
+            get { return _selectedBarrack3; }
+            set
+            {
+                if (_selectedBarrack3 != value)
+                {
+                    _selectedBarrack3 = value;
+                    OnPropertyChanged("SelectedBarrack3");
+                }
+            }
+        }
+
+        private Model _selectedBarrack4;
+        public Model SelectedBarrack4
+        {
+            get { return _selectedBarrack4; }
+            set
+            {
+                if (_selectedBarrack4 != value)
+                {
+                    _selectedBarrack4 = value;
+                    OnPropertyChanged("SelectedBarrack4");
+                }
+            }
+        }
+
+        #endregion
+
         #endregion
 
         #region Commands
@@ -206,6 +393,19 @@
         {
             get { return _aboutCommand; }
         }
+
+        private DelegateCommand _exitCommand;
+        public ICommand ExitCommand
+        {
+            get
+            {
+                if (_exitCommand == null)
+                    _exitCommand = new DelegateCommand(() => Exit());
+                return _exitCommand;
+            }
+        }
+
+        #region General Settings Commands
 
         private DelegateCommand _startCommand;
         public ICommand StartCommand
@@ -240,16 +440,63 @@
             }
         }
 
-        private DelegateCommand _exitCommand;
-        public ICommand ExitCommand
+        #endregion
+
+        #region Search Settings Commands
+
+        private DelegateCommand _searchModeCommand;
+        public ICommand SearchModeCommand
         {
             get
             {
-                if (_exitCommand == null)
-                    _exitCommand = new DelegateCommand(() => Exit());
-                return _exitCommand;
+                if (_searchModeCommand == null)
+                    _searchModeCommand = new DelegateCommand(() => SearchMode(), SearchModeCanExecute);
+                return _searchModeCommand;
             }
         }
+
+        #endregion
+
+        #region Donate Settings Commands
+
+        private DelegateCommand _locateClanCastleCommand;
+        public ICommand LocateClanCastleCommand
+        {
+            get
+            {
+                if (_locateClanCastleCommand == null)
+                    _locateClanCastleCommand = new DelegateCommand(() => LocateClanCastle(), LocateClanCastleCanExecute);
+                return _locateClanCastleCommand;
+            }
+        }
+
+        #endregion
+
+        #region Troop Settings Commands
+
+        private DelegateCommand _locateCollectorsCommand;
+        public ICommand LocateCollectorsCommand
+        {
+            get
+            {
+                if (_locateCollectorsCommand == null)
+                    _locateCollectorsCommand = new DelegateCommand(() => LocateCollectors(), LocateCollectorsCanExecute);
+                return _locateCollectorsCommand;
+            }
+        }
+
+        private DelegateCommand _locateBarracksCommand;
+        public ICommand LocateBarracksCommand
+        {
+            get
+            {
+                if (_locateBarracksCommand == null)
+                    _locateBarracksCommand = new DelegateCommand(() => LocateBarracks(), LocateBarracksCanExecute);
+                return _locateBarracksCommand;
+            }
+        }
+
+        #endregion
 
         #endregion
 
@@ -282,6 +529,42 @@
             return IsHidden;
         }
 
+        /// <summary>
+        /// Determines whether the SearchModeCommand command can be executed.
+        /// </summary>
+        /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
+        private bool SearchModeCanExecute()
+        {
+            return true; // TODO: We need to define this
+        }
+
+        /// <summary>
+        /// Determines whether the LocateClanCastleCommand command can be executed.
+        /// </summary>
+        /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
+        private bool LocateClanCastleCanExecute()
+        {
+            return true; // TODO: We need to define this
+        }
+
+        /// <summary>
+        /// Determines whether the LocateCollectorsCommand command can be executed.
+        /// </summary>
+        /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
+        private bool LocateCollectorsCanExecute()
+        {
+            return true; // TODO: We need to define this
+        }
+
+        /// <summary>
+        /// Determines whether the LocateBarracksCommand command can be executed.
+        /// </summary>
+        /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
+        private bool LocateBarracksCanExecute()
+        {
+            return true; // TODO: We need to define this
+        }
+
         #endregion
 
         #region Main Methods
@@ -291,7 +574,7 @@
         /// </summary>
         private void Start()
         {
-            
+            MessageBox.Show("You clicked on the Start button!", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         /// <summary>
@@ -299,7 +582,7 @@
         /// </summary>
         private void Stop()
         {
-
+            MessageBox.Show("You clicked on the Stop button!", "Stop", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         /// <summary>
@@ -307,7 +590,39 @@
         /// </summary>
         private void Hide()
         {
+            MessageBox.Show("You clicked on the Hide button!", "Hide", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
 
+        /// <summary>
+        /// Starts the Search Mode.
+        /// </summary>
+        private void SearchMode()
+        {
+            MessageBox.Show("You clicked on the Search Mode button!", "Search Mode", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        /// <summary>
+        /// Manually locates the Clan Castle.
+        /// </summary>
+        private void LocateClanCastle()
+        {
+            MessageBox.Show("You clicked on the Locate Clan Castle Manually button!", "Locate Clan Castle Manually", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        /// <summary>
+        /// Manually locates the Collectors and Mines.
+        /// </summary>
+        private void LocateCollectors()
+        {
+            MessageBox.Show("You clicked on the Locate Collectors Manually button!", "Locate Collectors Manually", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        /// <summary>
+        /// Manually locates the Barracks.
+        /// </summary>
+        private void LocateBarracks()
+        {
+            MessageBox.Show("You clicked on the Locate Barracks Manually button!", "Locate Barracks Manually", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         /// <summary>
@@ -330,6 +645,7 @@
         /// <param name="args">The arguments.</param>
         private static void WriteLine(string text, params object[] args)
         {
+            // TODO: Need to work on this
             _output.AppendFormat(text + Environment.NewLine, args);
         }
 
@@ -356,6 +672,25 @@
             MinimumTrophyCount = Properties.Settings.Default.MinTrophyCount;
 
             AlertWhenBaseFound = Properties.Settings.Default.AlertWhenBaseFound;
+
+            // Attack Settings
+
+            // Donate Settings
+
+            // Troop Settings
+            BarbariansPercent = Properties.Settings.Default.BarbariansPercent;
+            ArchersPercent = Properties.Settings.Default.ArchersPercent;
+            GoblinsPercent = Properties.Settings.Default.GoblinsPercent;
+
+            SelectedTroopComposition = DataCollection.TroopCompositions.Where(tc => tc.Id == Properties.Settings.Default.SelectedTroopComposition).DefaultIfEmpty(DataCollection.TroopCompositions.First()).First();
+
+            NumberOfGiants = Properties.Settings.Default.NumberOfGiants;
+            NumberOfWallBreakers = Properties.Settings.Default.NumberOfWallBreakers;
+
+            SelectedBarrack1 = DataCollection.Troops.Where(b1 => b1.Id == Properties.Settings.Default.SelectedBarrack1).DefaultIfEmpty(DataCollection.Troops.First()).First();
+            SelectedBarrack2 = DataCollection.Troops.Where(b2 => b2.Id == Properties.Settings.Default.SelectedBarrack2).DefaultIfEmpty(DataCollection.Troops.First()).First();
+            SelectedBarrack3 = DataCollection.Troops.Where(b3 => b3.Id == Properties.Settings.Default.SelectedBarrack3).DefaultIfEmpty(DataCollection.Troops.First()).First();
+            SelectedBarrack4 = DataCollection.Troops.Where(b4 => b4.Id == Properties.Settings.Default.SelectedBarrack4).DefaultIfEmpty(DataCollection.Troops.First()).First();
         }
 
         /// <summary>
@@ -377,6 +712,25 @@
             Properties.Settings.Default.MinTrophyCount = MinimumTrophyCount;
 
             Properties.Settings.Default.AlertWhenBaseFound = AlertWhenBaseFound;
+
+            // Attack Settings
+
+            // Donate Settings
+
+            // Troop Settings
+            Properties.Settings.Default.BarbariansPercent = BarbariansPercent;
+            Properties.Settings.Default.ArchersPercent = ArchersPercent;
+            Properties.Settings.Default.GoblinsPercent = GoblinsPercent;
+
+            Properties.Settings.Default.SelectedTroopComposition = SelectedTroopComposition.Id;
+
+            Properties.Settings.Default.NumberOfGiants = NumberOfGiants;
+            Properties.Settings.Default.NumberOfWallBreakers = NumberOfWallBreakers;
+
+            Properties.Settings.Default.SelectedBarrack1 = SelectedBarrack1.Id;
+            Properties.Settings.Default.SelectedBarrack2 = SelectedBarrack2.Id;
+            Properties.Settings.Default.SelectedBarrack3 = SelectedBarrack3.Id;
+            Properties.Settings.Default.SelectedBarrack4 = SelectedBarrack4.Id;
 
             // Save it!
             Properties.Settings.Default.Save();
