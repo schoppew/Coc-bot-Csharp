@@ -97,6 +97,24 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Attack All Bases.
+        /// </summary>
+        public static string AttackAllBases {
+            get {
+                return ResourceManager.GetString("AttackAllBases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attack Dead Bases.
+        /// </summary>
+        public static string AttackDeadBases {
+            get {
+                return ResourceManager.GetString("AttackDeadBases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Attack Mode.
         /// </summary>
         public static string AttackMode {
@@ -111,6 +129,51 @@ namespace CoC.Bot.Properties {
         public static string AttackSettings {
             get {
                 return ResourceManager.GetString("AttackSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attack King.
+        /// </summary>
+        public static string AttackTheirKing {
+            get {
+                return ResourceManager.GetString("AttackTheirKing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attack Queen.
+        /// </summary>
+        public static string AttackTheirQueen {
+            get {
+                return ResourceManager.GetString("AttackTheirQueen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attack Townhall (outside).
+        /// </summary>
+        public static string AttackTownhall {
+            get {
+                return ResourceManager.GetString("AttackTownhall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attack using Clan Castle troops if available.
+        /// </summary>
+        public static string AttackUsingClanCastle {
+            get {
+                return ResourceManager.GetString("AttackUsingClanCastle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attack Weak Bases.
+        /// </summary>
+        public static string AttackWeakBases {
+            get {
+                return ResourceManager.GetString("AttackWeakBases", resourceCulture);
             }
         }
         
@@ -165,6 +228,51 @@ namespace CoC.Bot.Properties {
         public static string DeploySettings {
             get {
                 return ResourceManager.GetString("DeploySettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attack on all sides equally, gets most of outer base.
+        /// </summary>
+        public static string DeployStrategyFourSides {
+            get {
+                return ResourceManager.GetString("DeployStrategyFourSides", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attack on all sides equally, gets most of outer base.
+        /// </summary>
+        public static string DeployStrategyThreeSides {
+            get {
+                return ResourceManager.GetString("DeployStrategyThreeSides", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attack on two sides, penetrates through base.
+        /// </summary>
+        public static string DeployStrategyTwoSides {
+            get {
+                return ResourceManager.GetString("DeployStrategyTwoSides", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barbarians + Archers.
+        /// </summary>
+        public static string DeployTroopsBarbariansAndArchers {
+            get {
+                return ResourceManager.GetString("DeployTroopsBarbariansAndArchers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use all troops.
+        /// </summary>
+        public static string DeployTroopsUseAllTroops {
+            get {
+                return ResourceManager.GetString("DeployTroopsUseAllTroops", resourceCulture);
             }
         }
         
@@ -313,11 +421,65 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to King Settings:.
+        /// </summary>
+        public static string LabelKingSettings {
+            get {
+                return ResourceManager.GetString("LabelKingSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Archer:.
+        /// </summary>
+        public static string LabelMaxArcherTowerLevel {
+            get {
+                return ResourceManager.GetString("LabelMaxArcherTowerLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannon:.
+        /// </summary>
+        public static string LabelMaxCannonLevel {
+            get {
+                return ResourceManager.GetString("LabelMaxCannonLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mortar:.
+        /// </summary>
+        public static string LabelMaxMortarLevel {
+            get {
+                return ResourceManager.GetString("LabelMaxMortarLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Max Trophies:.
         /// </summary>
         public static string LabelMaxTrophies {
             get {
                 return ResourceManager.GetString("LabelMaxTrophies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wizard:.
+        /// </summary>
+        public static string LabelMaxWizardTowerLevel {
+            get {
+                return ResourceManager.GetString("LabelMaxWizardTowerLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xbow:.
+        /// </summary>
+        public static string LabelMaxXbowLevel {
+            get {
+                return ResourceManager.GetString("LabelMaxXbowLevel", resourceCulture);
             }
         }
         
@@ -372,6 +534,15 @@ namespace CoC.Bot.Properties {
         public static string LabelNumberOfWallBreakers {
             get {
                 return ResourceManager.GetString("LabelNumberOfWallBreakers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Queen Settings:.
+        /// </summary>
+        public static string LabelQueenSettings {
+            get {
+                return ResourceManager.GetString("LabelQueenSettings", resourceCulture);
             }
         }
         
@@ -435,6 +606,15 @@ namespace CoC.Bot.Properties {
         public static string MeetTrophyCount {
             get {
                 return ResourceManager.GetString("MeetTrophyCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        public static string None {
+            get {
+                return ResourceManager.GetString("None", resourceCulture);
             }
         }
         
@@ -520,6 +700,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Royals and Clan Castle Settings.
+        /// </summary>
+        public static string RoyalsAndClanCastleSettings {
+            get {
+                return ResourceManager.GetString("RoyalsAndClanCastleSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search Mode.
         /// </summary>
         public static string SearchMode {
@@ -588,6 +777,15 @@ namespace CoC.Bot.Properties {
         public static string WeakBaseSettings {
             get {
                 return ResourceManager.GetString("WeakBaseSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bot will attack bases that meet requirement..
+        /// </summary>
+        public static string WeakBaseSettingsMessage {
+            get {
+                return ResourceManager.GetString("WeakBaseSettingsMessage", resourceCulture);
             }
         }
         

@@ -129,11 +129,32 @@
   <data name="Archers" xml:space="preserve">
     <value>Archers</value>
   </data>
+  <data name="AttackAllBases" xml:space="preserve">
+    <value>Attack All Bases</value>
+  </data>
+  <data name="AttackDeadBases" xml:space="preserve">
+    <value>Attack Dead Bases</value>
+  </data>
   <data name="AttackMode" xml:space="preserve">
     <value>Attack Mode</value>
   </data>
   <data name="AttackSettings" xml:space="preserve">
     <value>Attack Settings</value>
+  </data>
+  <data name="AttackTheirKing" xml:space="preserve">
+    <value>Attack King</value>
+  </data>
+  <data name="AttackTheirQueen" xml:space="preserve">
+    <value>Attack Queen</value>
+  </data>
+  <data name="AttackTownhall" xml:space="preserve">
+    <value>Attack Townhall (outside)</value>
+  </data>
+  <data name="AttackUsingClanCastle" xml:space="preserve">
+    <value>Attack using Clan Castle troops if available</value>
+  </data>
+  <data name="AttackWeakBases" xml:space="preserve">
+    <value>Attack Weak Bases</value>
   </data>
   <data name="Barbarians" xml:space="preserve">
     <value>Barbarians</value>
@@ -152,6 +173,21 @@
   </data>
   <data name="DeploySettings" xml:space="preserve">
     <value>Deploy Settings</value>
+  </data>
+  <data name="DeployStrategyFourSides" xml:space="preserve">
+    <value>Attack on all sides equally, gets most of outer base</value>
+  </data>
+  <data name="DeployStrategyThreeSides" xml:space="preserve">
+    <value>Attack on all sides equally, gets most of outer base</value>
+  </data>
+  <data name="DeployStrategyTwoSides" xml:space="preserve">
+    <value>Attack on two sides, penetrates through base</value>
+  </data>
+  <data name="DeployTroopsBarbariansAndArchers" xml:space="preserve">
+    <value>Barbarians + Archers</value>
+  </data>
+  <data name="DeployTroopsUseAllTroops" xml:space="preserve">
+    <value>Use all troops</value>
   </data>
   <data name="DonateArchers" xml:space="preserve">
     <value>Donate Archers</value>
@@ -201,8 +237,26 @@
   <data name="LabelGoblins" xml:space="preserve">
     <value>Goblins:</value>
   </data>
+  <data name="LabelKingSettings" xml:space="preserve">
+    <value>King Settings:</value>
+  </data>
+  <data name="LabelMaxArcherTowerLevel" xml:space="preserve">
+    <value>Archer:</value>
+  </data>
+  <data name="LabelMaxCannonLevel" xml:space="preserve">
+    <value>Cannon:</value>
+  </data>
+  <data name="LabelMaxMortarLevel" xml:space="preserve">
+    <value>Mortar:</value>
+  </data>
   <data name="LabelMaxTrophies" xml:space="preserve">
     <value>Max Trophies:</value>
+  </data>
+  <data name="LabelMaxWizardTowerLevel" xml:space="preserve">
+    <value>Wizard:</value>
+  </data>
+  <data name="LabelMaxXbowLevel" xml:space="preserve">
+    <value>Xbow:</value>
   </data>
   <data name="LabelMinimumDarkElixir" xml:space="preserve">
     <value>Min. Dark Elixir:</value>
@@ -221,6 +275,9 @@
   </data>
   <data name="LabelNumberOfWallBreakers" xml:space="preserve">
     <value>Num. of Wall Breakers:</value>
+  </data>
+  <data name="LabelQueenSettings" xml:space="preserve">
+    <value>Queen Settings:</value>
   </data>
   <data name="LabelRequestFor" xml:space="preserve">
     <value>Request for:</value>
@@ -242,6 +299,9 @@
   </data>
   <data name="MeetTrophyCount" xml:space="preserve">
     <value>Meet Trophy Count</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
   </data>
   <data name="OptionAllBases" xml:space="preserve">
     <value>All Bases - Attack all that meets search</value>
@@ -270,6 +330,9 @@
   <data name="ResourcesMessage" xml:space="preserve">
     <value>Bot will stop when a base is found with resources higher or equal to the minimum resources.</value>
   </data>
+  <data name="RoyalsAndClanCastleSettings" xml:space="preserve">
+    <value>Royals and Clan Castle Settings</value>
+  </data>
   <data name="SearchMode" xml:space="preserve">
     <value>Search Mode</value>
   </data>
@@ -293,6 +356,9 @@
   </data>
   <data name="WeakBaseSettings" xml:space="preserve">
     <value>Weak Base Settings</value>
+  </data>
+  <data name="WeakBaseSettingsMessage" xml:space="preserve">
+    <value>Bot will attack bases that meet requirement.</value>
   </data>
   <data name="Wizards" xml:space="preserve">
     <value>Wizards</value>

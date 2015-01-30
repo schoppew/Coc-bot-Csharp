@@ -62,13 +62,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CocBot.cs" />
+    <Compile Include="Data\AttackMode.cs" />
+    <Compile Include="Data\BuildingLevels.cs" />
     <Compile Include="Data\DataCollection.cs" />
     <Compile Include="Data\Model.cs" />
     <Compile Include="UI\Behaviours\TextBoxBehaviour.cs" />
     <Compile Include="UI\Commands\AboutCommand.cs" />
     <Compile Include="UI\Commands\DelegateCommand.cs" />
+    <Compile Include="UI\Converters\EnumToBooleanConverter.cs" />
     <Compile Include="UI\Converters\LeftMarginMultiplierConverter.cs" />
-    <Compile Include="UI\Converters\ScrollbarOnFarLeftConverter.cs" />
+    <Compile Include="UI\Converters\ScrollbarOnFarConverter.cs" />
     <Compile Include="Functions\Attack Algorithms\BarchAlgorithm.cs" />
     <Compile Include="Functions\Attack.cs" />
     <Compile Include="Functions\Config.cs" />

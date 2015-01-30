@@ -7,6 +7,9 @@
     using System.Windows.Media;
     using System.Windows.Controls;
 
+    /// <summary>
+    /// A Left Margin Multiplier Converter.
+    /// </summary>
     public class LeftMarginMultiplierConverter : IValueConverter
     {
         public double Length { get; set; }

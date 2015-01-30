@@ -274,5 +274,173 @@ namespace CoC.Bot.Properties {
                 this["SelectedBarrack4"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int SelectedAttackMode {
+            get {
+                return ((int)(this["SelectedAttackMode"]));
+            }
+            set {
+                this["SelectedAttackMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public int MaxCannonLevel {
+            get {
+                return ((int)(this["MaxCannonLevel"]));
+            }
+            set {
+                this["MaxCannonLevel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public int MaxArcherTowerLevel {
+            get {
+                return ((int)(this["MaxArcherTowerLevel"]));
+            }
+            set {
+                this["MaxArcherTowerLevel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int MaxMortarLevel {
+            get {
+                return ((int)(this["MaxMortarLevel"]));
+            }
+            set {
+                this["MaxMortarLevel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public int MaxWizardTowerLevel {
+            get {
+                return ((int)(this["MaxWizardTowerLevel"]));
+            }
+            set {
+                this["MaxWizardTowerLevel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int MaxXbowLevel {
+            get {
+                return ((int)(this["MaxXbowLevel"]));
+            }
+            set {
+                this["MaxXbowLevel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AttackTheirKing {
+            get {
+                return ((bool)(this["AttackTheirKing"]));
+            }
+            set {
+                this["AttackTheirKing"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AttackTheirQueen {
+            get {
+                return ((bool)(this["AttackTheirQueen"]));
+            }
+            set {
+                this["AttackTheirQueen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int SelectedDeployStrategy {
+            get {
+                return ((int)(this["SelectedDeployStrategy"]));
+            }
+            set {
+                this["SelectedDeployStrategy"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int SelectedDeployTroop {
+            get {
+                return ((int)(this["SelectedDeployTroop"]));
+            }
+            set {
+                this["SelectedDeployTroop"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AttackTownhall {
+            get {
+                return ((bool)(this["AttackTownhall"]));
+            }
+            set {
+                this["AttackTownhall"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int SelectedKingAttackMode {
+            get {
+                return ((int)(this["SelectedKingAttackMode"]));
+            }
+            set {
+                this["SelectedKingAttackMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int SelectedQueenAttackMode {
+            get {
+                return ((int)(this["SelectedQueenAttackMode"]));
+            }
+            set {
+                this["SelectedQueenAttackMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AttackUsingClanCastle {
+            get {
+                return ((bool)(this["AttackUsingClanCastle"]));
+            }
+            set {
+                this["AttackUsingClanCastle"] = value;
+            }
+        }
     }
 }

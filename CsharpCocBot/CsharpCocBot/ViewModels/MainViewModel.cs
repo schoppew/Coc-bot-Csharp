@@ -24,6 +24,15 @@
         /// </summary>
         public MainViewModel()
         {
+            // Important Notes for non WPF devs:
+            //
+            // You access and manipulate the values on the Window/Tabs by accessing their Properties (below). You don't access the controls (-;
+            // Ex. MinimumGold, MinimumElixir, etc.
+            //
+            // Under Main Methods you will find the Start(), Stop(), Hide(), etc methods
+            // You can make the async if you wish
+
+
             // Fill the Troop Compositions
             if (DataCollection.TroopCompositions.Count == 0)
             {
@@ -39,6 +48,22 @@
                 DataCollection.Troops.Add(Model.CreateNew(2, Properties.Resources.Archers));
                 //DataCollection.Troops.Add(Troop.CreateNew(3, Properties.Resources.Goblins));
                 //DataCollection.Troops.Add(Troop.CreateNew(4, Properties.Resources.Giants));
+                // add more troop types
+            }
+
+            // Fill the Deploy Strategies
+            if (DataCollection.DeployStrategies.Count == 0)
+            {
+                DataCollection.DeployStrategies.Add(Model.CreateNew(1, Properties.Resources.DeployStrategyTwoSides));
+                DataCollection.DeployStrategies.Add(Model.CreateNew(2, Properties.Resources.DeployStrategyThreeSides));
+                DataCollection.DeployStrategies.Add(Model.CreateNew(2, Properties.Resources.DeployStrategyFourSides));
+            }
+
+            // Fill the Deploy Troops
+            if (DataCollection.DeployTroops.Count == 0)
+            {
+                DataCollection.DeployTroops.Add(Model.CreateNew(1, Properties.Resources.DeployTroopsBarbariansAndArchers));
+                DataCollection.DeployTroops.Add(Model.CreateNew(2, Properties.Resources.DeployTroopsUseAllTroops));
             }
 
             GetUserSettings();
@@ -218,7 +243,219 @@
 
         #region Attack Settings Properties
 
+        public static IEnumerable<int> CannonLevels { get { return BuildingLevels.Cannon; } }
+        public static IEnumerable<int> ArcherTowerLevels { get { return BuildingLevels.ArcherTower; } }
+        public static IEnumerable<int> MortarLevels { get { return BuildingLevels.Mortar; } }
+        public static IEnumerable<int> WizardTowerLevels { get { return BuildingLevels.WizardTower; } }
+        public static IEnumerable<int> XbowLevels { get { return BuildingLevels.Xbow; } }
 
+        private int _selectedMaxCannonLevel;
+        public int SelectedMaxCannonLevel
+        {
+            get { return _selectedMaxCannonLevel; }
+            set
+            {
+                if (_selectedMaxCannonLevel != value)
+                {
+                    _selectedMaxCannonLevel = value;
+                    OnPropertyChanged("SelectedMaxCannonLevel");
+                }
+            }
+        }
+
+        private int _selectedMaxArcherTowerLevel;
+        public int SelectedMaxArcherTowerLevel
+        {
+            get { return _selectedMaxArcherTowerLevel; }
+            set
+            {
+                if (_selectedMaxArcherTowerLevel != value)
+                {
+                    _selectedMaxArcherTowerLevel = value;
+                    OnPropertyChanged("SelectedMaxArcherTowerLevel");
+                }
+            }
+        }
+
+        private int _selectedMaxMortarLevel;
+        public int SelectedMaxMortarLevel
+        {
+            get { return _selectedMaxMortarLevel; }
+            set
+            {
+                if (_selectedMaxMortarLevel != value)
+                {
+                    _selectedMaxMortarLevel = value;
+                    OnPropertyChanged("SelectedMaxMortarLevel");
+                }
+            }
+        }
+
+        private int _selectedWizardTowerLevel;
+        public int SelectedWizardTowerLevel
+        {
+            get { return _selectedWizardTowerLevel; }
+            set
+            {
+                if (_selectedWizardTowerLevel != value)
+                {
+                    _selectedWizardTowerLevel = value;
+                    OnPropertyChanged("SelectedWizardTowerLevel");
+                }
+            }
+        }
+
+        private int _selectedXbowLevel;
+        public int SelectedXbowLevel
+        {
+            get { return _selectedXbowLevel; }
+            set
+            {
+                if (_selectedXbowLevel != value)
+                {
+                    _selectedXbowLevel = value;
+                    OnPropertyChanged("SelectedXbowLevel");
+                }
+            }
+        }
+
+        private bool _attackTheirKing;
+        public bool AttackTheirKing
+        {
+            get { return _attackTheirKing; }
+            set
+            {
+                if (_attackTheirKing != value)
+                {
+                    _attackTheirKing = value;
+                    OnPropertyChanged("AttackTheirKing");
+                }
+            }
+        }
+
+        private bool _attackTheirQueen;
+        public bool AttackTheirQueen
+        {
+            get { return _attackTheirQueen; }
+            set
+            {
+                if (_attackTheirQueen != value)
+                {
+                    _attackTheirQueen = value;
+                    OnPropertyChanged("AttackTheirQueen");
+                }
+            }
+        }
+
+        private AttackMode _selectedAttackMode;
+        public AttackMode SelectedAttackMode
+        {
+            get { return _selectedAttackMode; }
+            set
+            {
+                if (_selectedAttackMode != value)
+                {
+                    _selectedAttackMode = value;
+                    OnPropertyChanged("SelectedAttackMode");
+                }
+            }
+        }
+
+        private HeroAttackMode _selectedKingAttackMode;
+        public HeroAttackMode SelectedKingAttackMode
+        {
+            get { return _selectedKingAttackMode; }
+            set
+            {
+                if (_selectedKingAttackMode != value)
+                {
+                    _selectedKingAttackMode = value;
+                    OnPropertyChanged("SelectedKingAttackMode");
+                }
+            }
+        }
+
+        private HeroAttackMode _selectedQueenAttackMode;
+        public HeroAttackMode SelectedQueenAttackMode
+        {
+            get { return _selectedQueenAttackMode; }
+            set
+            {
+                if (_selectedQueenAttackMode != value)
+                {
+                    _selectedQueenAttackMode = value;
+                    OnPropertyChanged("SelectedQueenAttackMode");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets the Deploy Strategies.
+        /// </summary>
+        /// <value>The Deploy Strategies.</value>
+        public static BindingList<Model> DeployStrategies { get { return DataCollection.DeployStrategies; } }
+
+        private Model _selectedDeployStrategy;
+        public Model SelectedDeployStrategy
+        {
+            get { return _selectedDeployStrategy; }
+            set
+            {
+                if (_selectedDeployStrategy != value)
+                {
+                    _selectedDeployStrategy = value;
+                    OnPropertyChanged("SelectedDeployStrategy");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets the Deploy Troops.
+        /// </summary>
+        /// <value>The Deploy Troops.</value>
+        public static BindingList<Model> DeployTroops { get { return DataCollection.DeployTroops; } }
+
+        private Model _selectedDeployTroop;
+        public Model SelectedDeployTroop
+        {
+            get { return _selectedDeployTroop; }
+            set
+            {
+                if (_selectedDeployTroop != value)
+                {
+                    _selectedDeployTroop = value;
+                    OnPropertyChanged("SelectedDeployTroop");
+                }
+            }
+        }
+
+        private bool _attackTownhall;
+        public bool AttackTownhall
+        {
+            get { return _attackTownhall; }
+            set
+            {
+                if (_attackTownhall != value)
+                {
+                    _attackTownhall = value;
+                    OnPropertyChanged("AttackTownhall");
+                }
+            }
+        }
+
+        private bool _attackUsingClanCastle;
+        public bool AttackUsingClanCastle
+        {
+            get { return _attackUsingClanCastle; }
+            set
+            {
+                if (_attackUsingClanCastle != value)
+                {
+                    _attackUsingClanCastle = value;
+                    OnPropertyChanged("AttackUsingClanCastle");
+                }
+            }
+        }
 
         #endregion
 
@@ -288,6 +525,7 @@
                 {
                     _selectedTroopComposition = value;
                     OnPropertyChanged("SelectedTroopComposition");
+                    OnPropertyChanged("IsBarracksControlEnabled");
                 }
             }
         }
@@ -379,6 +617,17 @@
                     _selectedBarrack4 = value;
                     OnPropertyChanged("SelectedBarrack4");
                 }
+            }
+        }
+
+        public bool IsBarracksControlEnabled
+        {
+            get
+            {
+                if (SelectedTroopComposition.Id == 1)
+                    return true;
+                else
+                    return false;
             }
         }
 
@@ -674,6 +923,24 @@
             AlertWhenBaseFound = Properties.Settings.Default.AlertWhenBaseFound;
 
             // Attack Settings
+            SelectedMaxCannonLevel = Properties.Settings.Default.MaxCannonLevel;
+            SelectedMaxArcherTowerLevel = Properties.Settings.Default.MaxArcherTowerLevel;
+            SelectedMaxMortarLevel = Properties.Settings.Default.MaxMortarLevel;
+            SelectedWizardTowerLevel = Properties.Settings.Default.MaxWizardTowerLevel;
+            SelectedXbowLevel = Properties.Settings.Default.MaxXbowLevel;
+
+            AttackTheirKing = Properties.Settings.Default.AttackTheirKing;
+            AttackTheirQueen = Properties.Settings.Default.AttackTheirQueen;
+
+            SelectedAttackMode = (AttackMode)Properties.Settings.Default.SelectedAttackMode;
+
+            SelectedKingAttackMode = (HeroAttackMode)Properties.Settings.Default.SelectedKingAttackMode;
+            SelectedQueenAttackMode = (HeroAttackMode)Properties.Settings.Default.SelectedQueenAttackMode;
+            AttackUsingClanCastle = Properties.Settings.Default.AttackUsingClanCastle;
+
+            SelectedDeployStrategy = DataCollection.DeployStrategies.Where(ds => ds.Id == Properties.Settings.Default.SelectedDeployStrategy).DefaultIfEmpty(DataCollection.DeployStrategies.Last()).First();
+            SelectedDeployTroop = DataCollection.DeployTroops.Where(dt => dt.Id == Properties.Settings.Default.SelectedDeployTroop).DefaultIfEmpty(DataCollection.DeployTroops.First()).First();
+            AttackTownhall = Properties.Settings.Default.AttackTownhall;
 
             // Donate Settings
 
@@ -714,6 +981,24 @@
             Properties.Settings.Default.AlertWhenBaseFound = AlertWhenBaseFound;
 
             // Attack Settings
+            Properties.Settings.Default.MaxCannonLevel = SelectedMaxCannonLevel;
+            Properties.Settings.Default.MaxArcherTowerLevel = SelectedMaxArcherTowerLevel;
+            Properties.Settings.Default.MaxMortarLevel = SelectedMaxMortarLevel;
+            Properties.Settings.Default.MaxWizardTowerLevel = SelectedWizardTowerLevel;
+            Properties.Settings.Default.MaxXbowLevel = SelectedXbowLevel;
+
+            Properties.Settings.Default.AttackTheirKing = AttackTheirKing;
+            Properties.Settings.Default.AttackTheirQueen = AttackTheirQueen;
+
+            Properties.Settings.Default.SelectedAttackMode = (int)SelectedAttackMode;
+
+            Properties.Settings.Default.SelectedKingAttackMode = (int)SelectedKingAttackMode;
+            Properties.Settings.Default.SelectedQueenAttackMode = (int)SelectedQueenAttackMode;
+            Properties.Settings.Default.AttackUsingClanCastle = AttackUsingClanCastle;
+
+            Properties.Settings.Default.SelectedDeployStrategy = SelectedDeployStrategy.Id;
+            Properties.Settings.Default.SelectedDeployTroop = SelectedDeployTroop.Id;
+            Properties.Settings.Default.AttackTownhall = AttackTownhall;
 
             // Donate Settings
 

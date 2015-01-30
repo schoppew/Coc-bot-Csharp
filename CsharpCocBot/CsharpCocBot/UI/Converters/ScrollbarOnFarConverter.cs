@@ -7,6 +7,9 @@
     using System.Threading.Tasks;
     using System.Windows.Data;
 
+    /// <summary>
+    /// A Scrollbar On Far Left Converter.
+    /// </summary>
     public class ScrollbarOnFarLeftConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -21,6 +24,9 @@
         }
     }
 
+    /// <summary>
+    /// A Scrollbar On Far Right Converter.
+    /// </summary>
     public class ScrollbarOnFarRightConverter : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)

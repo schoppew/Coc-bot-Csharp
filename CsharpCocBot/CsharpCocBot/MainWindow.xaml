@@ -6,9 +6,14 @@
         xmlns:c="clr-namespace:CoC.Bot.UI.Converters"
         xmlns:p="clr-namespace:CoC.Bot.Properties"
         Title="[TBC] Clash of Clans Bot" Icon="/Assets/Images/Icon.ico" Height="600" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
+
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
+
+    <Window.Resources>
+        <c:EnumToBooleanConverter x:Key="enumToBoolConverter" />
+    </Window.Resources>
 
     <!-- Taskbar -->
     <Window.TaskbarItemInfo>
@@ -129,7 +134,7 @@
                                         <CheckBox Content="{x:Static p:Resources.MeetGoldAndElixir}" IsChecked="{Binding MeetGoldAndElixir}" HorizontalAlignment="Left" Margin="30,17,0,0" VerticalAlignment="Top"/>
                                         <CheckBox Content="{x:Static p:Resources.MeetDarkElixir}" IsChecked="{Binding MeetDarkElixir}" HorizontalAlignment="Left" Margin="30,39,0,0" VerticalAlignment="Top"/>
                                         <CheckBox Content="{x:Static p:Resources.MeetTrophyCount}" IsChecked="{Binding MeetTrophyCount}" HorizontalAlignment="Left" Margin="30,61,0,0" VerticalAlignment="Top"/>
-                                        <TextBlock Text="{x:Static p:Resources.ConditionsMessage}" Height="80" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" />
+                                        <TextBlock Text="{x:Static p:Resources.ConditionsMessage}" Height="75" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.GroupBoxResources}" HorizontalAlignment="Right" Margin="0,16,16,0" VerticalAlignment="Top" Height="210" Width="210">
@@ -142,7 +147,7 @@
                                         <TextBox Text="{Binding MinimumElixir}" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,40,10,0" VerticalAlignment="Top" Width="60" />
                                         <TextBox Text="{Binding MinimumDarkElixir}" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,68,10,0" VerticalAlignment="Top" Width="60" />
                                         <TextBox Text="{Binding MinimumTrophyCount}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,96,10,0" VerticalAlignment="Top" Width="60" />
-                                        <TextBlock Text="{x:Static p:Resources.ResourcesMessage}" Height="50" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" />
+                                        <TextBlock Text="{x:Static p:Resources.ResourcesMessage}" Height="45" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.OtherSearchSettings}" Margin="16,231,16,0" VerticalAlignment="Top" Height="129">
@@ -154,7 +159,52 @@
                         <!-- Attack Settings Tab -->
                         <TabItem Header="{x:Static p:Resources.AttackSettings}">
                             <Grid Background="{DynamicResource BackgroundBrush}">
-
+                                <GroupBox Header="{x:Static p:Resources.WeakBaseSettings}" HorizontalAlignment="Left" Margin="16,16,0,0" VerticalAlignment="Top" Height="270" Width="131">
+                                    <Grid>
+                                        <Label Content="{x:Static p:Resources.LabelMaxCannonLevel}" Height="25" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="55" />
+                                        <Label Content="{x:Static p:Resources.LabelMaxArcherTowerLevel}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="55" />
+                                        <Label Content="{x:Static p:Resources.LabelMaxMortarLevel}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="55" />
+                                        <Label Content="{x:Static p:Resources.LabelMaxWizardTowerLevel}" Height="25" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="55" />
+                                        <Label Content="{x:Static p:Resources.LabelMaxXbowLevel}" Height="25" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="55" />
+                                        <ComboBox ItemsSource="{Binding Path=CannonLevels, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedMaxCannonLevel}" Height="23" Width="40" VerticalAlignment="Top" Margin="0,12,10,0" HorizontalAlignment="Right" IsEnabled="False" />
+                                        <ComboBox ItemsSource="{Binding Path=ArcherTowerLevels, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedMaxArcherTowerLevel}" Height="23" Width="40" VerticalAlignment="Top" Margin="0,40,10,0" HorizontalAlignment="Right" IsEnabled="False" />
+                                        <ComboBox ItemsSource="{Binding Path=MortarLevels, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedMaxMortarLevel}" Height="23" Width="40" VerticalAlignment="Top" Margin="0,68,10,0" HorizontalAlignment="Right" IsEnabled="False" />
+                                        <ComboBox ItemsSource="{Binding Path=WizardTowerLevels, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedWizardTowerLevel}" Height="23" Width="40" VerticalAlignment="Top" Margin="0,96,10,0" HorizontalAlignment="Right" IsEnabled="False" />
+                                        <ComboBox ItemsSource="{Binding Path=XbowLevels, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedXbowLevel}" Height="23" Width="40" VerticalAlignment="Top" Margin="0,124,10,0" HorizontalAlignment="Right" IsEnabled="False" />
+                                        <CheckBox Content="{x:Static p:Resources.AttackTheirKing}" IsChecked="{Binding AttackTheirKing}" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" Width="99" IsEnabled="False" />
+                                        <CheckBox Content="{x:Static p:Resources.AttackTheirQueen}" IsChecked="{Binding AttackTheirQueen}" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" Width="99" IsEnabled="False" />
+                                        <TextBlock Text="{x:Static p:Resources.WeakBaseSettingsMessage}" Height="45" HorizontalAlignment="Left" Margin="10,0,0,5" VerticalAlignment="Bottom" Width="99" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="{x:Static p:Resources.AttackMode}" HorizontalAlignment="Right" Margin="0,16,16,0" VerticalAlignment="Top" Height="100" Width="290">
+                                    <Grid>
+                                        <RadioButton Content="{x:Static p:Resources.OptionDeadBases}" IsChecked="{Binding Path=SelectedAttackMode, Converter={StaticResource enumToBoolConverter}, ConverterParameter=DeadBases}" Margin="10,10,10,0" VerticalAlignment="Top" />
+                                        <RadioButton Content="{x:Static p:Resources.OptionWeakBases}" IsChecked="{Binding Path=SelectedAttackMode, Converter={StaticResource enumToBoolConverter}, ConverterParameter=WeakBases}" Margin="10,30,10,0" VerticalAlignment="Top" IsEnabled="False" />
+                                        <RadioButton Content="{x:Static p:Resources.OptionAllBases}" IsChecked="{Binding Path=SelectedAttackMode, Converter={StaticResource enumToBoolConverter}, ConverterParameter=AllBases}" Margin="10,50,10,0" VerticalAlignment="Top" />
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="{x:Static p:Resources.RoyalsAndClanCastleSettings}" HorizontalAlignment="Right" Margin="0,121,16,0" VerticalAlignment="Top" Height="165" Width="290">
+                                    <Grid>
+                                        <Label Content="{x:Static p:Resources.LabelKingSettings}" Height="25" HorizontalAlignment="Left" Margin="25,5,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="100" />
+                                        <RadioButton Content="{x:Static p:Resources.AttackDeadBases}" IsChecked="{Binding Path=SelectedKingAttackMode, Converter={StaticResource enumToBoolConverter}, ConverterParameter=DeadBases}" Margin="10,31,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="125" />
+                                        <RadioButton Content="{x:Static p:Resources.AttackWeakBases}" IsChecked="{Binding Path=SelectedKingAttackMode, Converter={StaticResource enumToBoolConverter}, ConverterParameter=WeakBases}" Margin="10,51,0,0" VerticalAlignment="Top" IsEnabled="False" Width="125" HorizontalAlignment="Left" />
+                                        <RadioButton Content="{x:Static p:Resources.AttackAllBases}" IsChecked="{Binding Path=SelectedKingAttackMode, Converter={StaticResource enumToBoolConverter}, ConverterParameter=AllBases}" Margin="10,71,0,0" VerticalAlignment="Top" Width="125" HorizontalAlignment="Left" />
+                                        <RadioButton Content="{x:Static p:Resources.None}" IsChecked="{Binding Path=SelectedKingAttackMode, Converter={StaticResource enumToBoolConverter}, ConverterParameter=None}" Margin="10,91,0,0" VerticalAlignment="Top" Width="125" HorizontalAlignment="Left" />
+                                        <Label Content="{x:Static p:Resources.LabelQueenSettings}" Height="25" HorizontalAlignment="Right" Margin="0,5,20,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="100" />
+                                        <RadioButton Content="{x:Static p:Resources.AttackDeadBases}" IsChecked="{Binding Path=SelectedQueenAttackMode, Converter={StaticResource enumToBoolConverter}, ConverterParameter=DeadBases}" Margin="0,31,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="125" />
+                                        <RadioButton Content="{x:Static p:Resources.AttackWeakBases}" IsChecked="{Binding Path=SelectedQueenAttackMode, Converter={StaticResource enumToBoolConverter}, ConverterParameter=WeakBases}" Margin="0,51,10,0" VerticalAlignment="Top" IsEnabled="False" Width="125" HorizontalAlignment="Right" />
+                                        <RadioButton Content="{x:Static p:Resources.AttackAllBases}" IsChecked="{Binding Path=SelectedQueenAttackMode, Converter={StaticResource enumToBoolConverter}, ConverterParameter=AllBases}" Margin="0,71,10,0" VerticalAlignment="Top" Width="125" HorizontalAlignment="Right" />
+                                        <RadioButton Content="{x:Static p:Resources.None}" IsChecked="{Binding Path=SelectedQueenAttackMode, Converter={StaticResource enumToBoolConverter}, ConverterParameter=None}" Margin="0,91,10,0" VerticalAlignment="Top" Width="125" HorizontalAlignment="Right" />
+                                        <CheckBox Content="{x:Static p:Resources.AttackUsingClanCastle}" IsChecked="{Binding AttackUsingClanCastle}" Margin="10,0,10,10" VerticalAlignment="Bottom" Width="258" />
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="{x:Static p:Resources.DeploySettings}" HorizontalAlignment="Left" Margin="16,0,0,16" VerticalAlignment="Bottom" Height="100" Width="432">
+                                    <Grid>
+                                        <ComboBox ItemsSource="{Binding Path=DeployStrategies, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedDeployStrategy}" DisplayMemberPath="Name" Height="23" Width="388" VerticalAlignment="Top" Margin="16,10,16,0" />
+                                        <ComboBox ItemsSource="{Binding Path=DeployTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedDeployTroop}" DisplayMemberPath="Name" Height="23" Width="210" VerticalAlignment="Bottom" Margin="16,0,164,10" HorizontalAlignment="Left" />
+                                        <CheckBox Content="{x:Static p:Resources.AttackTownhall}" IsChecked="{Binding AttackTownhall}" HorizontalAlignment="Right" Margin="0,0,16,13" VerticalAlignment="Bottom" Width="155" IsEnabled="False" />
+                                    </Grid>
+                                </GroupBox>
                             </Grid>
                         </TabItem>
                         <!-- Donate Settings Tab -->
@@ -178,7 +228,7 @@
                                         <Label Content="{x:Static p:Resources.Percent}" Height="25" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="20" />
                                         <Label Content="{x:Static p:Resources.Percent}" Height="25" HorizontalAlignment="Right" Margin="0,68,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="20" />
                                         <ComboBox ItemsSource="{Binding Path=TroopCompositions, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedTroopComposition}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="10,98,10,0" />
-                                        <TextBlock Text="{x:Static p:Resources.TroopsMessage}" Height="80" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" />
+                                        <TextBlock Text="{x:Static p:Resources.TroopsMessage}" Height="60" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.OtherTroops}" HorizontalAlignment="Right" Margin="0,16,16,0" VerticalAlignment="Top" Height="100" Width="210">
@@ -195,10 +245,10 @@
                                         <Label Content="{x:Static p:Resources.LabelBarrack2}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
                                         <Label Content="{x:Static p:Resources.LabelBarrack3}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
                                         <Label Content="{x:Static p:Resources.LabelBarrack4}" Height="25" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
-                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack1}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,14,10,0" />
-                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack2}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,42,10,0" />
-                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack3}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,70,10,0" />
-                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack4}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,98,10,0" />
+                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack1}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,14,10,0" IsEnabled="{Binding IsBarracksControlEnabled}" />
+                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack2}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,42,10,0" IsEnabled="{Binding IsBarracksControlEnabled}" />
+                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack3}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,70,10,0" IsEnabled="{Binding IsBarracksControlEnabled}" />
+                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack4}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,98,10,0" IsEnabled="{Binding IsBarracksControlEnabled}" />
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.OtherTroopsSettings}" HorizontalAlignment="Left" Margin="16,0,0,16" VerticalAlignment="Bottom" Height="100" Width="432">
