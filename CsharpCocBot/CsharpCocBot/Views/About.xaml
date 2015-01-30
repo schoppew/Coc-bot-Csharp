@@ -1,0 +1,45 @@
+﻿<Window x:Class="CoC.Bot.Views.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="[TBC] Clash of Clans Bot" Icon="/Assets/Images/Icon.ico" Loaded="About_Loaded" Height="310" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+
+    <Border x:Name="Chrome" CornerRadius="0">
+        <Grid>
+            <Rectangle StrokeThickness="2">
+                <Rectangle.Stroke>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FFFFFF" Offset="0"/>
+                        <GradientStop Color="#000000" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+            </Rectangle>
+            <Grid x:Name="Root" Margin="2" Background="#A0333333">
+                <Grid>
+                    <Label Padding="0" HorizontalContentAlignment="Center">
+                        <Grid>
+                            <TextBlock Text="{Binding Title, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" 
+                           IsHitTestVisible="False" Margin="10" FontSize="12"/>
+                            <TextBlock Text="{Binding Title, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                           IsHitTestVisible="False" Margin="10" FontSize="12">
+                                <TextBlock.Effect>
+                                    <BlurEffect Radius="5"/>
+                                </TextBlock.Effect>
+                            </TextBlock>
+                        </Grid>
+                    </Label>
+                    <Label x:Name="Bar" Background="Transparent" MouseDown="Bar_MouseDown" />
+                </Grid>
+                <Button ToolTip="Close" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,5,0" Width="20" Height="20" Focusable="False" Background="Transparent" BorderBrush="Transparent" Click="Close_Click">
+                    <Path Data="F1M608.038,178.012L595.565,165.539 576.036,185.068 556.509,165.54 544.038,178.012 563.565,197.539 544.038,217.066 556.512,229.538 576.038,210.012 595.565,229.539 608.036,217.068 588.509,197.54 608.038,178.012z" Stretch="Uniform" Fill="#BBFFFFFF" />
+                </Button>
+                <Grid Margin="10,32,10,10">
+                    <Grid Background="#808080" Margin="5">
+                        <Label Name="lblAuthor" Content="Clash of Clans Bot" Height="34" HorizontalAlignment="Right" Margin="0,21,44,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+                        <TextBlock Name="tbDisclaimer" Text="DISCLAIMER" Height="130" Margin="45,74,27,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="270" Foreground="#DDDDDD" />
+                        <Button Name="btnAccept" Content="Accept" Click="btnAccept_Click" Height="23" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="75" />
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
