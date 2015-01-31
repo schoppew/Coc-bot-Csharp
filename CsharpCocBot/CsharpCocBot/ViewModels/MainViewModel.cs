@@ -75,6 +75,8 @@
                 else
                     WriteLine(value);
 
+                Message = value;
+
                 OnPropertyChanged();
             }
         }
