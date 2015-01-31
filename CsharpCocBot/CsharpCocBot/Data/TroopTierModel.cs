@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.ComponentModel;
     using System.Linq;
 
     using ViewModels;
@@ -17,7 +18,7 @@
         /// </summary>
         public TroopTierModel()
         {
-            Troops = new ObservableCollection<TroopModel>();
+            Troops = new TroopModelObservableCollection();
         }
 
         /// <summary>
@@ -66,8 +67,75 @@
             }
         }
 
-        public ObservableCollection<TroopModel> Troops { get; set; }
+        public TroopModelObservableCollection Troops { get; set; }
 
         #endregion
+
+        /// <summary>
+        /// A Troop ObservableCollection with custom index implementation.
+        /// </summary>
+        public class TroopModelObservableCollection : ObservableCollection<TroopModel>
+        {
+            public TroopModelObservableCollection()
+            {
+                
+            }
+
+            public TroopModelObservableCollection(List<TroopModel> list) : base(list)
+            {
+                
+            }
+
+            public TroopModelObservableCollection(IEnumerable<TroopModel> collection) : base(collection)
+            {
+                
+            }
+
+            public new TroopModel this[int t]
+            {
+                get { return base.Items.Where(i => i.Id == (int)t).FirstOrDefault(); }
+            }
+
+            /// <summary>
+            /// Gets the specified Troop, or a default value if the sequence contains no elements.
+            /// </summary>
+            /// <param name="type">The Troop enum.</param>
+            /// <returns>TroopModel.</returns>
+            public TroopModel Get(Troop type)
+            {
+                return base.Items.Where(i => i.Id == (int)type).FirstOrDefault();
+            }
+        }
+
+        /// <summary>
+        /// A TroopTierModel BindingList with custom index implementation.
+        /// </summary>
+        public class TroopTierModelBindingList : BindingList<TroopTierModel>
+        {
+            public TroopTierModelBindingList()
+            {
+                
+            }
+
+            public TroopTierModelBindingList(IList<TroopTierModel> list) : base(list)
+            {
+                
+            }
+
+            public new TroopTierModel this[int t]
+            {
+                get { return base.Items.Where(i => i.Id == (int)t).FirstOrDefault(); }
+            }
+
+            /// <summary>
+            /// Gets the specified Troop Tier, or a default value if the sequence contains no elements.
+            /// </summary>
+            /// <param name="type">The TroopType enum.</param>
+            /// <returns>TroopTierModel.</returns>
+            public TroopTierModel Get(TroopType type)
+            {
+                return base.Items.Where(i => i.Id == (int)type).FirstOrDefault();
+            }
+        }
     }
 }

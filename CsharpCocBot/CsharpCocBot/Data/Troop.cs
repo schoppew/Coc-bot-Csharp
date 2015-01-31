@@ -3,9 +3,8 @@
     using System;
 
     /// <summary>
-    /// The Attack Mode
+    /// The Troop
     /// </summary>
-    [Flags]
     public enum Troop
     {
         Barbarian,  // Tier 1

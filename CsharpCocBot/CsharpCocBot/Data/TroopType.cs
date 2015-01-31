@@ -5,7 +5,6 @@
     /// <summary>
     /// The Troop Type
     /// </summary>
-    [Flags]
     public enum TroopType
     {
         Tier1 = 1,

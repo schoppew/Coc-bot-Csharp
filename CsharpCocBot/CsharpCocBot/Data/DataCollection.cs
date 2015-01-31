@@ -16,9 +16,9 @@
         internal static BindingList<Model> TroopCompositions = new BindingList<Model>();
 
         /// <summary>
-        /// The Troop Types
+        /// The Barracks Troops
         /// </summary>
-        internal static BindingList<Model> Troops = new BindingList<Model>();
+        internal static BindingList<Model> BarracksTroops = new BindingList<Model>();
 
         /// <summary>
         /// The Deploy Strategies
@@ -31,8 +31,8 @@
         internal static BindingList<Model> DeployTroops = new BindingList<Model>();
 
         /// <summary>
-        /// The Troop Tiers
+        /// The Troop Tiers and child Troops
         /// </summary>
-        internal static BindingList<TroopTierModel> TroopTiers = new BindingList<TroopTierModel>();
+        internal static TroopTierModel.TroopTierModelBindingList TroopTiers = new TroopTierModel.TroopTierModelBindingList();
     }
 }

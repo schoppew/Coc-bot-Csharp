@@ -2,13 +2,14 @@ namespace CoC.Bot.Data
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Diagnostics;
     using System.Linq;
 
     /// <summary>
-    /// Extention methods for Troops.
+    /// Extention methods for Data.
     /// </summary>
-    public static class TroopHelper
+    public static class DataHelper
     {
         /// <summary>
         /// Determines whether the specified troop is Elixir.
@@ -123,7 +124,7 @@ namespace CoC.Bot.Data
         /// <summary>
         /// Returns the specified troop type name.
         /// </summary>
-        /// <param name="troop">The troop.</param>
+        /// <param name="type">The troop type.</param>
         /// <returns>System.String.</returns>
         public static string Name(this TroopType type)
         {
@@ -135,6 +136,56 @@ namespace CoC.Bot.Data
                 case TroopType.DarkTroops: return Properties.Resources.DarkTroops;
                 default:
                     return Enum.GetName(typeof(TroopType), type);
+            }
+        }
+
+        /// <summary>
+        /// Returns the specified troop composition name.
+        /// </summary>
+        /// <param name="composition">The troop composition.</param>
+        /// <returns>System.String.</returns>
+        public static string Name(this TroopComposition composition)
+        {
+            switch (composition)
+            {
+                case TroopComposition.UseBarracks: return Properties.Resources.UseBarracks;
+                case TroopComposition.Barching: return Properties.Resources.Barching;
+                case TroopComposition.CustomTroops: return Properties.Resources.CustomTroops;
+                default:
+                    return Enum.GetName(typeof(TroopType), composition);
+            }
+        }
+
+        /// <summary>
+        /// Returns the specified deploy strategy name.
+        /// </summary>
+        /// <param name="strategy">The deploy strategy.</param>
+        /// <returns>System.String.</returns>
+        public static string Name(this DeployStrategy strategy)
+        {
+            switch (strategy)
+            {
+                case DeployStrategy.TwoSides: return Properties.Resources.DeployStrategyTwoSides;
+                case DeployStrategy.ThreeSides: return Properties.Resources.DeployStrategyThreeSides;
+                case DeployStrategy.FourSides: return Properties.Resources.DeployStrategyFourSides;
+                default:
+                    return Enum.GetName(typeof(DeployStrategy), strategy);
+            }
+        }
+
+        /// <summary>
+        /// Returns the specified deploy troop name.
+        /// </summary>
+        /// <param name="deploy">The deploy troop.</param>
+        /// <returns>System.String.</returns>
+        public static string Name(this DeployTroop deploy)
+        {
+            switch (deploy)
+            {
+                case DeployTroop.BarbariansAndArchers: return Properties.Resources.DeployTroopsBarbariansAndArchers;
+                case DeployTroop.UseAllTroops: return Properties.Resources.DeployTroopsUseAllTroops;
+                default:
+                    return Enum.GetName(typeof(DeployTroop), deploy);
             }
         }
     }

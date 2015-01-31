@@ -120,12 +120,16 @@
     <Compile Include="Data\AttackMode.cs" />
     <Compile Include="Data\BuildingLevels.cs" />
     <Compile Include="Data\DataCollection.cs" />
+    <Compile Include="Data\DeployStrategy.cs" />
+    <Compile Include="Data\DeployTroops.cs" />
     <Compile Include="Data\Model.cs" />
+    <Compile Include="Data\TroopComposition.cs" />
     <Compile Include="Data\TroopModel.cs" />
     <Compile Include="Data\TroopType.cs" />
     <Compile Include="Data\Troop.cs" />
-    <Compile Include="Data\TroopHelper.cs" />
+    <Compile Include="Data\DataHelper.cs" />
     <Compile Include="Data\TroopTierModel.cs" />
+    <Compile Include="Samples\GettingAroundTheUI.cs" />
     <Compile Include="Tools\FastFind\FastFindTesting.cs" />
     <Compile Include="Tools\KeyboardHelper.cs" />
     <Compile Include="UI\Behaviours\TextBoxBehaviour.cs" />

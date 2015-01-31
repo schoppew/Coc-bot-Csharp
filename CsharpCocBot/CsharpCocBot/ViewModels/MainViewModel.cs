@@ -1,4 +1,5 @@
-﻿namespace CoC.Bot.ViewModels
+﻿using System.Windows.Documents;
+namespace CoC.Bot.ViewModels
 {
     using System;
     using System.Collections.Generic;
@@ -73,7 +74,7 @@
                 if (_output == null)
                     _output = new StringBuilder(value);
                 else
-                    WriteLine(value);
+                    _output.AppendFormat("[{0:HH:mm:ss}] {1}", DateTime.Now, value + Environment.NewLine);
 
                 Message = value;
 
@@ -496,6 +497,10 @@
         public static BindingList<TroopTierModel> TroopTiers { get { return DataCollection.TroopTiers; } }
 
         private bool _requestTroops;
+        /// <summary>
+        /// Gets or sets a value indicating whether it should request for troops.
+        /// </summary>
+        /// <value><c>true</c> if request for troops; otherwise, <c>false</c>.</value>
         public bool RequestTroops
         {
             get { return _requestTroops; }
@@ -510,6 +515,10 @@
         }
 
         private string _requestTroopsMessage;
+        /// <summary>
+        /// Gets or sets the request troops message.
+        /// </summary>
+        /// <value>The request troops message.</value>
         public string RequestTroopsMessage
         {
             get { return _requestTroopsMessage; }
@@ -524,6 +533,10 @@
         }
 
         private object _selectedTroopForDonate;
+        /// <summary>
+        /// [For use in UI only] Gets or sets the selected troop for donate.
+        /// </summary>
+        /// <value>The selected troop for donate.</value>
         public object SelectedTroopForDonate
         {
             get { return _selectedTroopForDonate; }
@@ -574,6 +587,10 @@
         }
 
         private bool _isCurrentDonateAll;
+        /// <summary>
+        /// [For use in UI only] Gets or sets a value indicating whether the selected troop is for donate all.
+        /// </summary>
+        /// <value><c>true</c> if selected troop is for donate all; otherwise, <c>false</c>.</value>
         public bool IsCurrentDonateAll
         {
             get { return _isCurrentDonateAll; }
@@ -594,6 +611,10 @@
         }
 
         private string _currentDonateKeywords;
+        /// <summary>
+        /// [For use in UI only] Gets or sets the selected troop donate keywords.
+        /// </summary>
+        /// <value>The selected troop donate keywords.</value>
         public string CurrentDonateKeywords
         {
             get { return _currentDonateKeywords; }
@@ -613,21 +634,11 @@
             }
         }
 
-        private bool _isTroopTierDonateSelected;
-        public bool IsTroopTierDonateSelected
-        {
-            get { return _isTroopTierDonateSelected; }
-            set
-            {
-                if (_isTroopTierDonateSelected != value)
-                {
-                    _isTroopTierDonateSelected = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         private Visibility _shouldHideDonateControls = Visibility.Collapsed;
+        /// <summary>
+        /// [For use in UI only] Gets or sets if should hide donate controls.
+        /// </summary>
+        /// <value>If should hide donate controls.</value>
         public Visibility ShouldHideDonateControls
         {
             get { return _shouldHideDonateControls; }
@@ -642,6 +653,10 @@
         }
 
         private Visibility _shouldHideTierInfoMessage = Visibility.Visible;
+        /// <summary>
+        /// [For use in UI only] Gets or sets if should hide tier information message.
+        /// </summary>
+        /// <value>If should hide tier information message.</value>
         public Visibility ShouldHideTierInfoMessage
         {
             get { return _shouldHideTierInfoMessage; }
@@ -656,6 +671,10 @@
         }
 
         private string _troopTierSelectedInfoMessage;
+        /// <summary>
+        /// [For use in UI only] Gets or sets the troop tier selected information message.
+        /// </summary>
+        /// <value>The troop tier selected information message.</value>
         public string TroopTierSelectedInfoMessage
         {
             get { return _troopTierSelectedInfoMessage; }
@@ -674,6 +693,10 @@
         #region Troop Settings Properties
 
         private int _barbariansPercent;
+        /// <summary>
+        /// Gets or sets the Barbarians percent in the Troop Settings Tab.
+        /// </summary>
+        /// <value>The Barbarians percent.</value>
         public int BarbariansPercent
         {
             get { return _barbariansPercent; }
@@ -682,13 +705,17 @@
                 if (_barbariansPercent != value)
                 {
                     _barbariansPercent = value;
-                    OnPropertyChanged("BarbariansPercent");
+                    OnPropertyChanged();
                     OnPropertyChanged("TotalPercent");
                 }
             }
         }
 
         private int _archersPercent;
+        /// <summary>
+        /// Gets or sets the Archers percent in the Troop Settings Tab.
+        /// </summary>
+        /// <value>The Archers percent.</value>
         public int ArchersPercent
         {
             get { return _archersPercent; }
@@ -697,13 +724,17 @@
                 if (_archersPercent != value)
                 {
                     _archersPercent = value;
-                    OnPropertyChanged("ArchersPercent");
+                    OnPropertyChanged();
                     OnPropertyChanged("TotalPercent");
                 }
             }
         }
 
         private int _goblinsPercent;
+        /// <summary>
+        /// Gets or sets the Goblins percent in the Troop Settings Tab.
+        /// </summary>
+        /// <value>The Goblins percent.</value>
         public int GoblinsPercent
         {
             get { return _goblinsPercent; }
@@ -712,12 +743,16 @@
                 if (_goblinsPercent != value)
                 {
                     _goblinsPercent = value;
-                    OnPropertyChanged("GoblinsPercent");
+                    OnPropertyChanged();
                     OnPropertyChanged("TotalPercent");
                 }
             }
         }
 
+        /// <summary>
+        /// [For use in UI only] Gets the total percent.
+        /// </summary>
+        /// <value>The total percent.</value>
         public int TotalPercent
         {
             get { return BarbariansPercent + ArchersPercent + GoblinsPercent; }
@@ -730,6 +765,10 @@
         public static BindingList<Model> TroopCompositions { get { return DataCollection.TroopCompositions; } }
 
         private Model _selectedTroopComposition;
+        /// <summary>
+        /// Gets or sets the selected Troop Composition.
+        /// </summary>
+        /// <value>The selected Troop Composition.</value>
         public Model SelectedTroopComposition
         {
             get { return _selectedTroopComposition; }
@@ -738,7 +777,7 @@
                 if (_selectedTroopComposition != value)
                 {
                     _selectedTroopComposition = value;
-                    OnPropertyChanged("SelectedTroopComposition");
+                    OnPropertyChanged();
                     OnPropertyChanged("IsUseBarracksEnabled");
                     OnPropertyChanged("IsCustomTroopsEnabled");
                 }
@@ -746,6 +785,10 @@
         }
 
         private int _numberOfGiants;
+        /// <summary>
+        /// Gets or sets the number of Giants.
+        /// </summary>
+        /// <value>The number of Giants.</value>
         public int NumberOfGiants
         {
             get { return _numberOfGiants; }
@@ -754,12 +797,16 @@
                 if (_numberOfGiants != value)
                 {
                     _numberOfGiants = value;
-                    OnPropertyChanged("NumberOfGiants");
+                    OnPropertyChanged();
                 }
             }
         }
 
         private int _numberOfWallBreakers;
+        /// <summary>
+        /// Gets or sets the number of Wall Breakers.
+        /// </summary>
+        /// <value>The number of Wall Breakers.</value>
         public int NumberOfWallBreakers
         {
             get { return _numberOfWallBreakers; }
@@ -768,7 +815,7 @@
                 if (_numberOfWallBreakers != value)
                 {
                     _numberOfWallBreakers = value;
-                    OnPropertyChanged("NumberOfWallBreakers");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -777,7 +824,7 @@
         /// Gets the Troops.
         /// </summary>
         /// <value>The Troops.</value>
-        public static BindingList<Model> Troops { get { return DataCollection.Troops; } }
+        public static BindingList<Model> Troops { get { return DataCollection.BarracksTroops; } }
 
         private Model _selectedBarrack1;
         public Model SelectedBarrack1
@@ -788,7 +835,7 @@
                 if (_selectedBarrack1 != value)
                 {
                     _selectedBarrack1 = value;
-                    OnPropertyChanged("SelectedBarrack1");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -802,7 +849,7 @@
                 if (_selectedBarrack2 != value)
                 {
                     _selectedBarrack2 = value;
-                    OnPropertyChanged("SelectedBarrack2");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -816,7 +863,7 @@
                 if (_selectedBarrack3 != value)
                 {
                     _selectedBarrack3 = value;
-                    OnPropertyChanged("SelectedBarrack3");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -830,27 +877,35 @@
                 if (_selectedBarrack4 != value)
                 {
                     _selectedBarrack4 = value;
-                    OnPropertyChanged("SelectedBarrack4");
+                    OnPropertyChanged();
                 }
             }
         }
 
+        /// <summary>
+        /// [For use in UI only] Gets a value indicating whether the use of barracks is enabled.
+        /// </summary>
+        /// <value><c>true</c> if the use of barracks is enabled; otherwise, <c>false</c>.</value>
         public bool IsUseBarracksEnabled
         {
             get
             {
-                if (SelectedTroopComposition.Id == 1)
+                if (SelectedTroopComposition.Id == (int)TroopComposition.UseBarracks)
                     return true;
                 else
                     return false;
             }
         }
 
+        /// <summary>
+        /// [For use in UI only] Gets a value indicating whether the use of custom troops is enabled.
+        /// </summary>
+        /// <value><c>true</c> if the use of custom troops enabled; otherwise, <c>false</c>.</value>
         public bool IsCustomTroopsEnabled
         {
             get
             {
-                if (SelectedTroopComposition.Id == 3)
+                if (SelectedTroopComposition.Id == (int)TroopComposition.CustomTroops)
                     return true;
                 else
                     return false;
@@ -1052,40 +1107,45 @@
             // Fill the Troop Compositions
             if (DataCollection.TroopCompositions.Count == 0)
             {
-                DataCollection.TroopCompositions.Add(Model.CreateNew(1, Properties.Resources.UseBarracks));
-                DataCollection.TroopCompositions.Add(Model.CreateNew(2, Properties.Resources.Barching));
-                DataCollection.TroopCompositions.Add(Model.CreateNew(3, Properties.Resources.CustomTroops));
+                foreach (var tc in Enum.GetValues(typeof(TroopComposition)))
+                {
+                    DataCollection.TroopCompositions.Add(Model.CreateNew((int)tc, ((TroopComposition)tc).Name()));
+                }
             }
 
-            // Fill the Troops
-            if (DataCollection.Troops.Count == 0)
+            // Fill the Barracks Troops
+            // TODO: Make this better!
+            if (DataCollection.BarracksTroops.Count == 0)
             {
-                DataCollection.Troops.Add(Model.CreateNew(1, Properties.Resources.Barbarians));
-                DataCollection.Troops.Add(Model.CreateNew(2, Properties.Resources.Archers));
-                //DataCollection.Troops.Add(Model.CreateNew(3, Properties.Resources.Goblins));
-                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.Giants));
-                //DataCollection.Troops.Add(Model.CreateNew(5, Properties.Resources.WallBreakers));
-                //DataCollection.Troops.Add(Model.CreateNew(6, Properties.Resources.Balloons));
-                //DataCollection.Troops.Add(Model.CreateNew(7, Properties.Resources.Wizards));
-                //DataCollection.Troops.Add(Model.CreateNew(8, Properties.Resources.Healers));
-                //DataCollection.Troops.Add(Model.CreateNew(9, Properties.Resources.Dragons));
-                //DataCollection.Troops.Add(Model.CreateNew(10, Properties.Resources.Pekkas));
+                DataCollection.BarracksTroops.Add(Model.CreateNew(1, Properties.Resources.Barbarians));
+                DataCollection.BarracksTroops.Add(Model.CreateNew(2, Properties.Resources.Archers));
+                //DataCollection.BarracksTroops.Add(Model.CreateNew(3, Properties.Resources.Goblins));
+                //DataCollection.BarracksTroops.Add(Model.CreateNew(4, Properties.Resources.Giants));
+                //DataCollection.BarracksTroops.Add(Model.CreateNew(5, Properties.Resources.WallBreakers));
+                //DataCollection.BarracksTroops.Add(Model.CreateNew(6, Properties.Resources.Balloons));
+                //DataCollection.BarracksTroops.Add(Model.CreateNew(7, Properties.Resources.Wizards));
+                //DataCollection.BarracksTroops.Add(Model.CreateNew(8, Properties.Resources.Healers));
+                //DataCollection.BarracksTroops.Add(Model.CreateNew(9, Properties.Resources.Dragons));
+                //DataCollection.BarracksTroops.Add(Model.CreateNew(10, Properties.Resources.Pekkas));
                 // add more troop types
             }
 
             // Fill the Deploy Strategies
             if (DataCollection.DeployStrategies.Count == 0)
             {
-                DataCollection.DeployStrategies.Add(Model.CreateNew(1, Properties.Resources.DeployStrategyTwoSides));
-                DataCollection.DeployStrategies.Add(Model.CreateNew(2, Properties.Resources.DeployStrategyThreeSides));
-                DataCollection.DeployStrategies.Add(Model.CreateNew(3, Properties.Resources.DeployStrategyFourSides));
+                foreach (var ds in Enum.GetValues(typeof(DeployStrategy)))
+                {
+                    DataCollection.DeployStrategies.Add(Model.CreateNew((int)ds, ((DeployStrategy)ds).Name()));
+                }
             }
 
             // Fill the Deploy Troops
             if (DataCollection.DeployTroops.Count == 0)
             {
-                DataCollection.DeployTroops.Add(Model.CreateNew(1, Properties.Resources.DeployTroopsBarbariansAndArchers));
-                DataCollection.DeployTroops.Add(Model.CreateNew(2, Properties.Resources.DeployTroopsUseAllTroops));
+                foreach (var dt in Enum.GetValues(typeof(DeployTroop)))
+                {
+                    DataCollection.DeployTroops.Add(Model.CreateNew((int)dt, ((DeployTroop)dt).Name()));
+                }
             }
 
             // Fill the Troop Tiers
@@ -1148,6 +1208,11 @@
         /// </summary>
         private void Start()
         {
+            ClearOutput(); // Clear everything before we start
+
+            // Sample for getting familiar with the UI (used for accessing the properties/user settings values)
+            Samples.GettingAroundTheUI.UseValuesInUI(this);
+
             Output = "Trying some simple captures within FastFind, and Keyboard injection";
             MessageBox.Show("Trying some simple captures within FastFind, and Keyboard injection", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
             FastFindTesting.Test();
@@ -1221,16 +1286,14 @@
 
         #endregion
 
-        #region Output Messages Methods
+        #region Output Methods
 
         /// <summary>
-        /// Writes a new line to the output textbox (Should not use this directly, use Output property instead).
+        /// Clear all messages from the output.
         /// </summary>
-        /// <param name="text">The text.</param>
-        /// <param name="args">The arguments.</param>
-        private static void WriteLine(string text, params object[] args)
+        public static void ClearOutput()
         {
-            _output.AppendFormat(text + Environment.NewLine, args);
+            _output.Clear();
         }
 
         #endregion
@@ -1294,10 +1357,10 @@
             NumberOfGiants = AppSettings.NumberOfGiants;
             NumberOfWallBreakers = AppSettings.NumberOfWallBreakers;
 
-            SelectedBarrack1 = DataCollection.Troops.Where(b1 => b1.Id == AppSettings.SelectedBarrack1).DefaultIfEmpty(DataCollection.Troops.First()).First();
-            SelectedBarrack2 = DataCollection.Troops.Where(b2 => b2.Id == AppSettings.SelectedBarrack2).DefaultIfEmpty(DataCollection.Troops.First()).First();
-            SelectedBarrack3 = DataCollection.Troops.Where(b3 => b3.Id == AppSettings.SelectedBarrack3).DefaultIfEmpty(DataCollection.Troops.First()).First();
-            SelectedBarrack4 = DataCollection.Troops.Where(b4 => b4.Id == AppSettings.SelectedBarrack4).DefaultIfEmpty(DataCollection.Troops.First()).First();
+            SelectedBarrack1 = DataCollection.BarracksTroops.Where(b1 => b1.Id == AppSettings.SelectedBarrack1).DefaultIfEmpty(DataCollection.BarracksTroops.First()).First();
+            SelectedBarrack2 = DataCollection.BarracksTroops.Where(b2 => b2.Id == AppSettings.SelectedBarrack2).DefaultIfEmpty(DataCollection.BarracksTroops.First()).First();
+            SelectedBarrack3 = DataCollection.BarracksTroops.Where(b3 => b3.Id == AppSettings.SelectedBarrack3).DefaultIfEmpty(DataCollection.BarracksTroops.First()).First();
+            SelectedBarrack4 = DataCollection.BarracksTroops.Where(b4 => b4.Id == AppSettings.SelectedBarrack4).DefaultIfEmpty(DataCollection.BarracksTroops.First()).First();
         }
 
         /// <summary>
@@ -1362,6 +1425,8 @@
                         
                         break;
                     case TroopType.Tier2:
+                        var t2 = DataCollection.TroopTiers[(int)tier];
+
                         AppSettings.DonateAllGiants = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Giant].IsDonateAll;
                         AppSettings.DonateAllWallBreakers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.WallBreaker].IsDonateAll;
                         AppSettings.DonateAllBalloons = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Balloon].IsDonateAll;
