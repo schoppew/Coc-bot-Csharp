@@ -1,36 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CoC.Bot.Data
+﻿namespace CoC.Bot.Data
 {
+    using System;
+
   /// <summary>
   /// The Attack Mode
   /// </summary>
+    [Flags]
   public enum Troop
   {
-    Barbarian, // Normal troops (Elixir)
+        Barbarian,  // Tier 1
     Archer,
-    Giant,
     Goblin,
-    Wallbreaker,
+
+        Giant,      // Tier 2
+        WallBreaker,
     Balloon,
     Wizard,
-    Healer,
+
+        Healer,     // Tier 3
     Dragon,
     Pekka,
 
-    Minion,   // Dark elixir troops
-    Hogrider,
+        Minion,     // Dark Elixir
+        HogRider,
     Valkyrie,
     Golem,
     Witch,
-    Lavahound,
+        LavaHound,
 
-    King,   // Heroes
+        King,       // Heroes
     Queen
   };
   

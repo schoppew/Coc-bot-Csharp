@@ -4,6 +4,8 @@
         xmlns:vm="clr-namespace:CoC.Bot.ViewModels"
         xmlns:b="clr-namespace:CoC.Bot.UI.Behaviours"
         xmlns:c="clr-namespace:CoC.Bot.UI.Converters"
+        xmlns:ctrls="clr-namespace:CoC.Bot.UI.Controls"
+        xmlns:d="clr-namespace:CoC.Bot.Data"
         xmlns:p="clr-namespace:CoC.Bot.Properties"
         Title="[TBC] Clash of Clans Bot" Icon="/Assets/Images/Icon.ico" Height="600" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
 
@@ -13,6 +15,8 @@
 
     <Window.Resources>
         <c:EnumToBooleanConverter x:Key="enumToBoolConverter" />
+        <c:InverseBooleanConverter x:Key="inverseBoolConverter" />
+        <c:SelectedTreeViewItemConverter x:Key="selTreeViewConverter" />
     </Window.Resources>
 
     <!-- Taskbar -->
@@ -77,7 +81,7 @@
                         <!-- General Tab -->
                         <TabItem Header="{x:Static p:Resources.General}">
                             <Grid Background="{DynamicResource BackgroundBrush}">
-                                <TextBox Text="{Binding Output}" b:TextBoxBehaviour.AlwaysScrollToEnd="True" Margin="16,16,18,100" IsReadOnly="True" VerticalScrollBarVisibility="Visible" />
+                                <TextBox Text="{Binding Output, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.AlwaysScrollToEnd="True" TextWrapping="Wrap" AcceptsReturn="True" Margin="16,16,18,100" IsReadOnly="True" VerticalScrollBarVisibility="Visible" />
                                 <GroupBox Header="{x:Static p:Resources.Controls}" HorizontalAlignment="Left" Margin="16,0,0,18" VerticalAlignment="Bottom" Height="75" Width="210">
                                     <Grid>
                                         <Button Command="{Binding StartCommand}" Height="33" Width="75" HorizontalAlignment="Left" Margin="10,0,0,0" Visibility="Visible">
@@ -129,29 +133,32 @@
                         <!-- Search Settings Tab -->
                         <TabItem Header="{x:Static p:Resources.SearchSettings}">
                             <Grid Background="{DynamicResource BackgroundBrush}">
-                                <GroupBox Header="{x:Static p:Resources.Conditions}" HorizontalAlignment="Left" Margin="16,16,0,0" VerticalAlignment="Top" Height="210" Width="210">
+                                <GroupBox Header="{x:Static p:Resources.Conditions}" HorizontalAlignment="Left" Margin="16,16,0,0" VerticalAlignment="Top" Height="239" Width="210">
                                     <Grid>
                                         <CheckBox Content="{x:Static p:Resources.MeetGold}" IsChecked="{Binding MeetGold}" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
                                         <CheckBox Content="{x:Static p:Resources.MeetElixir}" IsChecked="{Binding MeetElixir}" HorizontalAlignment="Left" Margin="30,32,0,0" VerticalAlignment="Top"/>
                                         <CheckBox Content="{x:Static p:Resources.MeetDarkElixir}" IsChecked="{Binding MeetDarkElixir}" HorizontalAlignment="Left" Margin="30,54,0,0" VerticalAlignment="Top"/>
                                         <CheckBox Content="{x:Static p:Resources.MeetTrophyCount}" IsChecked="{Binding MeetTrophyCount}" HorizontalAlignment="Left" Margin="30,76,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.MeetTownhallLevel}" IsChecked="{Binding MeetTownhallLevel}" HorizontalAlignment="Left" Margin="30,98,0,0" VerticalAlignment="Top"/>
                                         <TextBlock Text="{x:Static p:Resources.ConditionsMessage}" Height="75" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
-                                <GroupBox Header="{x:Static p:Resources.GroupBoxResources}" HorizontalAlignment="Right" Margin="0,16,16,0" VerticalAlignment="Top" Height="210" Width="210">
+                                <GroupBox Header="{x:Static p:Resources.GroupBoxResources}" HorizontalAlignment="Right" Margin="0,16,16,0" VerticalAlignment="Top" Height="239" Width="210">
                                     <Grid>
                                         <Label Content="{x:Static p:Resources.LabelMinimumGold}" Height="25" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelMinimumElixir}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelMinimumDarkElixir}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelMinimumTrophyCount}" Height="25" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="113" />
+                                        <Label Content="{x:Static p:Resources.LabelMinimumTownhallLevel}" Height="25" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="113" />
                                         <TextBox Text="{Binding MinimumGold, UpdateSourceTrigger=PropertyChanged}" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,12,10,0" VerticalAlignment="Top" Width="60" />
                                         <TextBox Text="{Binding MinimumElixir, UpdateSourceTrigger=PropertyChanged}" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,40,10,0" VerticalAlignment="Top" Width="60" />
                                         <TextBox Text="{Binding MinimumDarkElixir, UpdateSourceTrigger=PropertyChanged}" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,68,10,0" VerticalAlignment="Top" Width="60" />
                                         <TextBox Text="{Binding MinimumTrophyCount, UpdateSourceTrigger=PropertyChanged}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,96,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding MinimumTownhallLevel, UpdateSourceTrigger=PropertyChanged}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,124,10,0" VerticalAlignment="Top" Width="60" />
                                         <TextBlock Text="{x:Static p:Resources.ResourcesMessage}" Height="45" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
-                                <GroupBox Header="{x:Static p:Resources.OtherSearchSettings}" Margin="16,231,16,0" VerticalAlignment="Top" Height="129">
+                                <GroupBox Header="{x:Static p:Resources.OtherSearchSettings}" Margin="16,260,16,0" VerticalAlignment="Top" Height="100">
                                     <CheckBox Content="{x:Static p:Resources.AlertWhenBaseFound}" IsChecked="{Binding AlertWhenBaseFound, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
                                 </GroupBox>
                                 <Button Content="{x:Static p:Resources.SearchMode}" Command="{Binding SearchModeCommand}" Height="23" Margin="16,0,16,10" VerticalAlignment="Bottom" Visibility="Visible" />
@@ -212,7 +219,57 @@
                         <!-- Donate Settings Tab -->
                         <TabItem Header="{x:Static p:Resources.DonateSettings}">
                             <Grid Background="{DynamicResource BackgroundBrush}">
-
+                                <GroupBox Header="{x:Static p:Resources.TroopRequest}" Margin="16,16,16,0" VerticalAlignment="Top" Height="62">
+                                    <Grid>
+                                        <CheckBox x:Name="chkRequestTroopsMsg" Content="{x:Static p:Resources.LabelRequestFor}" IsChecked="{Binding RequestTroops}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
+                                        <TextBox Text="{Binding RequestTroopsMessage}" IsEnabled="{Binding ElementName=chkRequestTroopsMsg, Path=IsChecked}" Height="23" Margin="0,8,16,8" TextWrapping="Wrap" Width="290" HorizontalAlignment="Right"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="{x:Static p:Resources.Troops}" Margin="16,83,16,0" VerticalAlignment="Top" Height="277">
+                                    <Grid>
+                                        <ctrls:TreeViewEx x:Name="donateTreeView" ItemsSource="{Binding TroopTiers}" SelectedItem="{Binding SelectedTroopForDonate, Mode=TwoWay}" HorizontalAlignment="Left" Margin="16,16,0,16" Width="155">
+                                            <ctrls:TreeViewEx.Style>
+                                                <Style TargetType="{x:Type TreeView}" BasedOn="{StaticResource {x:Type TreeView}}" />
+                                            </ctrls:TreeViewEx.Style>
+                                            <ctrls:TreeViewEx.ItemContainerStyle>
+                                                <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource {x:Type TreeViewItem}}">
+                                                    <Setter Property="IsExpanded" Value="True" />
+                                                    <!--<Setter Property="IsSelected" Value="{Binding IsSelectedInUI, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />-->
+                                                    <!--<Style.Triggers>
+                                                        <Trigger Property="IsSelected" Value="True">
+                                                            <Setter Property="FontWeight" Value="Bold" />
+                                                        </Trigger>
+                                                    </Style.Triggers>-->
+                                                </Style>
+                                            </ctrls:TreeViewEx.ItemContainerStyle>
+                                            <TreeView.Resources>
+                                                <HierarchicalDataTemplate DataType="{x:Type d:TroopTierModel}" ItemsSource="{Binding Troops}">
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="{Binding Name}" />
+                                                        <TextBlock Text=" [" Foreground="{StaticResource DisabledForegroundBrush}" />
+                                                        <TextBlock Text="{Binding Troops.Count}" Foreground="{StaticResource DisabledForegroundBrush}" />
+                                                        <TextBlock Text="]" Foreground="{StaticResource DisabledForegroundBrush}" />
+                                                    </StackPanel>
+                                                </HierarchicalDataTemplate>
+                                                <DataTemplate DataType="{x:Type d:TroopModel}">
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <CheckBox IsChecked="{Binding IsSelectedForDonate}" />
+                                                        <TextBlock Text="{Binding Name}" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </TreeView.Resources>
+                                        </ctrls:TreeViewEx>
+                                        <GroupBox Header="{Binding SelectedItem, ElementName=donateTreeView, Mode=OneWay, Converter={StaticResource selTreeViewConverter}}" HorizontalAlignment="Right" Margin="0,8,16,16" Width="220">
+                                            <Grid>
+                                                <CheckBox x:Name="chkDonateToAll" Content="{x:Static p:Resources.DonateToAll}" IsChecked="{Binding IsCurrentDonateAll}" Visibility="{Binding ShouldHideDonateControls}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
+                                                <TextBox Text="{Binding CurrentDonateKeywords, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding ElementName=chkDonateToAll, Path=IsChecked, Converter={StaticResource inverseBoolConverter}}" Visibility="{Binding ShouldHideDonateControls}" Margin="16,32,16,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Height="120" />
+                                                <TextBlock Text="{Binding TroopTierSelectedInfoMessage}" Visibility="{Binding ShouldHideTierInfoMessage}" Height="90" HorizontalAlignment="Right" Margin="0,44,13,75" VerticalAlignment="Center" Width="182" TextWrapping="Wrap" TextAlignment="Center" FontSize="24" />
+                                                <TextBlock Text="{x:Static p:Resources.DonateMessage}" Height="29" HorizontalAlignment="Right" Margin="0,0,13,10" VerticalAlignment="Bottom" Width="182" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
+                                            </Grid>
+                                        </GroupBox>
+                                    </Grid>
+                                </GroupBox>
+                                <Button Content="{x:Static p:Resources.LocateClanCastleManually}" Command="{Binding LocateClanCastleCommand}" Height="23" Margin="16,0,16,10" VerticalAlignment="Bottom" Visibility="Visible" />
                             </Grid>
                         </TabItem>
                         <!-- Troop Settings Tab -->

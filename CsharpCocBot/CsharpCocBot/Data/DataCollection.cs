@@ -29,5 +29,10 @@
         /// The Deploy Troops
         /// </summary>
         internal static BindingList<Model> DeployTroops = new BindingList<Model>();
+
+        /// <summary>
+        /// The Troop Tiers
+        /// </summary>
+        internal static BindingList<TroopTierModel> TroopTiers = new BindingList<TroopTierModel>();
     }
 }

@@ -14,6 +14,7 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -121,13 +121,19 @@
     <Compile Include="Data\BuildingLevels.cs" />
     <Compile Include="Data\DataCollection.cs" />
     <Compile Include="Data\Model.cs" />
+    <Compile Include="Data\TroopModel.cs" />
+    <Compile Include="Data\TroopType.cs" />
     <Compile Include="Data\Troop.cs" />
+    <Compile Include="Data\TroopHelper.cs" />
+    <Compile Include="Data\TroopTierModel.cs" />
     <Compile Include="Tools\FastFind\FastFindTesting.cs" />
     <Compile Include="Tools\KeyboardHelper.cs" />
     <Compile Include="UI\Behaviours\TextBoxBehaviour.cs" />
     <Compile Include="UI\Commands\AboutCommand.cs" />
     <Compile Include="UI\Commands\DelegateCommand.cs" />
+    <Compile Include="UI\Controls\TreeViewEx.cs" />
     <Compile Include="UI\Converters\EnumToBooleanConverter.cs" />
+    <Compile Include="UI\Converters\InverseBooleanConverter.cs" />
     <Compile Include="UI\Converters\LeftMarginMultiplierConverter.cs" />
     <Compile Include="UI\Converters\ScrollbarOnFarConverter.cs" />
     <Compile Include="Functions\Attack Algorithms\BarchAlgorithm.cs" />
@@ -140,6 +146,7 @@
     <Compile Include="Functions\ReadText.cs" />
     <Compile Include="Functions\Search.cs" />
     <Compile Include="Functions\Village.cs" />
+    <Compile Include="UI\Converters\SelectedTreeViewItemConverter.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\About.xaml.cs">

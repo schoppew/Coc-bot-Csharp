@@ -454,5 +454,629 @@ namespace CoC.Bot.Properties {
                 this["MeetElixir"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MeetTownhallLevel {
+            get {
+                return ((bool)(this["MeetTownhallLevel"]));
+            }
+            set {
+                this["MeetTownhallLevel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        public int MinTownhallLevel {
+            get {
+                return ((int)(this["MinTownhallLevel"]));
+            }
+            set {
+                this["MinTownhallLevel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("any")]
+        public string RequestTroopsMessage {
+            get {
+                return ((string)(this["RequestTroopsMessage"]));
+            }
+            set {
+                this["RequestTroopsMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RequestTroops {
+            get {
+                return ((bool)(this["RequestTroops"]));
+            }
+            set {
+                this["RequestTroops"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("barbarians|barbarian|barbs|any")]
+        public string DonateKeywordsBarbarians {
+            get {
+                return ((string)(this["DonateKeywordsBarbarians"]));
+            }
+            set {
+                this["DonateKeywordsBarbarians"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("archers|archer|arch|any")]
+        public string DonateKeywordsArchers {
+            get {
+                return ((string)(this["DonateKeywordsArchers"]));
+            }
+            set {
+                this["DonateKeywordsArchers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("goblins|goblin|any")]
+        public string DonateKeywordsGoblins {
+            get {
+                return ((string)(this["DonateKeywordsGoblins"]));
+            }
+            set {
+                this["DonateKeywordsGoblins"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("giants|giant|any")]
+        public string DonateKeywordsGiants {
+            get {
+                return ((string)(this["DonateKeywordsGiants"]));
+            }
+            set {
+                this["DonateKeywordsGiants"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("wall breakers|wb|any")]
+        public string DonateKeywordsWallBreakers {
+            get {
+                return ((string)(this["DonateKeywordsWallBreakers"]));
+            }
+            set {
+                this["DonateKeywordsWallBreakers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("balloons|balloon|any")]
+        public string DonateKeywordsBalloons {
+            get {
+                return ((string)(this["DonateKeywordsBalloons"]));
+            }
+            set {
+                this["DonateKeywordsBalloons"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("wizards|wizard|any")]
+        public string DonateKeywordsWizards {
+            get {
+                return ((string)(this["DonateKeywordsWizards"]));
+            }
+            set {
+                this["DonateKeywordsWizards"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("healer|any")]
+        public string DonateKeywordsHealers {
+            get {
+                return ((string)(this["DonateKeywordsHealers"]));
+            }
+            set {
+                this["DonateKeywordsHealers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("dragon|drakes|any")]
+        public string DonateKeywordsDragons {
+            get {
+                return ((string)(this["DonateKeywordsDragons"]));
+            }
+            set {
+                this["DonateKeywordsDragons"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("p.e.k.a.a|pekka|any")]
+        public string DonateKeywordsPekkas {
+            get {
+                return ((string)(this["DonateKeywordsPekkas"]));
+            }
+            set {
+                this["DonateKeywordsPekkas"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("minions|minion|minis|mini|any")]
+        public string DonateKeywordsMinions {
+            get {
+                return ((string)(this["DonateKeywordsMinions"]));
+            }
+            set {
+                this["DonateKeywordsMinions"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("hog riders|hog rider|hogs|bacon|any")]
+        public string DonateKeywordsHogRiders {
+            get {
+                return ((string)(this["DonateKeywordsHogRiders"]));
+            }
+            set {
+                this["DonateKeywordsHogRiders"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("valkyries|valkyrie|valks|valk|any")]
+        public string DonateKeywordsValkyries {
+            get {
+                return ((string)(this["DonateKeywordsValkyries"]));
+            }
+            set {
+                this["DonateKeywordsValkyries"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("golem|any")]
+        public string DonateKeywordsGolems {
+            get {
+                return ((string)(this["DonateKeywordsGolems"]));
+            }
+            set {
+                this["DonateKeywordsGolems"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("witches|witch|any")]
+        public string DonateKeywordsWitches {
+            get {
+                return ((string)(this["DonateKeywordsWitches"]));
+            }
+            set {
+                this["DonateKeywordsWitches"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("lava hound|lava|hound|any")]
+        public string DonateKeywordsLavaHounds {
+            get {
+                return ((string)(this["DonateKeywordsLavaHounds"]));
+            }
+            set {
+                this["DonateKeywordsLavaHounds"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateBarbarians {
+            get {
+                return ((bool)(this["DonateBarbarians"]));
+            }
+            set {
+                this["DonateBarbarians"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DonateArchers {
+            get {
+                return ((bool)(this["DonateArchers"]));
+            }
+            set {
+                this["DonateArchers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateGoblins {
+            get {
+                return ((bool)(this["DonateGoblins"]));
+            }
+            set {
+                this["DonateGoblins"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateGiants {
+            get {
+                return ((bool)(this["DonateGiants"]));
+            }
+            set {
+                this["DonateGiants"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateWallBreakers {
+            get {
+                return ((bool)(this["DonateWallBreakers"]));
+            }
+            set {
+                this["DonateWallBreakers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateBalloons {
+            get {
+                return ((bool)(this["DonateBalloons"]));
+            }
+            set {
+                this["DonateBalloons"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateWizards {
+            get {
+                return ((bool)(this["DonateWizards"]));
+            }
+            set {
+                this["DonateWizards"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateHealers {
+            get {
+                return ((bool)(this["DonateHealers"]));
+            }
+            set {
+                this["DonateHealers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateDragons {
+            get {
+                return ((bool)(this["DonateDragons"]));
+            }
+            set {
+                this["DonateDragons"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonatePekkas {
+            get {
+                return ((bool)(this["DonatePekkas"]));
+            }
+            set {
+                this["DonatePekkas"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateMinions {
+            get {
+                return ((bool)(this["DonateMinions"]));
+            }
+            set {
+                this["DonateMinions"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateHogRiders {
+            get {
+                return ((bool)(this["DonateHogRiders"]));
+            }
+            set {
+                this["DonateHogRiders"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateValkyries {
+            get {
+                return ((bool)(this["DonateValkyries"]));
+            }
+            set {
+                this["DonateValkyries"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateGolems {
+            get {
+                return ((bool)(this["DonateGolems"]));
+            }
+            set {
+                this["DonateGolems"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateWitches {
+            get {
+                return ((bool)(this["DonateWitches"]));
+            }
+            set {
+                this["DonateWitches"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateLavaHounds {
+            get {
+                return ((bool)(this["DonateLavaHounds"]));
+            }
+            set {
+                this["DonateLavaHounds"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllBarbarians {
+            get {
+                return ((bool)(this["DonateAllBarbarians"]));
+            }
+            set {
+                this["DonateAllBarbarians"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllArchers {
+            get {
+                return ((bool)(this["DonateAllArchers"]));
+            }
+            set {
+                this["DonateAllArchers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllGoblins {
+            get {
+                return ((bool)(this["DonateAllGoblins"]));
+            }
+            set {
+                this["DonateAllGoblins"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllGiants {
+            get {
+                return ((bool)(this["DonateAllGiants"]));
+            }
+            set {
+                this["DonateAllGiants"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllWallBreakers {
+            get {
+                return ((bool)(this["DonateAllWallBreakers"]));
+            }
+            set {
+                this["DonateAllWallBreakers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllBalloons {
+            get {
+                return ((bool)(this["DonateAllBalloons"]));
+            }
+            set {
+                this["DonateAllBalloons"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllWizards {
+            get {
+                return ((bool)(this["DonateAllWizards"]));
+            }
+            set {
+                this["DonateAllWizards"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllHealers {
+            get {
+                return ((bool)(this["DonateAllHealers"]));
+            }
+            set {
+                this["DonateAllHealers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllDragons {
+            get {
+                return ((bool)(this["DonateAllDragons"]));
+            }
+            set {
+                this["DonateAllDragons"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllPekkas {
+            get {
+                return ((bool)(this["DonateAllPekkas"]));
+            }
+            set {
+                this["DonateAllPekkas"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllMinions {
+            get {
+                return ((bool)(this["DonateAllMinions"]));
+            }
+            set {
+                this["DonateAllMinions"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllHogRiders {
+            get {
+                return ((bool)(this["DonateAllHogRiders"]));
+            }
+            set {
+                this["DonateAllHogRiders"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllValkyries {
+            get {
+                return ((bool)(this["DonateAllValkyries"]));
+            }
+            set {
+                this["DonateAllValkyries"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllGolems {
+            get {
+                return ((bool)(this["DonateAllGolems"]));
+            }
+            set {
+                this["DonateAllGolems"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllWitches {
+            get {
+                return ((bool)(this["DonateAllWitches"]));
+            }
+            set {
+                this["DonateAllWitches"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DonateAllLavaHounds {
+            get {
+                return ((bool)(this["DonateAllLavaHounds"]));
+            }
+            set {
+                this["DonateAllLavaHounds"] = value;
+            }
+        }
     }
 }
