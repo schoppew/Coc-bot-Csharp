@@ -13,7 +13,7 @@
         Goblin,
 
         Giant,      // Tier 2
-        Wallbreaker,
+        WallBreaker,
         Balloon,
         Wizard,
 

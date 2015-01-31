@@ -76,7 +76,7 @@ namespace CoC.Bot.Data
                 case Troop.Archer:
                 case Troop.Goblin:
                     return 1;
-                case Troop.Wallbreaker:
+                case Troop.WallBreaker:
                 case Troop.Minion:
                     return 2;
                 case Troop.Wizard:
@@ -111,7 +111,7 @@ namespace CoC.Bot.Data
         {
             switch (troop)
             {
-                case Troop.Wallbreaker: return Properties.Resources.WallBreaker;
+                case Troop.WallBreaker: return Properties.Resources.WallBreaker;
                 case Troop.HogRider: return Properties.Resources.HogRider;
                 case Troop.Pekka: return Properties.Resources.Pekka;
                 case Troop.LavaHound: return Properties.Resources.LavaHound;

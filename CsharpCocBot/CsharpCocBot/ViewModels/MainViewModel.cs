@@ -579,7 +579,12 @@
             {
                 if (_isCurrentDonateAll != value)
                 {
-                    // TODO: Persist changes to DataCollection.TroopTiers.Troop.IsDonateAll
+                    if (SelectedTroopForDonate is TroopModel)
+                    {
+                        var troop = (TroopModel)SelectedTroopForDonate;
+                        troop.IsDonateAll = value;
+                    }
+
                     _isCurrentDonateAll = value;
                     OnPropertyChanged();
                 }
@@ -594,7 +599,12 @@
             {
                 if (_currentDonateKeywords != value)
                 {
-                    // TODO: Persist changes to DataCollection.TroopTiers.Troop.DonateKeywords
+                    if (SelectedTroopForDonate is TroopModel)
+                    {
+                        var troop = (TroopModel)SelectedTroopForDonate;
+                        troop.DonateKeywords = value.Replace(Environment.NewLine, @"|");
+                    }
+
                     _currentDonateKeywords = value;
                     OnPropertyChanged();
                 }
@@ -1076,7 +1086,6 @@
                 DataCollection.DeployTroops.Add(Model.CreateNew(2, Properties.Resources.DeployTroopsUseAllTroops));
             }
 
-            // TODO: Create the DonateAll(Troop) in Settings
             // Fill the Troop Tiers
             if (DataCollection.TroopTiers.Count == 0)
             {
@@ -1088,37 +1097,37 @@
                             DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.Tier1.Name()));
 
                             var t1 = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
-                            t1.Troops.Add(TroopModel.CreateNew((int)Troop.Barbarian, Troop.Barbarian.Name(), AppSettings.DonateBarbarians, false, AppSettings.DonateKeyboardsBarbarians));
-                            t1.Troops.Add(TroopModel.CreateNew((int)Troop.Archer, Troop.Archer.Name(), AppSettings.DonateArchers, false, AppSettings.DonateKeywordsArchers));
-                            t1.Troops.Add(TroopModel.CreateNew((int)Troop.Goblin, Troop.Goblin.Name(), AppSettings.DonateGoblins, false, AppSettings.DonateKeywordsGoblins));
+                            t1.Troops.Add(TroopModel.CreateNew((int)Troop.Barbarian, Troop.Barbarian.Name(), AppSettings.DonateBarbarians, AppSettings.DonateAllBarbarians, AppSettings.DonateKeywordsBarbarians));
+                            t1.Troops.Add(TroopModel.CreateNew((int)Troop.Archer, Troop.Archer.Name(), AppSettings.DonateArchers, AppSettings.DonateAllArchers, AppSettings.DonateKeywordsArchers));
+                            t1.Troops.Add(TroopModel.CreateNew((int)Troop.Goblin, Troop.Goblin.Name(), AppSettings.DonateGoblins, AppSettings.DonateAllGoblins, AppSettings.DonateKeywordsGoblins));
                             break;
                         case TroopType.Tier2:
                             DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.Tier2.Name()));
 
                             var t2 = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
-                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.Giant, Troop.Giant.Name(), AppSettings.DonateGiants, false, AppSettings.DonateKeywordsGiants));
-                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.Wallbreaker, Troop.Wallbreaker.Name(), AppSettings.DonateWallBreakers, false, AppSettings.DonateKeywordsWallBreakers));
-                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.Balloon, Troop.Balloon.Name(), AppSettings.DonateBalloons, false, AppSettings.DonateKeywordsBalloons));
-                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.Wizard, Troop.Wizard.Name(), AppSettings.DonateWizards, false, AppSettings.DonateKeywordsWizards));
+                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.Giant, Troop.Giant.Name(), AppSettings.DonateGiants, AppSettings.DonateAllGiants, AppSettings.DonateKeywordsGiants));
+                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.WallBreaker, Troop.WallBreaker.Name(), AppSettings.DonateWallBreakers, AppSettings.DonateAllWallBreakers, AppSettings.DonateKeywordsWallBreakers));
+                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.Balloon, Troop.Balloon.Name(), AppSettings.DonateBalloons, AppSettings.DonateAllBalloons, AppSettings.DonateKeywordsBalloons));
+                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.Wizard, Troop.Wizard.Name(), AppSettings.DonateWizards, AppSettings.DonateAllWizards, AppSettings.DonateKeywordsWizards));
                             break;
                         case TroopType.Tier3:
                             DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.Tier3.Name()));
 
                             var t3 = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
-                            t3.Troops.Add(TroopModel.CreateNew((int)Troop.Healer, Troop.Healer.Name(), AppSettings.DonateHealers, false, AppSettings.DonateKeywordsHealers));
-                            t3.Troops.Add(TroopModel.CreateNew((int)Troop.Dragon, Troop.Dragon.Name(), AppSettings.DonateDragons, false, AppSettings.DonateKeywordsDragons));
-                            t3.Troops.Add(TroopModel.CreateNew((int)Troop.Pekka, Troop.Pekka.Name(), AppSettings.DonatePekkas, false, AppSettings.DonateKeywordsPekkas));
+                            t3.Troops.Add(TroopModel.CreateNew((int)Troop.Healer, Troop.Healer.Name(), AppSettings.DonateHealers, AppSettings.DonateAllHealers, AppSettings.DonateKeywordsHealers));
+                            t3.Troops.Add(TroopModel.CreateNew((int)Troop.Dragon, Troop.Dragon.Name(), AppSettings.DonateDragons, AppSettings.DonateAllDragons, AppSettings.DonateKeywordsDragons));
+                            t3.Troops.Add(TroopModel.CreateNew((int)Troop.Pekka, Troop.Pekka.Name(), AppSettings.DonatePekkas, AppSettings.DonateAllPekkas, AppSettings.DonateKeywordsPekkas));
                             break;
                         case TroopType.DarkTroops:
                             DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.DarkTroops.Name()));
 
                             var dt = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
-                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Minion, Troop.Minion.Name(), AppSettings.DonateMinions, false, AppSettings.DonateKeywordsMinions));
-                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.HogRider, Troop.HogRider.Name(), AppSettings.DonateHogRiders, false, AppSettings.DonateKeywordsHogRiders));
-                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Valkyrie, Troop.Valkyrie.Name(), AppSettings.DonateValkyries, false, AppSettings.DonateKeywordsValkyries));
-                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Golem, Troop.Golem.Name(), AppSettings.DonateGolems, false, AppSettings.DonateKeywordsGolems));
-                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Witch, Troop.Witch.Name(), AppSettings.DonateWitches, false, AppSettings.DonateKeywordsWitches));
-                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.LavaHound, Troop.LavaHound.Name(), AppSettings.DonateLavaHounds, false, AppSettings.DonateKeywordsLavaHounds));
+                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Minion, Troop.Minion.Name(), AppSettings.DonateMinions, AppSettings.DonateAllMinions, AppSettings.DonateKeywordsMinions));
+                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.HogRider, Troop.HogRider.Name(), AppSettings.DonateHogRiders, AppSettings.DonateAllHogRiders, AppSettings.DonateKeywordsHogRiders));
+                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Valkyrie, Troop.Valkyrie.Name(), AppSettings.DonateValkyries, AppSettings.DonateAllValkyries, AppSettings.DonateKeywordsValkyries));
+                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Golem, Troop.Golem.Name(), AppSettings.DonateGolems, AppSettings.DonateAllGolems, AppSettings.DonateKeywordsGolems));
+                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Witch, Troop.Witch.Name(), AppSettings.DonateWitches, AppSettings.DonateAllWitches, AppSettings.DonateKeywordsWitches));
+                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.LavaHound, Troop.LavaHound.Name(), AppSettings.DonateLavaHounds, AppSettings.DonateAllLavaHounds, AppSettings.DonateKeywordsLavaHounds));
                             break;
                         default:
                             // Troop Type Heroes, do nothing!
@@ -1335,6 +1344,61 @@
             // Donate Settings
             AppSettings.RequestTroops = RequestTroops;
             AppSettings.RequestTroopsMessage = RequestTroopsMessage;
+
+            foreach (var tier in Enum.GetValues(typeof(TroopType)))
+            {
+                switch ((TroopType)tier)
+                {
+                    case TroopType.Tier1:
+                        AppSettings.DonateAllBarbarians = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Barbarian].IsDonateAll;
+                        AppSettings.DonateAllArchers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Archer].IsDonateAll;
+                        AppSettings.DonateAllGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Goblin].IsDonateAll;
+
+                        AppSettings.DonateKeywordsBarbarians = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Barbarian].DonateKeywords;
+                        AppSettings.DonateKeywordsArchers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Archer].DonateKeywords;
+                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Goblin].DonateKeywords;
+                        
+                        break;
+                    case TroopType.Tier2:
+                        AppSettings.DonateAllGiants = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Giant].IsDonateAll;
+                        AppSettings.DonateAllWallBreakers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.WallBreaker].IsDonateAll;
+                        AppSettings.DonateAllBalloons = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Balloon].IsDonateAll;
+                        AppSettings.DonateAllWizards = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Wizard].IsDonateAll;
+
+                        AppSettings.DonateKeywordsBarbarians = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Giant].DonateKeywords;
+                        AppSettings.DonateKeywordsArchers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.WallBreaker].DonateKeywords;
+                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Balloon].DonateKeywords;
+                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Wizard].DonateKeywords;
+                        break;
+                    case TroopType.Tier3:
+                        AppSettings.DonateAllHealers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Healer].IsDonateAll;
+                        AppSettings.DonateAllDragons = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Dragon].IsDonateAll;
+                        AppSettings.DonateAllPekkas = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Pekka].IsDonateAll;
+
+                        AppSettings.DonateKeywordsBarbarians = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Healer].DonateKeywords;
+                        AppSettings.DonateKeywordsArchers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Dragon].DonateKeywords;
+                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Pekka].DonateKeywords;
+                        break;
+                    case TroopType.DarkTroops:
+                        AppSettings.DonateAllMinions = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Minion].IsDonateAll;
+                        AppSettings.DonateAllHogRiders = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.HogRider].IsDonateAll;
+                        AppSettings.DonateAllValkyries = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Valkyrie].IsDonateAll;
+                        AppSettings.DonateAllGolems = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Golem].IsDonateAll;
+                        AppSettings.DonateAllWitches = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Witch].IsDonateAll;
+                        AppSettings.DonateAllLavaHounds = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.LavaHound].IsDonateAll;
+
+                        AppSettings.DonateKeywordsBarbarians = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Minion].DonateKeywords;
+                        AppSettings.DonateKeywordsArchers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.HogRider].DonateKeywords;
+                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Valkyrie].DonateKeywords;
+                        AppSettings.DonateKeywordsBarbarians = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Golem].DonateKeywords;
+                        AppSettings.DonateKeywordsArchers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Witch].DonateKeywords;
+                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.LavaHound].DonateKeywords;
+                        break;
+                    default:
+                        // Troop Type Heroes, do nothing!
+                        break;
+                }
+            }
 
             // Troop Settings
             AppSettings.BarbariansPercent = BarbariansPercent;
