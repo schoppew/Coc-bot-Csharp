@@ -110,19 +110,6 @@
             }
         }
 
-        // This is a workaround for getting the SelectedItem in a TreeView
-        // Blame Microsoft!
-        private bool _isSelectedInUI;
-        public bool IsSelectedInUI
-        {
-            get { return _isSelectedInUI; }
-            set
-            {
-                _isSelectedInUI = value;
-                OnPropertyChanged();
-            }
-        }
-
         #endregion
     }
 }

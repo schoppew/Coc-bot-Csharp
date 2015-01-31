@@ -521,18 +521,65 @@
             }
         }
 
+        private object _selectedTroopForDonate;
+        public object SelectedTroopForDonate
+        {
+            get { return _selectedTroopForDonate; }
+            set
+            {
+                if (_selectedTroopForDonate != value)
+                {
+                    _selectedTroopForDonate = value;
+                    if (_selectedTroopForDonate is TroopModel)
+                    {
+                        ShouldHideDonateControls = Visibility.Visible;
+                        ShouldHideTierInfoMessage = Visibility.Collapsed;
+
+                        var troop = (TroopModel)_selectedTroopForDonate;
+                        IsCurrentDonateAll = troop.IsDonateAll;
+                        CurrentDonateKeywords = troop.DonateKeywords.Replace(@"|", Environment.NewLine);
+                    }
+                    else
+                    {
+                        var tt = (TroopTierModel)_selectedTroopForDonate;
+
+                        switch ((TroopType)tt.Id)
+                        {
+                            case TroopType.Tier1:
+                                TroopTierSelectedInfoMessage = Properties.Resources.Tier1;
+                                break;
+                            case TroopType.Tier2:
+                                TroopTierSelectedInfoMessage = Properties.Resources.Tier2;
+                                break;
+                            case TroopType.Tier3:
+                                TroopTierSelectedInfoMessage = Properties.Resources.Tier3;
+                                break;
+                            case TroopType.DarkTroops:
+                                TroopTierSelectedInfoMessage = Properties.Resources.DarkTroops;
+                                break;
+                            default:
+                                TroopTierSelectedInfoMessage = string.Empty;
+                                break;
+                        }
+
+                        ShouldHideDonateControls = Visibility.Collapsed;
+                        ShouldHideTierInfoMessage = Visibility.Visible;
+                    }
+
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         private bool _isCurrentDonateAll;
         public bool IsCurrentDonateAll
         {
-            get
-            {
-                // TODO: Identify the selected TreeViewItem and acording to that pass the specific troop donate all boolean from DataCollection.TroopTiers.Troop.IsDonateAll
-                return _isCurrentDonateAll;
-            }
+            get { return _isCurrentDonateAll; }
             set
             {
                 if (_isCurrentDonateAll != value)
                 {
+                    // TODO: Persist changes to DataCollection.TroopTiers.Troop.IsDonateAll
                     _isCurrentDonateAll = value;
                     OnPropertyChanged();
                 }
@@ -547,8 +594,64 @@
             {
                 if (_currentDonateKeywords != value)
                 {
-                    // TODO: Identify the selected TreeViewItem and acording to that pass the specific troop request keyboards from DataCollection.TroopTiers.Troop.DonateKeywords
+                    // TODO: Persist changes to DataCollection.TroopTiers.Troop.DonateKeywords
                     _currentDonateKeywords = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _isTroopTierDonateSelected;
+        public bool IsTroopTierDonateSelected
+        {
+            get { return _isTroopTierDonateSelected; }
+            set
+            {
+                if (_isTroopTierDonateSelected != value)
+                {
+                    _isTroopTierDonateSelected = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private Visibility _shouldHideDonateControls = Visibility.Collapsed;
+        public Visibility ShouldHideDonateControls
+        {
+            get { return _shouldHideDonateControls; }
+            set
+            {
+                if (_shouldHideDonateControls != value)
+                {
+                    _shouldHideDonateControls = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private Visibility _shouldHideTierInfoMessage = Visibility.Visible;
+        public Visibility ShouldHideTierInfoMessage
+        {
+            get { return _shouldHideTierInfoMessage; }
+            set
+            {
+                if (_shouldHideTierInfoMessage != value)
+                {
+                    _shouldHideTierInfoMessage = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private string _troopTierSelectedInfoMessage;
+        public string TroopTierSelectedInfoMessage
+        {
+            get { return _troopTierSelectedInfoMessage; }
+            set
+            {
+                if (_troopTierSelectedInfoMessage != value)
+                {
+                    _troopTierSelectedInfoMessage = value;
                     OnPropertyChanged();
                 }
             }

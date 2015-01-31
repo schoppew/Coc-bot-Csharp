@@ -4,6 +4,7 @@
         xmlns:vm="clr-namespace:CoC.Bot.ViewModels"
         xmlns:b="clr-namespace:CoC.Bot.UI.Behaviours"
         xmlns:c="clr-namespace:CoC.Bot.UI.Converters"
+        xmlns:ctrls="clr-namespace:CoC.Bot.UI.Controls"
         xmlns:d="clr-namespace:CoC.Bot.Data"
         xmlns:p="clr-namespace:CoC.Bot.Properties"
         Title="[TBC] Clash of Clans Bot" Icon="/Assets/Images/Icon.ico" Height="600" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
@@ -226,18 +227,21 @@
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.Troops}" Margin="16,83,16,0" VerticalAlignment="Top" Height="277">
                                     <Grid>
-                                        <TreeView x:Name="donateTreeView" ItemsSource="{Binding TroopTiers}" HorizontalAlignment="Left" Margin="16,16,0,16" Width="155">
-                                            <TreeView.ItemContainerStyle>
+                                        <ctrls:TreeViewEx x:Name="donateTreeView" ItemsSource="{Binding TroopTiers}" SelectedItem="{Binding SelectedTroopForDonate, Mode=TwoWay}" HorizontalAlignment="Left" Margin="16,16,0,16" Width="155">
+                                            <ctrls:TreeViewEx.Style>
+                                                <Style TargetType="{x:Type TreeView}" BasedOn="{StaticResource {x:Type TreeView}}" />
+                                            </ctrls:TreeViewEx.Style>
+                                            <ctrls:TreeViewEx.ItemContainerStyle>
                                                 <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource {x:Type TreeViewItem}}">
                                                     <Setter Property="IsExpanded" Value="True" />
-                                                    <Setter Property="IsSelected" Value="{Binding IsSelectedInUI, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                                    <!--<Setter Property="IsSelected" Value="{Binding IsSelectedInUI, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />-->
                                                     <!--<Style.Triggers>
                                                         <Trigger Property="IsSelected" Value="True">
                                                             <Setter Property="FontWeight" Value="Bold" />
                                                         </Trigger>
                                                     </Style.Triggers>-->
                                                 </Style>
-                                            </TreeView.ItemContainerStyle>
+                                            </ctrls:TreeViewEx.ItemContainerStyle>
                                             <TreeView.Resources>
                                                 <HierarchicalDataTemplate DataType="{x:Type d:TroopTierModel}" ItemsSource="{Binding Troops}">
                                                     <StackPanel Orientation="Horizontal">
@@ -254,11 +258,12 @@
                                                     </StackPanel>
                                                 </DataTemplate>
                                             </TreeView.Resources>
-                                        </TreeView>
+                                        </ctrls:TreeViewEx>
                                         <GroupBox Header="{Binding SelectedItem, ElementName=donateTreeView, Mode=OneWay, Converter={StaticResource selTreeViewConverter}}" HorizontalAlignment="Right" Margin="0,8,16,16" Width="220">
                                             <Grid>
-                                                <CheckBox x:Name="chkDonateToAll" Content="{x:Static p:Resources.DonateToAll}" IsChecked="{Binding IsCurrentDonateAll}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
-                                                <TextBox Text="Need to work on this, is not finished yet!" IsEnabled="{Binding ElementName=chkDonateToAll, Path=IsChecked, Converter={StaticResource inverseBoolConverter}}" Margin="16,32,16,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Height="120" />
+                                                <CheckBox x:Name="chkDonateToAll" Content="{x:Static p:Resources.DonateToAll}" IsChecked="{Binding IsCurrentDonateAll}" Visibility="{Binding ShouldHideDonateControls}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
+                                                <TextBox Text="{Binding CurrentDonateKeywords, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding ElementName=chkDonateToAll, Path=IsChecked, Converter={StaticResource inverseBoolConverter}}" Visibility="{Binding ShouldHideDonateControls}" Margin="16,32,16,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Height="120" />
+                                                <TextBlock Text="{Binding TroopTierSelectedInfoMessage}" Visibility="{Binding ShouldHideTierInfoMessage}" Height="90" HorizontalAlignment="Right" Margin="0,44,13,75" VerticalAlignment="Center" Width="182" TextWrapping="Wrap" TextAlignment="Center" FontSize="24" />
                                                 <TextBlock Text="{x:Static p:Resources.DonateMessage}" Height="29" HorizontalAlignment="Right" Margin="0,0,13,10" VerticalAlignment="Bottom" Width="182" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                             </Grid>
                                         </GroupBox>
