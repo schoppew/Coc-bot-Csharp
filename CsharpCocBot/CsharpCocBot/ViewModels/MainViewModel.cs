@@ -35,7 +35,7 @@
             // Ex. (int)SelectedKingAttackMode <--- Returns the selected king attack mode (dead bases, all bases, none, etc)
             // Ex. DataCollection.TroopTiers   <--- Contains the Troop Tier (Tier 1, Tier 2, Tier 3, etc) and 
             //     DataCollection.TroopTiers.Troop  Contains Troops per Tier (Barbs, Archs, Goblins in Tier 1, etc) and
-            //                                      Contiain properties like: DonateAll, DonateKeywords
+            //                                      Contiain properties like: IsSelectedForDonate IsDonateAll, DonateKeywords
             //
             // Under Main Methods you will find the Start(), Stop(), Hide(), etc methods
             // You can make them async if you wish
