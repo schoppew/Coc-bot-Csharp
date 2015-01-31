@@ -8,6 +8,7 @@
   using System.Threading.Tasks;
   using System.Windows;
   using System.Windows.Input;
+
   using CoC.Bot.Data;
   using CoC.Bot.Tools;
   using CoC.Bot.Tools.FastFind;
