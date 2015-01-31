@@ -2,43 +2,44 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Linq;
 
-    using CoC.Bot.ViewModels;
+    using ViewModels;
 
     /// <summary>
-    /// A general use Data Model composed only of ID and Name.
+    /// The Troop Tier Data Model.
     /// </summary>
-    public class Model : ViewModelBase
+    public class TroopTierModel : ViewModelBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Model"/> class.
+        /// Initializes a new instance of the <see cref="TroopTierModel"/> class.
         /// </summary>
-        public Model()
+        public TroopTierModel()
         {
-
+            Troops = new ObservableCollection<TroopModel>();
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Model"/> class.
+        /// Initializes a new instance of the <see cref="TroopTierModel"/> class.
         /// </summary>
         /// <param name="id">The id.</param>
         /// <param name="name">The name.</param>
-        internal Model(int id, string name)
+        internal TroopTierModel(int id, string name) : this()
         {
             _id = id;
             _name = name;
         }
 
         /// <summary>
-        /// Creates a new Model.
+        /// Creates a new TroopTierModel.
         /// </summary>
         /// <param name="id">The id.</param>
         /// <param name="name">The name.</param>
-        /// <returns>Model.</returns>
-        public static Model CreateNew(int id, string name)
+        /// <returns>TroopTierModel.</returns>
+        public static TroopTierModel CreateNew(int id, string name)
         {
-            return new Model(id, name);
+            return new TroopTierModel(id, name);
         }
 
         #region Properties
@@ -50,7 +51,7 @@
             set
             {
                 _id = value;
-                OnPropertyChanged("Id");
+                OnPropertyChanged();
             }
         }
 
@@ -61,9 +62,11 @@
             set
             {
                 _name = value;
-                OnPropertyChanged("Name");
+                OnPropertyChanged();
             }
         }
+
+        public ObservableCollection<TroopModel> Troops { get; set; }
 
         #endregion
     }

@@ -250,6 +250,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dark Troops.
+        /// </summary>
+        public static string DarkTroops {
+            get {
+                return ResourceManager.GetString("DarkTroops", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Deploy Settings.
         /// </summary>
         public static string DeploySettings {
@@ -331,6 +340,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bot will donate the checked troops according to the specified keyboards..
+        /// </summary>
+        public static string DonateMessage {
+            get {
+                return ResourceManager.GetString("DonateMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Donate Settings.
         /// </summary>
         public static string DonateSettings {
@@ -408,6 +426,15 @@ namespace CoC.Bot.Properties {
         public static string Help {
             get {
                 return ResourceManager.GetString("Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hog Rider.
+        /// </summary>
+        public static string HogRider {
+            get {
+                return ResourceManager.GetString("HogRider", resourceCulture);
             }
         }
         
@@ -565,6 +592,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Min. Townhall level:.
+        /// </summary>
+        public static string LabelMinimumTownhallLevel {
+            get {
+                return ResourceManager.GetString("LabelMinimumTownhallLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Min. Trophy Count:.
         /// </summary>
         public static string LabelMinimumTrophyCount {
@@ -606,6 +642,15 @@ namespace CoC.Bot.Properties {
         public static string LabelRequestFor {
             get {
                 return ResourceManager.GetString("LabelRequestFor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lava Hound.
+        /// </summary>
+        public static string LavaHound {
+            get {
+                return ResourceManager.GetString("LavaHound", resourceCulture);
             }
         }
         
@@ -669,6 +714,15 @@ namespace CoC.Bot.Properties {
         public static string MeetGold {
             get {
                 return ResourceManager.GetString("MeetGold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meet Townhall Level.
+        /// </summary>
+        public static string MeetTownhallLevel {
+            get {
+                return ResourceManager.GetString("MeetTownhallLevel", resourceCulture);
             }
         }
         
@@ -754,6 +808,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to P.E.K.K.A.
+        /// </summary>
+        public static string Pekka {
+            get {
+                return ResourceManager.GetString("Pekka", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to P.E.K.K.As.
         /// </summary>
         public static string Pekkas {
@@ -808,6 +871,42 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tier 1.
+        /// </summary>
+        public static string Tier1 {
+            get {
+                return ResourceManager.GetString("Tier1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tier 2.
+        /// </summary>
+        public static string Tier2 {
+            get {
+                return ResourceManager.GetString("Tier2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tier 3.
+        /// </summary>
+        public static string Tier3 {
+            get {
+                return ResourceManager.GetString("Tier3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Troop Request.
+        /// </summary>
+        public static string TroopRequest {
+            get {
+                return ResourceManager.GetString("TroopRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Troops.
         /// </summary>
         public static string Troops {
@@ -849,6 +948,15 @@ namespace CoC.Bot.Properties {
         public static string UseBarracks {
             get {
                 return ResourceManager.GetString("UseBarracks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wall Breaker.
+        /// </summary>
+        public static string WallBreaker {
+            get {
+                return ResourceManager.GetString("WallBreaker", resourceCulture);
             }
         }
         

@@ -393,4 +393,40 @@
   <data name="Help" xml:space="preserve">
     <value>Help</value>
   </data>
+  <data name="HogRider" xml:space="preserve">
+    <value>Hog Rider</value>
+  </data>
+  <data name="LabelMinimumTownhallLevel" xml:space="preserve">
+    <value>Min. Townhall level:</value>
+  </data>
+  <data name="LavaHound" xml:space="preserve">
+    <value>Lava Hound</value>
+  </data>
+  <data name="MeetTownhallLevel" xml:space="preserve">
+    <value>Meet Townhall Level</value>
+  </data>
+  <data name="Pekka" xml:space="preserve">
+    <value>P.E.K.K.A</value>
+  </data>
+  <data name="WallBreaker" xml:space="preserve">
+    <value>Wall Breaker</value>
+  </data>
+  <data name="DarkTroops" xml:space="preserve">
+    <value>Dark Troops</value>
+  </data>
+  <data name="DonateMessage" xml:space="preserve">
+    <value>Bot will donate the checked troops according to the specified keyboards.</value>
+  </data>
+  <data name="Tier1" xml:space="preserve">
+    <value>Tier 1</value>
+  </data>
+  <data name="Tier2" xml:space="preserve">
+    <value>Tier 2</value>
+  </data>
+  <data name="Tier3" xml:space="preserve">
+    <value>Tier 3</value>
+  </data>
+  <data name="TroopRequest" xml:space="preserve">
+    <value>Troop Request</value>
+  </data>
 </root>

@@ -2,6 +2,7 @@
 {
     using System;
     using System.ComponentModel;
+    using System.Runtime.CompilerServices;
 
     /// <summary>
     /// Provides common functionality for ViewModel classes
@@ -17,9 +18,19 @@
         /// Notifies subscribers of the property change.
         /// </summary>
         /// <param name="propertyName">Name of the property.</param>
-        protected void OnPropertyChanged(string propertyName)
+        //protected void OnPropertyChanged(string propertyName)
+        //{
+        //    OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+        //}
+
+        /// <summary>
+        /// Notifies subscribers of the property change.
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
         /// <summary>

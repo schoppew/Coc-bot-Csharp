@@ -110,5 +110,113 @@
     <Setting Name="MeetElixir" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="MeetTownhallLevel" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="MinTownhallLevel" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="RequestTroopsMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">any</Value>
+    </Setting>
+    <Setting Name="RequestTroops" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsBarbarians" Type="System.String" Scope="User">
+      <Value Profile="(Default)">barbarians|barbarian|barbs|any</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsArchers" Type="System.String" Scope="User">
+      <Value Profile="(Default)">archers|archer|arch|any</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsGoblins" Type="System.String" Scope="User">
+      <Value Profile="(Default)">goblins|goblin|any</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsGiants" Type="System.String" Scope="User">
+      <Value Profile="(Default)">giants|giant|any</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsWallBreakers" Type="System.String" Scope="User">
+      <Value Profile="(Default)">wall breakers|wb|any</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsBalloons" Type="System.String" Scope="User">
+      <Value Profile="(Default)">balloons|balloon|any</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsWizards" Type="System.String" Scope="User">
+      <Value Profile="(Default)">wizards|wizard|any</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsHealers" Type="System.String" Scope="User">
+      <Value Profile="(Default)">healer|any</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsDragons" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dragon|any</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsPekkas" Type="System.String" Scope="User">
+      <Value Profile="(Default)">p.e.k.a.a|pekka|any</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsMinions" Type="System.String" Scope="User">
+      <Value Profile="(Default)">minions|minion|mini|any</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsHogRiders" Type="System.String" Scope="User">
+      <Value Profile="(Default)">hog riders|hog rider|hogs|any</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsValkyries" Type="System.String" Scope="User">
+      <Value Profile="(Default)">valkyries|valkyrie|valk|any</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsGolems" Type="System.String" Scope="User">
+      <Value Profile="(Default)">golem|any</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsWitches" Type="System.String" Scope="User">
+      <Value Profile="(Default)">witches|witch|any</Value>
+    </Setting>
+    <Setting Name="DonateKeyboardsLavaHounds" Type="System.String" Scope="User">
+      <Value Profile="(Default)">lava hound|hound|any</Value>
+    </Setting>
+    <Setting Name="DonateBarbarians" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DonateArchers" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DonateGoblins" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DonateGiants" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DonateWallBreakers" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DonateBalloons" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DonateWizards" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DonateHealers" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DonateDragons" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DonatePekkas" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DonateMinions" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DonateHogRiders" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DonateValkyries" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DonateGolems" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DonateWitches" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DonateLavaHounds" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

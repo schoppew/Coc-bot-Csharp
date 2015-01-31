@@ -1,4 +1,5 @@
-﻿namespace CoC.Bot.ViewModels
+﻿using System.Threading;
+namespace CoC.Bot.ViewModels
 {
   using System;
   using System.Collections.Generic;
@@ -20,6 +21,7 @@
     public class MainViewModel : ViewModelBase
     {
         private static StringBuilder _output = new StringBuilder();
+        TroopRequestDictionary _troopsRequestKeyboards = new TroopRequestDictionary();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainViewModel"/> class.
@@ -36,45 +38,7 @@
             // Under Main Methods you will find the Start(), Stop(), Hide(), etc methods
             // You can make them async if you wish
 
-
-            // Fill the Troop Compositions
-            if (DataCollection.TroopCompositions.Count == 0)
-            {
-                DataCollection.TroopCompositions.Add(Model.CreateNew(1, Properties.Resources.UseBarracks));
-                DataCollection.TroopCompositions.Add(Model.CreateNew(2, Properties.Resources.Barching));
-                DataCollection.TroopCompositions.Add(Model.CreateNew(3, Properties.Resources.CustomTroops));
-            }
-
-            // Fill the Troops
-            if (DataCollection.Troops.Count == 0)
-            {
-                DataCollection.Troops.Add(Model.CreateNew(1, Properties.Resources.Barbarians));
-                DataCollection.Troops.Add(Model.CreateNew(2, Properties.Resources.Archers));
-                //DataCollection.Troops.Add(Model.CreateNew(3, Properties.Resources.Goblins));
-                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.Giants));
-                //DataCollection.Troops.Add(Model.CreateNew(5, Properties.Resources.WallBreakers));
-                //DataCollection.Troops.Add(Model.CreateNew(6, Properties.Resources.Balloons));
-                //DataCollection.Troops.Add(Model.CreateNew(7, Properties.Resources.Wizards));
-                //DataCollection.Troops.Add(Model.CreateNew(8, Properties.Resources.Healers));
-                //DataCollection.Troops.Add(Model.CreateNew(9, Properties.Resources.Dragons));
-                //DataCollection.Troops.Add(Model.CreateNew(10, Properties.Resources.Pekkas));
-                // add more troop types
-            }
-
-            // Fill the Deploy Strategies
-            if (DataCollection.DeployStrategies.Count == 0)
-            {
-                DataCollection.DeployStrategies.Add(Model.CreateNew(1, Properties.Resources.DeployStrategyTwoSides));
-                DataCollection.DeployStrategies.Add(Model.CreateNew(2, Properties.Resources.DeployStrategyThreeSides));
-                DataCollection.DeployStrategies.Add(Model.CreateNew(3, Properties.Resources.DeployStrategyFourSides));
-            }
-
-            // Fill the Deploy Troops
-            if (DataCollection.DeployTroops.Count == 0)
-            {
-                DataCollection.DeployTroops.Add(Model.CreateNew(1, Properties.Resources.DeployTroopsBarbariansAndArchers));
-                DataCollection.DeployTroops.Add(Model.CreateNew(2, Properties.Resources.DeployTroopsUseAllTroops));
-            }
+            Init();
 
             GetUserSettings();
 
@@ -84,6 +48,8 @@
         #region Properties
 
         public static string AppTitle { get { return string.Format("{0} v{1}", Properties.Resources.AppName, typeof(App).Assembly.GetName().Version.ToString(3)); } }
+
+        internal static Properties.Settings AppSettings { get { return Properties.Settings.Default; } }
 
         #region Behaviour Properties
 
@@ -101,7 +67,7 @@
             set
             {
                 _output = new StringBuilder(value);
-                OnPropertyChanged("Output");
+                OnPropertyChanged();
             }
         }
 
@@ -114,7 +80,7 @@
                 if (_message != value)
                 {
                     _message = value;
-                    OnPropertyChanged("Message");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -128,7 +94,7 @@
                 if (_maxTrophies != value)
                 {
                     _maxTrophies = value;
-                    OnPropertyChanged("MaxTrophies");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -146,7 +112,7 @@
                 if (_meetGold != value)
                 {
                     _meetGold = value;
-                    OnPropertyChanged("MeetGold");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -160,7 +126,7 @@
                 if (_meetElixir != value)
                 {
                     _meetElixir = value;
-                    OnPropertyChanged("MeetElixir");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -174,7 +140,7 @@
                 if (_meetDarkElixir != value)
                 {
                     _meetDarkElixir = value;
-                    OnPropertyChanged("MeetDarkElixir");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -188,7 +154,21 @@
                 if (_meetTrophyCount != value)
                 {
                     _meetTrophyCount = value;
-                    OnPropertyChanged("MeetTrophyCount");
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _meetTownhallLevel;
+        public bool MeetTownhallLevel
+        {
+            get { return _meetTownhallLevel; }
+            set
+            {
+                if (_meetTownhallLevel != value)
+                {
+                    _meetTownhallLevel = value;
+                    OnPropertyChanged();
                 }
             }
         }
@@ -202,7 +182,7 @@
                 if (_minimumGold != value)
                 {
                     _minimumGold = value;
-                    OnPropertyChanged("MinimumGold");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -216,7 +196,7 @@
                 if (_minimumElixir != value)
                 {
                     _minimumElixir = value;
-                    OnPropertyChanged("MinimumElixir");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -230,7 +210,7 @@
                 if (_minimumDarkElixir != value)
                 {
                     _minimumDarkElixir = value;
-                    OnPropertyChanged("MinimumDarkElixir");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -244,7 +224,21 @@
                 if (_minimumTrophyCount != value)
                 {
                     _minimumTrophyCount = value;
-                    OnPropertyChanged("MinimumTrophyCount");
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private int _minimumTownhallLevel;
+        public int MinimumTownhallLevel
+        {
+            get { return _minimumTownhallLevel; }
+            set
+            {
+                if (_minimumTownhallLevel != value)
+                {
+                    _minimumTownhallLevel = value;
+                    OnPropertyChanged();
                 }
             }
         }
@@ -258,7 +252,7 @@
                 if (_alertWhenBaseFound != value)
                 {
                     _alertWhenBaseFound = value;
-                    OnPropertyChanged("AlertWhenBaseFound");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -485,7 +479,72 @@
 
         #region Donate Settings Properties
 
+        /// <summary>
+        /// Gets the Troop Tier.
+        /// </summary>
+        /// <value>The Troop Compositions.</value>
+        public static BindingList<TroopTierModel> TroopTiers { get { return DataCollection.TroopTiers; } }
 
+        private bool _requestTroops;
+        public bool RequestTroops
+        {
+            get { return _requestTroops; }
+            set
+            {
+                if (_requestTroops != value)
+                {
+                    _requestTroops = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private string _requestTroopsMessage;
+        public string RequestTroopsMessage
+        {
+            get { return _requestTroopsMessage; }
+            set
+            {
+                if (_requestTroopsMessage != value)
+                {
+                    _requestTroopsMessage = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _isCurrentDonateAll;
+        public bool IsCurrentDonateAll
+        {
+            get
+            {
+                // TODO: Identify the selected TreeViewItem and acording to that pass the specific troop donate all boolean from TroopRequestDictionary
+                return _isCurrentDonateAll;
+            }
+            set
+            {
+                if (_isCurrentDonateAll != value)
+                {
+                    _isCurrentDonateAll = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private string _currentDonateKeyboards;
+        public string CurrentDonateKeyboards
+        {
+            get { return _currentDonateKeyboards; }
+            set
+            {
+                if (_currentDonateKeyboards != value)
+                {
+                    // TODO: Identify the selected TreeViewItem and acording to that pass the specific troop request keyboards from TroopRequestDictionary
+                    _currentDonateKeyboards = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         #endregion
 
@@ -860,6 +919,166 @@
 
         #endregion
 
+        #region Initialization
+
+        /// <summary>
+        /// Initializes everything that is needed.
+        /// </summary>
+        private void Init()
+        {
+            // Fill the Troop Compositions
+            if (DataCollection.TroopCompositions.Count == 0)
+            {
+                DataCollection.TroopCompositions.Add(Model.CreateNew(1, Properties.Resources.UseBarracks));
+                DataCollection.TroopCompositions.Add(Model.CreateNew(2, Properties.Resources.Barching));
+                DataCollection.TroopCompositions.Add(Model.CreateNew(3, Properties.Resources.CustomTroops));
+            }
+
+            // Fill the Troops
+            if (DataCollection.Troops.Count == 0)
+            {
+                DataCollection.Troops.Add(Model.CreateNew(1, Properties.Resources.Barbarians));
+                DataCollection.Troops.Add(Model.CreateNew(2, Properties.Resources.Archers));
+                //DataCollection.Troops.Add(Model.CreateNew(3, Properties.Resources.Goblins));
+                //DataCollection.Troops.Add(Model.CreateNew(4, Properties.Resources.Giants));
+                //DataCollection.Troops.Add(Model.CreateNew(5, Properties.Resources.WallBreakers));
+                //DataCollection.Troops.Add(Model.CreateNew(6, Properties.Resources.Balloons));
+                //DataCollection.Troops.Add(Model.CreateNew(7, Properties.Resources.Wizards));
+                //DataCollection.Troops.Add(Model.CreateNew(8, Properties.Resources.Healers));
+                //DataCollection.Troops.Add(Model.CreateNew(9, Properties.Resources.Dragons));
+                //DataCollection.Troops.Add(Model.CreateNew(10, Properties.Resources.Pekkas));
+                // add more troop types
+            }
+
+            // Fill the Deploy Strategies
+            if (DataCollection.DeployStrategies.Count == 0)
+            {
+                DataCollection.DeployStrategies.Add(Model.CreateNew(1, Properties.Resources.DeployStrategyTwoSides));
+                DataCollection.DeployStrategies.Add(Model.CreateNew(2, Properties.Resources.DeployStrategyThreeSides));
+                DataCollection.DeployStrategies.Add(Model.CreateNew(3, Properties.Resources.DeployStrategyFourSides));
+            }
+
+            // Fill the Deploy Troops
+            if (DataCollection.DeployTroops.Count == 0)
+            {
+                DataCollection.DeployTroops.Add(Model.CreateNew(1, Properties.Resources.DeployTroopsBarbariansAndArchers));
+                DataCollection.DeployTroops.Add(Model.CreateNew(2, Properties.Resources.DeployTroopsUseAllTroops));
+            }
+
+            // Fill the Troop Tiers
+            if (DataCollection.TroopTiers.Count == 0)
+            {
+                foreach (var tier in Enum.GetValues(typeof(TroopType)))
+                {
+                    switch ((TroopType)tier)
+                    {
+                        case TroopType.Tier1:
+                            DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.Tier1.Name()));
+
+                            var t1 = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
+                            t1.Troops.Add(TroopModel.CreateNew((int)Troop.Barbarian, Troop.Barbarian.Name(), AppSettings.DonateBarbarians, false, AppSettings.DonateKeyboardsBarbarians));
+                            t1.Troops.Add(TroopModel.CreateNew((int)Troop.Archer, Troop.Archer.Name(), AppSettings.DonateArchers, false, AppSettings.DonateKeyboardsArchers));
+                            t1.Troops.Add(TroopModel.CreateNew((int)Troop.Goblin, Troop.Goblin.Name(), AppSettings.DonateGoblins, false, AppSettings.DonateKeyboardsGoblins));
+                            break;
+                        case TroopType.Tier2:
+                            DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.Tier2.Name()));
+
+                            var t2 = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
+                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.Giant, Troop.Giant.Name(), AppSettings.DonateGiants, false, AppSettings.DonateKeyboardsGiants));
+                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.Wallbreaker, Troop.Wallbreaker.Name(), AppSettings.DonateWallBreakers, false, AppSettings.DonateKeyboardsWallBreakers));
+                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.Balloon, Troop.Balloon.Name(), AppSettings.DonateBalloons, false, AppSettings.DonateKeyboardsBalloons));
+                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.Wizard, Troop.Wizard.Name(), AppSettings.DonateWizards, false, AppSettings.DonateKeyboardsWizards));
+                            break;
+                        case TroopType.Tier3:
+                            DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.Tier3.Name()));
+
+                            var t3 = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
+                            t3.Troops.Add(TroopModel.CreateNew((int)Troop.Healer, Troop.Healer.Name(), AppSettings.DonateHealers, false, AppSettings.DonateKeyboardsHealers));
+                            t3.Troops.Add(TroopModel.CreateNew((int)Troop.Dragon, Troop.Dragon.Name(), AppSettings.DonateDragons, false, AppSettings.DonateKeyboardsDragons));
+                            t3.Troops.Add(TroopModel.CreateNew((int)Troop.Pekka, Troop.Pekka.Name(), AppSettings.DonatePekkas, false, AppSettings.DonateKeyboardsPekkas));
+                            break;
+                        case TroopType.DarkTroops:
+                            DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.DarkTroops.Name()));
+
+                            var dt = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
+                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Minion, Troop.Minion.Name(), AppSettings.DonateMinions, false, AppSettings.DonateKeyboardsMinions));
+                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.HogRider, Troop.HogRider.Name(), AppSettings.DonateHogRiders, false, AppSettings.DonateKeyboardsHogRiders));
+                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Valkyrie, Troop.Valkyrie.Name(), AppSettings.DonateValkyries, false, AppSettings.DonateKeyboardsValkyries));
+                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Golem, Troop.Golem.Name(), AppSettings.DonateGolems, false, AppSettings.DonateKeyboardsGolems));
+                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Witch, Troop.Witch.Name(), AppSettings.DonateWitches, false, AppSettings.DonateKeyboardsWitches));
+                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.LavaHound, Troop.LavaHound.Name(), AppSettings.DonateLavaHounds, false, AppSettings.DonateKeyboardsLavaHounds));
+                            break;
+                        default:
+                            // Troop Type Heroes, do nothing!
+                            break;
+                    }
+                }
+            }
+            
+            // TODO: I think we can improve this!
+            /*
+            foreach (var troop in Enum.GetValues(typeof(Troop)))
+            {
+                switch((Troop)troop)
+                {
+                    case Troop.Barbarian:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsBarbarians, false);
+                        break;
+                    case Troop.Archer:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsArchers, false);
+                        break;
+                    case Troop.Goblin:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsGoblins, false);
+                        break;
+                    case Troop.Giant:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsGiants, false);
+                        break;
+                    case Troop.Wallbreaker:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsWallBreakers, false);
+                        break;
+                    case Troop.Balloon:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsBalloons, false);
+                        break;
+                    case Troop.Wizard:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsWizards, false);
+                        break;
+                    case Troop.Healer:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsHealers, false);
+                        break;
+                    case Troop.Dragon:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsDragons, false);
+                        break;
+                    case Troop.Pekka:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsPekkas, false);
+                        break;
+                    case Troop.Minion:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsMinions, false);
+                        break;
+                    case Troop.HogRider:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsHogRiders, false);
+                        break;
+                    case Troop.Valkyrie:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsValkyries, false);
+                        break;
+                    case Troop.Golem:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsGolems, false);
+                        break;
+                    case Troop.Witch:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsWitches, false);
+                        break;
+                    case Troop.LavaHound:
+                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsLavaHounds, false);
+                        break;
+                    default:
+                        // Troop Type Heroes, do nothing!
+                        break;
+                }
+            }
+             */
+        }
+
+        #endregion
+
         #region Main Methods
 
         /// <summary>
@@ -956,57 +1175,61 @@
         private void GetUserSettings()
         {
             // General
-            MaxTrophies = Properties.Settings.Default.MaxTrophies;
+            MaxTrophies = AppSettings.MaxTrophies;
 
             // Search Settings
-            MeetGold = Properties.Settings.Default.MeetGold;
-            MeetElixir = Properties.Settings.Default.MeetElixir;
-            MeetDarkElixir = Properties.Settings.Default.MeetDarkElixir;
-            MeetTrophyCount = Properties.Settings.Default.MeetTrophyCount;
+            MeetGold = AppSettings.MeetGold;
+            MeetElixir = AppSettings.MeetElixir;
+            MeetDarkElixir = AppSettings.MeetDarkElixir;
+            MeetTrophyCount = AppSettings.MeetTrophyCount;
+            MeetTownhallLevel = AppSettings.MeetTownhallLevel;
 
-            MinimumGold = Properties.Settings.Default.MinGold;
-            MinimumElixir = Properties.Settings.Default.MinElixir;
-            MinimumDarkElixir = Properties.Settings.Default.MinDarkElixir;
-            MinimumTrophyCount = Properties.Settings.Default.MinTrophyCount;
+            MinimumGold = AppSettings.MinGold;
+            MinimumElixir = AppSettings.MinElixir;
+            MinimumDarkElixir = AppSettings.MinDarkElixir;
+            MinimumTrophyCount = AppSettings.MinTrophyCount;
+            MinimumTownhallLevel = AppSettings.MinTownhallLevel;
 
-            AlertWhenBaseFound = Properties.Settings.Default.AlertWhenBaseFound;
+            AlertWhenBaseFound = AppSettings.AlertWhenBaseFound;
 
             // Attack Settings
-            SelectedMaxCannonLevel = Properties.Settings.Default.MaxCannonLevel;
-            SelectedMaxArcherTowerLevel = Properties.Settings.Default.MaxArcherTowerLevel;
-            SelectedMaxMortarLevel = Properties.Settings.Default.MaxMortarLevel;
-            SelectedWizardTowerLevel = Properties.Settings.Default.MaxWizardTowerLevel;
-            SelectedXbowLevel = Properties.Settings.Default.MaxXbowLevel;
+            SelectedMaxCannonLevel = AppSettings.MaxCannonLevel;
+            SelectedMaxArcherTowerLevel = AppSettings.MaxArcherTowerLevel;
+            SelectedMaxMortarLevel = AppSettings.MaxMortarLevel;
+            SelectedWizardTowerLevel = AppSettings.MaxWizardTowerLevel;
+            SelectedXbowLevel = AppSettings.MaxXbowLevel;
 
-            AttackTheirKing = Properties.Settings.Default.AttackTheirKing;
-            AttackTheirQueen = Properties.Settings.Default.AttackTheirQueen;
+            AttackTheirKing = AppSettings.AttackTheirKing;
+            AttackTheirQueen = AppSettings.AttackTheirQueen;
 
-            SelectedAttackMode = (AttackMode)Properties.Settings.Default.SelectedAttackMode;
+            SelectedAttackMode = (AttackMode)AppSettings.SelectedAttackMode;
 
-            SelectedKingAttackMode = (HeroAttackMode)Properties.Settings.Default.SelectedKingAttackMode;
-            SelectedQueenAttackMode = (HeroAttackMode)Properties.Settings.Default.SelectedQueenAttackMode;
-            AttackUsingClanCastle = Properties.Settings.Default.AttackUsingClanCastle;
+            SelectedKingAttackMode = (HeroAttackMode)AppSettings.SelectedKingAttackMode;
+            SelectedQueenAttackMode = (HeroAttackMode)AppSettings.SelectedQueenAttackMode;
+            AttackUsingClanCastle = AppSettings.AttackUsingClanCastle;
 
-            SelectedDeployStrategy = DataCollection.DeployStrategies.Where(ds => ds.Id == Properties.Settings.Default.SelectedDeployStrategy).DefaultIfEmpty(DataCollection.DeployStrategies.Last()).First();
-            SelectedDeployTroop = DataCollection.DeployTroops.Where(dt => dt.Id == Properties.Settings.Default.SelectedDeployTroop).DefaultIfEmpty(DataCollection.DeployTroops.First()).First();
-            AttackTownhall = Properties.Settings.Default.AttackTownhall;
+            SelectedDeployStrategy = DataCollection.DeployStrategies.Where(ds => ds.Id == AppSettings.SelectedDeployStrategy).DefaultIfEmpty(DataCollection.DeployStrategies.Last()).First();
+            SelectedDeployTroop = DataCollection.DeployTroops.Where(dt => dt.Id == AppSettings.SelectedDeployTroop).DefaultIfEmpty(DataCollection.DeployTroops.First()).First();
+            AttackTownhall = AppSettings.AttackTownhall;
 
             // Donate Settings
+            RequestTroops = AppSettings.RequestTroops;
+            RequestTroopsMessage = AppSettings.RequestTroopsMessage;
 
             // Troop Settings
-            BarbariansPercent = Properties.Settings.Default.BarbariansPercent;
-            ArchersPercent = Properties.Settings.Default.ArchersPercent;
-            GoblinsPercent = Properties.Settings.Default.GoblinsPercent;
+            BarbariansPercent = AppSettings.BarbariansPercent;
+            ArchersPercent = AppSettings.ArchersPercent;
+            GoblinsPercent = AppSettings.GoblinsPercent;
 
-            SelectedTroopComposition = DataCollection.TroopCompositions.Where(tc => tc.Id == Properties.Settings.Default.SelectedTroopComposition).DefaultIfEmpty(DataCollection.TroopCompositions.First()).First();
+            SelectedTroopComposition = DataCollection.TroopCompositions.Where(tc => tc.Id == AppSettings.SelectedTroopComposition).DefaultIfEmpty(DataCollection.TroopCompositions.First()).First();
 
-            NumberOfGiants = Properties.Settings.Default.NumberOfGiants;
-            NumberOfWallBreakers = Properties.Settings.Default.NumberOfWallBreakers;
+            NumberOfGiants = AppSettings.NumberOfGiants;
+            NumberOfWallBreakers = AppSettings.NumberOfWallBreakers;
 
-            SelectedBarrack1 = DataCollection.Troops.Where(b1 => b1.Id == Properties.Settings.Default.SelectedBarrack1).DefaultIfEmpty(DataCollection.Troops.First()).First();
-            SelectedBarrack2 = DataCollection.Troops.Where(b2 => b2.Id == Properties.Settings.Default.SelectedBarrack2).DefaultIfEmpty(DataCollection.Troops.First()).First();
-            SelectedBarrack3 = DataCollection.Troops.Where(b3 => b3.Id == Properties.Settings.Default.SelectedBarrack3).DefaultIfEmpty(DataCollection.Troops.First()).First();
-            SelectedBarrack4 = DataCollection.Troops.Where(b4 => b4.Id == Properties.Settings.Default.SelectedBarrack4).DefaultIfEmpty(DataCollection.Troops.First()).First();
+            SelectedBarrack1 = DataCollection.Troops.Where(b1 => b1.Id == AppSettings.SelectedBarrack1).DefaultIfEmpty(DataCollection.Troops.First()).First();
+            SelectedBarrack2 = DataCollection.Troops.Where(b2 => b2.Id == AppSettings.SelectedBarrack2).DefaultIfEmpty(DataCollection.Troops.First()).First();
+            SelectedBarrack3 = DataCollection.Troops.Where(b3 => b3.Id == AppSettings.SelectedBarrack3).DefaultIfEmpty(DataCollection.Troops.First()).First();
+            SelectedBarrack4 = DataCollection.Troops.Where(b4 => b4.Id == AppSettings.SelectedBarrack4).DefaultIfEmpty(DataCollection.Troops.First()).First();
         }
 
         /// <summary>
@@ -1015,60 +1238,64 @@
         private void SaveUserSettings()
         {
             // General
-            Properties.Settings.Default.MaxTrophies = MaxTrophies;
+            AppSettings.MaxTrophies = MaxTrophies;
 
             // Search Settings
-            Properties.Settings.Default.MeetGold = MeetGold;
-            Properties.Settings.Default.MeetElixir = MeetElixir;
-            Properties.Settings.Default.MeetDarkElixir = MeetDarkElixir;
-            Properties.Settings.Default.MeetTrophyCount = MeetTrophyCount;
+            AppSettings.MeetGold = MeetGold;
+            AppSettings.MeetElixir = MeetElixir;
+            AppSettings.MeetDarkElixir = MeetDarkElixir;
+            AppSettings.MeetTrophyCount = MeetTrophyCount;
+            AppSettings.MeetTownhallLevel = MeetTownhallLevel;
 
-            Properties.Settings.Default.MinGold = MinimumGold;
-            Properties.Settings.Default.MinElixir = MinimumElixir;
-            Properties.Settings.Default.MinDarkElixir = MinimumDarkElixir;
-            Properties.Settings.Default.MinTrophyCount = MinimumTrophyCount;
+            AppSettings.MinGold = MinimumGold;
+            AppSettings.MinElixir = MinimumElixir;
+            AppSettings.MinDarkElixir = MinimumDarkElixir;
+            AppSettings.MinTrophyCount = MinimumTrophyCount;
+            AppSettings.MinTownhallLevel = MinimumTownhallLevel;
 
-            Properties.Settings.Default.AlertWhenBaseFound = AlertWhenBaseFound;
+            AppSettings.AlertWhenBaseFound = AlertWhenBaseFound;
 
             // Attack Settings
-            Properties.Settings.Default.MaxCannonLevel = SelectedMaxCannonLevel;
-            Properties.Settings.Default.MaxArcherTowerLevel = SelectedMaxArcherTowerLevel;
-            Properties.Settings.Default.MaxMortarLevel = SelectedMaxMortarLevel;
-            Properties.Settings.Default.MaxWizardTowerLevel = SelectedWizardTowerLevel;
-            Properties.Settings.Default.MaxXbowLevel = SelectedXbowLevel;
+            AppSettings.MaxCannonLevel = SelectedMaxCannonLevel;
+            AppSettings.MaxArcherTowerLevel = SelectedMaxArcherTowerLevel;
+            AppSettings.MaxMortarLevel = SelectedMaxMortarLevel;
+            AppSettings.MaxWizardTowerLevel = SelectedWizardTowerLevel;
+            AppSettings.MaxXbowLevel = SelectedXbowLevel;
 
-            Properties.Settings.Default.AttackTheirKing = AttackTheirKing;
-            Properties.Settings.Default.AttackTheirQueen = AttackTheirQueen;
+            AppSettings.AttackTheirKing = AttackTheirKing;
+            AppSettings.AttackTheirQueen = AttackTheirQueen;
 
-            Properties.Settings.Default.SelectedAttackMode = (int)SelectedAttackMode;
+            AppSettings.SelectedAttackMode = (int)SelectedAttackMode;
 
-            Properties.Settings.Default.SelectedKingAttackMode = (int)SelectedKingAttackMode;
-            Properties.Settings.Default.SelectedQueenAttackMode = (int)SelectedQueenAttackMode;
-            Properties.Settings.Default.AttackUsingClanCastle = AttackUsingClanCastle;
+            AppSettings.SelectedKingAttackMode = (int)SelectedKingAttackMode;
+            AppSettings.SelectedQueenAttackMode = (int)SelectedQueenAttackMode;
+            AppSettings.AttackUsingClanCastle = AttackUsingClanCastle;
 
-            Properties.Settings.Default.SelectedDeployStrategy = SelectedDeployStrategy.Id;
-            Properties.Settings.Default.SelectedDeployTroop = SelectedDeployTroop.Id;
-            Properties.Settings.Default.AttackTownhall = AttackTownhall;
+            AppSettings.SelectedDeployStrategy = SelectedDeployStrategy.Id;
+            AppSettings.SelectedDeployTroop = SelectedDeployTroop.Id;
+            AppSettings.AttackTownhall = AttackTownhall;
 
             // Donate Settings
+            AppSettings.RequestTroops = RequestTroops;
+            AppSettings.RequestTroopsMessage = RequestTroopsMessage;
 
             // Troop Settings
-            Properties.Settings.Default.BarbariansPercent = BarbariansPercent;
-            Properties.Settings.Default.ArchersPercent = ArchersPercent;
-            Properties.Settings.Default.GoblinsPercent = GoblinsPercent;
+            AppSettings.BarbariansPercent = BarbariansPercent;
+            AppSettings.ArchersPercent = ArchersPercent;
+            AppSettings.GoblinsPercent = GoblinsPercent;
 
-            Properties.Settings.Default.SelectedTroopComposition = SelectedTroopComposition.Id;
+            AppSettings.SelectedTroopComposition = SelectedTroopComposition.Id;
 
-            Properties.Settings.Default.NumberOfGiants = NumberOfGiants;
-            Properties.Settings.Default.NumberOfWallBreakers = NumberOfWallBreakers;
+            AppSettings.NumberOfGiants = NumberOfGiants;
+            AppSettings.NumberOfWallBreakers = NumberOfWallBreakers;
 
-            Properties.Settings.Default.SelectedBarrack1 = SelectedBarrack1.Id;
-            Properties.Settings.Default.SelectedBarrack2 = SelectedBarrack2.Id;
-            Properties.Settings.Default.SelectedBarrack3 = SelectedBarrack3.Id;
-            Properties.Settings.Default.SelectedBarrack4 = SelectedBarrack4.Id;
+            AppSettings.SelectedBarrack1 = SelectedBarrack1.Id;
+            AppSettings.SelectedBarrack2 = SelectedBarrack2.Id;
+            AppSettings.SelectedBarrack3 = SelectedBarrack3.Id;
+            AppSettings.SelectedBarrack4 = SelectedBarrack4.Id;
 
             // Save it!
-            Properties.Settings.Default.Save();
+            AppSettings.Save();
         }
 
         #endregion
