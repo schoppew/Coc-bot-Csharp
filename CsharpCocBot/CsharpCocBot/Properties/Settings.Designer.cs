@@ -518,180 +518,180 @@ namespace CoC.Bot.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("archers|archer|arch|any")]
-        public string DonateKeyboardsArchers {
+        public string DonateKeywordsArchers {
             get {
-                return ((string)(this["DonateKeyboardsArchers"]));
+                return ((string)(this["DonateKeywordsArchers"]));
             }
             set {
-                this["DonateKeyboardsArchers"] = value;
+                this["DonateKeywordsArchers"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("goblins|goblin|any")]
-        public string DonateKeyboardsGoblins {
+        public string DonateKeywordsGoblins {
             get {
-                return ((string)(this["DonateKeyboardsGoblins"]));
+                return ((string)(this["DonateKeywordsGoblins"]));
             }
             set {
-                this["DonateKeyboardsGoblins"] = value;
+                this["DonateKeywordsGoblins"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("giants|giant|any")]
-        public string DonateKeyboardsGiants {
+        public string DonateKeywordsGiants {
             get {
-                return ((string)(this["DonateKeyboardsGiants"]));
+                return ((string)(this["DonateKeywordsGiants"]));
             }
             set {
-                this["DonateKeyboardsGiants"] = value;
+                this["DonateKeywordsGiants"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("wall breakers|wb|any")]
-        public string DonateKeyboardsWallBreakers {
+        public string DonateKeywordsWallBreakers {
             get {
-                return ((string)(this["DonateKeyboardsWallBreakers"]));
+                return ((string)(this["DonateKeywordsWallBreakers"]));
             }
             set {
-                this["DonateKeyboardsWallBreakers"] = value;
+                this["DonateKeywordsWallBreakers"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("balloons|balloon|any")]
-        public string DonateKeyboardsBalloons {
+        public string DonateKeywordsBalloons {
             get {
-                return ((string)(this["DonateKeyboardsBalloons"]));
+                return ((string)(this["DonateKeywordsBalloons"]));
             }
             set {
-                this["DonateKeyboardsBalloons"] = value;
+                this["DonateKeywordsBalloons"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("wizards|wizard|any")]
-        public string DonateKeyboardsWizards {
+        public string DonateKeywordsWizards {
             get {
-                return ((string)(this["DonateKeyboardsWizards"]));
+                return ((string)(this["DonateKeywordsWizards"]));
             }
             set {
-                this["DonateKeyboardsWizards"] = value;
+                this["DonateKeywordsWizards"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("healer|any")]
-        public string DonateKeyboardsHealers {
+        public string DonateKeywordsHealers {
             get {
-                return ((string)(this["DonateKeyboardsHealers"]));
+                return ((string)(this["DonateKeywordsHealers"]));
             }
             set {
-                this["DonateKeyboardsHealers"] = value;
+                this["DonateKeywordsHealers"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("dragon|any")]
-        public string DonateKeyboardsDragons {
+        public string DonateKeywordsDragons {
             get {
-                return ((string)(this["DonateKeyboardsDragons"]));
+                return ((string)(this["DonateKeywordsDragons"]));
             }
             set {
-                this["DonateKeyboardsDragons"] = value;
+                this["DonateKeywordsDragons"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("p.e.k.a.a|pekka|any")]
-        public string DonateKeyboardsPekkas {
+        public string DonateKeywordsPekkas {
             get {
-                return ((string)(this["DonateKeyboardsPekkas"]));
+                return ((string)(this["DonateKeywordsPekkas"]));
             }
             set {
-                this["DonateKeyboardsPekkas"] = value;
+                this["DonateKeywordsPekkas"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("minions|minion|mini|any")]
-        public string DonateKeyboardsMinions {
+        public string DonateKeywordsMinions {
             get {
-                return ((string)(this["DonateKeyboardsMinions"]));
+                return ((string)(this["DonateKeywordsMinions"]));
             }
             set {
-                this["DonateKeyboardsMinions"] = value;
+                this["DonateKeywordsMinions"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("hog riders|hog rider|hogs|any")]
-        public string DonateKeyboardsHogRiders {
+        public string DonateKeywordsHogRiders {
             get {
-                return ((string)(this["DonateKeyboardsHogRiders"]));
+                return ((string)(this["DonateKeywordsHogRiders"]));
             }
             set {
-                this["DonateKeyboardsHogRiders"] = value;
+                this["DonateKeywordsHogRiders"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("valkyries|valkyrie|valk|any")]
-        public string DonateKeyboardsValkyries {
+        public string DonateKeywordsValkyries {
             get {
-                return ((string)(this["DonateKeyboardsValkyries"]));
+                return ((string)(this["DonateKeywordsValkyries"]));
             }
             set {
-                this["DonateKeyboardsValkyries"] = value;
+                this["DonateKeywordsValkyries"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("golem|any")]
-        public string DonateKeyboardsGolems {
+        public string DonateKeywordsGolems {
             get {
-                return ((string)(this["DonateKeyboardsGolems"]));
+                return ((string)(this["DonateKeywordsGolems"]));
             }
             set {
-                this["DonateKeyboardsGolems"] = value;
+                this["DonateKeywordsGolems"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("witches|witch|any")]
-        public string DonateKeyboardsWitches {
+        public string DonateKeywordsWitches {
             get {
-                return ((string)(this["DonateKeyboardsWitches"]));
+                return ((string)(this["DonateKeywordsWitches"]));
             }
             set {
-                this["DonateKeyboardsWitches"] = value;
+                this["DonateKeywordsWitches"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("lava hound|hound|any")]
-        public string DonateKeyboardsLavaHounds {
+        public string DonateKeywordsLavaHounds {
             get {
-                return ((string)(this["DonateKeyboardsLavaHounds"]));
+                return ((string)(this["DonateKeywordsLavaHounds"]));
             }
             set {
-                this["DonateKeyboardsLavaHounds"] = value;
+                this["DonateKeywordsLavaHounds"] = value;
             }
         }
         

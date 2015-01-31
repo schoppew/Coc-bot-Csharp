@@ -415,7 +415,7 @@
     <value>Dark Troops</value>
   </data>
   <data name="DonateMessage" xml:space="preserve">
-    <value>Bot will donate the checked troops according to the specified keyboards.</value>
+    <value>Bot will donate the checked troops according to the specified keywords.</value>
   </data>
   <data name="Tier1" xml:space="preserve">
     <value>Tier 1</value>

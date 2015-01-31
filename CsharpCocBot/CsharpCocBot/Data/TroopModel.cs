@@ -25,13 +25,15 @@
         /// <param name="id">The id.</param>
         /// <param name="name">The name.</param>
         /// <param name="isSelectedForDonate">Specify if troop is selected for donation.</param>
-        internal TroopModel(int id, string name, bool isSelectedForDonate, bool isDonateAll, string donateKeyboards)
+        /// <param name="isDonateAll">Specify if donate to all.</param>
+        /// <param name="donateKeywords">The donate keywords.</param>
+        internal TroopModel(int id, string name, bool isSelectedForDonate, bool isDonateAll, string donateKeywords)
         {
             _id = id;
             _name = name;
             _isSelectedForDonate = isSelectedForDonate;
             _isDonateAll = isDonateAll;
-            _donateKeyboards = donateKeyboards;
+            _donateKeywords = donateKeywords;
         }
 
         /// <summary>
@@ -39,11 +41,13 @@
         /// </summary>
         /// <param name="id">The id.</param>
         /// <param name="name">The name.</param>
-        /// <param name="isSelected">Specify if troop is selected.</param>
+        /// <param name="isSelectedForDonate">Specify if troop is selected.</param>
+        /// <param name="isDonateAll">Specify if donate to all.</param>
+        /// <param name="donateKeywords">The donate keywords.</param>
         /// <returns>TroopModel.</returns>
-        public static TroopModel CreateNew(int id, string name, bool isSelectedForDonate, bool isDonateAll, string donateKeyboards)
+        public static TroopModel CreateNew(int id, string name, bool isSelectedForDonate, bool isDonateAll, string donateKeywords)
         {
-            return new TroopModel(id, name, isSelectedForDonate, isDonateAll, donateKeyboards);
+            return new TroopModel(id, name, isSelectedForDonate, isDonateAll, donateKeywords);
         }
 
         #region Properties
@@ -92,15 +96,15 @@
             }
         }
 
-        private string _donateKeyboards;
-        public string DonateKeyboards
+        private string _donateKeywords;
+        public string DonateKeywords
         {
-            get { return _donateKeyboards; }
+            get { return _donateKeywords; }
             set
             {
-                if (_donateKeyboards != value)
+                if (_donateKeywords != value)
                 {
-                    _donateKeyboards = value;
+                    _donateKeywords = value;
                     OnPropertyChanged();
                 }
             }

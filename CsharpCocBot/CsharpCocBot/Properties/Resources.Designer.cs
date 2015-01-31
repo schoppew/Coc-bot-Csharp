@@ -340,7 +340,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bot will donate the checked troops according to the specified keyboards..
+        ///   Looks up a localized string similar to Bot will donate the checked troops according to the specified keywords..
         /// </summary>
         public static string DonateMessage {
             get {
