@@ -1,11 +1,10 @@
-﻿namespace CoC.Bot.Data
-{
-  using System;
+﻿using System;
 
+namespace CoC.Bot.Data
+{  
   /// <summary>
   /// The Attack Mode
-  /// </summary>
-  [Flags]
+  /// </summary>  
   public enum Troop
   {
     Barbarian,  // Tier 1

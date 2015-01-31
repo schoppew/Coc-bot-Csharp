@@ -4,8 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 
 namespace CoC.Bot.Data
-{
- 
+{ 
   /// <summary>
   /// Extention methods for Troops.
   /// </summary>
@@ -151,7 +150,7 @@ namespace CoC.Bot.Data
     static public IEnumerable<string> EnumTroopNames(bool ElixirTroop, bool BlackTroops, bool Heroes)
     {
       foreach (Troop troop in EnumTroops(ElixirTroop, BlackTroops, Heroes))
-        yield return troop.Name();
+        yield return troop.Name();      
     }
   }
 }
