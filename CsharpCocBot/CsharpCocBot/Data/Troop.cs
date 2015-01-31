@@ -100,5 +100,20 @@ namespace CoC.Bot.Data
           return Enum.GetName(typeof(Troop), troop);          
       }
     }
+
+    static public IEnumerable<Troop> EnumTroops(bool ElixirTroop, bool BlackTroops, bool Heroes)
+    {
+      foreach (Troop troop in Enum.GetValues(typeof(Troop)))
+        if (ElixirTroop && troop.IsNormal() ||
+            BlackTroops && troop.IsBlack() ||
+            Heroes && troop.IsHero())
+          yield return troop;
+    }
+
+    static public IEnumerable<string> EnumTroopNames(bool ElixirTroop, bool BlackTroops, bool Heroes)
+    {
+      foreach (Troop troop in EnumTroops(ElixirTroop, BlackTroops, Heroes))
+          yield return troop.Name();
+    }
   }
 }
