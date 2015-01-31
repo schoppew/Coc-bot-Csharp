@@ -1,19 +1,19 @@
-﻿using System.Threading;
-namespace CoC.Bot.ViewModels
+﻿namespace CoC.Bot.ViewModels
 {
-  using System;
-  using System.Collections.Generic;
-  using System.ComponentModel;
-  using System.Linq;
-  using System.Text;
-  using System.Threading.Tasks;
-  using System.Windows;
-  using System.Windows.Input;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Linq;
+    using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using System.Windows;
+    using System.Windows.Input;
 
-  using CoC.Bot.Data;
-  using CoC.Bot.Tools;
-  using CoC.Bot.Tools.FastFind;
-  using CoC.Bot.UI.Commands;
+    using CoC.Bot.Data;
+    using CoC.Bot.Tools;
+    using CoC.Bot.Tools.FastFind;
+    using CoC.Bot.UI.Commands;
 
     /// <summary>
     /// Provides functionality for the MainWindow
@@ -21,7 +21,6 @@ namespace CoC.Bot.ViewModels
     public class MainViewModel : ViewModelBase
     {
         private static StringBuilder _output = new StringBuilder();
-        TroopRequestDictionary _troopsRequestKeyboards = new TroopRequestDictionary();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainViewModel"/> class.
@@ -41,6 +40,8 @@ namespace CoC.Bot.ViewModels
             Init();
 
             GetUserSettings();
+
+            Output = "Hey there!";
 
             Message = "Click on Start to initialize the bot";
         }
@@ -66,7 +67,11 @@ namespace CoC.Bot.ViewModels
             get { return _output.ToString(); }
             set
             {
-                _output = new StringBuilder(value);
+                if (_output == null)
+                    _output = new StringBuilder(value);
+                else
+                    WriteLine(value);
+
                 OnPropertyChanged();
             }
         }
@@ -965,6 +970,7 @@ namespace CoC.Bot.ViewModels
                 DataCollection.DeployTroops.Add(Model.CreateNew(2, Properties.Resources.DeployTroopsUseAllTroops));
             }
 
+            // TODO: Create the DonateAll(Troop) in Settings
             // Fill the Troop Tiers
             if (DataCollection.TroopTiers.Count == 0)
             {
@@ -1014,67 +1020,6 @@ namespace CoC.Bot.ViewModels
                     }
                 }
             }
-            
-            // TODO: I think we can improve this!
-            /*
-            foreach (var troop in Enum.GetValues(typeof(Troop)))
-            {
-                switch((Troop)troop)
-                {
-                    case Troop.Barbarian:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsBarbarians, false);
-                        break;
-                    case Troop.Archer:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsArchers, false);
-                        break;
-                    case Troop.Goblin:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsGoblins, false);
-                        break;
-                    case Troop.Giant:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsGiants, false);
-                        break;
-                    case Troop.Wallbreaker:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsWallBreakers, false);
-                        break;
-                    case Troop.Balloon:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsBalloons, false);
-                        break;
-                    case Troop.Wizard:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsWizards, false);
-                        break;
-                    case Troop.Healer:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsHealers, false);
-                        break;
-                    case Troop.Dragon:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsDragons, false);
-                        break;
-                    case Troop.Pekka:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsPekkas, false);
-                        break;
-                    case Troop.Minion:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsMinions, false);
-                        break;
-                    case Troop.HogRider:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsHogRiders, false);
-                        break;
-                    case Troop.Valkyrie:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsValkyries, false);
-                        break;
-                    case Troop.Golem:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsGolems, false);
-                        break;
-                    case Troop.Witch:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsWitches, false);
-                        break;
-                    case Troop.LavaHound:
-                        _troopsRequestKeyboards.Add((Troop)troop, AppSettings.DonateKeyboardsLavaHounds, false);
-                        break;
-                    default:
-                        // Troop Type Heroes, do nothing!
-                        break;
-                }
-            }
-             */
         }
 
         #endregion
@@ -1086,11 +1031,12 @@ namespace CoC.Bot.ViewModels
         /// </summary>
         private void Start()
         {
-          MessageBox.Show("Trying some simple captures within FastFind, and Keyboard injection", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
-          FastFindTesting.Test();
-          KeyboardHelper.BSTest();
-          KeyboardHelper.BSTest2();
-          KeyboardHelper.NotePadTest();          
+            Output = "Trying some simple captures within FastFind, and Keyboard injection";
+            MessageBox.Show("Trying some simple captures within FastFind, and Keyboard injection", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
+            FastFindTesting.Test();
+            KeyboardHelper.BSTest();
+            KeyboardHelper.BSTest2();
+            KeyboardHelper.NotePadTest();          
         }
 
         /// <summary>
@@ -1098,6 +1044,7 @@ namespace CoC.Bot.ViewModels
         /// </summary>
         private void Stop()
         {
+            Output = "Stop bot execution...";
             MessageBox.Show("You clicked on the Stop button!", "Stop", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -1106,6 +1053,7 @@ namespace CoC.Bot.ViewModels
         /// </summary>
         private void Hide()
         {
+            Output = "Hidding...";
             MessageBox.Show("You clicked on the Hide button!", "Hide", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -1114,6 +1062,7 @@ namespace CoC.Bot.ViewModels
         /// </summary>
         private void SearchMode()
         {
+            Output = "Search Mode...";
             MessageBox.Show("You clicked on the Search Mode button!", "Search Mode", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -1122,6 +1071,7 @@ namespace CoC.Bot.ViewModels
         /// </summary>
         private void LocateClanCastle()
         {
+            Output = "Locating Clan Castle...";
             MessageBox.Show("You clicked on the Locate Clan Castle Manually button!", "Locate Clan Castle Manually", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -1130,6 +1080,7 @@ namespace CoC.Bot.ViewModels
         /// </summary>
         private void LocateCollectors()
         {
+            Output = "Locate Collectors and Gold Mines...";
             MessageBox.Show("You clicked on the Locate Collectors Manually button!", "Locate Collectors Manually", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -1138,6 +1089,7 @@ namespace CoC.Bot.ViewModels
         /// </summary>
         private void LocateBarracks()
         {
+            Output = "Locate Barracks...";
             MessageBox.Show("You clicked on the Locate Barracks Manually button!", "Locate Barracks Manually", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -1155,13 +1107,12 @@ namespace CoC.Bot.ViewModels
         #region Output Messages Methods
 
         /// <summary>
-        /// Writes a new line to the output textbox.
+        /// Writes a new line to the output textbox (Should not use this directly, use Output property instead).
         /// </summary>
         /// <param name="text">The text.</param>
         /// <param name="args">The arguments.</param>
         private static void WriteLine(string text, params object[] args)
         {
-            // TODO: Need to work on this
             _output.AppendFormat(text + Environment.NewLine, args);
         }
 

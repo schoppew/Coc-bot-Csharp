@@ -122,7 +122,6 @@
     <Compile Include="Data\DataCollection.cs" />
     <Compile Include="Data\Model.cs" />
     <Compile Include="Data\TroopModel.cs" />
-    <Compile Include="Data\TroopRequestDictionary.cs" />
     <Compile Include="Data\TroopType.cs" />
     <Compile Include="Data\Troop.cs" />
     <Compile Include="Data\TroopHelper.cs" />
