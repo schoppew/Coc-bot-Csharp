@@ -161,7 +161,7 @@
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.OtherSearchSettings}" Margin="16,260,16,0" VerticalAlignment="Top" Height="100">
-                                    <CheckBox Content="{x:Static p:Resources.AlertWhenBaseFound}" IsChecked="{Binding AlertWhenBaseFound, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
+                                    <CheckBox Content="{x:Static p:Resources.AlertWhenBaseFound}" IsChecked="{Binding IsAlertWhenBaseFound, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
                                 </GroupBox>
                                 <Button Content="{x:Static p:Resources.SearchMode}" Command="{Binding SearchModeCommand}" Height="23" Margin="16,0,16,10" VerticalAlignment="Bottom" Visibility="Visible" />
                             </Grid>
@@ -182,8 +182,8 @@
                                         <ComboBox ItemsSource="{Binding Path=MortarLevels, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedMaxMortarLevel}" Height="23" Width="40" VerticalAlignment="Top" Margin="0,68,10,0" HorizontalAlignment="Right" IsEnabled="False" />
                                         <ComboBox ItemsSource="{Binding Path=WizardTowerLevels, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedWizardTowerLevel}" Height="23" Width="40" VerticalAlignment="Top" Margin="0,96,10,0" HorizontalAlignment="Right" IsEnabled="False" />
                                         <ComboBox ItemsSource="{Binding Path=XbowLevels, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedXbowLevel}" Height="23" Width="40" VerticalAlignment="Top" Margin="0,124,10,0" HorizontalAlignment="Right" IsEnabled="False" />
-                                        <CheckBox Content="{x:Static p:Resources.AttackTheirKing}" IsChecked="{Binding AttackTheirKing, UpdateSourceTrigger=PropertyChanged}" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" Width="99" IsEnabled="False" />
-                                        <CheckBox Content="{x:Static p:Resources.AttackTheirQueen}" IsChecked="{Binding AttackTheirQueen, UpdateSourceTrigger=PropertyChanged}" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" Width="99" IsEnabled="False" />
+                                        <CheckBox Content="{x:Static p:Resources.AttackTheirKing}" IsChecked="{Binding IsAttackTheirKing, UpdateSourceTrigger=PropertyChanged}" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" Width="99" IsEnabled="False" />
+                                        <CheckBox Content="{x:Static p:Resources.AttackTheirQueen}" IsChecked="{Binding IsAttackTheirQueen, UpdateSourceTrigger=PropertyChanged}" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" Width="99" IsEnabled="False" />
                                         <TextBlock Text="{x:Static p:Resources.WeakBaseSettingsMessage}" Height="45" HorizontalAlignment="Left" Margin="10,0,0,5" VerticalAlignment="Bottom" Width="99" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
@@ -206,14 +206,14 @@
                                         <RadioButton Content="{x:Static p:Resources.AttackWeakBases}" IsChecked="{Binding Path=SelectedQueenAttackMode, Converter={StaticResource enumToBoolConverter}, ConverterParameter=WeakBases}" Margin="0,51,10,0" VerticalAlignment="Top" IsEnabled="False" Width="125" HorizontalAlignment="Right" />
                                         <RadioButton Content="{x:Static p:Resources.AttackAllBases}" IsChecked="{Binding Path=SelectedQueenAttackMode, Converter={StaticResource enumToBoolConverter}, ConverterParameter=AllBases}" Margin="0,71,10,0" VerticalAlignment="Top" Width="125" HorizontalAlignment="Right" />
                                         <RadioButton Content="{x:Static p:Resources.None}" IsChecked="{Binding Path=SelectedQueenAttackMode, Converter={StaticResource enumToBoolConverter}, ConverterParameter=None}" Margin="0,91,10,0" VerticalAlignment="Top" Width="125" HorizontalAlignment="Right" />
-                                        <CheckBox Content="{x:Static p:Resources.AttackUsingClanCastle}" IsChecked="{Binding AttackUsingClanCastle}" Margin="10,0,10,10" VerticalAlignment="Bottom" Width="258" />
+                                        <CheckBox Content="{x:Static p:Resources.AttackUsingClanCastle}" IsChecked="{Binding IsAttackUsingClanCastle}" Margin="10,0,10,10" VerticalAlignment="Bottom" Width="258" />
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.DeploySettings}" HorizontalAlignment="Left" Margin="16,0,0,16" VerticalAlignment="Bottom" Height="100" Width="432">
                                     <Grid>
                                         <ComboBox ItemsSource="{Binding Path=DeployStrategies, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedDeployStrategy}" DisplayMemberPath="Name" Height="23" Width="388" VerticalAlignment="Top" Margin="16,10,16,0" />
                                         <ComboBox ItemsSource="{Binding Path=DeployTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedDeployTroop}" DisplayMemberPath="Name" Height="23" Width="210" VerticalAlignment="Bottom" Margin="16,0,164,10" HorizontalAlignment="Left" />
-                                        <CheckBox Content="{x:Static p:Resources.AttackTownhall}" IsChecked="{Binding AttackTownhall}" HorizontalAlignment="Right" Margin="0,0,16,13" VerticalAlignment="Bottom" Width="155" IsEnabled="False" />
+                                        <CheckBox Content="{x:Static p:Resources.AttackTownhall}" IsChecked="{Binding IsAttackTownhall}" HorizontalAlignment="Right" Margin="0,0,16,13" VerticalAlignment="Bottom" Width="155" IsEnabled="False" />
                                     </Grid>
                                 </GroupBox>
                             </Grid>
@@ -223,7 +223,7 @@
                             <Grid Background="{DynamicResource BackgroundBrush}">
                                 <GroupBox Header="{x:Static p:Resources.TroopRequest}" Margin="16,16,16,0" VerticalAlignment="Top" Height="62">
                                     <Grid>
-                                        <CheckBox x:Name="chkRequestTroopsMsg" Content="{x:Static p:Resources.LabelRequestFor}" IsChecked="{Binding RequestTroops}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox x:Name="chkRequestTroopsMsg" Content="{x:Static p:Resources.LabelRequestFor}" IsChecked="{Binding IsRequestTroops}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
                                         <TextBox Text="{Binding RequestTroopsMessage}" IsEnabled="{Binding ElementName=chkRequestTroopsMsg, Path=IsChecked}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" Height="23" Margin="0,8,16,8" TextWrapping="Wrap" Width="290" HorizontalAlignment="Right"/>
                                     </Grid>
                                 </GroupBox>
@@ -264,7 +264,9 @@
                                         <GroupBox Header="{Binding SelectedItem, ElementName=donateTreeView, Mode=OneWay, Converter={StaticResource selTreeViewConverter}}" HorizontalAlignment="Right" Margin="0,8,16,16" Width="220">
                                             <Grid>
                                                 <CheckBox x:Name="chkDonateToAll" Content="{x:Static p:Resources.DonateToAll}" IsChecked="{Binding IsCurrentDonateAll}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource boolToVisConverter}}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
-                                                <TextBox Text="{Binding CurrentDonateKeywords, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding ElementName=chkDonateToAll, Path=IsChecked, Converter={StaticResource inverseBoolConverter}}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource boolToVisConverter}}" Margin="16,32,16,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Height="120" />
+                                                <TextBox Text="{Binding CurrentDonateKeywords, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding ElementName=chkDonateToAll, Path=IsChecked, Converter={StaticResource inverseBoolConverter}}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource boolToVisConverter}}" Margin="16,32,16,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Height="100" />
+                                                <Label Content="{x:Static p:Resources.LabelMaxDonationsPerRequest}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource boolToVisConverter}}" Height="25" HorizontalAlignment="Right" Margin="0,137,59,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="138" />
+                                                <TextBox Text="{Binding CurrentMaxDonationsPerRequest, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource boolToVisConverter}}" MaxLength="1" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,139,16,0" VerticalAlignment="Top" Width="40" />
                                                 <TextBlock Text="{Binding TroopTierSelectedInfoMessage}" Visibility="{Binding ShouldHideTierInfoMessage, Converter={StaticResource boolToVisConverter}}" Height="90" HorizontalAlignment="Right" Margin="0,44,13,75" VerticalAlignment="Center" Width="182" TextWrapping="Wrap" TextAlignment="Center" FontSize="24" />
                                                 <TextBlock Text="{x:Static p:Resources.DonateMessage}" Height="29" HorizontalAlignment="Right" Margin="0,0,13,10" VerticalAlignment="Bottom" Width="182" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                             </Grid>
@@ -345,5 +347,4 @@
             </Grid>
         </Grid>
     </Border>
-
 </Window>

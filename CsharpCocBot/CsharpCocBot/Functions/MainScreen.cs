@@ -23,7 +23,7 @@ namespace CoC.Bot.Functions
             for(int i = 0; i < 150; i++)
             {
                 GlobalVariables.hBitmap = GlobalVariables.screenCap.SnapShot(GlobalVariables.backgroundMode == true ? true : false);
-                if(!Functions.Pixels.ColorCheck(Functions.Pixels.GetPixelColor(284, 28), Color.FromArgb(0, 0, 0), 20))
+                if (!Functions.Pixels.ColorCheck(Functions.Pixels.GetPixelColor(284, 28), Color.FromArgb(0, 0, 0), 20))
                 {
                     Functions.Other.Sleep(2000);
                 }
@@ -54,13 +54,13 @@ namespace CoC.Bot.Functions
         {
             Functions.Other.SetLog("Trying to locate Main Screen", Color.Blue);
             GlobalVariables.hBitmap = GlobalVariables.screenCap.SnapShot(GlobalVariables.backgroundMode == true ? true : false);
-            
+
             while (!Functions.Pixels.ColorCheck(Functions.Pixels.GetPixelColor(284, 28), Color.FromArgb(0, 0, 0), 20)) // FIX VARIATION
             {
                 GlobalVariables.HWnD = Tools.BlueStackHelper.GetBlueStackWindowHandle();
                 Functions.Other.Sleep(1000);
 
-                if(!Functions.MainScreen.CheckObstacles())
+                if (!Functions.MainScreen.CheckObstacles())
                 {
                     Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(126, 700), 1);
                     //RESTART APP?

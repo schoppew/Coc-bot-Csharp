@@ -529,6 +529,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Max. troops per request:.
+        /// </summary>
+        public static string LabelMaxDonationsPerRequest {
+            get {
+                return ResourceManager.GetString("LabelMaxDonationsPerRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mortar:.
         /// </summary>
         public static string LabelMaxMortarLevel {

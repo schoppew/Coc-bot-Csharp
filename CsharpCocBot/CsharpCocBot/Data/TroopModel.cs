@@ -27,13 +27,14 @@
         /// <param name="isSelectedForDonate">Specify if troop is selected for donation.</param>
         /// <param name="isDonateAll">Specify if donate to all.</param>
         /// <param name="donateKeywords">The donate keywords.</param>
-        internal TroopModel(int id, string name, bool isSelectedForDonate, bool isDonateAll, string donateKeywords)
+        internal TroopModel(int id, string name, bool isSelectedForDonate, bool isDonateAll, string donateKeywords, int maxDonationsPerRequest)
         {
             _id = id;
             _name = name;
             _isSelectedForDonate = isSelectedForDonate;
             _isDonateAll = isDonateAll;
             _donateKeywords = donateKeywords;
+            _maxDonationsPerRequest = maxDonationsPerRequest;
         }
 
         /// <summary>
@@ -44,10 +45,11 @@
         /// <param name="isSelectedForDonate">Specify if troop is selected.</param>
         /// <param name="isDonateAll">Specify if donate to all.</param>
         /// <param name="donateKeywords">The donate keywords.</param>
+        /// <param name="maxDonationsPerRequest">The maximum donations per request.</param>
         /// <returns>TroopModel.</returns>
-        public static TroopModel CreateNew(int id, string name, bool isSelectedForDonate, bool isDonateAll, string donateKeywords)
+        public static TroopModel CreateNew(int id, string name, bool isSelectedForDonate, bool isDonateAll, string donateKeywords, int maxDonationsPerRequest)
         {
-            return new TroopModel(id, name, isSelectedForDonate, isDonateAll, donateKeywords);
+            return new TroopModel(id, name, isSelectedForDonate, isDonateAll, donateKeywords, maxDonationsPerRequest);
         }
 
         #region Properties
@@ -105,6 +107,20 @@
                 if (_donateKeywords != value)
                 {
                     _donateKeywords = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private int _maxDonationsPerRequest;
+        public int MaxDonationsPerRequest
+        {
+            get { return _maxDonationsPerRequest; }
+            set
+            {
+                if (_maxDonationsPerRequest != value)
+                {
+                    _maxDonationsPerRequest = value;
                     OnPropertyChanged();
                 }
             }

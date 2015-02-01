@@ -26,7 +26,7 @@
     <Setting Name="MeetTrophyCount" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="AlertWhenBaseFound" Type="System.Boolean" Scope="User">
+    <Setting Name="IsAlertWhenBaseFound" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="BarbariansPercent" Type="System.Int32" Scope="User">
@@ -77,10 +77,10 @@
     <Setting Name="MaxXbowLevel" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="AttackTheirKing" Type="System.Boolean" Scope="User">
+    <Setting Name="IsAttackTheirKing" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="AttackTheirQueen" Type="System.Boolean" Scope="User">
+    <Setting Name="IsAttackTheirQueen" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="SelectedDeployStrategy" Type="System.Int32" Scope="User">
@@ -89,7 +89,7 @@
     <Setting Name="SelectedDeployTroop" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
-    <Setting Name="AttackTownhall" Type="System.Boolean" Scope="User">
+    <Setting Name="IsAttackTownhall" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="SelectedKingAttackMode" Type="System.Int32" Scope="User">
@@ -98,7 +98,7 @@
     <Setting Name="SelectedQueenAttackMode" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="AttackUsingClanCastle" Type="System.Boolean" Scope="User">
+    <Setting Name="IsAttackUsingClanCastle" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="MeetElixir" Type="System.Boolean" Scope="User">
@@ -113,7 +113,7 @@
     <Setting Name="RequestTroopsMessage" Type="System.String" Scope="User">
       <Value Profile="(Default)">any</Value>
     </Setting>
-    <Setting Name="RequestTroops" Type="System.Boolean" Scope="User">
+    <Setting Name="IsRequestTroops" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="DonateKeywordsBarbarians" Type="System.String" Scope="User">
@@ -164,104 +164,152 @@
     <Setting Name="DonateKeywordsLavaHounds" Type="System.String" Scope="User">
       <Value Profile="(Default)">lava hound|lava|any</Value>
     </Setting>
-    <Setting Name="DonateBarbarians" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateBarbarians" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateArchers" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateArchers" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="DonateGoblins" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateGoblins" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateGiants" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateGiants" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateWallBreakers" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateWallBreakers" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateBalloons" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateBalloons" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateWizards" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateWizards" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateHealers" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateHealers" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateDragons" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateDragons" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonatePekkas" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonatePekkas" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateMinions" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateMinions" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateHogRiders" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateHogRiders" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateValkyries" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateValkyries" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateGolems" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateGolems" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateWitches" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateWitches" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateLavaHounds" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateLavaHounds" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllBarbarians" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllBarbarians" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllArchers" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllArchers" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllGoblins" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllGoblins" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllGiants" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllGiants" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllWallBreakers" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllWallBreakers" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllBalloons" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllBalloons" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllWizards" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllWizards" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllHealers" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllHealers" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllDragons" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllDragons" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllPekkas" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllPekkas" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllMinions" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllMinions" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllHogRiders" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllHogRiders" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllValkyries" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllValkyries" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllGolems" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllGolems" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllWitches" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllWitches" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateAllLavaHounds" Type="System.Boolean" Scope="User">
+    <Setting Name="IsDonateAllLavaHounds" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="WindowPlacement" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestArchers" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestBalloons" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestBarbarians" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestDragons" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestGiants" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestGoblins" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestGolems" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestHealers" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestHogRiders" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestLavaHounds" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestMinions" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestPekkas" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestValkyries" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestWallBreakers" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestWitches" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="MaxDonationsPerRequestWizards" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3</Value>
     </Setting>
   </Settings>
 </SettingsFile>
