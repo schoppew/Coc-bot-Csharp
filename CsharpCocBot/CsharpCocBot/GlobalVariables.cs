@@ -13,7 +13,6 @@ namespace CoC.Bot
 
         public static IntPtr HWnD;
 
-        public static string configPath = @"COCBot\config.ini";
         public static string logPath;
         public static int hLogFileHandle;
         public static bool restart = false;

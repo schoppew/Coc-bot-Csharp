@@ -1375,6 +1375,8 @@
         {
             ClearOutput(); // Clear everything before we start
 
+            Functions.Main.Initialize();
+
             // Sample for getting familiar with the UI (used for accessing the properties/user settings values)
             Samples.GettingAroundTheUI.UseValuesInUI(this);
 
