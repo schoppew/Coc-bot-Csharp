@@ -1,0 +1,79 @@
+﻿=============================
+Clash of Clans Bot - TODO
+=============================
+
+
+Changelog
+=============================
+
+1.0.0
+	+ Initial Release
+
+Definitions:
+
+	# -> Bug Fix
+	+ -> Addition
+	^ -> Change
+	- -> Removed
+	! -> Note
+	@ -> Request
+	
+
+Deployment Considerations
+=============================
+
+	» 
+
+
+ToDo's
+=============================
+
+	» [@] Implement RichTextBox for colored Output
+	» [@] Implement Pause button
+	» Create the Help Tab
+		- [!] It is really needed?
+
+
+ToDo's In Progress
+=============================
+
+	» Implement Minimize button
+	» Implement TrayIcon
+		- Menu with
+			- Start/Stop
+			- Pause
+			- Exit
+			- About
+		- Notifications (Alert when Base found)
+	» Add calculation below the Troops Percentages
+		- The result is the sum of the 3 troops in percentages
+			- Display in red if below or major 100%
+
+
+ToDo's Completed
+=============================
+
+	[6.0.0.0]
+	» [+] Remember Window Position and more by 'letting' Windows do the job
+	» [#] Output messages are now displayed
+	» [+] Implementation of UI
+	» Initial Release
+
+
+ToDo's Not Implemented
+=============================
+
+	» 
+
+
+Modifications
+=============================
+
+	» 
+
+
+Known Issues
+=============================
+
+	» The TextBox will not scroll down to the end if is not visible (another Tab)
+		- However, since it will be displaying constantly an output, when focus on the General Tab, it will scroll again to the end
