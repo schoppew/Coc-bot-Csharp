@@ -655,15 +655,6 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Level.
-        /// </summary>
-        public static string Level {
-            get {
-                return ResourceManager.GetString("Level", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Locate Barracks Manually.
         /// </summary>
         public static string LocateBarracksManually {
@@ -687,6 +678,15 @@ namespace CoC.Bot.Properties {
         public static string LocateCollectorsManually {
             get {
                 return ResourceManager.GetString("LocateCollectorsManually", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max Level.
+        /// </summary>
+        public static string MaxLevel {
+            get {
+                return ResourceManager.GetString("MaxLevel", resourceCulture);
             }
         }
         
@@ -867,6 +867,15 @@ namespace CoC.Bot.Properties {
         public static string SearchSettings {
             get {
                 return ResourceManager.GetString("SearchSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click on Start to initialize the bot.
+        /// </summary>
+        public static string StartMessage {
+            get {
+                return ResourceManager.GetString("StartMessage", resourceCulture);
             }
         }
         

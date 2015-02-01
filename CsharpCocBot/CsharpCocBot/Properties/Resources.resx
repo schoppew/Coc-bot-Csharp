@@ -366,8 +366,8 @@
   <data name="Wizards" xml:space="preserve">
     <value>Wizards</value>
   </data>
-  <data name="Level" xml:space="preserve">
-    <value>Level</value>
+  <data name="MaxLevel" xml:space="preserve">
+    <value>Max Level</value>
   </data>
   <data name="Balloons" xml:space="preserve">
     <value>Balloons</value>
@@ -428,5 +428,8 @@
   </data>
   <data name="TroopRequest" xml:space="preserve">
     <value>Troop Request</value>
+  </data>
+  <data name="StartMessage" xml:space="preserve">
+    <value>Click on Start to initialize the bot</value>
   </data>
 </root>

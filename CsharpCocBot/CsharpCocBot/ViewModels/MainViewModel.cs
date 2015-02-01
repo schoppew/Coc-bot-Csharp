@@ -1,5 +1,4 @@
-﻿using System.Windows.Documents;
-namespace CoC.Bot.ViewModels
+﻿namespace CoC.Bot.ViewModels
 {
     using System;
     using System.Collections.Generic;
@@ -28,44 +27,108 @@ namespace CoC.Bot.ViewModels
         /// </summary>
         public MainViewModel()
         {
-            // Usage Notes for non WPF devs:
-            //
-            // You access and manipulate the values on the Window/Tabs by accessing their Properties (below). You don't access the controls (-;
-            // Ex. MinimumGold, MinimumElixir, etc.
-            // Ex. SelectedTroopComposition.Id <--- Returns the selected troop composition ID (attack all sides, etc)
-            // Ex. (int)SelectedKingAttackMode <--- Returns the selected king attack mode (dead bases, all bases, none, etc)
-            // Ex. DataCollection.TroopTiers   <--- Contains the Troop Tier (Tier 1, Tier 2, Tier 3, etc) and 
-            //     DataCollection.TroopTiers.Troop  Contains Troops per Tier (Barbs, Archs, Goblins in Tier 1, etc) and
-            //                                      Contiain properties like: IsSelectedForDonate IsDonateAll, DonateKeywords
-            //
-            // Under Main Methods you will find the Start(), Stop(), Hide(), etc methods
-            // You can make them async if you wish
+            /*
+             * -------------------------------------------------------------------------------------------------------------
+             * UI Usage Notes
+             * -------------------------------------------------------------------------------------------------------------
+             * 
+             * 
+             * HowTo: Start/Stop/Hide etc
+             * ------------------------------------------------------------------------------------------------------------
+             * Under 'Main Methods' you will find the Start(), Stop(), Hide(), etc methods.
+             * All those methods are already vinculed to the UI by using Commands
+             * You can make them async if you wish.
+             * 
+             * 
+             * HowTo: Access a specific value or setting in the UI 
+             * ------------------------------------------------------------------------------------------------------------
+             * All UI properties (User settings) are defined in Properties, no need to access the controls directly.
+             * For example:
+             *          (bool)  MeetGold
+             *          (int)   MinimumGold
+             *          (Model) SelectedDeployStrategy
+             *          (int)   SelectedTroopComposition.Id     <--- The Id is defined in Data.TroopComposition enum
+             *                  DataCollection.TroopTiers       <--- Contains the Troop Tier (Tier 1, Tier 2, Tier 3, etc)
+             *                  DataCollection.TroopTiers.Troop <--- ontains Troops per Tier (Barbs, Archs, ... in Tier 1)
+             *          
+             * 
+             * HowTo: Pass a value or values (Properties) into another method/class for accessing it
+             * ------------------------------------------------------------------------------------------------------------
+             * Just use as parameter the MainViewModel. See Samples.GettingAroundTheUI for a code example.
+             * We can access all values by passing the MainViewModel as parameter.
+             * We can retrieve or change a property's value, those will get reflected automatically in the UI.
+             * Ex.:
+             *          Samples.GettingAroundTheUI.UseValuesInUI(this);
+             * 
+             * 
+             * HowTo: Access the Troops data in the Donate Settings
+             * ------------------------------------------------------------------------------------------------------------
+             * Each Troop is stored in TroopTier which is exposed by the TroopTiers property.
+             * You can access a TroopTier by using (either one) as example:
+             *          var t1 = DataCollection.TroopTiers[(int)TroopType.Tier1];
+             *          var t1 = DataCollection.TroopTiers.Get(TroopType.Tier1);
+             *          var t1 = DataCollection.TroopTiers.Where(tt => tt.Id == (int)TroopType.Tier1).FirstOrDefault();
+             *          
+             * You can access a Troop by using (either one) as example (same as TroopTier):
+             *          var troop = DataCollection.TroopTiers[(int)TroopType.Tier1].Troops[Troop.Barbarian];
+             *          var troop = DataCollection.TroopTiers.Get(TroopType.Tier1).Troops.Get(Troop.Barbarian);
+             *          var troop = DataCollection.TroopTiers.All().Troops.Get(Troop.Barbarian);
+             *          
+             * You can acces a specific Troop setting, for example:
+             *          var troop = DataCollection.TroopTiers.All().Troops.Get(Troop.Barbarian).IsDonateAll;
+             *          var troop = DataCollection.TroopTiers.All().Troops.Get(Troop.Barbarian).DonateKeywords;
+             * 
+             * 
+             * HowTo: Write to the Output (Window Log)
+             * ------------------------------------------------------------------------------------------------------------
+             * Just set a string value into the Output property.
+             * For example:
+             *          Output = "Hello there!";
+             * 
+             */
 
             Init();
-
             GetUserSettings();
 
-            Output = "Hey there!";
-
-            Message = "Click on Start to initialize the bot";
+            Message = Properties.Resources.StartMessage;
         }
 
         #region Properties
 
+        /// <summary>
+        /// Gets the application title.
+        /// </summary>
+        /// <value>The application title.</value>
         public static string AppTitle { get { return string.Format("{0} v{1}", Properties.Resources.AppName, typeof(App).Assembly.GetName().Version.ToString(3)); } }
 
+        /// <summary>
+        /// Gets the application settings.
+        /// </summary>
+        /// <value>The application settings.</value>
         internal static Properties.Settings AppSettings { get { return Properties.Settings.Default; } }
 
         #region Behaviour Properties
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this bot has started.
+        /// </summary>
+        /// <value><c>true</c> if this bot has started; otherwise, <c>false</c>.</value>
         private bool IsStarted { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this bot is hidden.
+        /// </summary>
+        /// <value><c>true</c> if this bot is hidden; otherwise, <c>false</c>.</value>
         private bool IsHidden { get; set; }
 
         #endregion
 
         #region General Properties
 
+        /// <summary>
+        /// Gets or sets the Output (Window Log).
+        /// </summary>
+        /// <value>The Output (Window Log).</value>
         public string Output
         {
             get { return _output.ToString(); }
@@ -83,6 +146,10 @@ namespace CoC.Bot.ViewModels
         }
 
         private string _message;
+        /// <summary>
+        /// Gets or sets the status message.
+        /// </summary>
+        /// <value>The status message.</value>
         public string Message
         {
             get { return _message; }
@@ -97,6 +164,10 @@ namespace CoC.Bot.ViewModels
         }
 
         private int _maxTrophies;
+        /// <summary>
+        /// Gets or sets the maximum Trophies.
+        /// </summary>
+        /// <value>The maximum Trophies.</value>
         public int MaxTrophies
         {
             get { return _maxTrophies; }
@@ -115,6 +186,10 @@ namespace CoC.Bot.ViewModels
         #region Search Settings Properties
 
         private bool _meetGold;
+        /// <summary>
+        /// Gets or sets a value indicating whether should meet Gold conditions.
+        /// </summary>
+        /// <value><c>true</c> if should meet Gold conditions; otherwise, <c>false</c>.</value>
         public bool MeetGold
         {
             get { return _meetGold; }
@@ -129,6 +204,10 @@ namespace CoC.Bot.ViewModels
         }
 
         private bool _meetElixir;
+        /// <summary>
+        /// Gets or sets a value indicating whether should meet Elixir conditions.
+        /// </summary>
+        /// <value><c>true</c> if should meet Elixir conditions; otherwise, <c>false</c>.</value>
         public bool MeetElixir
         {
             get { return _meetElixir; }
@@ -143,6 +222,10 @@ namespace CoC.Bot.ViewModels
         }
 
         private bool _meetDarkElixir;
+        /// <summary>
+        /// Gets or sets a value indicating whether should meet Dark Elixir conditions.
+        /// </summary>
+        /// <value><c>true</c> if should meet Dark Elixir conditions; otherwise, <c>false</c>.</value>
         public bool MeetDarkElixir
         {
             get { return _meetDarkElixir; }
@@ -157,6 +240,10 @@ namespace CoC.Bot.ViewModels
         }
 
         private bool _meetTrophyCount;
+        /// <summary>
+        /// Gets or sets a value indicating whether should meet Trophy count conditions.
+        /// </summary>
+        /// <value><c>true</c> if should meet Trophy count conditions; otherwise, <c>false</c>.</value>
         public bool MeetTrophyCount
         {
             get { return _meetTrophyCount; }
@@ -171,6 +258,10 @@ namespace CoC.Bot.ViewModels
         }
 
         private bool _meetTownhallLevel;
+        /// <summary>
+        /// Gets or sets a value indicating whether should meet Townhall level conditions.
+        /// </summary>
+        /// <value><c>true</c> if should meet Townhall level conditions; otherwise, <c>false</c>.</value>
         public bool MeetTownhallLevel
         {
             get { return _meetTownhallLevel; }
@@ -185,6 +276,10 @@ namespace CoC.Bot.ViewModels
         }
 
         private int _minimumGold;
+        /// <summary>
+        /// Gets or sets the minimum Gold.
+        /// </summary>
+        /// <value>The minimum Gold.</value>
         public int MinimumGold
         {
             get { return _minimumGold; }
@@ -199,6 +294,10 @@ namespace CoC.Bot.ViewModels
         }
 
         private int _minimumElixir;
+        /// <summary>
+        /// Gets or sets the minimum Elixir.
+        /// </summary>
+        /// <value>The minimum Elixir.</value>
         public int MinimumElixir
         {
             get { return _minimumElixir; }
@@ -213,6 +312,10 @@ namespace CoC.Bot.ViewModels
         }
 
         private int _minimumDarkElixir;
+        /// <summary>
+        /// Gets or sets the minimum Dark Elixir.
+        /// </summary>
+        /// <value>The minimum Dark Elixir.</value>
         public int MinimumDarkElixir
         {
             get { return _minimumDarkElixir; }
@@ -227,6 +330,10 @@ namespace CoC.Bot.ViewModels
         }
 
         private int _minimumTrophyCount;
+        /// <summary>
+        /// Gets or sets the minimum Trophy count.
+        /// </summary>
+        /// <value>The minimum Trophy count.</value>
         public int MinimumTrophyCount
         {
             get { return _minimumTrophyCount; }
@@ -241,6 +348,10 @@ namespace CoC.Bot.ViewModels
         }
 
         private int _minimumTownhallLevel;
+        /// <summary>
+        /// Gets or sets the minimum Townhall level.
+        /// </summary>
+        /// <value>The minimum Townhall level.</value>
         public int MinimumTownhallLevel
         {
             get { return _minimumTownhallLevel; }
@@ -255,6 +366,10 @@ namespace CoC.Bot.ViewModels
         }
 
         private bool _alertWhenBaseFound;
+        /// <summary>
+        /// Gets or sets a value indicating whether should alert when base found.
+        /// </summary>
+        /// <value><c>true</c> if alert when base found; otherwise, <c>false</c>.</value>
         public bool AlertWhenBaseFound
         {
             get { return _alertWhenBaseFound; }
@@ -279,6 +394,10 @@ namespace CoC.Bot.ViewModels
         public static IEnumerable<int> XbowLevels { get { return BuildingLevels.Xbow; } }
 
         private int _selectedMaxCannonLevel;
+        /// <summary>
+        /// Gets or sets the maximum Cannon level.
+        /// </summary>
+        /// <value>The maximum Cannon level.</value>
         public int SelectedMaxCannonLevel
         {
             get { return _selectedMaxCannonLevel; }
@@ -287,12 +406,16 @@ namespace CoC.Bot.ViewModels
                 if (_selectedMaxCannonLevel != value)
                 {
                     _selectedMaxCannonLevel = value;
-                    OnPropertyChanged("SelectedMaxCannonLevel");
+                    OnPropertyChanged();
                 }
             }
         }
 
         private int _selectedMaxArcherTowerLevel;
+        /// <summary>
+        /// Gets or sets the maximum Archer Tower level.
+        /// </summary>
+        /// <value>The maximum Archer Tower level.</value>
         public int SelectedMaxArcherTowerLevel
         {
             get { return _selectedMaxArcherTowerLevel; }
@@ -301,12 +424,16 @@ namespace CoC.Bot.ViewModels
                 if (_selectedMaxArcherTowerLevel != value)
                 {
                     _selectedMaxArcherTowerLevel = value;
-                    OnPropertyChanged("SelectedMaxArcherTowerLevel");
+                    OnPropertyChanged();
                 }
             }
         }
 
         private int _selectedMaxMortarLevel;
+        /// <summary>
+        /// Gets or sets the maximum Mortar level.
+        /// </summary>
+        /// <value>The maximum Mortar level.</value>
         public int SelectedMaxMortarLevel
         {
             get { return _selectedMaxMortarLevel; }
@@ -315,12 +442,16 @@ namespace CoC.Bot.ViewModels
                 if (_selectedMaxMortarLevel != value)
                 {
                     _selectedMaxMortarLevel = value;
-                    OnPropertyChanged("SelectedMaxMortarLevel");
+                    OnPropertyChanged();
                 }
             }
         }
 
         private int _selectedWizardTowerLevel;
+        /// <summary>
+        /// Gets or sets the maximum Wizard Tower level.
+        /// </summary>
+        /// <value>The maximum Wizard Tower level.</value>
         public int SelectedWizardTowerLevel
         {
             get { return _selectedWizardTowerLevel; }
@@ -329,12 +460,16 @@ namespace CoC.Bot.ViewModels
                 if (_selectedWizardTowerLevel != value)
                 {
                     _selectedWizardTowerLevel = value;
-                    OnPropertyChanged("SelectedWizardTowerLevel");
+                    OnPropertyChanged();
                 }
             }
         }
 
         private int _selectedXbowLevel;
+        /// <summary>
+        /// Gets or sets the maximum Xbow level.
+        /// </summary>
+        /// <value>The maximum Xbow level.</value>
         public int SelectedXbowLevel
         {
             get { return _selectedXbowLevel; }
@@ -343,12 +478,16 @@ namespace CoC.Bot.ViewModels
                 if (_selectedXbowLevel != value)
                 {
                     _selectedXbowLevel = value;
-                    OnPropertyChanged("SelectedXbowLevel");
+                    OnPropertyChanged();
                 }
             }
         }
 
         private bool _attackTheirKing;
+        /// <summary>
+        /// Gets or sets a value indicating whether to attack their King.
+        /// </summary>
+        /// <value><c>true</c> if attack their King; otherwise, <c>false</c>.</value>
         public bool AttackTheirKing
         {
             get { return _attackTheirKing; }
@@ -357,12 +496,16 @@ namespace CoC.Bot.ViewModels
                 if (_attackTheirKing != value)
                 {
                     _attackTheirKing = value;
-                    OnPropertyChanged("AttackTheirKing");
+                    OnPropertyChanged();
                 }
             }
         }
 
         private bool _attackTheirQueen;
+        /// <summary>
+        /// Gets or sets a value indicating whether to attack their Queen.
+        /// </summary>
+        /// <value><c>true</c> if attack their Queen; otherwise, <c>false</c>.</value>
         public bool AttackTheirQueen
         {
             get { return _attackTheirQueen; }
@@ -371,12 +514,16 @@ namespace CoC.Bot.ViewModels
                 if (_attackTheirQueen != value)
                 {
                     _attackTheirQueen = value;
-                    OnPropertyChanged("AttackTheirQueen");
+                    OnPropertyChanged();
                 }
             }
         }
 
         private AttackMode _selectedAttackMode;
+        /// <summary>
+        /// Gets or sets the selected attack mode.
+        /// </summary>
+        /// <value>The selected attack mode.</value>
         public AttackMode SelectedAttackMode
         {
             get { return _selectedAttackMode; }
@@ -385,12 +532,16 @@ namespace CoC.Bot.ViewModels
                 if (_selectedAttackMode != value)
                 {
                     _selectedAttackMode = value;
-                    OnPropertyChanged("SelectedAttackMode");
+                    OnPropertyChanged();
                 }
             }
         }
 
         private HeroAttackMode _selectedKingAttackMode;
+        /// <summary>
+        /// Gets or sets the selected King attack mode.
+        /// </summary>
+        /// <value>The selected King attack mode.</value>
         public HeroAttackMode SelectedKingAttackMode
         {
             get { return _selectedKingAttackMode; }
@@ -399,12 +550,16 @@ namespace CoC.Bot.ViewModels
                 if (_selectedKingAttackMode != value)
                 {
                     _selectedKingAttackMode = value;
-                    OnPropertyChanged("SelectedKingAttackMode");
+                    OnPropertyChanged();
                 }
             }
         }
 
         private HeroAttackMode _selectedQueenAttackMode;
+        /// <summary>
+        /// Gets or sets the selected Queen attack mode.
+        /// </summary>
+        /// <value>The selected Queen attack mode.</value>
         public HeroAttackMode SelectedQueenAttackMode
         {
             get { return _selectedQueenAttackMode; }
@@ -413,7 +568,7 @@ namespace CoC.Bot.ViewModels
                 if (_selectedQueenAttackMode != value)
                 {
                     _selectedQueenAttackMode = value;
-                    OnPropertyChanged("SelectedQueenAttackMode");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -433,7 +588,7 @@ namespace CoC.Bot.ViewModels
                 if (_selectedDeployStrategy != value)
                 {
                     _selectedDeployStrategy = value;
-                    OnPropertyChanged("SelectedDeployStrategy");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -453,12 +608,16 @@ namespace CoC.Bot.ViewModels
                 if (_selectedDeployTroop != value)
                 {
                     _selectedDeployTroop = value;
-                    OnPropertyChanged("SelectedDeployTroop");
+                    OnPropertyChanged();
                 }
             }
         }
 
         private bool _attackTownhall;
+        /// <summary>
+        /// Gets or sets a value indicating whether to attack the Townhall.
+        /// </summary>
+        /// <value><c>true</c> if attack to Townhall; otherwise, <c>false</c>.</value>
         public bool AttackTownhall
         {
             get { return _attackTownhall; }
@@ -467,12 +626,16 @@ namespace CoC.Bot.ViewModels
                 if (_attackTownhall != value)
                 {
                     _attackTownhall = value;
-                    OnPropertyChanged("AttackTownhall");
+                    OnPropertyChanged();
                 }
             }
         }
 
         private bool _attackUsingClanCastle;
+        /// <summary>
+        /// Gets or sets a value indicating whether to attack using clan castle troops.
+        /// </summary>
+        /// <value><c>true</c> if attack using clan castle troops; otherwise, <c>false</c>.</value>
         public bool AttackUsingClanCastle
         {
             get { return _attackUsingClanCastle; }
@@ -481,7 +644,7 @@ namespace CoC.Bot.ViewModels
                 if (_attackUsingClanCastle != value)
                 {
                     _attackUsingClanCastle = value;
-                    OnPropertyChanged("AttackUsingClanCastle");
+                    OnPropertyChanged();
                 }
             }
         }
