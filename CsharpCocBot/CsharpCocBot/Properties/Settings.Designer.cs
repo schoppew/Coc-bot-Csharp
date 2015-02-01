@@ -505,7 +505,7 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("barbarians|barbarian|barbs|any")]
+        [global::System.Configuration.DefaultSettingValueAttribute("barbarians|barbs|any")]
         public string DonateKeywordsBarbarians {
             get {
                 return ((string)(this["DonateKeywordsBarbarians"]));
@@ -517,7 +517,7 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("archers|archer|arch|any")]
+        [global::System.Configuration.DefaultSettingValueAttribute("archers|arch|any")]
         public string DonateKeywordsArchers {
             get {
                 return ((string)(this["DonateKeywordsArchers"]));
@@ -529,7 +529,7 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("goblins|goblin|any")]
+        [global::System.Configuration.DefaultSettingValueAttribute("goblins|gobs|any")]
         public string DonateKeywordsGoblins {
             get {
                 return ((string)(this["DonateKeywordsGoblins"]));
@@ -577,7 +577,7 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("wizards|wizard|any")]
+        [global::System.Configuration.DefaultSettingValueAttribute("wizards|wiz|any")]
         public string DonateKeywordsWizards {
             get {
                 return ((string)(this["DonateKeywordsWizards"]));
@@ -601,7 +601,7 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("dragon|drakes|any")]
+        [global::System.Configuration.DefaultSettingValueAttribute("dragon|drake|any")]
         public string DonateKeywordsDragons {
             get {
                 return ((string)(this["DonateKeywordsDragons"]));
@@ -625,7 +625,7 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("minions|minion|minis|mini|any")]
+        [global::System.Configuration.DefaultSettingValueAttribute("minions|mini|any")]
         public string DonateKeywordsMinions {
             get {
                 return ((string)(this["DonateKeywordsMinions"]));
@@ -637,7 +637,7 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("hog riders|hog rider|hogs|bacon|any")]
+        [global::System.Configuration.DefaultSettingValueAttribute("hog riders|hogs|bacon|any")]
         public string DonateKeywordsHogRiders {
             get {
                 return ((string)(this["DonateKeywordsHogRiders"]));
@@ -649,7 +649,7 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("valkyries|valkyrie|valks|valk|any")]
+        [global::System.Configuration.DefaultSettingValueAttribute("valkyries|valk|any")]
         public string DonateKeywordsValkyries {
             get {
                 return ((string)(this["DonateKeywordsValkyries"]));
@@ -685,7 +685,7 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("lava hound|lava|hound|any")]
+        [global::System.Configuration.DefaultSettingValueAttribute("lava hound|lava|any")]
         public string DonateKeywordsLavaHounds {
             get {
                 return ((string)(this["DonateKeywordsLavaHounds"]));
