@@ -213,8 +213,8 @@
   <data name="Goblins" xml:space="preserve">
     <value>Goblins</value>
   </data>
-  <data name="GroupBoxResources" xml:space="preserve">
-    <value>Resources</value>
+  <data name="Factors" xml:space="preserve">
+    <value>Factors</value>
   </data>
   <data name="LabelArchers" xml:space="preserve">
     <value>Archers:</value>

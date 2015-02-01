@@ -145,7 +145,7 @@
                                         <TextBlock Text="{x:Static p:Resources.ConditionsMessage}" Height="75" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
-                                <GroupBox Header="{x:Static p:Resources.GroupBoxResources}" HorizontalAlignment="Right" Margin="0,16,16,0" VerticalAlignment="Top" Height="239" Width="210">
+                                <GroupBox Header="{x:Static p:Resources.Factors}" HorizontalAlignment="Right" Margin="0,16,16,0" VerticalAlignment="Top" Height="239" Width="210">
                                     <Grid>
                                         <Label Content="{x:Static p:Resources.LabelMinimumGold}" Height="25" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelMinimumElixir}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />

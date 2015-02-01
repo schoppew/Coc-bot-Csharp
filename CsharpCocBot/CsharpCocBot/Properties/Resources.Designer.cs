@@ -376,6 +376,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Factors.
+        /// </summary>
+        public static string Factors {
+            get {
+                return ResourceManager.GetString("Factors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to General.
         /// </summary>
         public static string General {
@@ -399,15 +408,6 @@ namespace CoC.Bot.Properties {
         public static string Goblins {
             get {
                 return ResourceManager.GetString("Goblins", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Resources.
-        /// </summary>
-        public static string GroupBoxResources {
-            get {
-                return ResourceManager.GetString("GroupBoxResources", resourceCulture);
             }
         }
         
