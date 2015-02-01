@@ -37,6 +37,7 @@ ToDo's
 ToDo's In Progress
 =============================
 
+	» Make the Start button hidden when clicked, and shown when Stop button is clicked
 	» Implement Minimize button
 	» Implement TrayIcon
 		- Menu with
