@@ -712,8 +712,8 @@
                     _selectedTroopForDonate = value;
                     if (_selectedTroopForDonate is TroopModel)
                     {
-                        ShouldHideDonateControls = Visibility.Visible;
-                        ShouldHideTierInfoMessage = Visibility.Collapsed;
+                        ShouldHideDonateControls = true;
+                        ShouldHideTierInfoMessage = false;
 
                         var troop = (TroopModel)_selectedTroopForDonate;
                         IsCurrentDonateAll = troop.IsDonateAll;
@@ -742,8 +742,8 @@
                                 break;
                         }
 
-                        ShouldHideDonateControls = Visibility.Collapsed;
-                        ShouldHideTierInfoMessage = Visibility.Visible;
+                        ShouldHideDonateControls = false;
+                        ShouldHideTierInfoMessage = true;
                     }
 
                     OnPropertyChanged();
@@ -799,12 +799,12 @@
             }
         }
 
-        private Visibility _shouldHideDonateControls = Visibility.Collapsed;
+        private bool _shouldHideDonateControls;
         /// <summary>
         /// [For use in UI only] Gets or sets if should hide donate controls.
         /// </summary>
         /// <value>If should hide donate controls.</value>
-        public Visibility ShouldHideDonateControls
+        public bool ShouldHideDonateControls
         {
             get { return _shouldHideDonateControls; }
             set
@@ -817,12 +817,12 @@
             }
         }
 
-        private Visibility _shouldHideTierInfoMessage = Visibility.Visible;
+        private bool _shouldHideTierInfoMessage = true;
         /// <summary>
         /// [For use in UI only] Gets or sets if should hide tier information message.
         /// </summary>
         /// <value>If should hide tier information message.</value>
-        public Visibility ShouldHideTierInfoMessage
+        public bool ShouldHideTierInfoMessage
         {
             get { return _shouldHideTierInfoMessage; }
             set

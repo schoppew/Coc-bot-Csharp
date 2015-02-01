@@ -8,6 +8,7 @@
     using System.Windows.Input;
 
     using CoC.Bot.Properties;
+    using CoC.Bot.UI.Utils;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -22,15 +23,24 @@
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        protected override void OnSourceInitialized(EventArgs e)
         {
-            
+            base.OnSourceInitialized(e);
+            this.SetPlacement(Settings.Default.WindowPlacement);
         }
 
         private void Bar_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
+        }
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            base.OnClosing(e);
+
+            Settings.Default.WindowPlacement = this.GetPlacement();
+            Settings.Default.Save();
         }
 
         #region Event [Behaviours]

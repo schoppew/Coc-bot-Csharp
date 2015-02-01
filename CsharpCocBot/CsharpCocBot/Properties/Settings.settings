@@ -5,12 +5,6 @@
     <Setting Name="MaxTrophies" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1600</Value>
     </Setting>
-    <Setting Name="WindowLeft" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="WindowTop" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
     <Setting Name="MinGold" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">80000</Value>
     </Setting>
@@ -265,6 +259,9 @@
     </Setting>
     <Setting Name="DonateAllLavaHounds" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="WindowPlacement" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

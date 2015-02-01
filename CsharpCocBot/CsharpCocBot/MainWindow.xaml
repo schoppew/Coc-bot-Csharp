@@ -1,19 +1,21 @@
 ﻿<Window x:Class="CoC.Bot.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:CoC.Bot"
         xmlns:vm="clr-namespace:CoC.Bot.ViewModels"
         xmlns:b="clr-namespace:CoC.Bot.UI.Behaviours"
         xmlns:c="clr-namespace:CoC.Bot.UI.Converters"
         xmlns:ctrls="clr-namespace:CoC.Bot.UI.Controls"
         xmlns:d="clr-namespace:CoC.Bot.Data"
         xmlns:p="clr-namespace:CoC.Bot.Properties"
-        Title="[TBC] Clash of Clans Bot" Icon="/Assets/Images/Icon.ico" Height="600" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
+        Title="[TBC] Clash of Clans Bot" Icon="/Assets/Images/Icon.ico" Height="600" Width="500" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
 
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
 
     <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="boolToVisConverter" />
         <c:EnumToBooleanConverter x:Key="enumToBoolConverter" />
         <c:InverseBooleanConverter x:Key="inverseBoolConverter" />
         <c:SelectedTreeViewItemConverter x:Key="selTreeViewConverter" />
@@ -150,11 +152,11 @@
                                         <Label Content="{x:Static p:Resources.LabelMinimumDarkElixir}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelMinimumTrophyCount}" Height="25" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelMinimumTownhallLevel}" Height="25" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="113" />
-                                        <TextBox Text="{Binding MinimumGold, UpdateSourceTrigger=PropertyChanged}" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,12,10,0" VerticalAlignment="Top" Width="60" />
-                                        <TextBox Text="{Binding MinimumElixir, UpdateSourceTrigger=PropertyChanged}" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,40,10,0" VerticalAlignment="Top" Width="60" />
-                                        <TextBox Text="{Binding MinimumDarkElixir, UpdateSourceTrigger=PropertyChanged}" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,68,10,0" VerticalAlignment="Top" Width="60" />
-                                        <TextBox Text="{Binding MinimumTrophyCount, UpdateSourceTrigger=PropertyChanged}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,96,10,0" VerticalAlignment="Top" Width="60" />
-                                        <TextBox Text="{Binding MinimumTownhallLevel, UpdateSourceTrigger=PropertyChanged}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,124,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding MinimumGold, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,12,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding MinimumElixir, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,40,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding MinimumDarkElixir, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,68,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding MinimumTrophyCount, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,96,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding MinimumTownhallLevel, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,124,10,0" VerticalAlignment="Top" Width="60" />
                                         <TextBlock Text="{x:Static p:Resources.ResourcesMessage}" Height="45" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
@@ -222,7 +224,7 @@
                                 <GroupBox Header="{x:Static p:Resources.TroopRequest}" Margin="16,16,16,0" VerticalAlignment="Top" Height="62">
                                     <Grid>
                                         <CheckBox x:Name="chkRequestTroopsMsg" Content="{x:Static p:Resources.LabelRequestFor}" IsChecked="{Binding RequestTroops}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
-                                        <TextBox Text="{Binding RequestTroopsMessage}" IsEnabled="{Binding ElementName=chkRequestTroopsMsg, Path=IsChecked}" Height="23" Margin="0,8,16,8" TextWrapping="Wrap" Width="290" HorizontalAlignment="Right"/>
+                                        <TextBox Text="{Binding RequestTroopsMessage}" IsEnabled="{Binding ElementName=chkRequestTroopsMsg, Path=IsChecked}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" Height="23" Margin="0,8,16,8" TextWrapping="Wrap" Width="290" HorizontalAlignment="Right"/>
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.Troops}" Margin="16,83,16,0" VerticalAlignment="Top" Height="277">
@@ -261,9 +263,9 @@
                                         </ctrls:TreeViewEx>
                                         <GroupBox Header="{Binding SelectedItem, ElementName=donateTreeView, Mode=OneWay, Converter={StaticResource selTreeViewConverter}}" HorizontalAlignment="Right" Margin="0,8,16,16" Width="220">
                                             <Grid>
-                                                <CheckBox x:Name="chkDonateToAll" Content="{x:Static p:Resources.DonateToAll}" IsChecked="{Binding IsCurrentDonateAll}" Visibility="{Binding ShouldHideDonateControls}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
-                                                <TextBox Text="{Binding CurrentDonateKeywords, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding ElementName=chkDonateToAll, Path=IsChecked, Converter={StaticResource inverseBoolConverter}}" Visibility="{Binding ShouldHideDonateControls}" Margin="16,32,16,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Height="120" />
-                                                <TextBlock Text="{Binding TroopTierSelectedInfoMessage}" Visibility="{Binding ShouldHideTierInfoMessage}" Height="90" HorizontalAlignment="Right" Margin="0,44,13,75" VerticalAlignment="Center" Width="182" TextWrapping="Wrap" TextAlignment="Center" FontSize="24" />
+                                                <CheckBox x:Name="chkDonateToAll" Content="{x:Static p:Resources.DonateToAll}" IsChecked="{Binding IsCurrentDonateAll}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource boolToVisConverter}}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
+                                                <TextBox Text="{Binding CurrentDonateKeywords, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding ElementName=chkDonateToAll, Path=IsChecked, Converter={StaticResource inverseBoolConverter}}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource boolToVisConverter}}" Margin="16,32,16,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Height="120" />
+                                                <TextBlock Text="{Binding TroopTierSelectedInfoMessage}" Visibility="{Binding ShouldHideTierInfoMessage, Converter={StaticResource boolToVisConverter}}" Height="90" HorizontalAlignment="Right" Margin="0,44,13,75" VerticalAlignment="Center" Width="182" TextWrapping="Wrap" TextAlignment="Center" FontSize="24" />
                                                 <TextBlock Text="{x:Static p:Resources.DonateMessage}" Height="29" HorizontalAlignment="Right" Margin="0,0,13,10" VerticalAlignment="Bottom" Width="182" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                             </Grid>
                                         </GroupBox>
@@ -281,9 +283,9 @@
                                         <Label Content="{x:Static p:Resources.LabelArchers}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="130" />
                                         <Label Content="{x:Static p:Resources.LabelGoblins}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
                                         <Label Content="{Binding TotalPercent}" Height="25" HorizontalAlignment="Left" Margin="98,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="60" HorizontalContentAlignment="Center" />
-                                        <TextBox Text="{Binding BarbariansPercent, UpdateSourceTrigger=PropertyChanged}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,12,40,0" VerticalAlignment="Top" Width="60" IsEnabled="{Binding IsCustomTroopsEnabled}" />
-                                        <TextBox Text="{Binding ArchersPercent, UpdateSourceTrigger=PropertyChanged}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,40,40,0" VerticalAlignment="Top" Width="60" IsEnabled="{Binding IsCustomTroopsEnabled}" />
-                                        <TextBox Text="{Binding GoblinsPercent, UpdateSourceTrigger=PropertyChanged}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,68,40,0" VerticalAlignment="Top" Width="60" IsEnabled="{Binding IsCustomTroopsEnabled}" />
+                                        <TextBox Text="{Binding BarbariansPercent, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,12,40,0" VerticalAlignment="Top" Width="60" IsEnabled="{Binding IsCustomTroopsEnabled}" />
+                                        <TextBox Text="{Binding ArchersPercent, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,40,40,0" VerticalAlignment="Top" Width="60" IsEnabled="{Binding IsCustomTroopsEnabled}" />
+                                        <TextBox Text="{Binding GoblinsPercent, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,68,40,0" VerticalAlignment="Top" Width="60" IsEnabled="{Binding IsCustomTroopsEnabled}" />
                                         <Label Content="{x:Static p:Resources.Percent}" Height="25" HorizontalAlignment="Right" Margin="0,12,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="20" />
                                         <Label Content="{x:Static p:Resources.Percent}" Height="25" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="20" />
                                         <Label Content="{x:Static p:Resources.Percent}" Height="25" HorizontalAlignment="Right" Margin="0,68,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="20" />
@@ -296,8 +298,8 @@
                                     <Grid>
                                         <Label Content="{x:Static p:Resources.LabelNumberOfGiants}" Height="25" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelNumberOfWallBreakers}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="130" />
-                                        <TextBox Text="{Binding NumberOfGiants, UpdateSourceTrigger=PropertyChanged}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,12,10,0" VerticalAlignment="Top" Width="40" IsEnabled="{Binding IsCustomTroopsEnabled}" />
-                                        <TextBox Text="{Binding NumberOfWallBreakers, UpdateSourceTrigger=PropertyChanged}" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,40,10,0" VerticalAlignment="Top" Width="40" IsEnabled="{Binding IsCustomTroopsEnabled}" />
+                                        <TextBox Text="{Binding NumberOfGiants, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,12,10,0" VerticalAlignment="Top" Width="40" IsEnabled="{Binding IsCustomTroopsEnabled}" />
+                                        <TextBox Text="{Binding NumberOfWallBreakers, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,40,10,0" VerticalAlignment="Top" Width="40" IsEnabled="{Binding IsCustomTroopsEnabled}" />
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.Barracks}" HorizontalAlignment="Right" Margin="0,121,16,0" VerticalAlignment="Top" Height="165" Width="210">
