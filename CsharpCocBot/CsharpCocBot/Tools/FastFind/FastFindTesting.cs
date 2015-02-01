@@ -25,6 +25,7 @@ namespace CoC.Bot.Tools.FastFind
       
       FastFindWrapper.SaveJPG(0, fullSize, 100);
       FastFindWrapper.SaveJPG(1, smallSize, 100);
+      FastFindHelper.GetPixel(10, 10);
     }
   }
 }

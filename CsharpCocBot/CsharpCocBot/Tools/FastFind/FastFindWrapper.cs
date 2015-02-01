@@ -43,7 +43,7 @@ namespace CoC.Bot.Tools.FastFind
     public static extern IntPtr FFVersion();
 
     // Basic functions
-    [DllImport(fastFindDllName)]
+    [DllImport(fastFindDllName, EntryPoint="FFGetPixel")]
     public static extern int GetPixel(int X, int Y, int NoSnapShot);
     [DllImport(fastFindDllName)]
     public static extern int ColorPixelSearch(ref int XRef, ref int YRef, int ColorToFind, int NoSnapShot);
@@ -56,9 +56,9 @@ namespace CoC.Bot.Tools.FastFind
 
     // List of colors management
     [DllImport(fastFindDllName)]
-    public static extern int AddColor(UInt32 NewColor);
+    public static extern int AddColor(int NewColor);
     [DllImport(fastFindDllName)]
-    public static extern int RemoveColor(UInt32 NewColor);
+    public static extern int RemoveColor(int NewColor);
     [DllImport(fastFindDllName)]
     public static extern void ResetColors();
 
