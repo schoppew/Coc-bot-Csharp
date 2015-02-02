@@ -109,6 +109,8 @@
         /// <value>The application settings.</value>
         internal static Properties.Settings AppSettings { get { return Properties.Settings.Default; } }
 
+        internal LogWriter Log { get; private set; }
+
         #region Behaviour Properties
 
         /// <summary>
@@ -151,6 +153,7 @@
                     _output.AppendFormat("[{0:HH:mm:ss}] {1}", DateTime.Now, value + Environment.NewLine);
 
                 Message = value;
+                GlobalVariables.Log.WriteToLog(value);
 
                 OnPropertyChanged();
             }
@@ -1113,8 +1116,6 @@
 
         #endregion
 
-        public int Count { get { return 1; } }
-
         #endregion
 
         #region Commands
@@ -1271,6 +1272,8 @@
         /// </summary>
         private void Init()
         {
+            GlobalVariables.Log.WriteToLog(Properties.Resources.LogBotInitializing);
+
             // Fill the Troop Compositions
             if (DataCollection.TroopCompositions.Count == 0)
             {
@@ -1364,6 +1367,8 @@
                     }
                 }
             }
+
+            GlobalVariables.Log.WriteToLog(Properties.Resources.LogBotInitialized);
         }
 
         #endregion
@@ -1399,12 +1404,12 @@
             // Sample for getting familiar with the UI (used for accessing the properties/user settings values)
             Samples.GettingAroundTheUI.UseValuesInUI(this);
 
-            Output = "Trying some simple captures within FastFind, and Keyboard injection";
-            MessageBox.Show("Trying some simple captures within FastFind, and Keyboard injection", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
-            FastFindTesting.Test();
-            KeyboardHelper.BSTest();
-            KeyboardHelper.BSTest2();
-            KeyboardHelper.NotePadTest();
+            //Output = "Trying some simple captures within FastFind, and Keyboard injection";
+            //MessageBox.Show("Trying some simple captures within FastFind, and Keyboard injection", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
+            //FastFindTesting.Test();
+            //KeyboardHelper.BSTest();
+            //KeyboardHelper.BSTest2();
+            //KeyboardHelper.NotePadTest();
         }
 
         /// <summary>

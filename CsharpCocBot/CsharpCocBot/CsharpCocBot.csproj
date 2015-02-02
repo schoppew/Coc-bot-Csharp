@@ -134,6 +134,7 @@
     <Compile Include="Tools\FastFind\FastFindHelper.cs" />
     <Compile Include="Tools\FastFind\FastFindTesting.cs" />
     <Compile Include="Tools\KeyboardHelper.cs" />
+    <Compile Include="Tools\LogWriter.cs" />
     <Compile Include="UI\Behaviours\TextBoxBehaviour.cs" />
     <Compile Include="UI\Commands\AboutCommand.cs" />
     <Compile Include="UI\Commands\DelegateCommand.cs" />

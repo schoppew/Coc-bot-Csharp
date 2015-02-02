@@ -722,6 +722,24 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bot fully Initialized!.
+        /// </summary>
+        public static string LogBotInitialized {
+            get {
+                return ResourceManager.GetString("LogBotInitialized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bot is initializing....
+        /// </summary>
+        public static string LogBotInitializing {
+            get {
+                return ResourceManager.GetString("LogBotInitializing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Max Level.
         /// </summary>
         public static string MaxLevel {

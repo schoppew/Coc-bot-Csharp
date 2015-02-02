@@ -24,7 +24,9 @@
         /// </summary>
         public static void Initialize(MainViewModel vm)
         {
-            Bot = vm; // Store the ViewModel here for exposing to the SubFunctions
+            // Store in properties so we can access in the SubFunctions
+            Bot = vm;
+            Log = vm.Log;
 
             Bot.Output = string.Format(Properties.Resources.OutputWelcomeMessage, Properties.Resources.AppName);
             Bot.Output = Properties.Resources.OutputBotIsStarting;
@@ -59,15 +61,11 @@
                 BlueStackHelper.ActivateBlueStack();
             }
 
-            CreateDirectory(LogPath);
-            CreateDirectory(ScreenshotZombieAttacked);
-            CreateDirectory(ScreenshotZombieSkipped);
+            CreateDirectory(GlobalVariables.LogPath);
+            CreateDirectory(GlobalVariables.ScreenshotZombieAttacked);
+            CreateDirectory(GlobalVariables.ScreenshotZombieSkipped);
 
             WriteLicense();
-
-            // Create Log File
-            // Do more stuff
-            // Yay!
 
             // Run Everything related to the bot in the background
             var thread = new Thread(() =>
@@ -102,27 +100,17 @@
 
         #region Properties
 
+        /// <summary>
+        /// Gets the MainViewModel.
+        /// </summary>
+        /// <value>The MainViewModel.</value>
         internal static MainViewModel Bot { get; private set; }
 
-        internal static string AppPath
-        {
-            get { return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location); }
-        }
-
-        internal static string LogPath
-        {
-            get { return Path.Combine(AppPath, "Logs"); }
-        }
-
-        internal static string ScreenshotZombieAttacked
-        {
-            get { return Path.Combine(AppPath, @"Screenshots\Zombies Attacked"); }
-        }
-
-        internal static string ScreenshotZombieSkipped
-        {
-            get { return Path.Combine(AppPath, @"Screenshots\Zombies Skipped"); }
-        }
+        /// <summary>
+        /// Gets the LogWriter initialized in the MainViewModel.
+        /// </summary>
+        /// <value>The LogWriter.</value>
+        internal static LogWriter Log { get; private set; }
 
         #endregion
 

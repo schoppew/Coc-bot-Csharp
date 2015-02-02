@@ -475,4 +475,10 @@
   <data name="OutputTryingToLocateMainScreen" xml:space="preserve">
     <value>Trying to locate Main Screen</value>
   </data>
+  <data name="LogBotInitialized" xml:space="preserve">
+    <value>Bot fully Initialized!</value>
+  </data>
+  <data name="LogBotInitializing" xml:space="preserve">
+    <value>Bot is initializing...</value>
+  </data>
 </root>
