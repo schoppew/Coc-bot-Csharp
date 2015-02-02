@@ -26,7 +26,6 @@
         {
             // Store in properties so we can access in the SubFunctions
             Bot = vm;
-            Log = vm.Log;
 
             Bot.Output = string.Format(Properties.Resources.OutputWelcomeMessage, Properties.Resources.AppName);
             Bot.Output = Properties.Resources.OutputBotIsStarting;
@@ -106,12 +105,6 @@
         /// <value>The MainViewModel.</value>
         internal static MainViewModel Bot { get; private set; }
 
-        /// <summary>
-        /// Gets the LogWriter initialized in the MainViewModel.
-        /// </summary>
-        /// <value>The LogWriter.</value>
-        internal static LogWriter Log { get; private set; }
-
         #endregion
 
         #region Private Methods
@@ -140,11 +133,11 @@
         /// </summary>
         private static void WriteLicense()
         {
-            if (!File.Exists(Path.Combine(AppPath, "LICENSE")))
+            if (!File.Exists(Path.Combine(GlobalVariables.AppPath, "LICENSE")))
             {
                 try
                 {
-                    File.WriteAllText(Path.Combine(AppPath, "LICENSE"), Properties.Resources.LICENSE, Encoding.UTF8);
+                    File.WriteAllText(Path.Combine(GlobalVariables.AppPath, "LICENSE"), Properties.Resources.LICENSE, Encoding.UTF8);
                 }
                 catch (Exception)
                 {

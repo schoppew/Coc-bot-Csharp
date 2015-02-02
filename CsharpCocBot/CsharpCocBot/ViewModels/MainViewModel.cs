@@ -1022,12 +1022,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets the Troops.
-        /// </summary>
-        /// <value>The Troops.</value>
-        public static BindingList<Model> Troops { get { return DataCollection.BarracksTroops; } }
-
         private Model _selectedBarrack1;
         public Model SelectedBarrack1
         {
@@ -1284,20 +1278,18 @@
             }
 
             // Fill the Barracks Troops
-            // TODO: Make this better!
             if (DataCollection.BarracksTroops.Count == 0)
             {
-                DataCollection.BarracksTroops.Add(Model.CreateNew(1, Properties.Resources.Barbarians));
-                DataCollection.BarracksTroops.Add(Model.CreateNew(2, Properties.Resources.Archers));
-                //DataCollection.BarracksTroops.Add(Model.CreateNew(3, Properties.Resources.Goblins));
-                //DataCollection.BarracksTroops.Add(Model.CreateNew(4, Properties.Resources.Giants));
-                //DataCollection.BarracksTroops.Add(Model.CreateNew(5, Properties.Resources.WallBreakers));
-                //DataCollection.BarracksTroops.Add(Model.CreateNew(6, Properties.Resources.Balloons));
-                //DataCollection.BarracksTroops.Add(Model.CreateNew(7, Properties.Resources.Wizards));
-                //DataCollection.BarracksTroops.Add(Model.CreateNew(8, Properties.Resources.Healers));
-                //DataCollection.BarracksTroops.Add(Model.CreateNew(9, Properties.Resources.Dragons));
-                //DataCollection.BarracksTroops.Add(Model.CreateNew(10, Properties.Resources.Pekkas));
-                // add more troop types
+                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Barbarian, Properties.Resources.Barbarians));
+                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Archer, Properties.Resources.Archers));
+                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Goblin, Properties.Resources.Goblins));
+                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Giant, Properties.Resources.Giants));
+                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.WallBreaker, Properties.Resources.WallBreakers));
+                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Balloon, Properties.Resources.Balloons));
+                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Wizard, Properties.Resources.Wizards));
+                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Healer, Properties.Resources.Healers));
+                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Dragon, Properties.Resources.Dragons));
+                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Pekka, Properties.Resources.Pekkas));
             }
 
             // Fill the Deploy Strategies
@@ -1404,12 +1396,12 @@
             // Sample for getting familiar with the UI (used for accessing the properties/user settings values)
             Samples.GettingAroundTheUI.UseValuesInUI(this);
 
-            //Output = "Trying some simple captures within FastFind, and Keyboard injection";
-            //MessageBox.Show("Trying some simple captures within FastFind, and Keyboard injection", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
-            //FastFindTesting.Test();
-            //KeyboardHelper.BSTest();
-            //KeyboardHelper.BSTest2();
-            //KeyboardHelper.NotePadTest();
+            Output = "Trying some simple captures within FastFind, and Keyboard injection";
+            MessageBox.Show("Trying some simple captures within FastFind, and Keyboard injection", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
+            FastFindTesting.Test();
+            KeyboardHelper.BSTest();
+            KeyboardHelper.BSTest2();
+            KeyboardHelper.NotePadTest();
         }
 
         /// <summary>
