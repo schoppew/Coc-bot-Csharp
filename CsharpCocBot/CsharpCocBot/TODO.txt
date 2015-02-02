@@ -51,13 +51,12 @@ ToDo's In Progress
 =============================
 
 	» [Code] Make the App Singleton
-
 	» [UI] Implement Minimize button
 	» [UI] Implement TrayIcon
 		- Notifications (Alert when Base found)
 	» [Code] Provides an higher level helper for FastFind integration
 
-
+	
 
 ToDo's Completed
 =============================

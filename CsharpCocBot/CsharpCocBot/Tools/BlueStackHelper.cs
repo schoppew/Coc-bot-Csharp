@@ -104,8 +104,9 @@ namespace CoC.Bot.Tools
         var rct = new Win32.RECT();
         Win32.GetWindowRect(bshandle, out rct);
 
-        var width = rct.Right - rct.Left; // By convention, the right and bottom edges of the rectangle are normally considered exclusive. ;
-        var height = rct.Bottom - rct.Top;
+        var width = rct.Right - rct.Left + 1;
+        var height = rct.Bottom - rct.Top + 1;
+
         return (width != 860) || (height != 720) ? false : true;
       }
     }
