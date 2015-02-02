@@ -27,36 +27,36 @@ Deployment Considerations
 
 ToDo's
 =============================
-
-	» [@] Implement Advanced Tab
+	» [@] [UI] Implement Advanced Tab
 		- This will contain a bunch of advanced functionality as the name suggests, like:
 			- Hability to use presets (Individual Settings)
-				- Those are saved as xml files and can be shared among users (loading them)
-		- A list with the Building coordinates
-			- When selecting the Building on the list, the bot will select it on the game, this way is easier to track if location is wrong and correct it
-		- Upgrade Buildings Queue
-			- User can select from screen the building (bot will get the coords) to upgrade
-			- User must specify the amount of Gold/Elixir required in order to upgrade (say it cost 4M, and user set it to upgrade when it reaches 5M, this way it will not run out of resources to keep the bot from farming)
-			- User can specify the order of the queue
-			- Bot will have to read if a builder is available
-	» [@] Implement Debug Tab
-		- Default is hidden, if argument is /debug, then make it visible
-	» [@] Implement Spells Tab
-		- Set the number of Spells to create per SpellType, useful if you don't have spells and forgot to put them on queue
-		- Use of spells?
-	» [@] Implement RichTextBox for colored Output
-	» [@] Implement Pause button
-	» Create the Help Tab
+				- Those are saved as xml files and can be shared among users
+
+	» [@] [UI] Implement RichTextBox for colored Output
+	» [@] [UI/Code] Implement Pause button
+	» [UI] Create the Help Tab
 		- [!] It is really needed?
+
+	» [@] [UI] Implement a Debug tab, with a set of customizable buttons (when we can easily change the label). 
+		   (This would be displayed only if /debug is appended on the command line.)
+	» [@] [Code] Move the common tools that are not CoC or even BlueStack-dependant into a separate dll.
+	» [@] [Code] Add some direct C# pixel manipulation instructions, with no use of unmanaged FastFind dll. 	
+	» [@] [UI] Add a list of all locatable buildings (barracks, collectors, heroes altars...). 
+		Selecting a building will select it in the CoC client
+		Double-click (or contextual menu, or explicit button) will allow the change the location (or automatic detection)
+	
 
 
 ToDo's In Progress
 =============================
 
-	» Make the App Singleton
-	» Implement Minimize button
-	» Implement TrayIcon
+	» [Code] Make the App Singleton
+
+	» [UI] Implement Minimize button
+	» [UI] Implement TrayIcon
 		- Notifications (Alert when Base found)
+	» [Code] Provides an higher level helper for FastFind integration
+
 
 
 ToDo's Completed
