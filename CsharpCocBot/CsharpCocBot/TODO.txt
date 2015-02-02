@@ -27,14 +27,18 @@ Deployment Considerations
 
 ToDo's
 =============================
+	» [@] [UI] Implement Advanced Tab
+		- This will contain a bunch of advanced functionality as the name suggests, like:
+			- Hability to use presets (Individual Settings)
+				- Those are saved as xml files and can be shared among users
 
 	» [@] [UI] Implement RichTextBox for colored Output
 	» [@] [UI/Code] Implement Pause button
-	» Create the Help Tab
+	» [UI] Create the Help Tab
 		- [!] It is really needed?
 
 	» [@] [UI] Implement a Debug tab, with a set of customizable buttons (when we can easily change the label). 
-		   (This would be displayed only if /Debug is appended on the command line.)
+		   (This would be displayed only if /debug is appended on the command line.)
 	» [@] [Code] Move the common tools that are not CoC or even BlueStack-dependant into a separate dll.
 	» [@] [Code] Add some direct C# pixel manipulation instructions, with no use of unmanaged FastFind dll. 	
 	» [@] [UI] Add a list of all locatable buildings (barracks, collectors, heroes altars...). 
@@ -51,18 +55,15 @@ ToDo's In Progress
 	» [UI] Implement Minimize button
 	» [UI] Implement TrayIcon
 		- Notifications (Alert when Base found)
-	» [UI] Add calculation below the Troops Percentages
-		- The result is the sum of the 3 troops in percentages
-			- Display in red if below or major 100%
-	» [Code] Provides an higher level helper for FastFind methods
-		
+	» [Code] Provides an higher level helper for FastFind integration
 
-	
+
 
 ToDo's Completed
 =============================
 
 	[6.0.0.0]
+	» [+] Implement Train Quantity per Troop 
 	» [+] Implemented the LogWriter
 	» [+] Implemented TaskbarItemInfo Overlay as a visual clue when the Bot is running
 	» [+] Make the Start button hidden when clicked, and shown when Stop button is clicked

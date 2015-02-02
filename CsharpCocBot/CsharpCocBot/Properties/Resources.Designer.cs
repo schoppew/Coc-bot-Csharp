@@ -259,6 +259,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dark Barracks.
+        /// </summary>
+        public static string DarkBarracks {
+            get {
+                return ResourceManager.GetString("DarkBarracks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dark Troops.
         /// </summary>
         public static string DarkTroops {
@@ -421,6 +430,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Golems.
+        /// </summary>
+        public static string Golems {
+            get {
+                return ResourceManager.GetString("Golems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Healers.
         /// </summary>
         public static string Healers {
@@ -448,20 +466,11 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Archers:.
+        ///   Looks up a localized string similar to Hog Riders.
         /// </summary>
-        public static string LabelArchers {
+        public static string HogRiders {
             get {
-                return ResourceManager.GetString("LabelArchers", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Barbarians:.
-        /// </summary>
-        public static string LabelBarbarians {
-            get {
-                return ResourceManager.GetString("LabelBarbarians", resourceCulture);
+                return ResourceManager.GetString("HogRiders", resourceCulture);
             }
         }
         
@@ -498,15 +507,6 @@ namespace CoC.Bot.Properties {
         public static string LabelBarrack4 {
             get {
                 return ResourceManager.GetString("LabelBarrack4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Goblins:.
-        /// </summary>
-        public static string LabelGoblins {
-            get {
-                return ResourceManager.GetString("LabelGoblins", resourceCulture);
             }
         }
         
@@ -628,24 +628,6 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Num. of Giants:.
-        /// </summary>
-        public static string LabelNumberOfGiants {
-            get {
-                return ResourceManager.GetString("LabelNumberOfGiants", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Num. of Wall Breakers:.
-        /// </summary>
-        public static string LabelNumberOfWallBreakers {
-            get {
-                return ResourceManager.GetString("LabelNumberOfWallBreakers", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Queen Settings:.
         /// </summary>
         public static string LabelQueenSettings {
@@ -669,6 +651,15 @@ namespace CoC.Bot.Properties {
         public static string LavaHound {
             get {
                 return ResourceManager.GetString("LavaHound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lava Hounds.
+        /// </summary>
+        public static string LavaHounds {
+            get {
+                return ResourceManager.GetString("LavaHounds", resourceCulture);
             }
         }
         
@@ -718,6 +709,15 @@ namespace CoC.Bot.Properties {
         public static string LocateCollectorsManually {
             get {
                 return ResourceManager.GetString("LocateCollectorsManually", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locate Dark Barracks Manually.
+        /// </summary>
+        public static string LocateDarkBarracksManually {
+            get {
+                return ResourceManager.GetString("LocateDarkBarracksManually", resourceCulture);
             }
         }
         
@@ -794,6 +794,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Minions.
+        /// </summary>
+        public static string Minions {
+            get {
+                return ResourceManager.GetString("Minions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to None.
         /// </summary>
         public static string None {
@@ -844,15 +853,6 @@ namespace CoC.Bot.Properties {
         public static string OtherSettings {
             get {
                 return ResourceManager.GetString("OtherSettings", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Other Troops.
-        /// </summary>
-        public static string OtherTroops {
-            get {
-                return ResourceManager.GetString("OtherTroops", resourceCulture);
             }
         }
         
@@ -974,11 +974,11 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to %.
+        ///   Looks up a localized string similar to Qty..
         /// </summary>
-        public static string Percent {
+        public static string Quantity {
             get {
-                return ResourceManager.GetString("Percent", resourceCulture);
+                return ResourceManager.GetString("Quantity", resourceCulture);
             }
         }
         
@@ -1100,7 +1100,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Must equal 100% to fully distribute the troops with maximum amount efficiency. Bot will use this if custom troops is selected..
+        ///   Looks up a localized string similar to Bot will use this if custom troops is selected..
         /// </summary>
         public static string TroopsMessage {
             get {
@@ -1123,6 +1123,15 @@ namespace CoC.Bot.Properties {
         public static string UseBarracks {
             get {
                 return ResourceManager.GetString("UseBarracks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valkyries.
+        /// </summary>
+        public static string Valkyries {
+            get {
+                return ResourceManager.GetString("Valkyries", resourceCulture);
             }
         }
         
@@ -1159,6 +1168,15 @@ namespace CoC.Bot.Properties {
         public static string WeakBaseSettingsMessage {
             get {
                 return ResourceManager.GetString("WeakBaseSettingsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Witches.
+        /// </summary>
+        public static string Witches {
+            get {
+                return ResourceManager.GetString("Witches", resourceCulture);
             }
         }
         

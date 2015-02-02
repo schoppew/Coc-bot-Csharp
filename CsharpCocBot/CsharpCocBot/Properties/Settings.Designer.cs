@@ -133,42 +133,6 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("30")]
-        public int BarbariansPercent {
-            get {
-                return ((int)(this["BarbariansPercent"]));
-            }
-            set {
-                this["BarbariansPercent"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("60")]
-        public int ArchersPercent {
-            get {
-                return ((int)(this["ArchersPercent"]));
-            }
-            set {
-                this["ArchersPercent"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public int GoblinsPercent {
-            get {
-                return ((int)(this["GoblinsPercent"]));
-            }
-            set {
-                this["GoblinsPercent"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("6")]
         public int NumberOfGiants {
             get {
@@ -1256,6 +1220,222 @@ namespace CoC.Bot.Properties {
             }
             set {
                 this["DonateKeywordsGoblins"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("11")]
+        public int SelectedDarkBarrack1 {
+            get {
+                return ((int)(this["SelectedDarkBarrack1"]));
+            }
+            set {
+                this["SelectedDarkBarrack1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("12")]
+        public int SelectedDarkBarrack2 {
+            get {
+                return ((int)(this["SelectedDarkBarrack2"]));
+            }
+            set {
+                this["SelectedDarkBarrack2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public int TroopsQtyArchers {
+            get {
+                return ((int)(this["TroopsQtyArchers"]));
+            }
+            set {
+                this["TroopsQtyArchers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int TroopsQtyBarbarians {
+            get {
+                return ((int)(this["TroopsQtyBarbarians"]));
+            }
+            set {
+                this["TroopsQtyBarbarians"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int TroopsQtyBalloons {
+            get {
+                return ((int)(this["TroopsQtyBalloons"]));
+            }
+            set {
+                this["TroopsQtyBalloons"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int TroopsQtyDragons {
+            get {
+                return ((int)(this["TroopsQtyDragons"]));
+            }
+            set {
+                this["TroopsQtyDragons"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("16")]
+        public int TroopsQtyGiants {
+            get {
+                return ((int)(this["TroopsQtyGiants"]));
+            }
+            set {
+                this["TroopsQtyGiants"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("40")]
+        public int TroopsQtyGoblins {
+            get {
+                return ((int)(this["TroopsQtyGoblins"]));
+            }
+            set {
+                this["TroopsQtyGoblins"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int TroopsQtyGolems {
+            get {
+                return ((int)(this["TroopsQtyGolems"]));
+            }
+            set {
+                this["TroopsQtyGolems"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int TroopsQtyHealers {
+            get {
+                return ((int)(this["TroopsQtyHealers"]));
+            }
+            set {
+                this["TroopsQtyHealers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int TroopsQtyHogRiders {
+            get {
+                return ((int)(this["TroopsQtyHogRiders"]));
+            }
+            set {
+                this["TroopsQtyHogRiders"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int TroopsQtyLavaHounds {
+            get {
+                return ((int)(this["TroopsQtyLavaHounds"]));
+            }
+            set {
+                this["TroopsQtyLavaHounds"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int TroopsQtyMinions {
+            get {
+                return ((int)(this["TroopsQtyMinions"]));
+            }
+            set {
+                this["TroopsQtyMinions"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int TroopsQtyPekkas {
+            get {
+                return ((int)(this["TroopsQtyPekkas"]));
+            }
+            set {
+                this["TroopsQtyPekkas"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int TroopsQtyValkyries {
+            get {
+                return ((int)(this["TroopsQtyValkyries"]));
+            }
+            set {
+                this["TroopsQtyValkyries"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("6")]
+        public int TroopsQtyWallBreakers {
+            get {
+                return ((int)(this["TroopsQtyWallBreakers"]));
+            }
+            set {
+                this["TroopsQtyWallBreakers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int TroopsQtyWitches {
+            get {
+                return ((int)(this["TroopsQtyWitches"]));
+            }
+            set {
+                this["TroopsQtyWitches"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int TroopsQtyWizards {
+            get {
+                return ((int)(this["TroopsQtyWizards"]));
+            }
+            set {
+                this["TroopsQtyWizards"] = value;
             }
         }
     }

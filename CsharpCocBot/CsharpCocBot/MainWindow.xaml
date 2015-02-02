@@ -156,18 +156,21 @@
                                         <Label Content="{x:Static p:Resources.LabelMinimumDarkElixir}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelMinimumTrophyCount}" Height="25" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelMinimumTownhallLevel}" Height="25" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="113" />
-                                        <TextBox Text="{Binding MinimumGold, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,12,10,0" VerticalAlignment="Top" Width="60" />
-                                        <TextBox Text="{Binding MinimumElixir, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,40,10,0" VerticalAlignment="Top" Width="60" />
-                                        <TextBox Text="{Binding MinimumDarkElixir, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,68,10,0" VerticalAlignment="Top" Width="60" />
-                                        <TextBox Text="{Binding MinimumTrophyCount, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,96,10,0" VerticalAlignment="Top" Width="60" />
-                                        <TextBox Text="{Binding MinimumTownhallLevel, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,124,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding MinimumGold, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntegerToStringConverter}}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,12,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding MinimumElixir, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntegerToStringConverter}}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,40,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding MinimumDarkElixir, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntegerToStringConverter}}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,68,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding MinimumTrophyCount, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntegerToStringConverter}}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,96,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding MinimumTownhallLevel, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntegerToStringConverter}}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,124,10,0" VerticalAlignment="Top" Width="60" />
                                         <TextBlock Text="{x:Static p:Resources.ResourcesMessage}" Height="45" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.OtherSearchSettings}" Margin="16,260,16,0" VerticalAlignment="Top" Height="100">
-                                    <CheckBox Content="{x:Static p:Resources.AlertWhenBaseFound}" IsChecked="{Binding IsAlertWhenBaseFound, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
+                                    <Grid>
+                                        <CheckBox Content="{x:Static p:Resources.AlertWhenBaseFound}" IsChecked="{Binding IsAlertWhenBaseFound, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
+                                    </Grid>
                                 </GroupBox>
-                                <Button Content="{x:Static p:Resources.SearchMode}" Command="{Binding SearchModeCommand}" Height="23" Margin="16,0,16,10" VerticalAlignment="Bottom" Visibility="Visible" />
+                                <Button Content="{x:Static p:Resources.LocateCollectorsManually}" Command="{Binding LocateCollectorsCommand}" Height="23" Margin="16,0,16,10" VerticalAlignment="Bottom" Visibility="Visible" HorizontalAlignment="Left" Width="210" />
+                                <Button Content="{x:Static p:Resources.SearchMode}" Command="{Binding SearchModeCommand}" Height="23" Margin="238,0,16,10" VerticalAlignment="Bottom" Visibility="Visible" />
                             </Grid>
                         </TabItem>
                         <!-- Attack Settings Tab -->
@@ -218,6 +221,79 @@
                                         <ComboBox ItemsSource="{Binding Path=DeployStrategies, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedDeployStrategy}" DisplayMemberPath="Name" Height="23" Width="388" VerticalAlignment="Top" Margin="16,10,16,0" />
                                         <ComboBox ItemsSource="{Binding Path=DeployTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedDeployTroop}" DisplayMemberPath="Name" Height="23" Width="210" VerticalAlignment="Bottom" Margin="16,0,164,10" HorizontalAlignment="Left" />
                                         <CheckBox Content="{x:Static p:Resources.AttackTownhall}" IsChecked="{Binding IsAttackTownhall}" HorizontalAlignment="Right" Margin="0,0,16,13" VerticalAlignment="Bottom" Width="155" IsEnabled="False" />
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </TabItem>
+                        <!-- Troop Settings Tab -->
+                        <TabItem Header="{x:Static p:Resources.TroopSettings}">
+                            <Grid Background="{DynamicResource BackgroundBrush}">
+                                <GroupBox Header="{x:Static p:Resources.Troops}" HorizontalAlignment="Left" Margin="16,16,0,0" VerticalAlignment="Top" Height="305" Width="210">
+                                    <Grid>
+                                        <ListView Margin="16,10,16,43" ItemsSource="{Binding Path=AllAttackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAttackTroop, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsCustomTroopsEnabled}" SelectionMode="Single">
+                                            <ListView.ItemContainerStyle>
+                                                <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
+                                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                                </Style>
+                                            </ListView.ItemContainerStyle>
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridView.Columns>
+                                                        <GridViewColumn Header="{x:Static p:Resources.Troops}" Width="90" DisplayMemberBinding="{Binding Name}" />
+                                                        <GridViewColumn Header="{x:Static p:Resources.Quantity}" Width="45">
+                                                            <GridViewColumn.CellTemplate>
+                                                                <DataTemplate>
+                                                                    <TextBox Text="{Binding TrainQuantity, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntegerToStringConverter}}" PreviewTextInput="NumberValidationTextBox"  HorizontalContentAlignment="Center">
+                                                                        <TextBox.Style>
+                                                                            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+                                                                                <Setter Property="Background" Value="Transparent"/>
+                                                                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                                                                <Style.Triggers>
+                                                                                    <Trigger Property="IsFocused" Value="True">
+                                                                                        <Setter Property="IsReadOnly" Value="False" />
+                                                                                    </Trigger>
+                                                                                    <Trigger Property="IsFocused" Value="False">
+                                                                                        <Setter Property="IsReadOnly" Value="True" />
+                                                                                    </Trigger>
+                                                                                </Style.Triggers>
+                                                                            </Style>
+                                                                        </TextBox.Style>
+                                                                    </TextBox>
+                                                                </DataTemplate>
+                                                            </GridViewColumn.CellTemplate>
+                                                        </GridViewColumn>
+                                                    </GridView.Columns>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                        <TextBlock Text="{x:Static p:Resources.TroopsMessage}" Height="28" HorizontalAlignment="Left" Margin="10,0,0,8" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
+                                    </Grid>
+                                </GroupBox>
+                                <ComboBox ItemsSource="{Binding Path=TroopCompositions, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedTroopComposition}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="0,24,16,0" HorizontalAlignment="Right" Width="210" />
+                                <GroupBox Header="{x:Static p:Resources.Barracks}" HorizontalAlignment="Right" Margin="0,51,16,0" VerticalAlignment="Top" Height="165" Width="210">
+                                    <Grid>
+                                        <Label Content="{x:Static p:Resources.LabelBarrack1}" Height="25" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
+                                        <Label Content="{x:Static p:Resources.LabelBarrack2}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
+                                        <Label Content="{x:Static p:Resources.LabelBarrack3}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
+                                        <Label Content="{x:Static p:Resources.LabelBarrack4}" Height="25" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
+                                        <ComboBox ItemsSource="{Binding Path=BarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack1}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,14,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                        <ComboBox ItemsSource="{Binding Path=BarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack2}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,42,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                        <ComboBox ItemsSource="{Binding Path=BarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack3}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,70,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                        <ComboBox ItemsSource="{Binding Path=BarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack4}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,98,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="{x:Static p:Resources.DarkBarracks}" HorizontalAlignment="Right" Margin="0,221,16,0" VerticalAlignment="Top" Height="100" Width="210">
+                                    <Grid>
+                                        <Label Content="{x:Static p:Resources.LabelBarrack1}" Height="25" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
+                                        <Label Content="{x:Static p:Resources.LabelBarrack2}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
+                                        <ComboBox ItemsSource="{Binding Path=DarkBarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedDarkBarrack1}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,12,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                        <ComboBox ItemsSource="{Binding Path=DarkBarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedDarkBarrack2}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,40,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="{x:Static p:Resources.OtherTroopsSettings}" HorizontalAlignment="Left" Margin="16,0,0,16" VerticalAlignment="Bottom" Height="65" Width="432">
+                                    <Grid>
+                                        <Button Content="{x:Static p:Resources.LocateBarracksManually}" Command="{Binding LocateBarracksCommand}" Height="23" Margin="16,0,219,10" VerticalAlignment="Bottom" Visibility="Visible" />
+                                        <Button Content="{x:Static p:Resources.LocateDarkBarracksManually}" Command="{Binding LocateDarkBarracksCommand}" Height="23" Margin="219,0,16,10" VerticalAlignment="Bottom" Visibility="Visible" />
                                     </Grid>
                                 </GroupBox>
                             </Grid>
@@ -280,57 +356,10 @@
                                 <Button Content="{x:Static p:Resources.LocateClanCastleManually}" Command="{Binding LocateClanCastleCommand}" Height="23" Margin="16,0,16,10" VerticalAlignment="Bottom" Visibility="Visible" />
                             </Grid>
                         </TabItem>
-                        <!-- Troop Settings Tab -->
-                        <TabItem Header="{x:Static p:Resources.TroopSettings}">
-                            <Grid Background="{DynamicResource BackgroundBrush}">
-                                <GroupBox Header="{x:Static p:Resources.Troops}" HorizontalAlignment="Left" Margin="16,16,0,0" VerticalAlignment="Top" Height="270" Width="210">
-                                    <Grid>
-                                        <Label Content="{x:Static p:Resources.LabelBarbarians}" Height="25" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
-                                        <Label Content="{x:Static p:Resources.LabelArchers}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="130" />
-                                        <Label Content="{x:Static p:Resources.LabelGoblins}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
-                                        <Label Content="{Binding TotalPercent}" Height="25" HorizontalAlignment="Left" Margin="98,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="60" HorizontalContentAlignment="Center" />
-                                        <TextBox Text="{Binding BarbariansPercent, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,12,40,0" VerticalAlignment="Top" Width="60" IsEnabled="{Binding IsCustomTroopsEnabled}" />
-                                        <TextBox Text="{Binding ArchersPercent, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,40,40,0" VerticalAlignment="Top" Width="60" IsEnabled="{Binding IsCustomTroopsEnabled}" />
-                                        <TextBox Text="{Binding GoblinsPercent, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,68,40,0" VerticalAlignment="Top" Width="60" IsEnabled="{Binding IsCustomTroopsEnabled}" />
-                                        <Label Content="{x:Static p:Resources.Percent}" Height="25" HorizontalAlignment="Right" Margin="0,12,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="20" />
-                                        <Label Content="{x:Static p:Resources.Percent}" Height="25" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="20" />
-                                        <Label Content="{x:Static p:Resources.Percent}" Height="25" HorizontalAlignment="Right" Margin="0,68,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="20" />
-                                        <Label Content="{x:Static p:Resources.Percent}" Height="25" HorizontalAlignment="Right" Margin="0,96,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="20" />
-                                        <ComboBox ItemsSource="{Binding Path=TroopCompositions, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedTroopComposition}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="10,145,10,0" />
-                                        <TextBlock Text="{x:Static p:Resources.TroopsMessage}" Height="60" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
-                                    </Grid>
-                                </GroupBox>
-                                <GroupBox Header="{x:Static p:Resources.OtherTroops}" HorizontalAlignment="Right" Margin="0,16,16,0" VerticalAlignment="Top" Height="100" Width="210">
-                                    <Grid>
-                                        <Label Content="{x:Static p:Resources.LabelNumberOfGiants}" Height="25" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
-                                        <Label Content="{x:Static p:Resources.LabelNumberOfWallBreakers}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="130" />
-                                        <TextBox Text="{Binding NumberOfGiants, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,12,10,0" VerticalAlignment="Top" Width="40" IsEnabled="{Binding IsCustomTroopsEnabled}" />
-                                        <TextBox Text="{Binding NumberOfWallBreakers, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Right" Height="23" Margin="0,40,10,0" VerticalAlignment="Top" Width="40" IsEnabled="{Binding IsCustomTroopsEnabled}" />
-                                    </Grid>
-                                </GroupBox>
-                                <GroupBox Header="{x:Static p:Resources.Barracks}" HorizontalAlignment="Right" Margin="0,121,16,0" VerticalAlignment="Top" Height="165" Width="210">
-                                    <Grid>
-                                        <Label Content="{x:Static p:Resources.LabelBarrack1}" Height="25" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
-                                        <Label Content="{x:Static p:Resources.LabelBarrack2}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
-                                        <Label Content="{x:Static p:Resources.LabelBarrack3}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
-                                        <Label Content="{x:Static p:Resources.LabelBarrack4}" Height="25" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
-                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack1}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,14,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
-                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack2}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,42,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
-                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack3}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,70,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
-                                        <ComboBox ItemsSource="{Binding Path=Troops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack4}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,98,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
-                                    </Grid>
-                                </GroupBox>
-                                <GroupBox Header="{x:Static p:Resources.OtherTroopsSettings}" HorizontalAlignment="Left" Margin="16,0,0,16" VerticalAlignment="Bottom" Height="100" Width="432">
-                                    <Grid>
-                                        <Button Content="{x:Static p:Resources.LocateCollectorsManually}" Command="{Binding LocateCollectorsCommand}" Height="23" Margin="16,10" VerticalAlignment="Top" Visibility="Visible" />
-                                        <Button Content="{x:Static p:Resources.LocateBarracksManually}" Command="{Binding LocateBarracksCommand}" Height="23" Margin="16,0,16,10" VerticalAlignment="Bottom" Visibility="Visible" />
-                                    </Grid>
-                                </GroupBox>
-                            </Grid>
-                        </TabItem>
+                        
                         <TabItem Header="{x:Static p:Resources.Help}">
                             <Grid Background="{DynamicResource BackgroundBrush}">
-
+                                
                             </Grid>
                         </TabItem>
                     </TabControl>

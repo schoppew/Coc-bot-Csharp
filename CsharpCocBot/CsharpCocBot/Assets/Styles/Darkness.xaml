@@ -269,14 +269,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
                     <Grid Background="Transparent">
-                        <Rectangle x:Name="HoverRectangle" IsHitTestVisible="False" Opacity="0" StrokeThickness="1"
-							Fill="{StaticResource SelectedBackgroundBrush}"/>
-
-                        <Rectangle x:Name="SelectedRectangle" IsHitTestVisible="False" Opacity="0" StrokeThickness="1"
-							Fill="{StaticResource SelectedBackgroundBrush}"/>
-
+                        <Rectangle x:Name="HoverRectangle" IsHitTestVisible="False" Opacity="0" StrokeThickness="1" Fill="{StaticResource SelectedBackgroundBrush}"/>
+                        <Rectangle x:Name="SelectedRectangle" IsHitTestVisible="False" Opacity="0" StrokeThickness="1" Fill="{StaticResource SelectedBackgroundBrush}"/>
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="5,2,0,2"/>
-
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
