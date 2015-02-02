@@ -29,6 +29,8 @@ Deployment Considerations
 
 ToDo's
 =============================
+
+	» [@] [C] Display Estimated Troop Training Time
 	» [@] [U] Implement Advanced Tab
 		- This will contain a bunch of advanced functionality as the name suggests, like:
 			- Hability to use presets (Individual Settings)
