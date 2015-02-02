@@ -17,6 +17,8 @@ Definitions:
 	- -> Removed
 	! -> Note
 	@ -> Request
+	C -> Code Specific
+	U -> UI Specific
 	
 
 Deployment Considerations
@@ -27,7 +29,7 @@ Deployment Considerations
 
 ToDo's
 =============================
-	» [@] [UI] Implement Advanced Tab
+	» [@] [U] Implement Advanced Tab
 		- This will contain a bunch of advanced functionality as the name suggests, like:
 			- Hability to use presets (Individual Settings)
 				- Those are saved as xml files and can be shared among users (loading them)
@@ -38,14 +40,14 @@ ToDo's
 			- User must specify the amount of Gold/Elixir required in order to upgrade (say it cost 4M, and user set it to upgrade when it reaches 5M, this way it will not run out of resources to keep the bot from farming)
 			- User can specify the order of the queue
 			- Bot will have to read if a builder is available
-	» [@] [UI] Implement RichTextBox for colored Output
-	» [@] [UI/Code] Implement Pause button
-	» [@] [UI] Create the Help Tab
+	» [@] [U] Implement RichTextBox for colored Output
+	» [@] [U/C] Implement Pause button
+	» [@] [U] Create the Help Tab
 		- [!] It is really needed?
-	» [@] [UI] Implement a Debug tab, with a set of customizable buttons (when we can easily change the label). 
+	» [@] [U] Implement a Debug tab, with a set of customizable buttons (when we can easily change the label). 
 		- (This would be displayed only if /debug is appended on the command line.)
-	» [@] [Code] Move the common tools that are not CoC or even BlueStack-dependant into a separate dll.
-	» [@] [Code] Add some direct C# pixel manipulation instructions, with no use of unmanaged FastFind dll. 	
+	» [@] [C] Move the common tools that are not CoC or even BlueStack-dependant into a separate dll.
+	» [@] [C] Add some direct C# pixel manipulation instructions, with no use of unmanaged FastFind dll. 	
 	» [@] Implement Spells Tab
 		- Set the number of Spells to create per SpellType, useful if you don't have spells and forgot to put them on queue
 		- Use of spells?
@@ -54,11 +56,11 @@ ToDo's
 ToDo's In Progress
 =============================
 
-	» [Code] Make the App Singleton
-	» [UI] Implement Minimize button
-	» [UI] Implement TrayIcon
+	» [C] Make the App Singleton
+	» [U] Implement Minimize button
+	» [U] Implement TrayIcon
 		- Notifications (Alert when Base found)
-	» [Code] Provides an higher level helper for FastFind integration
+	» [C] Provides an higher level helper for FastFind integration
 
 
 ToDo's Completed
