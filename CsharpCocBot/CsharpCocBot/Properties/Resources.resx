@@ -439,4 +439,10 @@
   <data name="LabelMaxDonationsPerRequest" xml:space="preserve">
     <value>Max. troops per request:</value>
   </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
 </root>

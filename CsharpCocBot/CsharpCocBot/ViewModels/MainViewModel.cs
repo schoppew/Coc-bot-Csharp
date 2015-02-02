@@ -112,16 +112,25 @@
         #region Behaviour Properties
 
         /// <summary>
-        /// Gets or sets a value indicating whether this bot has started.
+        /// Gets or sets a value indicating whether this bot is executing.
         /// </summary>
-        /// <value><c>true</c> if this bot has started; otherwise, <c>false</c>.</value>
-        private bool IsStarted { get; set; }
+        /// <value><c>true</c> if this bot is executing; otherwise, <c>false</c>.</value>
+        private bool IsExecuting { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this bot is hidden.
         /// </summary>
         /// <value><c>true</c> if this bot is hidden; otherwise, <c>false</c>.</value>
         private bool IsHidden { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating the Start/Stop State.
+        /// </summary>
+        /// <value><c>true</c> if Executing; otherwise, <c>false</c>.</value>
+        public bool StartStopState
+        {
+            get { return IsExecuting ? true : false; }
+        }
 
         #endregion
 
@@ -1114,48 +1123,32 @@
             get { return _aboutCommand; }
         }
 
-        private DelegateCommand _exitCommand;
         public ICommand ExitCommand
         {
-            get
-            {
-                if (_exitCommand == null)
-                    _exitCommand = new DelegateCommand(() => Exit());
-                return _exitCommand;
-            }
+            get { return new RelayCommand(() => Exit()); }
         }
 
         #region General Settings Commands
 
-        private DelegateCommand _startCommand;
-        public ICommand StartCommand
+        public ICommand StartStopCommand
         {
             get
             {
-                if (_startCommand == null)
-                    _startCommand = new DelegateCommand(() => Start(), StartCanExecute);
-                return _startCommand;
+                return new RelayCommand(() =>
+                {
+                    StartStop();
+                    OnPropertyChanged("StartStopState");
+                });
             }
         }
 
-        private DelegateCommand _stopCommand;
-        public ICommand StopCommand
-        {
-            get
-            {
-                if (_stopCommand == null)
-                    _stopCommand = new DelegateCommand(() => Stop(), StopCanExecute);
-                return _stopCommand;
-            }
-        }
-
-        private DelegateCommand _hideCommand;
+        private RelayCommand _hideCommand;
         public ICommand HideCommand
         {
             get
             {
                 if (_hideCommand == null)
-                    _hideCommand = new DelegateCommand(() => Hide(), HideCanExecute);
+                    _hideCommand = new RelayCommand(() => Hide(), HideCanExecute);
                 return _hideCommand;
             }
         }
@@ -1223,30 +1216,12 @@
         #region Can Execute Methods
 
         /// <summary>
-        /// Determines whether the Start command can be executed.
-        /// </summary>
-        /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
-        private bool StartCanExecute()
-        {
-            return IsStarted == false ? true : false;
-        }
-
-        /// <summary>
-        /// Determines whether the Stop command can be executed.
-        /// </summary>
-        /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
-        private bool StopCanExecute()
-        {
-            return IsStarted;
-        }
-
-        /// <summary>
         /// Determines whether the HideCommand command can be executed.
         /// </summary>
         /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
         private bool HideCanExecute()
         {
-            return IsHidden;
+            return StartStopState;
         }
 
         /// <summary>
@@ -1264,7 +1239,7 @@
         /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
         private bool LocateClanCastleCanExecute()
         {
-            return true; // TODO: We need to define this
+            return !StartStopState; // only executes if bot is not working?
         }
 
         /// <summary>
@@ -1273,7 +1248,7 @@
         /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
         private bool LocateCollectorsCanExecute()
         {
-            return true; // TODO: We need to define this
+            return !StartStopState; // only executes if bot is not working?
         }
 
         /// <summary>
@@ -1282,7 +1257,7 @@
         /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
         private bool LocateBarracksCanExecute()
         {
-            return true; // TODO: We need to define this
+            return !StartStopState; // only executes if bot is not working?
         }
 
         #endregion
@@ -1394,6 +1369,23 @@
         #region Main Methods
 
         /// <summary>
+        /// Starts or Stops the bot execution.
+        /// </summary>
+        private void StartStop()
+        {
+            if (IsExecuting)
+            {
+                IsExecuting = false;
+                Start();
+            }
+            else
+            {
+                IsExecuting = true;
+                Stop();
+            }
+        }
+
+        /// <summary>
         /// Starts the bot functionality
         /// </summary>
         private void Start()
@@ -1472,6 +1464,9 @@
         /// </summary>
         private void Exit()
         {
+            if (IsExecuting)
+                Stop();
+
             SaveUserSettings();
             Application.Current.MainWindow.Close();
         }

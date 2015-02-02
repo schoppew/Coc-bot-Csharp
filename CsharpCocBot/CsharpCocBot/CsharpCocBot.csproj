@@ -137,8 +137,11 @@
     <Compile Include="UI\Behaviours\TextBoxBehaviour.cs" />
     <Compile Include="UI\Commands\AboutCommand.cs" />
     <Compile Include="UI\Commands\DelegateCommand.cs" />
+    <Compile Include="UI\Commands\RelayCommand.cs" />
     <Compile Include="UI\Controls\TreeViewEx.cs" />
+    <Compile Include="UI\Converters\BooleanToStartStopConverter.cs" />
     <Compile Include="UI\Converters\EnumToBooleanConverter.cs" />
+    <Compile Include="UI\Converters\IntegerToStringConverter.cs" />
     <Compile Include="UI\Converters\InverseBooleanConverter.cs" />
     <Compile Include="UI\Converters\LeftMarginMultiplierConverter.cs" />
     <Compile Include="UI\Converters\ScrollbarOnFarConverter.cs" />
@@ -235,6 +238,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Start.png" />
+    <Resource Include="Assets\Images\Stop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

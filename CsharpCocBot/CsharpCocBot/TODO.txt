@@ -38,7 +38,6 @@ ToDo's In Progress
 =============================
 
 	» Make the App Singleton
-	» Make the Start button hidden when clicked, and shown when Stop button is clicked
 	» Implement Minimize button
 	» Implement TrayIcon
 		- Menu with
@@ -56,6 +55,11 @@ ToDo's Completed
 =============================
 
 	[6.0.0.0]
+	» [+] Make the Start button hidden when clicked, and shown when Stop button is clicked
+	» [+] Max Troop Donations Per Request
+		- [!] An edit for each troop kind that states maximum number of each troop you can give for each request.
+			  So for instance if I push any for barb, arch and gobs, I could set 2/2/1 to avoid give only barbs or wathever come first
+			  Or maybe I'm ok to give wizards, but only 1 each request
 	» [+] Remember Window Position and more by 'letting' Windows do the job
 	» [#] Output messages are now displayed
 	» [+] Implementation of UI
