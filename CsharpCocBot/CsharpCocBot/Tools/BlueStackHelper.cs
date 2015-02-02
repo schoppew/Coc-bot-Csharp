@@ -104,8 +104,8 @@ namespace CoC.Bot.Tools
         var rct = new Win32.RECT();
         Win32.GetWindowRect(bshandle, out rct);
 
-        var width = rct.Right - rct.Left + 1;
-        var height = rct.Bottom - rct.Top + 1;
+        var width = rct.Right - rct.Left; // in Win32 Rect, right and bottom are considered as excluded from the rect. 
+        var height = rct.Bottom - rct.Top;
 
         return (width != 860) || (height != 720) ? false : true;
       }
