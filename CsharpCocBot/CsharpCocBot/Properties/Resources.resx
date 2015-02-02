@@ -216,17 +216,14 @@
   <data name="Factors" xml:space="preserve">
     <value>Factors</value>
   </data>
-  <data name="LabelBarrack1" xml:space="preserve">
-    <value>Barrack 1:</value>
+  <data name="Barrack2" xml:space="preserve">
+    <value>Barrack 2</value>
   </data>
-  <data name="LabelBarrack2" xml:space="preserve">
-    <value>Barrack 2:</value>
+  <data name="Barrack3" xml:space="preserve">
+    <value>Barrack 3</value>
   </data>
-  <data name="LabelBarrack3" xml:space="preserve">
-    <value>Barrack 3:</value>
-  </data>
-  <data name="LabelBarrack4" xml:space="preserve">
-    <value>Barrack 4:</value>
+  <data name="Barrack4" xml:space="preserve">
+    <value>Barrack 4</value>
   </data>
   <data name="LabelKingSettings" xml:space="preserve">
     <value>King Settings:</value>
@@ -486,5 +483,8 @@
   </data>
   <data name="Witches" xml:space="preserve">
     <value>Witches</value>
+  </data>
+  <data name="Barrack1" xml:space="preserve">
+    <value>Barrack 1</value>
   </data>
 </root>

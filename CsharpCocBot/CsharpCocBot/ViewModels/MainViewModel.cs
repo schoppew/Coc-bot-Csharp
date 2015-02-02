@@ -921,47 +921,83 @@ namespace CoC.Bot.ViewModels
             }
         }
 
-        private int _numberOfGiants;
-        /// <summary>
-        /// Gets or sets the number of Giants.
-        /// </summary>
-        /// <value>The number of Giants.</value>
-        public int NumberOfGiants
-        {
-            get { return _numberOfGiants; }
-            set
-            {
-                if (_numberOfGiants != value)
-                {
-                    _numberOfGiants = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private int _numberOfWallBreakers;
-        /// <summary>
-        /// Gets or sets the number of Wall Breakers.
-        /// </summary>
-        /// <value>The number of Wall Breakers.</value>
-        public int NumberOfWallBreakers
-        {
-            get { return _numberOfWallBreakers; }
-            set
-            {
-                if (_numberOfWallBreakers != value)
-                {
-                    _numberOfWallBreakers = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         /// <summary>
         /// Gets the Troops.
         /// </summary>
         /// <value>The Troops.</value>
         public static BindingList<Model> BarrackTroops { get { return DataCollection.BarracksTroops; } }
+
+        private bool _isUseBarracks1;
+        /// <summary>
+        /// Gets or sets a value indicating whether it should use Barracks 1.
+        /// </summary>
+        /// <value><c>true</c> if it should use Barracks 1; otherwise, <c>false</c>.</value>
+        public bool IsUseBarracks1
+        {
+            get { return _isUseBarracks1; }
+            set
+            {
+                if (_isUseBarracks1 != value)
+                {
+                    _isUseBarracks1 = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _isUseBarracks2;
+        /// <summary>
+        /// Gets or sets a value indicating whether it should use Barracks 2.
+        /// </summary>
+        /// <value><c>true</c> if it should use Barracks 2; otherwise, <c>false</c>.</value>
+        public bool IsUseBarracks2
+        {
+            get { return _isUseBarracks2; }
+            set
+            {
+                if (_isUseBarracks2 != value)
+                {
+                    _isUseBarracks2 = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _isUseBarracks3;
+        /// <summary>
+        /// Gets or sets a value indicating whether it should use Barracks 3.
+        /// </summary>
+        /// <value><c>true</c> if it should use Barracks 3; otherwise, <c>false</c>.</value>
+        public bool IsUseBarracks3
+        {
+            get { return _isUseBarracks3; }
+            set
+            {
+                if (_isUseBarracks3 != value)
+                {
+                    _isUseBarracks3 = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _isUseBarracks4;
+        /// <summary>
+        /// Gets or sets a value indicating whether it should use Barracks 4.
+        /// </summary>
+        /// <value><c>true</c> if it should use Barracks 4; otherwise, <c>false</c>.</value>
+        public bool IsUseBarracks4
+        {
+            get { return _isUseBarracks4; }
+            set
+            {
+                if (_isUseBarracks4 != value)
+                {
+                    _isUseBarracks4 = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         private Model _selectedBarrack1;
         /// <summary>
@@ -1030,6 +1066,42 @@ namespace CoC.Bot.ViewModels
                 if (_selectedBarrack4 != value)
                 {
                     _selectedBarrack4 = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _isUseDarkBarracks1;
+        /// <summary>
+        /// Gets or sets a value indicating whether it should use Dark Barracks 1.
+        /// </summary>
+        /// <value><c>true</c> if it should use Dark Barracks 1; otherwise, <c>false</c>.</value>
+        public bool IsUseDarkBarracks1
+        {
+            get { return _isUseDarkBarracks1; }
+            set
+            {
+                if (_isUseDarkBarracks1 != value)
+                {
+                    _isUseDarkBarracks1 = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _isUseDarkBarracks2;
+        /// <summary>
+        /// Gets or sets a value indicating whether it should use Dark Barracks 2.
+        /// </summary>
+        /// <value><c>true</c> if it should use Dark Barracks 2; otherwise, <c>false</c>.</value>
+        public bool IsUseDarkBarracks2
+        {
+            get { return _isUseDarkBarracks2; }
+            set
+            {
+                if (_isUseDarkBarracks2 != value)
+                {
+                    _isUseDarkBarracks2 = value;
                     OnPropertyChanged();
                 }
             }
@@ -1596,19 +1668,20 @@ namespace CoC.Bot.ViewModels
             IsAttackTownhall = AppSettings.IsAttackTownhall;
 
             // Troop Settings
-            //BarbariansPercent = AppSettings.BarbariansPercent;
-            //ArchersPercent = AppSettings.ArchersPercent;
-            //GoblinsPercent = AppSettings.GoblinsPercent;
-
             SelectedTroopComposition = DataCollection.TroopCompositions.Where(tc => tc.Id == AppSettings.SelectedTroopComposition).DefaultIfEmpty(DataCollection.TroopCompositions.First()).First();
 
-            NumberOfGiants = AppSettings.NumberOfGiants;
-            NumberOfWallBreakers = AppSettings.NumberOfWallBreakers;
+            IsUseBarracks1 = AppSettings.IsUseBarracks1;
+            IsUseBarracks2 = AppSettings.IsUseBarracks2;
+            IsUseBarracks3 = AppSettings.IsUseBarracks3;
+            IsUseBarracks4 = AppSettings.IsUseBarracks4;
 
             SelectedBarrack1 = DataCollection.BarracksTroops.Where(b1 => b1.Id == AppSettings.SelectedBarrack1).DefaultIfEmpty(DataCollection.BarracksTroops.First()).First();
             SelectedBarrack2 = DataCollection.BarracksTroops.Where(b2 => b2.Id == AppSettings.SelectedBarrack2).DefaultIfEmpty(DataCollection.BarracksTroops.First()).First();
             SelectedBarrack3 = DataCollection.BarracksTroops.Where(b3 => b3.Id == AppSettings.SelectedBarrack3).DefaultIfEmpty(DataCollection.BarracksTroops.First()).First();
             SelectedBarrack4 = DataCollection.BarracksTroops.Where(b4 => b4.Id == AppSettings.SelectedBarrack4).DefaultIfEmpty(DataCollection.BarracksTroops.First()).First();
+
+            IsUseDarkBarracks1 = AppSettings.IsUseDarkBarracks1;
+            IsUseDarkBarracks2 = AppSettings.IsUseDarkBarracks2;
 
             SelectedDarkBarrack1 = DataCollection.DarkBarracksTroops.Where(b1 => b1.Id == AppSettings.SelectedDarkBarrack1).DefaultIfEmpty(DataCollection.DarkBarracksTroops.First()).First();
             SelectedDarkBarrack2 = DataCollection.DarkBarracksTroops.Where(b2 => b2.Id == AppSettings.SelectedDarkBarrack2).DefaultIfEmpty(DataCollection.DarkBarracksTroops.First()).First();
@@ -1662,19 +1735,20 @@ namespace CoC.Bot.ViewModels
             AppSettings.IsAttackTownhall = IsAttackTownhall;
 
             // Troop Settings
-            //AppSettings.BarbariansPercent = BarbariansPercent;
-            //AppSettings.ArchersPercent = ArchersPercent;
-            //AppSettings.GoblinsPercent = GoblinsPercent;
-
             AppSettings.SelectedTroopComposition = SelectedTroopComposition.Id;
 
-            AppSettings.NumberOfGiants = NumberOfGiants;
-            AppSettings.NumberOfWallBreakers = NumberOfWallBreakers;
+            AppSettings.IsUseBarracks1 = IsUseBarracks1;
+            AppSettings.IsUseBarracks2 = IsUseBarracks2;
+            AppSettings.IsUseBarracks3 = IsUseBarracks3;
+            AppSettings.IsUseBarracks4 = IsUseBarracks4;
 
             AppSettings.SelectedBarrack1 = SelectedBarrack1.Id;
             AppSettings.SelectedBarrack2 = SelectedBarrack2.Id;
             AppSettings.SelectedBarrack3 = SelectedBarrack3.Id;
             AppSettings.SelectedBarrack4 = SelectedBarrack4.Id;
+
+            AppSettings.IsUseDarkBarracks1 = IsUseDarkBarracks1;
+            AppSettings.IsUseDarkBarracks2 = IsUseDarkBarracks2;
 
             AppSettings.SelectedDarkBarrack1 = SelectedDarkBarrack1.Id;
             AppSettings.SelectedDarkBarrack2 = SelectedDarkBarrack2.Id;

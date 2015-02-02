@@ -272,22 +272,112 @@
                                 <ComboBox ItemsSource="{Binding Path=TroopCompositions, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedTroopComposition}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="0,24,16,0" HorizontalAlignment="Right" Width="210" />
                                 <GroupBox Header="{x:Static p:Resources.Barracks}" HorizontalAlignment="Right" Margin="0,51,16,0" VerticalAlignment="Top" Height="165" Width="210">
                                     <Grid>
-                                        <Label Content="{x:Static p:Resources.LabelBarrack1}" Height="25" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
-                                        <Label Content="{x:Static p:Resources.LabelBarrack2}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
-                                        <Label Content="{x:Static p:Resources.LabelBarrack3}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
-                                        <Label Content="{x:Static p:Resources.LabelBarrack4}" Height="25" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
-                                        <ComboBox ItemsSource="{Binding Path=BarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack1}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,14,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
-                                        <ComboBox ItemsSource="{Binding Path=BarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack2}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,42,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
-                                        <ComboBox ItemsSource="{Binding Path=BarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack3}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,70,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
-                                        <ComboBox ItemsSource="{Binding Path=BarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack4}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,98,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                        <CheckBox Content="{x:Static p:Resources.Barrack1}" IsChecked="{Binding IsUseBarracks1, UpdateSourceTrigger=PropertyChanged}" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="15,17,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="70" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                        <CheckBox Content="{x:Static p:Resources.Barrack2}" IsChecked="{Binding IsUseBarracks2, UpdateSourceTrigger=PropertyChanged}" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="15,45,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="70" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                        <CheckBox Content="{x:Static p:Resources.Barrack3}" IsChecked="{Binding IsUseBarracks3, UpdateSourceTrigger=PropertyChanged}" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="15,73,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="70" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                        <CheckBox Content="{x:Static p:Resources.Barrack4}" IsChecked="{Binding IsUseBarracks4, UpdateSourceTrigger=PropertyChanged}" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="15,101,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="70" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                        <ComboBox ItemsSource="{Binding Path=BarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack1}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="88,14,10,0">
+                                            <ComboBox.Style>
+                                                <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource {x:Type ComboBox}}">
+                                                    <Setter Property="IsEnabled" Value="False" />
+                                                    <Style.Triggers>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsUseBarracksEnabled}" Value="True" />
+                                                                <Condition Binding="{Binding IsUseBarracks1}" Value="True" />
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="IsEnabled" Value="True" />
+                                                        </MultiDataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </ComboBox.Style>
+                                        </ComboBox>
+                                        <ComboBox ItemsSource="{Binding Path=BarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack2}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="88,42,10,0">
+                                            <ComboBox.Style>
+                                                <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource {x:Type ComboBox}}">
+                                                    <Setter Property="IsEnabled" Value="False" />
+                                                    <Style.Triggers>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsUseBarracksEnabled}" Value="True" />
+                                                                <Condition Binding="{Binding IsUseBarracks2}" Value="True" />
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="IsEnabled" Value="True" />
+                                                        </MultiDataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </ComboBox.Style>
+                                        </ComboBox>
+                                        <ComboBox ItemsSource="{Binding Path=BarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack3}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="88,70,10,0">
+                                            <ComboBox.Style>
+                                                <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource {x:Type ComboBox}}">
+                                                    <Setter Property="IsEnabled" Value="False" />
+                                                    <Style.Triggers>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsUseBarracksEnabled}" Value="True" />
+                                                                <Condition Binding="{Binding IsUseBarracks3}" Value="True" />
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="IsEnabled" Value="True" />
+                                                        </MultiDataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </ComboBox.Style>
+                                        </ComboBox>
+                                        <ComboBox ItemsSource="{Binding Path=BarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedBarrack4}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="88,98,10,0">
+                                            <ComboBox.Style>
+                                                <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource {x:Type ComboBox}}">
+                                                    <Setter Property="IsEnabled" Value="False" />
+                                                    <Style.Triggers>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsUseBarracksEnabled}" Value="True" />
+                                                                <Condition Binding="{Binding IsUseBarracks4}" Value="True" />
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="IsEnabled" Value="True" />
+                                                        </MultiDataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </ComboBox.Style>
+                                        </ComboBox>
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.DarkBarracks}" HorizontalAlignment="Right" Margin="0,221,16,0" VerticalAlignment="Top" Height="100" Width="210">
                                     <Grid>
-                                        <Label Content="{x:Static p:Resources.LabelBarrack1}" Height="25" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
-                                        <Label Content="{x:Static p:Resources.LabelBarrack2}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61" />
-                                        <ComboBox ItemsSource="{Binding Path=DarkBarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedDarkBarrack1}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,12,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
-                                        <ComboBox ItemsSource="{Binding Path=DarkBarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedDarkBarrack2}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="76,40,10,0" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                        <CheckBox Content="{x:Static p:Resources.Barrack1}" IsChecked="{Binding IsUseDarkBarracks1, UpdateSourceTrigger=PropertyChanged}" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="70" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                        <CheckBox Content="{x:Static p:Resources.Barrack2}" IsChecked="{Binding IsUseDarkBarracks2, UpdateSourceTrigger=PropertyChanged}" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="15,43,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="70" IsEnabled="{Binding IsUseBarracksEnabled}" />
+                                        <ComboBox ItemsSource="{Binding Path=DarkBarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedDarkBarrack1}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="88,12,10,0">
+                                            <ComboBox.Style>
+                                                <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource {x:Type ComboBox}}">
+                                                    <Setter Property="IsEnabled" Value="False" />
+                                                    <Style.Triggers>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsUseBarracksEnabled}" Value="True" />
+                                                                <Condition Binding="{Binding IsUseDarkBarracks1}" Value="True" />
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="IsEnabled" Value="True" />
+                                                        </MultiDataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </ComboBox.Style>
+                                        </ComboBox>
+                                        <ComboBox ItemsSource="{Binding Path=DarkBarrackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedDarkBarrack2}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="88,40,10,0">
+                                            <ComboBox.Style>
+                                                <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource {x:Type ComboBox}}">
+                                                    <Setter Property="IsEnabled" Value="False" />
+                                                    <Style.Triggers>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsUseBarracksEnabled}" Value="True" />
+                                                                <Condition Binding="{Binding IsUseDarkBarracks2}" Value="True" />
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="IsEnabled" Value="True" />
+                                                        </MultiDataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </ComboBox.Style>
+                                        </ComboBox>
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.OtherTroopsSettings}" HorizontalAlignment="Left" Margin="16,0,0,16" VerticalAlignment="Bottom" Height="65" Width="432">

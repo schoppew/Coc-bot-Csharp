@@ -133,30 +133,6 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("6")]
-        public int NumberOfGiants {
-            get {
-                return ((int)(this["NumberOfGiants"]));
-            }
-            set {
-                this["NumberOfGiants"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
-        public int NumberOfWallBreakers {
-            get {
-                return ((int)(this["NumberOfWallBreakers"]));
-            }
-            set {
-                this["NumberOfWallBreakers"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int SelectedTroopComposition {
             get {
@@ -1436,6 +1412,78 @@ namespace CoC.Bot.Properties {
             }
             set {
                 this["TroopsQtyWizards"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsUseBarracks1 {
+            get {
+                return ((bool)(this["IsUseBarracks1"]));
+            }
+            set {
+                this["IsUseBarracks1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsUseBarracks2 {
+            get {
+                return ((bool)(this["IsUseBarracks2"]));
+            }
+            set {
+                this["IsUseBarracks2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsUseBarracks3 {
+            get {
+                return ((bool)(this["IsUseBarracks3"]));
+            }
+            set {
+                this["IsUseBarracks3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsUseBarracks4 {
+            get {
+                return ((bool)(this["IsUseBarracks4"]));
+            }
+            set {
+                this["IsUseBarracks4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsUseDarkBarracks1 {
+            get {
+                return ((bool)(this["IsUseDarkBarracks1"]));
+            }
+            set {
+                this["IsUseDarkBarracks1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsUseDarkBarracks2 {
+            get {
+                return ((bool)(this["IsUseDarkBarracks2"]));
+            }
+            set {
+                this["IsUseDarkBarracks2"] = value;
             }
         }
     }

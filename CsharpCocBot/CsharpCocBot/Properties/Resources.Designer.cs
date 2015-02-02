@@ -214,6 +214,42 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Barrack 1.
+        /// </summary>
+        public static string Barrack1 {
+            get {
+                return ResourceManager.GetString("Barrack1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barrack 2.
+        /// </summary>
+        public static string Barrack2 {
+            get {
+                return ResourceManager.GetString("Barrack2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barrack 3.
+        /// </summary>
+        public static string Barrack3 {
+            get {
+                return ResourceManager.GetString("Barrack3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barrack 4.
+        /// </summary>
+        public static string Barrack4 {
+            get {
+                return ResourceManager.GetString("Barrack4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Barracks.
         /// </summary>
         public static string Barracks {
@@ -471,42 +507,6 @@ namespace CoC.Bot.Properties {
         public static string HogRiders {
             get {
                 return ResourceManager.GetString("HogRiders", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Barrack 1:.
-        /// </summary>
-        public static string LabelBarrack1 {
-            get {
-                return ResourceManager.GetString("LabelBarrack1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Barrack 2:.
-        /// </summary>
-        public static string LabelBarrack2 {
-            get {
-                return ResourceManager.GetString("LabelBarrack2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Barrack 3:.
-        /// </summary>
-        public static string LabelBarrack3 {
-            get {
-                return ResourceManager.GetString("LabelBarrack3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Barrack 4:.
-        /// </summary>
-        public static string LabelBarrack4 {
-            get {
-                return ResourceManager.GetString("LabelBarrack4", resourceCulture);
             }
         }
         
