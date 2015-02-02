@@ -28,23 +28,36 @@ Deployment Considerations
 ToDo's
 =============================
 
-	» [@] Implement RichTextBox for colored Output
-	» [@] Implement Pause button
+	» [@] [UI] Implement RichTextBox for colored Output
+	» [@] [UI/Code] Implement Pause button
 	» Create the Help Tab
 		- [!] It is really needed?
+
+	» [@] [UI] Implement a Debug tab, with a set of customizable buttons (when we can easily change the label). 
+		   (This would be displayed only if /Debug is appended on the command line.)
+	» [@] [Code] Move the common tools that are not CoC or even BlueStack-dependant into a separate dll.
+	» [@] [Code] Add some direct C# pixel manipulation instructions, with no use of unmanaged FastFind dll. 	
+	» [@] [UI] Add a list of all locatable buildings (barracks, collectors, heroes altars...). 
+		Selecting a building will select it in the CoC client
+		Double-click (or contextual menu, or explicit button) will allow the change the location (or automatic detection)
+	
 
 
 ToDo's In Progress
 =============================
 
-	» Make the App Singleton
-	» Implement Minimize button
-	» Implement TrayIcon
+	» [Code] Make the App Singleton
+
+	» [UI] Implement Minimize button
+	» [UI] Implement TrayIcon
 		- Notifications (Alert when Base found)
-	» Add calculation below the Troops Percentages
+	» [UI] Add calculation below the Troops Percentages
 		- The result is the sum of the 3 troops in percentages
 			- Display in red if below or major 100%
+	» [Code] Provides an higher level helper for FastFind methods
+		
 
+	
 
 ToDo's Completed
 =============================

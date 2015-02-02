@@ -481,4 +481,7 @@
   <data name="LogBotInitializing" xml:space="preserve">
     <value>Bot is initializing...</value>
   </data>
+  <data name="OutputBSAppliedDimensionsIntoRegistry" xml:space="preserve">
+    <value>Registry settings changed. You may need to restart your computer for those changes to take effect. </value>
+  </data>
 </root>
