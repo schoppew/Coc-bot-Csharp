@@ -24,8 +24,34 @@ namespace CoC.Bot.Tools.FastFind
 
     // Configuration 
     // ==============
+		public const int DEBUG_NONE				= 0x0000;
+		public const int DEBUG_CONSOLE		= 0x0001;
+		public const int DEBUG_FILE				= 0x0002;
+		public const int DEBUG_GRAPHIC		= 0x0004;
+		public const int DEBUG_MSGBOX			= 0x0008;
+		public const int DEBUG_CHANNEL_BITS= 0x000F; // Mask for bits restricting the channels used for debugging
+		
+		public const int DEBUG_NOSYSTEM		= 0x0010; // Internal messages from the DLL
+		public const int DEBUG_NOSYSTEM_DETAILS = 0x0020; // Internal detailed messages from the DLL (détails)
+		public const int DEBUG_NOUSER			= 0x0040; // Messages from the application (external)
+		public const int DEBUG_NOTHING_EXCEPT_ERRORS=0x0070; // Disable all messages except errors
+		public const int DEBUG_ERROR			= 0x0080; // Error messages (highest priority)
+		public const int DEBUG_ORIGIN_BITS= 0x00F0; // Mask for the origin of the message
+		
+		public const int DEBUG_SAME_LINE	= 0x80000; // Trick to continue a message on the same line (won't work with timestamp)
+		
+		public const int DEBUG_STREAM     = 0x03; // Console and File
+		
+		public const int DEBUG_STREAM_SYSTEM= 0x13; // Console and File - System Message
+		public const int DEBUG_STREAM_SYSTEM_DETAIL=  0x33; // Console and File - Detailed System Message
+		public const int DEBUG_MB_SYSTEM  = 0x3B; // Console, File and MB - System Message
+		public const int DEBUG_SYSTEM_ERROR= 0x7F8F; // Console, File and MB - Any Message
+		public const int DEBUG_USER_MESSAGE= 0x43; // Console and File - User Message
+		public const int DEBUG_USER_MB    = 0x4B; // Console, File and MB - User Message
+		public const int DEBUG_USER_ERROR = 0x7F8F; // Console and File and MB - Any Message
+
     [DllImport(fastFindDllName)]
-    public static extern void SetDebugMode();
+    public static extern void SetDebugMode(int debugMode);
 
     [DllImport(fastFindDllName)]
     public static extern void SetHWnd(IntPtr NewWindowHandle, bool bClientArea);
@@ -84,12 +110,12 @@ namespace CoC.Bot.Tools.FastFind
 
     /// // SnapShot saving into bitmap file
     [DllImport(fastFindDllName)]
-    public static extern bool SaveBMP(int NoSnapShot, [MarshalAs(UnmanagedType.LPTStr)]string szFileName /* With no extension (xxx.bmp added)*/);
-    [DllImport(fastFindDllName)]
-    public static extern bool SaveJPG(int NoSnapShot, [MarshalAs(UnmanagedType.LPTStr)]string szFileName /* With no extension*/, UInt32 uQuality);
+		public static extern bool SaveBMP(int NoSnapShot, [MarshalAs(UnmanagedType.AnsiBStr)]string szFileName /* With no extension (xxx.bmp added)*/);
+		[DllImport(fastFindDllName)]
+		public static extern bool SaveJPG(int NoSnapShot, [MarshalAs(UnmanagedType.AnsiBStr)]string szFileName /* With no extension*/, UInt32 uQuality);
     [DllImport(fastFindDllName)]
     public static extern int GetLastFileSuffix();
-
+		
     // Raw SnapShot rata retrieval
     [DllImport(fastFindDllName)]
     public static extern IntPtr GetRawData(int NoSnapShot, ref int NbBytes);
