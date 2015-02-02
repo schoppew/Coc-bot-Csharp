@@ -6,8 +6,10 @@
     using System.Linq;
     using System.Reflection;
     using System.Text;
+    using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
+    using ViewModels;
 
     /// <summary>
     /// The Main entry point for the Bot Functions.
@@ -17,8 +19,15 @@
         /// <summary>
         /// Initializes the Bot.
         /// </summary>
-        public static void Initialize()
+        public static void Initialize(MainViewModel vm)
         {
+            MainViewModel = vm;
+
+            // TODO: Check if BlueStack is running
+
+            MainViewModel.Output = string.Format(Properties.Resources.OutputWelcomeMessage, Properties.Resources.AppName);
+            MainViewModel.Output = Properties.Resources.OutputBotIsStarting;
+
             CreateDirectory(LogPath);
             CreateDirectory(ScreenshotZombieAttacked);
             CreateDirectory(ScreenshotZombieSkipped);
@@ -28,7 +37,49 @@
             // Create Log File
             // Do more stuff
             // Yay!
+
+            // Run Everything related to the bot in the background
+            var thread = new Thread(() =>
+            {
+                while (MainViewModel.IsExecuting)
+                {
+                    Thread.Sleep(1000);
+                    MainViewModel.Output = "Loop test...";
+                };
+            })
+            {
+                IsBackground = true
+            };
+            thread.Start();
         }
+
+        #region Properties
+
+        internal static MainViewModel MainViewModel { get; private set; }
+
+        internal static string AppPath
+        {
+            get { return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location); }
+        }
+
+        internal static string LogPath
+        {
+            get { return Path.Combine(AppPath, "Logs"); }
+        }
+
+        internal static string ScreenshotZombieAttacked
+        {
+            get { return Path.Combine(AppPath, @"Screenshots\Zombies Attacked"); }
+        }
+
+        internal static string ScreenshotZombieSkipped
+        {
+            get { return Path.Combine(AppPath, @"Screenshots\Zombies Skipped"); }
+        }
+
+        #endregion
+
+        #region Private Methods
 
         /// <summary>
         /// Creates the required directories.
@@ -65,28 +116,6 @@
                     throw;
                 }
             }
-        }
-
-        #region Properties
-
-        internal static string AppPath
-        {
-            get { return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location); }
-        }
-
-        internal static string LogPath
-        {
-            get { return Path.Combine(AppPath, "Logs"); }
-        }
-
-        internal static string ScreenshotZombieAttacked
-        {
-            get { return Path.Combine(AppPath, @"Screenshots\Zombies Attacked"); }
-        }
-
-        internal static string ScreenshotZombieSkipped
-        {
-            get { return Path.Combine(AppPath, @"Screenshots\Zombies Skipped"); }
         }
 
         #endregion

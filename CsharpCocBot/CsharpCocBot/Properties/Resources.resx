@@ -445,4 +445,16 @@
   <data name="Stop" xml:space="preserve">
     <value>Stop</value>
   </data>
+  <data name="OutputWelcomeMessage" xml:space="preserve">
+    <value>====== Welcome to {0}! ======</value>
+  </data>
+  <data name="OutputBotIsStarting" xml:space="preserve">
+    <value>Bot is starting...</value>
+  </data>
+  <data name="OutputBotIsStopping" xml:space="preserve">
+    <value>Stopping bot execution...</value>
+  </data>
+  <data name="OutputBotStopped" xml:space="preserve">
+    <value>Bot has stopped!</value>
+  </data>
 </root>

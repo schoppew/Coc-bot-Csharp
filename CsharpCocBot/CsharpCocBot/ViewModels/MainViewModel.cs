@@ -115,13 +115,13 @@
         /// Gets or sets a value indicating whether this bot is executing.
         /// </summary>
         /// <value><c>true</c> if this bot is executing; otherwise, <c>false</c>.</value>
-        private bool IsExecuting { get; set; }
+        public bool IsExecuting { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this bot is hidden.
         /// </summary>
         /// <value><c>true</c> if this bot is hidden; otherwise, <c>false</c>.</value>
-        private bool IsHidden { get; set; }
+        public bool IsHidden { get; set; }
 
         /// <summary>
         /// Gets a value indicating the Start/Stop State.
@@ -458,37 +458,37 @@
             }
         }
 
-        private int _selectedWizardTowerLevel;
+        private int _selectedMaxWizardTowerLevel;
         /// <summary>
         /// Gets or sets the maximum Wizard Tower level.
         /// </summary>
         /// <value>The maximum Wizard Tower level.</value>
-        public int SelectedWizardTowerLevel
+        public int SelectedMaxWizardTowerLevel
         {
-            get { return _selectedWizardTowerLevel; }
+            get { return _selectedMaxWizardTowerLevel; }
             set
             {
-                if (_selectedWizardTowerLevel != value)
+                if (_selectedMaxWizardTowerLevel != value)
                 {
-                    _selectedWizardTowerLevel = value;
+                    _selectedMaxWizardTowerLevel = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        private int _selectedXbowLevel;
+        private int _selectedMaxXbowLevel;
         /// <summary>
         /// Gets or sets the maximum Xbow level.
         /// </summary>
         /// <value>The maximum Xbow level.</value>
-        public int SelectedXbowLevel
+        public int SelectedMaxXbowLevel
         {
-            get { return _selectedXbowLevel; }
+            get { return _selectedMaxXbowLevel; }
             set
             {
-                if (_selectedXbowLevel != value)
+                if (_selectedMaxXbowLevel != value)
                 {
-                    _selectedXbowLevel = value;
+                    _selectedMaxXbowLevel = value;
                     OnPropertyChanged();
                 }
             }
@@ -905,7 +905,7 @@
                 {
                     _barbariansPercent = value;
                     OnPropertyChanged();
-                    OnPropertyChanged("TotalPercent");
+                    OnPropertyChanged(() => TotalPercent);
                 }
             }
         }
@@ -924,7 +924,7 @@
                 {
                     _archersPercent = value;
                     OnPropertyChanged();
-                    OnPropertyChanged("TotalPercent");
+                    OnPropertyChanged(() => TotalPercent);
                 }
             }
         }
@@ -943,7 +943,7 @@
                 {
                     _goblinsPercent = value;
                     OnPropertyChanged();
-                    OnPropertyChanged("TotalPercent");
+                    OnPropertyChanged(() => TotalPercent);
                 }
             }
         }
@@ -977,8 +977,8 @@
                 {
                     _selectedTroopComposition = value;
                     OnPropertyChanged();
-                    OnPropertyChanged("IsUseBarracksEnabled");
-                    OnPropertyChanged("IsCustomTroopsEnabled");
+                    OnPropertyChanged(() => IsUseBarracksEnabled);
+                    OnPropertyChanged(() => IsCustomTroopsEnabled);
                 }
             }
         }
@@ -1373,14 +1373,14 @@
         /// </summary>
         private void StartStop()
         {
-            if (IsExecuting)
+            if (!IsExecuting)
             {
-                IsExecuting = false;
+                IsExecuting = true;
                 Start();
             }
             else
             {
-                IsExecuting = true;
+                IsExecuting = false;
                 Stop();
             }
         }
@@ -1392,7 +1392,7 @@
         {
             ClearOutput(); // Clear everything before we start
 
-            Functions.Main.Initialize();
+            Functions.Main.Initialize(this); // <--- Main entry point
 
             // Sample for getting familiar with the UI (used for accessing the properties/user settings values)
             Samples.GettingAroundTheUI.UseValuesInUI(this);
@@ -1402,7 +1402,7 @@
             FastFindTesting.Test();
             KeyboardHelper.BSTest();
             KeyboardHelper.BSTest2();
-            KeyboardHelper.NotePadTest();          
+            KeyboardHelper.NotePadTest();
         }
 
         /// <summary>
@@ -1410,8 +1410,11 @@
         /// </summary>
         private void Stop()
         {
-            Output = "Stop bot execution...";
+            Output = Properties.Resources.OutputBotIsStopping;
+            
             MessageBox.Show("You clicked on the Stop button!", "Stop", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            Output = Properties.Resources.OutputBotStopped;
         }
 
         /// <summary>
@@ -1514,8 +1517,8 @@
             SelectedMaxCannonLevel = AppSettings.MaxCannonLevel;
             SelectedMaxArcherTowerLevel = AppSettings.MaxArcherTowerLevel;
             SelectedMaxMortarLevel = AppSettings.MaxMortarLevel;
-            SelectedWizardTowerLevel = AppSettings.MaxWizardTowerLevel;
-            SelectedXbowLevel = AppSettings.MaxXbowLevel;
+            SelectedMaxWizardTowerLevel = AppSettings.MaxWizardTowerLevel;
+            SelectedMaxXbowLevel = AppSettings.MaxXbowLevel;
 
             IsAttackTheirKing = AppSettings.IsAttackTheirKing;
             IsAttackTheirQueen = AppSettings.IsAttackTheirQueen;
@@ -1577,8 +1580,8 @@
             AppSettings.MaxCannonLevel = SelectedMaxCannonLevel;
             AppSettings.MaxArcherTowerLevel = SelectedMaxArcherTowerLevel;
             AppSettings.MaxMortarLevel = SelectedMaxMortarLevel;
-            AppSettings.MaxWizardTowerLevel = SelectedWizardTowerLevel;
-            AppSettings.MaxXbowLevel = SelectedXbowLevel;
+            AppSettings.MaxWizardTowerLevel = SelectedMaxWizardTowerLevel;
+            AppSettings.MaxXbowLevel = SelectedMaxXbowLevel;
 
             AppSettings.IsAttackTheirKing = IsAttackTheirKing;
             AppSettings.IsAttackTheirQueen = IsAttackTheirQueen;

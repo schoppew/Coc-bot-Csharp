@@ -40,11 +40,6 @@ ToDo's In Progress
 	» Make the App Singleton
 	» Implement Minimize button
 	» Implement TrayIcon
-		- Menu with
-			- Start/Stop
-			- Pause
-			- Exit
-			- About
 		- Notifications (Alert when Base found)
 	» Add calculation below the Troops Percentages
 		- The result is the sum of the 3 troops in percentages

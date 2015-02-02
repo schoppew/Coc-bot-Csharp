@@ -839,6 +839,42 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bot is starting....
+        /// </summary>
+        public static string OutputBotIsStarting {
+            get {
+                return ResourceManager.GetString("OutputBotIsStarting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stopping bot execution....
+        /// </summary>
+        public static string OutputBotIsStopping {
+            get {
+                return ResourceManager.GetString("OutputBotIsStopping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bot has stopped!.
+        /// </summary>
+        public static string OutputBotStopped {
+            get {
+                return ResourceManager.GetString("OutputBotStopped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ====== Welcome to {0}! ======.
+        /// </summary>
+        public static string OutputWelcomeMessage {
+            get {
+                return ResourceManager.GetString("OutputWelcomeMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to P.E.K.K.A.
         /// </summary>
         public static string Pekka {

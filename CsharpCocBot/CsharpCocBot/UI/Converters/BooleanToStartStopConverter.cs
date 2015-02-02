@@ -30,9 +30,9 @@
         {
             if ((bool)value == true)
             {
-                return Properties.Resources.Start;
+                return Properties.Resources.Stop;
             }
-            return Properties.Resources.Stop;
+            return Properties.Resources.Start;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
