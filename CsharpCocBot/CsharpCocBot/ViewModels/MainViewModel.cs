@@ -1113,6 +1113,8 @@
 
         #endregion
 
+        public int Count { get { return 1; } }
+
         #endregion
 
         #region Commands
@@ -1393,7 +1395,7 @@
             ClearOutput(); // Clear everything before we start
 
             Functions.Main.Initialize(this); // <--- Main entry point
-
+            
             // Sample for getting familiar with the UI (used for accessing the properties/user settings values)
             Samples.GettingAroundTheUI.UseValuesInUI(this);
 

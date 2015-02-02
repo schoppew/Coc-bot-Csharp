@@ -50,6 +50,7 @@ ToDo's Completed
 =============================
 
 	[6.0.0.0]
+	» [+] Implemented TaskbarItemInfo Overlay as a visual clue when the Bot is running
 	» [+] Make the Start button hidden when clicked, and shown when Stop button is clicked
 	» [+] Max Troop Donations Per Request
 		- [!] An edit for each troop kind that states maximum number of each troop you can give for each request.

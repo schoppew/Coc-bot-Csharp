@@ -45,6 +45,8 @@
                 {
                     Thread.Sleep(1000);
                     MainViewModel.Output = "Loop test...";
+                    MainViewModel.Output = "Minimum Gold is: " + MainViewModel.MinimumGold; // Changing values on the fly works as expected
+                    MainViewModel.Output = "Try changing values on the fly.";
                 };
             })
             {

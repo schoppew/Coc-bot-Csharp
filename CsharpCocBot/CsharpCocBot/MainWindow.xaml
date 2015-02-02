@@ -20,22 +20,31 @@
         <c:InverseBooleanConverter x:Key="inverseBoolConverter" />
         <c:IntegerToStringConverter x:Key="IntegerToStringConverter" />
         <c:SelectedTreeViewItemConverter x:Key="SelectedTreeViewItemConverter" />
-        <c:BooleanToStartStopImageSourceConverter x:Key="BooleanToStartStopImageSourceConverter" />
         <c:BooleanToStartStopStringConverter x:Key="BooleanToStartStopStringConverter" />
+        <c:BooleanToStartStopImageSourceConverter x:Key="BooleanToStartStopImageSourceConverter" />
+        <c:BooleanToOverlayConverter x:Key="BooleanToOverlayConverter" />
     </Window.Resources>
 
     <!-- Taskbar -->
     <Window.TaskbarItemInfo>
         <TaskbarItemInfo x:Name="taskbarItemInfo">
+            <TaskbarItemInfo.Overlay>
+                <DrawingImage>
+                    <DrawingImage.Drawing >
+                        <ImageDrawing Rect="0,0,16,16" ImageSource="{Binding Path=StartStopState, Converter={StaticResource BooleanToOverlayConverter}}" />
+                    </DrawingImage.Drawing >
+                </DrawingImage >
+            </TaskbarItemInfo.Overlay>
             <TaskbarItemInfo.ThumbButtonInfos>
                 <ThumbButtonInfoCollection>
                     <ThumbButtonInfo
                         DismissWhenClicked="False"
                         Command="{Binding AboutCommand}"
-                        Description="About"
+                        Description="{x:Static p:Resources.About}"
                         ImageSource="/Assets/Images/About.png"/>
                     <ThumbButtonInfo
                         DismissWhenClicked="False"
+                        Description="{Binding Path=StartStopState, Converter={StaticResource BooleanToStartStopStringConverter}}"
                         Command="{Binding StartStopCommand}"
                         ImageSource="{Binding Path=StartStopState, Converter={StaticResource BooleanToStartStopImageSourceConverter}}"/>
                 </ThumbButtonInfoCollection>

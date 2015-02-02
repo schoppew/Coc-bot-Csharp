@@ -139,6 +139,7 @@
     <Compile Include="UI\Commands\DelegateCommand.cs" />
     <Compile Include="UI\Commands\RelayCommand.cs" />
     <Compile Include="UI\Controls\TreeViewEx.cs" />
+    <Compile Include="UI\Converters\BooleanToOverlayConverter.cs" />
     <Compile Include="UI\Converters\BooleanToStartStopConverter.cs" />
     <Compile Include="UI\Converters\EnumToBooleanConverter.cs" />
     <Compile Include="UI\Converters\IntegerToStringConverter.cs" />
@@ -242,6 +243,9 @@
   <ItemGroup>
     <Resource Include="Assets\Images\Start.png" />
     <Resource Include="Assets\Images\Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\StartOverlay.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

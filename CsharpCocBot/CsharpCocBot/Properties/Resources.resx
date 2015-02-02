@@ -457,4 +457,7 @@
   <data name="OutputBotStopped" xml:space="preserve">
     <value>Bot has stopped!</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
 </root>
