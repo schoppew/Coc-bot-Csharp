@@ -216,12 +216,6 @@
   <data name="Factors" xml:space="preserve">
     <value>Factors</value>
   </data>
-  <data name="LabelArchers" xml:space="preserve">
-    <value>Archers:</value>
-  </data>
-  <data name="LabelBarbarians" xml:space="preserve">
-    <value>Barbarians:</value>
-  </data>
   <data name="LabelBarrack1" xml:space="preserve">
     <value>Barrack 1:</value>
   </data>
@@ -233,9 +227,6 @@
   </data>
   <data name="LabelBarrack4" xml:space="preserve">
     <value>Barrack 4:</value>
-  </data>
-  <data name="LabelGoblins" xml:space="preserve">
-    <value>Goblins:</value>
   </data>
   <data name="LabelKingSettings" xml:space="preserve">
     <value>King Settings:</value>
@@ -269,12 +260,6 @@
   </data>
   <data name="LabelMinimumTrophyCount" xml:space="preserve">
     <value>Min. Trophy Count:</value>
-  </data>
-  <data name="LabelNumberOfGiants" xml:space="preserve">
-    <value>Num. of Giants:</value>
-  </data>
-  <data name="LabelNumberOfWallBreakers" xml:space="preserve">
-    <value>Num. of Wall Breakers:</value>
   </data>
   <data name="LabelQueenSettings" xml:space="preserve">
     <value>Queen Settings:</value>
@@ -321,14 +306,11 @@
   <data name="OtherSettings" xml:space="preserve">
     <value>Other Settings</value>
   </data>
-  <data name="OtherTroops" xml:space="preserve">
-    <value>Other Troops</value>
+  <data name="DarkBarracks" xml:space="preserve">
+    <value>Dark Barracks</value>
   </data>
   <data name="OtherTroopsSettings" xml:space="preserve">
     <value>Other Troops Settings</value>
-  </data>
-  <data name="Percent" xml:space="preserve">
-    <value>%</value>
   </data>
   <data name="ResourcesMessage" xml:space="preserve">
     <value>Bot will stop when a base is found with resources higher or equal to the minimum resources.</value>
@@ -349,7 +331,7 @@
     <value>Troop Settings</value>
   </data>
   <data name="TroopsMessage" xml:space="preserve">
-    <value>Must equal 100% to fully distribute the troops with maximum amount efficiency. Bot will use this if custom troops is selected.</value>
+    <value>Bot will use this if custom troops is selected.</value>
   </data>
   <data name="TrophySettings" xml:space="preserve">
     <value>Trophy Settings</value>
@@ -480,5 +462,29 @@
   </data>
   <data name="LogBotInitializing" xml:space="preserve">
     <value>Bot is initializing...</value>
+  </data>
+  <data name="Golems" xml:space="preserve">
+    <value>Golems</value>
+  </data>
+  <data name="HogRiders" xml:space="preserve">
+    <value>Hog Riders</value>
+  </data>
+  <data name="LavaHounds" xml:space="preserve">
+    <value>Lava Hounds</value>
+  </data>
+  <data name="LocateDarkBarracksManually" xml:space="preserve">
+    <value>Locate Dark Barracks Manually</value>
+  </data>
+  <data name="Minions" xml:space="preserve">
+    <value>Minions</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Qty.</value>
+  </data>
+  <data name="Valkyries" xml:space="preserve">
+    <value>Valkyries</value>
+  </data>
+  <data name="Witches" xml:space="preserve">
+    <value>Witches</value>
   </data>
 </root>

@@ -28,6 +28,12 @@ Deployment Considerations
 ToDo's
 =============================
 
+	» [@] Implement Advanced Tab
+		- This will contain a bunch of advanced functionality as the name suggests, like:
+			- Hability to use presets (Individual Settings)
+				- Those are saved as xml files and can be shared among users
+	» [@] Implement Debug Tab
+		- Default is hidden, if argument is /debug, then make it visible
 	» [@] Implement RichTextBox for colored Output
 	» [@] Implement Pause button
 	» Create the Help Tab
@@ -41,15 +47,13 @@ ToDo's In Progress
 	» Implement Minimize button
 	» Implement TrayIcon
 		- Notifications (Alert when Base found)
-	» Add calculation below the Troops Percentages
-		- The result is the sum of the 3 troops in percentages
-			- Display in red if below or major 100%
 
 
 ToDo's Completed
 =============================
 
 	[6.0.0.0]
+	» [+] Implement Train Quantity per Troop 
 	» [+] Implemented the LogWriter
 	» [+] Implemented TaskbarItemInfo Overlay as a visual clue when the Bot is running
 	» [+] Make the Start button hidden when clicked, and shown when Stop button is clicked
