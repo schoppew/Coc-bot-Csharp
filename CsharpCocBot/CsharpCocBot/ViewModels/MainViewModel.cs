@@ -1022,6 +1022,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets the Troops.
+        /// </summary>
+        /// <value>The Troops.</value>
+        public static BindingList<Model> Troops { get { return DataCollection.BarracksTroops; } }
+
         private Model _selectedBarrack1;
         public Model SelectedBarrack1
         {
