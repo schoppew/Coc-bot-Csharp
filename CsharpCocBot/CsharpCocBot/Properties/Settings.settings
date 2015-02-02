@@ -116,15 +116,6 @@
     <Setting Name="IsRequestTroops" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DonateKeywordsBarbarians" Type="System.String" Scope="User">
-      <Value Profile="(Default)">barbarians|barbs|any</Value>
-    </Setting>
-    <Setting Name="DonateKeywordsArchers" Type="System.String" Scope="User">
-      <Value Profile="(Default)">archers|arch|any</Value>
-    </Setting>
-    <Setting Name="DonateKeywordsGoblins" Type="System.String" Scope="User">
-      <Value Profile="(Default)">goblins|gobs|any</Value>
-    </Setting>
     <Setting Name="DonateKeywordsGiants" Type="System.String" Scope="User">
       <Value Profile="(Default)">giants|giant|any</Value>
     </Setting>
@@ -310,6 +301,15 @@
     </Setting>
     <Setting Name="MaxDonationsPerRequestWizards" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="DonateKeywordsBarbarians" Type="System.String" Scope="User">
+      <Value Profile="(Default)">barbarians|barbs|any</Value>
+    </Setting>
+    <Setting Name="DonateKeywordsArchers" Type="System.String" Scope="User">
+      <Value Profile="(Default)">archers|arch|any</Value>
+    </Setting>
+    <Setting Name="DonateKeywordsGoblins" Type="System.String" Scope="User">
+      <Value Profile="(Default)">goblins|gobs|any</Value>
     </Setting>
   </Settings>
 </SettingsFile>

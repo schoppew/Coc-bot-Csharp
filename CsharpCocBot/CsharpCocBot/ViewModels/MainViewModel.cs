@@ -588,7 +588,7 @@
         }
 
         /// <summary>
-        /// Gets the Deploy Strategies.
+        /// [Used in UI for Binding] Gets the Deploy Strategies.
         /// </summary>
         /// <value>The Deploy Strategies.</value>
         public static BindingList<Model> DeployStrategies { get { return DataCollection.DeployStrategies; } }
@@ -608,7 +608,7 @@
         }
 
         /// <summary>
-        /// Gets the Deploy Troops.
+        /// [Used in UI for Binding] Gets the Deploy Troops.
         /// </summary>
         /// <value>The Deploy Troops.</value>
         public static BindingList<Model> DeployTroops { get { return DataCollection.DeployTroops; } }
@@ -668,7 +668,7 @@
         #region Donate Settings Properties
 
         /// <summary>
-        /// Gets the Troop Tier.
+        /// [Used in UI for Binding] Gets the Troop Tier.
         /// </summary>
         /// <value>The Troop Compositions.</value>
         public static BindingList<TroopTierModel> TroopTiers { get { return DataCollection.TroopTiers; } }
@@ -961,7 +961,7 @@
         }
 
         /// <summary>
-        /// Gets the Troop Compositions.
+        /// [Used in UI for Binding] Gets the Troop Compositions.
         /// </summary>
         /// <value>The Troop Compositions.</value>
         public static BindingList<Model> TroopCompositions { get { return DataCollection.TroopCompositions; } }
@@ -1029,6 +1029,10 @@
         public static BindingList<Model> Troops { get { return DataCollection.BarracksTroops; } }
 
         private Model _selectedBarrack1;
+        /// <summary>
+        /// Gets or sets the Selected Troops in Barrack 1.
+        /// </summary>
+        /// <value>The Selected Troops in Barrack 1.</value>
         public Model SelectedBarrack1
         {
             get { return _selectedBarrack1; }
@@ -1043,6 +1047,10 @@
         }
 
         private Model _selectedBarrack2;
+        /// <summary>
+        /// Gets or sets the Selected Troops in Barrack 2.
+        /// </summary>
+        /// <value>The Selected Troops in Barrack 2.</value>
         public Model SelectedBarrack2
         {
             get { return _selectedBarrack2; }
@@ -1057,6 +1065,10 @@
         }
 
         private Model _selectedBarrack3;
+        /// <summary>
+        /// Gets or sets the Selected Troops in Barrack 3.
+        /// </summary>
+        /// <value>The Selected Troops in Barrack 3.</value>
         public Model SelectedBarrack3
         {
             get { return _selectedBarrack3; }
@@ -1071,6 +1083,10 @@
         }
 
         private Model _selectedBarrack4;
+        /// <summary>
+        /// Gets or sets the Selected Troops in Barrack 4.
+        /// </summary>
+        /// <value>The Selected Troops in Barrack 4.</value>
         public Model SelectedBarrack4
         {
             get { return _selectedBarrack4; }

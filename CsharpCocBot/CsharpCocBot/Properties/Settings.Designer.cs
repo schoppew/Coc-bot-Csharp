@@ -481,42 +481,6 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("barbarians|barbs|any")]
-        public string DonateKeywordsBarbarians {
-            get {
-                return ((string)(this["DonateKeywordsBarbarians"]));
-            }
-            set {
-                this["DonateKeywordsBarbarians"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("archers|arch|any")]
-        public string DonateKeywordsArchers {
-            get {
-                return ((string)(this["DonateKeywordsArchers"]));
-            }
-            set {
-                this["DonateKeywordsArchers"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("goblins|gobs|any")]
-        public string DonateKeywordsGoblins {
-            get {
-                return ((string)(this["DonateKeywordsGoblins"]));
-            }
-            set {
-                this["DonateKeywordsGoblins"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("giants|giant|any")]
         public string DonateKeywordsGiants {
             get {
@@ -1256,6 +1220,42 @@ namespace CoC.Bot.Properties {
             }
             set {
                 this["MaxDonationsPerRequestWizards"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("barbarians|barbs|any")]
+        public string DonateKeywordsBarbarians {
+            get {
+                return ((string)(this["DonateKeywordsBarbarians"]));
+            }
+            set {
+                this["DonateKeywordsBarbarians"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("archers|arch|any")]
+        public string DonateKeywordsArchers {
+            get {
+                return ((string)(this["DonateKeywordsArchers"]));
+            }
+            set {
+                this["DonateKeywordsArchers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("goblins|gobs|any")]
+        public string DonateKeywordsGoblins {
+            get {
+                return ((string)(this["DonateKeywordsGoblins"]));
+            }
+            set {
+                this["DonateKeywordsGoblins"] = value;
             }
         }
     }
