@@ -875,6 +875,51 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry, there was a problem while applying the registry entries!.
+        /// </summary>
+        public static string OutputBSApplyDimensionsError {
+            get {
+                return ResourceManager.GetString("OutputBSApplyDimensionsError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Applying required registry entries....
+        /// </summary>
+        public static string OutputBSApplyDimensionsIntoRegistry {
+            get {
+                return ResourceManager.GetString("OutputBSApplyDimensionsIntoRegistry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BlueStacks was not found!.
+        /// </summary>
+        public static string OutputBSNotFound {
+            get {
+                return ResourceManager.GetString("OutputBSNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BlueStacks is not set to 860x720!.
+        /// </summary>
+        public static string OutputBSNotRunningWithDimensions {
+            get {
+                return ResourceManager.GetString("OutputBSNotRunningWithDimensions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trying to locate Main Screen.
+        /// </summary>
+        public static string OutputTryingToLocateMainScreen {
+            get {
+                return ResourceManager.GetString("OutputTryingToLocateMainScreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ====== Welcome to {0}! ======.
         /// </summary>
         public static string OutputWelcomeMessage {

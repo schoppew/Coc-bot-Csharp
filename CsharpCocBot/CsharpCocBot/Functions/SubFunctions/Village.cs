@@ -5,8 +5,7 @@ using System.Text;
 
 namespace CoC.Bot.Functions
 {
-    
-    class Village
+    internal class Village
     {
         public bool CheckFullArmy()
         {

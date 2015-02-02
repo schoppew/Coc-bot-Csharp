@@ -460,4 +460,19 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="OutputBSNotFound" xml:space="preserve">
+    <value>BlueStacks was not found!</value>
+  </data>
+  <data name="OutputBSApplyDimensionsError" xml:space="preserve">
+    <value>Sorry, there was a problem while applying the registry entries!</value>
+  </data>
+  <data name="OutputBSApplyDimensionsIntoRegistry" xml:space="preserve">
+    <value>Applying required registry entries...</value>
+  </data>
+  <data name="OutputBSNotRunningWithDimensions" xml:space="preserve">
+    <value>BlueStacks is not set to 860x720!</value>
+  </data>
+  <data name="OutputTryingToLocateMainScreen" xml:space="preserve">
+    <value>Trying to locate Main Screen</value>
+  </data>
 </root>

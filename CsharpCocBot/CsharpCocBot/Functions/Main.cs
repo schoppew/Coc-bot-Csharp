@@ -9,6 +9,9 @@
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
+
+    using Tools;
+    using Tools.FastFind;
     using ViewModels;
 
     /// <summary>
@@ -21,12 +24,40 @@
         /// </summary>
         public static void Initialize(MainViewModel vm)
         {
-            MainViewModel = vm;
+            Bot = vm; // Store the ViewModel here for exposing to the SubFunctions
 
-            // TODO: Check if BlueStack is running
+            Bot.Output = string.Format(Properties.Resources.OutputWelcomeMessage, Properties.Resources.AppName);
+            Bot.Output = Properties.Resources.OutputBotIsStarting;
 
-            MainViewModel.Output = string.Format(Properties.Resources.OutputWelcomeMessage, Properties.Resources.AppName);
-            MainViewModel.Output = Properties.Resources.OutputBotIsStarting;
+            // Check if BlueStack is running
+            FastFindWrapper.SetHWnd(BlueStackHelper.GetBlueStackWindowHandle(), true);
+            if (!BlueStackHelper.IsBlueStackRunning)
+            {
+                Bot.Output = Properties.Resources.OutputBSNotFound;
+
+                Bot.IsExecuting = false;
+                return;
+            }
+
+            if (!BlueStackHelper.IsRunningWithRequiredDimensions)
+            {
+                Bot.Output = Properties.Resources.OutputBSNotRunningWithDimensions;
+                Bot.Output = Properties.Resources.OutputBSApplyDimensionsIntoRegistry;
+
+                if (!BlueStackHelper.SetDimensionsIntoRegistry())
+                {
+                    // Woops! Something went wrong, log the error!
+                    Bot.Output = Properties.Resources.OutputBSApplyDimensionsError;
+
+                    Bot.IsExecuting = false;
+                    return;
+                }
+
+                // Restart BlueStack
+                // Wait until restart and continue...
+
+                BlueStackHelper.ActivateBlueStack();
+            }
 
             CreateDirectory(LogPath);
             CreateDirectory(ScreenshotZombieAttacked);
@@ -41,12 +72,26 @@
             // Run Everything related to the bot in the background
             var thread = new Thread(() =>
             {
-                while (MainViewModel.IsExecuting)
+                while (Bot.IsExecuting)
                 {
                     Thread.Sleep(1000);
-                    MainViewModel.Output = "Loop test...";
-                    MainViewModel.Output = "Minimum Gold is: " + MainViewModel.MinimumGold; // Changing values on the fly works as expected
-                    MainViewModel.Output = "Try changing values on the fly.";
+                    Bot.Output = "Loop test...";
+                    Bot.Output = "Minimum Gold is: " + Bot.MinimumGold; // Changing values on the fly works as expected
+                    Bot.Output = "Try changing values on the fly.";
+
+                    //SubFunctions.MainScreen.CheckMainScreen();
+
+                    //SubFunctions.MainScreen.ZoomOut();
+
+                    //SubFunctions.Village.TrainTroops();
+
+                    //SubFunctions.Village.RequestCC();
+
+                    //SubFunctions.Village.Collect();
+
+                    //Idle();
+
+                    //SubFunctions.Attack.AttackMain();
                 };
             })
             {
@@ -57,7 +102,7 @@
 
         #region Properties
 
-        internal static MainViewModel MainViewModel { get; private set; }
+        internal static MainViewModel Bot { get; private set; }
 
         internal static string AppPath
         {

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CoC.Bot.Functions
 {
-    class ReadText
+    internal class ReadText
     {
 
         public string GetChar(int _x, int _y)
