@@ -77,8 +77,11 @@
                     </Label>
                     <Label x:Name="Bar" Background="Transparent" MouseDown="Bar_MouseDown" />
                 </Grid>
+                <Button Command="{Binding MinimizeCommand}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,30,0" Width="20" Height="20" Focusable="False" Background="Transparent" BorderBrush="Transparent">
+                    <Path Data="M0,20L53.333,20 53.333,8.888 0,8.888z" Stretch="Uniform" Fill="#BBFFFFFF" Width="10" Margin="0,8,0,0" />
+                </Button>
                 <Button Command="{Binding ExitCommand}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,5,0" Width="20" Height="20" Focusable="False" Background="Transparent" BorderBrush="Transparent">
-                    <Path Data="F1M608.038,178.012L595.565,165.539 576.036,185.068 556.509,165.54 544.038,178.012 563.565,197.539 544.038,217.066 556.512,229.538 576.038,210.012 595.565,229.539 608.036,217.068 588.509,197.54 608.038,178.012z" Stretch="Uniform" Fill="#BBFFFFFF" />
+                    <Path Data="F1M54.0573,47.8776L38.1771,31.9974 54.0547,16.1198C55.7604,14.4141 55.7604,11.6511 54.0573,9.94531 52.3516,8.23962 49.5859,8.23962 47.8802,9.94531L32.0026,25.8229 16.1224,9.94531C14.4167,8.23962 11.6511,8.23962 9.94794,9.94531 8.24219,11.6511 8.24219,14.4141 9.94794,16.1198L25.8255,32 9.94794,47.8776C8.24219,49.5834 8.24219,52.3477 9.94794,54.0534 11.6511,55.7572 14.4167,55.7585 16.1224,54.0534L32.0026,38.1745 47.8802,54.0534C49.5859,55.7585 52.3516,55.7572 54.0573,54.0534 55.7604,52.3477 55.763,49.5834 54.0573,47.8776z" Stretch="Uniform" Fill="#BBFFFFFF" Width="10" />
                 </Button>
                 <Grid Margin="5,30,5,5">
                     <Grid.RowDefinitions>

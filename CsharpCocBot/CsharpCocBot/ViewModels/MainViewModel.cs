@@ -1225,6 +1225,11 @@ namespace CoC.Bot.ViewModels
             get { return _aboutCommand; }
         }
 
+		public ICommand MinimizeCommand
+		{
+			get { return new RelayCommand(() => Minimize()); }
+		}
+
         public ICommand ExitCommand
         {
             get { return new RelayCommand(() => Exit()); }
@@ -1605,6 +1610,14 @@ namespace CoC.Bot.ViewModels
             Output = "Locate Dark Barracks...";
             MessageBox.Show("You clicked on the Locate Dark Barracks Manually button!", "Locate Dark Barracks Manually", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+		/// <summary>
+		/// Minimizes the application.
+		/// </summary>
+		private void Minimize()
+		{
+			Application.Current.MainWindow.WindowState = WindowState.Minimized;
+		}
 
         /// <summary>
         /// Exits the application.
