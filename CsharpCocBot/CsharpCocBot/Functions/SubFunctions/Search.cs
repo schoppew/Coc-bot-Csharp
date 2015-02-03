@@ -38,7 +38,7 @@ namespace CoC.Bot.Functions
             }
         }
 
-        public void VillageSearch()
+        public static void VillageSearch()
         {
 
         }

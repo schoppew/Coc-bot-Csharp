@@ -94,7 +94,7 @@
 					Village.Idle();
                     Thread.Sleep(1000);
 
-					//SubFunctions.Attack.AttackMain();
+					Attack.AttackMain();
 				};
 			})
 			{

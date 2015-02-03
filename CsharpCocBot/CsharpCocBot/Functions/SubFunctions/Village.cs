@@ -27,20 +27,37 @@ namespace CoC.Bot.Functions
 
             Main.Bot.WriteToOutput("Collecting Resources...");
             Thread.Sleep(250);
-            Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 1);
+            Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1));
 
             for(int i = 0; i < 17; i++)
             {
                 Thread.Sleep(250);
-                Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, collectorPos[i], 1);
+                Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, collectorPos[i]);
                 Thread.Sleep(250);
-                Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 1);
+                Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1));
             }
         }
 
+//TODO: FIX THIS WHOLE METHOD!!!
         public static void DonateCC()
         {
+            //bool donate = false; // FIX THIS
+            //int _y = 119;
 
+            //Main.Bot.WriteToOutput("Donating Troops...", GlobalVariables.OutputStates.Information);
+            //Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1));
+
+            //if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(331, 330), Color.FromArgb(240, 160, 59), 20))
+            //    Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(19, 349));
+
+            //Thread.Sleep(200);
+            //Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(189, 24));
+            //Thread.Sleep(200);
+        
+            //while(donate)
+            //{
+            //    byte[][] offColors = new byte[][] {};
+            //}  
         }
 
         public static void DropTrophies()
@@ -60,7 +77,7 @@ namespace CoC.Bot.Functions
                     Functions.Search.PrepareSearch();
 
                     Thread.Sleep(5000);
-                    Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(34, 310), 1);
+                    Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(34, 310));
                     Thread.Sleep(1000);
 
                     Functions.MainScreen.ReturnHome(false, false);
