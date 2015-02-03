@@ -979,7 +979,7 @@ namespace CoC.Bot.UI.Controls.NotifyIcon
 			//on standard DPI settings, just return the point
 			if (scalingFactor == 1.0) return point;
 
-			return new Point() { X = (int)(point.X * scalingFactor), Y = (int)(point.Y * scalingFactor) };
+			return new Point() { X = (int)(point.X / SystemInfo.DpiXFactor), Y = (int)(point.Y / SystemInfo.DpiYFactor) };
 		}
 
 		#region Dispose / Exit

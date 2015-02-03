@@ -147,6 +147,7 @@
     <Compile Include="UI\Controls\NotifyIcon\Interop\NotifyCommand.cs" />
     <Compile Include="UI\Controls\NotifyIcon\Interop\NotifyIconData.cs" />
     <Compile Include="UI\Controls\NotifyIcon\Interop\NotifyIconVersion.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\Interop\SystemInfo.cs" />
     <Compile Include="UI\Controls\NotifyIcon\Interop\TrayInfo.cs" />
     <Compile Include="UI\Controls\NotifyIcon\Interop\WinApi.cs" />
     <Compile Include="UI\Controls\NotifyIcon\Interop\WindowClass.cs" />
