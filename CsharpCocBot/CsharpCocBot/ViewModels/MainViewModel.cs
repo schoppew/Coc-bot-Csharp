@@ -1215,11 +1215,379 @@ namespace CoC.Bot.ViewModels
 
         #endregion
 
-        #endregion
+		#region Location Properties
 
-        #region Commands
+		private Point _locationClanCastle;
+		public Point LocationClanCastle
+		{
+			get { return _locationClanCastle; }
+			set
+			{
+				if (_locationClanCastle != value)
+				{
+					_locationClanCastle = value;
+					OnPropertyChanged();
+				}
+			}
+		}
 
-        private AboutCommand _aboutCommand = new AboutCommand();
+		private Point _locationBarrack1;
+		public Point LocationBarrack1
+		{
+			get { return _locationBarrack1; }
+			set
+			{
+				if (_locationBarrack1 != value)
+				{
+					_locationBarrack1 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationBarrack2;
+		public Point LocationBarrack2
+		{
+			get { return _locationBarrack2; }
+			set
+			{
+				if (_locationBarrack2 != value)
+				{
+					_locationBarrack2 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationBarrack3;
+		public Point LocationBarrack3
+		{
+			get { return _locationBarrack3; }
+			set
+			{
+				if (_locationBarrack3 != value)
+				{
+					_locationBarrack3 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationBarrack4;
+		public Point LocationBarrack4
+		{
+			get { return _locationBarrack4; }
+			set
+			{
+				if (_locationBarrack4 != value)
+				{
+					_locationBarrack4 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationDarkBarrack1;
+		public Point LocationDarkBarrack1
+		{
+			get { return _locationDarkBarrack1; }
+			set
+			{
+				if (_locationDarkBarrack1 != value)
+				{
+					_locationDarkBarrack1 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationDarkBarrack2;
+		public Point LocationDarkBarrack2
+		{
+			get { return _locationDarkBarrack2; }
+			set
+			{
+				if (_locationDarkBarrack2 != value)
+				{
+					_locationDarkBarrack2 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationAllTrapsRearm;
+		public Point LocationAllTrapsRearm
+		{
+			get { return _locationAllTrapsRearm; }
+			set
+			{
+				if (_locationAllTrapsRearm != value)
+				{
+					_locationAllTrapsRearm = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationAllXbowsRearm;
+		public Point LocationAllXbowsRearm
+		{
+			get { return _locationAllXbowsRearm; }
+			set
+			{
+				if (_locationAllXbowsRearm != value)
+				{
+					_locationAllXbowsRearm = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector1;
+		public Point LocationCollector1
+		{
+			get { return _locationCollector1; }
+			set
+			{
+				if (_locationCollector1 != value)
+				{
+					_locationCollector1 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector2;
+		public Point LocationCollector2
+		{
+			get { return _locationCollector2; }
+			set
+			{
+				if (_locationCollector2 != value)
+				{
+					_locationCollector2 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector3;
+		public Point LocationCollector3
+		{
+			get { return _locationCollector3; }
+			set
+			{
+				if (_locationCollector3 != value)
+				{
+					_locationCollector3 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector4;
+		public Point LocationCollector4
+		{
+			get { return _locationCollector4; }
+			set
+			{
+				if (_locationCollector4 != value)
+				{
+					_locationCollector4 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector5;
+		public Point LocationCollector5
+		{
+			get { return _locationCollector5; }
+			set
+			{
+				if (_locationCollector5 != value)
+				{
+					_locationCollector5 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector6;
+		public Point LocationCollector6
+		{
+			get { return _locationCollector6; }
+			set
+			{
+				if (_locationCollector6 != value)
+				{
+					_locationCollector6 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector7;
+		public Point LocationCollector7
+		{
+			get { return _locationCollector7; }
+			set
+			{
+				if (_locationCollector7 != value)
+				{
+					_locationCollector7 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector8;
+		public Point LocationCollector8
+		{
+			get { return _locationCollector8; }
+			set
+			{
+				if (_locationCollector8 != value)
+				{
+					_locationCollector8 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector9;
+		public Point LocationCollector9
+		{
+			get { return _locationCollector9; }
+			set
+			{
+				if (_locationCollector9 != value)
+				{
+					_locationCollector9 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector10;
+		public Point LocationCollector10
+		{
+			get { return _locationCollector10; }
+			set
+			{
+				if (_locationCollector10 != value)
+				{
+					_locationCollector10 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector11;
+		public Point LocationCollector11
+		{
+			get { return _locationCollector11; }
+			set
+			{
+				if (_locationCollector11 != value)
+				{
+					_locationCollector11 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector12;
+		public Point LocationCollector12
+		{
+			get { return _locationCollector12; }
+			set
+			{
+				if (_locationCollector12 != value)
+				{
+					_locationCollector12 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector13;
+		public Point LocationCollector13
+		{
+			get { return _locationCollector13; }
+			set
+			{
+				if (_locationCollector13 != value)
+				{
+					_locationCollector13 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector14;
+		public Point LocationCollector14
+		{
+			get { return _locationCollector14; }
+			set
+			{
+				if (_locationCollector14 != value)
+				{
+					_locationCollector14 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector15;
+		public Point LocationCollector15
+		{
+			get { return _locationCollector15; }
+			set
+			{
+				if (_locationCollector15 != value)
+				{
+					_locationCollector15 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector16;
+		public Point LocationCollector16
+		{
+			get { return _locationCollector16; }
+			set
+			{
+				if (_locationCollector16 != value)
+				{
+					_locationCollector16 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Point _locationCollector17;
+		public Point LocationCollector17
+		{
+			get { return _locationCollector17; }
+			set
+			{
+				if (_locationCollector17 != value)
+				{
+					_locationCollector17 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		#endregion
+
+		#region Commands
+
+		private AboutCommand _aboutCommand = new AboutCommand();
         public ICommand AboutCommand
         {
             get { return _aboutCommand; }

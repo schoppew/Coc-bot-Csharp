@@ -1486,5 +1486,317 @@ namespace CoC.Bot.Properties {
                 this["IsUseDarkBarracks2"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationClanCastle {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationClanCastle"]));
+            }
+            set {
+                this["LocationClanCastle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationBarrack1 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationBarrack1"]));
+            }
+            set {
+                this["LocationBarrack1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationBarrack2 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationBarrack2"]));
+            }
+            set {
+                this["LocationBarrack2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationBarrack3 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationBarrack3"]));
+            }
+            set {
+                this["LocationBarrack3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationBarrack4 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationBarrack4"]));
+            }
+            set {
+                this["LocationBarrack4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationDarkBarrack1 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationDarkBarrack1"]));
+            }
+            set {
+                this["LocationDarkBarrack1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationDarkBarrack2 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationDarkBarrack2"]));
+            }
+            set {
+                this["LocationDarkBarrack2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationAllTrapsRearm {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationAllTrapsRearm"]));
+            }
+            set {
+                this["LocationAllTrapsRearm"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationAllXbowsRearm {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationAllXbowsRearm"]));
+            }
+            set {
+                this["LocationAllXbowsRearm"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector1 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector1"]));
+            }
+            set {
+                this["LocationCollector1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector2 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector2"]));
+            }
+            set {
+                this["LocationCollector2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector3 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector3"]));
+            }
+            set {
+                this["LocationCollector3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector4 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector4"]));
+            }
+            set {
+                this["LocationCollector4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector5 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector5"]));
+            }
+            set {
+                this["LocationCollector5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector6 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector6"]));
+            }
+            set {
+                this["LocationCollector6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector7 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector7"]));
+            }
+            set {
+                this["LocationCollector7"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector8 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector8"]));
+            }
+            set {
+                this["LocationCollector8"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector9 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector9"]));
+            }
+            set {
+                this["LocationCollector9"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector10 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector10"]));
+            }
+            set {
+                this["LocationCollector10"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector11 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector11"]));
+            }
+            set {
+                this["LocationCollector11"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector12 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector12"]));
+            }
+            set {
+                this["LocationCollector12"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector13 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector13"]));
+            }
+            set {
+                this["LocationCollector13"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector14 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector14"]));
+            }
+            set {
+                this["LocationCollector14"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector15 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector15"]));
+            }
+            set {
+                this["LocationCollector15"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector16 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector16"]));
+            }
+            set {
+                this["LocationCollector16"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationCollector17 {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationCollector17"]));
+            }
+            set {
+                this["LocationCollector17"] = value;
+            }
+        }
     }
 }
