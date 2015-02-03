@@ -50,11 +50,11 @@ namespace CoC.Bot.Functions
             while (trophyCount > Main.Bot.MaxTrophies)
             {
                 trophyCount = Functions.ReadText.GetOther(50, 74, "Trophy");
-                Main.Bot.Output = "Trophy Count: " + trophyCount;
+                Main.Bot.WriteToOutput("Trophy Count: " + trophyCount, GlobalVariables.OutputStates.Normal);
                 
                 if(trophyCount > Main.Bot.MaxTrophies)
                 {
-                    Main.Bot.Output = "Dropping Trophies...";
+                    Main.Bot.WriteToOutput("Dropping Trophies...", GlobalVariables.OutputStates.Information);
                     Thread.Sleep(2000);
                     Functions.MainScreen.ZoomOut();
                     Functions.Search.PrepareSearch();
@@ -67,7 +67,7 @@ namespace CoC.Bot.Functions
                 }
                 else
                 {
-                    Main.Bot.Output = "Trophy Drop Complete...";
+                    Main.Bot.WriteToOutput("Trophy Drop Complete...", GlobalVariables.OutputStates.Information);
                 }
             }
         }
