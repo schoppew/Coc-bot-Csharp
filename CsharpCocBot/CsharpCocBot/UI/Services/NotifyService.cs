@@ -17,17 +17,9 @@
 			Name = "NotifyIcon",
 			Icon = new System.Drawing.Icon(Application.GetResourceStream(new Uri(@"/Assets/Images/TrayIcon.ico", UriKind.Relative)).Stream),
 			DoubleClickCommand = ShowCommand,
-			ToolTip = Create()
+			TrayToolTip = new System.Windows.Controls.ToolTip() { Content = Properties.Resources.AppName, Style = null },
+			ToolTipText = Properties.Resources.AppName
 		};
-
-		private static System.Windows.Controls.ToolTip Create()
-		{
-			//ToolTip = new System.Windows.Controls.ToolTip() { Content = "Hi", Style = null },
-			var tt = new System.Windows.Controls.ToolTip();
-			tt.Content = "Hello";
-
-			return tt;
-		}
 
 		/// <summary>
 		/// Notifies using the specified message.
