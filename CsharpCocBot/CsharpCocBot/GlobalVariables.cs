@@ -54,6 +54,6 @@
         public static bool runState = false;
         public static bool backgroundMode = true;
 
-        public static Tools.ScreenCapture screenCap = null;
+        public static string lootPath = @"";
     }
 }

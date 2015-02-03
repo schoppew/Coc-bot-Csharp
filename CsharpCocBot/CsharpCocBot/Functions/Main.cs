@@ -74,11 +74,11 @@
 				while (Bot.IsExecuting)
 				{
 					Thread.Sleep(1000);
-					Bot.Output = "Loop test...";
-					Bot.Output = "Minimum Gold is: " + Bot.MinimumGold; // Changing values on the fly works as expected
-					Bot.Output = "Try changing values on the fly.";
+                    //Bot.Output = "Loop test...";
+                    //Bot.Output = "Minimum Gold is: " + Bot.MinimumGold; // Changing values on the fly works as expected
+                    //Bot.Output = "Try changing values on the fly.";
 
-					//SubFunctions.MainScreen.CheckMainScreen();
+					MainScreen.CheckMainScreen();
 
 					//SubFunctions.MainScreen.ZoomOut();
 
