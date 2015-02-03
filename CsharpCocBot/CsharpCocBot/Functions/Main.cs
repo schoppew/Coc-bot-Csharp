@@ -87,7 +87,8 @@
 					Village.TrainTroops();
                     Thread.Sleep(1000);
 
-					//SubFunctions.Village.RequestCC();
+					Village.RequestTroops();
+                    Thread.Sleep(1000);
 
 					//SubFunctions.Village.Collect();
 

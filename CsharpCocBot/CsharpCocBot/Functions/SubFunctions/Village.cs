@@ -59,7 +59,7 @@ namespace CoC.Bot.Functions
 
         }
 
-        public void RequestTroops()
+        public static void RequestTroops()
         {
 
         }

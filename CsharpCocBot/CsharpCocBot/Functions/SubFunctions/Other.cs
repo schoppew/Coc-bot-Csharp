@@ -8,6 +8,7 @@ namespace CoC.Bot.Functions
 {
     class Other
     {
+        [Obsolete("Use Import Threading, then use Thread.Sleep()", true)]
         public static void Sleep(int ms)
         {
             System.Threading.Thread.Sleep(ms);
