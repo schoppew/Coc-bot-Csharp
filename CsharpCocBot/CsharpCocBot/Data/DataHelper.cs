@@ -66,6 +66,11 @@ namespace CoC.Bot.Data
             }
         }
 
+		/// <summary>
+		/// Returns the number of Camps Slots the troop uses.
+		/// </summary>
+		/// <param name="troop">The Troop.</param>
+		/// <returns>System.Int32.</returns>
         public static int CampSlots(this Troop troop)
         {
             switch (troop)
@@ -90,6 +95,8 @@ namespace CoC.Bot.Data
                     return 8;
                 case Troop.Witch:
                     return 12;
+				case Troop.Healer:
+					return 14;
                 case Troop.Dragon:
                     return 20;
                 case Troop.Pekka:

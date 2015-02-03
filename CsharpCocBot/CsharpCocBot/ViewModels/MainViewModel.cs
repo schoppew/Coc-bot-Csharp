@@ -895,6 +895,40 @@ namespace CoC.Bot.ViewModels
 
         #region Troop Settings Properties
 
+		/// <summary>
+		/// [Used in UI for Binding] Gets All Attack Troops.
+		/// </summary>
+		/// <value>All Attack Troops.</value>
+		public static IEnumerable<TroopModel> AllAttackTroops { get { return DataCollection.TroopTiers.SelectMany(tt => tt.Troops).Distinct(); } }
+
+		private TroopModel _selectedAttackTroop;
+		/// <summary>
+		/// [For use in UI only] Gets or sets the selected attack troop.
+		/// </summary>
+		/// <value>The selected attack troop.</value>
+		public TroopModel SelectedAttackTroop
+		{
+			get { return _selectedAttackTroop; }
+			set
+			{
+				if (_selectedAttackTroop != value)
+				{
+					_selectedAttackTroop = value;
+					OnPropertyChanged();
+					OnPropertyChanged(() => TroopCapacity);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets the Total Troop capacity.
+		/// </summary>
+		/// <value>The total troop capacity.</value>
+		public int TroopCapacity
+		{
+			get { return CalculateTroopCapacity(); }
+		}
+
         /// <summary>
         /// [Used in UI for Binding] Gets the Troop Compositions.
         /// </summary>
@@ -922,7 +956,7 @@ namespace CoC.Bot.ViewModels
         }
 
         /// <summary>
-        /// Gets the Troops.
+		/// [Used in UI for Binding] Gets the Troops.
         /// </summary>
         /// <value>The Troops.</value>
         public static BindingList<Model> BarrackTroops { get { return DataCollection.BarracksTroops; } }
@@ -1108,7 +1142,7 @@ namespace CoC.Bot.ViewModels
         }
 
         /// <summary>
-        /// Gets the Dark Troops.
+		/// [Used in UI for Binding] Gets the Dark Troops.
         /// </summary>
         /// <value>The Dark Troops.</value>
         public static BindingList<Model> DarkBarrackTroops { get { return DataCollection.DarkBarracksTroops; } }
@@ -1176,26 +1210,6 @@ namespace CoC.Bot.ViewModels
                     return true;
                 else
                     return false;
-            }
-        }
-
-        /// <summary>
-        /// Gets All Attack Troops.
-        /// </summary>
-        /// <value>All Attack Troops.</value>
-        public static IEnumerable<TroopModel> AllAttackTroops { get { return DataCollection.TroopTiers.SelectMany(tt => tt.Troops).Distinct(); } }
-
-        private TroopModel _selectedAttackTroop;
-        public TroopModel SelectedAttackTroop
-        {
-            get { return _selectedAttackTroop; }
-            set
-            {
-                if (_selectedAttackTroop != value)
-                {
-                    _selectedAttackTroop = value;
-                    OnPropertyChanged();
-                }
             }
         }
 
@@ -1483,10 +1497,6 @@ namespace CoC.Bot.ViewModels
             }
 
             GlobalVariables.Log.WriteToLog(Properties.Resources.LogBotInitialized);
-
-            //var val1 = DataCollection.TroopTiers.SelectMany(tt => tt.Troops).Distinct();
-            //if (val1.Count() > 0)
-            //    return;
         }
 
         #endregion
@@ -1622,9 +1632,60 @@ namespace CoC.Bot.ViewModels
 
         #endregion
 
-        #region Application User Settings Methods
+		#region Calculation Methods
 
-        /// <summary>
+		/// <summary>
+		/// Calculates the total troop capacity.
+		/// </summary>
+		/// <returns>System.Int32.</returns>
+		private static int CalculateTroopCapacity()
+		{
+			int value = 0;
+
+			AllAttackTroops.Sum(s => s.TrainQuantity);
+
+			foreach (var tier in Enum.GetValues(typeof(TroopType)))
+			{
+				switch((TroopType)tier)
+				{
+					case TroopType.Tier1:
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Barbarian].TrainQuantity * Troop.Barbarian.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Archer].TrainQuantity * Troop.Archer.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Goblin].TrainQuantity * Troop.Goblin.CampSlots();
+						break;
+					case TroopType.Tier2:
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Giant].TrainQuantity * Troop.Giant.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.WallBreaker].TrainQuantity * Troop.WallBreaker.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Balloon].TrainQuantity * Troop.Balloon.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Wizard].TrainQuantity * Troop.Wizard.CampSlots();
+						break;
+					case TroopType.Tier3:
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Healer].TrainQuantity * Troop.Healer.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Dragon].TrainQuantity * Troop.Dragon.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Pekka].TrainQuantity * Troop.Pekka.CampSlots();
+						break;
+					case TroopType.DarkTroops:
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Minion].TrainQuantity * Troop.Minion.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.HogRider].TrainQuantity * Troop.HogRider.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Valkyrie].TrainQuantity * Troop.Valkyrie.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Golem].TrainQuantity * Troop.Golem.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Witch].TrainQuantity * Troop.Witch.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.LavaHound].TrainQuantity * Troop.LavaHound.CampSlots();
+						break;
+					default:
+						// Troop Type Heroes, do nothing!
+						break;
+				}
+			}
+
+			return value;
+		}
+
+		#endregion
+
+		#region Application User Settings Methods
+
+		/// <summary>
         /// Gets the application user settings.
         /// </summary>
         private void GetUserSettings()

@@ -230,7 +230,7 @@
                             <Grid Background="{DynamicResource BackgroundBrush}">
                                 <GroupBox Header="{x:Static p:Resources.Troops}" HorizontalAlignment="Left" Margin="16,16,0,0" VerticalAlignment="Top" Height="305" Width="210">
                                     <Grid>
-                                        <ListView Margin="16,10,16,43" ItemsSource="{Binding Path=AllAttackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAttackTroop, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsCustomTroopsEnabled}" SelectionMode="Single">
+                                        <ListView Margin="16,10,16,68" ItemsSource="{Binding Path=AllAttackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAttackTroop, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsCustomTroopsEnabled}" SelectionMode="Single">
                                             <ListView.ItemContainerStyle>
                                                 <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
                                                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -266,7 +266,9 @@
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>
-                                        <TextBlock Text="{x:Static p:Resources.TroopsMessage}" Height="28" HorizontalAlignment="Left" Margin="10,0,0,8" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
+                                        <Label Content="{x:Static p:Resources.LabelTroopCapacity}" Height="25" HorizontalAlignment="Left" Margin="16,0,0,41" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="100" IsEnabled="{Binding IsCustomTroopsEnabled}" />
+                                        <Label Content="{Binding TroopCapacity}" Height="25" HorizontalAlignment="Right" Margin="0,0,47,41" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="35" IsEnabled="{Binding IsCustomTroopsEnabled}" />
+                                        <TextBlock Text="{x:Static p:Resources.TroopsMessage}" Height="30" Margin="8,0,8,8" VerticalAlignment="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
                                 <ComboBox ItemsSource="{Binding Path=TroopCompositions, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedTroopComposition}" DisplayMemberPath="Name" Height="23" VerticalAlignment="Top" Margin="0,24,16,0" HorizontalAlignment="Right" Width="210" />
@@ -446,10 +448,10 @@
                                 <Button Content="{x:Static p:Resources.LocateClanCastleManually}" Command="{Binding LocateClanCastleCommand}" Height="23" Margin="16,0,16,10" VerticalAlignment="Bottom" Visibility="Visible" />
                             </Grid>
                         </TabItem>
-                        
+
                         <TabItem Header="{x:Static p:Resources.Help}">
                             <Grid Background="{DynamicResource BackgroundBrush}">
-                                
+
                             </Grid>
                         </TabItem>
                     </TabControl>
