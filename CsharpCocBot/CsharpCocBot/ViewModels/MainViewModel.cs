@@ -1217,8 +1217,8 @@ namespace CoC.Bot.ViewModels
 
 		#region Location Properties
 
-		private Point _locationClanCastle;
-		public Point LocationClanCastle
+		private System.Drawing.Point _locationClanCastle;
+		public System.Drawing.Point LocationClanCastle
 		{
 			get { return _locationClanCastle; }
 			set
@@ -1231,8 +1231,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationBarrack1;
-		public Point LocationBarrack1
+		private System.Drawing.Point _locationBarrack1;
+		public System.Drawing.Point LocationBarrack1
 		{
 			get { return _locationBarrack1; }
 			set
@@ -1245,8 +1245,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationBarrack2;
-		public Point LocationBarrack2
+		private System.Drawing.Point _locationBarrack2;
+		public System.Drawing.Point LocationBarrack2
 		{
 			get { return _locationBarrack2; }
 			set
@@ -1259,8 +1259,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationBarrack3;
-		public Point LocationBarrack3
+		private System.Drawing.Point _locationBarrack3;
+		public System.Drawing.Point LocationBarrack3
 		{
 			get { return _locationBarrack3; }
 			set
@@ -1273,8 +1273,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationBarrack4;
-		public Point LocationBarrack4
+		private System.Drawing.Point _locationBarrack4;
+		public System.Drawing.Point LocationBarrack4
 		{
 			get { return _locationBarrack4; }
 			set
@@ -1287,8 +1287,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationDarkBarrack1;
-		public Point LocationDarkBarrack1
+		private System.Drawing.Point _locationDarkBarrack1;
+		public System.Drawing.Point LocationDarkBarrack1
 		{
 			get { return _locationDarkBarrack1; }
 			set
@@ -1301,8 +1301,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationDarkBarrack2;
-		public Point LocationDarkBarrack2
+		private System.Drawing.Point _locationDarkBarrack2;
+		public System.Drawing.Point LocationDarkBarrack2
 		{
 			get { return _locationDarkBarrack2; }
 			set
@@ -1315,8 +1315,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationAllTrapsRearm;
-		public Point LocationAllTrapsRearm
+		private System.Drawing.Point _locationAllTrapsRearm;
+		public System.Drawing.Point LocationAllTrapsRearm
 		{
 			get { return _locationAllTrapsRearm; }
 			set
@@ -1329,8 +1329,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationAllXbowsRearm;
-		public Point LocationAllXbowsRearm
+		private System.Drawing.Point _locationAllXbowsRearm;
+		public System.Drawing.Point LocationAllXbowsRearm
 		{
 			get { return _locationAllXbowsRearm; }
 			set
@@ -1343,8 +1343,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector1;
-		public Point LocationCollector1
+		private System.Drawing.Point _locationCollector1;
+		public System.Drawing.Point LocationCollector1
 		{
 			get { return _locationCollector1; }
 			set
@@ -1357,8 +1357,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector2;
-		public Point LocationCollector2
+		private System.Drawing.Point _locationCollector2;
+		public System.Drawing.Point LocationCollector2
 		{
 			get { return _locationCollector2; }
 			set
@@ -1371,8 +1371,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector3;
-		public Point LocationCollector3
+		private System.Drawing.Point _locationCollector3;
+		public System.Drawing.Point LocationCollector3
 		{
 			get { return _locationCollector3; }
 			set
@@ -1385,8 +1385,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector4;
-		public Point LocationCollector4
+		private System.Drawing.Point _locationCollector4;
+		public System.Drawing.Point LocationCollector4
 		{
 			get { return _locationCollector4; }
 			set
@@ -1399,8 +1399,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector5;
-		public Point LocationCollector5
+		private System.Drawing.Point _locationCollector5;
+		public System.Drawing.Point LocationCollector5
 		{
 			get { return _locationCollector5; }
 			set
@@ -1413,8 +1413,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector6;
-		public Point LocationCollector6
+		private System.Drawing.Point _locationCollector6;
+		public System.Drawing.Point LocationCollector6
 		{
 			get { return _locationCollector6; }
 			set
@@ -1427,8 +1427,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector7;
-		public Point LocationCollector7
+		private System.Drawing.Point _locationCollector7;
+		public System.Drawing.Point LocationCollector7
 		{
 			get { return _locationCollector7; }
 			set
@@ -1441,8 +1441,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector8;
-		public Point LocationCollector8
+		private System.Drawing.Point _locationCollector8;
+		public System.Drawing.Point LocationCollector8
 		{
 			get { return _locationCollector8; }
 			set
@@ -1455,8 +1455,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector9;
-		public Point LocationCollector9
+		private System.Drawing.Point _locationCollector9;
+		public System.Drawing.Point LocationCollector9
 		{
 			get { return _locationCollector9; }
 			set
@@ -1469,8 +1469,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector10;
-		public Point LocationCollector10
+		private System.Drawing.Point _locationCollector10;
+		public System.Drawing.Point LocationCollector10
 		{
 			get { return _locationCollector10; }
 			set
@@ -1483,8 +1483,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector11;
-		public Point LocationCollector11
+		private System.Drawing.Point _locationCollector11;
+		public System.Drawing.Point LocationCollector11
 		{
 			get { return _locationCollector11; }
 			set
@@ -1497,8 +1497,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector12;
-		public Point LocationCollector12
+		private System.Drawing.Point _locationCollector12;
+		public System.Drawing.Point LocationCollector12
 		{
 			get { return _locationCollector12; }
 			set
@@ -1511,8 +1511,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector13;
-		public Point LocationCollector13
+		private System.Drawing.Point _locationCollector13;
+		public System.Drawing.Point LocationCollector13
 		{
 			get { return _locationCollector13; }
 			set
@@ -1525,8 +1525,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector14;
-		public Point LocationCollector14
+		private System.Drawing.Point _locationCollector14;
+		public System.Drawing.Point LocationCollector14
 		{
 			get { return _locationCollector14; }
 			set
@@ -1539,8 +1539,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector15;
-		public Point LocationCollector15
+		private System.Drawing.Point _locationCollector15;
+		public System.Drawing.Point LocationCollector15
 		{
 			get { return _locationCollector15; }
 			set
@@ -1553,8 +1553,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector16;
-		public Point LocationCollector16
+		private System.Drawing.Point _locationCollector16;
+		public System.Drawing.Point LocationCollector16
 		{
 			get { return _locationCollector16; }
 			set
@@ -1567,8 +1567,8 @@ namespace CoC.Bot.ViewModels
 			}
 		}
 
-		private Point _locationCollector17;
-		public Point LocationCollector17
+		private System.Drawing.Point _locationCollector17;
+		public System.Drawing.Point LocationCollector17
 		{
 			get { return _locationCollector17; }
 			set
@@ -2131,6 +2131,39 @@ namespace CoC.Bot.ViewModels
             // Donate Settings
             IsRequestTroops = AppSettings.IsRequestTroops;
             RequestTroopsMessage = AppSettings.RequestTroopsMessage;
+
+			// Location Settings
+			// TODO: Change the type from Windows.Drawing.Point to System.Windows.Point and get rid of the reference
+			LocationClanCastle = AppSettings.LocationClanCastle;
+
+			LocationBarrack1 = AppSettings.LocationBarrack1;
+			LocationBarrack2 = AppSettings.LocationBarrack2;
+			LocationBarrack3 = AppSettings.LocationBarrack3;
+			LocationBarrack4 = AppSettings.LocationBarrack4;
+
+			LocationDarkBarrack1 = AppSettings.LocationDarkBarrack1;
+			LocationDarkBarrack2 = AppSettings.LocationDarkBarrack2;
+
+			LocationAllTrapsRearm = AppSettings.LocationAllTrapsRearm;
+			LocationAllXbowsRearm = AppSettings.LocationAllXbowsRearm;
+
+			LocationCollector1 = AppSettings.LocationCollector1;
+			LocationCollector2 = AppSettings.LocationCollector2;
+			LocationCollector3 = AppSettings.LocationCollector3;
+			LocationCollector4 = AppSettings.LocationCollector4;
+			LocationCollector5 = AppSettings.LocationCollector5;
+			LocationCollector6 = AppSettings.LocationCollector6;
+			LocationCollector7 = AppSettings.LocationCollector7;
+			LocationCollector8 = AppSettings.LocationCollector8;
+			LocationCollector9 = AppSettings.LocationCollector9;
+			LocationCollector10 = AppSettings.LocationCollector10;
+			LocationCollector11 = AppSettings.LocationCollector11;
+			LocationCollector12 = AppSettings.LocationCollector12;
+			LocationCollector13 = AppSettings.LocationCollector13;
+			LocationCollector14 = AppSettings.LocationCollector14;
+			LocationCollector15 = AppSettings.LocationCollector15;
+			LocationCollector16 = AppSettings.LocationCollector16;
+			LocationCollector17 = AppSettings.LocationCollector17;
         }
 
         /// <summary>
@@ -2292,6 +2325,39 @@ namespace CoC.Bot.ViewModels
                         break;
                 }
             }
+
+			// Location Settings
+			// TODO: Change the type from Windows.Drawing.Point to System.Windows.Point and get rid of the reference
+			AppSettings.LocationClanCastle = LocationClanCastle;
+
+			AppSettings.LocationBarrack1 = LocationBarrack1;
+			AppSettings.LocationBarrack2 = LocationBarrack2;
+			AppSettings.LocationBarrack3 = LocationBarrack3;
+			AppSettings.LocationBarrack4 = LocationBarrack4;
+
+			AppSettings.LocationDarkBarrack1 = LocationDarkBarrack1;
+			AppSettings.LocationDarkBarrack2 = LocationDarkBarrack2;
+
+			AppSettings.LocationAllTrapsRearm = LocationAllTrapsRearm;
+			AppSettings.LocationAllXbowsRearm = LocationAllXbowsRearm;
+
+			AppSettings.LocationCollector1 = LocationCollector1;
+			AppSettings.LocationCollector2 = LocationCollector2;
+			AppSettings.LocationCollector3 = LocationCollector3;
+			AppSettings.LocationCollector4 = LocationCollector4;
+			AppSettings.LocationCollector5 = LocationCollector5;
+			AppSettings.LocationCollector6 = LocationCollector6;
+			AppSettings.LocationCollector7 = LocationCollector7;
+			AppSettings.LocationCollector8 = LocationCollector8;
+			AppSettings.LocationCollector9 = LocationCollector9;
+			AppSettings.LocationCollector10 = LocationCollector10;
+			AppSettings.LocationCollector11 = LocationCollector11;
+			AppSettings.LocationCollector12 = LocationCollector12;
+			AppSettings.LocationCollector13 = LocationCollector13;
+			AppSettings.LocationCollector14 = LocationCollector14;
+			AppSettings.LocationCollector15 = LocationCollector15;
+			AppSettings.LocationCollector16 = LocationCollector16;
+			AppSettings.LocationCollector17 = LocationCollector17;
 
             // Save it!
             AppSettings.Save();
