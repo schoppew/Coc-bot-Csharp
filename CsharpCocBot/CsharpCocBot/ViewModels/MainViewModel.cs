@@ -1945,12 +1945,12 @@
             ClearOutput(); // Clear everything before we start
 
 			// Colored Output test
-			WriteToOutput("this is title.");
-			WriteToOutput("this is another title");
-			WriteToOutput("this is colored title", GlobalVariables.OutputStates.Information);
-			WriteToOutput("this is colored title", GlobalVariables.OutputStates.Verified);
-			WriteToOutput("this is colored bold title", GlobalVariables.OutputStates.Error);
-			WriteToOutput("this is colored title", GlobalVariables.OutputStates.Warning);
+            //WriteToOutput("this is title.");
+            //WriteToOutput("this is another title");
+            //WriteToOutput("this is colored title", GlobalVariables.OutputStates.Information);
+            //WriteToOutput("this is colored title", GlobalVariables.OutputStates.Verified);
+            //WriteToOutput("this is colored bold title", GlobalVariables.OutputStates.Error);
+            //WriteToOutput("this is colored title", GlobalVariables.OutputStates.Warning);
 
 			//var color = CoC.Bot.UI.Utils.OutputColors.Salmon;
 
@@ -1959,12 +1959,12 @@
 			// Sample for getting familiar with the UI (used for accessing the properties/user settings values)
 			Samples.GettingAroundTheUI.UseValuesInUI(this);
 
-			WriteToOutput("Trying some simple captures within FastFind, and Keyboard injection");
-			MessageBox.Show("Trying some simple captures within FastFind, and Keyboard injection", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
-			FastFindTesting.Test();
-			KeyboardHelper.BSTest();
-			KeyboardHelper.BSTest2();
-			KeyboardHelper.NotePadTest();
+            //WriteToOutput("Trying some simple captures within FastFind, and Keyboard injection");
+            //MessageBox.Show("Trying some simple captures within FastFind, and Keyboard injection", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
+            //FastFindTesting.Test();
+            //KeyboardHelper.BSTest();
+            //KeyboardHelper.BSTest2();
+            //KeyboardHelper.NotePadTest();
         }
 
         /// <summary>
