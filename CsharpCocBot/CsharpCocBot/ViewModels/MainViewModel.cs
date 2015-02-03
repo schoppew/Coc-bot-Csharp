@@ -14,6 +14,7 @@
     using CoC.Bot.Tools;
     using CoC.Bot.Tools.FastFind;
     using CoC.Bot.UI.Commands;
+	using CoC.Bot.UI.Services;
 
     /// <summary>
     /// Provides functionality for the MainWindow
@@ -21,6 +22,7 @@
     public class MainViewModel : ViewModelBase
     {
         private static StringBuilder _output = new StringBuilder();
+		private readonly INotifyService notifyService = new NotifyService();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainViewModel"/> class.
@@ -1938,6 +1940,7 @@
         /// </summary>
         private void LocateCollectors()
         {
+			Notify("Locate Collectors and Gold Mines...");
             Output = "Locate Collectors and Gold Mines...";
             MessageBox.Show("You clicked on the Locate Collectors Manually button!", "Locate Collectors Manually", MessageBoxButton.OK, MessageBoxImage.Information);
         }
@@ -1956,6 +1959,7 @@
         /// </summary>
         private void LocateClanCastle()
         {
+			Notify("Locating Clan Castle...");
             Output = "Locating Clan Castle...";
             MessageBox.Show("You clicked on the Locate Clan Castle Manually button!", "Locate Clan Castle Manually", MessageBoxButton.OK, MessageBoxImage.Information);
         }
@@ -1965,6 +1969,7 @@
         /// </summary>
         private void LocateBarracks()
         {
+			Notify("Locating Barracks...");
             Output = "Locate Barracks...";
             MessageBox.Show("You clicked on the Locate Barracks Manually button!", "Locate Barracks Manually", MessageBoxButton.OK, MessageBoxImage.Information);
         }
@@ -1974,9 +1979,14 @@
         /// </summary>
         private void LocateDarkBarracks()
         {
+			Notify("Locating Dark Barracks...");
             Output = "Locate Dark Barracks...";
             MessageBox.Show("You clicked on the Locate Dark Barracks Manually button!", "Locate Dark Barracks Manually", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        #endregion
+
+		#region App Specific
 
 		/// <summary>
 		/// Minimizes the application.
@@ -1986,29 +1996,38 @@
 			Application.Current.MainWindow.WindowState = WindowState.Minimized;
 		}
 
-        /// <summary>
-        /// Exits the application.
-        /// </summary>
-        private void Exit()
-        {
-            if (IsExecuting)
-                Stop();
+		/// <summary>
+		/// Exits the application.
+		/// </summary>
+		private void Exit()
+		{
+			if (IsExecuting)
+				Stop();
 
-            SaveUserSettings();
-            Application.Current.MainWindow.Close();
-        }
+			SaveUserSettings();
+			Application.Current.MainWindow.Close();
+		}
 
-        #endregion
+		#endregion
 
-        #region Output Methods
+		#region Output and Notify Methods
 
-        /// <summary>
+		/// <summary>
         /// Clear all messages from the output.
         /// </summary>
         public static void ClearOutput()
         {
             _output.Clear();
         }
+
+		/// <summary>
+		/// Send a Notify using specified message.
+		/// </summary>
+		/// <param name="message">The message.</param>
+		public void Notify(string message)
+		{
+			notifyService.Notify(message);
+		}
 
         #endregion
 

@@ -56,7 +56,6 @@
     <!-- Window -->
     <Border x:Name="Chrome" CornerRadius="0">
         <Grid>
-            <tb:TaskbarIcon IconSource="/Assets/Images/TrayIcon.ico" />
             <Rectangle StrokeThickness="2">
                 <Rectangle.Stroke>
                     <LinearGradientBrush>
