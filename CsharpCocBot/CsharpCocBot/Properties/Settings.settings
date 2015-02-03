@@ -102,43 +102,43 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="DonateKeywordsGiants" Type="System.String" Scope="User">
-      <Value Profile="(Default)">giants|giant|any</Value>
+      <Value Profile="(Default)">giants|giant|reinforcement|any</Value>
     </Setting>
     <Setting Name="DonateKeywordsWallBreakers" Type="System.String" Scope="User">
-      <Value Profile="(Default)">wall breakers|wb|any</Value>
+      <Value Profile="(Default)">wall breakers|wb|reinforcement|any</Value>
     </Setting>
     <Setting Name="DonateKeywordsBalloons" Type="System.String" Scope="User">
-      <Value Profile="(Default)">balloons|balloon|any</Value>
+      <Value Profile="(Default)">balloons|balloon|reinforcement|any</Value>
     </Setting>
     <Setting Name="DonateKeywordsWizards" Type="System.String" Scope="User">
-      <Value Profile="(Default)">wizards|wiz|any</Value>
+      <Value Profile="(Default)">wizards|wiz|reinforcement|any</Value>
     </Setting>
     <Setting Name="DonateKeywordsHealers" Type="System.String" Scope="User">
-      <Value Profile="(Default)">healer|any</Value>
+      <Value Profile="(Default)">healer|reinforcement|any</Value>
     </Setting>
     <Setting Name="DonateKeywordsDragons" Type="System.String" Scope="User">
-      <Value Profile="(Default)">dragon|drake|any</Value>
+      <Value Profile="(Default)">dragon|drake|reinforcement|any</Value>
     </Setting>
     <Setting Name="DonateKeywordsPekkas" Type="System.String" Scope="User">
-      <Value Profile="(Default)">p.e.k.a.a|pekka|any</Value>
+      <Value Profile="(Default)">p.e.k.a.a|pekka|reinforcement|any</Value>
     </Setting>
     <Setting Name="DonateKeywordsMinions" Type="System.String" Scope="User">
-      <Value Profile="(Default)">minions|mini|any</Value>
+      <Value Profile="(Default)">minions|mini|reinforcement|any</Value>
     </Setting>
     <Setting Name="DonateKeywordsHogRiders" Type="System.String" Scope="User">
-      <Value Profile="(Default)">hog riders|hogs|bacon|any</Value>
+      <Value Profile="(Default)">hog riders|hogs|bacon|reinforcement|any</Value>
     </Setting>
     <Setting Name="DonateKeywordsValkyries" Type="System.String" Scope="User">
-      <Value Profile="(Default)">valkyries|valk|any</Value>
+      <Value Profile="(Default)">valkyries|valk|reinforcement|any</Value>
     </Setting>
     <Setting Name="DonateKeywordsGolems" Type="System.String" Scope="User">
-      <Value Profile="(Default)">golem|any</Value>
+      <Value Profile="(Default)">golem|reinforcement|any</Value>
     </Setting>
     <Setting Name="DonateKeywordsWitches" Type="System.String" Scope="User">
-      <Value Profile="(Default)">witches|witch|any</Value>
+      <Value Profile="(Default)">witches|witch|reinforcement|any</Value>
     </Setting>
     <Setting Name="DonateKeywordsLavaHounds" Type="System.String" Scope="User">
-      <Value Profile="(Default)">lava hound|lava|any</Value>
+      <Value Profile="(Default)">lava hound|lava|reinforcement|any</Value>
     </Setting>
     <Setting Name="IsDonateBarbarians" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -288,13 +288,13 @@
       <Value Profile="(Default)">3</Value>
     </Setting>
     <Setting Name="DonateKeywordsBarbarians" Type="System.String" Scope="User">
-      <Value Profile="(Default)">barbarians|barbs|any</Value>
+      <Value Profile="(Default)">barbarians|barbs|reinforcement|any</Value>
     </Setting>
     <Setting Name="DonateKeywordsArchers" Type="System.String" Scope="User">
-      <Value Profile="(Default)">archers|arch|any</Value>
+      <Value Profile="(Default)">archers|arch|reinforcement|any</Value>
     </Setting>
     <Setting Name="DonateKeywordsGoblins" Type="System.String" Scope="User">
-      <Value Profile="(Default)">goblins|gobs|any</Value>
+      <Value Profile="(Default)">goblins|gobs|reinforcement|any</Value>
     </Setting>
     <Setting Name="SelectedDarkBarrack1" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">11</Value>
