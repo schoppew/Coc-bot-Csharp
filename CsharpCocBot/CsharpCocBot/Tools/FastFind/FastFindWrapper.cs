@@ -22,6 +22,9 @@ namespace CoC.Bot.Tools.FastFind
     [DllImport(fastFindDllName)]
     public static extern bool ResetExcludedAreas();
 
+	//[DllImport(fastFindDllName)] - Works but not reliable enough, don't use it
+	//public static extern bool LoadFromFile(int NoSnapShot, [MarshalAs(UnmanagedType.BStr)]string szFileName /* With extension*/);
+
     // Configuration 
     // ==============
 		public const int DEBUG_NONE				= 0x0000;
@@ -62,11 +65,11 @@ namespace CoC.Bot.Tools.FastFind
     /// If extensively used, make sure there is no suspect memory leaks
     /// </summary>
     /// <returns></returns>
-    [DllImport(fastFindDllName, CharSet = CharSet.Auto)]
+    [DllImport(fastFindDllName, CharSet = CharSet.Unicode)]
     public static extern IntPtr GetLastErrorMsg();
 
-    [DllImport(fastFindDllName, CharSet = CharSet.Auto)]
-    public static extern IntPtr FFVersion();
+    [DllImport(fastFindDllName, CharSet = CharSet.Unicode)]
+    private static extern IntPtr FFVersion();
 
     // Basic functions
     [DllImport(fastFindDllName, EntryPoint="FFGetPixel")]
@@ -110,12 +113,31 @@ namespace CoC.Bot.Tools.FastFind
 
     /// // SnapShot saving into bitmap file
     [DllImport(fastFindDllName)]
-	public static extern bool SaveBMP(int NoSnapShot, [MarshalAs(UnmanagedType.AnsiBStr)]string szFileName /* With no extension (xxx.bmp added)*/);
+	public static extern bool SaveBMP(int NoSnapShot, [MarshalAs(UnmanagedType.BStr)]string szFileName /* With no extension (xxx.bmp added)*/);
 	[DllImport(fastFindDllName)]
-	public static extern bool SaveJPG(int NoSnapShot, [MarshalAs(UnmanagedType.AnsiBStr)]string szFileName /* With no extension*/, UInt32 uQuality);
+	public static extern bool SaveJPG(int NoSnapShot, [MarshalAs(UnmanagedType.BStr)]string szFileName /* With no extension*/, UInt32 uQuality);
     [DllImport(fastFindDllName)]
     public static extern int GetLastFileSuffix();
-		
+	[DllImport(fastFindDllName)]
+	private static extern IntPtr GetLastFileName();
+	public static string Version
+	{
+		get
+		{
+			IntPtr version = FFVersion();
+			return Marshal.PtrToStringUni(version);
+		}
+	}
+
+	public static string LastSavedFileName
+	{
+		get
+		{
+			IntPtr lastFileName = GetLastFileName();
+			return Marshal.PtrToStringUni(lastFileName);
+		}
+	}
+
     // Raw SnapShot rata retrieval
     [DllImport(fastFindDllName)]
     public static extern IntPtr GetRawData(int NoSnapShot, ref int NbBytes);
