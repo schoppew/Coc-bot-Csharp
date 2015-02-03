@@ -140,6 +140,7 @@
     <Compile Include="Tools\KeyboardHelper.cs" />
     <Compile Include="Tools\LogWriter.cs" />
     <Compile Include="SingleInstance.cs" />
+    <Compile Include="UI\Behaviours\AutoScrollTextBoxBaseBehaviour.cs" />
     <Compile Include="UI\Behaviours\TextBoxBehaviour.cs" />
     <Compile Include="UI\Commands\AboutCommand.cs" />
     <Compile Include="UI\Commands\DelegateCommand.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="UI\Controls\NotifyIcon\RoutedEventHelper.cs" />
     <Compile Include="UI\Controls\NotifyIcon\TaskbarIcon.cs" />
     <Compile Include="UI\Controls\NotifyIcon\Util.cs" />
+    <Compile Include="UI\Controls\RichTextBoxEx.cs" />
     <Compile Include="UI\Controls\TreeViewEx.cs" />
     <Compile Include="UI\Converters\BooleanToHideShowConverter.cs" />
     <Compile Include="UI\Converters\BooleanToOverlayConverter.cs" />

@@ -9,10 +9,12 @@
 	using System.Threading;
 	using System.Threading.Tasks;
 	using System.Windows;
+	using System.Windows.Media;
+
+	using ViewModels;
 
 	using Tools;
 	using Tools.FastFind;
-	using ViewModels;
 
 	/// <summary>
 	/// The Main entry point for the Bot Functions.
@@ -27,14 +29,14 @@
 			// Store in properties so we can access in the SubFunctions
 			Bot = vm;
 
-			Bot.Output = string.Format(Properties.Resources.OutputWelcomeMessage, Properties.Resources.AppName);
-			Bot.Output = Properties.Resources.OutputBotIsStarting;
+			Bot.WriteToOutput(string.Format(Properties.Resources.OutputWelcomeMessage, Properties.Resources.AppName));
+			Bot.WriteToOutput(Properties.Resources.OutputBotIsStarting);
 
 			// Check if BlueStack is running
 			FastFindWrapper.SetHWnd(BlueStackHelper.GetBlueStackWindowHandle(), true);
 			if (!BlueStackHelper.IsBlueStackRunning)
 			{
-				Bot.Output = Properties.Resources.OutputBSNotFound;
+				Bot.WriteToOutput(Properties.Resources.OutputBSNotFound, GlobalVariables.OutputStates.Error);
 
 				Bot.IsExecuting = false;
 				return;
@@ -42,19 +44,19 @@
 
 			if (!BlueStackHelper.IsRunningWithRequiredDimensions)
 			{
-				Bot.Output = Properties.Resources.OutputBSNotRunningWithDimensions;
-				Bot.Output = Properties.Resources.OutputBSApplyDimensionsIntoRegistry;
+				Bot.WriteToOutput(Properties.Resources.OutputBSNotRunningWithDimensions);
+				Bot.WriteToOutput(Properties.Resources.OutputBSApplyDimensionsIntoRegistry);
 
 				if (!BlueStackHelper.SetDimensionsIntoRegistry())
 				{
 					// Woops! Something went wrong, log the error!
-					Bot.Output = Properties.Resources.OutputBSApplyDimensionsError;
+					Bot.WriteToOutput(Properties.Resources.OutputBSApplyDimensionsError, GlobalVariables.OutputStates.Error);
 
 					Bot.IsExecuting = false;
 					return;
 				}
 				else
-					Bot.Output = Properties.Resources.OutputBSAppliedDimensionsIntoRegistry;
+					Bot.WriteToOutput(Properties.Resources.OutputBSAppliedDimensionsIntoRegistry);
 
 				// Restart BlueStack
 				// Wait until restart and continue...

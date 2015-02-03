@@ -8,13 +8,15 @@
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
+	using System.Windows.Documents;
     using System.Windows.Input;
+	using System.Windows.Media;
 
-    using CoC.Bot.Data;
-    using CoC.Bot.Tools;
-    using CoC.Bot.Tools.FastFind;
-    using CoC.Bot.UI.Commands;
-	using CoC.Bot.UI.Services;
+    using Data;
+    using Tools;
+    using Tools.FastFind;
+    using UI.Commands;
+	using UI.Services;
 
     /// <summary>
     /// Provides functionality for the MainWindow
@@ -29,69 +31,73 @@
         /// </summary>
         public MainViewModel()
         {
-            /*
-             * -------------------------------------------------------------------------------------------------------------
-             * UI Usage Notes
-             * -------------------------------------------------------------------------------------------------------------
-             * 
-             * 
-             * HowTo: Start/Stop/Hide etc
-             * ------------------------------------------------------------------------------------------------------------
-             * Under 'Main Methods' you will find the Start(), Stop(), Hide(), etc methods.
-             * All those methods are already vinculed to the UI by using Commands
-             * You can make them async if you wish.
-             * 
-             * 
-             * HowTo: Access a specific value or setting in the UI 
-             * ------------------------------------------------------------------------------------------------------------
-             * All UI properties (User settings) are defined in Properties, no need to access the controls directly.
-             * For example:
-             *          (bool)  MeetGold
-             *          (int)   MinimumGold
-             *          (Model) SelectedDeployStrategy
-             *          (int)   SelectedTroopComposition.Id     <--- The Id is defined in Data.TroopComposition enum
-             *                  DataCollection.TroopTiers       <--- Contains the Troop Tier (Tier 1, Tier 2, Tier 3, etc)
-             *                  DataCollection.TroopTiers.Troop <--- ontains Troops per Tier (Barbs, Archs, ... in Tier 1)
-             *          
-             * 
-             * HowTo: Pass a value or values (Properties) into another method/class for accessing it
-             * ------------------------------------------------------------------------------------------------------------
-             * Just use as parameter the MainViewModel. See Samples.GettingAroundTheUI for a code example.
-             * We can access all values by passing the MainViewModel as parameter.
-             * We can retrieve or change a property's value, those will get reflected automatically in the UI.
-             * Ex.:
-             *          Samples.GettingAroundTheUI.UseValuesInUI(this);
-             * 
-             * 
-             * HowTo: Access the Troops data in the Donate Settings
-             * ------------------------------------------------------------------------------------------------------------
-             * Each Troop is stored in TroopTier which is exposed by the TroopTiers property.
-             * You can access a TroopTier by using (either one) as example:
-             *          var t1 = DataCollection.TroopTiers[(int)TroopType.Tier1];
-             *          var t1 = DataCollection.TroopTiers.Get(TroopType.Tier1);
-             *          var t1 = DataCollection.TroopTiers.Where(tt => tt.Id == (int)TroopType.Tier1).FirstOrDefault();
-             *          
-             * You can access a Troop by using (either one) as example (same as TroopTier):
-             *          var troop = DataCollection.TroopTiers[(int)TroopType.Tier1].Troops[Troop.Barbarian];
-             *          var troop = DataCollection.TroopTiers.Get(TroopType.Tier1).Troops.Get(Troop.Barbarian);
-             *          var troop = DataCollection.TroopTiers.All().Troops.Get(Troop.Barbarian);
-             *          
-             * You can acces a specific Troop setting, for example:
-             *          var troop = DataCollection.TroopTiers.All().Troops.Get(Troop.Barbarian).IsDonateAll;
-             *          var troop = DataCollection.TroopTiers.All().Troops.Get(Troop.Barbarian).DonateKeywords;
-             * 
-             * 
-             * HowTo: Write to the Output (Window Log)
-             * ------------------------------------------------------------------------------------------------------------
-             * Just set a string value into the Output property.
-             * For example:
-             *          Output = "Hello there!";
-             * 
-             * 
-             * ------------------------------------------------------------------------------------------------------------
-             */
+			/*
+			 * -------------------------------------------------------------------------------------------------------------
+			 * UI Usage Notes
+			 * -------------------------------------------------------------------------------------------------------------
+			 * 
+			 * 
+			 * HowTo: Start/Stop/Hide etc
+			 * ------------------------------------------------------------------------------------------------------------
+			 * Under 'Main Methods' you will find the Start(), Stop(), Hide(), etc methods.
+			 * All those methods are already vinculed to the UI by using Commands
+			 * You can make them async if you wish.
+			 * 
+			 * 
+			 * HowTo: Access a specific value or setting in the UI 
+			 * ------------------------------------------------------------------------------------------------------------
+			 * All UI properties (User settings) are defined in Properties, no need to access the controls directly.
+			 * For example:
+			 *          (bool)  MeetGold
+			 *          (int)   MinimumGold
+			 *          (Model) SelectedDeployStrategy
+			 *          (int)   SelectedTroopComposition.Id     <--- The Id is defined in Data.TroopComposition enum
+			 *                  DataCollection.TroopTiers       <--- Contains the Troop Tier (Tier 1, Tier 2, Tier 3, etc)
+			 *                  DataCollection.TroopTiers.Troop <--- ontains Troops per Tier (Barbs, Archs, ... in Tier 1)
+			 *          
+			 * 
+			 * HowTo: Pass a value or values (Properties) into another method/class for accessing it
+			 * ------------------------------------------------------------------------------------------------------------
+			 * Just use as parameter the MainViewModel. See Samples.GettingAroundTheUI for a code example.
+			 * We can access all values by passing the MainViewModel as parameter.
+			 * We can retrieve or change a property's value, those will get reflected automatically in the UI.
+			 * Ex.:
+			 *          Samples.GettingAroundTheUI.UseValuesInUI(this);
+			 * 
+			 * 
+			 * HowTo: Access the Troops data in the Donate Settings
+			 * ------------------------------------------------------------------------------------------------------------
+			 * Each Troop is stored in TroopTier which is exposed by the TroopTiers property.
+			 * You can access a TroopTier by using (either one) as example:
+			 *          var t1 = DataCollection.TroopTiers[(int)TroopType.Tier1];
+			 *          var t1 = DataCollection.TroopTiers.Get(TroopType.Tier1);
+			 *          var t1 = DataCollection.TroopTiers.Where(tt => tt.Id == (int)TroopType.Tier1).FirstOrDefault();
+			 *          
+			 * You can access a Troop by using (either one) as example (same as TroopTier):
+			 *          var troop = DataCollection.TroopTiers[(int)TroopType.Tier1].Troops[Troop.Barbarian];
+			 *          var troop = DataCollection.TroopTiers.Get(TroopType.Tier1).Troops.Get(Troop.Barbarian);
+			 *          var troop = DataCollection.TroopTiers.All().Troops.Get(Troop.Barbarian);
+			 *          
+			 * You can acces a specific Troop setting, for example:
+			 *          var troop = DataCollection.TroopTiers.All().Troops.Get(Troop.Barbarian).IsDonateAll;
+			 *          var troop = DataCollection.TroopTiers.All().Troops.Get(Troop.Barbarian).DonateKeywords;
+			 * 
+			 * 
+			 * HowTo: Write to the Output (Window Log)
+			 * ------------------------------------------------------------------------------------------------------------
+			 * Just set a string value into the Output property.
+			 * For example:
+			 *          WriteToOutput("Hello there!");
+			 *          WriteToOutput("Hello there!", GlobalVariables.OutputStates.Information);	<-- Color Blue
+			 *          WriteToOutput("Hello there!", GlobalVariables.OutputStates.Verified);		<-- Color Green
+			 *          WriteToOutput("Hello there!", GlobalVariables.OutputStates.Warning);		<-- Color Yellow
+			 *          WriteToOutput("Hello there!", GlobalVariables.OutputStates.Error);			<-- Color Red
+			 * 
+			 * 
+			 * ------------------------------------------------------------------------------------------------------------
+			 */
 
-            Init();
+			Init();
             GetUserSettings();
 			
             Message = Properties.Resources.StartMessage;
@@ -154,26 +160,23 @@
 
         #region General Properties
 
-        /// <summary>
-        /// Gets or sets the Output (Window Log).
-        /// </summary>
-        /// <value>The Output (Window Log).</value>
-        public string Output
-        {
-            get { return _output.ToString(); }
-            set
-            {
-                if (_output == null)
-                    _output = new StringBuilder(value);
-                else
-                    _output.AppendFormat("[{0:HH:mm:ss}] {1}", DateTime.Now, value + Environment.NewLine);
-
-                Message = value;
-                GlobalVariables.Log.WriteToLog(value);
-
-                OnPropertyChanged();
-            }
-        }
+		private FlowDocument _outputFlow = new FlowDocument();
+		/// <summary>
+		/// [For use in UI only] Gets or sets the FlowDocument for the Output.
+		/// </summary>
+		/// <value>The output flow.</value>
+		public FlowDocument OutputFlow
+		{
+			get { return _outputFlow; }
+			set
+			{
+				if (_outputFlow != value)
+				{
+					_outputFlow = value;
+					OnPropertyChanged();
+				}
+			}
+		}
 
         private string _message;
         /// <summary>
@@ -1941,12 +1944,22 @@
         {
             ClearOutput(); // Clear everything before we start
 
+			// Colored Output test
+			WriteToOutput("this is title.");
+			WriteToOutput("this is another title");
+			WriteToOutput("this is colored title", GlobalVariables.OutputStates.Information);
+			WriteToOutput("this is colored title", GlobalVariables.OutputStates.Verified);
+			WriteToOutput("this is colored bold title", GlobalVariables.OutputStates.Error);
+			WriteToOutput("this is colored title", GlobalVariables.OutputStates.Warning);
+
+			//var color = CoC.Bot.UI.Utils.OutputColors.Salmon;
+
 			Functions.Main.Initialize(this); // <--- Main entry point
 
 			// Sample for getting familiar with the UI (used for accessing the properties/user settings values)
 			Samples.GettingAroundTheUI.UseValuesInUI(this);
 
-			Output = "Trying some simple captures within FastFind, and Keyboard injection";
+			WriteToOutput("Trying some simple captures within FastFind, and Keyboard injection");
 			MessageBox.Show("Trying some simple captures within FastFind, and Keyboard injection", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
 			FastFindTesting.Test();
 			KeyboardHelper.BSTest();
@@ -1959,11 +1972,11 @@
         /// </summary>
         private void Stop()
         {
-            Output = Properties.Resources.OutputBotIsStopping;
+            WriteToOutput(Properties.Resources.OutputBotIsStopping);
             
             MessageBox.Show("You clicked on the Stop button!", "Stop", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            Output = Properties.Resources.OutputBotStopped;
+            WriteToOutput(Properties.Resources.OutputBotStopped);
         }
 
         /// <summary>
@@ -1971,13 +1984,13 @@
         /// </summary>
         private void HideBlueStacks()
         {
-			Output = Properties.Resources.OutputHideBlueStacks;
+			WriteToOutput(Properties.Resources.OutputHideBlueStacks);
 			BlueStackHelper.HideBlueStack();
         }
 
 		private void RestoreBlueStacks()
 		{
-			Output = Properties.Resources.OutputRestoreBlueStacks;
+			WriteToOutput(Properties.Resources.OutputRestoreBlueStacks);
 			BlueStackHelper.RestoreBlueStack();
 		}
 
@@ -1987,7 +2000,7 @@
         public void LocateCollectors()
         {
 			Notify("Locate Collectors and Gold Mines...");
-            Output = "Locate Collectors and Gold Mines...";
+            WriteToOutput("Locate Collectors and Gold Mines...");
             MessageBox.Show("You clicked on the Locate Collectors Manually button!", "Locate Collectors Manually", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -1996,7 +2009,7 @@
         /// </summary>
         private void SearchMode()
         {
-            Output = "Search Mode...";
+            WriteToOutput("Search Mode...");
             MessageBox.Show("You clicked on the Search Mode button!", "Search Mode", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -2006,7 +2019,7 @@
         public void LocateClanCastle()
         {
 			Notify("Locating Clan Castle...");
-            Output = "Locating Clan Castle...";
+            WriteToOutput("Locating Clan Castle...");
             MessageBox.Show("You clicked on the Locate Clan Castle Manually button!", "Locate Clan Castle Manually", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -2016,7 +2029,7 @@
         public void LocateBarracks()
         {
 			Notify("Locating Barracks...");
-            Output = "Locate Barracks...";
+            WriteToOutput("Locate Barracks...");
             MessageBox.Show("You clicked on the Locate Barracks Manually button!", "Locate Barracks Manually", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -2026,7 +2039,7 @@
         public void LocateDarkBarracks()
         {
 			Notify("Locating Dark Barracks...");
-            Output = "Locate Dark Barracks...";
+            WriteToOutput("Locate Dark Barracks...");
             MessageBox.Show("You clicked on the Locate Dark Barracks Manually button!", "Locate Dark Barracks Manually", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -2077,12 +2090,80 @@
 		#region Output and Notify Methods
 
 		/// <summary>
-        /// Clear all messages from the output.
-        /// </summary>
-        public static void ClearOutput()
-        {
-            _output.Clear();
-        }
+		/// Clear all messages from the output.
+		/// </summary>
+		public void ClearOutput()
+		{
+            OutputFlow.Blocks.Clear();
+		}
+
+		/// <summary>
+		/// Writes to the Output.
+		/// </summary>
+		/// <param name="message">The message.</param>
+		/// <param name="brush">The SolidColorBrush.</param>
+		/// <param name="fontWight">The density of the typeface.</param>
+		private void WriteToOutput(string message, SolidColorBrush brush, FontWeight fontWight)
+		{
+			var paragraph = new Paragraph(new Run(string.Format("[{0:HH:mm:ss}] {1}", DateTime.Now, message)));
+
+			if (brush != null)
+				paragraph.Foreground = brush;
+
+			if (fontWight != null)
+				paragraph.FontWeight = fontWight;
+
+			OutputFlow.Blocks.Add(paragraph);
+
+			Message = message;
+			GlobalVariables.Log.WriteToLog(message);
+		}
+
+		/// <summary>
+		/// Writes to the Output.
+		/// </summary>
+		/// <param name="message">The message.</param>
+		/// <param name="brush">The Brush/Color.</param>
+		//private void WriteToOutput(string message, SolidColorBrush brush)
+		//{
+		//	WriteToOutput(message, brush, FontWeights.Normal);
+		//}
+
+		/// <summary>
+		/// Writes to the Output.
+		/// </summary>
+		/// <param name="message">The message.</param>
+		//private void WriteToOutput(string message)
+		//{
+		//	WriteToOutput(message, null, FontWeights.Normal);
+		//}
+
+		/// <summary>
+		/// Writes to the output.
+		/// </summary>
+		/// <param name="message">The message.</param>
+		/// <param name="state">The output state.</param>
+		public void WriteToOutput(string message, GlobalVariables.OutputStates state = GlobalVariables.OutputStates.Normal)
+		{
+			switch (state)
+			{
+				case GlobalVariables.OutputStates.Normal:
+					WriteToOutput(message, null, FontWeights.Normal);
+					break;
+				case GlobalVariables.OutputStates.Information:
+					WriteToOutput(message, Brushes.RoyalBlue, FontWeights.Normal);
+					break;
+				case GlobalVariables.OutputStates.Verified:
+					WriteToOutput(message, Brushes.SeaGreen, FontWeights.Normal);
+					break;
+				case GlobalVariables.OutputStates.Warning:
+					WriteToOutput(message, Brushes.Khaki, FontWeights.Normal);
+					break;
+				case GlobalVariables.OutputStates.Error:
+					WriteToOutput(message, Brushes.Salmon, FontWeights.Bold);
+					break;
+			}
+		}
 
 		/// <summary>
 		/// Send a Notify using specified message.

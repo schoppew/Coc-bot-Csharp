@@ -21,7 +21,7 @@
 
         private static void AlwaysScrollToEndChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            TextBox tb = sender as TextBox;
+			TextBox tb = sender as TextBox;
             if (tb != null)
             {
                 bool alwaysScrollToEnd = (e.NewValue != null) && (bool)e.NewValue;
