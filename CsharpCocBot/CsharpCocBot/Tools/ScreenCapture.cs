@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -163,5 +164,26 @@ namespace CoC.Bot.Tools
         {
             return DotNetSnapShot(new Rectangle(left, top, width, height));
         }
-    }
+
+		public Color GetPixel(int x, int y)
+		{
+			if (BitMap == null) return Color.Empty;
+			return BitMap.GetPixel(x, y);
+		}
+
+		public bool LoadFromFile(string fileName)
+		{
+			try
+			{
+				BitMap = new Bitmap(fileName);
+				return true;
+			}
+			catch(FileNotFoundException ex)
+			{
+				Debug.Assert(false, ex.Message);
+				return false;
+			}
+		}
+
+	}
 }
