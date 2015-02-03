@@ -97,7 +97,18 @@ namespace CoC.Bot.Functions
 
                     CheckFullArmy();
 
-                    while(TrainIt(GlobalVariables.barrackTroop[i], 5))
+                    int barrackId = 0;
+
+                    if (i == 0)
+                        barrackId = Main.Bot.SelectedBarrack1.Id;
+                    else if (i == 1)
+                        barrackId = Main.Bot.SelectedBarrack2.Id;
+                    else if (i == 2)
+                        barrackId = Main.Bot.SelectedBarrack3.Id;
+                    else if (i == 3)
+                        barrackId = Main.Bot.SelectedBarrack4.Id;
+
+                    while(TrainIt(barrackId, 5))
                     {
                         Thread.Sleep(50);
                     }
@@ -110,13 +121,13 @@ namespace CoC.Bot.Functions
             Main.Bot.Output = "Training Troops Complete...";
         }
 
-        public static bool TrainIt(string troopKind, int count)
+        public static bool TrainIt(int troopKind, int count)
         {
             Point pos = GetTrainPos(troopKind);
 
             if(!pos.IsEmpty)
             {
-//TODO:         If CheckPixel($pos) Then
+//TODO:         If CheckPixel($pos) Then :: I was confused by this conditional because the CheckPixel method says its 1 parameter should be an array[4], but this position variable has a 2 values
                 Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, pos, count);
                 Thread.Sleep(500);
                 return true;
@@ -126,19 +137,19 @@ namespace CoC.Bot.Functions
             return false;
         }
 
-        public static Point GetTrainPos(string troopKind)
+        public static Point GetTrainPos(int troopKind)
         {
-            switch(troopKind)
+            switch((Data.Troop) troopKind)
             {
-                case "Barbarian":
+                case Data.Troop.Barbarian:
                     return new Point(261, 366);
-                case "Archer":
+                case Data.Troop.Archer:
                     return new Point(369, 366);
-                case "Giant":
+                case Data.Troop.Giant:
                     return new Point(475, 366);
-                case "Goblin":
+                case Data.Troop.Goblin:
                     return new Point(581, 366);
-                case "Wallbreaker":
+                case Data.Troop.WallBreaker:
                     return new Point(688, 366);
                 default:
                     {
