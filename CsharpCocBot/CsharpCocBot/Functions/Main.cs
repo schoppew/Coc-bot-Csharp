@@ -79,10 +79,13 @@
                     //Bot.Output = "Try changing values on the fly.";
 
 					MainScreen.CheckMainScreen();
+                    Thread.Sleep(1000);
 
-					//SubFunctions.MainScreen.ZoomOut();
+					MainScreen.ZoomOut();
+                    Thread.Sleep(1000);
 
-					//SubFunctions.Village.TrainTroops();
+					Village.TrainTroops();
+                    Thread.Sleep(1000);
 
 					//SubFunctions.Village.RequestCC();
 

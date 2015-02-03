@@ -19,7 +19,7 @@
             {
                 Other.Sleep(1000);
 
-                if (!MainScreen.CheckObstacles())
+                if (!CheckObstacles())
                 {
                     Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(126, 700), 1);
 //TODO:             OPEN APP AGAIN

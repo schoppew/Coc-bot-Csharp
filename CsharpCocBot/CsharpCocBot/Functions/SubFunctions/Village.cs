@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace CoC.Bot.Functions
 {
     internal class Village
     {
-        public bool CheckFullArmy()
+        public static bool CheckFullArmy()
         {
             return false;
         }
@@ -62,9 +64,88 @@ namespace CoC.Bot.Functions
 
         }
 
-        public void TrainTroops()
+        public static void TrainTroops()
         {
+            if(GlobalVariables.barrackPos[0].IsEmpty)
+            {
+//TODO:         LOCATE BARRACKS
+//TODO:         SAVE CONFIG
+                Thread.Sleep(1000);
+            }
+            Other.SetLog("Training Troops...", Color.Blue);
 
+            for(int i = 0; i < 4; i++)
+            {
+                Thread.Sleep(500);
+                Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 1);
+                Thread.Sleep(500);
+
+                Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(GlobalVariables.barrackPos[i].X, GlobalVariables.barrackPos[i].Y), 1);
+                Thread.Sleep(500);
+
+                Point trainPos = Tools.FastFind.FastFindHelper.PixelSearch(155, 603, 694, 605, Color.FromArgb(96, 56, 24), 5);
+                
+                if(trainPos.IsEmpty)
+                {
+                    Other.SetLog("Barrack " + (i + 1).ToString() + " is not available...", Color.Red);
+                    Thread.Sleep(500);
+                }
+                else
+                {
+                    Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, trainPos, 1);
+                    Thread.Sleep(500);
+
+                    CheckFullArmy();
+
+                    while(TrainIt(GlobalVariables.barrackTroop[i], 5))
+                    {
+                        Thread.Sleep(50);
+                    }
+                }
+
+                Thread.Sleep(500);
+                Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 2, 250);
+            }
+
+            Other.SetLog("Training Troops Complete...", Color.Blue);
+        }
+
+        public static bool TrainIt(string troopKind, int count)
+        {
+            Point pos = GetTrainPos(troopKind);
+
+            if(!pos.IsEmpty)
+            {
+//TODO:         If CheckPixel($pos) Then
+                Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, pos, count);
+                Thread.Sleep(500);
+                return true;
+//TODO:         EndIf
+            }
+
+            return false;
+        }
+
+        public static Point GetTrainPos(string troopKind)
+        {
+            switch(troopKind)
+            {
+                case "Barbarian":
+                    return new Point(261, 366);
+                case "Archer":
+                    return new Point(369, 366);
+                case "Giant":
+                    return new Point(475, 366);
+                case "Goblin":
+                    return new Point(581, 366);
+                case "Wallbreaker":
+                    return new Point(688, 366);
+                default:
+                    {
+                        Other.SetLog("Don't know how to train the troop " + troopKind + " yet...", Color.Red);
+                        return new Point(0, 0);
+                    }
+            }
         }
     }
 }

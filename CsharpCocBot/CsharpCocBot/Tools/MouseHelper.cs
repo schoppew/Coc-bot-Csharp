@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 //using System.Windows.Forms; // this is WPF, we don't need WinForms here
 
 namespace CoC.Bot.Tools
@@ -82,7 +83,7 @@ namespace CoC.Bot.Tools
         }
 
         // SendMessage and PostMessage should work on hidden forms, use them with the WM_MOUSEXXXX codes and provide the mouse location in the wp or lp parameter, I forget which.
-        public static bool ClickOnPoint2(IntPtr wndHandle, Point clientPoint, int times)
+        public static bool ClickOnPoint2(IntPtr wndHandle, Point clientPoint, int times = 1, int delay = 0)
         {
             BlueStackHelper.ActivateBlueStack();
             try
@@ -94,6 +95,7 @@ namespace CoC.Bot.Tools
                     {
                         PostMessageSafe(wndHandle, Win32.WM_LBUTTONDOWN, (IntPtr)0x01, (IntPtr)((clientPoint.X) | ((clientPoint.Y) << 16)));
                         PostMessageSafe(wndHandle, Win32.WM_LBUTTONUP, (IntPtr)0x01, (IntPtr)((clientPoint.X) | ((clientPoint.Y) << 16)));
+                        Thread.Sleep(delay);
                     }
                 }
             }
