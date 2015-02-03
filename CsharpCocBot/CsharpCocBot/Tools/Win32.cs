@@ -39,6 +39,11 @@ namespace CoC.Bot.Tools
                 this.X = x;
                 this.Y = y;
             }
+
+		public System.Drawing.Point ToNative()
+		{
+			return new System.Drawing.Point(X, Y);
+		}
         }
 
         public struct Size
@@ -111,6 +116,13 @@ namespace CoC.Bot.Tools
         [StructLayout(LayoutKind.Sequential)]
         public struct RECT
         {
+		public RECT(System.Drawing.Rectangle rect)
+		{
+			Left = rect.Left;
+			Top = rect.Top;
+			Right = rect.Right;
+			Bottom = rect.Bottom;
+		}
             public int Left;        // x position of upper-left corner
             public int Top;         // y position of upper-left corner
             public int Right;       // x position of lower-right corner
@@ -125,7 +137,19 @@ namespace CoC.Bot.Tools
         public static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
 
         [DllImport("user32.dll")]
+		public static extern bool ClientToScreen(IntPtr hwnd, ref System.Drawing.Point lpPoint);
+
+		[DllImport("user32.dll")]
         public static extern bool ClientToScreen(IntPtr hwnd, ref Point lpPoint);
+
+		[DllImport("user32", ExactSpelling = true, SetLastError = true)]
+		internal static extern int MapWindowPoints(IntPtr hWndFrom, IntPtr hWndTo, [In, Out] ref RECT rect, [MarshalAs(UnmanagedType.U4)] int cPoints);
+
+		[DllImport("user32", ExactSpelling = true, SetLastError = true)]
+		internal static extern int MapWindowPoints(IntPtr hWndFrom, IntPtr hWndTo, [In, Out] ref System.Drawing.Point pt, [MarshalAs(UnmanagedType.U4)] int cPoints);
+		
+		[DllImport("user32", ExactSpelling = true, SetLastError = true)]
+		internal static extern int MapWindowPoints(IntPtr hWndFrom, IntPtr hWndTo, [In, Out] ref Win32.Point pt, [MarshalAs(UnmanagedType.U4)] int cPoints);
 
         /// <summary>
         ///        Creates a bitmap compatible with the device that is associated with the specified device context.

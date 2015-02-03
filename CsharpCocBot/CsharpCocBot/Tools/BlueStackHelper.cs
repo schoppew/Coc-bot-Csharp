@@ -135,5 +135,16 @@ namespace CoC.Bot.Tools
 			if (!IsBlueStackRunning) return false;
 			return Win32.ShowWindow(bshandle, Win32.WindowShowStyle.Show);
 		}
+
+		/// <summary>
+		/// Hides the BlueStack Window
+		/// </summary>
+		/// <returns></returns>
+		public static bool HideBlueStack()
+		{
+			if (!IsBlueStackRunning) return false;
+			return Win32.ShowWindow(bshandle, Win32.WindowShowStyle.Hide);
+		}
+
 	}
 }

@@ -30,6 +30,11 @@ namespace CoC.Bot.Tools.FastFind
 						else
 							MessageBox.Show("Succeeded to save partial BS capture into " + smallSize + FastFindWrapper.GetLastFileSuffix().ToString() + ".JPG");						
             FastFindHelper.GetPixel(10, 10);
+						var sc = new ScreenCapture();
+						sc.SnapShot(true);
+						sc.SaveCurrentSnapShotToFile("SC_True.jpg");
+						sc.SnapShot(false);
+						sc.SaveCurrentSnapShotToFile("SC_False.jpg");
         }
     }
 }

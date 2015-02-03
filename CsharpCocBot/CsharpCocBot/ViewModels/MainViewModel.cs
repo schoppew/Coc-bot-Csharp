@@ -1944,6 +1944,7 @@
         private void Hide()
         {
             Output = "Hidding...";
+			BlueStackHelper.HideBlueStack();
             MessageBox.Show("You clicked on the Hide button!", "Hide", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
