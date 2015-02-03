@@ -72,7 +72,7 @@ namespace CoC.Bot.Functions
 //TODO:         SAVE CONFIG
                 Thread.Sleep(1000);
             }
-            Other.SetLog("Training Troops...", Color.Blue);
+           Main.Bot.Output = "Training Troops...";
 
             for(int i = 0; i < 4; i++)
             {
@@ -87,7 +87,7 @@ namespace CoC.Bot.Functions
                 
                 if(trainPos.IsEmpty)
                 {
-                    Other.SetLog("Barrack " + (i + 1).ToString() + " is not available...", Color.Red);
+                    Main.Bot.Output = "Barrack " + (i + 1).ToString() + " is not available...";
                     Thread.Sleep(500);
                 }
                 else
@@ -107,7 +107,7 @@ namespace CoC.Bot.Functions
                 Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 2, 250);
             }
 
-            Other.SetLog("Training Troops Complete...", Color.Blue);
+            Main.Bot.Output = "Training Troops Complete...";
         }
 
         public static bool TrainIt(string troopKind, int count)
@@ -142,7 +142,7 @@ namespace CoC.Bot.Functions
                     return new Point(688, 366);
                 default:
                     {
-                        Other.SetLog("Don't know how to train the troop " + troopKind + " yet...", Color.Red);
+                        Main.Bot.Output = "Don't know how to train the troop " + troopKind + " yet...";
                         return new Point(0, 0);
                     }
             }
