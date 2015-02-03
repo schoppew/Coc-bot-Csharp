@@ -38,7 +38,7 @@ namespace CoC.Bot.Functions
             return -1;
         }
 
-        public int GetOther(int _x, int _y)
+        public static int GetOther(int _x, int _y, string kind)
         {
             return -1;
         }
