@@ -63,7 +63,23 @@
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            // In case we need to do something when App launches
+#if DEBUG
+			GlobalVariables.IsDebug = true;
+#else
+            GlobalVariables.IsDebug = false;
+#endif
+
+			// Only launch with Debug tab enabled if is implicity specified
+			if (e.Args.Length > 0)
+			{
+				for (var i = 0; i != e.Args.Length; i++)
+				{
+					if (e.Args[i].ToLower() == "/debug")
+					{
+						GlobalVariables.IsDebug = true;
+					}
+				}
+			}
         }
 
         static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)

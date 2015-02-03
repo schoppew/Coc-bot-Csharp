@@ -42,6 +42,8 @@
             get { return Path.Combine(AppPath, @"Screenshots\Zombies Skipped"); }
         }
 
+		internal static bool IsDebug { get; set; }
+
         #endregion
 
         public static Bitmap hBitmap;

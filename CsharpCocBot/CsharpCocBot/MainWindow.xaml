@@ -455,8 +455,14 @@
                                 <Button Content="{x:Static p:Resources.LocateClanCastleManually}" Command="{Binding LocateClanCastleCommand}" Height="23" Margin="16,0,16,10" VerticalAlignment="Bottom" Visibility="Visible" />
                             </Grid>
                         </TabItem>
-
+                        <!-- Help Tab -->
                         <TabItem Header="{x:Static p:Resources.Help}">
+                            <Grid Background="{DynamicResource BackgroundBrush}">
+
+                            </Grid>
+                        </TabItem>
+                        <!-- Debug Tab -->
+                        <TabItem Header="{x:Static p:Resources.Debug}" Visibility="{Binding IsDebug, Converter={StaticResource BooleanToVisibilityConverter}}" >
                             <Grid Background="{DynamicResource BackgroundBrush}">
 
                             </Grid>

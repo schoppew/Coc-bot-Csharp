@@ -113,6 +113,8 @@
 
         internal LogWriter Log { get; private set; }
 
+		internal static bool IsDebug { get { return GlobalVariables.IsDebug; } }
+
         #region Behaviour Properties
 
         /// <summary>

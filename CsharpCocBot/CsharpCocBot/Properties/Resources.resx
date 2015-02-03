@@ -501,4 +501,7 @@ You need to restart BlueStacks from the agent for changes to take effect!</value
     <value>The bot will continue running on the system tray.
 You can double click on the icon to show the window.</value>
   </data>
+  <data name="Debug" xml:space="preserve">
+    <value>Debug</value>
+  </data>
 </root>
