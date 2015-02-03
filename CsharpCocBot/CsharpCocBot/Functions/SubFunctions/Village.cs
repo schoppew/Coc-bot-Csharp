@@ -46,6 +46,30 @@ namespace CoC.Bot.Functions
         public static void DropTrophies()
         {
             int trophyCount = Functions.ReadText.GetOther(50, 74, "Trophy");
+
+            while (trophyCount > Main.Bot.MaxTrophies)
+            {
+                trophyCount = Functions.ReadText.GetOther(50, 74, "Trophy");
+                Main.Bot.Output = "Trophy Count: " + trophyCount;
+                
+                if(trophyCount > Main.Bot.MaxTrophies)
+                {
+                    Main.Bot.Output = "Dropping Trophies...";
+                    Thread.Sleep(2000);
+                    Functions.MainScreen.ZoomOut();
+                    Functions.Search.PrepareSearch();
+
+                    Thread.Sleep(5000);
+                    Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(34, 310), 1);
+                    Thread.Sleep(1000);
+
+                    Functions.MainScreen.ReturnHome(false, false);
+                }
+                else
+                {
+                    Main.Bot.Output = "Trophy Drop Complete...";
+                }
+            }
         }
 
         public int GetTownHallLevel()
