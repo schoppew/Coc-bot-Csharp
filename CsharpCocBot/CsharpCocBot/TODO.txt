@@ -59,7 +59,6 @@ ToDo's In Progress
 =============================
 
 	» [U/C] Reflect the changes immediately after Troop Quantity Changes
-	» [C] Make the App Singleton
 	» [C] Provides an higher level helper for FastFind integration
 
 
@@ -67,6 +66,7 @@ ToDo's Completed
 =============================
 
 	[6.0.0.0]
+	» [+] Make the App Singleton
 	» [+] Implement TrayIcon
 		- Notifications (Alert when Base found)
 		- Minimize to Tray and Restore from Tray
