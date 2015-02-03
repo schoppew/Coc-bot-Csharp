@@ -504,4 +504,37 @@ You can double click on the icon to show the window.</value>
   <data name="Debug" xml:space="preserve">
     <value>Debug</value>
   </data>
+  <data name="CannotHostBehaviorCollectionMultipleTimesExceptionMessage" xml:space="preserve">
+    <value>Cannot set the same BehaviorCollection on multiple objects.</value>
+  </data>
+  <data name="CannotHostBehaviorMultipleTimesExceptionMessage" xml:space="preserve">
+    <value>Cannot host an instance of a TriggerAction in multiple TriggerCollections simultaneously. Remove it from one TriggerCollection before adding it to another.</value>
+  </data>
+  <data name="CannotHostTriggerActionMultipleTimesExceptionMessage" xml:space="preserve">
+    <value>Cannot host an instance of a TriggerAction in multiple TriggerCollections simultaneously. Remove it from one TriggerCollection before adding it to another.</value>
+  </data>
+  <data name="CannotHostTriggerCollectionMultipleTimesExceptionMessage" xml:space="preserve">
+    <value>Cannot set the same TriggerCollection on multiple objects.</value>
+  </data>
+  <data name="CannotHostTriggerMultipleTimesExceptionMessage" xml:space="preserve">
+    <value>An instance of a trigger cannot be attached to more than one object at a time.</value>
+  </data>
+  <data name="DefaultTriggerAttributeInvalidTriggerTypeSpecifiedExceptionMessage" xml:space="preserve">
+    <value>"{0}" is not a valid type for the TriggerType parameter. Make sure "{0}" derives from TriggerBase.</value>
+  </data>
+  <data name="DuplicateItemInCollectionExceptionMessage" xml:space="preserve">
+    <value>Cannot add the same instance of "{0}" to a "{1}" more than once.</value>
+  </data>
+  <data name="EventTriggerBaseInvalidEventExceptionMessage" xml:space="preserve">
+    <value>The event "{0}" on type "{1}" has an incompatible signature. Make sure the event is public and satisfies the EventHandler delegate.</value>
+  </data>
+  <data name="EventTriggerCannotFindEventNameExceptionMessage" xml:space="preserve">
+    <value>Cannot find an event named "{0}" on type "{1}".</value>
+  </data>
+  <data name="RetargetedTypeConstraintViolatedExceptionMessage" xml:space="preserve">
+    <value>An object of type "{0}" cannot have a {3} property of type "{1}". Instances of type "{0}" can have only a {3} property of type "{2}".</value>
+  </data>
+  <data name="TypeConstraintViolatedExceptionMessage" xml:space="preserve">
+    <value>Cannot attach type "{0}" to type "{1}". Instances of type "{0}" can only be attached to objects of type "{2}".</value>
+  </data>
 </root>

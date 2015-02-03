@@ -1596,6 +1596,11 @@
             get { return _aboutCommand; }
         }
 
+		//public ICommand MouseDownCommand
+		//{
+		//	get { return new RelayCommand<MouseButtonEventArgs>(MouseDownDragAndMoveWindow); }
+		//}
+
 		public ICommand MinimizeToTrayCommand
 		{
 			get { return new RelayCommand(() => MinimizeToTray()); }
@@ -1995,6 +2000,12 @@
 
 		#region App Specific
 
+		private void MouseDownDragAndMoveWindow(MouseButtonEventArgs e)
+		{
+			if (e.LeftButton == MouseButtonState.Pressed)
+				Application.Current.MainWindow.DragMove();
+		}
+
 		/// <summary>
 		/// Minimizes to application to tray.
 		/// </summary>
@@ -2019,7 +2030,10 @@
 		{
 			if (IsExecuting)
 				Stop();
-			
+
+			// Remember Window Position
+			AppSettings.WindowPlacement = UI.Utils.WindowPlacementState.GetPlacement(new System.Windows.Interop.WindowInteropHelper(Application.Current.MainWindow).Handle);
+
 			SaveUserSettings();
 			Application.Current.MainWindow.Close();
 		}

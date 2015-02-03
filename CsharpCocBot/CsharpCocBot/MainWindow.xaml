@@ -1,6 +1,7 @@
 ﻿<Window x:Class="CoC.Bot.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="clr-namespace:CoC.Bot.UI.Interactivity"
         xmlns:local="clr-namespace:CoC.Bot"
         xmlns:vm="clr-namespace:CoC.Bot.ViewModels"
         xmlns:b="clr-namespace:CoC.Bot.UI.Behaviours"
@@ -163,11 +164,31 @@
                                         <Label Content="{x:Static p:Resources.LabelMinimumDarkElixir}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelMinimumTrophyCount}" Height="25" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelMinimumTownhallLevel}" Height="25" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="113" />
-                                        <TextBox Text="{Binding MinimumGold, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntegerToStringConverter}}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,12,10,0" VerticalAlignment="Top" Width="60" />
-                                        <TextBox Text="{Binding MinimumElixir, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntegerToStringConverter}}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,40,10,0" VerticalAlignment="Top" Width="60" />
-                                        <TextBox Text="{Binding MinimumDarkElixir, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntegerToStringConverter}}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="6" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,68,10,0" VerticalAlignment="Top" Width="60" />
-                                        <TextBox Text="{Binding MinimumTrophyCount, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntegerToStringConverter}}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,96,10,0" VerticalAlignment="Top" Width="60" />
-                                        <TextBox Text="{Binding MinimumTownhallLevel, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntegerToStringConverter}}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" PreviewTextInput="NumberValidationTextBox" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,124,10,0" VerticalAlignment="Top" Width="60" />
+                                        <TextBox Text="{Binding MinimumGold, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,12,10,0" VerticalAlignment="Top" Width="60">
+                                            <i:Interaction.Behaviors>
+                                                <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="6" EmptyValue="0" />
+                                            </i:Interaction.Behaviors>
+                                        </TextBox>
+                                        <TextBox Text="{Binding MinimumElixir, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,40,10,0" VerticalAlignment="Top" Width="60">
+                                            <i:Interaction.Behaviors>
+                                                <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="6" EmptyValue="0" />
+                                            </i:Interaction.Behaviors>
+                                        </TextBox>
+                                        <TextBox Text="{Binding MinimumDarkElixir, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,68,10,0" VerticalAlignment="Top" Width="60">
+                                            <i:Interaction.Behaviors>
+                                                <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="6" EmptyValue="0" />
+                                            </i:Interaction.Behaviors>
+                                        </TextBox>
+                                        <TextBox Text="{Binding MinimumTrophyCount, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,96,10,0" VerticalAlignment="Top" Width="60">
+                                            <i:Interaction.Behaviors>
+                                                <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="2" EmptyValue="0" />
+                                            </i:Interaction.Behaviors>
+                                        </TextBox>
+                                        <TextBox Text="{Binding MinimumTownhallLevel, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,124,10,0" VerticalAlignment="Top" Width="60">
+                                            <i:Interaction.Behaviors>
+                                                <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="2" EmptyValue="0" />
+                                            </i:Interaction.Behaviors>
+                                        </TextBox>
                                         <TextBlock Text="{x:Static p:Resources.ResourcesMessage}" Height="45" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>

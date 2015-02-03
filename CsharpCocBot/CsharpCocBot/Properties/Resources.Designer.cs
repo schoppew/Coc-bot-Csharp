@@ -259,6 +259,51 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot set the same BehaviorCollection on multiple objects..
+        /// </summary>
+        public static string CannotHostBehaviorCollectionMultipleTimesExceptionMessage {
+            get {
+                return ResourceManager.GetString("CannotHostBehaviorCollectionMultipleTimesExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot host an instance of a TriggerAction in multiple TriggerCollections simultaneously. Remove it from one TriggerCollection before adding it to another..
+        /// </summary>
+        public static string CannotHostBehaviorMultipleTimesExceptionMessage {
+            get {
+                return ResourceManager.GetString("CannotHostBehaviorMultipleTimesExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot host an instance of a TriggerAction in multiple TriggerCollections simultaneously. Remove it from one TriggerCollection before adding it to another..
+        /// </summary>
+        public static string CannotHostTriggerActionMultipleTimesExceptionMessage {
+            get {
+                return ResourceManager.GetString("CannotHostTriggerActionMultipleTimesExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot set the same TriggerCollection on multiple objects..
+        /// </summary>
+        public static string CannotHostTriggerCollectionMultipleTimesExceptionMessage {
+            get {
+                return ResourceManager.GetString("CannotHostTriggerCollectionMultipleTimesExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An instance of a trigger cannot be attached to more than one object at a time..
+        /// </summary>
+        public static string CannotHostTriggerMultipleTimesExceptionMessage {
+            get {
+                return ResourceManager.GetString("CannotHostTriggerMultipleTimesExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Conditions.
         /// </summary>
         public static string Conditions {
@@ -318,6 +363,15 @@ namespace CoC.Bot.Properties {
         public static string Debug {
             get {
                 return ResourceManager.GetString("Debug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;{0}&quot; is not a valid type for the TriggerType parameter. Make sure &quot;{0}&quot; derives from TriggerBase..
+        /// </summary>
+        public static string DefaultTriggerAttributeInvalidTriggerTypeSpecifiedExceptionMessage {
+            get {
+                return ResourceManager.GetString("DefaultTriggerAttributeInvalidTriggerTypeSpecifiedExceptionMessage", resourceCulture);
             }
         }
         
@@ -435,6 +489,33 @@ namespace CoC.Bot.Properties {
         public static string Dragons {
             get {
                 return ResourceManager.GetString("Dragons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot add the same instance of &quot;{0}&quot; to a &quot;{1}&quot; more than once..
+        /// </summary>
+        public static string DuplicateItemInCollectionExceptionMessage {
+            get {
+                return ResourceManager.GetString("DuplicateItemInCollectionExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The event &quot;{0}&quot; on type &quot;{1}&quot; has an incompatible signature. Make sure the event is public and satisfies the EventHandler delegate..
+        /// </summary>
+        public static string EventTriggerBaseInvalidEventExceptionMessage {
+            get {
+                return ResourceManager.GetString("EventTriggerBaseInvalidEventExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot find an event named &quot;{0}&quot; on type &quot;{1}&quot;..
+        /// </summary>
+        public static string EventTriggerCannotFindEventNameExceptionMessage {
+            get {
+                return ResourceManager.GetString("EventTriggerCannotFindEventNameExceptionMessage", resourceCulture);
             }
         }
         
@@ -1030,6 +1111,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An object of type &quot;{0}&quot; cannot have a {3} property of type &quot;{1}&quot;. Instances of type &quot;{0}&quot; can have only a {3} property of type &quot;{2}&quot;..
+        /// </summary>
+        public static string RetargetedTypeConstraintViolatedExceptionMessage {
+            get {
+                return ResourceManager.GetString("RetargetedTypeConstraintViolatedExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Royals and Clan Castle Settings.
         /// </summary>
         public static string RoyalsAndClanCastleSettings {
@@ -1152,6 +1242,15 @@ namespace CoC.Bot.Properties {
         public static string TrophySettings {
             get {
                 return ResourceManager.GetString("TrophySettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot attach type &quot;{0}&quot; to type &quot;{1}&quot;. Instances of type &quot;{0}&quot; can only be attached to objects of type &quot;{2}&quot;..
+        /// </summary>
+        public static string TypeConstraintViolatedExceptionMessage {
+            get {
+                return ResourceManager.GetString("TypeConstraintViolatedExceptionMessage", resourceCulture);
             }
         }
         

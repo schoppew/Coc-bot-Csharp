@@ -35,14 +35,6 @@
                 DragMove();
         }
 
-        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
-        {
-            base.OnClosing(e);
-
-            Settings.Default.WindowPlacement = this.GetPlacement();
-            Settings.Default.Save();
-        }
-
         #region Event [Behaviours]
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
