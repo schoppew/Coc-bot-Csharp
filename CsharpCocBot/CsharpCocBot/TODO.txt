@@ -60,7 +60,6 @@ ToDo's In Progress
 
 	» [U/C] Reflect the changes immediately after Troop Quantity Changes
 	» [C] Make the App Singleton
-	» [U] Implement Minimize button
 	» [U] Implement TrayIcon
 		- Notifications (Alert when Base found)
 	» [C] Provides an higher level helper for FastFind integration
@@ -70,7 +69,8 @@ ToDo's Completed
 =============================
 
 	[6.0.0.0]
-	» [+] Implement Train Quantity per Troop 
+	» [+] Implement Minimize button
+	» [+] Implement Train Quantity per Troop
 	» [+] Implemented the LogWriter
 	» [+] Implemented TaskbarItemInfo Overlay as a visual clue when the Bot is running
 	» [+] Make the Start button hidden when clicked, and shown when Stop button is clicked
