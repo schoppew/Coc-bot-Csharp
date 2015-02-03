@@ -26,7 +26,7 @@ namespace CoC.Bot.Functions
                 Thread.Sleep(2000);
             }
 
-            Main.Bot.Output = "Collecting Resources...";
+            Main.Bot.WriteToOutput("Collecting Resources...");
             Thread.Sleep(250);
             Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 1);
 
@@ -85,7 +85,7 @@ namespace CoC.Bot.Functions
             
             if (!GlobalVariables.fullArmy)
             {
-                Main.Bot.Output = "~~~ Waiting for full army ~~~";
+                Main.Bot.WriteToOutput("~~~ Waiting for full army ~~~");
                 while (!GlobalVariables.fullArmy)
                 {
                     sw.Start();
@@ -114,53 +114,53 @@ namespace CoC.Bot.Functions
                     sw.Stop();
 
                     double idleTime = (double) sw.ElapsedMilliseconds * 1000;
-                    Main.Bot.Output = "Time Idle: " + Math.Floor(Math.Floor(idleTime / 60) / 60).ToString() + " hours " + Math.Floor(Math.Floor(idleTime / 60) % 60).ToString() + " minutes " + Math.Floor(idleTime % 60).ToString() + " seconds";
+					Main.Bot.WriteToOutput(string.Format("Time Idle: {0} hours {1} minutes {2} seconds", Math.Floor(Math.Floor(idleTime / 60) / 60), Math.Floor(Math.Floor(idleTime / 60) % 60), Math.Floor(idleTime % 60)), GlobalVariables.OutputStates.Warning);
                 }
             }
         }
 
-        public static void RequestTroops()
-        {
-            System.Drawing.Point ccPos = Main.Bot.LocationClanCastle;
+		public static void RequestTroops()
+		{
+			Point ccPos = Main.Bot.LocationClanCastle;
 
-            if (ccPos.IsEmpty)
-            {
-                // LOCATE CLAN CASTLE
-                // SAVE CONFIG
-                Thread.Sleep(1000);
-            }
+			if (ccPos.IsEmpty)
+			{
+				// LOCATE CLAN CASTLE
+				// SAVE CONFIG
+				Thread.Sleep(1000);
+			}
 
-            Main.Bot.Output = "Requesting for Clan Castle Troops...";
-            Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, ccPos, 1);
-            Thread.Sleep(1000);
+			Main.Bot.WriteToOutput("Requesting for Clan Castle Troops...");
+			Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, ccPos, 1);
+			Thread.Sleep(1000);
 
-            System.Drawing.Point requestTroop = Tools.FastFind.FastFindHelper.PixelSearch(310, 580, 553, 622, Color.FromArgb(96, 140, 144), 10);
-            if(!requestTroop.IsEmpty)
-            {
-                Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, requestTroop, 1);
-                Thread.Sleep(1000);
-                if (Tools.FastFind.FastFindHelper.IsInColorRange(new System.Drawing.Point(340, 245), Color.FromArgb(204, 64, 16), 20))
-                {
-                    if (!string.IsNullOrEmpty(Main.Bot.RequestTroopsMessage))
-                    {
-                        Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new System.Drawing.Point(430, 140), 1);
-                        Thread.Sleep(1000);
-                        Tools.KeyboardHelper.SendToBS(Main.Bot.RequestTroopsMessage);
-                    }
-                    Thread.Sleep(1000);
-                    Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new System.Drawing.Point(524, 228), 1);
-                }
-                else
-                {
-                    Main.Bot.Output = "Request's already been made...";
-                    Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 2);
-                }
-            }
-            else
-            {
-                Main.Bot.Output = "Clan Castle not available...";
-            }
-        }
+			Point requestTroop = Tools.FastFind.FastFindHelper.PixelSearch(310, 580, 553, 622, Color.FromArgb(96, 140, 144), 10);
+			if (!requestTroop.IsEmpty)
+			{
+				Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, requestTroop, 1);
+				Thread.Sleep(1000);
+				if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(340, 245), Color.FromArgb(204, 64, 16), 20))
+				{
+					if (!string.IsNullOrEmpty(Main.Bot.RequestTroopsMessage))
+					{
+						Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(430, 140), 1);
+						Thread.Sleep(1000);
+						Tools.KeyboardHelper.SendToBS(Main.Bot.RequestTroopsMessage);
+					}
+					Thread.Sleep(1000);
+					Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(524, 228), 1);
+				}
+				else
+				{
+					Main.Bot.WriteToOutput("Request's already been made...");
+					Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 2);
+				}
+			}
+			else
+			{
+				Main.Bot.WriteToOutput("Clan Castle not available...");
+			}
+		}
 
         public static void TrainTroops()
         {
@@ -173,7 +173,7 @@ namespace CoC.Bot.Functions
                 Thread.Sleep(1000);
             }
 
-            Main.Bot.Output = "Training Troops...";
+            Main.Bot.WriteToOutput("Training Troops...");
 
             for(int i = 0; i < 4; i++)
             {
@@ -188,7 +188,7 @@ namespace CoC.Bot.Functions
                 
                 if(trainPos.IsEmpty)
                 {
-                    Main.Bot.Output = "Barrack " + (i + 1).ToString() + " is not available...";
+                    Main.Bot.WriteToOutput("Barrack " + (i + 1).ToString() + " is not available...");
                     Thread.Sleep(500);
                 }
                 else
@@ -219,7 +219,7 @@ namespace CoC.Bot.Functions
                 Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 2, 250);
             }
 
-            Main.Bot.Output = "Training Troops Complete...";
+            Main.Bot.WriteToOutput("Training Troops Complete...");
         }
 
         public static bool TrainIt(int troopKind, int count)
@@ -254,7 +254,7 @@ namespace CoC.Bot.Functions
                     return new Point(688, 366);
                 default:
                     {
-                        Main.Bot.Output = "Don't know how to train the troop " + troopKind + " yet...";
+                        Main.Bot.WriteToOutput("Don't know how to train the troop " + troopKind + " yet...");
                         return new Point(0, 0);
                     }
             }

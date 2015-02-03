@@ -109,7 +109,12 @@
                         <!-- General Tab -->
                         <TabItem Header="{x:Static p:Resources.General}">
                             <Grid Background="{DynamicResource BackgroundBrush}">
-                                <TextBox Text="{Binding Output, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.AlwaysScrollToEnd="True" TextWrapping="Wrap" AcceptsReturn="True" Margin="16,16,18,100" IsReadOnly="True" VerticalScrollBarVisibility="Visible" />
+                                <ctrls:RichTextBoxEx Document="{Binding OutputFlow, UpdateSourceTrigger=PropertyChanged}" b:AutoScrollTextBoxBaseBehaviour.IsEnabled="True" Margin="16,16,18,100" IsReadOnly="True" VerticalScrollBarVisibility="Visible">
+                                    <ctrls:RichTextBoxEx.Style>
+                                        <Style TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource {x:Type RichTextBox}}" />
+                                    </ctrls:RichTextBoxEx.Style>
+                                </ctrls:RichTextBoxEx>
+                                <!--<TextBox Text="{Binding Output, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.AlwaysScrollToEnd="True" TextWrapping="Wrap" AcceptsReturn="True" Margin="16,16,18,100" IsReadOnly="True" VerticalScrollBarVisibility="Visible" />-->
                                 <GroupBox Header="{x:Static p:Resources.Controls}" HorizontalAlignment="Left" Margin="16,0,0,18" VerticalAlignment="Bottom" Height="75" Width="210">
                                     <Grid>
                                         <Button Command="{Binding StartStopCommand}" Height="33" Width="75" HorizontalAlignment="Left" Margin="10,0,0,0">

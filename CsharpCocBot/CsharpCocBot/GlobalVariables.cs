@@ -9,6 +9,8 @@
 
     public static class GlobalVariables
     {
+		public enum OutputStates { Normal, Information, Verified, Warning, Error }
+
         #region Properties
 
         internal static string AppPath

@@ -14,7 +14,7 @@
     {
         public static void CheckMainScreen()
         {
-            Main.Bot.Output = Properties.Resources.OutputTryingToLocateMainScreen;
+			Main.Bot.WriteToOutput(Properties.Resources.OutputTryingToLocateMainScreen, GlobalVariables.OutputStates.Information);
 
             while (!Tools.FastFind.FastFindHelper.IsInColorRange(new Point(284, 28), Color.FromArgb(65, 177, 205), 20)) // FIX VARIATION
             {
@@ -29,8 +29,7 @@
                 WaitForMainScreen();
             }
 
-            //Other.SetLog("Main Screen Located", Color.Blue);
-			Main.Bot.Output = "Main Screen Located"; // TODO: will add colours later
+			Main.Bot.WriteToOutput("Main Screen Located", GlobalVariables.OutputStates.Information);
         }
 
         public static void ZoomOut()
@@ -44,7 +43,7 @@
         public static void WaitForMainScreen()
         {
             //Other.SetLog("Waiting for Main Screen", Color.Orange); // TODO: will add colours later
-			Main.Bot.Output = "Waiting for Main Screen";
+			Main.Bot.WriteToOutput("Waiting for Main Screen");
             for (int i = 0; i < 150; i++)
             {
                 if (!Tools.FastFind.FastFindHelper.IsInColorRange(new Point(284, 28), Color.FromArgb(65, 177, 205), 20))
@@ -58,7 +57,7 @@
             }
 
 			//Other.SetLog("Unable to load Clash of Clans, Restarting...", Color.Red); // TODO: will add colours later
-			Main.Bot.Output = "Unable to load Clash of Clans, Restarting...";
+			Main.Bot.WriteToOutput("Unable to load Clash of Clans, Restarting...");
 //TODO:     OPEN APP AGAIN
             Thread.Sleep(10000);
         }
@@ -128,7 +127,7 @@
             }
 
 //TODO:     SET KING AND QUEEN POWER TO FALSE
-			Main.Bot.Output = "Returning Home...";
+			Main.Bot.WriteToOutput("Returning Home...");
 
             Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(62, 519), 1);
             Thread.Sleep(500);
@@ -137,14 +136,14 @@
 
             if(takeSS)
             {
-				Main.Bot.Output = "Taking snapshot of your loot";
+				Main.Bot.WriteToOutput("Taking snapshot of your loot");
                 
                 DateTime now = DateTime.Now;
-                string date = now.Day.ToString() + "." + now.Month.ToString() + "." + now.Year.ToString();
-                string time = now.Hour.ToString() + "." + now.Minute.ToString();
+				string date = string.Format("{0}.{1}.{2}", now.Day, now.Month, now.Year);
+				string time = string.Format("{0}.{1}", now.Hour, now.Minute);
 
                 Tools.FastFind.FastFindHelper.TakeFullScreenCapture(true);
-                Tools.FastFind.FastFindWrapper.SaveJPG(0, GlobalVariables.LogPath.ToString() + "/"  + date.ToString() + " at " + time.ToString(), 100);
+				Tools.FastFind.FastFindWrapper.SaveJPG(0, string.Format("{0}/{1} at {2}", GlobalVariables.LogPath, date, time), 100);
             }
 
             Thread.Sleep(2000);
@@ -166,7 +165,7 @@
 
                 if(counter >= 50)
                 {
-					Main.Bot.Output = "Cannot return home...";
+					Main.Bot.WriteToOutput("Cannot return home...");
 
                     CheckMainScreen();
                     return;
