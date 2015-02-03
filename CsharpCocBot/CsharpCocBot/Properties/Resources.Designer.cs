@@ -583,6 +583,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide.
+        /// </summary>
+        public static string Hide {
+            get {
+                return ResourceManager.GetString("Hide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hog Rider.
         /// </summary>
         public static string HogRider {
@@ -1057,6 +1066,24 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hidding BlueStacks window....
+        /// </summary>
+        public static string OutputHideBlueStacks {
+            get {
+                return ResourceManager.GetString("OutputHideBlueStacks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restoring BlueStacks window....
+        /// </summary>
+        public static string OutputRestoreBlueStacks {
+            get {
+                return ResourceManager.GetString("OutputRestoreBlueStacks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trying to locate Main Screen.
         /// </summary>
         public static string OutputTryingToLocateMainScreen {
@@ -1107,6 +1134,15 @@ namespace CoC.Bot.Properties {
         public static string ResourcesMessage {
             get {
                 return ResourceManager.GetString("ResourcesMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
             }
         }
         

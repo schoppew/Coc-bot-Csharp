@@ -123,11 +123,23 @@
         /// <value><c>true</c> if this bot is executing; otherwise, <c>false</c>.</value>
         public bool IsExecuting { get; set; }
 
+		/// <summary>
+		/// Gets or sets a value indicating whether BlueStacks is hidden.
+		/// </summary>
+		/// <value><c>true</c> if BlueStacks is hidden; otherwise, <c>false</c>.</value>
+		public bool IsBlueStacksHidden { get; set; }
+
         /// <summary>
-        /// Gets or sets a value indicating whether this bot is hidden.
+		/// Gets or sets a value indicating the BlueStacks Hide/Restore State.
         /// </summary>
-        /// <value><c>true</c> if this bot is hidden; otherwise, <c>false</c>.</value>
-        public bool IsHidden { get; set; }
+		/// <value><c>true</c> if BlueStacks is hidden; otherwise, <c>false</c>.</value>
+		public bool HideRestoreBlueStacksState
+		{
+			get
+			{
+				return IsBlueStacksHidden ? true : false;
+			}
+		}
 
         /// <summary>
         /// Gets a value indicating the Start/Stop State.
@@ -1625,21 +1637,22 @@
                 return new RelayCommand(() =>
                 {
                     StartStop();
-                    OnPropertyChanged("StartStopState");
+					OnPropertyChanged(() => StartStopState);
                 });
             }
         }
 
-        private RelayCommand _hideCommand;
-        public ICommand HideCommand
-        {
-            get
-            {
-                if (_hideCommand == null)
-                    _hideCommand = new RelayCommand(() => Hide(), HideCanExecute);
-                return _hideCommand;
-            }
-        }
+		public ICommand HideRestoreBlueStacksCommand
+		{
+			get
+			{
+				return new RelayCommand(() =>
+				{
+					HideRestoreBlueStacks();
+					OnPropertyChanged(() => HideRestoreBlueStacksState);
+				});
+			}
+		}
 
         #endregion
 
@@ -1713,15 +1726,6 @@
         #endregion
 
         #region Can Execute Methods
-
-        /// <summary>
-        /// Determines whether the HideCommand command can be executed.
-        /// </summary>
-        /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
-        private bool HideCanExecute()
-        {
-            return StartStopState;
-        }
 
         /// <summary>
         /// Determines whether the LocateCollectorsCommand command can be executed.
@@ -1902,9 +1906,33 @@
             else
             {
                 IsExecuting = false;
+
+				if (IsBlueStacksHidden)
+				{
+					HideRestoreBlueStacks();
+					OnPropertyChanged(() => HideRestoreBlueStacksState);
+				}
+
                 Stop();
             }
         }
+
+		/// <summary>
+		/// Hides or Restores BlueStacks.
+		/// </summary>
+		private void HideRestoreBlueStacks()
+		{
+			if (!IsBlueStacksHidden)
+			{
+				IsBlueStacksHidden = true;
+				HideBlueStacks();
+			}
+			else
+			{
+				IsBlueStacksHidden = false;
+				RestoreBlueStacks();
+			}
+		}
 
         /// <summary>
         /// Starts the bot functionality
@@ -1913,17 +1941,17 @@
         {
             ClearOutput(); // Clear everything before we start
 
-            Functions.Main.Initialize(this); // <--- Main entry point
-            
-            // Sample for getting familiar with the UI (used for accessing the properties/user settings values)
-            Samples.GettingAroundTheUI.UseValuesInUI(this);
+			Functions.Main.Initialize(this); // <--- Main entry point
 
-            Output = "Trying some simple captures within FastFind, and Keyboard injection";
-            MessageBox.Show("Trying some simple captures within FastFind, and Keyboard injection", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
-            FastFindTesting.Test();
-            KeyboardHelper.BSTest();
-            KeyboardHelper.BSTest2();
-            KeyboardHelper.NotePadTest();
+			// Sample for getting familiar with the UI (used for accessing the properties/user settings values)
+			Samples.GettingAroundTheUI.UseValuesInUI(this);
+
+			Output = "Trying some simple captures within FastFind, and Keyboard injection";
+			MessageBox.Show("Trying some simple captures within FastFind, and Keyboard injection", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
+			FastFindTesting.Test();
+			KeyboardHelper.BSTest();
+			KeyboardHelper.BSTest2();
+			KeyboardHelper.NotePadTest();
         }
 
         /// <summary>
@@ -1941,12 +1969,17 @@
         /// <summary>
         /// Hide the bot
         /// </summary>
-        private void Hide()
+        private void HideBlueStacks()
         {
-            Output = "Hidding...";
+			Output = Properties.Resources.OutputHideBlueStacks;
 			BlueStackHelper.HideBlueStack();
-            MessageBox.Show("You clicked on the Hide button!", "Hide", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+		private void RestoreBlueStacks()
+		{
+			Output = Properties.Resources.OutputRestoreBlueStacks;
+			BlueStackHelper.RestoreBlueStack();
+		}
 
         /// <summary>
         /// Manually locates the Collectors and Mines.

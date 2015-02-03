@@ -537,4 +537,16 @@ You can double click on the icon to show the window.</value>
   <data name="TypeConstraintViolatedExceptionMessage" xml:space="preserve">
     <value>Cannot attach type "{0}" to type "{1}". Instances of type "{0}" can only be attached to objects of type "{2}".</value>
   </data>
+  <data name="Hide" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="OutputHideBlueStacks" xml:space="preserve">
+    <value>Hidding BlueStacks window...</value>
+  </data>
+  <data name="OutputRestoreBlueStacks" xml:space="preserve">
+    <value>Restoring BlueStacks window...</value>
+  </data>
 </root>

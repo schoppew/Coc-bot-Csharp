@@ -162,6 +162,7 @@
     <Compile Include="UI\Controls\NotifyIcon\TaskbarIcon.cs" />
     <Compile Include="UI\Controls\NotifyIcon\Util.cs" />
     <Compile Include="UI\Controls\TreeViewEx.cs" />
+    <Compile Include="UI\Converters\BooleanToHideShowConverter.cs" />
     <Compile Include="UI\Converters\BooleanToOverlayConverter.cs" />
     <Compile Include="UI\Converters\BooleanToStartStopConverter.cs" />
     <Compile Include="UI\Converters\EnumToBooleanConverter.cs" />

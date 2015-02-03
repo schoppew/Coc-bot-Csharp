@@ -15,7 +15,8 @@
 		private TaskbarIcon icon = new TaskbarIcon
 		{
 			Name = "NotifyIcon",
-			Icon = new System.Drawing.Icon(Application.GetResourceStream(new Uri(@"/Assets/Images/TrayIcon.ico", UriKind.Relative)).Stream),
+			//Icon = new System.Drawing.Icon(Application.GetResourceStream(new Uri(@"/Assets/Images/TrayIcon.ico", UriKind.Relative)).Stream), // This causes Visual Studio to output and Error while it works fine
+			Icon = new System.Drawing.Icon(Application.GetResourceStream(new Uri("pack://application:,,,/CoC.Bot;component/Assets/Images/TrayIcon.ico", UriKind.Absolute)).Stream),
 			DoubleClickCommand = ShowCommand,
 			TrayToolTip = new System.Windows.Controls.ToolTip() { Content = Properties.Resources.AppName, Style = null },
 			ToolTipText = Properties.Resources.AppName

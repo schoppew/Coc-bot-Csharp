@@ -19,11 +19,13 @@
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <c:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
-        <c:InverseBooleanConverter x:Key="inverseBoolConverter" />
+        <c:InverseBooleanConverter x:Key="InverseBoolConverter" />
         <c:IntegerToStringConverter x:Key="IntegerToStringConverter" />
         <c:SelectedTreeViewItemConverter x:Key="SelectedTreeViewItemConverter" />
         <c:BooleanToStartStopStringConverter x:Key="BooleanToStartStopStringConverter" />
         <c:BooleanToStartStopImageSourceConverter x:Key="BooleanToStartStopImageSourceConverter" />
+        <c:BooleanToHideShowStringConverter x:Key="BooleanToHideShowStringConverter" />
+        <c:BooleanToHideShowPathConverter x:Key="BooleanToHideShowPathConverter" />
         <c:BooleanToOverlayConverter x:Key="BooleanToOverlayConverter" />
     </Window.Resources>
 
@@ -122,15 +124,15 @@
                                                 </StackPanel>
                                             </Grid>
                                         </Button>
-                                        <Button Command="{Binding HideCommand}" Height="33" Width="75" HorizontalAlignment="Right" Margin="0,0,10,0" Visibility="Visible">
+                                        <Button Command="{Binding HideRestoreBlueStacksCommand}" IsEnabled="{Binding StartStopState}" Height="33" Width="75" HorizontalAlignment="Right" Margin="0,0,10,0">
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="Auto" />
                                                     <ColumnDefinition Width="*" />
                                                 </Grid.ColumnDefinitions>
-                                                <Path Data="M31.687237,10.667C38.231297,14.096666 42.666001,19.463814 42.666001,19.463814 42.666001,19.463814 33.114207,31.052 21.333262,31.052 19.11721,31.052 16.981756,30.641903 14.974,29.97641L17.968835,26.516945C19.064911,26.760542 20.189886,26.903641 21.333262,26.903641 27.822621,26.903641 33.739193,22.471584 37.004723,19.463814 35.21846,17.82023 32.632517,15.76165 29.602583,14.222665 29.836977,14.907658 29.968575,15.631751 29.968575,16.382744 29.968575,20.541902 26.101458,23.913969 21.333262,23.913969 20.97387,23.913969 20.622277,23.889471 20.275885,23.851471L28.911198,13.874968z M21.333649,7.8749999C22.367567,7.8749999,23.375384,7.991208,24.369999,8.1538057L23.543387,9.1103305 23.544586,9.1103305 13.919428,20.229303C13.148615,19.102821 12.698008,17.790342 12.698008,16.382666 12.698008,15.627777 12.82831,14.901288 13.065114,14.213799 10.031464,15.749875 7.4478719,17.817741 5.6614729,19.463716 7.0313649,20.726396 8.8751452,22.238071 11.028781,23.570051L8.3228858,26.695002C3.2681233,23.407453 -2.3841858E-07,19.463716 0,19.463716 -2.3841858E-07,19.463716 9.5521562,7.8749999 21.333649,7.8749999z M34.252037,0L36.449997,1.9038253 6.0807195,36.990002 3.8829998,35.089188z" Stretch="Uniform" Fill="#BBFFFFFF" Width="15" Height="15" Margin="2" Grid.Column="0" RenderTransformOrigin="0.5,0.5" />
+                                                <Path Data="{Binding Path=HideRestoreBlueStacksState, Converter={StaticResource BooleanToHideShowPathConverter}}" Stretch="Uniform" Fill="#BBFFFFFF" Width="15" Height="15" Margin="2" Grid.Column="0" RenderTransformOrigin="0.5,0.5" />
                                                 <StackPanel Grid.Column="1" Margin="2">
-                                                    <TextBlock Text="Hide" TextAlignment="Center" />
+                                                    <TextBlock Text="{Binding Path=HideRestoreBlueStacksState, Converter={StaticResource BooleanToHideShowStringConverter}}" TextAlignment="Center" />
                                                 </StackPanel>
                                             </Grid>
                                         </Button>
@@ -464,7 +466,7 @@
                                         <GroupBox Header="{Binding SelectedItem, ElementName=donateTreeView, Mode=OneWay, Converter={StaticResource SelectedTreeViewItemConverter}}" HorizontalAlignment="Right" Margin="0,8,16,16" Width="220">
                                             <Grid>
                                                 <CheckBox x:Name="chkDonateToAll" Content="{x:Static p:Resources.DonateToAll}" IsChecked="{Binding IsCurrentDonateAll}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
-                                                <TextBox Text="{Binding CurrentDonateKeywords, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding ElementName=chkDonateToAll, Path=IsChecked, Converter={StaticResource inverseBoolConverter}}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="16,32,16,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Height="100" />
+                                                <TextBox Text="{Binding CurrentDonateKeywords, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding ElementName=chkDonateToAll, Path=IsChecked, Converter={StaticResource InverseBoolConverter}}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="16,32,16,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Height="100" />
                                                 <Label Content="{x:Static p:Resources.LabelMaxDonationsPerRequest}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" Height="25" HorizontalAlignment="Right" Margin="0,137,59,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="138" />
                                                 <TextBox Text="{Binding CurrentMaxDonationsPerRequest, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntegerToStringConverter}}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" PreviewTextInput="NumberValidationTextBox" MaxLength="1" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,139,16,0" VerticalAlignment="Top" Width="40" />
                                                 <TextBlock Text="{Binding TroopTierSelectedInfoMessage}" Visibility="{Binding ShouldHideTierInfoMessage, Converter={StaticResource BooleanToVisibilityConverter}}" Height="90" HorizontalAlignment="Right" Margin="0,44,13,75" VerticalAlignment="Center" Width="182" TextWrapping="Wrap" TextAlignment="Center" FontSize="24" />
