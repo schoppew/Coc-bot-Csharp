@@ -494,4 +494,11 @@
     <value>Registry settings changed!
 You need to restart BlueStacks from the agent for changes to take effect!</value>
   </data>
+  <data name="MinimizeToTray" xml:space="preserve">
+    <value>Minimize to Tray</value>
+  </data>
+  <data name="NotificationRunningInTray" xml:space="preserve">
+    <value>The bot will continue running on the system tray.
+You can double click on the icon to show the window.</value>
+  </data>
 </root>

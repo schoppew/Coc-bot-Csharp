@@ -60,8 +60,6 @@ ToDo's In Progress
 
 	» [U/C] Reflect the changes immediately after Troop Quantity Changes
 	» [C] Make the App Singleton
-	» [U] Implement TrayIcon
-		- Notifications (Alert when Base found)
 	» [C] Provides an higher level helper for FastFind integration
 
 
@@ -69,6 +67,9 @@ ToDo's Completed
 =============================
 
 	[6.0.0.0]
+	» [+] Implement TrayIcon
+		- Notifications (Alert when Base found)
+		- Minimize to Tray and Restore from Tray
 	» [+] Implement Minimize button
 	» [+] Implement Train Quantity per Troop
 	» [+] Implemented the LogWriter

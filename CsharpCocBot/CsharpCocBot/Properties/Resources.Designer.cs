@@ -803,6 +803,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Minimize to Tray.
+        /// </summary>
+        public static string MinimizeToTray {
+            get {
+                return ResourceManager.GetString("MinimizeToTray", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Minions.
         /// </summary>
         public static string Minions {
@@ -817,6 +826,16 @@ namespace CoC.Bot.Properties {
         public static string None {
             get {
                 return ResourceManager.GetString("None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The bot will continue running on the system tray.
+        ///You can double click on the icon to show the window..
+        /// </summary>
+        public static string NotificationRunningInTray {
+            get {
+                return ResourceManager.GetString("NotificationRunningInTray", resourceCulture);
             }
         }
         

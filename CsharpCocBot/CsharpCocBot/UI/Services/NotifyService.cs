@@ -2,7 +2,9 @@
 {
 	using System;
 	using System.Windows;
+	using System.Windows.Input;
 
+	using UI.Commands;
 	using UI.Controls.NotifyIcon;
 
 	/// <summary>
@@ -14,6 +16,7 @@
 		{
 			Name = "NotifyIcon",
 			Icon = new System.Drawing.Icon(Application.GetResourceStream(new Uri(@"/Assets/Images/TrayIcon.ico", UriKind.Relative)).Stream),
+			DoubleClickCommand = ShowCommand
 		};
 
 		/// <summary>
@@ -53,6 +56,34 @@
 				icon.Dispose();
 				icon = null;
 			}
+		}
+
+		private static RelayCommand _showCommand;
+		public static ICommand ShowCommand
+		{
+			get
+			{
+				if (_showCommand == null)
+					_showCommand = new RelayCommand(() => Show(), ShowCanExecute);
+				return _showCommand;
+			}
+		}
+
+		/// <summary>
+		/// Determines whether the ShowCommand command can be executed.
+		/// </summary>
+		/// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
+		private static bool ShowCanExecute()
+		{
+			return !Application.Current.MainWindow.IsVisible;
+		}
+
+		/// <summary>
+		/// Executes the Show Window.
+		/// </summary>
+		private static void Show()
+		{
+			Application.Current.MainWindow.Show();
 		}
 	}
 }

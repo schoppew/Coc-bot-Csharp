@@ -78,6 +78,9 @@
                     </Label>
                     <Label x:Name="Bar" Background="Transparent" MouseDown="Bar_MouseDown" />
                 </Grid>
+                <Button Command="{Binding MinimizeToTrayCommand}" ToolTip="{x:Static p:Resources.MinimizeToTray}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,55,0" Width="20" Height="20" Focusable="False" Background="Transparent" BorderBrush="Transparent">
+                    <Path Data="M49.7679956108332,0L383.55767609179,337.406982421875 383.580411687493,81.5600509643554 385.389493718743,81.5600509643554 453.988553777337,150.92822265625 453.999997869134,387.792205810547 453.977079167962,459 151.181455388665,459 80.762090459466,387.792205810547 333.789670720696,387.792205810547 0,50.2700843811035z" Stretch="Uniform" Fill="#BBFFFFFF" Width="10" />
+                </Button>
                 <Button Command="{Binding MinimizeCommand}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,30,0" Width="20" Height="20" Focusable="False" Background="Transparent" BorderBrush="Transparent">
                     <Path Data="M0,20L53.333,20 53.333,8.888 0,8.888z" Stretch="Uniform" Fill="#BBFFFFFF" Width="10" Margin="0,8,0,0" />
                 </Button>

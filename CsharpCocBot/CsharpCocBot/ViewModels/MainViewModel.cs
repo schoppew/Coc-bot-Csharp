@@ -93,7 +93,7 @@
 
             Init();
             GetUserSettings();
-
+			
             Message = Properties.Resources.StartMessage;
         }
 
@@ -1594,6 +1594,11 @@
             get { return _aboutCommand; }
         }
 
+		public ICommand MinimizeToTrayCommand
+		{
+			get { return new RelayCommand(() => MinimizeToTray()); }
+		}
+
 		public ICommand MinimizeCommand
 		{
 			get { return new RelayCommand(() => Minimize()); }
@@ -1989,6 +1994,15 @@
 		#region App Specific
 
 		/// <summary>
+		/// Minimizes to application to tray.
+		/// </summary>
+		private void MinimizeToTray()
+		{
+			Notify(Properties.Resources.NotificationRunningInTray);
+			Application.Current.MainWindow.Hide();
+		}
+
+		/// <summary>
 		/// Minimizes the application.
 		/// </summary>
 		private void Minimize()
@@ -2003,7 +2017,7 @@
 		{
 			if (IsExecuting)
 				Stop();
-
+			
 			SaveUserSettings();
 			Application.Current.MainWindow.Close();
 		}
