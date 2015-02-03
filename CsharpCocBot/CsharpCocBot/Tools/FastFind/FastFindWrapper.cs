@@ -110,9 +110,9 @@ namespace CoC.Bot.Tools.FastFind
 
     /// // SnapShot saving into bitmap file
     [DllImport(fastFindDllName)]
-		public static extern bool SaveBMP(int NoSnapShot, [MarshalAs(UnmanagedType.AnsiBStr)]string szFileName /* With no extension (xxx.bmp added)*/);
-		[DllImport(fastFindDllName)]
-		public static extern bool SaveJPG(int NoSnapShot, [MarshalAs(UnmanagedType.AnsiBStr)]string szFileName /* With no extension*/, UInt32 uQuality);
+	public static extern bool SaveBMP(int NoSnapShot, [MarshalAs(UnmanagedType.AnsiBStr)]string szFileName /* With no extension (xxx.bmp added)*/);
+	[DllImport(fastFindDllName)]
+	public static extern bool SaveJPG(int NoSnapShot, [MarshalAs(UnmanagedType.AnsiBStr)]string szFileName /* With no extension*/, UInt32 uQuality);
     [DllImport(fastFindDllName)]
     public static extern int GetLastFileSuffix();
 		

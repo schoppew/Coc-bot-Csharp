@@ -22,7 +22,7 @@
                 if (!MainScreen.CheckObstacles())
                 {
                     Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(126, 700), 1);
-                    //OPEN APP AGAIN
+//TODO:             OPEN APP AGAIN
                 }
 
                 WaitForMainScreen();
@@ -33,10 +33,10 @@
 
         public static void ZoomOut()
         {
-            //ADD SEND KEYBOARD KEY TO BLUESTACKS
-            KeyboardHelper.SendVirtualKeyToBS(KeyboardHelper.VirtualKeys.VK_DOWN);
-            KeyboardHelper.SendVirtualKeyToBS(KeyboardHelper.VirtualKeys.VK_DOWN);
-            KeyboardHelper.SendVirtualKeyToBS(KeyboardHelper.VirtualKeys.VK_DOWN);
+            for (int x = 0; x < 5; x++)
+            {
+                KeyboardHelper.SendVirtualKeyToBS(KeyboardHelper.VirtualKeys.VK_DOWN);
+            }
         }
 
         public static void WaitForMainScreen()
@@ -55,7 +55,7 @@
             }
 
             Other.SetLog("Unable to load Clash of Clans, Restarting...", Color.Red);
-            //OPEN APP AGAIN
+//TODO:     OPEN APP AGAIN
             Other.Sleep(10000);
         }
 
@@ -120,10 +120,10 @@
         {
             if(goldChangeCheck)
             {
-                // CHECK KING AND QUEENS POWER
+//TODO:         CHECK KING AND QUEENS POWER
             }
 
-            //SET KING AND QUEEN POWER TO FALSE
+//TODO:     SET KING AND QUEEN POWER TO FALSE
             Other.SetLog("Returning Home...", Color.Blue);
 
             Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(62, 519), 1);
@@ -140,10 +140,34 @@
                 string time = now.Hour.ToString() + "." + now.Minute.ToString();
 
                 Tools.FastFind.FastFindHelper.TakeFullScreenCapture(true);
-                //FINISH Tools.FastFind.FastFindWrapper.SaveJPG(0, GlobalVariables.LogPath.ToString() + "/" date.ToString() + " at " + time.ToString(), 100);
+                Tools.FastFind.FastFindWrapper.SaveJPG(0, GlobalVariables.LogPath.ToString() + "/"  + date.ToString() + " at " + time.ToString(), 100);
             }
 
+            Other.Sleep(2000);
+            Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(428, 544), 1);
 
+            int counter = 0;
+
+            do
+            {
+                Other.Sleep(2000);
+                if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(284, 28), Color.FromArgb(65, 177, 205), 20))
+                {
+                    Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(331, 330), 1);
+//TODO:             _GUICtrlEdit_SetText($txtLog, "")
+                    return;
+                }
+
+                counter++;
+
+                if(counter >= 50)
+                {
+                    Other.SetLog("Cannot return home...", Color.Red);
+                    CheckMainScreen();
+                    return;
+                }
+
+            } while (true);
         }
     }
 }
