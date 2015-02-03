@@ -1,5 +1,4 @@
-﻿using System.Windows.Documents;
-namespace CoC.Bot.ViewModels
+﻿namespace CoC.Bot.ViewModels
 {
     using System;
     using System.Collections.Generic;

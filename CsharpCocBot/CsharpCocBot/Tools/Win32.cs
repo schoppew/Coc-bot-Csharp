@@ -18,17 +18,26 @@ namespace CoC.Bot.Tools
 
         }
 
+		/// <summary>
+		/// Win API struct providing coordinates for a single point.
+		/// </summary>
+		[StructLayout(LayoutKind.Sequential)]
         public struct Point
         {
-            public int x;
+			/// <summary>
+			/// X coordinate.
+			/// </summary>
+            public int X;
 
-            public int y;
-
+			/// <summary>
+			/// Y coordinate.
+			/// </summary>
+            public int Y;
 
             public Point(int x, int y)
             {
-                this.x = x;
-                this.y = y;
+                this.X = x;
+                this.Y = y;
             }
         }
 

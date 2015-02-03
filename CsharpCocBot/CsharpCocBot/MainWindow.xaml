@@ -8,6 +8,7 @@
         xmlns:ctrls="clr-namespace:CoC.Bot.UI.Controls"
         xmlns:d="clr-namespace:CoC.Bot.Data"
         xmlns:p="clr-namespace:CoC.Bot.Properties"
+        xmlns:tb="clr-namespace:CoC.Bot.UI.Controls.NotifyIcon"
         Title="[TBC] Clash of Clans Bot" Icon="/Assets/Images/Icon.ico" Height="600" Width="500" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
 
     <Window.DataContext>
@@ -51,10 +52,11 @@
             </TaskbarItemInfo.ThumbButtonInfos>
         </TaskbarItemInfo>
     </Window.TaskbarItemInfo>
-
+    
     <!-- Window -->
     <Border x:Name="Chrome" CornerRadius="0">
         <Grid>
+            <tb:TaskbarIcon IconSource="/Assets/Images/Icon.ico" />
             <Rectangle StrokeThickness="2">
                 <Rectangle.Stroke>
                     <LinearGradientBrush>

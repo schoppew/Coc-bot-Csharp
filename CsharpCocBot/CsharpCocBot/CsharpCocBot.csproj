@@ -139,6 +139,22 @@
     <Compile Include="UI\Commands\AboutCommand.cs" />
     <Compile Include="UI\Commands\DelegateCommand.cs" />
     <Compile Include="UI\Commands\RelayCommand.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\BalloonIcon.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\Interop\BalloonFlags.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\Interop\IconDataMembers.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\Interop\IconState.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\Interop\MouseEvent.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\Interop\NotifyCommand.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\Interop\NotifyIconData.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\Interop\NotifyIconVersion.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\Interop\TrayInfo.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\Interop\WinApi.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\Interop\WindowClass.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\Interop\WindowMessageSink.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\PopupActivationMode.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\RoutedEventHelper.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\TaskbarIcon.cs" />
+    <Compile Include="UI\Controls\NotifyIcon\Util.cs" />
     <Compile Include="UI\Controls\TreeViewEx.cs" />
     <Compile Include="UI\Converters\BooleanToOverlayConverter.cs" />
     <Compile Include="UI\Converters\BooleanToStartStopConverter.cs" />
@@ -164,6 +180,7 @@
     <Compile Include="Views\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Controls\NotifyIcon\TaskbarIcon.Declarations.cs" />
     <Page Include="Assets\Styles\Darkness.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -92,7 +92,7 @@ namespace CoC.Bot.Tools
             if (!BlueStackHelper.IsBlueStackRunning) return false;
             Win32.Point origin = new Win32.Point(0, 0);
             if (Win32.ClientToScreen(BlueStackHelper.GetBlueStackWindowHandle(), ref origin)) return false;
-            rect.Offset(origin.x, origin.y);
+            rect.Offset(origin.X, origin.Y);
             return true;
         }
 
