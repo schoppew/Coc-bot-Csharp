@@ -38,10 +38,11 @@ namespace CoC.Bot.Functions
             return new Point(-1, -1);
         }
 
-        public static void SetLog(string msg, Color color)
-        {
+		[Obsolete("Use Main.Bot.Output which takes care of sending messages to the Output and Log. Will add colours later!", true)]
+		public static void SetLog(string msg, Color color)
+		{
 
-        }
+		}
 
         public string Tab(int _a, int _b)
         {

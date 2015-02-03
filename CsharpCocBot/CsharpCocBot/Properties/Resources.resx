@@ -328,7 +328,7 @@
     <value>Troop Settings</value>
   </data>
   <data name="TroopsMessage" xml:space="preserve">
-    <value>Bot will use this if custom troops is selected.</value>
+    <value>Bot will use this if custom troops is selected. Troop Capacity must match!</value>
   </data>
   <data name="TrophySettings" xml:space="preserve">
     <value>Trophy Settings</value>
@@ -486,5 +486,12 @@
   </data>
   <data name="Barrack1" xml:space="preserve">
     <value>Barrack 1</value>
+  </data>
+  <data name="LabelTroopCapacity" xml:space="preserve">
+    <value>Troop Capacity:</value>
+  </data>
+  <data name="OutputBSAppliedDimensionsIntoRegistry" xml:space="preserve">
+    <value>Registry settings changed!
+You need to restart BlueStacks from the agent for changes to take effect!</value>
   </data>
 </root>

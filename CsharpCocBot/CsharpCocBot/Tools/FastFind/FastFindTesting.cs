@@ -10,7 +10,7 @@ namespace CoC.Bot.Tools.FastFind
 {
     static public class FastFindTesting
     {
-			const string fullSize = "FullSize";
+		const string fullSize = "FullSize";
         const string smallSize = "SmallSize";
         static public void Test()
         {

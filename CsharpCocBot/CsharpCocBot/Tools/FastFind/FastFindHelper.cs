@@ -179,7 +179,7 @@ namespace CoC.Bot.Tools.FastFind
         /// <param name="variation"></param>
         /// <param name="forceCapture"></param>
         /// <returns></returns>
-        static public Point FullScreenPixelSearch(ColorList colors, int variation, bool forceCapture = false)
+		public static Point FullScreenPixelSearch(ColorList colors, int variation, bool forceCapture = false)
         {
             if (!TakeFullScreenCapture(forceCapture)) return Point.Empty;
             FastFindWrapper.ResetColors();
@@ -190,7 +190,7 @@ namespace CoC.Bot.Tools.FastFind
             return new Point(xRef, yRef);
         }
 
-        static private bool IsInShadeVariation(int PixelColor, int ColorToFind, int ShadeVariation)
+		private static bool IsInShadeVariation(int PixelColor, int ColorToFind, int ShadeVariation)
         {
             if (ShadeVariation <= 0) return PixelColor == ColorToFind;
             return (Math.Abs(((int)PixelColor & 0x00FF0000) - ((int)ColorToFind & 0x00FF0000)) >> 16 <= ShadeVariation) &&
@@ -198,7 +198,7 @@ namespace CoC.Bot.Tools.FastFind
                     (Math.Abs(((int)PixelColor & 0x000000FF) - ((int)ColorToFind & 0x000000FF)) <= ShadeVariation);
         }
 
-        public static bool IsInColorRange(Point point, Color color, int shadeVariation)
+        public static bool IsInColorRange(Point point, Color color, int shadeVariation = 0)
         {
             int pixel = GetPixel(point);
             if (shadeVariation == 0)

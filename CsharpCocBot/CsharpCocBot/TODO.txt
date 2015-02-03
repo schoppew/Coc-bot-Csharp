@@ -58,6 +58,7 @@ ToDo's
 ToDo's In Progress
 =============================
 
+	» [U/C] Reflect the changes immediately after Troop Quantity Changes
 	» [C] Make the App Singleton
 	» [U] Implement Minimize button
 	» [U] Implement TrayIcon

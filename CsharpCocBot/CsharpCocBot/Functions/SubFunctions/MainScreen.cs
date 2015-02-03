@@ -28,7 +28,8 @@
                 WaitForMainScreen();
             }
 
-            Other.SetLog("Main Screen Located", Color.Blue);
+            //Other.SetLog("Main Screen Located", Color.Blue);
+			Main.Bot.Output = "Main Screen Located"; // TODO: will add colours later
         }
 
         public static void ZoomOut()
@@ -41,7 +42,8 @@
 
         public static void WaitForMainScreen()
         {
-            Other.SetLog("Waiting for Main Screen", Color.Orange);
+            //Other.SetLog("Waiting for Main Screen", Color.Orange); // TODO: will add colours later
+			Main.Bot.Output = "Waiting for Main Screen";
             for (int i = 0; i < 150; i++)
             {
                 if (!Tools.FastFind.FastFindHelper.IsInColorRange(new Point(284, 28), Color.FromArgb(65, 177, 205), 20))
@@ -54,7 +56,8 @@
                     return;
             }
 
-            Other.SetLog("Unable to load Clash of Clans, Restarting...", Color.Red);
+			//Other.SetLog("Unable to load Clash of Clans, Restarting...", Color.Red); // TODO: will add colours later
+			Main.Bot.Output = "Unable to load Clash of Clans, Restarting...";
 //TODO:     OPEN APP AGAIN
             Other.Sleep(10000);
         }
@@ -124,7 +127,8 @@
             }
 
 //TODO:     SET KING AND QUEEN POWER TO FALSE
-            Other.SetLog("Returning Home...", Color.Blue);
+			//Other.SetLog("Returning Home...", Color.Blue); // TODO: will add colours later
+			Main.Bot.Output = "Returning Home...";
 
             Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(62, 519), 1);
             Other.Sleep(500);
@@ -133,7 +137,8 @@
 
             if(takeSS)
             {
-                Other.SetLog("Taking snapshot of your loot", Color.Orange);
+				//Other.SetLog("Taking snapshot of your loot", Color.Orange); // TODO: will add colours later
+				Main.Bot.Output = "Taking snapshot of your loot";
                 
                 DateTime now = DateTime.Now;
                 string date = now.Day.ToString() + "." + now.Month.ToString() + "." + now.Year.ToString();
@@ -162,7 +167,9 @@
 
                 if(counter >= 50)
                 {
-                    Other.SetLog("Cannot return home...", Color.Red);
+					//Other.SetLog("Cannot return home...", Color.Red); // TODO: will add colours later
+					Main.Bot.Output = "Cannot return home...";
+
                     CheckMainScreen();
                     return;
                 }

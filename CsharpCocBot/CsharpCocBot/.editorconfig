@@ -11,4 +11,4 @@ insert_final_newline = false
 # 4 space indentation
 [*.cs]
 indent_style = tab
-indent_size = 2
+indent_size = 4
