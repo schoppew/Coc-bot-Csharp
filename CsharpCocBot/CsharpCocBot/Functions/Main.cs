@@ -74,10 +74,6 @@
 				while (Bot.IsExecuting)
 				{
 					Thread.Sleep(1000);
-                    //Bot.Output = "Loop test...";
-                    //Bot.Output = "Minimum Gold is: " + Bot.MinimumGold; // Changing values on the fly works as expected
-                    //Bot.Output = "Try changing values on the fly.";
-
 					MainScreen.CheckMainScreen();
                     Thread.Sleep(1000);
 
@@ -90,7 +86,8 @@
 					Village.RequestTroops();
                     Thread.Sleep(1000);
 
-					//SubFunctions.Village.Collect();
+					Village.CollectResources();
+                    Thread.Sleep(1000);
 
 					//Idle();
 

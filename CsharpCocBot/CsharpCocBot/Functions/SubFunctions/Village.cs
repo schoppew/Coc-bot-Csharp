@@ -14,9 +14,28 @@ namespace CoC.Bot.Functions
             return false;
         }
 
-        public void CollectResources()
+        public static void CollectResources()
         {
+            Point[] collectorPos = new Point[] {};
 
+            if (collectorPos[0].IsEmpty)
+            {
+                // LOCATE COLLECTORS
+                // SAVE CONFIG
+                Thread.Sleep(2000);
+            }
+
+            Main.Bot.Output = "Collecting Resources...";
+            Thread.Sleep(250);
+            Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 1);
+
+            for(int i = 0; i < 17; i++)
+            {
+                Thread.Sleep(250);
+                Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, collectorPos[i], 1);
+                Thread.Sleep(250);
+                Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 1);
+            }
         }
 
         public void DonateCC()
@@ -61,7 +80,45 @@ namespace CoC.Bot.Functions
 
         public static void RequestTroops()
         {
+            Point ccPos = new Point(-1, -1);
 
+            if (ccPos.IsEmpty)
+            {
+                // LOCATE CLAN CASTLE
+                // SAVE CONFIG
+                Thread.Sleep(1000);
+            }
+
+            Main.Bot.Output = "Requesting for Clan Castle Troops...";
+            Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, ccPos, 1);
+            Thread.Sleep(1000);
+
+            Point requestTroop = Tools.FastFind.FastFindHelper.PixelSearch(310, 580, 553, 622, Color.FromArgb(96, 140, 144), 10);
+            if(!requestTroop.IsEmpty)
+            {
+                Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, requestTroop, 1);
+                Thread.Sleep(1000);
+                if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(340, 245), Color.FromArgb(204, 64, 16), 20))
+                {
+                    if (!string.IsNullOrEmpty(Main.Bot.RequestTroopsMessage))
+                    {
+                        Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(430, 140), 1);
+                        Thread.Sleep(1000);
+                        Tools.KeyboardHelper.SendToBS(Main.Bot.RequestTroopsMessage);
+                    }
+                    Thread.Sleep(1000);
+                    Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(524, 228), 1);
+                }
+                else
+                {
+                    Main.Bot.Output = "Request's already been made...";
+                    Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 2);
+                }
+            }
+            else
+            {
+                Main.Bot.Output = "Clan Castle not available...";
+            }
         }
 
         public static void TrainTroops()

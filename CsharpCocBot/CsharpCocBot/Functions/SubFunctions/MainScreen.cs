@@ -128,7 +128,6 @@
             }
 
 //TODO:     SET KING AND QUEEN POWER TO FALSE
-			//Other.SetLog("Returning Home...", Color.Blue); // TODO: will add colours later
 			Main.Bot.Output = "Returning Home...";
 
             Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(62, 519), 1);
@@ -138,7 +137,6 @@
 
             if(takeSS)
             {
-				//Other.SetLog("Taking snapshot of your loot", Color.Orange); // TODO: will add colours later
 				Main.Bot.Output = "Taking snapshot of your loot";
                 
                 DateTime now = DateTime.Now;
@@ -168,7 +166,6 @@
 
                 if(counter >= 50)
                 {
-					//Other.SetLog("Cannot return home...", Color.Red); // TODO: will add colours later
 					Main.Bot.Output = "Cannot return home...";
 
                     CheckMainScreen();
