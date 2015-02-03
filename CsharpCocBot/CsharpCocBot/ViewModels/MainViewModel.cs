@@ -1984,7 +1984,7 @@
         /// <summary>
         /// Manually locates the Collectors and Mines.
         /// </summary>
-        private void LocateCollectors()
+        public void LocateCollectors()
         {
 			Notify("Locate Collectors and Gold Mines...");
             Output = "Locate Collectors and Gold Mines...";
@@ -2003,7 +2003,7 @@
         /// <summary>
         /// Manually locates the Clan Castle.
         /// </summary>
-        private void LocateClanCastle()
+        public void LocateClanCastle()
         {
 			Notify("Locating Clan Castle...");
             Output = "Locating Clan Castle...";
@@ -2013,7 +2013,7 @@
         /// <summary>
         /// Manually locates the Barracks.
         /// </summary>
-        private void LocateBarracks()
+        public void LocateBarracks()
         {
 			Notify("Locating Barracks...");
             Output = "Locate Barracks...";
@@ -2023,7 +2023,7 @@
         /// <summary>
         /// Manually locates the Dark Barracks.
         /// </summary>
-        private void LocateDarkBarracks()
+        public void LocateDarkBarracks()
         {
 			Notify("Locating Dark Barracks...");
             Output = "Locate Dark Barracks...";
