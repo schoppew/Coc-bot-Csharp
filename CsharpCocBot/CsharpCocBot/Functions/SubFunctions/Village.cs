@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace CoC.Bot.Functions
 
         public static void CollectResources()
         {
-            Point[] collectorPos = new Point[] {};
+            Point[] collectorPos = new Point[] { Main.Bot.LocationCollector1, Main.Bot.LocationCollector2, Main.Bot.LocationCollector3, Main.Bot.LocationCollector4, Main.Bot.LocationCollector5, Main.Bot.LocationCollector6, Main.Bot.LocationCollector7, Main.Bot.LocationCollector8, Main.Bot.LocationCollector9, Main.Bot.LocationCollector10, Main.Bot.LocationCollector11, Main.Bot.LocationCollector12, Main.Bot.LocationCollector13, Main.Bot.LocationCollector14, Main.Bot.LocationCollector15, Main.Bot.LocationCollector16, Main.Bot.LocationCollector17};
 
             if (collectorPos[0].IsEmpty)
             {
@@ -38,12 +39,12 @@ namespace CoC.Bot.Functions
             }
         }
 
-        public void DonateCC()
+        public static void DonateCC()
         {
 
         }
 
-        public void DropTrophies()
+        public static void DropTrophies()
         {
 
         }
@@ -78,9 +79,49 @@ namespace CoC.Bot.Functions
 
         }
 
+        public static void Idle()
+        {
+            Stopwatch sw = new Stopwatch();
+            
+            if (!GlobalVariables.fullArmy)
+            {
+                Main.Bot.Output = "~~~ Waiting for full army ~~~";
+                while (!GlobalVariables.fullArmy)
+                {
+                    sw.Start();
+
+                    Thread.Sleep(1000);
+                    Functions.MainScreen.CheckMainScreen();
+                    Thread.Sleep(1000);
+                    Functions.MainScreen.ZoomOut();
+                    Thread.Sleep(30000);
+                    
+//TODO:             if ($iCollectCounter > $COLLECTATCOUNT) {
+//TODO:                 CollectResources();
+//TODO:                 Thread.Sleep(1000);
+//TODO:                 $iCollectCounter = 0;
+//TODO:             }
+//TODO:             $iCollectCounter++;
+
+                    TrainTroops();
+                    if (GlobalVariables.fullArmy)
+                        break;
+
+                    Thread.Sleep(1000);
+                    DropTrophies();
+                    Thread.Sleep(1000);
+                    DonateCC();
+                    sw.Stop();
+
+                    double idleTime = (double) sw.ElapsedMilliseconds * 1000;
+                    Main.Bot.Output = "Time Idle: " + Math.Floor(Math.Floor(idleTime / 60) / 60).ToString() + " hours " + Math.Floor(Math.Floor(idleTime / 60) % 60).ToString() + " minutes " + Math.Floor(idleTime % 60).ToString() + " seconds";
+                }
+            }
+        }
+
         public static void RequestTroops()
         {
-            Point ccPos = new Point(-1, -1);
+            System.Drawing.Point ccPos = Main.Bot.LocationClanCastle;
 
             if (ccPos.IsEmpty)
             {
@@ -93,21 +134,21 @@ namespace CoC.Bot.Functions
             Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, ccPos, 1);
             Thread.Sleep(1000);
 
-            Point requestTroop = Tools.FastFind.FastFindHelper.PixelSearch(310, 580, 553, 622, Color.FromArgb(96, 140, 144), 10);
+            System.Drawing.Point requestTroop = Tools.FastFind.FastFindHelper.PixelSearch(310, 580, 553, 622, Color.FromArgb(96, 140, 144), 10);
             if(!requestTroop.IsEmpty)
             {
                 Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, requestTroop, 1);
                 Thread.Sleep(1000);
-                if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(340, 245), Color.FromArgb(204, 64, 16), 20))
+                if (Tools.FastFind.FastFindHelper.IsInColorRange(new System.Drawing.Point(340, 245), Color.FromArgb(204, 64, 16), 20))
                 {
                     if (!string.IsNullOrEmpty(Main.Bot.RequestTroopsMessage))
                     {
-                        Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(430, 140), 1);
+                        Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new System.Drawing.Point(430, 140), 1);
                         Thread.Sleep(1000);
                         Tools.KeyboardHelper.SendToBS(Main.Bot.RequestTroopsMessage);
                     }
                     Thread.Sleep(1000);
-                    Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(524, 228), 1);
+                    Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new System.Drawing.Point(524, 228), 1);
                 }
                 else
                 {
@@ -123,13 +164,16 @@ namespace CoC.Bot.Functions
 
         public static void TrainTroops()
         {
-            if(GlobalVariables.barrackPos[0].IsEmpty)
+            Point[] barrackPos = new Point[] {Main.Bot.LocationBarrack1, Main.Bot.LocationBarrack2, Main.Bot.LocationBarrack3, Main.Bot.LocationBarrack4, Main.Bot.LocationDarkBarrack1, Main.Bot.LocationDarkBarrack2};
+
+            if(barrackPos[0].IsEmpty)
             {
 //TODO:         LOCATE BARRACKS
 //TODO:         SAVE CONFIG
                 Thread.Sleep(1000);
             }
-           Main.Bot.Output = "Training Troops...";
+
+            Main.Bot.Output = "Training Troops...";
 
             for(int i = 0; i < 4; i++)
             {
@@ -137,7 +181,7 @@ namespace CoC.Bot.Functions
                 Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 1);
                 Thread.Sleep(500);
 
-                Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(GlobalVariables.barrackPos[i].X, GlobalVariables.barrackPos[i].Y), 1);
+                Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(barrackPos[i].X, barrackPos[i].Y), 1);
                 Thread.Sleep(500);
 
                 Point trainPos = Tools.FastFind.FastFindHelper.PixelSearch(155, 603, 694, 605, Color.FromArgb(96, 56, 24), 5);

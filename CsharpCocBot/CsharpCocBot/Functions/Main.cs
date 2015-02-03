@@ -89,7 +89,8 @@
 					Village.CollectResources();
                     Thread.Sleep(1000);
 
-					//Idle();
+					Village.Idle();
+                    Thread.Sleep(1000);
 
 					//SubFunctions.Attack.AttackMain();
 				};

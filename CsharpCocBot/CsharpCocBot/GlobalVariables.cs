@@ -54,7 +54,6 @@
         public static bool runState = false;
         public static bool backgroundMode = true;
 
-        public static List<Point> barrackPos = new List<Point>();
-        public static string[] barrackTroop = new string[] {"Barbarian", "Archer", "Giant", "Goblin", "Wallbreaker"};
+        public static bool fullArmy = false;
     }
 }
