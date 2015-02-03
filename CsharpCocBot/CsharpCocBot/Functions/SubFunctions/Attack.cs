@@ -17,14 +17,14 @@ namespace CoC.Bot.Functions
             Thread.Sleep(1000);
             PrepareAttack(); // DO THIS
             Thread.Sleep(1000);
-            Attack(); // DO THIS
+            Start(); // DO THIS
             Thread.Sleep(1000);
             Functions.MainScreen.ReturnHome();
             Thread.Sleep(1000);
         }
 
         // THIS METHOD IS WRONG, MUST CREATE PROPERTY FOR BARCHING, ALL TROOPS, ETC
-        public static void Attack()
+        public static void Start()
         {
             Main.Bot.WriteToOutput("====== Beginning Attack ======", GlobalVariables.OutputStates.Verified);
             
