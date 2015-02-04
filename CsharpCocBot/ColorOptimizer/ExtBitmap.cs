@@ -13,43 +13,43 @@ using System.Threading.Tasks;
 namespace ColorOptimizer
 {
 
-    public class ExtBitmap : IDisposable
-    {
-        public Bitmap BitMap { get; private set; }
-       
-        #region IDisposable interface
-        public void Dispose()
-        {
-            FreeCurrentImage();
-        }
-        #endregion IDisposable interface
+	public class ExtBitmap : IDisposable
+	{
+		public Bitmap BitMap { get; private set; }
 
-        private void FreeCurrentImage()
-        {
-            if (BitMap != null)
-            {
-                BitMap.Dispose();
-                BitMap = null;
-                
-            }
-        }
+		#region IDisposable interface
+		public void Dispose()
+		{
+			FreeCurrentImage();
+		}
+		#endregion IDisposable interface
 
-				public string FileName { get; set; }
-        public bool Save(string fileName)
-        {
-            if (BitMap == null) return false;
-            try
-            {
-                BitMap.Save(fileName);
-            }
-            catch (Exception ex)
-            {
-                Debug.Assert(false, ex.Message);
-                return false;
-            }
-            return true;
-        }
-       
+		private void FreeCurrentImage()
+		{
+			if (BitMap != null)
+			{
+				BitMap.Dispose();
+				BitMap = null;
+
+			}
+		}
+
+		public string FileName { get; set; }
+		public bool Save(string fileName)
+		{
+			if (BitMap == null) return false;
+			try
+			{
+				BitMap.Save(fileName);
+			}
+			catch (Exception ex)
+			{
+				Debug.Assert(false, ex.Message);
+				return false;
+			}
+			return true;
+		}
+
 		public Color GetPixel(int x, int y)
 		{
 			if (BitMap == null) return Color.Empty;
@@ -64,9 +64,9 @@ namespace ColorOptimizer
 				BitMap = new Bitmap(fileName);
 				return true;
 			}
-			catch(FileNotFoundException ex)
+			catch (FileNotFoundException ex)
 			{
-				Debug.Assert(false, ex.Message);                
+				Debug.Assert(false, ex.Message);
 				return false;
 			}
 		}
@@ -94,7 +94,7 @@ namespace ColorOptimizer
 			BitmapData bData = BitMap.LockBits(new Rectangle(0, 0, BitMap.Width, BitMap.Height), ImageLockMode.ReadWrite, BitMap.PixelFormat);
 
 			byte bitsPerPixel = GetBitsPerPixel(bData.PixelFormat);
-			int bytesPerPixel = bitsPerPixel/8;
+			int bytesPerPixel = bitsPerPixel / 8;
 			int size = bData.Stride * bData.Height;
 
 			byte[] data = new byte[size];
@@ -102,18 +102,18 @@ namespace ColorOptimizer
 
 			for (int i = 0; i < size; i += bytesPerPixel)
 			{
-				int pixel = bitsPerPixel == 24 ? (data[i + 2] << 16 + data[i + 1] << 8 + data[i]) : /*data[i+3] << 24 + */(((data[i + 2] << 16)&0x00FF0000) + ((data[i + 1] << 8)&0x0000FF00) + (data[i] & 0x000000FF));
+				int pixel = ((data[i + 2] << 16) & 0x00FF0000) + ((data[i + 1] << 8) & 0x0000FF00) + (data[i] & 0x000000FF);
 				int count = 0;
 				if (dico.TryGetValue(pixel, out count))
-					dico[pixel] = count+1;
+					dico[pixel] = count + 1;
 				else
-					dico[pixel] = 1;								
+					dico[pixel] = 1;
 			}
 			Debug.WriteLine("{0}: {1}x{2}, {3} pixels per line => {4} different colors", FileName, BitMap.Width, BitMap.Height, bData.Stride / bytesPerPixel, dico.Count);
-			
+
 			System.Runtime.InteropServices.Marshal.Copy(data, 0, bData.Scan0, data.Length);
 			BitMap.UnlockBits(bData);
-			return dico;		
+			return dico;
 		}
 	}
 }

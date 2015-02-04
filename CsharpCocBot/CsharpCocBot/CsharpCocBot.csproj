@@ -123,6 +123,8 @@
     </Page>
     <Compile Include="Data\AttackMode.cs" />
     <Compile Include="Data\BuildingLevels.cs" />
+    <Compile Include="Data\ColorList\Data.cs" />
+    <Compile Include="Data\ColorList\Walls.cs" />
     <Compile Include="Data\DataCollection.cs" />
     <Compile Include="Data\DeployStrategy.cs" />
     <Compile Include="Data\DeployTroops.cs" />

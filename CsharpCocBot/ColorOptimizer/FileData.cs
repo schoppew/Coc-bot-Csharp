@@ -17,13 +17,13 @@ namespace ColorOptimizer
 					OK = false;
 				else
 				{
-					ownStats = bitmap.CountColors();
-					OK = ownStats.Count>0;
+					OwnStats = bitmap.CountColors();
+					OK = OwnStats.Count>0;
 				}
 			}
 		}
 		public bool OK { get; private set; }
 		public string FileName { get; set; }
-		public Dictionary<int, int> ownStats;
+		public Dictionary<int, int> OwnStats;
 	}
 }

@@ -39,15 +39,15 @@ namespace ColorOptimizer
 		public List<FileData> GoodSnaps { get; set; }
 		public List<FileData> BadSnaps { get; set; }
 		public Dictionary<int, int> SelectedColorsSoFar { get; set; }
+		public string KilledBy { get; private set; }
 		private bool ProcessFirstGoodFile(FileData data)
 		{
-			//SelectedColorsSoFar = data.ownStats.Where(kvp => true).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-			SelectedColorsSoFar = new Dictionary<int, int>(data.ownStats);
+			SelectedColorsSoFar = new Dictionary<int, int>(data.OwnStats);
 			return SelectedColorsSoFar.Count > 0;
 		}
 		private bool ProcessNextGoodFile(FileData data)
 		{
-			SelectedColorsSoFar = SelectedColorsSoFar.Where(kvp => data.ownStats.ContainsKey(kvp.Key)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value + data.ownStats[kvp.Key]);
+			SelectedColorsSoFar = SelectedColorsSoFar.Where(kvp => data.OwnStats.ContainsKey(kvp.Key)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value + data.OwnStats[kvp.Key]);
 			return SelectedColorsSoFar.Count > 0;
 		}
 		private bool ProcessGoodFiles()
@@ -63,7 +63,12 @@ namespace ColorOptimizer
 						ColorsLeftAfterFirstGood = SelectedColorsSoFar.Count();
 					}
 					else
-						if (!ProcessNextGoodFile(snap)) return false;
+						if (!ProcessNextGoodFile(snap))
+						{
+							Debug.WriteLine("The file {0} finished to kill its category {1}", snap.FileName, Label);
+							KilledBy = snap.FileName;
+							return false;
+						}
 				return SelectedColorsSoFar.Count > 0;
 			}
 			finally
@@ -71,14 +76,14 @@ namespace ColorOptimizer
 				ColorsLeftAfterLastGood = SelectedColorsSoFar.Count;
 				Debug.WriteLine("Processing {0} good files on {1} => Colors dropped from {2} down to {3}", GoodSnaps.Count, Label, ColorsLeftAfterFirstGood, ColorsLeftAfterLastGood);
 			}
-			
+
 		}
 		private bool ProcessBadFile(FileData data)
 		{
-			foreach (int color in data.ownStats.Keys)
+			foreach (int color in data.OwnStats.Keys)
 				if (SelectedColorsSoFar.ContainsKey(color))
-					SelectedColorsSoFar.Remove(color);						
-					//SelectedColorsSoFar.Remove(color);
+					SelectedColorsSoFar.Remove(color);
+			//SelectedColorsSoFar.Remove(color);
 			return SelectedColorsSoFar.Count > 0;
 		}
 		private bool ProcessBadFiles()
@@ -86,12 +91,17 @@ namespace ColorOptimizer
 			try
 			{
 				foreach (FileData snap in BadSnaps)
-					if (!ProcessBadFile(snap)) return false;
+					if (!ProcessBadFile(snap))
+					{
+						Debug.WriteLine("The file {0} finished to kill the category {1}", snap.FileName, Label);
+						KilledBy = snap.FileName;
+						return false;
+					}
 				return SelectedColorsSoFar.Count > 0;
 			}
 			finally
 			{
-				ColorsLeftAfterAllBad = SelectedColorsSoFar.Count;				
+				ColorsLeftAfterAllBad = SelectedColorsSoFar.Count;
 				Debug.WriteLine("Processing {0} bad files on {1} => Colors dropped from {2} down to {3}", BadSnaps.Count, Label, ColorsLeftAfterLastGood, ColorsLeftAfterAllBad);
 			}
 		}
