@@ -26,6 +26,7 @@
         <c:BooleanToStartStopImageSourceConverter x:Key="BooleanToStartStopImageSourceConverter" />
         <c:BooleanToHideShowStringConverter x:Key="BooleanToHideShowStringConverter" />
         <c:BooleanToHideShowPathConverter x:Key="BooleanToHideShowPathConverter" />
+        <c:BooleanToHideShowImageSourceConverter x:Key="BooleanToHideShowImageSourceConverter" />
         <c:BooleanToOverlayConverter x:Key="BooleanToOverlayConverter" />
     </Window.Resources>
 
@@ -43,14 +44,19 @@
                 <ThumbButtonInfoCollection>
                     <ThumbButtonInfo
                         DismissWhenClicked="False"
+                        Description="{Binding Path=StartStopState, Converter={StaticResource BooleanToStartStopStringConverter}}"
+                        Command="{Binding StartStopCommand}"
+                        ImageSource="{Binding Path=StartStopState, Converter={StaticResource BooleanToStartStopImageSourceConverter}}"/>
+                    <ThumbButtonInfo
+                        DismissWhenClicked="False"
                         Command="{Binding AboutCommand}"
                         Description="{x:Static p:Resources.About}"
                         ImageSource="/Assets/Images/About.png"/>
                     <ThumbButtonInfo
-                        DismissWhenClicked="False"
-                        Description="{Binding Path=StartStopState, Converter={StaticResource BooleanToStartStopStringConverter}}"
-                        Command="{Binding StartStopCommand}"
-                        ImageSource="{Binding Path=StartStopState, Converter={StaticResource BooleanToStartStopImageSourceConverter}}"/>
+                        DismissWhenClicked="False" IsEnabled="{Binding StartStopState}"
+                        Description="{Binding Path=HideRestoreBlueStacksState, Converter={StaticResource BooleanToHideShowStringConverter}}"
+                        Command="{Binding HideRestoreBlueStacksCommand}"
+                        ImageSource="{Binding Path=HideRestoreBlueStacksState, Converter={StaticResource BooleanToHideShowImageSourceConverter}}"/>
                 </ThumbButtonInfoCollection>
             </TaskbarItemInfo.ThumbButtonInfos>
         </TaskbarItemInfo>

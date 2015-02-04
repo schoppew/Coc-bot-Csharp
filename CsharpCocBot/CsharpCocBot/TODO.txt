@@ -66,6 +66,7 @@ ToDo's Completed
 =============================
 
 	[6.0.0.0]
+	» [#] Write to Output no possible if in background thread
 	» [+] Implement RichTextBox for colored Output
 	» [+] Make the App Singleton
 	» [+] Implement TrayIcon

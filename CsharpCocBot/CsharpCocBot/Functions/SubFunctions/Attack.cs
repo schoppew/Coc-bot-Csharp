@@ -1,27 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using System.Threading;
-
-namespace CoC.Bot.Functions
+﻿namespace CoC.Bot.Functions
 {
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Threading;
+
     class Attack
     {
-        public static void AttackMain()
-        {
-            Functions.Search.PrepareSearch();
-            Thread.Sleep(1000);
-            Functions.Search.VillageSearch(); // DO THIS
-            Thread.Sleep(1000);
-            PrepareAttack(); // DO THIS
-            Thread.Sleep(1000);
-            Start(); // DO THIS
-            Thread.Sleep(1000);
-            Functions.MainScreen.ReturnHome();
-            Thread.Sleep(1000);
-        }
+		public static void AttackMain()
+		{
+			Search.PrepareSearch();
+			Thread.Sleep(1000);
+			Search.VillageSearch(); // DO THIS
+			Thread.Sleep(1000);
+			PrepareAttack(); // DO THIS
+			Thread.Sleep(1000);
+			Start(); // DO THIS
+			Thread.Sleep(1000);
+			MainScreen.ReturnHome();
+			Thread.Sleep(1000);
+		}
 
         // THIS METHOD IS WRONG, MUST CREATE PROPERTY FOR BARCHING, ALL TROOPS, ETC
         public static void Start()

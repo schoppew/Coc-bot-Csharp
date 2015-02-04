@@ -75,6 +75,8 @@
 			{
 				while (Bot.IsExecuting)
 				{
+					// TODO: Don't forget to call Bot.ClearOutput() otherwise we will end with a very large one.
+					
 					Thread.Sleep(1000);
 					MainScreen.CheckMainScreen();
                     Thread.Sleep(1000);
