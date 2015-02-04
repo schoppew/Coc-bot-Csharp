@@ -11,6 +11,7 @@
 	using System.Windows.Documents;
     using System.Windows.Input;
 	using System.Windows.Media;
+	using System.Xml.Linq;
 
     using Data;
     using Tools;
@@ -23,7 +24,6 @@
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        private static StringBuilder _output = new StringBuilder();
 		private readonly INotifyService notifyService = new NotifyService();
 
         /// <summary>
@@ -160,19 +160,19 @@
 
         #region General Properties
 
-		private FlowDocument _outputFlow = new FlowDocument();
+		private static string _output;
 		/// <summary>
-		/// [For use in UI only] Gets or sets the FlowDocument for the Output.
+		/// [For use in UI only] Gets or sets the Output (Window Log).
 		/// </summary>
-		/// <value>The output flow.</value>
-		public FlowDocument OutputFlow
+		/// <value>The Output (Window Log).</value>
+		public string Output
 		{
-			get { return _outputFlow; }
+			get { return _output; }
 			set
 			{
-				if (_outputFlow != value)
+				if (_output != value)
 				{
-					_outputFlow = value;
+					_output = value;
 					OnPropertyChanged();
 				}
 			}
@@ -1957,7 +1957,7 @@
 			Functions.Main.Initialize(this); // <--- Main entry point
 
 			// Sample for getting familiar with the UI (used for accessing the properties/user settings values)
-			Samples.GettingAroundTheUI.UseValuesInUI(this);
+			//Samples.GettingAroundTheUI.UseValuesInUI(this);
 
             //WriteToOutput("Trying some simple captures within FastFind, and Keyboard injection");
             //MessageBox.Show("Trying some simple captures within FastFind, and Keyboard injection", "Start", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -2090,12 +2090,44 @@
 		#region Output and Notify Methods
 
 		/// <summary>
-		/// Clear all messages from the output.
+		/// Clears the Output.
 		/// </summary>
 		public void ClearOutput()
 		{
-            OutputFlow.Blocks.Clear();
+			_outputProcessed = null;
+			Output = null;
 		}
+
+		private XNamespace ns = "http://schemas.microsoft.com/winfx/2006/xaml/presentation";
+		private static string _outputProcessed;
+
+		/*
+		 * For reference only: How an RTF looks in Xml format
+		 * Just in case there's something else to add, we know the attributes
+		 * 
+		 * <Section xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation\" xml:space="preserve" TextAlignment="Left" LineHeight="Auto" 
+		 *		IsHyphenationEnabled="False" xml:lang="en-us" FlowDirection="LeftToRight" NumberSubstitution.CultureSource="User" 
+		 *		NumberSubstitution.Substitution="AsCulture" FontFamily="Segoe UI" FontStyle="Normal" FontWeight="Normal" FontStretch="Normal" 
+		 *		FontSize="12" Foreground="#FFDDDDDD" Typography.StandardLigatures="True" Typography.ContextualLigatures="True" 
+		 *		Typography.DiscretionaryLigatures="False" Typography.HistoricalLigatures="False" Typography.AnnotationAlternates="0" 
+		 *		Typography.ContextualAlternates="True" Typography.HistoricalForms="False" Typography.Kerning="True" 
+		 *		Typography.CapitalSpacing="False" Typography.CaseSensitiveForms="False" Typography.StylisticSet1="False" 
+		 *		Typography.StylisticSet2="False" Typography.StylisticSet3="False" Typography.StylisticSet4="False" 
+		 *		Typography.StylisticSet5="False" Typography.StylisticSet6="False" Typography.StylisticSet7="False" 
+		 *		Typography.StylisticSet8="False" Typography.StylisticSet9="False" Typography.StylisticSet10="False" 
+		 *		Typography.StylisticSet11="False" Typography.StylisticSet12="False" Typography.StylisticSet13="False" 
+		 *		Typography.StylisticSet14="False" Typography.StylisticSet15="False" Typography.StylisticSet16="False" 
+		 *		Typography.StylisticSet17="False" Typography.StylisticSet18="False" Typography.StylisticSet19="False" 
+		 *		Typography.StylisticSet20="False" Typography.Fraction="Normal" Typography.SlashedZero="False" 
+		 *		Typography.MathematicalGreek="False" Typography.EastAsianExpertForms="False" Typography.Variants="Normal" 
+		 *		Typography.Capitals="Normal" Typography.NumeralStyle="Normal" Typography.NumeralAlignment="Normal" 
+		 *		Typography.EastAsianWidths="Normal" Typography.EastAsianLanguage="Normal" Typography.StandardSwashes="0" 
+		 *		Typography.ContextualSwashes="0" Typography.StylisticAlternates="0">
+		 *		<Paragraph>
+		 *			<Run Foreground="red">[22:43:04] this is a another another title</Run>
+		 *		</Paragraph>
+		 *	</Section>"
+		 */
 
 		/// <summary>
 		/// Writes to the Output.
@@ -2105,38 +2137,42 @@
 		/// <param name="fontWight">The density of the typeface.</param>
 		private void WriteToOutput(string message, SolidColorBrush brush, FontWeight fontWight)
 		{
-			var paragraph = new Paragraph(new Run(string.Format("[{0:HH:mm:ss}] {1}", DateTime.Now, message)));
+			XElement root;
+			if (string.IsNullOrEmpty(_outputProcessed))
+			{
+				// Create Empty Xml for the RTF
+				root = new XElement(ns + "Section", new XAttribute(XNamespace.Xml + "space", "preserve"));
+			}
+			else
+			{
+				// We read the Xml we already have
+				var doc = XDocument.Parse(_outputProcessed);
+				root = doc.Root;
+			}
+
+			var par = new XElement(ns + "Paragraph");
+
+			var run = new XElement(ns + "Run");
 
 			if (brush != null)
-				paragraph.Foreground = brush;
+				run.Attr("Foreground", brush);
 
 			if (fontWight != null)
-				paragraph.FontWeight = fontWight;
+				run.Attr("FontWeight", fontWight);
 
-			OutputFlow.Blocks.Add(paragraph);
+			run.Value = string.Format("[{0:HH:mm:ss}] {1}", DateTime.Now, message);
+			par.Add(run);
+
+			root.Add(par);
+
+			var reader = root.CreateReader();
+			reader.MoveToContent();
+
+			Output = _outputProcessed = reader.ReadOuterXml();
 
 			Message = message;
 			GlobalVariables.Log.WriteToLog(message);
 		}
-
-		/// <summary>
-		/// Writes to the Output.
-		/// </summary>
-		/// <param name="message">The message.</param>
-		/// <param name="brush">The Brush/Color.</param>
-		//private void WriteToOutput(string message, SolidColorBrush brush)
-		//{
-		//	WriteToOutput(message, brush, FontWeights.Normal);
-		//}
-
-		/// <summary>
-		/// Writes to the Output.
-		/// </summary>
-		/// <param name="message">The message.</param>
-		//private void WriteToOutput(string message)
-		//{
-		//	WriteToOutput(message, null, FontWeights.Normal);
-		//}
 
 		/// <summary>
 		/// Writes to the output.

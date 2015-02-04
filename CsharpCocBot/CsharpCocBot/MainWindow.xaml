@@ -109,11 +109,19 @@
                         <!-- General Tab -->
                         <TabItem Header="{x:Static p:Resources.General}">
                             <Grid Background="{DynamicResource BackgroundBrush}">
-                                <ctrls:RichTextBoxEx Document="{Binding OutputFlow, UpdateSourceTrigger=PropertyChanged}" b:AutoScrollTextBoxBaseBehaviour.IsEnabled="True" Margin="16,16,18,100" IsReadOnly="True" VerticalScrollBarVisibility="Visible">
+                                <ctrls:RichTextBoxEx Text="{Binding Output, UpdateSourceTrigger=PropertyChanged}" b:AutoScrollTextBoxBaseBehaviour.IsEnabled="True" Margin="16,16,18,100" IsReadOnly="True" VerticalScrollBarVisibility="Visible" >
                                     <ctrls:RichTextBoxEx.Style>
                                         <Style TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource {x:Type RichTextBox}}" />
                                     </ctrls:RichTextBoxEx.Style>
+                                    <ctrls:RichTextBoxEx.TextFormatter>
+                                        <ctrls:XamlFormatter />
+                                    </ctrls:RichTextBoxEx.TextFormatter>
                                 </ctrls:RichTextBoxEx>
+                                <!--<ctrls:RichTextBoxFlow Document="{Binding OutputFlow, UpdateSourceTrigger=PropertyChanged}" b:AutoScrollTextBoxBaseBehaviour.IsEnabled="True" Margin="16,16,18,100" IsReadOnly="True" VerticalScrollBarVisibility="Visible">
+                                    <ctrls:RichTextBoxFlow.Style>
+                                        <Style TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource {x:Type RichTextBox}}" />
+                                    </ctrls:RichTextBoxFlow.Style>
+                                </ctrls:RichTextBoxFlow>-->
                                 <!--<TextBox Text="{Binding Output, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.AlwaysScrollToEnd="True" TextWrapping="Wrap" AcceptsReturn="True" Margin="16,16,18,100" IsReadOnly="True" VerticalScrollBarVisibility="Visible" />-->
                                 <GroupBox Header="{x:Static p:Resources.Controls}" HorizontalAlignment="Left" Margin="16,0,0,18" VerticalAlignment="Bottom" Height="75" Width="210">
                                     <Grid>

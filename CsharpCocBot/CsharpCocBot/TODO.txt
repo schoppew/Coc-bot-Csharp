@@ -58,6 +58,7 @@ ToDo's In Progress
 =============================
 
 	» [U/C] Reflect the changes immediately after Troop Quantity Changes
+		- Currently the change is reflected when selecting another troop from the list
 	» [C] Provides an higher level helper for FastFind integration
 
 

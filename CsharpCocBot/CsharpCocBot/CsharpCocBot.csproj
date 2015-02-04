@@ -103,6 +103,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -145,6 +146,11 @@
     <Compile Include="UI\Commands\AboutCommand.cs" />
     <Compile Include="UI\Commands\DelegateCommand.cs" />
     <Compile Include="UI\Commands\RelayCommand.cs" />
+    <Compile Include="Tools\XmlHelper.cs" />
+    <Compile Include="UI\Controls\Formatters\ITextFormatter.cs" />
+    <Compile Include="UI\Controls\Formatters\PlainTextFormatter.cs" />
+    <Compile Include="UI\Controls\Formatters\RtfFormatter.cs" />
+    <Compile Include="UI\Controls\Formatters\XamlFormatter.cs" />
     <Compile Include="UI\Controls\NotifyIcon\BalloonIcon.cs" />
     <Compile Include="UI\Controls\NotifyIcon\Interop\BalloonFlags.cs" />
     <Compile Include="UI\Controls\NotifyIcon\Interop\IconDataMembers.cs" />
@@ -163,6 +169,7 @@
     <Compile Include="UI\Controls\NotifyIcon\TaskbarIcon.cs" />
     <Compile Include="UI\Controls\NotifyIcon\Util.cs" />
     <Compile Include="UI\Controls\RichTextBoxEx.cs" />
+    <Compile Include="UI\Controls\RichTextBoxFlow.cs" />
     <Compile Include="UI\Controls\TreeViewEx.cs" />
     <Compile Include="UI\Converters\BooleanToHideShowConverter.cs" />
     <Compile Include="UI\Converters\BooleanToOverlayConverter.cs" />
@@ -299,6 +306,7 @@
   <ItemGroup>
     <Resource Include="Assets\Images\TrayIcon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
