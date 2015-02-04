@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace CoC.Bot.Tools
 {
@@ -63,19 +64,18 @@ namespace CoC.Bot.Tools
 			}
 		}
 
-		public static bool Click(int x, int y)
+		public static bool Click(int x, int y, int nbClick = 1, int delay = 0)
 		{
-			return Click(new Win32.Point(x, y));
+			return Click(new Point(x, y), nbClick, delay);
 		}
 
-		public static bool Click(Win32.Point point)
+		public static bool Click(Point point, int nbClick = 1, int delay = 0)
 		{
 			if (bshandle == IntPtr.Zero)
 				bshandle = GetBlueStackWindowHandle();
 			if (bshandle == IntPtr.Zero)
 				return false;
-			MouseHelper.ClickOnPoint(bshandle, point);
-			return true;
+			return MouseHelper.ClickOnPoint2(bshandle, point, nbClick, delay);			
 		}
 
 		#region Properties

@@ -27,14 +27,14 @@ namespace CoC.Bot.Functions
 
         public static void PrepareSearch()
         {
-            Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(60, 614), 1);
+            Tools.CoCHelper.ClickBad(new Point(60, 614), 1);
             Thread.Sleep(1000);
-            Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(217, 510), 1);
+            Tools.CoCHelper.ClickBad(new Point(217, 510), 1);
             Thread.Sleep(3000);
 
             if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(513, 416), Color.FromArgb(93, 172, 16), 50))
             {
-                Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(513, 416), 1);
+                Tools.CoCHelper.ClickBad(new Point(513, 416), 1);
             }
         }
 

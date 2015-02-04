@@ -27,14 +27,14 @@ namespace CoC.Bot.Functions
 
 			Main.Bot.WriteToOutput("Collecting Resources...");
 			Thread.Sleep(250);
-			Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1));
+			Tools.CoCHelper.ClickBad(new Point(1, 1));
 
 			for (int i = 0; i < 17; i++)
 			{
 				Thread.Sleep(250);
-				Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, collectorPos[i]);
+				Tools.CoCHelper.ClickBad(collectorPos[i]);
 				Thread.Sleep(250);
-				Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1));
+				Tools.CoCHelper.ClickBad(new Point(1, 1));
 			}
 		}
 
@@ -45,13 +45,13 @@ namespace CoC.Bot.Functions
 			//int _y = 119;
 
 			//Main.Bot.WriteToOutput("Donating Troops...", GlobalVariables.OutputStates.Information);
-			//Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1));
+			//Tools.CoCHelper.ClickBad(new Point(1, 1));
 
 			//if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(331, 330), Color.FromArgb(240, 160, 59), 20))
-			//    Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(19, 349));
+			//    Tools.CoCHelper.ClickBad(new Point(19, 349));
 
 			//Thread.Sleep(200);
-			//Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(189, 24));
+			//Tools.CoCHelper.ClickBad(new Point(189, 24));
 			//Thread.Sleep(200);
 
 			//while(donate)
@@ -77,7 +77,7 @@ namespace CoC.Bot.Functions
 					Search.PrepareSearch();
 
 					Thread.Sleep(5000);
-					Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(34, 310));
+					Tools.CoCHelper.ClickBad(new Point(34, 310));
 					Thread.Sleep(1000);
 
 					MainScreen.ReturnHome(false, false);
@@ -170,29 +170,29 @@ namespace CoC.Bot.Functions
 			}
 
 			Main.Bot.WriteToOutput("Requesting for Clan Castle Troops...");
-			Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, ccPos, 1);
+			Tools.CoCHelper.ClickBad(ccPos, 1);
 			Thread.Sleep(1000);
 
 			Point requestTroop = Tools.FastFind.FastFindHelper.PixelSearch(310, 580, 553, 622, Color.FromArgb(96, 140, 144), 10);
 			if (!requestTroop.IsEmpty)
 			{
-				Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, requestTroop, 1);
+				Tools.CoCHelper.ClickBad(requestTroop, 1);
 				Thread.Sleep(1000);
 				if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(340, 245), Color.FromArgb(204, 64, 16), 20))
 				{
 					if (!string.IsNullOrEmpty(Main.Bot.RequestTroopsMessage))
 					{
-						Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(430, 140), 1);
+						Tools.CoCHelper.ClickBad(new Point(430, 140), 1);
 						Thread.Sleep(1000);
 						Tools.KeyboardHelper.SendToBS(Main.Bot.RequestTroopsMessage);
 					}
 					Thread.Sleep(1000);
-					Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(524, 228), 1);
+					Tools.CoCHelper.ClickBad(new Point(524, 228), 1);
 				}
 				else
 				{
 					Main.Bot.WriteToOutput("Request's already been made...");
-					Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 2);
+					Tools.CoCHelper.ClickBad(new Point(1, 1), 2);
 				}
 			}
 			else
@@ -223,10 +223,10 @@ namespace CoC.Bot.Functions
 			for (int i = 0; i < 4; i++)
 			{
 				Thread.Sleep(500);
-				Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 1);
+				Tools.CoCHelper.ClickBad(new Point(1, 1), 1);
 				Thread.Sleep(500);
 
-				Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(barrackPos[i].X, barrackPos[i].Y), 1);
+				Tools.CoCHelper.ClickBad(new Point(barrackPos[i].X, barrackPos[i].Y), 1);
 				Thread.Sleep(500);
 
 				Point trainPos = Tools.FastFind.FastFindHelper.PixelSearch(155, 603, 694, 605, Color.FromArgb(96, 56, 24), 5);
@@ -238,7 +238,7 @@ namespace CoC.Bot.Functions
 				}
 				else
 				{
-					Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, trainPos, 1);
+					Tools.CoCHelper.ClickBad(trainPos, 1);
 					Thread.Sleep(500);
 
 					CheckFullArmy();
@@ -261,16 +261,16 @@ namespace CoC.Bot.Functions
 				}
 
 				Thread.Sleep(500);
-				Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 2, 250);
+				Tools.CoCHelper.ClickBad(new Point(1, 1), 2, 250);
 			}
 
 			for (int i = 0; i < 2; i++)
 			{
 				Thread.Sleep(500);
-				Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 1);
+				Tools.CoCHelper.ClickBad(new Point(1, 1), 1);
 				Thread.Sleep(500);
 
-				Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(darkBarrackPos[i].X, darkBarrackPos[i].Y), 1);
+				Tools.CoCHelper.ClickBad(new Point(darkBarrackPos[i].X, darkBarrackPos[i].Y), 1);
 				Thread.Sleep(500);
 
 				Point trainPos = Tools.FastFind.FastFindHelper.PixelSearch(155, 603, 694, 605, Color.FromArgb(96, 56, 24), 5);
@@ -282,7 +282,7 @@ namespace CoC.Bot.Functions
 				}
 				else
 				{
-					Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, trainPos, 1);
+					Tools.CoCHelper.ClickBad(trainPos, 1);
 					Thread.Sleep(500);
 
 					CheckFullArmy();
@@ -301,7 +301,7 @@ namespace CoC.Bot.Functions
 				}
 
 				Thread.Sleep(500);
-				Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, new Point(1, 1), 2, 250);
+				Tools.CoCHelper.ClickBad(new Point(1, 1), 2, 250);
 			}
 
 			Main.Bot.WriteToOutput("Training Troops Complete...");
@@ -314,7 +314,7 @@ namespace CoC.Bot.Functions
 			if (!pos.IsEmpty)
 			{
 				//TODO:         If CheckPixel($pos) Then :: I was confused by this conditional because the CheckPixel method says its 1 parameter should be an array[4], but this position variable has a 2 values
-				Tools.MouseHelper.ClickOnPoint2(GlobalVariables.HWnD, pos, count);
+				Tools.CoCHelper.ClickBad(pos, count);
 				Thread.Sleep(500);
 				return true;
 				//TODO:         EndIf
