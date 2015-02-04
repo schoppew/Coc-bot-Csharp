@@ -136,6 +136,15 @@
             {
                 return base.Items.Where(i => i.Id == (int)type).FirstOrDefault();
             }
+
+			/// <summary>
+			/// Returns all Troops as TroopModelObservableCollection.
+			/// </summary>
+			/// <returns>TroopModelObservableCollection.</returns>
+			public TroopModelObservableCollection AllTroops()
+			{
+				return new TroopModelObservableCollection(base.Items.SelectMany(tt => tt.Troops));
+			}
         }
     }
 }

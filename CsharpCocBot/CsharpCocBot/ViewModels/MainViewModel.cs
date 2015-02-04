@@ -76,11 +76,12 @@
 			 * You can access a Troop by using (either one) as example (same as TroopTier):
 			 *          var troop = DataCollection.TroopTiers[(int)TroopType.Tier1].Troops[Troop.Barbarian];
 			 *          var troop = DataCollection.TroopTiers.Get(TroopType.Tier1).Troops.Get(Troop.Barbarian);
-			 *          var troop = DataCollection.TroopTiers.All().Troops.Get(Troop.Barbarian);
+			 *          var troop = DataCollection.TroopTiers.AllTroops().Get(Troop.Barbarian).IsSelectedForDonate;
+			 *          var troop = DataCollection.TroopTiers.SelectMany(tt => tt.Troops).Where(t => t.Id == (int)Troop.Barbarian);
 			 *          
 			 * You can acces a specific Troop setting, for example:
-			 *          var troop = DataCollection.TroopTiers.All().Troops.Get(Troop.Barbarian).IsDonateAll;
-			 *          var troop = DataCollection.TroopTiers.All().Troops.Get(Troop.Barbarian).DonateKeywords;
+			 *          var troop = DataCollection.TroopTiers.AllTroops().Get(Troop.Barbarian).IsDonateAll;
+			 *          var troop = DataCollection.TroopTiers.AllTroops().Get(Troop.Barbarian).DonateKeywords;
 			 * 
 			 * 
 			 * HowTo: Write to the Output (Window Log)

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using CoC.Bot.Data;
-
+using System.Windows.Media;
 namespace CoC.Bot.Functions
 {
 	internal class Village
@@ -23,7 +23,7 @@ namespace CoC.Bot.Functions
 			if (collectorPos[0].IsEmpty)
 			{
 				Main.Bot.LocateCollectors();
-				Thread.Sleep(2000);
+				Thread.Sleep(2000); // TODO: Mephobia: We don't need to sleep, we just make sure the user did his job of locating the collectors and then continue
 			}
 
 			Main.Bot.WriteToOutput("Collecting Resources...");
@@ -39,9 +39,24 @@ namespace CoC.Bot.Functions
 			}
 		}
 
-		//TODO: FIX THIS WHOLE METHOD!!!
 		public static void DonateCC()
 		{
+			// NOTE: This is how you access Troop information specified by User
+
+			// Get all Troops that meets this criteria (Selected for Donate)
+			var troops = DataCollection.TroopTiers.SelectMany(tt => tt.Troops).Where(t => t.IsSelectedForDonate);
+
+			// We then check if the User selected any for Donate
+			if (troops.Count() > 0)
+			{
+				Main.Bot.WriteToOutput("Donating Troops...", GlobalVariables.OutputStates.Information);
+
+				foreach (var troop in troops)
+				{
+					DonateCCTroopSpecific(troop);
+				}				
+			}			
+
 			//bool donate = false; // FIX THIS
 			//int _y = 119;
 
@@ -59,6 +74,16 @@ namespace CoC.Bot.Functions
 			//{
 			//    byte[][] offColors = new byte[][] {};
 			//}  
+		}
+
+		private static void DonateCCTroopSpecific(TroopModel troop)
+		{
+			// TODO: Do the clicking Stuff here
+			// Remember to get the needed information:
+			// troop.DonateKeywords
+			// troop.MaxDonationsPerRequest
+
+			Main.Bot.WriteToOutput(string.Format("Donating {0} {1}s...", troop.MaxDonationsPerRequest, ((Troop)troop.Id).Name()), GlobalVariables.OutputStates.Verified);
 		}
 
 		public static void DropTrophies()
@@ -167,19 +192,19 @@ namespace CoC.Bot.Functions
 			if (ccPos.IsEmpty)
 			{
 				Main.Bot.LocateClanCastle();
-				Thread.Sleep(1000);
+				Thread.Sleep(1000); // TODO: Mephobia: We don't need to sleep, we just make sure the user did his job of locating the CC
 			}
 
 			Main.Bot.WriteToOutput("Requesting for Clan Castle Troops...");
 			Tools.CoCHelper.ClickBad(ccPos, 1);
 			Thread.Sleep(1000);
 
-			ClickablePoint requestTroop = Tools.CoCHelper.SearchPixelInRect(310, 580, 553, 622, Color.FromArgb(96, 140, 144), 10);
+			ClickablePoint requestTroop = Tools.CoCHelper.SearchPixelInRect(310, 580, 553, 622, System.Drawing.Color.FromArgb(96, 140, 144), 10);
 			if (!requestTroop.IsEmpty)
 			{
 				Tools.CoCHelper.ClickBad(requestTroop, 1);
 				Thread.Sleep(1000);
-				if (Tools.CoCHelper.CheckPixelColorBad(new Point(340, 245), Color.FromArgb(204, 64, 16), 20))
+				if (Tools.CoCHelper.CheckPixelColorBad(new Point(340, 245), System.Drawing.Color.FromArgb(204, 64, 16), 20))
 				{
 					if (!string.IsNullOrEmpty(Main.Bot.RequestTroopsMessage))
 					{
@@ -210,13 +235,13 @@ namespace CoC.Bot.Functions
 			if (Main.Bot.IsUseBarracks1 && barrackPos[0].IsEmpty)
 			{
 				Main.Bot.LocateBarracks();
-				Thread.Sleep(1000);
+				Thread.Sleep(1000); // TODO: Mephobia: We don't need to sleep, we just make sure the user did his job of locating the CC
 			}
 
 			if ((Main.Bot.IsUseDarkBarracks1 && darkBarrackPos[0].IsEmpty) || (Main.Bot.IsUseDarkBarracks2 && darkBarrackPos[1].IsEmpty))
 			{
 				Main.Bot.LocateDarkBarracks();
-				Thread.Sleep(1000);
+				Thread.Sleep(1000); // // TODO: Mephobia: We don't need to sleep, we just make sure the user did his job of locating the CC
 			}
 
 			Main.Bot.WriteToOutput("Training Troops...");
@@ -230,7 +255,7 @@ namespace CoC.Bot.Functions
 				Tools.CoCHelper.ClickBad(new Point(barrackPos[i].X, barrackPos[i].Y), 1);
 				Thread.Sleep(500);
 
-				ClickablePoint trainPos = Tools.CoCHelper.SearchPixelInRect(155, 603, 694, 605, Color.FromArgb(96, 56, 24), 5);
+				ClickablePoint trainPos = Tools.CoCHelper.SearchPixelInRect(155, 603, 694, 605, System.Drawing.Color.FromArgb(96, 56, 24), 5);
 
 				if (trainPos.IsEmpty)
 				{
@@ -274,7 +299,7 @@ namespace CoC.Bot.Functions
 				Tools.CoCHelper.ClickBad(new Point(darkBarrackPos[i].X, darkBarrackPos[i].Y), 1);
 				Thread.Sleep(500);
 
-				ClickablePoint trainPos = Tools.CoCHelper.SearchPixelInRect(155, 603, 694, 605, Color.FromArgb(96, 56, 24), 5);
+				ClickablePoint trainPos = Tools.CoCHelper.SearchPixelInRect(155, 603, 694, 605, System.Drawing.Color.FromArgb(96, 56, 24), 5);
 
 				if (trainPos.IsEmpty)
 				{
