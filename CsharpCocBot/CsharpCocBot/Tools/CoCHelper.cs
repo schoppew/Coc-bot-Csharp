@@ -15,7 +15,7 @@ namespace CoC.Bot.Tools
 			return BlueStackHelper.Click(point, nbClick, delay);
 		}
 		
-		[Obsolete("All screen coordinates should be stored in Data.ScreenData.ScreenData. No hard-coded coordinates anywhere else!")]
+		[Obsolete("Add a ClickablePoint variable in Data.ScreenData.ScreenData for that. All screen coordinates should be centralized and named. No hard-coded coordinates anywhere else!")]
 		static public bool ClickBad(Point point, int nbClick = 0, int delay = 0)
 		{
 			return Click((ClickablePoint)point, nbClick, delay);
@@ -26,7 +26,7 @@ namespace CoC.Bot.Tools
 			return (ClickablePoint)Tools.FastFind.FastFindHelper.PixelSearch(point.Left, point.Top, point.Right, point.Bottom, point.Color, point.ShadeVariation);
 		}
 
-		[Obsolete("All screen coordinates should be stored in Data.ScreenData.ScreenData. No hard-coded coordinates anywhere else!")]
+		[Obsolete("Add a DetectableArea variable in Data.ScreenData.ScreenData for that. All screen coordinates should be centralized and named. No hard-coded coordinates anywhere else!")]
 		static public ClickablePoint SearchPixelInRect(int left, int top, int right, int bottom, Color color1, int variation)
 		{
 			return (ClickablePoint)Tools.FastFind.FastFindHelper.PixelSearch(left, top, right, bottom, color1, variation);
@@ -37,7 +37,7 @@ namespace CoC.Bot.Tools
 			return Tools.FastFind.FastFindHelper.IsInColorRange(data, data.Color, data.ShadeVariation);			
 		}
 
-		[Obsolete("All screen coordinates should be stored in Data.ScreenData.ScreenData. No hard-coded coordinates anywhere else!")]
+		[Obsolete("Add a DetectablePoint variable in Data.ScreenData.ScreenData for that. All screen coordinates should be centralized and named. No hard-coded coordinates anywhere else!")]
 		static public bool CheckPixelColorBad(Point point, Color color, int shadeVariation)
 		{
 			return Tools.FastFind.FastFindHelper.IsInColorRange(point, color, shadeVariation);
