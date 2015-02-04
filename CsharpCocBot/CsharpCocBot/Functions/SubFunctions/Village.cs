@@ -39,6 +39,9 @@ namespace CoC.Bot.Functions
 			}
 		}
 
+		/// <summary>
+		/// Make Troop Donations.
+		/// </summary>
 		public static void DonateCC()
 		{
 			// NOTE: This is how you access Troop information specified by User
@@ -76,6 +79,10 @@ namespace CoC.Bot.Functions
 			//}  
 		}
 
+		/// <summary>
+		/// Make Troop Specific Donations.
+		/// </summary>
+		/// <param name="troop">The troop.</param>
 		private static void DonateCCTroopSpecific(TroopModel troop)
 		{
 			// TODO: Do the clicking Stuff here
