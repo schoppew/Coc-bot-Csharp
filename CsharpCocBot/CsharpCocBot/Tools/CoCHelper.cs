@@ -43,6 +43,20 @@ namespace CoC.Bot.Tools
 			return Tools.FastFind.FastFindHelper.IsInColorRange(point, color, shadeVariation);
 		}
 
-		
+		static public Color GetPixelColor(ClickablePoint point)
+		{
+			return Tools.FastFind.FastFindHelper.GetPixelColor(point);
+		}
+
+		static public bool IsInColorRange(ClickablePoint point, Color color, int shadeVariation=0)
+		{
+			return Tools.FastFind.FastFindHelper.IsInColorRange(point, color, shadeVariation);
+		}
+
+		static public bool SameColor(Color color1, Color color2, int shadeVariation = 0)
+		{
+			return Tools.FastFind.FastFindHelper.SameColor(color1, color2, shadeVariation);
+		}
+
 	}
 }

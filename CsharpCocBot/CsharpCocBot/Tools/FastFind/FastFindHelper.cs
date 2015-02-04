@@ -206,5 +206,11 @@ namespace CoC.Bot.Tools.FastFind
                 return pixel == color.ToArgb();
             return IsInShadeVariation(pixel, color.ToArgb(), shadeVariation);
         }
-    }
+
+		static public bool SameColor(Color color1, Color color2, int shadeVariation = 0)
+		{
+			return IsInShadeVariation(color1.ToArgb(), color2.ToArgb(), shadeVariation);			
+		}
+
+	}
 }

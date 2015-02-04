@@ -28,6 +28,17 @@
         LavaHound = 16,
 
         King = 21,      // Heroes
-        Queen = 22
+        Queen = 22,
+
+
+		CastleClan = -1, // Special "troops" (can be dropped, and trained for the spells). 
+		SpellLightning = -2,
+		SpellHeal = -3,
+		SpellRage = -4,
+		SpellJump = -5,
+		SpellIce = -6,
+
+		None = 0
+
     };
 }
