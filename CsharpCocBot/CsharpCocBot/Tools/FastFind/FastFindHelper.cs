@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CoC.Bot.Data;
 
 namespace CoC.Bot.Tools.FastFind
 {
@@ -157,7 +158,7 @@ namespace CoC.Bot.Tools.FastFind
         /// <param name="variation"></param>
         /// <param name="forceCapture"></param>
         /// <returns></returns>
-        static public Point PixelSearch(int left, int top, int right, int bottom, ColorList colors, int variation)
+		static public Point PixelSearch(int left, int top, int right, int bottom, ColorSet colors, int variation)
         {
             if (!TakeCustomCapture(left, top, right, bottom)) return Point.Empty;
             FastFindWrapper.ResetColors();
@@ -179,7 +180,7 @@ namespace CoC.Bot.Tools.FastFind
         /// <param name="variation"></param>
         /// <param name="forceCapture"></param>
         /// <returns></returns>
-        static public Point FullScreenPixelSearch(ColorList colors, int variation, bool forceCapture = false)
+		static public Point FullScreenPixelSearch(ColorSet colors, int variation, bool forceCapture = false)
         {
             if (!TakeFullScreenCapture(forceCapture)) return Point.Empty;
             FastFindWrapper.ResetColors();

@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoC.Bot.Data.ScreenData
+// The namespace is just CoC.Bot.Data in order to simplify usage of them
+namespace CoC.Bot.Data
 {
 	/// <summary>
 	/// It's a set of coordinates, targetting a point to be clicked

@@ -9,7 +9,7 @@
 
     using Tools;
     using ViewModels;
-	using CoC.Bot.Data.ScreenData;
+	using CoC.Bot.Data;
 
     internal class MainScreen
     {
@@ -17,7 +17,7 @@
         {
 			Main.Bot.WriteToOutput(Properties.Resources.OutputTryingToLocateMainScreen, GlobalVariables.OutputStates.Information);
 
-            while (!Tools.CoCHelper.CheckPixelColorBad(new Point(284, 28), Color.FromArgb(65, 177, 205), 20)) // FIX VARIATION
+            while (!Tools.CoCHelper.CheckPixelColor(ScreenData.IsMain)) // FIX VARIATION
             {
                 Thread.Sleep(1000);
 
@@ -47,7 +47,7 @@
 			Main.Bot.WriteToOutput("Waiting for Main Screen");
             for (int i = 0; i < 150; i++)
             {
-                if (!Tools.CoCHelper.CheckPixelColorBad(new Point(284, 28), Color.FromArgb(65, 177, 205), 20))
+				if (!Tools.CoCHelper.CheckPixelColor(ScreenData.IsMain))
                 {
                     Thread.Sleep(2000);
                     if (CheckObstacles())
@@ -65,35 +65,38 @@
 
         public static bool CheckObstacles()
         {
-			ClickablePoint messagePos = Tools.CoCHelper.SearchPixelInRect(457, 300, 458, 330, Color.FromArgb(51, 181, 229), 10);
+			ClickablePoint messagePos = Tools.CoCHelper.SearchPixelInRect(ScreenData.Inactivity);
             if (!messagePos.IsEmpty)
             {
-                Tools.CoCHelper.ClickBad(new Point(416, 399), 1);
+                Tools.CoCHelper.Click(ScreenData.ReloadButton);
                 Thread.Sleep(7000);
                 return true;
             }
 
-            if (Tools.CoCHelper.CheckPixelColorBad(new Point(235, 209), Color.FromArgb(158, 56, 38), 20))
+            if (Tools.CoCHelper.CheckPixelColor(ScreenData.Attacked))
             {
-                Tools.CoCHelper.ClickBad(new Point(429, 493), 1);
+                Tools.CoCHelper.Click(ScreenData.AttackedBtn);
                 return true;
             }
 
-            if (Tools.CoCHelper.CheckPixelColorBad(new Point(284, 28), Color.FromArgb(33, 91, 105), 20))
+			// The main screen
+            if (Tools.CoCHelper.CheckPixelColor(ScreenData.IsMainGrayed))
             {
-                Tools.CoCHelper.ClickBad(new Point(1, 1), 1);
+				Tools.CoCHelper.Click(ScreenData.TopLeftClient);
                 return true;
             }
 
-            if (Tools.CoCHelper.CheckPixelColorBad(new Point(819, 55), Color.FromArgb(216, 4, 0), 20))
+			// If we have a screen with a small x to cancel it, like when you start a fight. 
+			if (Tools.CoCHelper.CheckPixelColor(ScreenData.SomeXCancelBtn))
             {
-                Tools.CoCHelper.ClickBad(new Point(819, 55), 1);
+				Tools.CoCHelper.Click(ScreenData.SomeXCancelBtn);
                 return true;
             }
 
-            if (Tools.CoCHelper.CheckPixelColorBad(new Point(822, 48), Color.FromArgb(216, 4, 8), 20) || Tools.CoCHelper.CheckPixelColorBad(new Point(830, 59), Color.FromArgb(216, 4, 8), 20))
+			// If a fight is on going, than cancel it. 
+			if (Tools.CoCHelper.CheckPixelColor(ScreenData.CancelFight) || Tools.CoCHelper.CheckPixelColor(ScreenData.CancelFight2))
             {
-                Tools.CoCHelper.ClickBad(new Point(822, 48), 1);
+                Tools.CoCHelper.Click(ScreenData.CancelFight);
                 return true;
             }
 

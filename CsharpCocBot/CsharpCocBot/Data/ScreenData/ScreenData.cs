@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoC.Bot.Data.ScreenData
+namespace CoC.Bot.Data
 {
 	/// <summary>
 	/// This is where you store all screen informations: clickable points with associated color(s)
@@ -15,11 +15,18 @@ namespace CoC.Bot.Data.ScreenData
 	{
 		/*
 		 */		
-		public static DetectablePoint IsMain		= new DetectablePoint(284,  28, 0x41B1CD, 20);
-		public static DetectablePoint IsMainGrayed	= new DetectablePoint(  IsMain, 0x41B1CD, 20);
+		public static DetectablePoint IsMain		= new DetectablePoint(284,  28, 0x41B1CD, 20); 
+		public static DetectablePoint IsMainGrayed	= new DetectablePoint(IsMain,	0x215B69, 20);
 		public static ClickablePoint  TopLeftClient = new ClickablePoint(   1,   1);
 		public static DetectablePoint IsInactive	= new DetectablePoint(458, 311, 0x33B5E5, 20);
-		
+		public static ClickablePoint  ReloadButton  = new ClickablePoint( 416, 399);
+		public static DetectablePoint Attacked      = new DetectablePoint(235, 209, 0x9E3826, 20);
+		public static ClickablePoint  AttackedBtn   = new ClickablePoint( 429, 493);
+		public static DetectablePoint SomeXCancelBtn= new DetectablePoint(819,  55, 0xD80400, 20);
+		public static DetectablePoint CancelFight   = new DetectablePoint(822,  48, 0xD80408, 20);
+		public static DetectablePoint CancelFight2  = new DetectablePoint( 830,  59, 0xD80408, 20);
+
+		public static DetectableArea Inactivity		= new DetectableArea(457, 300, 458, 330, Color.FromArgb(51, 181, 229), 10);
 		/*
 		Global $IsMainGrayed[4]   = [284,  28, 0x215B69, 20] ; origin: [284,  28, 0x41B1CD, 20]
 Global $TopLeftClient[2]        = [  1,   1]
@@ -39,8 +46,6 @@ Global $ReturnHome[2]     = [428, 544]
 Global $CloseChat[4]      = [330, 334, 0xF0A03C,     20] ;
 Global $SomeXCancelBtn[4] = [819,  55, 0xD80400,     20]
 Global $EndBattleBtn[4]   = [71, 530,  0xC00000,     20]
-Global $Attacked[4]       = [235, 209, 0x9E3826,     20] ;
-Global $AttackedBtn[2]    = [429, 493]					 ;
 Global $HasClanMessage[4] = [ 31, 313, 0xF80B09,     20] ;
 Global $OpenChatBtn[2]    = [ 10, 334] 					 ;
 Global $IsClanTabSelected[4]=[204, 20, 0x6F6C4F,     20] ;

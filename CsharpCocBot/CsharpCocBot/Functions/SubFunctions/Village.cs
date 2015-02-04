@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using CoC.Bot.Data.ScreenData;
+using CoC.Bot.Data;
 
 namespace CoC.Bot.Functions
 {

@@ -121,28 +121,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Data\AttackMode.cs" />
+    <Compile Include="Data\Enum\AttackMode.cs" />
+    <Compile Include="Data\Type\Building.cs" />
     <Compile Include="Data\BuildingLevels.cs" />
     <Compile Include="Data\ColorList\Data.cs" />
     <Compile Include="Data\ColorList\Walls.cs" />
     <Compile Include="Data\DataCollection.cs" />
-    <Compile Include="Data\DeployStrategy.cs" />
-    <Compile Include="Data\DeployTroops.cs" />
-    <Compile Include="Data\Model.cs" />
-    <Compile Include="Data\ScreenData\ClickablePoint.cs" />
-    <Compile Include="Data\ScreenData\DetectableArea.cs" />
-    <Compile Include="Data\ScreenData\DetectablePoint.cs" />
+    <Compile Include="Data\Enum\DeployStrategy.cs" />
+    <Compile Include="Data\Enum\DeployTroops.cs" />
+    <Compile Include="Data\Type\Model.cs" />
+    <Compile Include="Data\Type\ClickablePoint.cs" />
+    <Compile Include="Data\Type\DetectableArea.cs" />
+    <Compile Include="Data\Type\DetectablePoint.cs" />
     <Compile Include="Data\ScreenData\ScreenData.cs" />
-    <Compile Include="Data\TroopComposition.cs" />
-    <Compile Include="Data\TroopModel.cs" />
-    <Compile Include="Data\TroopType.cs" />
-    <Compile Include="Data\Troop.cs" />
+    <Compile Include="Data\Enum\TroopComposition.cs" />
+    <Compile Include="Data\Type\TroopModel.cs" />
+    <Compile Include="Data\Enum\TroopType.cs" />
+    <Compile Include="Data\Enum\Troop.cs" />
     <Compile Include="Data\DataHelper.cs" />
-    <Compile Include="Data\TroopTierModel.cs" />
+    <Compile Include="Data\Type\TroopTierModel.cs" />
     <Compile Include="Functions\Main.cs" />
     <Compile Include="Samples\GettingAroundTheUI.cs" />
     <Compile Include="Tools\CoCHelper.cs" />
-    <Compile Include="Tools\FastFind\ColorList.cs" />
+    <Compile Include="Data\Type\ColorList.cs" />
     <Compile Include="Tools\FastFind\FastFindHelper.cs" />
     <Compile Include="Tools\FastFind\FastFindTesting.cs" />
     <Compile Include="Tools\KeyboardHelper.cs" />
