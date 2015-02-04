@@ -32,7 +32,7 @@ namespace CoC.Bot.Functions
             Tools.CoCHelper.ClickBad(new Point(217, 510), 1);
             Thread.Sleep(3000);
 
-            if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(513, 416), Color.FromArgb(93, 172, 16), 50))
+            if (Tools.CoCHelper.CheckPixelColorBad(new Point(513, 416), Color.FromArgb(93, 172, 16), 50))
             {
                 Tools.CoCHelper.ClickBad(new Point(513, 416), 1);
             }

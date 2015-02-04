@@ -47,7 +47,7 @@ namespace CoC.Bot.Functions
         }
 
 
-        [Obsolete("Have to be coded first")]
+        [Obsolete("Have to be coded first. Is it that useful?!")]
         public static bool BoolPixelSearch(Point pixel1, Point pixel2, Point pixel3, int variation = 10)
         {
             return false;

@@ -9,6 +9,7 @@
 
     using Tools;
     using ViewModels;
+	using CoC.Bot.Data.ScreenData;
 
     internal class MainScreen
     {
@@ -16,7 +17,7 @@
         {
 			Main.Bot.WriteToOutput(Properties.Resources.OutputTryingToLocateMainScreen, GlobalVariables.OutputStates.Information);
 
-            while (!Tools.FastFind.FastFindHelper.IsInColorRange(new Point(284, 28), Color.FromArgb(65, 177, 205), 20)) // FIX VARIATION
+            while (!Tools.CoCHelper.CheckPixelColorBad(new Point(284, 28), Color.FromArgb(65, 177, 205), 20)) // FIX VARIATION
             {
                 Thread.Sleep(1000);
 
@@ -46,7 +47,7 @@
 			Main.Bot.WriteToOutput("Waiting for Main Screen");
             for (int i = 0; i < 150; i++)
             {
-                if (!Tools.FastFind.FastFindHelper.IsInColorRange(new Point(284, 28), Color.FromArgb(65, 177, 205), 20))
+                if (!Tools.CoCHelper.CheckPixelColorBad(new Point(284, 28), Color.FromArgb(65, 177, 205), 20))
                 {
                     Thread.Sleep(2000);
                     if (CheckObstacles())
@@ -64,7 +65,7 @@
 
         public static bool CheckObstacles()
         {
-            Point messagePos = Tools.FastFind.FastFindHelper.PixelSearch(457, 300, 458, 330, Color.FromArgb(51, 181, 229), 10);
+			ClickablePoint messagePos = Tools.CoCHelper.SearchPixelInRect(457, 300, 458, 330, Color.FromArgb(51, 181, 229), 10);
             if (!messagePos.IsEmpty)
             {
                 Tools.CoCHelper.ClickBad(new Point(416, 399), 1);
@@ -72,44 +73,44 @@
                 return true;
             }
 
-            if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(235, 209), Color.FromArgb(158, 56, 38), 20))
+            if (Tools.CoCHelper.CheckPixelColorBad(new Point(235, 209), Color.FromArgb(158, 56, 38), 20))
             {
                 Tools.CoCHelper.ClickBad(new Point(429, 493), 1);
                 return true;
             }
 
-            if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(284, 28), Color.FromArgb(33, 91, 105), 20))
+            if (Tools.CoCHelper.CheckPixelColorBad(new Point(284, 28), Color.FromArgb(33, 91, 105), 20))
             {
                 Tools.CoCHelper.ClickBad(new Point(1, 1), 1);
                 return true;
             }
 
-            if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(819, 55), Color.FromArgb(216, 4, 0), 20))
+            if (Tools.CoCHelper.CheckPixelColorBad(new Point(819, 55), Color.FromArgb(216, 4, 0), 20))
             {
                 Tools.CoCHelper.ClickBad(new Point(819, 55), 1);
                 return true;
             }
 
-            if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(822, 48), Color.FromArgb(216, 4, 8), 20) || Tools.FastFind.FastFindHelper.IsInColorRange(new Point(830, 59), Color.FromArgb(216, 4, 8), 20))
+            if (Tools.CoCHelper.CheckPixelColorBad(new Point(822, 48), Color.FromArgb(216, 4, 8), 20) || Tools.CoCHelper.CheckPixelColorBad(new Point(830, 59), Color.FromArgb(216, 4, 8), 20))
             {
                 Tools.CoCHelper.ClickBad(new Point(822, 48), 1);
                 return true;
             }
 
-            if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(331, 330), Color.FromArgb(240, 160, 59), 20))
+            if (Tools.CoCHelper.CheckPixelColorBad(new Point(331, 330), Color.FromArgb(240, 160, 59), 20))
             {
                 Tools.CoCHelper.ClickBad(new Point(331, 330), 1);
                 Thread.Sleep(1000);
                 return true;
             }
 
-            if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(429, 519), Color.FromArgb(184, 227, 95), 20))
+            if (Tools.CoCHelper.CheckPixelColorBad(new Point(429, 519), Color.FromArgb(184, 227, 95), 20))
             {
                 Tools.CoCHelper.ClickBad(new Point(429, 519), 1);
                 return true;
             }
 
-            if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(71, 530), Color.FromArgb(192, 0, 0), 20))
+            if (Tools.CoCHelper.CheckPixelColorBad(new Point(71, 530), Color.FromArgb(192, 0, 0), 20))
             {
                 Tools.CoCHelper.ClickBad(new Point(331, 330), 1);
                 ReturnHome(false, false);
@@ -154,7 +155,7 @@
             do
             {
                 Thread.Sleep(2000);
-                if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(284, 28), Color.FromArgb(65, 177, 205), 20))
+                if (Tools.CoCHelper.CheckPixelColorBad(new Point(284, 28), Color.FromArgb(65, 177, 205), 20))
                 {
                     Tools.CoCHelper.ClickBad(new Point(331, 330), 1);
 //TODO:             _GUICtrlEdit_SetText($txtLog, "")

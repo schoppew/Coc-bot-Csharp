@@ -21,6 +21,28 @@ namespace CoC.Bot.Tools
 			return Click((ClickablePoint)point, nbClick, delay);
 		}
 
+		static public ClickablePoint SearchPixelInRect(DetectableArea point)
+		{
+			return (ClickablePoint)Tools.FastFind.FastFindHelper.PixelSearch(point.Left, point.Top, point.Right, point.Bottom, point.Color, point.ShadeVariation);
+		}
 
+		[Obsolete("All screen coordinates should be stored in Data.ScreenData.ScreenData. No hard-coded coordinates anywhere else!")]
+		static public ClickablePoint SearchPixelInRect(int left, int top, int right, int bottom, Color color1, int variation)
+		{
+			return (ClickablePoint)Tools.FastFind.FastFindHelper.PixelSearch(left, top, right, bottom, color1, variation);
+		}
+
+		static public bool CheckPixelColor(DetectablePoint data)
+		{
+			return Tools.FastFind.FastFindHelper.IsInColorRange(data, data.Color, data.ShadeVariation);			
+		}
+
+		[Obsolete("All screen coordinates should be stored in Data.ScreenData.ScreenData. No hard-coded coordinates anywhere else!")]
+		static public bool CheckPixelColorBad(Point point, Color color, int shadeVariation)
+		{
+			return Tools.FastFind.FastFindHelper.IsInColorRange(point, color, shadeVariation);
+		}
+
+		
 	}
 }

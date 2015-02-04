@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using CoC.Bot.Data.ScreenData;
 
 namespace CoC.Bot.Functions
 {
@@ -47,7 +48,7 @@ namespace CoC.Bot.Functions
 			//Main.Bot.WriteToOutput("Donating Troops...", GlobalVariables.OutputStates.Information);
 			//Tools.CoCHelper.ClickBad(new Point(1, 1));
 
-			//if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(331, 330), Color.FromArgb(240, 160, 59), 20))
+			//if (Tools.CoCHelper.CheckPixelColorBad(new Point(331, 330), Color.FromArgb(240, 160, 59), 20))
 			//    Tools.CoCHelper.ClickBad(new Point(19, 349));
 
 			//Thread.Sleep(200);
@@ -173,12 +174,12 @@ namespace CoC.Bot.Functions
 			Tools.CoCHelper.ClickBad(ccPos, 1);
 			Thread.Sleep(1000);
 
-			Point requestTroop = Tools.FastFind.FastFindHelper.PixelSearch(310, 580, 553, 622, Color.FromArgb(96, 140, 144), 10);
+			ClickablePoint requestTroop = Tools.CoCHelper.SearchPixelInRect(310, 580, 553, 622, Color.FromArgb(96, 140, 144), 10);
 			if (!requestTroop.IsEmpty)
 			{
 				Tools.CoCHelper.ClickBad(requestTroop, 1);
 				Thread.Sleep(1000);
-				if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(340, 245), Color.FromArgb(204, 64, 16), 20))
+				if (Tools.CoCHelper.CheckPixelColorBad(new Point(340, 245), Color.FromArgb(204, 64, 16), 20))
 				{
 					if (!string.IsNullOrEmpty(Main.Bot.RequestTroopsMessage))
 					{
@@ -229,7 +230,7 @@ namespace CoC.Bot.Functions
 				Tools.CoCHelper.ClickBad(new Point(barrackPos[i].X, barrackPos[i].Y), 1);
 				Thread.Sleep(500);
 
-				Point trainPos = Tools.FastFind.FastFindHelper.PixelSearch(155, 603, 694, 605, Color.FromArgb(96, 56, 24), 5);
+				ClickablePoint trainPos = Tools.CoCHelper.SearchPixelInRect(155, 603, 694, 605, Color.FromArgb(96, 56, 24), 5);
 
 				if (trainPos.IsEmpty)
 				{
@@ -273,7 +274,7 @@ namespace CoC.Bot.Functions
 				Tools.CoCHelper.ClickBad(new Point(darkBarrackPos[i].X, darkBarrackPos[i].Y), 1);
 				Thread.Sleep(500);
 
-				Point trainPos = Tools.FastFind.FastFindHelper.PixelSearch(155, 603, 694, 605, Color.FromArgb(96, 56, 24), 5);
+				ClickablePoint trainPos = Tools.CoCHelper.SearchPixelInRect(155, 603, 694, 605, Color.FromArgb(96, 56, 24), 5);
 
 				if (trainPos.IsEmpty)
 				{

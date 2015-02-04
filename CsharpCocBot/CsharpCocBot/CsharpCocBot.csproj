@@ -130,6 +130,7 @@
     <Compile Include="Data\DeployTroops.cs" />
     <Compile Include="Data\Model.cs" />
     <Compile Include="Data\ScreenData\ClickablePoint.cs" />
+    <Compile Include="Data\ScreenData\DetectableArea.cs" />
     <Compile Include="Data\ScreenData\DetectablePoint.cs" />
     <Compile Include="Data\ScreenData\ScreenData.cs" />
     <Compile Include="Data\TroopComposition.cs" />
