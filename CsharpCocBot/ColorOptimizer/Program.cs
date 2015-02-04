@@ -16,7 +16,8 @@ namespace ColorOptimizer
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
+			ScanData scan = new ScanData();
+			//Application.Run(new Form1());
 		}
 	}
 }
