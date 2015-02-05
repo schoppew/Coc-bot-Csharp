@@ -238,7 +238,6 @@ namespace CoC.Bot.Functions
 
         public static Point GetTrainTroopsButton()
         {
-            //196, 558, 469, 85
             int left = 196, top = 558, right = 665, bottom = 643;
             int count = 0;
 
@@ -281,19 +280,19 @@ namespace CoC.Bot.Functions
 
         public static void TrainTroops()
         {
-            Point[] barrackPos = new Point[] { new Point(358, 255), Main.Bot.LocationBarrack2, Main.Bot.LocationBarrack3, Main.Bot.LocationBarrack4 };
+            Point[] barrackPos = new Point[] { Main.Bot.LocationBarrack1, Main.Bot.LocationBarrack2, Main.Bot.LocationBarrack3, Main.Bot.LocationBarrack4 };
             Point[] darkBarrackPos = new Point[] { Main.Bot.LocationDarkBarrack1, Main.Bot.LocationDarkBarrack2 };
             bool armyFull = false;
 
-            //if (Main.Bot.IsUseBarracks1 && barrackPos[0].IsEmpty)
-            //{
-            //    Main.Bot.LocateBarracks();
-            //}
+            if (Main.Bot.IsUseBarracks1 && barrackPos[0].IsEmpty)
+            {
+                Main.Bot.LocateBarracks();
+            }
 
-            //if ((Main.Bot.IsUseDarkBarracks1 && darkBarrackPos[0].IsEmpty) || (Main.Bot.IsUseDarkBarracks2 && darkBarrackPos[1].IsEmpty))
-            //{
-            //    Main.Bot.LocateDarkBarracks();
-            //}
+            if ((Main.Bot.IsUseDarkBarracks1 && darkBarrackPos[0].IsEmpty) || (Main.Bot.IsUseDarkBarracks2 && darkBarrackPos[1].IsEmpty))
+            {
+                Main.Bot.LocateDarkBarracks();
+            }
 
             Main.Bot.WriteToOutput("Training Troops...");
 
@@ -343,7 +342,6 @@ namespace CoC.Bot.Functions
                     }
                 }
 
-                Thread.Sleep(500);
                 Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 250);
             }
 
@@ -366,26 +364,26 @@ namespace CoC.Bot.Functions
                     else
                     {
                         MouseHelper.ClickOnPoint2(Tools.BlueStacksHelper.GetBlueStacksWindowHandle(), trainPos);
-                        Thread.Sleep(500);
+                        Thread.Sleep(50);
 
-                        // MAKE BARRACKS FULL METHOD!
-                        armyFull = CheckFullArmy();
+                        if(!armyFull)
+                        { 
+                            int barrackId = 0;
 
-                        int barrackId = 0;
+                            if (i == 0)
+                                barrackId = Main.Bot.SelectedDarkBarrack1.Id;
+                            else if (i == 1)
+                                barrackId = Main.Bot.SelectedDarkBarrack2.Id;
 
-                        if (i == 0)
-                            barrackId = Main.Bot.SelectedDarkBarrack1.Id;
-                        else if (i == 1)
-                            barrackId = Main.Bot.SelectedDarkBarrack2.Id;
-
-                        while (TrainIt(barrackId, 5))
-                        {
-                            Thread.Sleep(50);
+                            while (!CheckBarrackFull())
+                            {
+                                TrainIt(barrackId, 5);
+                                Thread.Sleep(50);
+                            }
                         }
                     }
 
-                    Thread.Sleep(500);
-                    Tools.CoCHelper.ClickBad(new Point(1, 1), 2, 250);
+                    Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 250);
                 }
             }
 
