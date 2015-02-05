@@ -6,15 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using CoC.Bot.Data;
-using System.Windows.Forms;
+using System.Windows.Media;
+using MouseAndKeyboard;
+using Point = Win32.POINT;
+
 namespace CoC.Bot.Functions
 {
 	internal class Village
 	{
 		public static bool CheckFullArmy()
 		{
-            bool campsFull = Tools.FastFind.FastFindHelper.SameColor(Tools.FastFind.FastFindHelper.GetPixelColor(121, 491, true), Color.FromArgb(212, 83, 94), 6);
-			return campsFull;
+			return false;
 		}
 
 		public static void CollectResources()
@@ -218,7 +220,7 @@ namespace CoC.Bot.Functions
 					{
 						Tools.CoCHelper.ClickBad(new Point(430, 140), 1);
 						Thread.Sleep(1000);
-						Tools.KeyboardHelper.SendToBS(Main.Bot.RequestTroopsMessage);
+						KeyboardHelper.SendToBS(Main.Bot.RequestTroopsMessage);
 					}
 					Thread.Sleep(1000);
 					Tools.CoCHelper.ClickBad(new Point(524, 228), 1);
@@ -235,149 +237,108 @@ namespace CoC.Bot.Functions
 			}
 		}
 
-        public static Point GetTrainTroopsButton()
-        {
-            //196, 558, 469, 85
-            int left = 196;
-            int top = 558;
-            int right = 665;
-            int bottom = 643;
-            int count = 0;
-
-            do
-            {   
-                Point p1 = Tools.FastFind.FastFindHelper.PixelSearch(left, top, right, bottom, Color.FromArgb(67, 38, 3), 4);
-
-                if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(p1.X, p1.Y + 10), Color.FromArgb(255, 255, 255), 4))
-                {
-                    return p1;
-                }
-                else
-                {
-                    if(count >= 6)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        left = p1.X;
-                        top = p1.Y;
-                        count++;
-                    }
-                }
-            } while (true);
-
-            return new Point(-1, -1);
-        }
-
 		public static void TrainTroops()
 		{
-			Point[] barrackPos = new Point[] { new Point(358, 255), Main.Bot.LocationBarrack2, Main.Bot.LocationBarrack3, Main.Bot.LocationBarrack4 };
+			Point[] barrackPos = new Point[] { Main.Bot.LocationBarrack1, Main.Bot.LocationBarrack2, Main.Bot.LocationBarrack3, Main.Bot.LocationBarrack4 };
 			Point[] darkBarrackPos = new Point[] { Main.Bot.LocationDarkBarrack1, Main.Bot.LocationDarkBarrack2 };
-            bool armyFull = false;
 
-            //if (Main.Bot.IsUseBarracks1 && barrackPos[0].IsEmpty)
-            //{
-            //    Main.Bot.LocateBarracks();
-            //}
+			if (Main.Bot.IsUseBarracks1 && barrackPos[0].IsEmpty)
+			{
+				Main.Bot.LocateBarracks();
+				Thread.Sleep(1000); // TODO: Mephobia: We don't need to sleep, we just make sure the user did his job of locating the CC
+			}
 
-            //if ((Main.Bot.IsUseDarkBarracks1 && darkBarrackPos[0].IsEmpty) || (Main.Bot.IsUseDarkBarracks2 && darkBarrackPos[1].IsEmpty))
-            //{
-            //    Main.Bot.LocateDarkBarracks();
-            //}
+			if ((Main.Bot.IsUseDarkBarracks1 && darkBarrackPos[0].IsEmpty) || (Main.Bot.IsUseDarkBarracks2 && darkBarrackPos[1].IsEmpty))
+			{
+				Main.Bot.LocateDarkBarracks();
+				Thread.Sleep(1000); // // TODO: Mephobia: We don't need to sleep, we just make sure the user did his job of locating the CC
+			}
 
 			Main.Bot.WriteToOutput("Training Troops...");
 
 			for (int i = 0; i < 4; i++)
 			{
-				Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
+				Thread.Sleep(500);
+				Tools.CoCHelper.ClickBad(new Point(1, 1), 1);
 				Thread.Sleep(500);
 
-				Tools.CoCHelper.Click(new Data.DetectablePoint(new Point(barrackPos[i].X, barrackPos[i].Y)), 1);
+				Tools.CoCHelper.ClickBad(new Point(barrackPos[i].X, barrackPos[i].Y), 1);
 				Thread.Sleep(500);
 
-                Point trainPos = GetTrainTroopsButton();
-                
+				ClickablePoint trainPos = Tools.CoCHelper.SearchPixelInRect(155, 603, 694, 605, System.Drawing.Color.FromArgb(96, 56, 24), 5);
+
 				if (trainPos.IsEmpty)
 				{
 					Main.Bot.WriteToOutput(string.Format("Barrack {0} is not available...", i + 1));
+					Thread.Sleep(500);
 				}
 				else
 				{
-                    Tools.MouseHelper.ClickOnPoint2(Tools.BlueStackHelper.GetBlueStackWindowHandle(), trainPos);
+					Tools.CoCHelper.ClickBad(trainPos, 1);
 					Thread.Sleep(500);
 
-					armyFull = CheckFullArmy();
+					CheckFullArmy();
 
-                    if (!armyFull)
-                    {
-                        int barrackId = 0;
+					int barrackId = 0;
 
-                        if (i == 0)
-                            barrackId = Main.Bot.SelectedBarrack1.Id;
-                        else if (i == 1)
-                            barrackId = Main.Bot.SelectedBarrack2.Id;
-                        else if (i == 2)
-                            barrackId = Main.Bot.SelectedBarrack3.Id;
-                        else if (i == 3)
-                            barrackId = Main.Bot.SelectedBarrack4.Id;
+					if (i == 0)
+						barrackId = Main.Bot.SelectedBarrack1.Id;
+					else if (i == 1)
+						barrackId = Main.Bot.SelectedBarrack2.Id;
+					else if (i == 2)
+						barrackId = Main.Bot.SelectedBarrack3.Id;
+					else if (i == 3)
+						barrackId = Main.Bot.SelectedBarrack4.Id;
 
-                        while (TrainIt(barrackId, 5))
-                        {
-                            Thread.Sleep(50);
-                        }
-                    }
-                    else
-                    {
-                        Main.Bot.WriteToOutput("Barracks Full...", GlobalVariables.OutputStates.Normal);
-                    }
+					while (TrainIt(barrackId, 5))
+					{
+						Thread.Sleep(50);
+					}
 				}
 
 				Thread.Sleep(500);
-				Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 250);
+				Tools.CoCHelper.ClickBad(new Point(1, 1), 2, 250);
 			}
 
-            if (!armyFull)
-            {
-                for (int i = 0; i < 2; i++)
-                {
-                    Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
-                    Thread.Sleep(500);
+			for (int i = 0; i < 2; i++)
+			{
+				Thread.Sleep(500);
+				Tools.CoCHelper.ClickBad(new Point(1, 1), 1);
+				Thread.Sleep(500);
 
-                    Tools.CoCHelper.Click(new Data.DetectablePoint(new Point(barrackPos[i].X, barrackPos[i].Y)), 1);
-                    Thread.Sleep(500);
+				Tools.CoCHelper.ClickBad(new Point(darkBarrackPos[i].X, darkBarrackPos[i].Y), 1);
+				Thread.Sleep(500);
 
-                    Point trainPos = GetTrainTroopsButton();
+				ClickablePoint trainPos = Tools.CoCHelper.SearchPixelInRect(155, 603, 694, 605, System.Drawing.Color.FromArgb(96, 56, 24), 5);
 
-                    if (trainPos.IsEmpty)
-                    {
-                        Main.Bot.WriteToOutput(string.Format("Dark Barrack {0} is not available...", i + 1));
-                    }
-                    else
-                    {
-                        Tools.MouseHelper.ClickOnPoint2(Tools.BlueStackHelper.GetBlueStackWindowHandle(), trainPos);
-                        Thread.Sleep(500);
+				if (trainPos.IsEmpty)
+				{
+					Main.Bot.WriteToOutput(string.Format("Dark Barrack {0} is not available...", i + 1));
+					Thread.Sleep(500);
+				}
+				else
+				{
+					Tools.CoCHelper.ClickBad(trainPos, 1);
+					Thread.Sleep(500);
 
-                        // MAKE BARRACKS FULL METHOD!
-                        armyFull = CheckFullArmy();
+					CheckFullArmy();
 
-                        int barrackId = 0;
+					int barrackId = 0;
 
-                        if (i == 0)
-                            barrackId = Main.Bot.SelectedDarkBarrack1.Id;
-                        else if (i == 1)
-                            barrackId = Main.Bot.SelectedDarkBarrack2.Id;
+					if (i == 0)
+						barrackId = Main.Bot.SelectedDarkBarrack1.Id;
+					else if (i == 1)
+						barrackId = Main.Bot.SelectedDarkBarrack2.Id;
 
-                        while (TrainIt(barrackId, 5))
-                        {
-                            Thread.Sleep(50);
-                        }    
-                    }
+					while (TrainIt(barrackId, 5))
+					{
+						Thread.Sleep(50);
+					}
+				}
 
-                    Thread.Sleep(500);
-                    Tools.CoCHelper.ClickBad(new Point(1, 1), 2, 250);
-                }
-            }	
+				Thread.Sleep(500);
+				Tools.CoCHelper.ClickBad(new Point(1, 1), 2, 250);
+			}
 
 			Main.Bot.WriteToOutput("Training Troops Complete...");
 		}
@@ -385,12 +346,14 @@ namespace CoC.Bot.Functions
 		public static bool TrainIt(int troopKind, int count)
 		{
 			Point pos = GetTrainPos(troopKind);
-            bool armyFull = CheckFullArmy();
 
-			if (!pos.IsEmpty && !armyFull)
+			if (!pos.IsEmpty)
 			{
-                Tools.MouseHelper.ClickOnPoint2(Tools.BlueStackHelper.GetBlueStackWindowHandle(), pos, count, 100);
+				//TODO:         If CheckPixel($pos) Then :: I was confused by this conditional because the CheckPixel method says its 1 parameter should be an array[4], but this position variable has a 2 values
+				Tools.CoCHelper.ClickBad(pos, count);
+				Thread.Sleep(500);
 				return true;
+				//TODO:         EndIf
 			}
 
 			return false;

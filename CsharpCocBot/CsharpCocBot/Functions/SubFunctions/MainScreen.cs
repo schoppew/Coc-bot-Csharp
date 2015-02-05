@@ -1,31 +1,33 @@
-﻿namespace CoC.Bot.Functions
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Drawing;
+using System.Threading;
+
+using CoC.Bot.Tools;
+using CoC.Bot.ViewModels;
+using CoC.Bot.Data;
+using MouseAndKeyboard;
+using Point = Win32.POINT;
+
+namespace CoC.Bot.Functions
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Drawing;
-    using System.Threading;
-    using System.Windows.Forms;
-
-    using Tools;
-    using ViewModels;
-	using CoC.Bot.Data;
-
+    
     internal class MainScreen
     {
         public static void CheckMainScreen()
         {
 			Main.Bot.WriteToOutput(Properties.Resources.OutputTryingToLocateMainScreen, GlobalVariables.OutputStates.Information);
 
-            while (!Tools.CoCHelper.CheckPixelColor(ScreenData.IsMain))
+            while (!Tools.CoCHelper.CheckPixelColor(ScreenData.IsMain)) // FIX VARIATION
             {
                 Thread.Sleep(1000);
 
                 if (!CheckObstacles())
                 {
-                    Data.ClickablePoint appPos = new Data.ClickablePoint(GetAppPos());
-                    Tools.CoCHelper.Click(appPos, 1);
+                    Tools.CoCHelper.ClickBad(new Point(126, 700), 1);
+//TODO:             OPEN APP AGAIN
                 }
 
                 WaitForMainScreen();
@@ -34,38 +36,17 @@
 			Main.Bot.WriteToOutput("Main Screen Located", GlobalVariables.OutputStates.Information);
         }
 
-        public static Point GetAppPos()
-        {
-            Point p1 = Tools.FastFind.FastFindHelper.FullScreenPixelSearch(Color.FromArgb(87, 16, 1), 10, true);
-            
-            if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(p1.X + 10, p1.Y + 10), Color.FromArgb(169, 90, 46), 10))
-            {
-                if (Tools.FastFind.FastFindHelper.IsInColorRange(new Point(p1.X - 10, p1.Y - 10), Color.FromArgb(237, 218, 165), 10))
-                {
-                    return p1;
-                }
-            }
-
-            return new Point(-1, -1);
-        }
-
         public static void ZoomOut()
         {
-            Main.Bot.WriteToOutput("Zooming Out", GlobalVariables.OutputStates.Normal);
-
-            for (int i = 0; i < 15; i++)
+            for (int x = 0; x < 5; x++)
             {
-                Thread.Sleep(600);
                 KeyboardHelper.SendVirtualKeyToBS(KeyboardHelper.VirtualKeys.VK_DOWN);
             }
-
-            Main.Bot.WriteToOutput("Zoomed Out", GlobalVariables.OutputStates.Normal);
         }
 
         public static void WaitForMainScreen()
         {
 			Main.Bot.WriteToOutput("Waiting for Main Screen");
-
             for (int i = 0; i < 150; i++)
             {
 				if (!Tools.CoCHelper.CheckPixelColor(ScreenData.IsMain))
@@ -78,6 +59,7 @@
                     return;
             }
 
+			//Other.SetLog("Unable to load Clash of Clans, Restarting...", Color.Red); // TODO: will add colours later
 			Main.Bot.WriteToOutput("Unable to load Clash of Clans, Restarting...");
 //TODO:     OPEN APP AGAIN
             Thread.Sleep(10000);
@@ -165,9 +147,7 @@
                 DateTime now = DateTime.Now;
 				string date = string.Format("{0}.{1}.{2}", now.Day, now.Month, now.Year);
 				string time = string.Format("{0}.{1}", now.Hour, now.Minute);
-
-                Tools.FastFind.FastFindHelper.TakeFullScreenCapture(true);
-				Tools.FastFind.FastFindWrapper.SaveJPG(0, string.Format("{0}/{1} at {2}", GlobalVariables.LogPath, date, time), 100);
+				CoCHelper.MakeFullScreenCapture(string.Format("{0}/{1} at {2}", GlobalVariables.LogPath, date, time));                
             }
 
             Thread.Sleep(2000);

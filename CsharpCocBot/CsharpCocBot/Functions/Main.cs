@@ -8,14 +8,13 @@
 	using System.Text;
 	using System.Threading;
 	using System.Threading.Tasks;
+	using System.Windows;
 	using System.Windows.Media;
-    using System.Drawing;
 
 	using ViewModels;
 
 	using Tools;
 	using Tools.FastFind;
-    using System.Windows.Forms;
 
 	/// <summary>
 	/// The Main entry point for the Bot Functions.
@@ -75,26 +74,26 @@
 			{
 				while (Bot.IsExecuting)
 				{
-                    Bot.ClearOutput();
-
-                    Thread.Sleep(1000);
-                    MainScreen.CheckMainScreen();
-                    Thread.Sleep(1000);
-
-                    MainScreen.ZoomOut();
+					// TODO: Don't forget to call Bot.ClearOutput() otherwise we will end with a very large one.
+					
+					Thread.Sleep(1000);
+					MainScreen.CheckMainScreen();
                     Thread.Sleep(1000);
 
-                    Village.TrainTroops();
+					MainScreen.ZoomOut();
                     Thread.Sleep(1000);
 
-                    //Village.RequestTroops();
-                    //Thread.Sleep(1000);
+					Village.TrainTroops();
+                    Thread.Sleep(1000);
 
-                    //Village.CollectResources();
-                    //Thread.Sleep(1000);
+					Village.RequestTroops();
+                    Thread.Sleep(1000);
 
-                    //Village.Idle();
-                    //Thread.Sleep(1000);
+					Village.CollectResources();
+                    Thread.Sleep(1000);
+
+					Village.Idle();
+                    Thread.Sleep(1000);
 
 					//Attack.AttackMain();
 				};

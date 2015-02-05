@@ -1979,6 +1979,8 @@
         /// </summary>
         private void Start()
         {
+            ClearOutput(); // Clear everything before we start
+
 			// Colored Output test
             //WriteToOutput("this is title.");
             //WriteToOutput("this is another title");
