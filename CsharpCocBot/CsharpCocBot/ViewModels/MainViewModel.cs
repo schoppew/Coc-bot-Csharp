@@ -18,7 +18,7 @@
     using Tools.FastFind;
     using UI.Commands;
 	using UI.Services;
-
+	using Point = Win32.POINT;
     /// <summary>
     /// Provides functionality for the MainWindow
     /// </summary>
@@ -219,91 +219,91 @@
 
         #region Search Settings Properties
 
-        private bool _meetGold;
+        private bool _isMeetGold;
         /// <summary>
         /// Gets or sets a value indicating whether should meet Gold conditions.
         /// </summary>
         /// <value><c>true</c> if should meet Gold conditions; otherwise, <c>false</c>.</value>
-        public bool MeetGold
+        public bool IsMeetGold
         {
-            get { return _meetGold; }
+            get { return _isMeetGold; }
             set
             {
-                if (_meetGold != value)
+                if (_isMeetGold != value)
                 {
-                    _meetGold = value;
+                    _isMeetGold = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        private bool _meetElixir;
+        private bool _isMeetElixir;
         /// <summary>
         /// Gets or sets a value indicating whether should meet Elixir conditions.
         /// </summary>
         /// <value><c>true</c> if should meet Elixir conditions; otherwise, <c>false</c>.</value>
-        public bool MeetElixir
+        public bool IsMeetElixir
         {
-            get { return _meetElixir; }
+            get { return _isMeetElixir; }
             set
             {
-                if (_meetElixir != value)
+                if (_isMeetElixir != value)
                 {
-                    _meetElixir = value;
+                    _isMeetElixir = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        private bool _meetDarkElixir;
+        private bool _isMeetDarkElixir;
         /// <summary>
         /// Gets or sets a value indicating whether should meet Dark Elixir conditions.
         /// </summary>
         /// <value><c>true</c> if should meet Dark Elixir conditions; otherwise, <c>false</c>.</value>
-        public bool MeetDarkElixir
+        public bool IsMeetDarkElixir
         {
-            get { return _meetDarkElixir; }
+            get { return _isMeetDarkElixir; }
             set
             {
-                if (_meetDarkElixir != value)
+                if (_isMeetDarkElixir != value)
                 {
-                    _meetDarkElixir = value;
+                    _isMeetDarkElixir = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        private bool _meetTrophyCount;
+        private bool _isMeetTrophyCount;
         /// <summary>
         /// Gets or sets a value indicating whether should meet Trophy count conditions.
         /// </summary>
         /// <value><c>true</c> if should meet Trophy count conditions; otherwise, <c>false</c>.</value>
-        public bool MeetTrophyCount
+        public bool IsMeetTrophyCount
         {
-            get { return _meetTrophyCount; }
+            get { return _isMeetTrophyCount; }
             set
             {
-                if (_meetTrophyCount != value)
+                if (_isMeetTrophyCount != value)
                 {
-                    _meetTrophyCount = value;
+                    _isMeetTrophyCount = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        private bool _meetTownhallLevel;
+        private bool _isMeetTownhallLevel;
         /// <summary>
         /// Gets or sets a value indicating whether should meet Townhall level conditions.
         /// </summary>
         /// <value><c>true</c> if should meet Townhall level conditions; otherwise, <c>false</c>.</value>
-        public bool MeetTownhallLevel
+        public bool IsMeetTownhallLevel
         {
-            get { return _meetTownhallLevel; }
+            get { return _isMeetTownhallLevel; }
             set
             {
-                if (_meetTownhallLevel != value)
+                if (_isMeetTownhallLevel != value)
                 {
-                    _meetTownhallLevel = value;
+                    _isMeetTownhallLevel = value;
                     OnPropertyChanged();
                 }
             }
@@ -381,19 +381,19 @@
             }
         }
 
-        private int _minimumTownhallLevel;
+        private int _maximumTownhallLevel;
         /// <summary>
         /// Gets or sets the minimum Townhall level.
         /// </summary>
         /// <value>The minimum Townhall level.</value>
-        public int MinimumTownhallLevel
+        public int MaximumTownhallLevel
         {
-            get { return _minimumTownhallLevel; }
+            get { return _maximumTownhallLevel; }
             set
             {
-                if (_minimumTownhallLevel != value)
+                if (_maximumTownhallLevel != value)
                 {
-                    _minimumTownhallLevel = value;
+                    _maximumTownhallLevel = value;
                     OnPropertyChanged();
                 }
             }
@@ -416,6 +416,42 @@
                 }
             }
         }
+
+		private bool _isTakeSnapshotAllTowns;
+		/// <summary>
+		/// Gets or sets a value indicating whether should take a snapshot of all Townhalls.
+		/// </summary>
+		/// <value><c>true</c> if take a snapshot of all Townhalls; otherwise, <c>false</c>.</value>
+		public bool IsTakeSnapshotAllTowns
+		{
+			get { return _isTakeSnapshotAllTowns; }
+			set
+			{
+				if (_isTakeSnapshotAllTowns != value)
+				{
+					_isTakeSnapshotAllTowns = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private bool _isTakeSnapshotAllLoots;
+		/// <summary>
+		/// Gets or sets a value indicating whether should take a snapshot of all Loots.
+		/// </summary>
+		/// <value><c>true</c> if take a snapshot of all Loots; otherwise, <c>false</c>.</value>
+		public bool IsTakeSnapshotAllLoots
+		{
+			get { return _isTakeSnapshotAllLoots; }
+			set
+			{
+				if (_isTakeSnapshotAllLoots != value)
+				{
+					_isTakeSnapshotAllLoots = value;
+					OnPropertyChanged();
+				}
+			}
+		}
 
         #endregion
 
@@ -1236,8 +1272,8 @@
 
 		#region Location Properties
 
-		private System.Drawing.Point _locationClanCastle;
-		public System.Drawing.Point LocationClanCastle
+		private Point _locationClanCastle;
+		public Point LocationClanCastle
 		{
 			get { return _locationClanCastle; }
 			set
@@ -1250,8 +1286,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationBarrack1;
-		public System.Drawing.Point LocationBarrack1
+		private Point _locationBarrack1;
+		public Point LocationBarrack1
 		{
 			get { return _locationBarrack1; }
 			set
@@ -1264,8 +1300,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationBarrack2;
-		public System.Drawing.Point LocationBarrack2
+		private Point _locationBarrack2;
+		public Point LocationBarrack2
 		{
 			get { return _locationBarrack2; }
 			set
@@ -1278,8 +1314,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationBarrack3;
-		public System.Drawing.Point LocationBarrack3
+		private Point _locationBarrack3;
+		public Point LocationBarrack3
 		{
 			get { return _locationBarrack3; }
 			set
@@ -1292,8 +1328,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationBarrack4;
-		public System.Drawing.Point LocationBarrack4
+		private Point _locationBarrack4;
+		public Point LocationBarrack4
 		{
 			get { return _locationBarrack4; }
 			set
@@ -1306,8 +1342,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationDarkBarrack1;
-		public System.Drawing.Point LocationDarkBarrack1
+		private Point _locationDarkBarrack1;
+		public Point LocationDarkBarrack1
 		{
 			get { return _locationDarkBarrack1; }
 			set
@@ -1320,8 +1356,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationDarkBarrack2;
-		public System.Drawing.Point LocationDarkBarrack2
+		private Point _locationDarkBarrack2;
+		public Point LocationDarkBarrack2
 		{
 			get { return _locationDarkBarrack2; }
 			set
@@ -1334,8 +1370,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationAllTrapsRearm;
-		public System.Drawing.Point LocationAllTrapsRearm
+		private Point _locationAllTrapsRearm;
+		public Point LocationAllTrapsRearm
 		{
 			get { return _locationAllTrapsRearm; }
 			set
@@ -1348,8 +1384,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationAllXbowsRearm;
-		public System.Drawing.Point LocationAllXbowsRearm
+		private Point _locationAllXbowsRearm;
+		public Point LocationAllXbowsRearm
 		{
 			get { return _locationAllXbowsRearm; }
 			set
@@ -1362,8 +1398,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector1;
-		public System.Drawing.Point LocationCollector1
+		private Point _locationCollector1;
+		public Point LocationCollector1
 		{
 			get { return _locationCollector1; }
 			set
@@ -1376,8 +1412,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector2;
-		public System.Drawing.Point LocationCollector2
+		private Point _locationCollector2;
+		public Point LocationCollector2
 		{
 			get { return _locationCollector2; }
 			set
@@ -1390,8 +1426,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector3;
-		public System.Drawing.Point LocationCollector3
+		private Point _locationCollector3;
+		public Point LocationCollector3
 		{
 			get { return _locationCollector3; }
 			set
@@ -1404,8 +1440,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector4;
-		public System.Drawing.Point LocationCollector4
+		private Point _locationCollector4;
+		public Point LocationCollector4
 		{
 			get { return _locationCollector4; }
 			set
@@ -1418,8 +1454,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector5;
-		public System.Drawing.Point LocationCollector5
+		private Point _locationCollector5;
+		public Point LocationCollector5
 		{
 			get { return _locationCollector5; }
 			set
@@ -1432,8 +1468,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector6;
-		public System.Drawing.Point LocationCollector6
+		private Point _locationCollector6;
+		public Point LocationCollector6
 		{
 			get { return _locationCollector6; }
 			set
@@ -1446,8 +1482,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector7;
-		public System.Drawing.Point LocationCollector7
+		private Point _locationCollector7;
+		public Point LocationCollector7
 		{
 			get { return _locationCollector7; }
 			set
@@ -1460,8 +1496,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector8;
-		public System.Drawing.Point LocationCollector8
+		private Point _locationCollector8;
+		public Point LocationCollector8
 		{
 			get { return _locationCollector8; }
 			set
@@ -1474,8 +1510,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector9;
-		public System.Drawing.Point LocationCollector9
+		private Point _locationCollector9;
+		public Point LocationCollector9
 		{
 			get { return _locationCollector9; }
 			set
@@ -1488,8 +1524,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector10;
-		public System.Drawing.Point LocationCollector10
+		private Point _locationCollector10;
+		public Point LocationCollector10
 		{
 			get { return _locationCollector10; }
 			set
@@ -1502,8 +1538,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector11;
-		public System.Drawing.Point LocationCollector11
+		private Point _locationCollector11;
+		public Point LocationCollector11
 		{
 			get { return _locationCollector11; }
 			set
@@ -1516,8 +1552,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector12;
-		public System.Drawing.Point LocationCollector12
+		private Point _locationCollector12;
+		public Point LocationCollector12
 		{
 			get { return _locationCollector12; }
 			set
@@ -1530,8 +1566,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector13;
-		public System.Drawing.Point LocationCollector13
+		private Point _locationCollector13;
+		public Point LocationCollector13
 		{
 			get { return _locationCollector13; }
 			set
@@ -1544,8 +1580,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector14;
-		public System.Drawing.Point LocationCollector14
+		private Point _locationCollector14;
+		public Point LocationCollector14
 		{
 			get { return _locationCollector14; }
 			set
@@ -1558,8 +1594,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector15;
-		public System.Drawing.Point LocationCollector15
+		private Point _locationCollector15;
+		public Point LocationCollector15
 		{
 			get { return _locationCollector15; }
 			set
@@ -1572,8 +1608,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector16;
-		public System.Drawing.Point LocationCollector16
+		private Point _locationCollector16;
+		public Point LocationCollector16
 		{
 			get { return _locationCollector16; }
 			set
@@ -1586,8 +1622,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector17;
-		public System.Drawing.Point LocationCollector17
+		private Point _locationCollector17;
+		public Point LocationCollector17
 		{
 			get { return _locationCollector17; }
 			set
@@ -1984,13 +2020,13 @@
         private void HideBlueStacks()
         {
 			WriteToOutput(Properties.Resources.OutputHideBlueStacks);
-			BlueStackHelper.HideBlueStack();
+			BlueStacksHelper.HideBlueStacks();
         }
 
 		private void RestoreBlueStacks()
 		{
 			WriteToOutput(Properties.Resources.OutputRestoreBlueStacks);
-			BlueStackHelper.RestoreBlueStack();
+			BlueStacksHelper.RestoreBlueStacks();
 		}
 
         /// <summary>
@@ -2273,19 +2309,21 @@
             MaxTrophies = AppSettings.MaxTrophies;
 
             // Search Settings
-            MeetGold = AppSettings.MeetGold;
-            MeetElixir = AppSettings.MeetElixir;
-            MeetDarkElixir = AppSettings.MeetDarkElixir;
-            MeetTrophyCount = AppSettings.MeetTrophyCount;
-            MeetTownhallLevel = AppSettings.MeetTownhallLevel;
+            IsMeetGold = AppSettings.IsMeetGold;
+            IsMeetElixir = AppSettings.IsMeetElixir;
+            IsMeetDarkElixir = AppSettings.IsMeetDarkElixir;
+            IsMeetTrophyCount = AppSettings.IsMeetTrophyCount;
+            IsMeetTownhallLevel = AppSettings.IsMeetTownhallLevel;
 
             MinimumGold = AppSettings.MinGold;
             MinimumElixir = AppSettings.MinElixir;
             MinimumDarkElixir = AppSettings.MinDarkElixir;
             MinimumTrophyCount = AppSettings.MinTrophyCount;
-            MinimumTownhallLevel = AppSettings.MinTownhallLevel;
+            MaximumTownhallLevel = AppSettings.MinTownhallLevel;
 
             IsAlertWhenBaseFound = AppSettings.IsAlertWhenBaseFound;
+			IsTakeSnapshotAllTowns = AppSettings.IsTakeSnapshotAllTowns;
+			IsTakeSnapshotAllLoots = AppSettings.IsTakeSnapshotAllLoots;
 
             // Attack Settings
             SelectedMaxCannonLevel = AppSettings.MaxCannonLevel;
@@ -2332,36 +2370,36 @@
 
 			// Location Settings
 			// TODO: Change the type from Windows.Drawing.Point to System.Windows.Point and get rid of the reference
-			LocationClanCastle = AppSettings.LocationClanCastle;
+			LocationClanCastle = AppSettings.LocationClanCastle.ToPOINT();
 
-			LocationBarrack1 = AppSettings.LocationBarrack1;
-			LocationBarrack2 = AppSettings.LocationBarrack2;
-			LocationBarrack3 = AppSettings.LocationBarrack3;
-			LocationBarrack4 = AppSettings.LocationBarrack4;
+			LocationBarrack1 = AppSettings.LocationBarrack1.ToPOINT();
+			LocationBarrack2 = AppSettings.LocationBarrack2.ToPOINT();
+			LocationBarrack3 = AppSettings.LocationBarrack3.ToPOINT();
+			LocationBarrack4 = AppSettings.LocationBarrack4.ToPOINT();
 
-			LocationDarkBarrack1 = AppSettings.LocationDarkBarrack1;
-			LocationDarkBarrack2 = AppSettings.LocationDarkBarrack2;
+			LocationDarkBarrack1 = AppSettings.LocationDarkBarrack1.ToPOINT();
+			LocationDarkBarrack2 = AppSettings.LocationDarkBarrack2.ToPOINT();
 
-			LocationAllTrapsRearm = AppSettings.LocationAllTrapsRearm;
-			LocationAllXbowsRearm = AppSettings.LocationAllXbowsRearm;
+			LocationAllTrapsRearm = AppSettings.LocationAllTrapsRearm.ToPOINT();
+			LocationAllXbowsRearm = AppSettings.LocationAllXbowsRearm.ToPOINT();
 
-			LocationCollector1 = AppSettings.LocationCollector1;
-			LocationCollector2 = AppSettings.LocationCollector2;
-			LocationCollector3 = AppSettings.LocationCollector3;
-			LocationCollector4 = AppSettings.LocationCollector4;
-			LocationCollector5 = AppSettings.LocationCollector5;
-			LocationCollector6 = AppSettings.LocationCollector6;
-			LocationCollector7 = AppSettings.LocationCollector7;
-			LocationCollector8 = AppSettings.LocationCollector8;
-			LocationCollector9 = AppSettings.LocationCollector9;
-			LocationCollector10 = AppSettings.LocationCollector10;
-			LocationCollector11 = AppSettings.LocationCollector11;
-			LocationCollector12 = AppSettings.LocationCollector12;
-			LocationCollector13 = AppSettings.LocationCollector13;
-			LocationCollector14 = AppSettings.LocationCollector14;
-			LocationCollector15 = AppSettings.LocationCollector15;
-			LocationCollector16 = AppSettings.LocationCollector16;
-			LocationCollector17 = AppSettings.LocationCollector17;
+			LocationCollector1 = AppSettings.LocationCollector1.ToPOINT();
+			LocationCollector2 = AppSettings.LocationCollector2.ToPOINT();
+			LocationCollector3 = AppSettings.LocationCollector3.ToPOINT();
+			LocationCollector4 = AppSettings.LocationCollector4.ToPOINT();
+			LocationCollector5 = AppSettings.LocationCollector5.ToPOINT();
+			LocationCollector6 = AppSettings.LocationCollector6.ToPOINT();
+			LocationCollector7 = AppSettings.LocationCollector7.ToPOINT();
+			LocationCollector8 = AppSettings.LocationCollector8.ToPOINT();
+			LocationCollector9 = AppSettings.LocationCollector9.ToPOINT();
+			LocationCollector10 = AppSettings.LocationCollector10.ToPOINT();
+			LocationCollector11 = AppSettings.LocationCollector11.ToPOINT();
+			LocationCollector12 = AppSettings.LocationCollector12.ToPOINT();
+			LocationCollector13 = AppSettings.LocationCollector13.ToPOINT();
+			LocationCollector14 = AppSettings.LocationCollector14.ToPOINT();
+			LocationCollector15 = AppSettings.LocationCollector15.ToPOINT();
+			LocationCollector16 = AppSettings.LocationCollector16.ToPOINT();
+			LocationCollector17 = AppSettings.LocationCollector17.ToPOINT();
         }
 
         /// <summary>
@@ -2373,19 +2411,21 @@
             AppSettings.MaxTrophies = MaxTrophies;
 
             // Search Settings
-            AppSettings.MeetGold = MeetGold;
-            AppSettings.MeetElixir = MeetElixir;
-            AppSettings.MeetDarkElixir = MeetDarkElixir;
-            AppSettings.MeetTrophyCount = MeetTrophyCount;
-            AppSettings.MeetTownhallLevel = MeetTownhallLevel;
+            AppSettings.IsMeetGold = IsMeetGold;
+            AppSettings.IsMeetElixir = IsMeetElixir;
+            AppSettings.IsMeetDarkElixir = IsMeetDarkElixir;
+            AppSettings.IsMeetTrophyCount = IsMeetTrophyCount;
+            AppSettings.IsMeetTownhallLevel = IsMeetTownhallLevel;
 
             AppSettings.MinGold = MinimumGold;
             AppSettings.MinElixir = MinimumElixir;
             AppSettings.MinDarkElixir = MinimumDarkElixir;
             AppSettings.MinTrophyCount = MinimumTrophyCount;
-            AppSettings.MinTownhallLevel = MinimumTownhallLevel;
+            AppSettings.MinTownhallLevel = MaximumTownhallLevel;
 
             AppSettings.IsAlertWhenBaseFound = IsAlertWhenBaseFound;
+			AppSettings.IsTakeSnapshotAllTowns = IsTakeSnapshotAllTowns;
+			AppSettings.IsTakeSnapshotAllLoots = IsTakeSnapshotAllLoots;
 
             // Attack Settings
             AppSettings.MaxCannonLevel = SelectedMaxCannonLevel;
@@ -2526,36 +2566,36 @@
 
 			// Location Settings
 			// TODO: Change the type from Windows.Drawing.Point to System.Windows.Point and get rid of the reference
-			AppSettings.LocationClanCastle = LocationClanCastle;
+			AppSettings.LocationClanCastle = LocationClanCastle.ToPoint();
 
-			AppSettings.LocationBarrack1 = LocationBarrack1;
-			AppSettings.LocationBarrack2 = LocationBarrack2;
-			AppSettings.LocationBarrack3 = LocationBarrack3;
-			AppSettings.LocationBarrack4 = LocationBarrack4;
+			AppSettings.LocationBarrack1 = LocationBarrack1.ToPoint();
+			AppSettings.LocationBarrack2 = LocationBarrack2.ToPoint();
+			AppSettings.LocationBarrack3 = LocationBarrack3.ToPoint();
+			AppSettings.LocationBarrack4 = LocationBarrack4.ToPoint();
 
-			AppSettings.LocationDarkBarrack1 = LocationDarkBarrack1;
-			AppSettings.LocationDarkBarrack2 = LocationDarkBarrack2;
+			AppSettings.LocationDarkBarrack1 = LocationDarkBarrack1.ToPoint();
+			AppSettings.LocationDarkBarrack2 = LocationDarkBarrack2.ToPoint();
 
-			AppSettings.LocationAllTrapsRearm = LocationAllTrapsRearm;
-			AppSettings.LocationAllXbowsRearm = LocationAllXbowsRearm;
+			AppSettings.LocationAllTrapsRearm = LocationAllTrapsRearm.ToPoint();
+			AppSettings.LocationAllXbowsRearm = LocationAllXbowsRearm.ToPoint();
 
-			AppSettings.LocationCollector1 = LocationCollector1;
-			AppSettings.LocationCollector2 = LocationCollector2;
-			AppSettings.LocationCollector3 = LocationCollector3;
-			AppSettings.LocationCollector4 = LocationCollector4;
-			AppSettings.LocationCollector5 = LocationCollector5;
-			AppSettings.LocationCollector6 = LocationCollector6;
-			AppSettings.LocationCollector7 = LocationCollector7;
-			AppSettings.LocationCollector8 = LocationCollector8;
-			AppSettings.LocationCollector9 = LocationCollector9;
-			AppSettings.LocationCollector10 = LocationCollector10;
-			AppSettings.LocationCollector11 = LocationCollector11;
-			AppSettings.LocationCollector12 = LocationCollector12;
-			AppSettings.LocationCollector13 = LocationCollector13;
-			AppSettings.LocationCollector14 = LocationCollector14;
-			AppSettings.LocationCollector15 = LocationCollector15;
-			AppSettings.LocationCollector16 = LocationCollector16;
-			AppSettings.LocationCollector17 = LocationCollector17;
+			AppSettings.LocationCollector1 = LocationCollector1.ToPoint();
+			AppSettings.LocationCollector2 = LocationCollector2.ToPoint();
+			AppSettings.LocationCollector3 = LocationCollector3.ToPoint();
+			AppSettings.LocationCollector4 = LocationCollector4.ToPoint();
+			AppSettings.LocationCollector5 = LocationCollector5.ToPoint();
+			AppSettings.LocationCollector6 = LocationCollector6.ToPoint();
+			AppSettings.LocationCollector7 = LocationCollector7.ToPoint();
+			AppSettings.LocationCollector8 = LocationCollector8.ToPoint();
+			AppSettings.LocationCollector9 = LocationCollector9.ToPoint();
+			AppSettings.LocationCollector10 = LocationCollector10.ToPoint();
+			AppSettings.LocationCollector11 = LocationCollector11.ToPoint();
+			AppSettings.LocationCollector12 = LocationCollector12.ToPoint();
+			AppSettings.LocationCollector13 = LocationCollector13.ToPoint();
+			AppSettings.LocationCollector14 = LocationCollector14.ToPoint();
+			AppSettings.LocationCollector15 = LocationCollector15.ToPoint();
+			AppSettings.LocationCollector16 = LocationCollector16.ToPoint();
+			AppSettings.LocationCollector17 = LocationCollector17.ToPoint();
 
             // Save it!
             AppSettings.Save();

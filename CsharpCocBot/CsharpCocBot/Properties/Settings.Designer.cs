@@ -86,36 +86,36 @@ namespace CoC.Bot.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool MeetGold {
+        public bool IsMeetGold {
             get {
-                return ((bool)(this["MeetGold"]));
+                return ((bool)(this["IsMeetGold"]));
             }
             set {
-                this["MeetGold"] = value;
+                this["IsMeetGold"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool MeetDarkElixir {
+        public bool IsMeetDarkElixir {
             get {
-                return ((bool)(this["MeetDarkElixir"]));
+                return ((bool)(this["IsMeetDarkElixir"]));
             }
             set {
-                this["MeetDarkElixir"] = value;
+                this["IsMeetDarkElixir"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool MeetTrophyCount {
+        public bool IsMeetTrophyCount {
             get {
-                return ((bool)(this["MeetTrophyCount"]));
+                return ((bool)(this["IsMeetTrophyCount"]));
             }
             set {
-                this["MeetTrophyCount"] = value;
+                this["IsMeetTrophyCount"] = value;
             }
         }
         
@@ -169,7 +169,7 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public int SelectedBarrack3 {
             get {
                 return ((int)(this["SelectedBarrack3"]));
@@ -181,7 +181,7 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public int SelectedBarrack4 {
             get {
                 return ((int)(this["SelectedBarrack4"]));
@@ -362,24 +362,24 @@ namespace CoC.Bot.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool MeetElixir {
+        public bool IsMeetElixir {
             get {
-                return ((bool)(this["MeetElixir"]));
+                return ((bool)(this["IsMeetElixir"]));
             }
             set {
-                this["MeetElixir"] = value;
+                this["IsMeetElixir"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool MeetTownhallLevel {
+        public bool IsMeetTownhallLevel {
             get {
-                return ((bool)(this["MeetTownhallLevel"]));
+                return ((bool)(this["IsMeetTownhallLevel"]));
             }
             set {
-                this["MeetTownhallLevel"] = value;
+                this["IsMeetTownhallLevel"] = value;
             }
         }
         
@@ -1489,10 +1489,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationClanCastle {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationClanCastle {
             get {
-                return ((global::System.Drawing.Point)(this["LocationClanCastle"]));
+                return ((global::System.Windows.Point)(this["LocationClanCastle"]));
             }
             set {
                 this["LocationClanCastle"] = value;
@@ -1501,10 +1501,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationBarrack1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationBarrack1 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationBarrack1"]));
+                return ((global::System.Windows.Point)(this["LocationBarrack1"]));
             }
             set {
                 this["LocationBarrack1"] = value;
@@ -1513,10 +1513,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationBarrack2 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationBarrack2 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationBarrack2"]));
+                return ((global::System.Windows.Point)(this["LocationBarrack2"]));
             }
             set {
                 this["LocationBarrack2"] = value;
@@ -1525,10 +1525,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationBarrack3 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationBarrack3 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationBarrack3"]));
+                return ((global::System.Windows.Point)(this["LocationBarrack3"]));
             }
             set {
                 this["LocationBarrack3"] = value;
@@ -1537,10 +1537,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationBarrack4 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationBarrack4 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationBarrack4"]));
+                return ((global::System.Windows.Point)(this["LocationBarrack4"]));
             }
             set {
                 this["LocationBarrack4"] = value;
@@ -1549,10 +1549,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationDarkBarrack1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationDarkBarrack1 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationDarkBarrack1"]));
+                return ((global::System.Windows.Point)(this["LocationDarkBarrack1"]));
             }
             set {
                 this["LocationDarkBarrack1"] = value;
@@ -1561,10 +1561,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationDarkBarrack2 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationDarkBarrack2 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationDarkBarrack2"]));
+                return ((global::System.Windows.Point)(this["LocationDarkBarrack2"]));
             }
             set {
                 this["LocationDarkBarrack2"] = value;
@@ -1573,10 +1573,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationAllTrapsRearm {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationAllTrapsRearm {
             get {
-                return ((global::System.Drawing.Point)(this["LocationAllTrapsRearm"]));
+                return ((global::System.Windows.Point)(this["LocationAllTrapsRearm"]));
             }
             set {
                 this["LocationAllTrapsRearm"] = value;
@@ -1585,10 +1585,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationAllXbowsRearm {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationAllXbowsRearm {
             get {
-                return ((global::System.Drawing.Point)(this["LocationAllXbowsRearm"]));
+                return ((global::System.Windows.Point)(this["LocationAllXbowsRearm"]));
             }
             set {
                 this["LocationAllXbowsRearm"] = value;
@@ -1597,10 +1597,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector1 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector1"]));
+                return ((global::System.Windows.Point)(this["LocationCollector1"]));
             }
             set {
                 this["LocationCollector1"] = value;
@@ -1609,10 +1609,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector2 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector2 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector2"]));
+                return ((global::System.Windows.Point)(this["LocationCollector2"]));
             }
             set {
                 this["LocationCollector2"] = value;
@@ -1621,10 +1621,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector3 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector3 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector3"]));
+                return ((global::System.Windows.Point)(this["LocationCollector3"]));
             }
             set {
                 this["LocationCollector3"] = value;
@@ -1633,10 +1633,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector4 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector4 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector4"]));
+                return ((global::System.Windows.Point)(this["LocationCollector4"]));
             }
             set {
                 this["LocationCollector4"] = value;
@@ -1645,10 +1645,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector5 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector5 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector5"]));
+                return ((global::System.Windows.Point)(this["LocationCollector5"]));
             }
             set {
                 this["LocationCollector5"] = value;
@@ -1657,10 +1657,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector6 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector6 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector6"]));
+                return ((global::System.Windows.Point)(this["LocationCollector6"]));
             }
             set {
                 this["LocationCollector6"] = value;
@@ -1669,10 +1669,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector7 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector7 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector7"]));
+                return ((global::System.Windows.Point)(this["LocationCollector7"]));
             }
             set {
                 this["LocationCollector7"] = value;
@@ -1681,10 +1681,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector8 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector8 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector8"]));
+                return ((global::System.Windows.Point)(this["LocationCollector8"]));
             }
             set {
                 this["LocationCollector8"] = value;
@@ -1693,10 +1693,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector9 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector9 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector9"]));
+                return ((global::System.Windows.Point)(this["LocationCollector9"]));
             }
             set {
                 this["LocationCollector9"] = value;
@@ -1705,10 +1705,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector10 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector10 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector10"]));
+                return ((global::System.Windows.Point)(this["LocationCollector10"]));
             }
             set {
                 this["LocationCollector10"] = value;
@@ -1717,10 +1717,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector11 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector11 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector11"]));
+                return ((global::System.Windows.Point)(this["LocationCollector11"]));
             }
             set {
                 this["LocationCollector11"] = value;
@@ -1729,10 +1729,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector12 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector12 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector12"]));
+                return ((global::System.Windows.Point)(this["LocationCollector12"]));
             }
             set {
                 this["LocationCollector12"] = value;
@@ -1741,10 +1741,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector13 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector13 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector13"]));
+                return ((global::System.Windows.Point)(this["LocationCollector13"]));
             }
             set {
                 this["LocationCollector13"] = value;
@@ -1753,10 +1753,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector14 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector14 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector14"]));
+                return ((global::System.Windows.Point)(this["LocationCollector14"]));
             }
             set {
                 this["LocationCollector14"] = value;
@@ -1765,10 +1765,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector15 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector15 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector15"]));
+                return ((global::System.Windows.Point)(this["LocationCollector15"]));
             }
             set {
                 this["LocationCollector15"] = value;
@@ -1777,10 +1777,10 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector16 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector16 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector16"]));
+                return ((global::System.Windows.Point)(this["LocationCollector16"]));
             }
             set {
                 this["LocationCollector16"] = value;
@@ -1789,13 +1789,37 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
-        public global::System.Drawing.Point LocationCollector17 {
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationCollector17 {
             get {
-                return ((global::System.Drawing.Point)(this["LocationCollector17"]));
+                return ((global::System.Windows.Point)(this["LocationCollector17"]));
             }
             set {
                 this["LocationCollector17"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsTakeSnapshotAllTowns {
+            get {
+                return ((bool)(this["IsTakeSnapshotAllTowns"]));
+            }
+            set {
+                this["IsTakeSnapshotAllTowns"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsTakeSnapshotAllLoots {
+            get {
+                return ((bool)(this["IsTakeSnapshotAllLoots"]));
+            }
+            set {
+                this["IsTakeSnapshotAllLoots"] = value;
             }
         }
     }

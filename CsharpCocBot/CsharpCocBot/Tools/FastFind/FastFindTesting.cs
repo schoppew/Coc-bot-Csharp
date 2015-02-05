@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using FastFind;
 
 namespace CoC.Bot.Tools.FastFind
 {
@@ -14,7 +15,7 @@ namespace CoC.Bot.Tools.FastFind
 		const string smallSize = "SmallSize";
 		static public void Test()
 		{
-			FastFindWrapper.SetHWnd(BlueStackHelper.GetBlueStackWindowHandle(), true); // Bind FastFind with BlueStack window
+			FastFindWrapper.SetHWnd(BlueStacksHelper.GetBlueStacksWindowHandle(), true); // Bind FastFind with BlueStack window
 			FastFindWrapper.SnapShot(0, 0, 860, 720, 0); // Take full window capture
 			FastFindWrapper.SnapShot(200, 200, 600, 500, 1); // Take just a small part
 			FastFindWrapper.SetDebugMode(FastFindWrapper.DEBUG_SYSTEM_ERROR); // Console and File - Detailed System Message
@@ -42,11 +43,11 @@ namespace CoC.Bot.Tools.FastFind
 			//string lastFileName = fullSize + "(2)";
 			//if (!FastFindWrapper.SaveJPG(2, lastFileName, 100))
 			//	MessageBox.Show("Failed to resave full BS capture");
-			var sc = new ScreenCapture();
+			var sc = new ExtBitmap.ExtBitmap();
 			sc.SnapShot(true);
-			sc.SaveCurrentSnapShotToFile("SC_True.jpg");
+			sc.Save("SC_True.jpg");
 			sc.SnapShot(false);
-			sc.SaveCurrentSnapShotToFile("SC_False.jpg");
+			sc.Save("SC_False.jpg");
 		}
 	}
 }

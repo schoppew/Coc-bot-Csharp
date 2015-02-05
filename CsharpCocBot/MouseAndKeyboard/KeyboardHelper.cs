@@ -7,11 +7,33 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace CoC.Bot.Tools
+namespace MouseAndKeyboard
 {
     public static class KeyboardHelper
-    {
-        const uint WM_KEYDOWN = 0x0100;
+	{
+		#region Window handle provider
+		public delegate IntPtr HandleProvider();
+		static HandleProvider CustomProvider = null;
+
+		/// <summary>
+		/// Use this method to provide a the proper Window Handle to bind with the right window.
+		/// If you don't set this, then FastFind will work on FullScreen. 
+		/// </summary>
+		/// <param name="provider"></param>
+		static public void SetHWndProvider(HandleProvider provider)
+		{
+			CustomProvider = provider;
+		}
+
+		static IntPtr GetHWnd()
+		{
+			if (CustomProvider != null) return CustomProvider();
+			return IntPtr.Zero;
+		}
+		#endregion Window handle provider
+
+
+		const uint WM_KEYDOWN = 0x0100;
         const uint WM_KEYUP = 0x0101;
         const uint WM_CHAR = 0x0102;
 
@@ -211,11 +233,11 @@ namespace CoC.Bot.Tools
             {
                 if (AdvancedMode)
                 {
-                    VirtualKeys vk = (VirtualKeys)Win32.VkKeyScan((char)letter);
+                    VirtualKeys vk = (VirtualKeys)Win32.Win32.VkKeyScan((char)letter);
                     SendVirtualKey(hWnd, vk);
                 }
                 else
-                    Win32.PostMessage(hWnd, WM_CHAR, (IntPtr)letter, IntPtr.Zero);
+                    Win32.Win32.PostMessage(hWnd, WM_CHAR, (IntPtr)letter, IntPtr.Zero);
             }
         }
 
@@ -223,34 +245,34 @@ namespace CoC.Bot.Tools
         {
             IntPtr wParam = (IntPtr)(((short)vk) & 0xFF);
             IntPtr lParam = (IntPtr)1;
-            lParam += (int)(Win32.MapVirtualKey((uint)wParam, Win32.MAPVK_VK_TO_VSC) << 16);
+            lParam += (int)(Win32.Win32.MapVirtualKey((uint)wParam, Win32.Win32.MAPVK_VK_TO_VSC) << 16);
             bool shift = ((int)vk & 0x0100) == 0x0100 ? true : false;
-            if (shift) Win32.PostMessage(hWnd, WM_KEYDOWN, (IntPtr)VirtualKeys.VK_LSHIFT, (IntPtr)0);
-            Win32.PostMessage(hWnd, WM_KEYDOWN, wParam, lParam);
+			if (shift) Win32.Win32.PostMessage(hWnd, WM_KEYDOWN, (IntPtr)VirtualKeys.VK_LSHIFT, (IntPtr)0);
+			Win32.Win32.PostMessage(hWnd, WM_KEYDOWN, wParam, lParam);
             Thread.Sleep(5);
             lParam += 1 << 30;
             lParam += 1 << 31;
-            Win32.PostMessage(hWnd, WM_KEYUP, wParam, lParam);
-            if (shift) Win32.PostMessage(hWnd, WM_KEYUP, (IntPtr)VirtualKeys.VK_LSHIFT, (IntPtr)0);
+			Win32.Win32.PostMessage(hWnd, WM_KEYUP, wParam, lParam);
+			if (shift) Win32.Win32.PostMessage(hWnd, WM_KEYUP, (IntPtr)VirtualKeys.VK_LSHIFT, (IntPtr)0);
             Thread.Sleep(5);
 
         }
 
         static public void SendVirtualKeyToBS(VirtualKeys vk)
         {
-            SendVirtualKey(BlueStackHelper.GetBlueStackWindowHandle(), vk);
+            SendVirtualKey(GetHWnd(), vk);
         }
 
         static public void SendToBS(string message)
         {
-            Send(BlueStackHelper.GetBlueStackWindowHandle(), message);
+            Send(GetHWnd(), message);
         }
 
 
         static public void NotePadTest()
         {
-            IntPtr hWnd = Win32.FindWindow("Notepad", null);
-            hWnd = Win32.FindWindowEx(hWnd, IntPtr.Zero, "Edit", null);
+			IntPtr hWnd = Win32.Win32.FindWindow("Notepad", null);
+			hWnd = Win32.Win32.FindWindowEx(hWnd, IntPtr.Zero, "Edit", null);
             if (hWnd == IntPtr.Zero)
                 MessageBox.Show("You should start a notepad first before running this test");
             else
@@ -262,7 +284,7 @@ namespace CoC.Bot.Tools
 
         static public void BSTest()
         {
-            IntPtr hWnd = BlueStackHelper.GetBlueStackWindowHandle();//Win32.FindWindow("Notepad", null);
+            IntPtr hWnd = GetHWnd();//Win32.FindWindow("Notepad", null);
             AdvancedMode = true;
             if (hWnd == IntPtr.Zero)
                 MessageBox.Show("You should run BlueStack first before trying this test");
@@ -273,7 +295,7 @@ namespace CoC.Bot.Tools
         }
         static public void BSTest2()
         {
-            IntPtr hWnd = BlueStackHelper.GetBlueStackWindowHandle();//Win32.FindWindow("Notepad", null);
+            IntPtr hWnd = GetHWnd();//Win32.FindWindow("Notepad", null);
             AdvancedMode = false;
             if (hWnd == IntPtr.Zero)
                 MessageBox.Show("You should run BlueStack first before trying this test");

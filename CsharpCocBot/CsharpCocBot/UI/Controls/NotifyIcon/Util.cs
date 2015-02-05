@@ -20,19 +20,20 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 //
 // THIS COPYRIGHT NOTICE MAY NOT BE REMOVED FROM THIS FILE
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Resources;
+using System.Windows.Threading;
+using Win32;
+
+//using UI.Controls.NotifyIcon.Interop;
 
 namespace CoC.Bot.UI.Controls.NotifyIcon
 {
-	using System;
-	using System.ComponentModel;
-	using System.Drawing;
-	using System.Windows;
-	using System.Windows.Input;
-	using System.Windows.Media;
-	using System.Windows.Resources;
-	using System.Windows.Threading;
-
-	using UI.Controls.NotifyIcon.Interop;
 
 	/// <summary>
 	/// Util and extension methods.
@@ -125,7 +126,7 @@ namespace CoC.Bot.UI.Controls.NotifyIcon
 			data.ValidMembers = flags;
 			lock (SyncRoot)
 			{
-				return WinApi.Shell_NotifyIcon(command, ref data);
+				return Win32.Win32.Shell_NotifyIcon(command, ref data);
 			}
 		}
 

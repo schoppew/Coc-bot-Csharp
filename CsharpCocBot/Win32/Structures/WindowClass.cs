@@ -1,8 +1,8 @@
-﻿namespace CoC.Bot.UI.Controls.NotifyIcon.Interop
-{
-	using System;
-	using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 
+namespace Win32
+{
 	/// <summary>
 	/// Callback delegate which is used by the Windows API to
 	/// submit window messages.

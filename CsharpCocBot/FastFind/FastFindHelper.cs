@@ -5,9 +5,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoC.Bot.Data;
+using Point = Win32.POINT;
 
-namespace CoC.Bot.Tools.FastFind
+namespace FastFind
 {
     static public class FastFindHelper
     {
@@ -15,6 +15,26 @@ namespace CoC.Bot.Tools.FastFind
         const int MINIMUM_DELAY_BETWEEN_CAPTURES = 1000;
         public const int DEFAULT_SNAP = 0;
         public const int CUSTOM_SNAP = 0;
+		#region Window handle provider
+		public delegate IntPtr HandleProvider();
+		static HandleProvider CustomProvider = null;
+
+		/// <summary>
+		/// Use this method to provide a the proper Window Handle to bind with the right window.
+		/// If you don't set this, then FastFind will work on FullScreen. 
+		/// </summary>
+		/// <param name="provider"></param>
+		static public void SetHWndProvider(HandleProvider provider)
+		{
+			CustomProvider = provider;
+		}
+
+		static IntPtr GetHWnd()
+		{
+			if (CustomProvider != null) return CustomProvider();
+			return IntPtr.Zero;
+		}
+		#endregion Window handle provider
 
 
         static private Stopwatch lastFullCapture = null;
@@ -27,7 +47,7 @@ namespace CoC.Bot.Tools.FastFind
         {
             if ((lastFullCapture != null && lastFullCapture.ElapsedMilliseconds > MINIMUM_DELAY_BETWEEN_CAPTURES) || forceNew)
             {
-                FastFindWrapper.SetHWnd(BlueStackHelper.GetBlueStackWindowHandle(), true); // Bind FastFind with BlueStack window, considers only ClientArea
+				FastFindWrapper.SetHWnd(GetHWnd(), true); // Bind FastFind with BlueStack window, considers only ClientArea
                 if (FastFindWrapper.SnapShot(0, 0, 0, 0, DEFAULT_SNAP) == 0)
                 {
                     lastFullCapture = null;
@@ -43,9 +63,9 @@ namespace CoC.Bot.Tools.FastFind
         /// Takes a screen shot of the full client area of the BlueStack window
         /// </summary>
         /// <returns></returns>
-        static private bool TakeCustomCapture(int left, int top, int right, int bottom)
+		static private bool TakeCustomCapture(int left, int top, int right, int bottom)
         {
-            FastFindWrapper.SetHWnd(BlueStackHelper.GetBlueStackWindowHandle(), true); // Bind FastFind with BlueStack window, considers only ClientArea
+			FastFindWrapper.SetHWnd(GetHWnd(), true); // Bind FastFind with BlueStack window, considers only ClientArea
             if (FastFindWrapper.SnapShot(left, top, right, bottom, CUSTOM_SNAP) == 0)
             {
                 Debug.Assert(false, "FF Capture failed");
@@ -62,7 +82,7 @@ namespace CoC.Bot.Tools.FastFind
         /// <param name="y"></param>
         /// <param name="forceCapture">If set to true, then a new Capture of the full client area will be done first</param>
         /// <returns>A C# Color structure representing the color of that pixel. Returns Color.Empty as an error</returns>
-        static public Color GetPixelColor(int x, int y, bool forceCapture = false)
+		static public Color GetPixelColor(int x, int y, bool forceCapture = false)
         {
             if (!TakeFullScreenCapture(forceCapture)) return Color.Empty;
             int value = FastFindWrapper.GetPixel(x, y, DEFAULT_SNAP);
@@ -76,7 +96,7 @@ namespace CoC.Bot.Tools.FastFind
         /// <param name="point"></param>
         /// <param name="forceCapture">If set to true, then a new Capture of the full client area will be done first</param>
         /// <returns>A C# Color structure representing the color of that pixel. Returns Color.Empty as an error</returns>
-        static public Color GetPixelColor(Point point, bool forceCapture = false)
+		static public Color GetPixelColor(Point point, bool forceCapture = false)
         {
             if (!TakeFullScreenCapture(forceCapture)) return Color.Empty;
             int value = FastFindWrapper.GetPixel(point.X, point.Y, DEFAULT_SNAP);
@@ -90,7 +110,7 @@ namespace CoC.Bot.Tools.FastFind
         /// <param name="point"></param>
         /// <param name="forceCapture">If set to true, then a new Capture of the full client area will be done first</param>
         /// <returns>An int 0x00RRGGBB, or -1 as an error</returns>
-        static public int GetPixel(Point point, bool forceCapture = false)
+		static public int GetPixel(Point point, bool forceCapture = false)
         {
             if (!TakeFullScreenCapture(forceCapture)) return -1;
             return FastFindWrapper.GetPixel(point.X, point.Y, DEFAULT_SNAP);
@@ -104,7 +124,7 @@ namespace CoC.Bot.Tools.FastFind
         /// <param name="y"></param>
         /// <param name="forceCapture">If set to true, then a new Capture of the full client area will be done first</param>
         /// <returns>An int 0x00RRGGBB, or -1 as an error</returns>
-        static public int GetPixel(int x, int y, bool forceCapture = false)
+		static public int GetPixel(int x, int y, bool forceCapture = false)
         {
             if (!TakeFullScreenCapture(forceCapture)) return -1;
             return FastFindWrapper.GetPixel(x, y, DEFAULT_SNAP);
@@ -147,6 +167,13 @@ namespace CoC.Bot.Tools.FastFind
             return new Point(xRef, yRef);
         }
 
+		static void SetColors(List<int> colors)
+		{
+			FastFindWrapper.ResetColors();
+			foreach (int color in colors)
+				FastFindWrapper.AddColor(color);            
+		}
+
         /// <summary>
         /// Beware: do not use this function extensively, at it does a screen shot each time. 
         /// </summary>
@@ -158,12 +185,10 @@ namespace CoC.Bot.Tools.FastFind
         /// <param name="variation"></param>
         /// <param name="forceCapture"></param>
         /// <returns></returns>
-		static public Point PixelSearch(int left, int top, int right, int bottom, ColorSet colors, int variation)
+		static public Point PixelSearch(int left, int top, int right, int bottom, List<int> colors, int variation)
         {
             if (!TakeCustomCapture(left, top, right, bottom)) return Point.Empty;
-            FastFindWrapper.ResetColors();
-            foreach (Color color in colors)
-                FastFindWrapper.AddColor(color.ToArgb());
+            SetColors(colors);                
             int xRef = (left + right) / 2, yRef = (top + bottom) / 2;
             if (FastFindWrapper.ColorsPixelSearch(ref xRef, ref yRef, CUSTOM_SNAP) == 0) return Point.Empty;
             return new Point(xRef, yRef);
@@ -180,20 +205,18 @@ namespace CoC.Bot.Tools.FastFind
         /// <param name="variation"></param>
         /// <param name="forceCapture"></param>
         /// <returns></returns>
-		static public Point FullScreenPixelSearch(ColorSet colors, int variation, bool forceCapture = false)
+		static public Point FullScreenPixelSearch(List<int> colors, int variation, bool forceCapture = false)
         {
             if (!TakeFullScreenCapture(forceCapture)) return Point.Empty;
-            FastFindWrapper.ResetColors();
-            foreach (Color color in colors)
-                FastFindWrapper.AddColor(color.ToArgb());
-            int xRef = 0, yRef = 0;
+			SetColors(colors);				
+			int xRef = 0, yRef = 0;
             if (FastFindWrapper.ColorsPixelSearch(ref xRef, ref yRef, DEFAULT_SNAP) == 0) return Point.Empty;
             return new Point(xRef, yRef);
         }
 
         static private bool IsInShadeVariation(int PixelColor, int ColorToFind, int ShadeVariation)
         {
-            if (ShadeVariation <= 0) return PixelColor == ColorToFind;
+			if (ShadeVariation <= 0) return (PixelColor & 0x00FFFFFF) == (ColorToFind & 0x00FFFFFF);
             return (Math.Abs(((int)PixelColor & 0x00FF0000) - ((int)ColorToFind & 0x00FF0000)) >> 16 <= ShadeVariation) &&
                     (Math.Abs(((int)PixelColor & 0x0000FF00) - ((int)ColorToFind & 0x0000FF00)) >> 8 <= ShadeVariation) &&
                     (Math.Abs(((int)PixelColor & 0x000000FF) - ((int)ColorToFind & 0x000000FF)) <= ShadeVariation);
@@ -202,8 +225,6 @@ namespace CoC.Bot.Tools.FastFind
         static public bool IsInColorRange(Point point, Color color, int shadeVariation = 0)
         {
             int pixel = GetPixel(point);
-            if (shadeVariation == 0)
-                return pixel == color.ToArgb();
             return IsInShadeVariation(pixel, color.ToArgb(), shadeVariation);
         }
 

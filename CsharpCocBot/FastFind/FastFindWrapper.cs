@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace CoC.Bot.Tools.FastFind
+namespace FastFind
 {
   static public class FastFindWrapper
   {

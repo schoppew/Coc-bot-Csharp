@@ -1,4 +1,4 @@
-﻿namespace CoC.Bot.UI.Controls.NotifyIcon.Interop
+﻿namespace Win32
 {
 	/// <summary>
 	/// Flags that define the icon that is shown on a balloon

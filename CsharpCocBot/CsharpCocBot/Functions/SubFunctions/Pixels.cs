@@ -29,23 +29,14 @@ namespace CoC.Bot.Functions
             return false;
         }
 
-      public static Color GetPixelColor(int _x, int _y)
-      {
-          return FastFindHelper.GetPixelColor(_x, _y);
-          //return Color.Fuchsia; // lol
-      }
-
+      
         [Obsolete("This method is deprecated. Have to recode this, the structure used in the Autoit project is much too clumsy. Use")]
         public static Point MultiPixelSearch(int left, int top, int right, int bottom, int xSkip, int ySkip, Color color1, Object[] offColor, int variation)
         {
             return new Point(-1, -1);
         }
 
-        public static Point PixelSearch(int left, int top, int right, int bottom, Color color1, int variation)
-        {
-            return FastFindHelper.PixelSearch(left, top, right, bottom, color1, variation);
-        }
-
+        
 
         [Obsolete("Have to be coded first. Is it that useful?!")]
         public static bool BoolPixelSearch(Point pixel1, Point pixel2, Point pixel3, int variation = 10)

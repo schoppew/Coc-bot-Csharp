@@ -1,4 +1,4 @@
-﻿namespace CoC.Bot.UI.Controls.NotifyIcon.Interop
+﻿namespace Win32
 {
 	using System;
 	using System.Runtime.InteropServices;
@@ -124,7 +124,7 @@
 		/// </summary>
 		/// <param name="handle"></param>
 		/// <returns></returns>
-		public static NotifyIconData CreateDefault(IntPtr handle)
+		public static NotifyIconData CreateDefault(IntPtr handle, uint callbackMessageId)
 		{
 			var data = new NotifyIconData();
 
@@ -145,7 +145,7 @@
 
 			data.WindowHandle = handle;
 			data.TaskbarIconId = 0x0;
-			data.CallbackMessageId = WindowMessageSink.CallbackMessageId;
+			data.CallbackMessageId = callbackMessageId;
 			data.VersionOrTimeout = (uint)NotifyIconVersion.Win95;
 
 			data.IconHandle = IntPtr.Zero;

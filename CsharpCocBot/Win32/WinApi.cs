@@ -6,7 +6,7 @@
 	/// <summary>
 	/// Win32 API imports.
 	/// </summary>
-	internal static class WinApi
+	internal static class _WinApi
 	{
 		/// <summary>
 		/// Creates, updates or deletes the taskbar icon.

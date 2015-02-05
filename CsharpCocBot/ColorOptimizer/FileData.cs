@@ -11,7 +11,7 @@ namespace ColorOptimizer
 		public FileData(string fileName)
 		{
 			FileName = fileName;
-			using (ExtBitmap bitmap = new ExtBitmap())
+			using (ExtBitmap.ExtBitmap bitmap = new ExtBitmap.ExtBitmap())
 			{
 				if (!bitmap.LoadFromFile(fileName))
 					OK = false;

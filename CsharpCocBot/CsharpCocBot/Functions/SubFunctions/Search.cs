@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
-
+using Point = Win32.POINT;
 namespace CoC.Bot.Functions
 {
     class Search
