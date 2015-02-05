@@ -86,14 +86,14 @@
 					Village.TrainTroops();
                     Thread.Sleep(1000);
 
-					Village.RequestTroops();
-                    Thread.Sleep(1000);
+                    //Village.RequestTroops();
+                    //Thread.Sleep(1000);
 
-					Village.CollectResources();
-                    Thread.Sleep(1000);
+                    //Village.CollectResources();
+                    //Thread.Sleep(1000);
 
-					Village.Idle();
-                    Thread.Sleep(1000);
+                    //Village.Idle();
+                    //Thread.Sleep(1000);
 
 					//Attack.AttackMain();
 				};

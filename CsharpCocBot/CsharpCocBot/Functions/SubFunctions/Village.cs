@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using CoC.Bot.Data;
-using System.Windows.Media;
 using MouseAndKeyboard;
 using Point = Win32.POINT;
 
@@ -237,170 +236,209 @@ namespace CoC.Bot.Functions
 			}
 		}
 
-		public static void TrainTroops()
-		{
-			Point[] barrackPos = new Point[] { Main.Bot.LocationBarrack1, Main.Bot.LocationBarrack2, Main.Bot.LocationBarrack3, Main.Bot.LocationBarrack4 };
-			Point[] darkBarrackPos = new Point[] { Main.Bot.LocationDarkBarrack1, Main.Bot.LocationDarkBarrack2 };
+        public static Point GetTrainTroopsButton()
+        {
+            //196, 558, 469, 85
+            int left = 196;
+            int top = 558;
+            int right = 665;
+            int bottom = 643;
+            int count = 0;
 
-			if (Main.Bot.IsUseBarracks1 && barrackPos[0].IsEmpty)
-			{
-				Main.Bot.LocateBarracks();
-				Thread.Sleep(1000); // TODO: Mephobia: We don't need to sleep, we just make sure the user did his job of locating the CC
-			}
+            do
+            {
+                Point p1 = FastFind.FastFindHelper.PixelSearch(left, top, right, bottom, Color.FromArgb(67, 38, 3), 4);
 
-			if ((Main.Bot.IsUseDarkBarracks1 && darkBarrackPos[0].IsEmpty) || (Main.Bot.IsUseDarkBarracks2 && darkBarrackPos[1].IsEmpty))
-			{
-				Main.Bot.LocateDarkBarracks();
-				Thread.Sleep(1000); // // TODO: Mephobia: We don't need to sleep, we just make sure the user did his job of locating the CC
-			}
+                if (FastFind.FastFindHelper.IsInColorRange(new Point(p1.X, p1.Y + 10), Color.FromArgb(255, 255, 255), 4))
+                {
+                    return p1;
+                }
+                else
+                {
+                    if (count >= 6)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        left = p1.X;
+                        top = p1.Y;
+                        count++;
+                    }
+                }
+            } while (true);
 
-			Main.Bot.WriteToOutput("Training Troops...");
+            return new Point(-1, -1);
+        }
 
-			for (int i = 0; i < 4; i++)
-			{
-				Thread.Sleep(500);
-				Tools.CoCHelper.ClickBad(new Point(1, 1), 1);
-				Thread.Sleep(500);
+        public static void TrainTroops()
+        {
+            Point[] barrackPos = new Point[] { new Point(358, 255), Main.Bot.LocationBarrack2, Main.Bot.LocationBarrack3, Main.Bot.LocationBarrack4 };
+            Point[] darkBarrackPos = new Point[] { Main.Bot.LocationDarkBarrack1, Main.Bot.LocationDarkBarrack2 };
+            bool armyFull = false;
 
-				Tools.CoCHelper.ClickBad(new Point(barrackPos[i].X, barrackPos[i].Y), 1);
-				Thread.Sleep(500);
+            //if (Main.Bot.IsUseBarracks1 && barrackPos[0].IsEmpty)
+            //{
+            //    Main.Bot.LocateBarracks();
+            //}
 
-				ClickablePoint trainPos = Tools.CoCHelper.SearchPixelInRect(155, 603, 694, 605, System.Drawing.Color.FromArgb(96, 56, 24), 5);
+            //if ((Main.Bot.IsUseDarkBarracks1 && darkBarrackPos[0].IsEmpty) || (Main.Bot.IsUseDarkBarracks2 && darkBarrackPos[1].IsEmpty))
+            //{
+            //    Main.Bot.LocateDarkBarracks();
+            //}
 
-				if (trainPos.IsEmpty)
-				{
-					Main.Bot.WriteToOutput(string.Format("Barrack {0} is not available...", i + 1));
-					Thread.Sleep(500);
-				}
-				else
-				{
-					Tools.CoCHelper.ClickBad(trainPos, 1);
-					Thread.Sleep(500);
+            Main.Bot.WriteToOutput("Training Troops...");
 
-					CheckFullArmy();
+            for (int i = 0; i < 4; i++)
+            {
+                Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
+                Thread.Sleep(500);
 
-					int barrackId = 0;
+                Tools.CoCHelper.Click(new Data.DetectablePoint(new Point(barrackPos[i].X, barrackPos[i].Y)), 1);
+                Thread.Sleep(500);
 
-					if (i == 0)
-						barrackId = Main.Bot.SelectedBarrack1.Id;
-					else if (i == 1)
-						barrackId = Main.Bot.SelectedBarrack2.Id;
-					else if (i == 2)
-						barrackId = Main.Bot.SelectedBarrack3.Id;
-					else if (i == 3)
-						barrackId = Main.Bot.SelectedBarrack4.Id;
+                Point trainPos = GetTrainTroopsButton();
 
-					while (TrainIt(barrackId, 5))
-					{
-						Thread.Sleep(50);
-					}
-				}
+                if (trainPos.IsEmpty)
+                {
+                    Main.Bot.WriteToOutput(string.Format("Barrack {0} is not available...", i + 1));
+                }
+                else
+                {
+                    MouseHelper.ClickOnPoint2(Tools.BlueStacksHelper.GetBlueStacksWindowHandle(), trainPos);
+                    Thread.Sleep(500);
 
-				Thread.Sleep(500);
-				Tools.CoCHelper.ClickBad(new Point(1, 1), 2, 250);
-			}
+                    armyFull = CheckFullArmy();
 
-			for (int i = 0; i < 2; i++)
-			{
-				Thread.Sleep(500);
-				Tools.CoCHelper.ClickBad(new Point(1, 1), 1);
-				Thread.Sleep(500);
+                    if (!armyFull)
+                    {
+                        int barrackId = 0;
 
-				Tools.CoCHelper.ClickBad(new Point(darkBarrackPos[i].X, darkBarrackPos[i].Y), 1);
-				Thread.Sleep(500);
+                        if (i == 0)
+                            barrackId = Main.Bot.SelectedBarrack1.Id;
+                        else if (i == 1)
+                            barrackId = Main.Bot.SelectedBarrack2.Id;
+                        else if (i == 2)
+                            barrackId = Main.Bot.SelectedBarrack3.Id;
+                        else if (i == 3)
+                            barrackId = Main.Bot.SelectedBarrack4.Id;
 
-				ClickablePoint trainPos = Tools.CoCHelper.SearchPixelInRect(155, 603, 694, 605, System.Drawing.Color.FromArgb(96, 56, 24), 5);
+                        while (TrainIt(barrackId, 5))
+                        {
+                            Thread.Sleep(50);
+                        }
+                    }
+                    else
+                    {
+                        Main.Bot.WriteToOutput("Barracks Full...", GlobalVariables.OutputStates.Normal);
+                    }
+                }
 
-				if (trainPos.IsEmpty)
-				{
-					Main.Bot.WriteToOutput(string.Format("Dark Barrack {0} is not available...", i + 1));
-					Thread.Sleep(500);
-				}
-				else
-				{
-					Tools.CoCHelper.ClickBad(trainPos, 1);
-					Thread.Sleep(500);
+                Thread.Sleep(500);
+                Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 250);
+            }
 
-					CheckFullArmy();
+            if (!armyFull)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
+                    Thread.Sleep(500);
 
-					int barrackId = 0;
+                    Tools.CoCHelper.Click(new Data.DetectablePoint(new Point(barrackPos[i].X, barrackPos[i].Y)), 1);
+                    Thread.Sleep(500);
 
-					if (i == 0)
-						barrackId = Main.Bot.SelectedDarkBarrack1.Id;
-					else if (i == 1)
-						barrackId = Main.Bot.SelectedDarkBarrack2.Id;
+                    Point trainPos = GetTrainTroopsButton();
 
-					while (TrainIt(barrackId, 5))
-					{
-						Thread.Sleep(50);
-					}
-				}
+                    if (trainPos.IsEmpty)
+                    {
+                        Main.Bot.WriteToOutput(string.Format("Dark Barrack {0} is not available...", i + 1));
+                    }
+                    else
+                    {
+                        MouseHelper.ClickOnPoint2(Tools.BlueStacksHelper.GetBlueStacksWindowHandle(), trainPos);
+                        Thread.Sleep(500);
 
-				Thread.Sleep(500);
-				Tools.CoCHelper.ClickBad(new Point(1, 1), 2, 250);
-			}
+                        // MAKE BARRACKS FULL METHOD!
+                        armyFull = CheckFullArmy();
 
-			Main.Bot.WriteToOutput("Training Troops Complete...");
-		}
+                        int barrackId = 0;
 
-		public static bool TrainIt(int troopKind, int count)
-		{
-			Point pos = GetTrainPos(troopKind);
+                        if (i == 0)
+                            barrackId = Main.Bot.SelectedDarkBarrack1.Id;
+                        else if (i == 1)
+                            barrackId = Main.Bot.SelectedDarkBarrack2.Id;
 
-			if (!pos.IsEmpty)
-			{
-				//TODO:         If CheckPixel($pos) Then :: I was confused by this conditional because the CheckPixel method says its 1 parameter should be an array[4], but this position variable has a 2 values
-				Tools.CoCHelper.ClickBad(pos, count);
-				Thread.Sleep(500);
-				return true;
-				//TODO:         EndIf
-			}
+                        while (TrainIt(barrackId, 5))
+                        {
+                            Thread.Sleep(50);
+                        }
+                    }
 
-			return false;
-		}
+                    Thread.Sleep(500);
+                    Tools.CoCHelper.ClickBad(new Point(1, 1), 2, 250);
+                }
+            }
 
-		public static Point GetTrainPos(int troopKind)
-		{
-			switch ((Data.Troop)troopKind)
-			{
-				case Data.Troop.Barbarian:
-					return new Point(224, 323);
-				case Data.Troop.Archer:
-					return new Point(337, 323);
-				case Data.Troop.Giant:
-					return new Point(438, 366);
-				case Data.Troop.Goblin:
-					return new Point(548, 366);
-				case Data.Troop.WallBreaker:
-					return new Point(650, 366);
-				case Data.Troop.Balloon:
-					return new Point(218, 438);
-				case Data.Troop.Wizard:
-					return new Point(326, 438);
-				case Data.Troop.Healer:
-					return new Point(434, 438);
-				case Data.Troop.Dragon:
-					return new Point(536, 438);
-				case Data.Troop.Pekka:
-					return new Point(646, 438);
-				case Data.Troop.Minion:
-					return new Point(224, 323); // THESE
-				case Data.Troop.HogRider:
-					return new Point(337, 323); // MAY
-				case Data.Troop.Valkyrie:
-					return new Point(438, 366); // BE
-				case Data.Troop.Golem:
-					return new Point(548, 366); // WRONG
-				case Data.Troop.Witch:
-					return new Point(650, 366); //
-				case Data.Troop.LavaHound:
-					return new Point(218, 438); //-----------
-				default:
-					{
-						Main.Bot.WriteToOutput(string.Format("Don't know how to train the troop {0} yet...", troopKind));
-						return Point.Empty;
-					}
-			}
-		}
+            Main.Bot.WriteToOutput("Training Troops Complete...");
+        }
+
+        public static bool TrainIt(int troopKind, int count)
+        {
+            Point pos = GetTrainPos(troopKind);
+            bool armyFull = CheckFullArmy();
+
+            if (!pos.IsEmpty && !armyFull)
+            {
+                MouseHelper.ClickOnPoint2(Tools.BlueStacksHelper.GetBlueStacksWindowHandle(), pos, count, 100);
+                return true;
+            }
+
+            return false;
+        }
+
+        public static Point GetTrainPos(int troopKind)
+        {
+            switch ((Data.Troop)troopKind)
+            {
+                case Data.Troop.Barbarian:
+                    return new Point(224, 323);
+                case Data.Troop.Archer:
+                    return new Point(337, 323);
+                case Data.Troop.Giant:
+                    return new Point(438, 366);
+                case Data.Troop.Goblin:
+                    return new Point(548, 366);
+                case Data.Troop.WallBreaker:
+                    return new Point(650, 366);
+                case Data.Troop.Balloon:
+                    return new Point(218, 438);
+                case Data.Troop.Wizard:
+                    return new Point(326, 438);
+                case Data.Troop.Healer:
+                    return new Point(434, 438);
+                case Data.Troop.Dragon:
+                    return new Point(536, 438);
+                case Data.Troop.Pekka:
+                    return new Point(646, 438);
+                case Data.Troop.Minion:
+                    return new Point(224, 323); // THESE
+                case Data.Troop.HogRider:
+                    return new Point(337, 323); // MAY
+                case Data.Troop.Valkyrie:
+                    return new Point(438, 366); // BE
+                case Data.Troop.Golem:
+                    return new Point(548, 366); // WRONG
+                case Data.Troop.Witch:
+                    return new Point(650, 366); //
+                case Data.Troop.LavaHound:
+                    return new Point(218, 438); //-----------
+                default:
+                    {
+                        Main.Bot.WriteToOutput(string.Format("Don't know how to train the troop {0} yet...", troopKind));
+                        return Point.Empty;
+                    }
+            }
+        }
 	}
 }
