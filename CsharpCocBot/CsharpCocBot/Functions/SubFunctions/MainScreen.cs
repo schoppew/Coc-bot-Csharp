@@ -55,10 +55,18 @@ namespace CoC.Bot.Functions
         {
             Main.Bot.WriteToOutput("Zooming Out", GlobalVariables.OutputStates.Normal);
 
-            for (int i = 0; i < 15; i++)
+            int count = 0;
+
+            while(!FastFind.FastFindHelper.SameColor(FastFind.FastFindHelper.GetPixelColor(1, 1, true), Color.FromArgb(0, 0, 0)))
             {
-                Thread.Sleep(600);
-                KeyboardHelper.SendVirtualKeyToBS(KeyboardHelper.VirtualKeys.VK_DOWN);
+                if(count >= 15)
+                    break;
+                else
+                {
+                    KeyboardHelper.SendVirtualKeyToBS(KeyboardHelper.VirtualKeys.VK_DOWN);
+                    Thread.Sleep(500);
+                    count++;
+                }
             }
 
             Main.Bot.WriteToOutput("Zoomed Out", GlobalVariables.OutputStates.Normal);
