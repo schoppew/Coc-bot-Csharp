@@ -14,9 +14,10 @@ namespace FastFind
         const int MINIMUM_DELAY_BETWEEN_CAPTURES = 1000;
         public const int DEFAULT_SNAP = 0;
         public const int CUSTOM_SNAP = 0;
+		#region Window handle provider
 		public delegate IntPtr HandleProvider();
 		static HandleProvider CustomProvider = null;
-		
+
 		/// <summary>
 		/// Use this method to provide a the proper Window Handle to bind with the right window.
 		/// If you don't set this, then FastFind will work on FullScreen. 
@@ -32,6 +33,8 @@ namespace FastFind
 			if (CustomProvider != null) return CustomProvider();
 			return IntPtr.Zero;
 		}
+		#endregion Window handle provider
+
 
         static private Stopwatch lastFullCapture = null;
 
@@ -212,7 +215,7 @@ namespace FastFind
 
         static private bool IsInShadeVariation(int PixelColor, int ColorToFind, int ShadeVariation)
         {
-            if (ShadeVariation <= 0) return PixelColor == ColorToFind;
+			if (ShadeVariation <= 0) return (PixelColor & 0x00FFFFFF) == (ColorToFind & 0x00FFFFFF);
             return (Math.Abs(((int)PixelColor & 0x00FF0000) - ((int)ColorToFind & 0x00FF0000)) >> 16 <= ShadeVariation) &&
                     (Math.Abs(((int)PixelColor & 0x0000FF00) - ((int)ColorToFind & 0x0000FF00)) >> 8 <= ShadeVariation) &&
                     (Math.Abs(((int)PixelColor & 0x000000FF) - ((int)ColorToFind & 0x000000FF)) <= ShadeVariation);
@@ -221,8 +224,6 @@ namespace FastFind
         static public bool IsInColorRange(Point point, Color color, int shadeVariation = 0)
         {
             int pixel = GetPixel(point);
-            if (shadeVariation == 0)
-                return pixel == color.ToArgb();
             return IsInShadeVariation(pixel, color.ToArgb(), shadeVariation);
         }
 
