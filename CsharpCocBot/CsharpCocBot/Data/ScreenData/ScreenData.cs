@@ -14,8 +14,8 @@ namespace CoC.Bot.Data
 	static public partial class ScreenData
 	{
 		/*
-		 */		
-		public static DetectablePoint IsMain		= new DetectablePoint(284,  28, 0x41B1CD, 20); 
+		 */
+        public static DetectablePoint IsMain		= new DetectablePoint(284,  28, 0x41B1CD, 20); 
 		public static DetectablePoint IsMainGrayed	= new DetectablePoint(IsMain,	0x215B69, 20);
 		public static ClickablePoint  TopLeftClient = new ClickablePoint(   1,   1);
 		public static DetectablePoint IsInactive	= new DetectablePoint(458, 311, 0x33B5E5, 20);

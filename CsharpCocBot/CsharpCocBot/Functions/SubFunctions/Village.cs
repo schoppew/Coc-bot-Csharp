@@ -8,6 +8,7 @@ using System.Threading;
 using CoC.Bot.Data;
 using MouseAndKeyboard;
 using Point = Win32.POINT;
+using System.Windows;
 
 namespace CoC.Bot.Functions
 {
@@ -26,19 +27,17 @@ namespace CoC.Bot.Functions
 			if (collectorPos[0].IsEmpty)
 			{
 				Main.Bot.LocateCollectors();
-				Thread.Sleep(2000); // TODO: Mephobia: We don't need to sleep, we just make sure the user did his job of locating the collectors and then continue
 			}
 
 			Main.Bot.WriteToOutput("Collecting Resources...");
 			Thread.Sleep(250);
-			Tools.CoCHelper.ClickBad(new Point(1, 1));
 
 			for (int i = 0; i < 17; i++)
 			{
+                Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 50);
 				Thread.Sleep(250);
-				Tools.CoCHelper.ClickBad(collectorPos[i]);
+                MouseHelper.ClickOnPoint2(Tools.BlueStacksHelper.GetBlueStacksWindowHandle(), collectorPos[i]);
 				Thread.Sleep(250);
-				Tools.CoCHelper.ClickBad(new Point(1, 1));
 			}
 		}
 
@@ -240,10 +239,7 @@ namespace CoC.Bot.Functions
         public static Point GetTrainTroopsButton()
         {
             //196, 558, 469, 85
-            int left = 196;
-            int top = 558;
-            int right = 665;
-            int bottom = 643;
+            int left = 196, top = 558, right = 665, bottom = 643;
             int count = 0;
 
             do
@@ -269,7 +265,18 @@ namespace CoC.Bot.Functions
                 }
             } while (true);
 
-            return new Point(-1, -1);
+            return Point.Empty;
+        }
+
+        public static bool CheckBarrackFull()
+        {
+            Color c = FastFind.FastFindHelper.GetPixelColor(new Point(194, 315));
+            bool full = FastFind.FastFindHelper.SameColor(c, Color.FromArgb(179, 179, 179), 6);
+            
+            if(full)
+                return true;
+            else
+                return false;
         }
 
         public static void TrainTroops()
@@ -324,8 +331,9 @@ namespace CoC.Bot.Functions
                         else if (i == 3)
                             barrackId = Main.Bot.SelectedBarrack4.Id;
 
-                        while (TrainIt(barrackId, 5))
+                        while (!CheckBarrackFull())
                         {
+                            TrainIt(barrackId, 5);
                             Thread.Sleep(50);
                         }
                     }
@@ -387,9 +395,8 @@ namespace CoC.Bot.Functions
         public static bool TrainIt(int troopKind, int count)
         {
             Point pos = GetTrainPos(troopKind);
-            bool armyFull = CheckFullArmy();
 
-            if (!pos.IsEmpty && !armyFull)
+            if (!pos.IsEmpty)
             {
                 MouseHelper.ClickOnPoint2(Tools.BlueStacksHelper.GetBlueStacksWindowHandle(), pos, count, 100);
                 return true;
