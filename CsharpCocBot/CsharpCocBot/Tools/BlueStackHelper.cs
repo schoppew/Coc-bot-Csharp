@@ -14,8 +14,11 @@ namespace CoC.Bot.Tools
 		private static IntPtr bshandle = IntPtr.Zero;
 
 		public static bool IsBlueStacksFound { get { return bshandle != IntPtr.Zero; } }
-
-		public static IntPtr GetBlueStackWindowHandle(bool force = false)
+		public static IntPtr GetBlueStackWindowHandle()
+		{
+			return GetBlueStackWindowHandle(false);
+		}
+		public static IntPtr GetBlueStackWindowHandle(bool force)
 		{
 			if (bshandle == IntPtr.Zero || force)
 				bshandle = Win32.FindWindow("WindowsForms10.Window.8.app.0.33c0d9d", "BlueStacks App Player"); // First try

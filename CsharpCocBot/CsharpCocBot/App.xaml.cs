@@ -7,7 +7,7 @@
 	using System.Windows;
 	using System.Windows.Media;
 	using System.Windows.Threading;
-
+	using CoC.Bot.Tools;
 	using Microsoft.Shell;
 
     /// <summary>
@@ -22,6 +22,7 @@
 		{
 			if (SingleInstance<App>.InitializeAsFirstInstance(Unique))
 			{
+				CoCHelper.Initialize();
 				var application = new App();
 				application.InitializeComponent();
 				application.Run();

@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using FastFind;
 
 namespace CoC.Bot.Tools.FastFind
 {
@@ -42,11 +43,11 @@ namespace CoC.Bot.Tools.FastFind
 			//string lastFileName = fullSize + "(2)";
 			//if (!FastFindWrapper.SaveJPG(2, lastFileName, 100))
 			//	MessageBox.Show("Failed to resave full BS capture");
-			var sc = new ScreenCapture();
-			sc.SnapShot(true);
-			sc.SaveCurrentSnapShotToFile("SC_True.jpg");
-			sc.SnapShot(false);
-			sc.SaveCurrentSnapShotToFile("SC_False.jpg");
+			var sc = new ExtBitmap.ExtBitmap();
+			sc.SnapShot(BlueStackHelper.GetBlueStackWindowHandle(),true);
+			sc.Save("SC_True.jpg");
+			sc.SnapShot(BlueStackHelper.GetBlueStackWindowHandle(),false);
+			sc.Save("SC_False.jpg");
 		}
 	}
 }

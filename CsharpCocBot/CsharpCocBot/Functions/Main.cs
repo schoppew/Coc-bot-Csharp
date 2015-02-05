@@ -33,7 +33,6 @@
 			Bot.WriteToOutput(Properties.Resources.OutputBotIsStarting);
 
 			// Check if BlueStack is running
-			FastFindWrapper.SetHWnd(BlueStackHelper.GetBlueStackWindowHandle(), true);
 			if (!BlueStackHelper.IsBlueStackRunning)
 			{
 				Bot.WriteToOutput(Properties.Resources.OutputBSNotFound, GlobalVariables.OutputStates.Error);

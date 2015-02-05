@@ -145,9 +145,7 @@
                 DateTime now = DateTime.Now;
 				string date = string.Format("{0}.{1}.{2}", now.Day, now.Month, now.Year);
 				string time = string.Format("{0}.{1}", now.Hour, now.Minute);
-
-                Tools.FastFind.FastFindHelper.TakeFullScreenCapture(true);
-				Tools.FastFind.FastFindWrapper.SaveJPG(0, string.Format("{0}/{1} at {2}", GlobalVariables.LogPath, date, time), 100);
+				CoCHelper.MakeFullScreenCapture(string.Format("{0}/{1} at {2}", GlobalVariables.LogPath, date, time));                
             }
 
             Thread.Sleep(2000);

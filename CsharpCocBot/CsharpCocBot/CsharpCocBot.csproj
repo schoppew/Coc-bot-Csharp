@@ -145,7 +145,6 @@
     <Compile Include="Samples\GettingAroundTheUI.cs" />
     <Compile Include="Tools\CoCHelper.cs" />
     <Compile Include="Data\Type\ColorList.cs" />
-    <Compile Include="Tools\FastFind\FastFindHelper.cs" />
     <Compile Include="Tools\FastFind\FastFindTesting.cs" />
     <Compile Include="Tools\KeyboardHelper.cs" />
     <Compile Include="Tools\LogWriter.cs" />
@@ -247,9 +246,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\BlueStackHelper.cs" />
     <Compile Include="Tools\MouseHelper.cs" />
-    <Compile Include="Tools\FastFind\FastFindWrapper.cs" />
     <Compile Include="Tools\ProcessHelper.cs" />
-    <Compile Include="Tools\ScreenCapture.cs" />
     <Compile Include="Tools\Win32.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -318,6 +315,16 @@
   <ItemGroup>
     <Resource Include="Assets\Images\HideThumb.png" />
     <Resource Include="Assets\Images\ShowThumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExtBitmap\ExtBitmap.csproj">
+      <Project>{7bd14dbe-718b-40bf-86cc-c996f110df22}</Project>
+      <Name>ExtBitmap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FastFind\FastFind.csproj">
+      <Project>{a17bcd52-c8ce-45a6-8a71-a00e73eb5aaa}</Project>
+      <Name>FastFind</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
