@@ -51,5 +51,64 @@ namespace ExtBitmap
 			}
 			return -1;
 		}
+
+		private bool CompareColorWithPixelAtPos(byte red, byte green, byte blue, int pos, int shadeVariation)
+		{
+			if (shadeVariation==0)
+				return blue == data[pos] && green == data[pos + 1] && red == data[pos + 2];
+			return IsInShadeVariation(red, green, blue, data[pos + 2], data[pos + 1], data[pos], shadeVariation);
+		}
+
+		/// <summary>
+		/// right and bottom INCLUDED
+		/// </summary>
+		/// <param name="left"></param>
+		/// <param name="top"></param>
+		/// <param name="right"></param>
+		/// <param name="bottom"></param>
+		/// <param name="color"></param>
+		/// <param name="shadeVariation"></param>
+		/// <returns></returns>
+		private int FindPixelInRect(int left, int top, int right, int bottom, int color, int shadeVariation)
+		{
+			byte red = (byte)((color >> 16) & 0x00FF);
+			byte green = (byte)((color >> 8) & 0x00FF);
+			byte blue = (byte)(color & 0x00FF);
+			int pos1 = PosFromPoint(left, top);
+			while(bottom >= top)
+			{
+				int cursor = pos1;
+				int x = left;
+				while(x++<=right)
+				{
+					if (CompareColorWithPixelAtPos(red, green, blue, cursor, shadeVariation))
+					{
+						return cursor;
+					}
+					cursor += bytesPerPixel;
+				}
+				pos1 += stride;
+				bottom--;
+			}
+			return -1;
+		}
+
+		private int PosFromPoint(int x, int y)
+		{
+			return x * bytesPerPixel + stride * y;
+		}
+
+		private int PosFromPoint(Win32.POINT point)
+		{
+			return point.X * bytesPerPixel + stride * point.Y;
+		}
+
+		private Win32.POINT GetPointFromPos(int pos)
+		{
+			if (pos == -1 || pos >= size) return Win32.POINT.Empty;
+			int y = pos / stride;
+			int x = (pos % stride) / bytesPerPixel;
+			return new Win32.POINT(x, y);
+		}
 	}
 }
