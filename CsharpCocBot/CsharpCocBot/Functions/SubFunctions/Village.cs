@@ -13,10 +13,11 @@ namespace CoC.Bot.Functions
 {
 	internal class Village
 	{
-		public static bool CheckFullArmy()
-		{
-			return false;
-		}
+        public static bool CheckFullArmy()
+        {
+            bool campsFull = FastFind.FastFindHelper.SameColor(FastFind.FastFindHelper.GetPixelColor(121, 491, true), Color.FromArgb(212, 83, 94), 6);
+            return campsFull;
+        }
 
 		public static void CollectResources()
 		{
