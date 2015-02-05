@@ -53,10 +53,15 @@ namespace CoC.Bot.Functions
 
         public static void ZoomOut()
         {
-            for (int x = 0; x < 5; x++)
+            Main.Bot.WriteToOutput("Zooming Out", GlobalVariables.OutputStates.Normal);
+
+            for (int i = 0; i < 15; i++)
             {
+                Thread.Sleep(600);
                 KeyboardHelper.SendVirtualKeyToBS(KeyboardHelper.VirtualKeys.VK_DOWN);
             }
+
+            Main.Bot.WriteToOutput("Zoomed Out", GlobalVariables.OutputStates.Normal);
         }
 
         public static void WaitForMainScreen()
@@ -75,7 +80,10 @@ namespace CoC.Bot.Functions
             }
 
 			Main.Bot.WriteToOutput("Unable to load Clash of Clans, Restarting...");
-//TODO:     OPEN APP AGAIN
+            
+            Data.ClickablePoint appPos = new Data.ClickablePoint(GetAppPos());
+            Tools.CoCHelper.Click(appPos, 1);
+
             Thread.Sleep(10000);
         }
 
