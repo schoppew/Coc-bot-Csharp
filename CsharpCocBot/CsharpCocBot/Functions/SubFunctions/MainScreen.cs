@@ -18,22 +18,37 @@ namespace CoC.Bot.Functions
     {
         public static void CheckMainScreen()
         {
-			Main.Bot.WriteToOutput(Properties.Resources.OutputTryingToLocateMainScreen, GlobalVariables.OutputStates.Information);
+            Main.Bot.WriteToOutput(Properties.Resources.OutputTryingToLocateMainScreen, GlobalVariables.OutputStates.Information);
 
-            while (!Tools.CoCHelper.CheckPixelColor(ScreenData.IsMain)) // FIX VARIATION
+            while (!Tools.CoCHelper.CheckPixelColor(ScreenData.IsMain))
             {
                 Thread.Sleep(1000);
 
                 if (!CheckObstacles())
                 {
-                    Tools.CoCHelper.ClickBad(new Point(126, 700), 1);
-//TODO:             OPEN APP AGAIN
+                    Data.ClickablePoint appPos = new Data.ClickablePoint(GetAppPos());
+                    Tools.CoCHelper.Click(appPos, 1);
                 }
 
                 WaitForMainScreen();
             }
 
-			Main.Bot.WriteToOutput("Main Screen Located", GlobalVariables.OutputStates.Information);
+            Main.Bot.WriteToOutput("Main Screen Located", GlobalVariables.OutputStates.Information);
+        }
+
+        public static Point GetAppPos()
+        {
+            Point p1 = FastFind.FastFindHelper.FullScreenPixelSearch(Color.FromArgb(87, 16, 1), 10, true);
+
+            if (FastFind.FastFindHelper.IsInColorRange(new Point(p1.X + 10, p1.Y + 10), Color.FromArgb(169, 90, 46), 10))
+            {
+                if (FastFind.FastFindHelper.IsInColorRange(new Point(p1.X - 10, p1.Y - 10), Color.FromArgb(237, 218, 165), 10))
+                {
+                    return p1;
+                }
+            }
+
+            return new Point(-1, -1);
         }
 
         public static void ZoomOut()
@@ -59,7 +74,6 @@ namespace CoC.Bot.Functions
                     return;
             }
 
-			//Other.SetLog("Unable to load Clash of Clans, Restarting...", Color.Red); // TODO: will add colours later
 			Main.Bot.WriteToOutput("Unable to load Clash of Clans, Restarting...");
 //TODO:     OPEN APP AGAIN
             Thread.Sleep(10000);

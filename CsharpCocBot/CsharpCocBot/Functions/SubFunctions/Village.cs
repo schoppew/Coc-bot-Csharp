@@ -196,19 +196,20 @@ namespace CoC.Bot.Functions
 
 		public static void RequestTroops()
 		{
-			Point ccPos = Main.Bot.LocationClanCastle;
+            Point ccPos = new Point(354, 425);//Main.Bot.LocationClanCastle;
 
 			if (ccPos.IsEmpty)
 			{
 				Main.Bot.LocateClanCastle();
-				Thread.Sleep(1000); // TODO: Mephobia: We don't need to sleep, we just make sure the user did his job of locating the CC
 			}
 
 			Main.Bot.WriteToOutput("Requesting for Clan Castle Troops...");
-			Tools.CoCHelper.ClickBad(ccPos, 1);
-			Thread.Sleep(1000);
+            Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 50);
+            Thread.Sleep(500);
+            MouseHelper.ClickOnPoint2(Tools.BlueStacksHelper.GetBlueStacksWindowHandle(), ccPos);
 
-			ClickablePoint requestTroop = Tools.CoCHelper.SearchPixelInRect(310, 580, 553, 622, System.Drawing.Color.FromArgb(96, 140, 144), 10);
+            Point requestTroop = GetRequestTroopsButton();
+
 			if (!requestTroop.IsEmpty)
 			{
 				Tools.CoCHelper.ClickBad(requestTroop, 1);
@@ -235,6 +236,37 @@ namespace CoC.Bot.Functions
 				Main.Bot.WriteToOutput("Clan Castle not available...");
 			}
 		}
+
+        public static Point GetRequestTroopsButton()
+        {
+            int left = 196, top = 558, right = 665, bottom = 643;
+            int count = 0;
+
+            do
+            {
+                Point p1 = FastFind.FastFindHelper.PixelSearch(left, top, right, bottom, Color.FromArgb(185, 54, 48), 4);
+
+                if (FastFind.FastFindHelper.IsInColorRange(new Point(p1.X, p1.Y + 10), Color.FromArgb(39, 41, 29), 4))
+                {
+                    return p1;
+                }
+                else
+                {
+                    if (count >= 6)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        left = p1.X;
+                        top = p1.Y;
+                        count++;
+                    }
+                }
+            } while (true);
+
+            return Point.Empty;
+        }
 
         public static Point GetTrainTroopsButton()
         {
