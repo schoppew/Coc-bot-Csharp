@@ -55,9 +55,17 @@ CsharpCocBot/Tools/
 CsharpCocBot/ColorOptimizer/obj/
 CsharpCocBot/ColorOptimizer/bin/
 CsharpCocBot/ColorOptimizer/exe/
+CsharpCocBot/FastFind/obj/
+CsharpCocBot/FastFind/bin/
+CsharpCocBot/FastFind/exe/
+CsharpCocBot/ExtBitmap/obj/
+CsharpCocBot/ExtBitmap/bin/
+CsharpCocBot/ExtBitmap/exe/
 *.baml
 *.cache
 *.suo
 *.config
 *.user
 CsharpCocBot/ColorOptimizer/ColorOptimizer.rar
+CsharpCocBot/FastFind/obj/Release/FastFind.dll
+CsharpCocBot05022015.rar
