@@ -592,6 +592,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide/Show BlueStacks.
+        /// </summary>
+        public static string HideShowBlueStacks {
+            get {
+                return ResourceManager.GetString("HideShowBlueStacks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hog Rider.
         /// </summary>
         public static string HogRider {
@@ -1197,6 +1206,15 @@ namespace CoC.Bot.Properties {
         public static string StartMessage {
             get {
                 return ResourceManager.GetString("StartMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start/Stop the Bot.
+        /// </summary>
+        public static string StartStopBot {
+            get {
+                return ResourceManager.GetString("StartStopBot", resourceCulture);
             }
         }
         

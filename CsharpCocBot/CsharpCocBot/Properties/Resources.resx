@@ -549,6 +549,12 @@ You can double click on the icon to show the window.</value>
   <data name="OutputRestoreBlueStacks" xml:space="preserve">
     <value>Restoring BlueStacks window...</value>
   </data>
+  <data name="HideShowBlueStacks" xml:space="preserve">
+    <value>Hide/Show BlueStacks</value>
+  </data>
+  <data name="StartStopBot" xml:space="preserve">
+    <value>Start/Stop the Bot</value>
+  </data>
   <data name="TakeSnapshotAllLoots" xml:space="preserve">
     <value>Take snapshot of all Loots</value>
   </data>
