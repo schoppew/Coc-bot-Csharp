@@ -48,7 +48,7 @@ namespace ExtBitmap
 		int size { get; set; }
 		public int Width { get; private set; }
 		public int Height { get; private set; }
-		int Stride { get; set; } // Number of bytes per line
+		int stride { get; set; } // Number of bytes per line
 		bool dataChanged { get; set; }
 
 		public bool Save(string fileName)
@@ -113,7 +113,7 @@ namespace ExtBitmap
 			BitmapData bData = BitMap.LockBits(new Rectangle(0, 0, BitMap.Width, BitMap.Height), ImageLockMode.ReadOnly, BitMap.PixelFormat);
 			Height = bData.Height;
 			Width = bData.Width;
-			Stride = bData.Stride;
+			stride = bData.Stride;
 			bitsPerPixel = GetBitsPerPixel(bData.PixelFormat);
 			bytesPerPixel = bitsPerPixel / 8;
 			size = bData.Stride * bData.Height;
@@ -129,7 +129,7 @@ namespace ExtBitmap
 			if (data == null) return -1;
 			if (x < 0 || x >= Width) return -1;
 			if (y < 0 || x >= Height) return -1;
-			return y * Stride + x * bytesPerPixel;
+			return y * stride + x * bytesPerPixel;
 		}
 
 		public int GetPixel(int x, int y)
@@ -183,7 +183,7 @@ namespace ExtBitmap
 				else
 					dico[pixel] = 1;
 			}
-			Debug.WriteLine("{0}: {1}x{2}, {3} pixels per line => {4} different colors", FileName, Width, Height, Stride / bytesPerPixel, dico.Count);
+			Debug.WriteLine("{0}: {1}x{2}, {3} pixels per line => {4} different colors", FileName, Width, Height, stride / bytesPerPixel, dico.Count);
 			return dico;
 		}
 	}
