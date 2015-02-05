@@ -9,16 +9,16 @@ using System.Drawing;
 
 namespace CoC.Bot.Tools
 {
-	public static class BlueStackHelper
+	public static class BlueStacksHelper
 	{
 		private static IntPtr bshandle = IntPtr.Zero;
 
 		public static bool IsBlueStacksFound { get { return bshandle != IntPtr.Zero; } }
-		public static IntPtr GetBlueStackWindowHandle()
+		public static IntPtr GetBlueStacksWindowHandle()
 		{
-			return GetBlueStackWindowHandle(false);
+			return GetBlueStacksWindowHandle(false);
 		}
-		public static IntPtr GetBlueStackWindowHandle(bool force)
+		public static IntPtr GetBlueStacksWindowHandle(bool force)
 		{
 			if (bshandle == IntPtr.Zero || force)
 				bshandle = Win32.FindWindow("WindowsForms10.Window.8.app.0.33c0d9d", "BlueStacks App Player"); // First try
@@ -75,7 +75,7 @@ namespace CoC.Bot.Tools
 		public static bool Click(Point point, int nbClick = 1, int delay = 0)
 		{
 			if (bshandle == IntPtr.Zero)
-				bshandle = GetBlueStackWindowHandle();
+				bshandle = GetBlueStacksWindowHandle();
 			if (bshandle == IntPtr.Zero)
 				return false;
 			return MouseHelper.ClickOnPoint2(bshandle, point, nbClick, delay);			
@@ -87,12 +87,12 @@ namespace CoC.Bot.Tools
 		/// Gets a value indicating whether BlueStacks is running.
 		/// </summary>
 		/// <value><c>true</c> if BlueStacks is running; otherwise, <c>false</c>.</value>
-		public static bool IsBlueStackRunning
+		public static bool IsBlueStacksRunning
 		{
 			get
 			{
 				bshandle = IntPtr.Zero;
-				return GetBlueStackWindowHandle() != IntPtr.Zero;
+				return GetBlueStacksWindowHandle() != IntPtr.Zero;
 			}
 		}
 
@@ -123,9 +123,9 @@ namespace CoC.Bot.Tools
 		/// a minimized window.
 		/// </summary>
 		/// <returns></returns>
-		public static bool RestoreBlueStack()
+		public static bool RestoreBlueStacks()
 		{
-			if (!IsBlueStackRunning) return false;
+			if (!IsBlueStacksRunning) return false;
 			return Win32.ShowWindow(bshandle, Win32.WindowShowStyle.Restore);
 		}
 
@@ -133,9 +133,9 @@ namespace CoC.Bot.Tools
 		/// Activates the window and displays it in its current size and position.
 		/// </summary>
 		/// <returns></returns>
-		public static bool ActivateBlueStack()
+		public static bool ActivateBlueStacks()
 		{
-			if (!IsBlueStackRunning) return false;
+			if (!IsBlueStacksRunning) return false;
 			return Win32.ShowWindow(bshandle, Win32.WindowShowStyle.Show);
 		}
 
@@ -143,9 +143,9 @@ namespace CoC.Bot.Tools
 		/// Hides the BlueStack Window
 		/// </summary>
 		/// <returns></returns>
-		public static bool HideBlueStack()
+		public static bool HideBlueStacks()
 		{
-			if (!IsBlueStackRunning) return false;
+			if (!IsBlueStacksRunning) return false;
 			return Win32.ShowWindow(bshandle, Win32.WindowShowStyle.Hide);
 		}
 

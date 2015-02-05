@@ -238,12 +238,12 @@ namespace CoC.Bot.Tools
 
         static public void SendVirtualKeyToBS(VirtualKeys vk)
         {
-            SendVirtualKey(BlueStackHelper.GetBlueStackWindowHandle(), vk);
+            SendVirtualKey(BlueStacksHelper.GetBlueStacksWindowHandle(), vk);
         }
 
         static public void SendToBS(string message)
         {
-            Send(BlueStackHelper.GetBlueStackWindowHandle(), message);
+            Send(BlueStacksHelper.GetBlueStacksWindowHandle(), message);
         }
 
 
@@ -262,7 +262,7 @@ namespace CoC.Bot.Tools
 
         static public void BSTest()
         {
-            IntPtr hWnd = BlueStackHelper.GetBlueStackWindowHandle();//Win32.FindWindow("Notepad", null);
+            IntPtr hWnd = BlueStacksHelper.GetBlueStacksWindowHandle();//Win32.FindWindow("Notepad", null);
             AdvancedMode = true;
             if (hWnd == IntPtr.Zero)
                 MessageBox.Show("You should run BlueStack first before trying this test");
@@ -273,7 +273,7 @@ namespace CoC.Bot.Tools
         }
         static public void BSTest2()
         {
-            IntPtr hWnd = BlueStackHelper.GetBlueStackWindowHandle();//Win32.FindWindow("Notepad", null);
+            IntPtr hWnd = BlueStacksHelper.GetBlueStacksWindowHandle();//Win32.FindWindow("Notepad", null);
             AdvancedMode = false;
             if (hWnd == IntPtr.Zero)
                 MessageBox.Show("You should run BlueStack first before trying this test");

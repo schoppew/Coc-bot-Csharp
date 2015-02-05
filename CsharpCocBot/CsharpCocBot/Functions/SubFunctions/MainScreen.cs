@@ -43,7 +43,6 @@
 
         public static void WaitForMainScreen()
         {
-            //Other.SetLog("Waiting for Main Screen", Color.Orange); // TODO: will add colours later
 			Main.Bot.WriteToOutput("Waiting for Main Screen");
             for (int i = 0; i < 150; i++)
             {

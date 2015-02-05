@@ -32,8 +32,8 @@
 			Bot.WriteToOutput(string.Format(Properties.Resources.OutputWelcomeMessage, Properties.Resources.AppName));
 			Bot.WriteToOutput(Properties.Resources.OutputBotIsStarting);
 
-			// Check if BlueStack is running
-			if (!BlueStackHelper.IsBlueStackRunning)
+			// Check if BlueStacks is running
+			if (!BlueStacksHelper.IsBlueStacksRunning)
 			{
 				Bot.WriteToOutput(Properties.Resources.OutputBSNotFound, GlobalVariables.OutputStates.Error);
 
@@ -41,12 +41,12 @@
 				return;
 			}
 
-			if (!BlueStackHelper.IsRunningWithRequiredDimensions)
+			if (!BlueStacksHelper.IsRunningWithRequiredDimensions)
 			{
 				Bot.WriteToOutput(Properties.Resources.OutputBSNotRunningWithDimensions);
 				Bot.WriteToOutput(Properties.Resources.OutputBSApplyDimensionsIntoRegistry);
 
-				if (!BlueStackHelper.SetDimensionsIntoRegistry())
+				if (!BlueStacksHelper.SetDimensionsIntoRegistry())
 				{
 					// Woops! Something went wrong, log the error!
 					Bot.WriteToOutput(Properties.Resources.OutputBSApplyDimensionsError, GlobalVariables.OutputStates.Error);
@@ -57,10 +57,10 @@
 				else
 					Bot.WriteToOutput(Properties.Resources.OutputBSAppliedDimensionsIntoRegistry);
 
-				// Restart BlueStack
+				// Restart BlueStacks
 				// Wait until restart and continue...
 
-				BlueStackHelper.ActivateBlueStack();
+				BlueStacksHelper.ActivateBlueStacks();
 			}
 
 			CreateDirectory(GlobalVariables.LogPath);

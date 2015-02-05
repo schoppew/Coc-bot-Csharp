@@ -592,6 +592,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide/Show BlueStacks.
+        /// </summary>
+        public static string HideShowBlueStacks {
+            get {
+                return ResourceManager.GetString("HideShowBlueStacks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hog Rider.
         /// </summary>
         public static string HogRider {
@@ -642,6 +651,15 @@ namespace CoC.Bot.Properties {
         public static string LabelMaxDonationsPerRequest {
             get {
                 return ResourceManager.GetString("LabelMaxDonationsPerRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max. Townhall level:.
+        /// </summary>
+        public static string LabelMaximumTownhallLevel {
+            get {
+                return ResourceManager.GetString("LabelMaximumTownhallLevel", resourceCulture);
             }
         }
         
@@ -705,15 +723,6 @@ namespace CoC.Bot.Properties {
         public static string LabelMinimumGold {
             get {
                 return ResourceManager.GetString("LabelMinimumGold", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Min. Townhall level:.
-        /// </summary>
-        public static string LabelMinimumTownhallLevel {
-            get {
-                return ResourceManager.GetString("LabelMinimumTownhallLevel", resourceCulture);
             }
         }
         
@@ -1201,11 +1210,38 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start/Stop the Bot.
+        /// </summary>
+        public static string StartStopBot {
+            get {
+                return ResourceManager.GetString("StartStopBot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stop.
         /// </summary>
         public static string Stop {
             get {
                 return ResourceManager.GetString("Stop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take snapshot of all Loots.
+        /// </summary>
+        public static string TakeSnapshotAllLoots {
+            get {
+                return ResourceManager.GetString("TakeSnapshotAllLoots", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take snapshot of all Towns.
+        /// </summary>
+        public static string TakeSnapshotAllTowns {
+            get {
+                return ResourceManager.GetString("TakeSnapshotAllTowns", resourceCulture);
             }
         }
         

@@ -170,11 +170,11 @@
                             <Grid Background="{DynamicResource BackgroundBrush}">
                                 <GroupBox Header="{x:Static p:Resources.Conditions}" HorizontalAlignment="Left" Margin="16,16,0,0" VerticalAlignment="Top" Height="239" Width="210">
                                     <Grid>
-                                        <CheckBox Content="{x:Static p:Resources.MeetGold}" IsChecked="{Binding MeetGold}" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
-                                        <CheckBox Content="{x:Static p:Resources.MeetElixir}" IsChecked="{Binding MeetElixir}" HorizontalAlignment="Left" Margin="30,32,0,0" VerticalAlignment="Top"/>
-                                        <CheckBox Content="{x:Static p:Resources.MeetDarkElixir}" IsChecked="{Binding MeetDarkElixir}" HorizontalAlignment="Left" Margin="30,54,0,0" VerticalAlignment="Top"/>
-                                        <CheckBox Content="{x:Static p:Resources.MeetTrophyCount}" IsChecked="{Binding MeetTrophyCount}" HorizontalAlignment="Left" Margin="30,76,0,0" VerticalAlignment="Top"/>
-                                        <CheckBox Content="{x:Static p:Resources.MeetTownhallLevel}" IsChecked="{Binding MeetTownhallLevel}" HorizontalAlignment="Left" Margin="30,98,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.MeetGold}" IsChecked="{Binding IsMeetGold}" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.MeetElixir}" IsChecked="{Binding IsMeetElixir}" HorizontalAlignment="Left" Margin="30,32,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.MeetDarkElixir}" IsChecked="{Binding IsMeetDarkElixir}" HorizontalAlignment="Left" Margin="30,54,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.MeetTrophyCount}" IsChecked="{Binding IsMeetTrophyCount}" HorizontalAlignment="Left" Margin="30,76,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.MeetTownhallLevel}" IsChecked="{Binding IsMeetTownhallLevel}" HorizontalAlignment="Left" Margin="30,98,0,0" VerticalAlignment="Top"/>
                                         <TextBlock Text="{x:Static p:Resources.ConditionsMessage}" Height="75" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
@@ -184,7 +184,7 @@
                                         <Label Content="{x:Static p:Resources.LabelMinimumElixir}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelMinimumDarkElixir}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelMinimumTrophyCount}" Height="25" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="113" />
-                                        <Label Content="{x:Static p:Resources.LabelMinimumTownhallLevel}" Height="25" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="113" />
+                                        <Label Content="{x:Static p:Resources.LabelMaximumTownhallLevel}" Height="25" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="115" />
                                         <TextBox Text="{Binding MinimumGold, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,12,10,0" VerticalAlignment="Top" Width="60">
                                             <i:Interaction.Behaviors>
                                                 <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="6" EmptyValue="0" />
@@ -205,7 +205,7 @@
                                                 <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="2" EmptyValue="0" />
                                             </i:Interaction.Behaviors>
                                         </TextBox>
-                                        <TextBox Text="{Binding MinimumTownhallLevel, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,124,10,0" VerticalAlignment="Top" Width="60">
+                                        <TextBox Text="{Binding MaximumTownhallLevel, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" MaxLength="2" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,124,10,0" VerticalAlignment="Top" Width="60">
                                             <i:Interaction.Behaviors>
                                                 <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="2" EmptyValue="0" />
                                             </i:Interaction.Behaviors>
@@ -216,6 +216,8 @@
                                 <GroupBox Header="{x:Static p:Resources.OtherSearchSettings}" Margin="16,260,16,0" VerticalAlignment="Top" Height="100">
                                     <Grid>
                                         <CheckBox Content="{x:Static p:Resources.AlertWhenBaseFound}" IsChecked="{Binding IsAlertWhenBaseFound, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.TakeSnapshotAllTowns}" IsChecked="{Binding IsTakeSnapshotAllTowns, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="232,10,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.TakeSnapshotAllLoots}" IsChecked="{Binding IsTakeSnapshotAllLoots, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="232,0,0,20" VerticalAlignment="Bottom"/>
                                     </Grid>
                                 </GroupBox>
                                 <Button Content="{x:Static p:Resources.LocateCollectorsManually}" Command="{Binding LocateCollectorsCommand}" Height="23" Margin="16,0,16,10" VerticalAlignment="Bottom" Visibility="Visible" HorizontalAlignment="Left" Width="210" />

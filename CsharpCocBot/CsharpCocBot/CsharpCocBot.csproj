@@ -143,6 +143,7 @@
     <Compile Include="Data\Type\TroopTierModel.cs" />
     <Compile Include="Functions\Main.cs" />
     <Compile Include="Samples\GettingAroundTheUI.cs" />
+    <Compile Include="Tools\BlueStacksHelper.cs" />
     <Compile Include="Tools\CoCHelper.cs" />
     <Compile Include="Data\Type\ColorList.cs" />
     <Compile Include="Tools\FastFind\FastFindTesting.cs" />
@@ -244,7 +245,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tools\BlueStackHelper.cs" />
     <Compile Include="Tools\MouseHelper.cs" />
     <Compile Include="Tools\ProcessHelper.cs" />
     <Compile Include="Tools\Win32.cs" />

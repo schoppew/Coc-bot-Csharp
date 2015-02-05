@@ -13,7 +13,7 @@ namespace CoC.Bot.Tools
 	{
 		static public bool Click(ClickablePoint point, int nbClick = 1, int delay = 0)
 		{
-			return BlueStackHelper.Click(point, nbClick, delay);
+			return BlueStacksHelper.Click(point, nbClick, delay);
 		}
 		
 		[Obsolete("Add a ClickablePoint variable in Data.ScreenData.ScreenData for that. All screen coordinates should be centralized and named. No hard-coded coordinates anywhere else!")]
@@ -64,7 +64,7 @@ namespace CoC.Bot.Tools
 		/// </summary>
 		static public void Initialize()
 		{
-			FastFindHelper.SetHWndProvider(BlueStackHelper.GetBlueStackWindowHandle); // Set this so the wrapper can find the window when needed
+			FastFindHelper.SetHWndProvider(BlueStacksHelper.GetBlueStacksWindowHandle); // Set this so the wrapper can find the window when needed
 		}
 
 		static public bool MakeFullScreenCapture(string targetFile)

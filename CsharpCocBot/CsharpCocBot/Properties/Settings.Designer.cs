@@ -86,36 +86,36 @@ namespace CoC.Bot.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool MeetGold {
+        public bool IsMeetGold {
             get {
-                return ((bool)(this["MeetGold"]));
+                return ((bool)(this["IsMeetGold"]));
             }
             set {
-                this["MeetGold"] = value;
+                this["IsMeetGold"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool MeetDarkElixir {
+        public bool IsMeetDarkElixir {
             get {
-                return ((bool)(this["MeetDarkElixir"]));
+                return ((bool)(this["IsMeetDarkElixir"]));
             }
             set {
-                this["MeetDarkElixir"] = value;
+                this["IsMeetDarkElixir"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool MeetTrophyCount {
+        public bool IsMeetTrophyCount {
             get {
-                return ((bool)(this["MeetTrophyCount"]));
+                return ((bool)(this["IsMeetTrophyCount"]));
             }
             set {
-                this["MeetTrophyCount"] = value;
+                this["IsMeetTrophyCount"] = value;
             }
         }
         
@@ -169,7 +169,7 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public int SelectedBarrack3 {
             get {
                 return ((int)(this["SelectedBarrack3"]));
@@ -181,7 +181,7 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public int SelectedBarrack4 {
             get {
                 return ((int)(this["SelectedBarrack4"]));
@@ -362,24 +362,24 @@ namespace CoC.Bot.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool MeetElixir {
+        public bool IsMeetElixir {
             get {
-                return ((bool)(this["MeetElixir"]));
+                return ((bool)(this["IsMeetElixir"]));
             }
             set {
-                this["MeetElixir"] = value;
+                this["IsMeetElixir"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool MeetTownhallLevel {
+        public bool IsMeetTownhallLevel {
             get {
-                return ((bool)(this["MeetTownhallLevel"]));
+                return ((bool)(this["IsMeetTownhallLevel"]));
             }
             set {
-                this["MeetTownhallLevel"] = value;
+                this["IsMeetTownhallLevel"] = value;
             }
         }
         
@@ -1796,6 +1796,30 @@ namespace CoC.Bot.Properties {
             }
             set {
                 this["LocationCollector17"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsTakeSnapshotAllTowns {
+            get {
+                return ((bool)(this["IsTakeSnapshotAllTowns"]));
+            }
+            set {
+                this["IsTakeSnapshotAllTowns"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsTakeSnapshotAllLoots {
+            get {
+                return ((bool)(this["IsTakeSnapshotAllLoots"]));
+            }
+            set {
+                this["IsTakeSnapshotAllLoots"] = value;
             }
         }
     }
