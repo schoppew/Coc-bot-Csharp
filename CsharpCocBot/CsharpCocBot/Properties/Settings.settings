@@ -39,10 +39,10 @@
       <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="SelectedBarrack3" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="SelectedBarrack4" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="SelectedAttackMode" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">3</Value>
