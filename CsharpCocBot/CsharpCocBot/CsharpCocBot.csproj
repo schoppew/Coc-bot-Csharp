@@ -149,6 +149,7 @@
     <Compile Include="Tools\FastFind\FastFindTesting.cs" />
     <Compile Include="Tools\LogWriter.cs" />
     <Compile Include="SingleInstance.cs" />
+    <Compile Include="Tools\PointHelper.cs" />
     <Compile Include="UI\Behaviours\AutoScrollTextBoxBaseBehaviour.cs" />
     <Compile Include="UI\Behaviours\TextBoxBehaviour.cs" />
     <Compile Include="UI\Commands\AboutCommand.cs" />

@@ -2372,36 +2372,36 @@
 
 			// Location Settings
 			// TODO: Change the type from Windows.Drawing.Point to System.Windows.Point and get rid of the reference
-			LocationClanCastle = AppSettings.LocationClanCastle;
+			LocationClanCastle = AppSettings.LocationClanCastle.ToPOINT();
 
-			LocationBarrack1 = AppSettings.LocationBarrack1;
-			LocationBarrack2 = AppSettings.LocationBarrack2;
-			LocationBarrack3 = AppSettings.LocationBarrack3;
-			LocationBarrack4 = AppSettings.LocationBarrack4;
+			LocationBarrack1 = AppSettings.LocationBarrack1.ToPOINT();
+			LocationBarrack2 = AppSettings.LocationBarrack2.ToPOINT();
+			LocationBarrack3 = AppSettings.LocationBarrack3.ToPOINT();
+			LocationBarrack4 = AppSettings.LocationBarrack4.ToPOINT();
 
-			LocationDarkBarrack1 = AppSettings.LocationDarkBarrack1;
-			LocationDarkBarrack2 = AppSettings.LocationDarkBarrack2;
+			LocationDarkBarrack1 = AppSettings.LocationDarkBarrack1.ToPOINT();
+			LocationDarkBarrack2 = AppSettings.LocationDarkBarrack2.ToPOINT();
 
-			LocationAllTrapsRearm = AppSettings.LocationAllTrapsRearm;
-			LocationAllXbowsRearm = AppSettings.LocationAllXbowsRearm;
+			LocationAllTrapsRearm = AppSettings.LocationAllTrapsRearm.ToPOINT();
+			LocationAllXbowsRearm = AppSettings.LocationAllXbowsRearm.ToPOINT();
 
-			LocationCollector1 = AppSettings.LocationCollector1;
-			LocationCollector2 = AppSettings.LocationCollector2;
-			LocationCollector3 = AppSettings.LocationCollector3;
-			LocationCollector4 = AppSettings.LocationCollector4;
-			LocationCollector5 = AppSettings.LocationCollector5;
-			LocationCollector6 = AppSettings.LocationCollector6;
-			LocationCollector7 = AppSettings.LocationCollector7;
-			LocationCollector8 = AppSettings.LocationCollector8;
-			LocationCollector9 = AppSettings.LocationCollector9;
-			LocationCollector10 = AppSettings.LocationCollector10;
-			LocationCollector11 = AppSettings.LocationCollector11;
-			LocationCollector12 = AppSettings.LocationCollector12;
-			LocationCollector13 = AppSettings.LocationCollector13;
-			LocationCollector14 = AppSettings.LocationCollector14;
-			LocationCollector15 = AppSettings.LocationCollector15;
-			LocationCollector16 = AppSettings.LocationCollector16;
-			LocationCollector17 = AppSettings.LocationCollector17;
+			LocationCollector1 = AppSettings.LocationCollector1.ToPOINT();
+			LocationCollector2 = AppSettings.LocationCollector2.ToPOINT();
+			LocationCollector3 = AppSettings.LocationCollector3.ToPOINT();
+			LocationCollector4 = AppSettings.LocationCollector4.ToPOINT();
+			LocationCollector5 = AppSettings.LocationCollector5.ToPOINT();
+			LocationCollector6 = AppSettings.LocationCollector6.ToPOINT();
+			LocationCollector7 = AppSettings.LocationCollector7.ToPOINT();
+			LocationCollector8 = AppSettings.LocationCollector8.ToPOINT();
+			LocationCollector9 = AppSettings.LocationCollector9.ToPOINT();
+			LocationCollector10 = AppSettings.LocationCollector10.ToPOINT();
+			LocationCollector11 = AppSettings.LocationCollector11.ToPOINT();
+			LocationCollector12 = AppSettings.LocationCollector12.ToPOINT();
+			LocationCollector13 = AppSettings.LocationCollector13.ToPOINT();
+			LocationCollector14 = AppSettings.LocationCollector14.ToPOINT();
+			LocationCollector15 = AppSettings.LocationCollector15.ToPOINT();
+			LocationCollector16 = AppSettings.LocationCollector16.ToPOINT();
+			LocationCollector17 = AppSettings.LocationCollector17.ToPOINT();
         }
 
         /// <summary>
@@ -2568,36 +2568,36 @@
 
 			// Location Settings
 			// TODO: Change the type from Windows.Drawing.Point to System.Windows.Point and get rid of the reference
-			AppSettings.LocationClanCastle = LocationClanCastle;
+			AppSettings.LocationClanCastle = LocationClanCastle.ToPoint();
 
-			AppSettings.LocationBarrack1 = LocationBarrack1;
-			AppSettings.LocationBarrack2 = LocationBarrack2;
-			AppSettings.LocationBarrack3 = LocationBarrack3;
-			AppSettings.LocationBarrack4 = LocationBarrack4;
+			AppSettings.LocationBarrack1 = LocationBarrack1.ToPoint();
+			AppSettings.LocationBarrack2 = LocationBarrack2.ToPoint();
+			AppSettings.LocationBarrack3 = LocationBarrack3.ToPoint();
+			AppSettings.LocationBarrack4 = LocationBarrack4.ToPoint();
 
-			AppSettings.LocationDarkBarrack1 = LocationDarkBarrack1;
-			AppSettings.LocationDarkBarrack2 = LocationDarkBarrack2;
+			AppSettings.LocationDarkBarrack1 = LocationDarkBarrack1.ToPoint();
+			AppSettings.LocationDarkBarrack2 = LocationDarkBarrack2.ToPoint();
 
-			AppSettings.LocationAllTrapsRearm = LocationAllTrapsRearm;
-			AppSettings.LocationAllXbowsRearm = LocationAllXbowsRearm;
+			AppSettings.LocationAllTrapsRearm = LocationAllTrapsRearm.ToPoint();
+			AppSettings.LocationAllXbowsRearm = LocationAllXbowsRearm.ToPoint();
 
-			AppSettings.LocationCollector1 = LocationCollector1;
-			AppSettings.LocationCollector2 = LocationCollector2;
-			AppSettings.LocationCollector3 = LocationCollector3;
-			AppSettings.LocationCollector4 = LocationCollector4;
-			AppSettings.LocationCollector5 = LocationCollector5;
-			AppSettings.LocationCollector6 = LocationCollector6;
-			AppSettings.LocationCollector7 = LocationCollector7;
-			AppSettings.LocationCollector8 = LocationCollector8;
-			AppSettings.LocationCollector9 = LocationCollector9;
-			AppSettings.LocationCollector10 = LocationCollector10;
-			AppSettings.LocationCollector11 = LocationCollector11;
-			AppSettings.LocationCollector12 = LocationCollector12;
-			AppSettings.LocationCollector13 = LocationCollector13;
-			AppSettings.LocationCollector14 = LocationCollector14;
-			AppSettings.LocationCollector15 = LocationCollector15;
-			AppSettings.LocationCollector16 = LocationCollector16;
-			AppSettings.LocationCollector17 = LocationCollector17;
+			AppSettings.LocationCollector1 = LocationCollector1.ToPoint();
+			AppSettings.LocationCollector2 = LocationCollector2.ToPoint();
+			AppSettings.LocationCollector3 = LocationCollector3.ToPoint();
+			AppSettings.LocationCollector4 = LocationCollector4.ToPoint();
+			AppSettings.LocationCollector5 = LocationCollector5.ToPoint();
+			AppSettings.LocationCollector6 = LocationCollector6.ToPoint();
+			AppSettings.LocationCollector7 = LocationCollector7.ToPoint();
+			AppSettings.LocationCollector8 = LocationCollector8.ToPoint();
+			AppSettings.LocationCollector9 = LocationCollector9.ToPoint();
+			AppSettings.LocationCollector10 = LocationCollector10.ToPoint();
+			AppSettings.LocationCollector11 = LocationCollector11.ToPoint();
+			AppSettings.LocationCollector12 = LocationCollector12.ToPoint();
+			AppSettings.LocationCollector13 = LocationCollector13.ToPoint();
+			AppSettings.LocationCollector14 = LocationCollector14.ToPoint();
+			AppSettings.LocationCollector15 = LocationCollector15.ToPoint();
+			AppSettings.LocationCollector16 = LocationCollector16.ToPoint();
+			AppSettings.LocationCollector17 = LocationCollector17.ToPoint();
 
             // Save it!
             AppSettings.Save();

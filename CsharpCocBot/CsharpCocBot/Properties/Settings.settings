@@ -368,83 +368,83 @@
     <Setting Name="IsUseDarkBarracks2" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="LocationClanCastle" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationClanCastle" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationBarrack1" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationBarrack1" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationBarrack2" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationBarrack2" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationBarrack3" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationBarrack3" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationBarrack4" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationBarrack4" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationDarkBarrack1" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationDarkBarrack1" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationDarkBarrack2" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationDarkBarrack2" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationAllTrapsRearm" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationAllTrapsRearm" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationAllXbowsRearm" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationAllXbowsRearm" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector1" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector1" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector2" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector2" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector3" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector3" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector4" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector4" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector5" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector5" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector6" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector6" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector7" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector7" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector8" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector8" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector9" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector9" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector10" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector10" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector11" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector11" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector12" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector12" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector13" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector13" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector14" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector14" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector15" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector15" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector16" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector16" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector17" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+    <Setting Name="LocationCollector17" Type="System.Windows.Point" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
     </Setting>
     <Setting Name="IsTakeSnapshotAllTowns" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
