@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading;
 using CoC.Bot.Data;
 using System.Windows.Media;
+using MouseAndKeyboard;
+using Point = Win32.POINT;
+
 namespace CoC.Bot.Functions
 {
 	internal class Village
@@ -217,7 +220,7 @@ namespace CoC.Bot.Functions
 					{
 						Tools.CoCHelper.ClickBad(new Point(430, 140), 1);
 						Thread.Sleep(1000);
-						Tools.KeyboardHelper.SendToBS(Main.Bot.RequestTroopsMessage);
+						KeyboardHelper.SendToBS(Main.Bot.RequestTroopsMessage);
 					}
 					Thread.Sleep(1000);
 					Tools.CoCHelper.ClickBad(new Point(524, 228), 1);

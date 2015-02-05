@@ -1,4 +1,4 @@
-﻿namespace CoC.Bot.UI.Controls.NotifyIcon.Interop
+﻿namespace Win32
 {
 	/// <summary>
 	/// The notify icon version that is used. The higher

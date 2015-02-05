@@ -9,63 +9,52 @@ using System.Threading.Tasks;
 using System.Threading;
 //using System.Windows.Forms; // this is WPF, we don't need WinForms here
 
-namespace CoC.Bot.Tools
+namespace MouseAndKeyboard
 {
-    public class MouseHelper
+    static public class MouseHelper
     {
-        [DllImport("user32.dll")]
-        public static extern bool ClientToScreen(IntPtr hWnd, ref Win32.Point lpPoint);
+		#region Window handle provider
+		public delegate IntPtr HandleProvider();
+		static HandleProvider CustomProvider = null;
 
-        [DllImport("user32.dll")]
-        public static extern uint SendInput(uint nInputs, [MarshalAs(UnmanagedType.LPArray), In] INPUT[] pInputs, int cbSize);
+		/// <summary>
+		/// Use this method to provide a the proper Window Handle to bind with the right window.
+		/// If you don't set this, then FastFind will work on FullScreen. 
+		/// </summary>
+		/// <param name="provider"></param>
+		static public void SetHWndProvider(HandleProvider provider)
+		{
+			CustomProvider = provider;
+		}
 
-#pragma warning disable 649
-        public struct INPUT
-        {
-            public UInt32 Type;
-            public MOUSEKEYBDHARDWAREINPUT Data;
-        }
-
-        [StructLayout(LayoutKind.Explicit)]
-        public struct MOUSEKEYBDHARDWAREINPUT
-        {
-            [FieldOffset(0)]
-            public MOUSEINPUT Mouse;
-        }
-
-        public struct MOUSEINPUT
-        {
-            public Int32 X;
-            public Int32 Y;
-            public UInt32 MouseData;
-            public UInt32 Flags;
-            public UInt32 Time;
-            public IntPtr ExtraInfo;
-        }
-
-#pragma warning restore 649
+		static IntPtr GetHWnd()
+		{
+			if (CustomProvider != null) return CustomProvider();
+			return IntPtr.Zero;
+		}
+		#endregion Window handle provider
 
         // Mephobia HF reported that this function fails to send mouse clicks to hidden windows 
-        public static void ClickOnPoint(IntPtr wndHandle, Win32.Point clientPoint)
+        public static void ClickOnPoint(IntPtr wndHandle, Win32.POINT clientPoint)
         {
             //var oldPos = Cursor.Position; // ref to System.Windows.Forms
 
             /// get screen coordinates
-            ClientToScreen(wndHandle, ref clientPoint);
+            Win32.Win32.ClientToScreen(wndHandle, ref clientPoint);
 
             /// set cursor on coords, and press mouse
             //Cursor.Position = new Point(clientPoint.x, clientPoint.y); // ref to System.Windows.Forms
 
-            var inputMouseDown = new INPUT();
+			var inputMouseDown = new Win32.INPUT();
             inputMouseDown.Type = 0; /// input type mouse
             inputMouseDown.Data.Mouse.Flags = 0x0002; /// left button down
 
-            var inputMouseUp = new INPUT();
+			var inputMouseUp = new Win32.INPUT();
             inputMouseUp.Type = 0; /// input type mouse
             inputMouseUp.Data.Mouse.Flags = 0x0004; /// left button up
 
-            var inputs = new INPUT[] { inputMouseDown, inputMouseUp };
-            SendInput((uint)inputs.Length, inputs, Marshal.SizeOf(typeof(INPUT)));
+			var inputs = new Win32.INPUT[] { inputMouseDown, inputMouseUp };
+			Win32.Win32.SendInput((uint)inputs.Length, inputs, Marshal.SizeOf(typeof(Win32.INPUT)));
 
             /// return mouse 
             //Cursor.Position = oldPos; // ref to System.Windows.Forms
@@ -74,7 +63,7 @@ namespace CoC.Bot.Tools
 
         static void PostMessageSafe(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
         {
-            bool returnValue = Win32.PostMessage(hWnd, msg, wParam, lParam);
+			bool returnValue = Win32.Win32.PostMessage(hWnd, msg, wParam, lParam);
             if (!returnValue)
             {
                 // An error occured
@@ -83,9 +72,9 @@ namespace CoC.Bot.Tools
         }
 
         // SendMessage and PostMessage should work on hidden forms, use them with the WM_MOUSEXXXX codes and provide the mouse location in the wp or lp parameter, I forget which.
-        public static bool ClickOnPoint2(IntPtr wndHandle, Point clientPoint, int times = 1, int delay = 0)
+		public static bool ClickOnPoint2(IntPtr wndHandle, Win32.POINT clientPoint, int times = 1, int delay = 0)
         {
-            BlueStacksHelper.ActivateBlueStacks();
+            //BlueStacksHelper.ActivateBlueStacks();
             try
             {
                 /// set cursor on coords, and press mouse
@@ -93,8 +82,8 @@ namespace CoC.Bot.Tools
                 {
                     for (int x = 0; x < times; x++)
                     {
-                        PostMessageSafe(wndHandle, Win32.WM_LBUTTONDOWN, (IntPtr)0x01, (IntPtr)((clientPoint.X) | ((clientPoint.Y) << 16)));
-                        PostMessageSafe(wndHandle, Win32.WM_LBUTTONUP, (IntPtr)0x01, (IntPtr)((clientPoint.X) | ((clientPoint.Y) << 16)));
+						PostMessageSafe(wndHandle, Win32.Win32.WM_LBUTTONDOWN, (IntPtr)0x01, (IntPtr)((clientPoint.X) | ((clientPoint.Y) << 16)));
+						PostMessageSafe(wndHandle, Win32.Win32.WM_LBUTTONUP, (IntPtr)0x01, (IntPtr)((clientPoint.X) | ((clientPoint.Y) << 16)));
                         Thread.Sleep(delay);
                     }
                 }

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Point = Win32.POINT;
 
 // The namespace is just CoC.Bot.Data in order to simplify usage of them
 namespace CoC.Bot.Data

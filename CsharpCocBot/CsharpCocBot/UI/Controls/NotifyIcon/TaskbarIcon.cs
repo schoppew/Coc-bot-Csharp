@@ -20,21 +20,22 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 //
 // THIS COPYRIGHT NOTICE MAY NOT BE REMOVED FROM THIS FILE
+using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.Threading;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Interop;
+using System.Windows.Threading;
+using Win32;
+
+using CoC.Bot.UI.Controls.NotifyIcon.Interop;
+using Point = Win32.POINT;
 
 namespace CoC.Bot.UI.Controls.NotifyIcon
 {
-	using System;
-	using System.Diagnostics;
-	using System.Drawing;
-	using System.Threading;
-	using System.Windows;
-	using System.Windows.Controls;
-	using System.Windows.Controls.Primitives;
-	using System.Windows.Interop;
-	using System.Windows.Threading;
-
-	using CoC.Bot.UI.Controls.NotifyIcon.Interop;
-	using Point = CoC.Bot.Tools.Win32.Point;
 
 	/// <summary>
 	/// A WPF proxy to for a taskbar icon (NotifyIcon) that sits in the system's
@@ -122,7 +123,7 @@ namespace CoC.Bot.UI.Controls.NotifyIcon
 				: new WindowMessageSink(NotifyIconVersion.Win95);
 
 			//init icon data structure
-			iconData = NotifyIconData.CreateDefault(messageSink.MessageWindowHandle);
+			iconData = NotifyIconData.CreateDefault(messageSink.MessageWindowHandle, WindowMessageSink.CallbackMessageId);
 
 			//create the taskbar icon
 			CreateTaskbarIcon();
@@ -386,11 +387,11 @@ namespace CoC.Bot.UI.Controls.NotifyIcon
 			if (messageSink.Version == NotifyIconVersion.Vista)
 			{
 				//physical cursor position is supported for Vista and above
-				WinApi.GetPhysicalCursorPos(ref cursorPosition);
+				Win32.Win32.GetPhysicalCursorPos(ref cursorPosition);
 			}
 			else
 			{
-				WinApi.GetCursorPos(ref cursorPosition);
+				Win32.Win32.GetCursorPos(ref cursorPosition);
 			}
 
 			cursorPosition = GetDeviceCoordinates(cursorPosition);
@@ -408,7 +409,7 @@ namespace CoC.Bot.UI.Controls.NotifyIcon
 						LeftClickCommand.ExecuteIfEnabled(LeftClickCommandParameter, LeftClickCommandTarget ?? this);
 						ShowTrayPopup(cursorPosition);
 					};
-					singleClickTimer.Change(WinApi.GetDoubleClickTime(), Timeout.Infinite);
+					singleClickTimer.Change(Win32.Win32.GetDoubleClickTime(), Timeout.Infinite);
 					isLeftClickCommandInvoked = true;
 				}
 				else
@@ -430,7 +431,7 @@ namespace CoC.Bot.UI.Controls.NotifyIcon
 						LeftClickCommand.ExecuteIfEnabled(LeftClickCommandParameter, LeftClickCommandTarget ?? this);
 						ShowContextMenu(cursorPosition);
 					};
-					singleClickTimer.Change(WinApi.GetDoubleClickTime(), Timeout.Infinite);
+					singleClickTimer.Change(Win32.Win32.GetDoubleClickTime(), Timeout.Infinite);
 					isLeftClickCommandInvoked = true;
 				}
 				else
@@ -449,7 +450,7 @@ namespace CoC.Bot.UI.Controls.NotifyIcon
 					{
 						LeftClickCommand.ExecuteIfEnabled(LeftClickCommandParameter, LeftClickCommandTarget ?? this);
 					};
-				singleClickTimer.Change(WinApi.GetDoubleClickTime(), Timeout.Infinite);
+				singleClickTimer.Change(Win32.Win32.GetDoubleClickTime(), Timeout.Infinite);
 			}
 		}
 
@@ -678,7 +679,7 @@ namespace CoC.Bot.UI.Controls.NotifyIcon
 
 				//activate either popup or message sink to track deactivation.
 				//otherwise, the popup does not close if the user clicks somewhere else
-				WinApi.SetForegroundWindow(handle);
+				Win32.Win32.SetForegroundWindow(handle);
 
 				//raise attached event - item should never be null unless developers
 				//changed the CustomPopup directly...
@@ -731,7 +732,7 @@ namespace CoC.Bot.UI.Controls.NotifyIcon
 				//activate the context menu or the message window to track deactivation - otherwise, the context menu
 				//does not close if the user clicks somewhere else. With the message window
 				//fallback, the context menu can't receive keyboard events - should not happen though
-				WinApi.SetForegroundWindow(handle);
+				Win32.Win32.SetForegroundWindow(handle);
 
 				//bubble event
 				RaiseTrayContextMenuOpenEvent();
@@ -865,7 +866,7 @@ namespace CoC.Bot.UI.Controls.NotifyIcon
 		private void SetVersion()
 		{
 			iconData.VersionOrTimeout = (uint)NotifyIconVersion.Vista;
-			bool status = WinApi.Shell_NotifyIcon(NotifyCommand.SetVersion, ref iconData);
+			bool status = Win32.Win32.Shell_NotifyIcon(NotifyCommand.SetVersion, ref iconData);
 
 			if (!status)
 			{

@@ -1,11 +1,13 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using Win32;
+using MouseAndKeyboard;
+using Microsoft.Win32;
 
 namespace CoC.Bot.Tools
 {
@@ -21,9 +23,9 @@ namespace CoC.Bot.Tools
 		public static IntPtr GetBlueStacksWindowHandle(bool force)
 		{
 			if (bshandle == IntPtr.Zero || force)
-				bshandle = Win32.FindWindow("WindowsForms10.Window.8.app.0.33c0d9d", "BlueStacks App Player"); // First try
+				bshandle = Win32.Win32.FindWindow("WindowsForms10.Window.8.app.0.33c0d9d", "BlueStacks App Player"); // First try
 			if (bshandle == IntPtr.Zero)
-				bshandle = Win32.FindWindow(null, "BlueStacks App Player"); // Maybe the class name has changes
+				bshandle = Win32.Win32.FindWindow(null, "BlueStacks App Player"); // Maybe the class name has changes
 			if (bshandle == IntPtr.Zero)
 			{
 				Process[] proc = Process.GetProcessesByName("BlueStacks App Player"); // If failed, then try with .NET functions
@@ -69,10 +71,10 @@ namespace CoC.Bot.Tools
 
 		public static bool Click(int x, int y, int nbClick = 1, int delay = 0)
 		{
-			return Click(new Point(x, y), nbClick, delay);
+			return Click(new Win32.POINT(x, y), nbClick, delay);
 		}
 
-		public static bool Click(Point point, int nbClick = 1, int delay = 0)
+		public static bool Click(Win32.POINT point, int nbClick = 1, int delay = 0)
 		{
 			if (bshandle == IntPtr.Zero)
 				bshandle = GetBlueStacksWindowHandle();
@@ -105,7 +107,7 @@ namespace CoC.Bot.Tools
 			get
 			{
 				var rct = new Win32.RECT();
-				Win32.GetClientRect(bshandle, out rct);
+				Win32.Win32.GetClientRect(bshandle, out rct);
 
 				var width = rct.Right - rct.Left; // in Win32 Rect, right and bottom are considered as excluded from the rect. 
 				var height = rct.Bottom - rct.Top;
@@ -126,7 +128,7 @@ namespace CoC.Bot.Tools
 		public static bool RestoreBlueStacks()
 		{
 			if (!IsBlueStacksRunning) return false;
-			return Win32.ShowWindow(bshandle, Win32.WindowShowStyle.Restore);
+			return Win32.Win32.ShowWindow(bshandle, Win32.WindowShowStyle.Restore);
 		}
 
 		/// <summary>
@@ -136,7 +138,7 @@ namespace CoC.Bot.Tools
 		public static bool ActivateBlueStacks()
 		{
 			if (!IsBlueStacksRunning) return false;
-			return Win32.ShowWindow(bshandle, Win32.WindowShowStyle.Show);
+			return Win32.Win32.ShowWindow(bshandle, Win32.WindowShowStyle.Show);
 		}
 
 		/// <summary>
@@ -146,7 +148,7 @@ namespace CoC.Bot.Tools
 		public static bool HideBlueStacks()
 		{
 			if (!IsBlueStacksRunning) return false;
-			return Win32.ShowWindow(bshandle, Win32.WindowShowStyle.Hide);
+			return Win32.Win32.ShowWindow(bshandle, Win32.WindowShowStyle.Hide);
 		}
 
 	}

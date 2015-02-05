@@ -44,9 +44,9 @@ namespace CoC.Bot.Tools.FastFind
 			//if (!FastFindWrapper.SaveJPG(2, lastFileName, 100))
 			//	MessageBox.Show("Failed to resave full BS capture");
 			var sc = new ExtBitmap.ExtBitmap();
-			sc.SnapShot(BlueStacksHelper.GetBlueStacksWindowHandle(),true);
+			sc.SnapShot(true);
 			sc.Save("SC_True.jpg");
-			sc.SnapShot(BlueStacksHelper.GetBlueStacksWindowHandle(),false);
+			sc.SnapShot(false);
 			sc.Save("SC_False.jpg");
 		}
 	}

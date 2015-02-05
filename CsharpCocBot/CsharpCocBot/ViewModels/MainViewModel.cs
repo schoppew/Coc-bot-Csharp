@@ -18,7 +18,7 @@
     using Tools.FastFind;
     using UI.Commands;
 	using UI.Services;
-
+	using Point = Win32.POINT;
     /// <summary>
     /// Provides functionality for the MainWindow
     /// </summary>
@@ -1272,8 +1272,8 @@
 
 		#region Location Properties
 
-		private System.Drawing.Point _locationClanCastle;
-		public System.Drawing.Point LocationClanCastle
+		private Point _locationClanCastle;
+		public Point LocationClanCastle
 		{
 			get { return _locationClanCastle; }
 			set
@@ -1286,8 +1286,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationBarrack1;
-		public System.Drawing.Point LocationBarrack1
+		private Point _locationBarrack1;
+		public Point LocationBarrack1
 		{
 			get { return _locationBarrack1; }
 			set
@@ -1300,8 +1300,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationBarrack2;
-		public System.Drawing.Point LocationBarrack2
+		private Point _locationBarrack2;
+		public Point LocationBarrack2
 		{
 			get { return _locationBarrack2; }
 			set
@@ -1314,8 +1314,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationBarrack3;
-		public System.Drawing.Point LocationBarrack3
+		private Point _locationBarrack3;
+		public Point LocationBarrack3
 		{
 			get { return _locationBarrack3; }
 			set
@@ -1328,8 +1328,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationBarrack4;
-		public System.Drawing.Point LocationBarrack4
+		private Point _locationBarrack4;
+		public Point LocationBarrack4
 		{
 			get { return _locationBarrack4; }
 			set
@@ -1342,8 +1342,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationDarkBarrack1;
-		public System.Drawing.Point LocationDarkBarrack1
+		private Point _locationDarkBarrack1;
+		public Point LocationDarkBarrack1
 		{
 			get { return _locationDarkBarrack1; }
 			set
@@ -1356,8 +1356,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationDarkBarrack2;
-		public System.Drawing.Point LocationDarkBarrack2
+		private Point _locationDarkBarrack2;
+		public Point LocationDarkBarrack2
 		{
 			get { return _locationDarkBarrack2; }
 			set
@@ -1370,8 +1370,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationAllTrapsRearm;
-		public System.Drawing.Point LocationAllTrapsRearm
+		private Point _locationAllTrapsRearm;
+		public Point LocationAllTrapsRearm
 		{
 			get { return _locationAllTrapsRearm; }
 			set
@@ -1384,8 +1384,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationAllXbowsRearm;
-		public System.Drawing.Point LocationAllXbowsRearm
+		private Point _locationAllXbowsRearm;
+		public Point LocationAllXbowsRearm
 		{
 			get { return _locationAllXbowsRearm; }
 			set
@@ -1398,8 +1398,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector1;
-		public System.Drawing.Point LocationCollector1
+		private Point _locationCollector1;
+		public Point LocationCollector1
 		{
 			get { return _locationCollector1; }
 			set
@@ -1412,8 +1412,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector2;
-		public System.Drawing.Point LocationCollector2
+		private Point _locationCollector2;
+		public Point LocationCollector2
 		{
 			get { return _locationCollector2; }
 			set
@@ -1426,8 +1426,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector3;
-		public System.Drawing.Point LocationCollector3
+		private Point _locationCollector3;
+		public Point LocationCollector3
 		{
 			get { return _locationCollector3; }
 			set
@@ -1440,8 +1440,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector4;
-		public System.Drawing.Point LocationCollector4
+		private Point _locationCollector4;
+		public Point LocationCollector4
 		{
 			get { return _locationCollector4; }
 			set
@@ -1454,8 +1454,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector5;
-		public System.Drawing.Point LocationCollector5
+		private Point _locationCollector5;
+		public Point LocationCollector5
 		{
 			get { return _locationCollector5; }
 			set
@@ -1468,8 +1468,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector6;
-		public System.Drawing.Point LocationCollector6
+		private Point _locationCollector6;
+		public Point LocationCollector6
 		{
 			get { return _locationCollector6; }
 			set
@@ -1482,8 +1482,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector7;
-		public System.Drawing.Point LocationCollector7
+		private Point _locationCollector7;
+		public Point LocationCollector7
 		{
 			get { return _locationCollector7; }
 			set
@@ -1496,8 +1496,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector8;
-		public System.Drawing.Point LocationCollector8
+		private Point _locationCollector8;
+		public Point LocationCollector8
 		{
 			get { return _locationCollector8; }
 			set
@@ -1510,8 +1510,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector9;
-		public System.Drawing.Point LocationCollector9
+		private Point _locationCollector9;
+		public Point LocationCollector9
 		{
 			get { return _locationCollector9; }
 			set
@@ -1524,8 +1524,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector10;
-		public System.Drawing.Point LocationCollector10
+		private Point _locationCollector10;
+		public Point LocationCollector10
 		{
 			get { return _locationCollector10; }
 			set
@@ -1538,8 +1538,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector11;
-		public System.Drawing.Point LocationCollector11
+		private Point _locationCollector11;
+		public Point LocationCollector11
 		{
 			get { return _locationCollector11; }
 			set
@@ -1552,8 +1552,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector12;
-		public System.Drawing.Point LocationCollector12
+		private Point _locationCollector12;
+		public Point LocationCollector12
 		{
 			get { return _locationCollector12; }
 			set
@@ -1566,8 +1566,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector13;
-		public System.Drawing.Point LocationCollector13
+		private Point _locationCollector13;
+		public Point LocationCollector13
 		{
 			get { return _locationCollector13; }
 			set
@@ -1580,8 +1580,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector14;
-		public System.Drawing.Point LocationCollector14
+		private Point _locationCollector14;
+		public Point LocationCollector14
 		{
 			get { return _locationCollector14; }
 			set
@@ -1594,8 +1594,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector15;
-		public System.Drawing.Point LocationCollector15
+		private Point _locationCollector15;
+		public Point LocationCollector15
 		{
 			get { return _locationCollector15; }
 			set
@@ -1608,8 +1608,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector16;
-		public System.Drawing.Point LocationCollector16
+		private Point _locationCollector16;
+		public Point LocationCollector16
 		{
 			get { return _locationCollector16; }
 			set
@@ -1622,8 +1622,8 @@
 			}
 		}
 
-		private System.Drawing.Point _locationCollector17;
-		public System.Drawing.Point LocationCollector17
+		private Point _locationCollector17;
+		public Point LocationCollector17
 		{
 			get { return _locationCollector17; }
 			set

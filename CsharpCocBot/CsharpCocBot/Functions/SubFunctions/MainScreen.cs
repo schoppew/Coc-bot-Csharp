@@ -1,16 +1,19 @@
-﻿namespace CoC.Bot.Functions
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Drawing;
+using System.Threading;
+
+using CoC.Bot.Tools;
+using CoC.Bot.ViewModels;
+using CoC.Bot.Data;
+using MouseAndKeyboard;
+using Point = Win32.POINT;
+
+namespace CoC.Bot.Functions
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Drawing;
-    using System.Threading;
-
-    using Tools;
-    using ViewModels;
-	using CoC.Bot.Data;
-
+    
     internal class MainScreen
     {
         public static void CheckMainScreen()

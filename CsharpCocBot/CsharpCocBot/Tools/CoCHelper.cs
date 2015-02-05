@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CoC.Bot.Data;
 using FastFind;
+using Point = Win32.POINT;
 
 namespace CoC.Bot.Tools
 {
@@ -65,6 +66,9 @@ namespace CoC.Bot.Tools
 		static public void Initialize()
 		{
 			FastFindHelper.SetHWndProvider(BlueStacksHelper.GetBlueStacksWindowHandle); // Set this so the wrapper can find the window when needed
+			ExtBitmap.ExtBitmap.SetHWndProvider(BlueStacksHelper.GetBlueStacksWindowHandle); // Set this so the wrapper can find the window when needed
+			MouseAndKeyboard.KeyboardHelper.SetHWndProvider(BlueStacksHelper.GetBlueStacksWindowHandle); // Set this so the wrapper can find the window when needed
+			MouseAndKeyboard.MouseHelper.SetHWndProvider(BlueStacksHelper.GetBlueStacksWindowHandle); // Set this so the wrapper can find the window when needed
 		}
 
 		static public bool MakeFullScreenCapture(string targetFile)

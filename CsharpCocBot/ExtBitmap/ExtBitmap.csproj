@@ -42,7 +42,12 @@
     <Compile Include="ExtBitmap.cs" />
     <Compile Include="ExtBitmap.PixelStuff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Win32.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Win32\Win32.csproj">
+      <Project>{c6d04f0b-dd48-456c-8065-7052cabbe1f5}</Project>
+      <Name>Win32</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

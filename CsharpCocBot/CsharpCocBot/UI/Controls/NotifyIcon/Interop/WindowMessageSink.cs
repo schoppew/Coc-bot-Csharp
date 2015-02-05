@@ -1,9 +1,11 @@
-﻿namespace CoC.Bot.UI.Controls.NotifyIcon.Interop
+﻿using System;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using Win32;
+
+namespace CoC.Bot.UI.Controls.NotifyIcon.Interop
 {
-	using System;
-	using System.ComponentModel;
-	using System.Diagnostics;
-	using System.Runtime.InteropServices;
 
 	/// <summary>
 	/// Receives messages from the taskbar icon through
@@ -54,7 +56,7 @@
 		/// The version of the underlying icon. Defines how
 		/// incoming messages are interpreted.
 		/// </summary>
-		public NotifyIconVersion Version { get; set; }
+		public Win32.NotifyIconVersion Version { get; set; }
 
 		#endregion
 
@@ -137,7 +139,7 @@
 
 			// Create a simple window class which is reference through
 			//the messageHandler delegate
-			WindowClass wc;
+			Win32.WindowClass wc;
 
 			wc.style = 0;
 			wc.lpfnWndProc = messageHandler;
@@ -151,14 +153,14 @@
 			wc.lpszClassName = WindowId;
 
 			// Register the window class
-			WinApi.RegisterClass(ref wc);
+			Win32.Win32.RegisterClass(ref wc);
 
 			// Get the message used to indicate the taskbar has been restarted
 			// This is used to re-add icons when the taskbar restarts
-			taskbarRestartMessageId = WinApi.RegisterWindowMessage("TaskbarCreated");
+			taskbarRestartMessageId = Win32.Win32.RegisterWindowMessage("TaskbarCreated");
 
 			// Create the message window
-			MessageWindowHandle = WinApi.CreateWindowEx(0, WindowId, "", 0, 0, 0, 1, 1, IntPtr.Zero, IntPtr.Zero,
+			MessageWindowHandle = Win32.Win32.CreateWindowEx(0, WindowId, "", 0, 0, 0, 1, 1, IntPtr.Zero, IntPtr.Zero,
 				IntPtr.Zero, IntPtr.Zero);
 
 			if (MessageWindowHandle == IntPtr.Zero)
@@ -190,7 +192,7 @@
 			ProcessWindowMessage(messageId, wparam, lparam);
 
 			// Pass the message to the default window procedure
-			return WinApi.DefWindowProc(hwnd, messageId, wparam, lparam);
+			return Win32.Win32.DefWindowProc(hwnd, messageId, wparam, lparam);
 		}
 
 
@@ -209,7 +211,7 @@
 			switch (lParam.ToInt32())
 			{
 				case 0x200:
-					MouseEventReceived(MouseEvent.MouseMove);
+					MouseEventReceived(Win32.MouseEvent.MouseMove);
 					break;
 
 				case 0x201:
@@ -334,7 +336,7 @@
 			IsDisposed = true;
 
 			//always destroy the unmanaged handle (even if called from the GC)
-			WinApi.DestroyWindow(MessageWindowHandle);
+			Win32.Win32.DestroyWindow(MessageWindowHandle);
 			messageHandler = null;
 		}
 

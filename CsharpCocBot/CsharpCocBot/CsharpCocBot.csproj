@@ -147,7 +147,6 @@
     <Compile Include="Tools\CoCHelper.cs" />
     <Compile Include="Data\Type\ColorList.cs" />
     <Compile Include="Tools\FastFind\FastFindTesting.cs" />
-    <Compile Include="Tools\KeyboardHelper.cs" />
     <Compile Include="Tools\LogWriter.cs" />
     <Compile Include="SingleInstance.cs" />
     <Compile Include="UI\Behaviours\AutoScrollTextBoxBaseBehaviour.cs" />
@@ -161,17 +160,8 @@
     <Compile Include="UI\Controls\Formatters\RtfFormatter.cs" />
     <Compile Include="UI\Controls\Formatters\XamlFormatter.cs" />
     <Compile Include="UI\Controls\NotifyIcon\BalloonIcon.cs" />
-    <Compile Include="UI\Controls\NotifyIcon\Interop\BalloonFlags.cs" />
-    <Compile Include="UI\Controls\NotifyIcon\Interop\IconDataMembers.cs" />
-    <Compile Include="UI\Controls\NotifyIcon\Interop\IconState.cs" />
-    <Compile Include="UI\Controls\NotifyIcon\Interop\MouseEvent.cs" />
-    <Compile Include="UI\Controls\NotifyIcon\Interop\NotifyCommand.cs" />
-    <Compile Include="UI\Controls\NotifyIcon\Interop\NotifyIconData.cs" />
-    <Compile Include="UI\Controls\NotifyIcon\Interop\NotifyIconVersion.cs" />
     <Compile Include="UI\Controls\NotifyIcon\Interop\SystemInfo.cs" />
     <Compile Include="UI\Controls\NotifyIcon\Interop\TrayInfo.cs" />
-    <Compile Include="UI\Controls\NotifyIcon\Interop\WinApi.cs" />
-    <Compile Include="UI\Controls\NotifyIcon\Interop\WindowClass.cs" />
     <Compile Include="UI\Controls\NotifyIcon\Interop\WindowMessageSink.cs" />
     <Compile Include="UI\Controls\NotifyIcon\PopupActivationMode.cs" />
     <Compile Include="UI\Controls\NotifyIcon\RoutedEventHelper.cs" />
@@ -245,9 +235,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tools\MouseHelper.cs" />
     <Compile Include="Tools\ProcessHelper.cs" />
-    <Compile Include="Tools\Win32.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -324,6 +312,14 @@
     <ProjectReference Include="..\FastFind\FastFind.csproj">
       <Project>{a17bcd52-c8ce-45a6-8a71-a00e73eb5aaa}</Project>
       <Name>FastFind</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MouseAndKeyboard\MouseAndKeyboard.csproj">
+      <Project>{54321393-8a64-4114-8a32-7ea3be810ed3}</Project>
+      <Name>MouseAndKeyboard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Win32\Win32.csproj">
+      <Project>{c6d04f0b-dd48-456c-8065-7052cabbe1f5}</Project>
+      <Name>Win32</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

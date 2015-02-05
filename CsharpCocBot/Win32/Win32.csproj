@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A17BCD52-C8CE-45A6-8A71-A00E73EB5AAA}</ProjectGuid>
+    <ProjectGuid>{C6D04F0B-DD48-456C-8065-7052CABBE1F5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FastFind</RootNamespace>
-    <AssemblyName>FastFind</AssemblyName>
+    <RootNamespace>Win32</RootNamespace>
+    <AssemblyName>Win32</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -40,16 +41,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FastFindHelper.cs" />
-    <Compile Include="FastFindWrapper.cs" />
+    <Compile Include="Enums\BalloonFlags.cs" />
+    <Compile Include="Enums\BlendFunction.cs" />
+    <Compile Include="Enums\Bool.cs" />
+    <Compile Include="Enums\IconDataMembers.cs" />
+    <Compile Include="Enums\IconState.cs" />
+    <Compile Include="Enums\MouseEvent.cs" />
+    <Compile Include="Enums\NotifyCommand.cs" />
+    <Compile Include="Enums\ScreenEdge.cs" />
+    <Compile Include="Enums\TernaryRasterOperations.cs" />
+    <Compile Include="Enums\WindowShowStyle.cs" />
+    <Compile Include="Structures\AppBarData.cs" />
+    <Compile Include="Structures\Input.cs" />
+    <Compile Include="Structures\MouseInput.cs" />
+    <Compile Include="Structures\MOUSEKEYBDHARDWAREINPUT.cs" />
+    <Compile Include="Structures\NotifyIconData.cs" />
+    <Compile Include="Enums\NotifyIconVersion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structures\Point.cs" />
+    <Compile Include="Structures\Rect.cs" />
+    <Compile Include="Structures\Size.cs" />
+    <Compile Include="Structures\WindowPlacement.cs" />
+    <Compile Include="Functions\Win32.cs" />
+    <Compile Include="Structures\WindowClass.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Win32\Win32.csproj">
-      <Project>{c6d04f0b-dd48-456c-8065-7052cabbe1f5}</Project>
-      <Name>Win32</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

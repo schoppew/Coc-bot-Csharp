@@ -1,7 +1,8 @@
-﻿namespace CoC.Bot.UI.Controls.NotifyIcon.Interop
-{
-	using System;
+﻿using System;
 
+namespace Win32
+{
+	
 	/// <summary>
 	/// Indicates which members of a <see cref="NotifyIconData"/> structure
 	/// were set, and thus contain valid data or provide additional information
