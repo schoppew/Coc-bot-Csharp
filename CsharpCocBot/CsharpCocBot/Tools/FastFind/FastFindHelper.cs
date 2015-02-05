@@ -27,7 +27,7 @@ namespace CoC.Bot.Tools.FastFind
         {
             if ((lastFullCapture != null && lastFullCapture.ElapsedMilliseconds > MINIMUM_DELAY_BETWEEN_CAPTURES) || forceNew)
             {
-                FastFindWrapper.SetHWnd(BlueStackHelper.GetBlueStackWindowHandle(), true); // Bind FastFind with BlueStack window, considers only ClientArea
+                FastFindWrapper.SetHWnd(BlueStacksHelper.GetBlueStackWindowHandle(), true); // Bind FastFind with BlueStack window, considers only ClientArea
                 if (FastFindWrapper.SnapShot(0, 0, 0, 0, DEFAULT_SNAP) == 0)
                 {
                     lastFullCapture = null;
@@ -45,7 +45,7 @@ namespace CoC.Bot.Tools.FastFind
         /// <returns></returns>
         static private bool TakeCustomCapture(int left, int top, int right, int bottom)
         {
-            FastFindWrapper.SetHWnd(BlueStackHelper.GetBlueStackWindowHandle(), true); // Bind FastFind with BlueStack window, considers only ClientArea
+            FastFindWrapper.SetHWnd(BlueStacksHelper.GetBlueStackWindowHandle(), true); // Bind FastFind with BlueStack window, considers only ClientArea
             if (FastFindWrapper.SnapShot(left, top, right, bottom, CUSTOM_SNAP) == 0)
             {
                 Debug.Assert(false, "FF Capture failed");

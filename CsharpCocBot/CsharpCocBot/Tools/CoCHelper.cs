@@ -12,7 +12,7 @@ namespace CoC.Bot.Tools
 	{
 		static public bool Click(ClickablePoint point, int nbClick = 1, int delay = 0)
 		{
-			return BlueStackHelper.Click(point, nbClick, delay);
+			return BlueStacksHelper.Click(point, nbClick, delay);
 		}
 		
 		[Obsolete("Add a ClickablePoint variable in Data.ScreenData.ScreenData for that. All screen coordinates should be centralized and named. No hard-coded coordinates anywhere else!")]
@@ -57,6 +57,5 @@ namespace CoC.Bot.Tools
 		{
 			return Tools.FastFind.FastFindHelper.SameColor(color1, color2, shadeVariation);
 		}
-
 	}
 }

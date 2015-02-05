@@ -85,7 +85,7 @@ namespace CoC.Bot.Tools
         // SendMessage and PostMessage should work on hidden forms, use them with the WM_MOUSEXXXX codes and provide the mouse location in the wp or lp parameter, I forget which.
         public static bool ClickOnPoint2(IntPtr wndHandle, Point clientPoint, int times = 1, int delay = 0)
         {
-            BlueStackHelper.ActivateBlueStack();
+            BlueStacksHelper.ActivateBlueStack();
             try
             {
                 /// set cursor on coords, and press mouse

@@ -219,91 +219,91 @@
 
         #region Search Settings Properties
 
-        private bool _meetGold;
+        private bool _isMeetGold;
         /// <summary>
         /// Gets or sets a value indicating whether should meet Gold conditions.
         /// </summary>
         /// <value><c>true</c> if should meet Gold conditions; otherwise, <c>false</c>.</value>
-        public bool MeetGold
+        public bool IsMeetGold
         {
-            get { return _meetGold; }
+            get { return _isMeetGold; }
             set
             {
-                if (_meetGold != value)
+                if (_isMeetGold != value)
                 {
-                    _meetGold = value;
+                    _isMeetGold = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        private bool _meetElixir;
+        private bool _isMeetElixir;
         /// <summary>
         /// Gets or sets a value indicating whether should meet Elixir conditions.
         /// </summary>
         /// <value><c>true</c> if should meet Elixir conditions; otherwise, <c>false</c>.</value>
-        public bool MeetElixir
+        public bool IsMeetElixir
         {
-            get { return _meetElixir; }
+            get { return _isMeetElixir; }
             set
             {
-                if (_meetElixir != value)
+                if (_isMeetElixir != value)
                 {
-                    _meetElixir = value;
+                    _isMeetElixir = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        private bool _meetDarkElixir;
+        private bool _isMeetDarkElixir;
         /// <summary>
         /// Gets or sets a value indicating whether should meet Dark Elixir conditions.
         /// </summary>
         /// <value><c>true</c> if should meet Dark Elixir conditions; otherwise, <c>false</c>.</value>
-        public bool MeetDarkElixir
+        public bool IsMeetDarkElixir
         {
-            get { return _meetDarkElixir; }
+            get { return _isMeetDarkElixir; }
             set
             {
-                if (_meetDarkElixir != value)
+                if (_isMeetDarkElixir != value)
                 {
-                    _meetDarkElixir = value;
+                    _isMeetDarkElixir = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        private bool _meetTrophyCount;
+        private bool _isMeetTrophyCount;
         /// <summary>
         /// Gets or sets a value indicating whether should meet Trophy count conditions.
         /// </summary>
         /// <value><c>true</c> if should meet Trophy count conditions; otherwise, <c>false</c>.</value>
-        public bool MeetTrophyCount
+        public bool IsMeetTrophyCount
         {
-            get { return _meetTrophyCount; }
+            get { return _isMeetTrophyCount; }
             set
             {
-                if (_meetTrophyCount != value)
+                if (_isMeetTrophyCount != value)
                 {
-                    _meetTrophyCount = value;
+                    _isMeetTrophyCount = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        private bool _meetTownhallLevel;
+        private bool _isMeetTownhallLevel;
         /// <summary>
         /// Gets or sets a value indicating whether should meet Townhall level conditions.
         /// </summary>
         /// <value><c>true</c> if should meet Townhall level conditions; otherwise, <c>false</c>.</value>
-        public bool MeetTownhallLevel
+        public bool IsMeetTownhallLevel
         {
-            get { return _meetTownhallLevel; }
+            get { return _isMeetTownhallLevel; }
             set
             {
-                if (_meetTownhallLevel != value)
+                if (_isMeetTownhallLevel != value)
                 {
-                    _meetTownhallLevel = value;
+                    _isMeetTownhallLevel = value;
                     OnPropertyChanged();
                 }
             }
@@ -381,19 +381,19 @@
             }
         }
 
-        private int _minimumTownhallLevel;
+        private int _maximumTownhallLevel;
         /// <summary>
         /// Gets or sets the minimum Townhall level.
         /// </summary>
         /// <value>The minimum Townhall level.</value>
-        public int MinimumTownhallLevel
+        public int MaximumTownhallLevel
         {
-            get { return _minimumTownhallLevel; }
+            get { return _maximumTownhallLevel; }
             set
             {
-                if (_minimumTownhallLevel != value)
+                if (_maximumTownhallLevel != value)
                 {
-                    _minimumTownhallLevel = value;
+                    _maximumTownhallLevel = value;
                     OnPropertyChanged();
                 }
             }
@@ -416,6 +416,42 @@
                 }
             }
         }
+
+		private bool _isTakeSnapshotAllTowns;
+		/// <summary>
+		/// Gets or sets a value indicating whether should take a snapshot of all Townhalls.
+		/// </summary>
+		/// <value><c>true</c> if take a snapshot of all Townhalls; otherwise, <c>false</c>.</value>
+		public bool IsTakeSnapshotAllTowns
+		{
+			get { return _isTakeSnapshotAllTowns; }
+			set
+			{
+				if (_isTakeSnapshotAllTowns != value)
+				{
+					_isTakeSnapshotAllTowns = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private bool _isTakeSnapshotAllLoots;
+		/// <summary>
+		/// Gets or sets a value indicating whether should take a snapshot of all Loots.
+		/// </summary>
+		/// <value><c>true</c> if take a snapshot of all Loots; otherwise, <c>false</c>.</value>
+		public bool IsTakeSnapshotAllLoots
+		{
+			get { return _isTakeSnapshotAllLoots; }
+			set
+			{
+				if (_isTakeSnapshotAllLoots != value)
+				{
+					_isTakeSnapshotAllLoots = value;
+					OnPropertyChanged();
+				}
+			}
+		}
 
         #endregion
 
@@ -1986,13 +2022,13 @@
         private void HideBlueStacks()
         {
 			WriteToOutput(Properties.Resources.OutputHideBlueStacks);
-			BlueStackHelper.HideBlueStack();
+			BlueStacksHelper.HideBlueStack();
         }
 
 		private void RestoreBlueStacks()
 		{
 			WriteToOutput(Properties.Resources.OutputRestoreBlueStacks);
-			BlueStackHelper.RestoreBlueStack();
+			BlueStacksHelper.RestoreBlueStack();
 		}
 
         /// <summary>
@@ -2275,19 +2311,21 @@
             MaxTrophies = AppSettings.MaxTrophies;
 
             // Search Settings
-            MeetGold = AppSettings.MeetGold;
-            MeetElixir = AppSettings.MeetElixir;
-            MeetDarkElixir = AppSettings.MeetDarkElixir;
-            MeetTrophyCount = AppSettings.MeetTrophyCount;
-            MeetTownhallLevel = AppSettings.MeetTownhallLevel;
+            IsMeetGold = AppSettings.IsMeetGold;
+            IsMeetElixir = AppSettings.IsMeetElixir;
+            IsMeetDarkElixir = AppSettings.IsMeetDarkElixir;
+            IsMeetTrophyCount = AppSettings.IsMeetTrophyCount;
+            IsMeetTownhallLevel = AppSettings.IsMeetTownhallLevel;
 
             MinimumGold = AppSettings.MinGold;
             MinimumElixir = AppSettings.MinElixir;
             MinimumDarkElixir = AppSettings.MinDarkElixir;
             MinimumTrophyCount = AppSettings.MinTrophyCount;
-            MinimumTownhallLevel = AppSettings.MinTownhallLevel;
+            MaximumTownhallLevel = AppSettings.MinTownhallLevel;
 
             IsAlertWhenBaseFound = AppSettings.IsAlertWhenBaseFound;
+			IsTakeSnapshotAllTowns = AppSettings.IsTakeSnapshotAllTowns;
+			IsTakeSnapshotAllLoots = AppSettings.IsTakeSnapshotAllLoots;
 
             // Attack Settings
             SelectedMaxCannonLevel = AppSettings.MaxCannonLevel;
@@ -2375,19 +2413,21 @@
             AppSettings.MaxTrophies = MaxTrophies;
 
             // Search Settings
-            AppSettings.MeetGold = MeetGold;
-            AppSettings.MeetElixir = MeetElixir;
-            AppSettings.MeetDarkElixir = MeetDarkElixir;
-            AppSettings.MeetTrophyCount = MeetTrophyCount;
-            AppSettings.MeetTownhallLevel = MeetTownhallLevel;
+            AppSettings.IsMeetGold = IsMeetGold;
+            AppSettings.IsMeetElixir = IsMeetElixir;
+            AppSettings.IsMeetDarkElixir = IsMeetDarkElixir;
+            AppSettings.IsMeetTrophyCount = IsMeetTrophyCount;
+            AppSettings.IsMeetTownhallLevel = IsMeetTownhallLevel;
 
             AppSettings.MinGold = MinimumGold;
             AppSettings.MinElixir = MinimumElixir;
             AppSettings.MinDarkElixir = MinimumDarkElixir;
             AppSettings.MinTrophyCount = MinimumTrophyCount;
-            AppSettings.MinTownhallLevel = MinimumTownhallLevel;
+            AppSettings.MinTownhallLevel = MaximumTownhallLevel;
 
             AppSettings.IsAlertWhenBaseFound = IsAlertWhenBaseFound;
+			AppSettings.IsTakeSnapshotAllTowns = IsTakeSnapshotAllTowns;
+			AppSettings.IsTakeSnapshotAllLoots = IsTakeSnapshotAllLoots;
 
             // Attack Settings
             AppSettings.MaxCannonLevel = SelectedMaxCannonLevel;

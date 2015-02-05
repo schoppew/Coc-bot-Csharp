@@ -1,20 +1,25 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-
-namespace CoC.Bot.Tools
+﻿namespace CoC.Bot.Tools
 {
-	public static class BlueStackHelper
+	using System;
+	using System.Collections.Generic;
+	using System.Diagnostics;
+	using System.Linq;
+	using System.Drawing;
+
+	using Microsoft.Win32;
+
+	/// <summary>
+	/// The BlueStacks Helper.
+	/// </summary>
+	public static class BlueStacksHelper
 	{
 		private static IntPtr bshandle = IntPtr.Zero;
 
-		public static bool IsBlueStacksFound { get { return bshandle != IntPtr.Zero; } }
-
+		/// <summary>
+		/// Gets the BlueStacks window handle.
+		/// </summary>
+		/// <param name="force">if set to <c>true</c> [force].</param>
+		/// <returns>IntPtr.</returns>
 		public static IntPtr GetBlueStackWindowHandle(bool force = false)
 		{
 			if (bshandle == IntPtr.Zero || force)
@@ -31,6 +36,10 @@ namespace CoC.Bot.Tools
 			return bshandle;
 		}
 
+		/// <summary>
+		/// Sets the BlueStacks dimensions into registry.
+		/// </summary>
+		/// <returns><c>true</c> if set, <c>false</c> otherwise.</returns>
 		public static bool SetDimensionsIntoRegistry()
 		{
 			try
@@ -79,6 +88,12 @@ namespace CoC.Bot.Tools
 		}
 
 		#region Properties
+
+		/// <summary>
+		/// Gets a value indicating whether the instance of BlueStacks is found.
+		/// </summary>
+		/// <value><c>true</c> if BlueStacks is found; otherwise, <c>false</c>.</value>
+		public static bool IsBlueStacksFound { get { return bshandle != IntPtr.Zero; } }
 
 		/// <summary>
 		/// Gets a value indicating whether BlueStacks is running.
@@ -137,7 +152,7 @@ namespace CoC.Bot.Tools
 		}
 
 		/// <summary>
-		/// Hides the BlueStack Window
+		/// Hides the BlueStacks Window
 		/// </summary>
 		/// <returns></returns>
 		public static bool HideBlueStack()
@@ -145,6 +160,5 @@ namespace CoC.Bot.Tools
 			if (!IsBlueStackRunning) return false;
 			return Win32.ShowWindow(bshandle, Win32.WindowShowStyle.Hide);
 		}
-
 	}
 }

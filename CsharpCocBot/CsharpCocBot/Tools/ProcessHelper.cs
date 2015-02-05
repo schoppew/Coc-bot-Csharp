@@ -114,7 +114,7 @@ namespace CoC.Bot.Tools
 
         static public string GetBlueStackExecutablePath()
         {
-            return GetExecutablePath(BlueStackHelper.GetBlueStackWindowHandle());
+            return GetExecutablePath(BlueStacksHelper.GetBlueStackWindowHandle());
         }
     }
 }

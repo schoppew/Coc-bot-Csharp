@@ -14,7 +14,7 @@ namespace CoC.Bot.Tools.FastFind
 		const string smallSize = "SmallSize";
 		static public void Test()
 		{
-			FastFindWrapper.SetHWnd(BlueStackHelper.GetBlueStackWindowHandle(), true); // Bind FastFind with BlueStack window
+			FastFindWrapper.SetHWnd(BlueStacksHelper.GetBlueStackWindowHandle(), true); // Bind FastFind with BlueStack window
 			FastFindWrapper.SnapShot(0, 0, 860, 720, 0); // Take full window capture
 			FastFindWrapper.SnapShot(200, 200, 600, 500, 1); // Take just a small part
 			FastFindWrapper.SetDebugMode(FastFindWrapper.DEBUG_SYSTEM_ERROR); // Console and File - Detailed System Message

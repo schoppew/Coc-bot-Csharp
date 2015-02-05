@@ -17,13 +17,13 @@
     <Setting Name="MinTrophyCount" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="MeetGold" Type="System.Boolean" Scope="User">
+    <Setting Name="IsMeetGold" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="MeetDarkElixir" Type="System.Boolean" Scope="User">
+    <Setting Name="IsMeetDarkElixir" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="MeetTrophyCount" Type="System.Boolean" Scope="User">
+    <Setting Name="IsMeetTrophyCount" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="IsAlertWhenBaseFound" Type="System.Boolean" Scope="User">
@@ -86,10 +86,10 @@
     <Setting Name="IsAttackUsingClanCastle" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="MeetElixir" Type="System.Boolean" Scope="User">
+    <Setting Name="IsMeetElixir" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="MeetTownhallLevel" Type="System.Boolean" Scope="User">
+    <Setting Name="IsMeetTownhallLevel" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="MinTownhallLevel" Type="System.Int32" Scope="User">
@@ -445,6 +445,12 @@
     </Setting>
     <Setting Name="LocationCollector17" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="IsTakeSnapshotAllTowns" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="IsTakeSnapshotAllLoots" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

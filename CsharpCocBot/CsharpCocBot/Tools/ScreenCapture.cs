@@ -63,7 +63,7 @@ namespace CoC.Bot.Tools
         {
 			Stopwatch sw = Stopwatch.StartNew();
             FreeCurrentImage();
-            IntPtr hWnd = BlueStackHelper.GetBlueStackWindowHandle();
+            IntPtr hWnd = BlueStacksHelper.GetBlueStackWindowHandle();
             if (hWnd == IntPtr.Zero)
                 return null;
             IntPtr hCaptureDC = Win32.GetWindowDC(hWnd);
@@ -98,11 +98,11 @@ namespace CoC.Bot.Tools
 		{
 			Win32.RECT rWindow= new Win32.RECT();
 		  Win32.RECT rClient= new Win32.RECT();
-			Win32.GetWindowRect(BlueStackHelper.GetBlueStackWindowHandle(), out rWindow);
-			Win32.GetClientRect(BlueStackHelper.GetBlueStackWindowHandle(), out rClient);
+			Win32.GetWindowRect(BlueStacksHelper.GetBlueStackWindowHandle(), out rWindow);
+			Win32.GetClientRect(BlueStacksHelper.GetBlueStackWindowHandle(), out rClient);
 			Point topleft = new Point(rClient.Left, rClient.Top);
 			
-			Win32.ClientToScreen(BlueStackHelper.GetBlueStackWindowHandle(), ref topleft);			
+			Win32.ClientToScreen(BlueStacksHelper.GetBlueStackWindowHandle(), ref topleft);			
 			rect.Offset(topleft.X - rWindow.Left, topleft.Y - rWindow.Top);
 			return true;
 		}
@@ -110,9 +110,9 @@ namespace CoC.Bot.Tools
 
         private Rectangle GetBSArea()
         {
-            if (!BlueStackHelper.IsBlueStackRunning) return Rectangle.Empty;
+            if (!BlueStacksHelper.IsBlueStackRunning) return Rectangle.Empty;
             Win32.RECT win32rect;
-            if (!Win32.GetClientRect(BlueStackHelper.GetBlueStackWindowHandle(), out win32rect))
+            if (!Win32.GetClientRect(BlueStacksHelper.GetBlueStackWindowHandle(), out win32rect))
                 return Rectangle.Empty;
             return Rectangle.FromLTRB(win32rect.Left, win32rect.Top, win32rect.Right, win32rect.Bottom);
         }
@@ -145,7 +145,7 @@ namespace CoC.Bot.Tools
 			//Win32.RECT wrect = new Win32.RECT(rect);
 			Win32.Point topleft = new Win32.Point(rect.Left, rect.Top);
 			Win32.Point bottomright = new Win32.Point(rect.Right, rect.Bottom);
-			if (!Win32.ClientToScreen(BlueStackHelper.GetBlueStackWindowHandle(), ref topleft)) return null;
+			if (!Win32.ClientToScreen(BlueStacksHelper.GetBlueStackWindowHandle(), ref topleft)) return null;
 			rect = new Rectangle(topleft.ToNative(), new Size(rect.Width, rect.Height));
 
             //Create a new bitmap.

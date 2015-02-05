@@ -245,7 +245,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tools\BlueStackHelper.cs" />
+    <Compile Include="Tools\BlueStacksHelper.cs" />
     <Compile Include="Tools\MouseHelper.cs" />
     <Compile Include="Tools\FastFind\FastFindWrapper.cs" />
     <Compile Include="Tools\ProcessHelper.cs" />
