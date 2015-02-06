@@ -121,12 +121,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Data\ColorList\AllColorLists.cs" />
+    <Compile Include="Data\ColorList\ColorListBase.cs" />
+    <Compile Include="Data\ColorList\ColorListItem.cs" />
+    <Compile Include="Data\ColorList\Generated\TH.cs" />
+    <Compile Include="Data\ColorList\Generated\Wall.cs" />
+    <Compile Include="Data\ColorList\Tools\ColorListsHelper.cs" />
     <Compile Include="Data\Enum\AttackMode.cs" />
     <Compile Include="Data\ScreenData\ScreenData.TroopDrop.cs" />
     <Compile Include="Data\Type\Building.cs" />
     <Compile Include="Data\BuildingLevels.cs" />
-    <Compile Include="Data\ColorList\Data.cs" />
-    <Compile Include="Data\ColorList\Walls.cs" />
     <Compile Include="Data\DataCollection.cs" />
     <Compile Include="Data\Enum\DeployStrategy.cs" />
     <Compile Include="Data\Enum\DeployTroops.cs" />

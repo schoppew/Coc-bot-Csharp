@@ -15,6 +15,8 @@ namespace ExtBitmap
 
 		private bool IsInShadeVariation(byte red, byte green, byte blue, byte red2, byte green2, byte blue2, int shadeVariation)
 		{
+			if (shadeVariation == 0)
+				return red == red2 && blue == blue2 && green == green2;
 			return BytesAreCloseEnough(red, red2, shadeVariation) &&
 					BytesAreCloseEnough(blue, blue2, shadeVariation) &&
 					BytesAreCloseEnough(green, green2, shadeVariation);
@@ -54,7 +56,7 @@ namespace ExtBitmap
 
 		private bool CompareColorWithPixelAtPos(byte red, byte green, byte blue, int pos, int shadeVariation)
 		{
-			if (shadeVariation==0)
+			if (shadeVariation == 0)
 				return blue == data[pos] && green == data[pos + 1] && red == data[pos + 2];
 			return IsInShadeVariation(red, green, blue, data[pos + 2], data[pos + 1], data[pos], shadeVariation);
 		}
@@ -75,11 +77,11 @@ namespace ExtBitmap
 			byte green = (byte)((color >> 8) & 0x00FF);
 			byte blue = (byte)(color & 0x00FF);
 			int pos1 = PosFromPoint(left, top);
-			while(bottom >= top)
+			while (bottom >= top)
 			{
 				int cursor = pos1;
 				int x = left;
-				while(x++<=right)
+				while (x++ <= right)
 				{
 					if (CompareColorWithPixelAtPos(red, green, blue, cursor, shadeVariation))
 					{
@@ -109,6 +111,29 @@ namespace ExtBitmap
 			int y = pos / stride;
 			int x = (pos % stride) / bytesPerPixel;
 			return new Win32.POINT(x, y);
+		}
+
+		private int CountPixels(byte red, byte green, byte blue, int shadeVariation)
+		{
+			int lastPos = size - bytesPerPixel;
+			int pos = 0;
+			int count = 0;
+			while (pos <= lastPos)
+			{
+				if (IsInShadeVariation(red, green, blue, data[pos + 2], data[pos + 1], data[pos], shadeVariation))
+					count++;
+
+				pos += bytesPerPixel;
+			}
+			return count;
+		}
+
+		public int CountPixels(int color, int shadeVariation)
+		{
+			byte red = (byte)((color >> 16) & 0x00FF);
+			byte green = (byte)((color >> 8) & 0x00FF);
+			byte blue = (byte)(color & 0x00FF);
+			return CountPixels(red, green, blue, shadeVariation);
 		}
 	}
 }

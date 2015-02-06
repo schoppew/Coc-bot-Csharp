@@ -3,16 +3,16 @@
   <Profiles />
   <Settings>
     <Setting Name="DataPath1" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">../../Data</Value>
+      <Value Profile="(Default)">../../Clean/TH</Value>
     </Setting>
     <Setting Name="Name1" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data</Value>
+      <Value Profile="(Default)">TH</Value>
     </Setting>
     <Setting Name="DataPath2" Type="System.String" Scope="User">
-      <Value Profile="(Default)">../../Walls</Value>
+      <Value Profile="(Default)">../../Clean/Wall</Value>
     </Setting>
     <Setting Name="Name2" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Walls</Value>
+      <Value Profile="(Default)">Wall</Value>
     </Setting>
   </Settings>
 </SettingsFile>

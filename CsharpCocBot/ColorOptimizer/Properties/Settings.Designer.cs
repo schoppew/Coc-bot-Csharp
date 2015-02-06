@@ -25,7 +25,7 @@ namespace ColorOptimizer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("../../Data")]
+        [global::System.Configuration.DefaultSettingValueAttribute("../../Clean/TH")]
         public string DataPath1 {
             get {
                 return ((string)(this["DataPath1"]));
@@ -34,7 +34,7 @@ namespace ColorOptimizer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data")]
+        [global::System.Configuration.DefaultSettingValueAttribute("TH")]
         public string Name1 {
             get {
                 return ((string)(this["Name1"]));
@@ -46,7 +46,7 @@ namespace ColorOptimizer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("../../Walls")]
+        [global::System.Configuration.DefaultSettingValueAttribute("../../Clean/Wall")]
         public string DataPath2 {
             get {
                 return ((string)(this["DataPath2"]));
@@ -58,7 +58,7 @@ namespace ColorOptimizer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Walls")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Wall")]
         public string Name2 {
             get {
                 return ((string)(this["Name2"]));
