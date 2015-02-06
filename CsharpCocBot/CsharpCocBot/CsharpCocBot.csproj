@@ -154,6 +154,8 @@
     <Compile Include="UI\Behaviours\TextBoxBehaviour.cs" />
     <Compile Include="UI\Commands\AboutCommand.cs" />
     <Compile Include="UI\Commands\DelegateCommand.cs" />
+    <Compile Include="UI\Commands\EventToCommand.cs" />
+    <Compile Include="UI\Commands\IEventArgsConverter.cs" />
     <Compile Include="UI\Commands\RelayCommand.cs" />
     <Compile Include="Tools\XmlHelper.cs" />
     <Compile Include="UI\Controls\Formatters\ITextFormatter.cs" />

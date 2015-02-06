@@ -57,8 +57,6 @@ ToDo's
 ToDo's In Progress
 =============================
 
-	» [U/C] Reflect the changes immediately after Troop Quantity Changes
-		- Currently the change is reflected when selecting another troop from the list
 	» [C] Provides an higher level helper for FastFind integration
 
 
@@ -66,6 +64,7 @@ ToDo's Completed
 =============================
 
 	[6.0.0.0]
+	» [^] Reflect the changes immediately after Troop Quantity Changes
 	» [#] Write to Output no possible if in background thread
 	» [+] Implement RichTextBox for colored Output
 	» [+] Make the App Singleton

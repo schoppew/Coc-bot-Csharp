@@ -5,6 +5,7 @@
         xmlns:local="clr-namespace:CoC.Bot"
         xmlns:vm="clr-namespace:CoC.Bot.ViewModels"
         xmlns:b="clr-namespace:CoC.Bot.UI.Behaviours"
+        xmlns:cmd="clr-namespace:CoC.Bot.UI.Commands"
         xmlns:c="clr-namespace:CoC.Bot.UI.Converters"
         xmlns:ctrls="clr-namespace:CoC.Bot.UI.Controls"
         xmlns:d="clr-namespace:CoC.Bot.Data"
@@ -12,15 +13,12 @@
         xmlns:tb="clr-namespace:CoC.Bot.UI.Controls.NotifyIcon"
         Title="[TBC] Clash of Clans Bot" Icon="/Assets/Images/Icon.ico" Height="600" Width="500" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
 
-    <Window.DataContext>
-        <vm:MainViewModel />
-    </Window.DataContext>
-
     <Window.Resources>
+        <vm:MainViewModel x:Key="MainViewModel" />
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <c:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
         <c:InverseBooleanConverter x:Key="InverseBoolConverter" />
-        <c:IntegerToStringConverter x:Key="IntegerToStringConverter" />
+        <!--<c:IntegerToStringConverter x:Key="IntegerToStringConverter" />-->
         <c:SelectedTreeViewItemConverter x:Key="SelectedTreeViewItemConverter" />
         <c:BooleanToStartStopStringConverter x:Key="BooleanToStartStopStringConverter" />
         <c:BooleanToStartStopImageSourceConverter x:Key="BooleanToStartStopImageSourceConverter" />
@@ -29,6 +27,14 @@
         <c:BooleanToHideShowImageSourceConverter x:Key="BooleanToHideShowImageSourceConverter" />
         <c:BooleanToOverlayConverter x:Key="BooleanToOverlayConverter" />
     </Window.Resources>
+
+    <!--<Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>-->
+
+    <Window.DataContext>
+        <Binding Source="{StaticResource MainViewModel}"></Binding>
+    </Window.DataContext>
 
     <!-- Taskbar -->
     <Window.TaskbarItemInfo>
@@ -160,7 +166,11 @@
                                 <GroupBox Header="{x:Static p:Resources.TrophySettings}" HorizontalAlignment="Right" Margin="0,0,16,18" VerticalAlignment="Bottom" Height="75" Width="210">
                                     <Grid>
                                         <Label Content="{x:Static p:Resources.LabelMaxTrophies}" Height="26" HorizontalAlignment="Left" Margin="10,14,0,13" VerticalContentAlignment="Top" Width="83" Visibility="Visible" />
-                                        <TextBox Text="{Binding MaxTrophies, UpdateSourceTrigger=PropertyChanged}" MaxLength="4" PreviewTextInput="NumberValidationTextBox" Height="23" Margin="0,0,20,0" TextAlignment="Right" Width="80" HorizontalAlignment="Right" />
+                                        <TextBox Text="{Binding MaxTrophies, UpdateSourceTrigger=PropertyChanged}" MaxLength="4" Height="23" Margin="0,0,20,0" TextAlignment="Right" Width="80" HorizontalAlignment="Right">
+                                            <i:Interaction.Behaviors>
+                                                <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="4" EmptyValue="0" />
+                                            </i:Interaction.Behaviors>
+                                        </TextBox>
                                     </Grid>
                                 </GroupBox>
                             </Grid>
@@ -294,7 +304,7 @@
                                                         <GridViewColumn Header="{x:Static p:Resources.Quantity}" Width="45">
                                                             <GridViewColumn.CellTemplate>
                                                                 <DataTemplate>
-                                                                    <TextBox Text="{Binding TrainQuantity, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntegerToStringConverter}}" PreviewTextInput="NumberValidationTextBox"  HorizontalContentAlignment="Center">
+                                                                    <TextBox x:Name="TroopTrainQtyText" Text="{Binding TrainQuantity, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center">
                                                                         <TextBox.Style>
                                                                             <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
                                                                                 <Setter Property="Background" Value="Transparent"/>
@@ -309,6 +319,14 @@
                                                                                 </Style.Triggers>
                                                                             </Style>
                                                                         </TextBox.Style>
+                                                                        <i:Interaction.Behaviors>
+                                                                            <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="3" EmptyValue="0" />
+                                                                        </i:Interaction.Behaviors>
+                                                                        <i:Interaction.Triggers>
+                                                                            <i:EventTrigger EventName="TextChanged">
+                                                                                <cmd:EventToCommand Command="{Binding Source={StaticResource MainViewModel}, Path=TrainQuantityTextChangedCommand}" CommandParameter="{Binding Text, ElementName=TroopTrainQtyText}" />
+                                                                            </i:EventTrigger>
+                                                                        </i:Interaction.Triggers>
                                                                     </TextBox>
                                                                 </DataTemplate>
                                                             </GridViewColumn.CellTemplate>
@@ -318,7 +336,7 @@
                                             </ListView.View>
                                         </ListView>
                                         <Label Content="{x:Static p:Resources.LabelTroopCapacity}" Height="25" HorizontalAlignment="Left" Margin="16,0,0,41" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="100" IsEnabled="{Binding IsCustomTroopsEnabled}" />
-                                        <Label Content="{Binding TroopCapacity}" Height="25" HorizontalAlignment="Right" Margin="0,0,47,41" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="35" IsEnabled="{Binding IsCustomTroopsEnabled}" />
+                                        <Label Content="{Binding TroopCapacity, UpdateSourceTrigger=PropertyChanged}" Height="25" HorizontalAlignment="Right" Margin="0,0,47,41" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="35" IsEnabled="{Binding IsCustomTroopsEnabled}" />
                                         <TextBlock Text="{x:Static p:Resources.TroopsMessage}" Height="30" Margin="8,0,8,8" VerticalAlignment="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
@@ -489,7 +507,11 @@
                                                 <CheckBox x:Name="chkDonateToAll" Content="{x:Static p:Resources.DonateToAll}" IsChecked="{Binding IsCurrentDonateAll}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
                                                 <TextBox Text="{Binding CurrentDonateKeywords, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding ElementName=chkDonateToAll, Path=IsChecked, Converter={StaticResource InverseBoolConverter}}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="16,32,16,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Height="100" />
                                                 <Label Content="{x:Static p:Resources.LabelMaxDonationsPerRequest}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" Height="25" HorizontalAlignment="Right" Margin="0,137,59,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="138" />
-                                                <TextBox Text="{Binding CurrentMaxDonationsPerRequest, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntegerToStringConverter}}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" PreviewTextInput="NumberValidationTextBox" MaxLength="1" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,139,16,0" VerticalAlignment="Top" Width="40" />
+                                                <TextBox Text="{Binding CurrentMaxDonationsPerRequest, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" MaxLength="1" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,139,16,0" VerticalAlignment="Top" Width="40">
+                                                    <i:Interaction.Behaviors>
+                                                        <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="1" EmptyValue="0" />
+                                                    </i:Interaction.Behaviors>
+                                                </TextBox>
                                                 <TextBlock Text="{Binding TroopTierSelectedInfoMessage}" Visibility="{Binding ShouldHideTierInfoMessage, Converter={StaticResource BooleanToVisibilityConverter}}" Height="90" HorizontalAlignment="Right" Margin="0,44,13,75" VerticalAlignment="Center" Width="182" TextWrapping="Wrap" TextAlignment="Center" FontSize="24" />
                                                 <TextBlock Text="{x:Static p:Resources.DonateMessage}" Height="29" HorizontalAlignment="Right" Margin="0,0,13,10" VerticalAlignment="Bottom" Width="182" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                             </Grid>

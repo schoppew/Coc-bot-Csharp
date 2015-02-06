@@ -12,13 +12,14 @@
     using System.Windows.Input;
 	using System.Windows.Media;
 	using System.Xml.Linq;
+	using Point = Win32.POINT;
 
     using Data;
     using Tools;
     using Tools.FastFind;
     using UI.Commands;
 	using UI.Services;
-	using Point = Win32.POINT;
+
     /// <summary>
     /// Provides functionality for the MainWindow
     /// </summary>
@@ -120,7 +121,7 @@
 
         internal LogWriter Log { get; private set; }
 
-		internal static bool IsDebug { get { return GlobalVariables.IsDebug; } }
+		public static bool IsDebug { get { return GlobalVariables.IsDebug; } }
 
         #region Behaviour Properties
 
@@ -721,6 +722,343 @@
 
         #endregion
 
+		#region Troop Settings Properties
+
+		/// <summary>
+		/// [Used in UI for Binding] Gets All Attack Troops.
+		/// </summary>
+		/// <value>All Attack Troops.</value>
+		public static IEnumerable<TroopModel> AllAttackTroops { get { return DataCollection.TroopTiers.SelectMany(tt => tt.Troops).Distinct(); } }
+
+		private TroopModel _selectedAttackTroop;
+		/// <summary>
+		/// [For use in UI only] Gets or sets the selected attack troop.
+		/// </summary>
+		/// <value>The selected attack troop.</value>
+		public TroopModel SelectedAttackTroop
+		{
+			get { return _selectedAttackTroop; }
+			set
+			{
+				if (_selectedAttackTroop != value)
+				{
+					_selectedAttackTroop = value;
+					OnPropertyChanged();
+					//OnPropertyChanged(() => TroopCapacity);
+				}
+			}
+		}
+
+		private int _troopCapacity;
+		/// <summary>
+		/// Gets the Total Troop capacity.
+		/// </summary>
+		/// <value>The total troop capacity.</value>
+		public int TroopCapacity
+		{
+			get
+			{
+				if (_troopCapacity == 0)
+					_troopCapacity = CalculateTroopCapacity();
+
+				return _troopCapacity;
+			}
+			set
+			{
+				if (_troopCapacity != value)
+				{
+					_troopCapacity = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		/// <summary>
+		/// [Used in UI for Binding] Gets the Troop Compositions.
+		/// </summary>
+		/// <value>The Troop Compositions.</value>
+		public static BindingList<Model> TroopCompositions { get { return DataCollection.TroopCompositions; } }
+
+		private Model _selectedTroopComposition;
+		/// <summary>
+		/// Gets or sets the selected Troop Composition.
+		/// </summary>
+		/// <value>The selected Troop Composition.</value>
+		public Model SelectedTroopComposition
+		{
+			get { return _selectedTroopComposition; }
+			set
+			{
+				if (_selectedTroopComposition != value)
+				{
+					_selectedTroopComposition = value;
+					OnPropertyChanged();
+					OnPropertyChanged(() => IsUseBarracksEnabled);
+					OnPropertyChanged(() => IsCustomTroopsEnabled);
+				}
+			}
+		}
+
+		/// <summary>
+		/// [Used in UI for Binding] Gets the Troops.
+		/// </summary>
+		/// <value>The Troops.</value>
+		public static BindingList<Model> BarrackTroops { get { return DataCollection.BarracksTroops; } }
+
+		private bool _isUseBarracks1;
+		/// <summary>
+		/// Gets or sets a value indicating whether it should use Barracks 1.
+		/// </summary>
+		/// <value><c>true</c> if it should use Barracks 1; otherwise, <c>false</c>.</value>
+		public bool IsUseBarracks1
+		{
+			get { return _isUseBarracks1; }
+			set
+			{
+				if (_isUseBarracks1 != value)
+				{
+					_isUseBarracks1 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private bool _isUseBarracks2;
+		/// <summary>
+		/// Gets or sets a value indicating whether it should use Barracks 2.
+		/// </summary>
+		/// <value><c>true</c> if it should use Barracks 2; otherwise, <c>false</c>.</value>
+		public bool IsUseBarracks2
+		{
+			get { return _isUseBarracks2; }
+			set
+			{
+				if (_isUseBarracks2 != value)
+				{
+					_isUseBarracks2 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private bool _isUseBarracks3;
+		/// <summary>
+		/// Gets or sets a value indicating whether it should use Barracks 3.
+		/// </summary>
+		/// <value><c>true</c> if it should use Barracks 3; otherwise, <c>false</c>.</value>
+		public bool IsUseBarracks3
+		{
+			get { return _isUseBarracks3; }
+			set
+			{
+				if (_isUseBarracks3 != value)
+				{
+					_isUseBarracks3 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private bool _isUseBarracks4;
+		/// <summary>
+		/// Gets or sets a value indicating whether it should use Barracks 4.
+		/// </summary>
+		/// <value><c>true</c> if it should use Barracks 4; otherwise, <c>false</c>.</value>
+		public bool IsUseBarracks4
+		{
+			get { return _isUseBarracks4; }
+			set
+			{
+				if (_isUseBarracks4 != value)
+				{
+					_isUseBarracks4 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Model _selectedBarrack1;
+		/// <summary>
+		/// Gets or sets the Selected Troops in Barrack 1.
+		/// </summary>
+		/// <value>The Selected Troops in Barrack 1.</value>
+		public Model SelectedBarrack1
+		{
+			get { return _selectedBarrack1; }
+			set
+			{
+				if (_selectedBarrack1 != value)
+				{
+					_selectedBarrack1 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Model _selectedBarrack2;
+		/// <summary>
+		/// Gets or sets the Selected Troops in Barrack 2.
+		/// </summary>
+		/// <value>The Selected Troops in Barrack 2.</value>
+		public Model SelectedBarrack2
+		{
+			get { return _selectedBarrack2; }
+			set
+			{
+				if (_selectedBarrack2 != value)
+				{
+					_selectedBarrack2 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Model _selectedBarrack3;
+		/// <summary>
+		/// Gets or sets the Selected Troops in Barrack 3.
+		/// </summary>
+		/// <value>The Selected Troops in Barrack 3.</value>
+		public Model SelectedBarrack3
+		{
+			get { return _selectedBarrack3; }
+			set
+			{
+				if (_selectedBarrack3 != value)
+				{
+					_selectedBarrack3 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Model _selectedBarrack4;
+		/// <summary>
+		/// Gets or sets the Selected Troops in Barrack 4.
+		/// </summary>
+		/// <value>The Selected Troops in Barrack 4.</value>
+		public Model SelectedBarrack4
+		{
+			get { return _selectedBarrack4; }
+			set
+			{
+				if (_selectedBarrack4 != value)
+				{
+					_selectedBarrack4 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private bool _isUseDarkBarracks1;
+		/// <summary>
+		/// Gets or sets a value indicating whether it should use Dark Barracks 1.
+		/// </summary>
+		/// <value><c>true</c> if it should use Dark Barracks 1; otherwise, <c>false</c>.</value>
+		public bool IsUseDarkBarracks1
+		{
+			get { return _isUseDarkBarracks1; }
+			set
+			{
+				if (_isUseDarkBarracks1 != value)
+				{
+					_isUseDarkBarracks1 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private bool _isUseDarkBarracks2;
+		/// <summary>
+		/// Gets or sets a value indicating whether it should use Dark Barracks 2.
+		/// </summary>
+		/// <value><c>true</c> if it should use Dark Barracks 2; otherwise, <c>false</c>.</value>
+		public bool IsUseDarkBarracks2
+		{
+			get { return _isUseDarkBarracks2; }
+			set
+			{
+				if (_isUseDarkBarracks2 != value)
+				{
+					_isUseDarkBarracks2 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		/// <summary>
+		/// [Used in UI for Binding] Gets the Dark Troops.
+		/// </summary>
+		/// <value>The Dark Troops.</value>
+		public static BindingList<Model> DarkBarrackTroops { get { return DataCollection.DarkBarracksTroops; } }
+
+		private Model _selectedDarkBarrack1;
+		/// <summary>
+		/// Gets or sets the Selected Troops in Dark Barrack 1.
+		/// </summary>
+		/// <value>The Selected Troops in Dark Barrack 1.</value>
+		public Model SelectedDarkBarrack1
+		{
+			get { return _selectedDarkBarrack1; }
+			set
+			{
+				if (_selectedDarkBarrack1 != value)
+				{
+					_selectedDarkBarrack1 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private Model _selectedDarkBarrack2;
+		/// <summary>
+		/// Gets or sets the Selected Troops in Dark Barrack 2.
+		/// </summary>
+		/// <value>The Selected Troops in Dark Barrack 2.</value>
+		public Model SelectedDarkBarrack2
+		{
+			get { return _selectedDarkBarrack2; }
+			set
+			{
+				if (_selectedDarkBarrack2 != value)
+				{
+					_selectedDarkBarrack2 = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		/// <summary>
+		/// [For use in UI only] Gets a value indicating whether the use of barracks is enabled.
+		/// </summary>
+		/// <value><c>true</c> if the use of barracks is enabled; otherwise, <c>false</c>.</value>
+		public bool IsUseBarracksEnabled
+		{
+			get
+			{
+				if (SelectedTroopComposition.Id == (int)TroopComposition.UseBarracks)
+					return true;
+				else
+					return false;
+			}
+		}
+
+		/// <summary>
+		/// [For use in UI only] Gets a value indicating whether the use of custom troops is enabled.
+		/// </summary>
+		/// <value><c>true</c> if the use of custom troops enabled; otherwise, <c>false</c>.</value>
+		public bool IsCustomTroopsEnabled
+		{
+			get
+			{
+				if (SelectedTroopComposition.Id == (int)TroopComposition.CustomTroops)
+					return true;
+				else
+					return false;
+			}
+		}
+
+		#endregion
+
         #region Donate Settings Properties
 
         /// <summary>
@@ -943,328 +1281,6 @@
                     _troopTierSelectedInfoMessage = value;
                     OnPropertyChanged();
                 }
-            }
-        }
-
-        #endregion
-
-        #region Troop Settings Properties
-
-		/// <summary>
-		/// [Used in UI for Binding] Gets All Attack Troops.
-		/// </summary>
-		/// <value>All Attack Troops.</value>
-		public static IEnumerable<TroopModel> AllAttackTroops { get { return DataCollection.TroopTiers.SelectMany(tt => tt.Troops).Distinct(); } }
-
-		private TroopModel _selectedAttackTroop;
-		/// <summary>
-		/// [For use in UI only] Gets or sets the selected attack troop.
-		/// </summary>
-		/// <value>The selected attack troop.</value>
-		public TroopModel SelectedAttackTroop
-		{
-			get { return _selectedAttackTroop; }
-			set
-			{
-				if (_selectedAttackTroop != value)
-				{
-					_selectedAttackTroop = value;
-					OnPropertyChanged();
-					OnPropertyChanged(() => TroopCapacity);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Gets the Total Troop capacity.
-		/// </summary>
-		/// <value>The total troop capacity.</value>
-		public int TroopCapacity
-		{
-			get { return CalculateTroopCapacity(); }
-		}
-
-        /// <summary>
-        /// [Used in UI for Binding] Gets the Troop Compositions.
-        /// </summary>
-        /// <value>The Troop Compositions.</value>
-        public static BindingList<Model> TroopCompositions { get { return DataCollection.TroopCompositions; } }
-
-        private Model _selectedTroopComposition;
-        /// <summary>
-        /// Gets or sets the selected Troop Composition.
-        /// </summary>
-        /// <value>The selected Troop Composition.</value>
-        public Model SelectedTroopComposition
-        {
-            get { return _selectedTroopComposition; }
-            set
-            {
-                if (_selectedTroopComposition != value)
-                {
-                    _selectedTroopComposition = value;
-                    OnPropertyChanged();
-                    OnPropertyChanged(() => IsUseBarracksEnabled);
-                    OnPropertyChanged(() => IsCustomTroopsEnabled);
-                }
-            }
-        }
-
-        /// <summary>
-		/// [Used in UI for Binding] Gets the Troops.
-        /// </summary>
-        /// <value>The Troops.</value>
-        public static BindingList<Model> BarrackTroops { get { return DataCollection.BarracksTroops; } }
-
-        private bool _isUseBarracks1;
-        /// <summary>
-        /// Gets or sets a value indicating whether it should use Barracks 1.
-        /// </summary>
-        /// <value><c>true</c> if it should use Barracks 1; otherwise, <c>false</c>.</value>
-        public bool IsUseBarracks1
-        {
-            get { return _isUseBarracks1; }
-            set
-            {
-                if (_isUseBarracks1 != value)
-                {
-                    _isUseBarracks1 = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private bool _isUseBarracks2;
-        /// <summary>
-        /// Gets or sets a value indicating whether it should use Barracks 2.
-        /// </summary>
-        /// <value><c>true</c> if it should use Barracks 2; otherwise, <c>false</c>.</value>
-        public bool IsUseBarracks2
-        {
-            get { return _isUseBarracks2; }
-            set
-            {
-                if (_isUseBarracks2 != value)
-                {
-                    _isUseBarracks2 = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private bool _isUseBarracks3;
-        /// <summary>
-        /// Gets or sets a value indicating whether it should use Barracks 3.
-        /// </summary>
-        /// <value><c>true</c> if it should use Barracks 3; otherwise, <c>false</c>.</value>
-        public bool IsUseBarracks3
-        {
-            get { return _isUseBarracks3; }
-            set
-            {
-                if (_isUseBarracks3 != value)
-                {
-                    _isUseBarracks3 = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private bool _isUseBarracks4;
-        /// <summary>
-        /// Gets or sets a value indicating whether it should use Barracks 4.
-        /// </summary>
-        /// <value><c>true</c> if it should use Barracks 4; otherwise, <c>false</c>.</value>
-        public bool IsUseBarracks4
-        {
-            get { return _isUseBarracks4; }
-            set
-            {
-                if (_isUseBarracks4 != value)
-                {
-                    _isUseBarracks4 = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private Model _selectedBarrack1;
-        /// <summary>
-        /// Gets or sets the Selected Troops in Barrack 1.
-        /// </summary>
-        /// <value>The Selected Troops in Barrack 1.</value>
-        public Model SelectedBarrack1
-        {
-            get { return _selectedBarrack1; }
-            set
-            {
-                if (_selectedBarrack1 != value)
-                {
-                    _selectedBarrack1 = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private Model _selectedBarrack2;
-        /// <summary>
-        /// Gets or sets the Selected Troops in Barrack 2.
-        /// </summary>
-        /// <value>The Selected Troops in Barrack 2.</value>
-        public Model SelectedBarrack2
-        {
-            get { return _selectedBarrack2; }
-            set
-            {
-                if (_selectedBarrack2 != value)
-                {
-                    _selectedBarrack2 = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private Model _selectedBarrack3;
-        /// <summary>
-        /// Gets or sets the Selected Troops in Barrack 3.
-        /// </summary>
-        /// <value>The Selected Troops in Barrack 3.</value>
-        public Model SelectedBarrack3
-        {
-            get { return _selectedBarrack3; }
-            set
-            {
-                if (_selectedBarrack3 != value)
-                {
-                    _selectedBarrack3 = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private Model _selectedBarrack4;
-        /// <summary>
-        /// Gets or sets the Selected Troops in Barrack 4.
-        /// </summary>
-        /// <value>The Selected Troops in Barrack 4.</value>
-        public Model SelectedBarrack4
-        {
-            get { return _selectedBarrack4; }
-            set
-            {
-                if (_selectedBarrack4 != value)
-                {
-                    _selectedBarrack4 = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private bool _isUseDarkBarracks1;
-        /// <summary>
-        /// Gets or sets a value indicating whether it should use Dark Barracks 1.
-        /// </summary>
-        /// <value><c>true</c> if it should use Dark Barracks 1; otherwise, <c>false</c>.</value>
-        public bool IsUseDarkBarracks1
-        {
-            get { return _isUseDarkBarracks1; }
-            set
-            {
-                if (_isUseDarkBarracks1 != value)
-                {
-                    _isUseDarkBarracks1 = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private bool _isUseDarkBarracks2;
-        /// <summary>
-        /// Gets or sets a value indicating whether it should use Dark Barracks 2.
-        /// </summary>
-        /// <value><c>true</c> if it should use Dark Barracks 2; otherwise, <c>false</c>.</value>
-        public bool IsUseDarkBarracks2
-        {
-            get { return _isUseDarkBarracks2; }
-            set
-            {
-                if (_isUseDarkBarracks2 != value)
-                {
-                    _isUseDarkBarracks2 = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        /// <summary>
-		/// [Used in UI for Binding] Gets the Dark Troops.
-        /// </summary>
-        /// <value>The Dark Troops.</value>
-        public static BindingList<Model> DarkBarrackTroops { get { return DataCollection.DarkBarracksTroops; } }
-
-        private Model _selectedDarkBarrack1;
-        /// <summary>
-        /// Gets or sets the Selected Troops in Dark Barrack 1.
-        /// </summary>
-        /// <value>The Selected Troops in Dark Barrack 1.</value>
-        public Model SelectedDarkBarrack1
-        {
-            get { return _selectedDarkBarrack1; }
-            set
-            {
-                if (_selectedDarkBarrack1 != value)
-                {
-                    _selectedDarkBarrack1 = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private Model _selectedDarkBarrack2;
-        /// <summary>
-        /// Gets or sets the Selected Troops in Dark Barrack 2.
-        /// </summary>
-        /// <value>The Selected Troops in Dark Barrack 2.</value>
-        public Model SelectedDarkBarrack2
-        {
-            get { return _selectedDarkBarrack2; }
-            set
-            {
-                if (_selectedDarkBarrack2 != value)
-                {
-                    _selectedDarkBarrack2 = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        /// <summary>
-        /// [For use in UI only] Gets a value indicating whether the use of barracks is enabled.
-        /// </summary>
-        /// <value><c>true</c> if the use of barracks is enabled; otherwise, <c>false</c>.</value>
-        public bool IsUseBarracksEnabled
-        {
-            get
-            {
-                if (SelectedTroopComposition.Id == (int)TroopComposition.UseBarracks)
-                    return true;
-                else
-                    return false;
-            }
-        }
-
-        /// <summary>
-        /// [For use in UI only] Gets a value indicating whether the use of custom troops is enabled.
-        /// </summary>
-        /// <value><c>true</c> if the use of custom troops enabled; otherwise, <c>false</c>.</value>
-        public bool IsCustomTroopsEnabled
-        {
-            get
-            {
-                if (SelectedTroopComposition.Id == (int)TroopComposition.CustomTroops)
-                    return true;
-                else
-                    return false;
             }
         }
 
@@ -1722,6 +1738,37 @@
 
         #endregion
 
+		#region Troop Settings Commands
+
+		public ICommand TrainQuantityTextChangedCommand
+		{
+			get { return new RelayCommand<object>(val => TrainQuantityTextExecuted(val)); }
+		}
+
+		private DelegateCommand _locateDarkBarracksCommand;
+		public ICommand LocateDarkBarracksCommand
+		{
+			get
+			{
+				if (_locateDarkBarracksCommand == null)
+					_locateDarkBarracksCommand = new DelegateCommand(() => LocateDarkBarracks(), LocateDarkBarracksCanExecute);
+				return _locateDarkBarracksCommand;
+			}
+		}
+
+		private DelegateCommand _locateBarracksCommand;
+		public ICommand LocateBarracksCommand
+		{
+			get
+			{
+				if (_locateBarracksCommand == null)
+					_locateBarracksCommand = new DelegateCommand(() => LocateBarracks(), LocateBarracksCanExecute);
+				return _locateBarracksCommand;
+			}
+		}
+
+		#endregion
+
         #region Donate Settings Commands
 
         private DelegateCommand _locateClanCastleCommand;
@@ -1732,32 +1779,6 @@
                 if (_locateClanCastleCommand == null)
                     _locateClanCastleCommand = new DelegateCommand(() => LocateClanCastle(), LocateClanCastleCanExecute);
                 return _locateClanCastleCommand;
-            }
-        }
-
-        #endregion
-
-        #region Troop Settings Commands
-
-        private DelegateCommand _locateDarkBarracksCommand;
-        public ICommand LocateDarkBarracksCommand
-        {
-            get
-            {
-                if (_locateDarkBarracksCommand == null)
-                    _locateDarkBarracksCommand = new DelegateCommand(() => LocateDarkBarracks(), LocateDarkBarracksCanExecute);
-                return _locateDarkBarracksCommand;
-            }
-        }
-
-        private DelegateCommand _locateBarracksCommand;
-        public ICommand LocateBarracksCommand
-        {
-            get
-            {
-                if (_locateBarracksCommand == null)
-                    _locateBarracksCommand = new DelegateCommand(() => LocateBarracks(), LocateBarracksCanExecute);
-                return _locateBarracksCommand;
             }
         }
 
@@ -1987,11 +2008,11 @@
         /// </summary>
         private void Stop()
         {
-            WriteToOutput(Properties.Resources.OutputBotIsStopping);
+			WriteToOutput(Properties.Resources.OutputBotIsStopping, GlobalVariables.OutputStates.Information);
             
             MessageBox.Show("You clicked on the Stop button!", "Stop", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            WriteToOutput(Properties.Resources.OutputBotStopped);
+            WriteToOutput(Properties.Resources.OutputBotStopped, GlobalVariables.OutputStates.Verified);
         }
 
         /// <summary>
@@ -1999,13 +2020,13 @@
         /// </summary>
         private void HideBlueStacks()
         {
-			WriteToOutput(Properties.Resources.OutputHideBlueStacks);
+			WriteToOutput(Properties.Resources.OutputHideBlueStacks, GlobalVariables.OutputStates.Information);
 			BlueStacksHelper.HideBlueStacks();
         }
 
 		private void RestoreBlueStacks()
 		{
-			WriteToOutput(Properties.Resources.OutputRestoreBlueStacks);
+			WriteToOutput(Properties.Resources.OutputRestoreBlueStacks, GlobalVariables.OutputStates.Information);
 			BlueStacksHelper.RestoreBlueStacks();
 		}
 
@@ -2014,6 +2035,7 @@
         /// </summary>
         public void LocateCollectors()
         {
+			// Code for showing that it works
 			Notify("Locate Collectors and Gold Mines...");
             WriteToOutput("Locate Collectors and Gold Mines...");
             MessageBox.Show("You clicked on the Locate Collectors Manually button!", "Locate Collectors Manually", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -2024,6 +2046,7 @@
         /// </summary>
         private void SearchMode()
         {
+			// Code for showing that it works
             WriteToOutput("Search Mode...");
             MessageBox.Show("You clicked on the Search Mode button!", "Search Mode", MessageBoxButton.OK, MessageBoxImage.Information);
         }
@@ -2033,6 +2056,7 @@
         /// </summary>
         public void LocateClanCastle()
         {
+			// Code for showing that it works
 			Notify("Locating Clan Castle...");
             WriteToOutput("Locating Clan Castle...");
             MessageBox.Show("You clicked on the Locate Clan Castle Manually button!", "Locate Clan Castle Manually", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -2043,6 +2067,7 @@
         /// </summary>
         public void LocateBarracks()
         {
+			// Code for showing that it works
 			Notify("Locating Barracks...");
             WriteToOutput("Locate Barracks...");
             MessageBox.Show("You clicked on the Locate Barracks Manually button!", "Locate Barracks Manually", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -2053,6 +2078,7 @@
         /// </summary>
         public void LocateDarkBarracks()
         {
+			// Code for showing that it works
 			Notify("Locating Dark Barracks...");
             WriteToOutput("Locate Dark Barracks...");
             MessageBox.Show("You clicked on the Locate Dark Barracks Manually button!", "Locate Dark Barracks Manually", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -2225,6 +2251,13 @@
 			notifyService.Notify(message);
 		}
 
+		private void TrainQuantityTextExecuted(object parameter)
+		{
+			System.Diagnostics.Debug.WriteLine(parameter);
+
+			TroopCapacity = CalculateTroopCapacity();
+		}
+
         #endregion
 
 		#region Calculation Methods
@@ -2236,8 +2269,6 @@
 		private static int CalculateTroopCapacity()
 		{
 			int value = 0;
-
-			AllAttackTroops.Sum(s => s.TrainQuantity);
 
 			foreach (var tier in Enum.GetValues(typeof(TroopType)))
 			{
