@@ -183,7 +183,6 @@
     <Compile Include="UI\Converters\ScrollbarOnFarConverter.cs" />
     <Compile Include="Functions\SubFunctions\AttackAlgorithms\BarchAlgorithm.cs" />
     <Compile Include="Functions\SubFunctions\Attack.cs" />
-    <Compile Include="Functions\SubFunctions\Config.cs" />
     <Compile Include="Functions\SubFunctions\DeadBase.cs" />
     <Compile Include="Functions\SubFunctions\MainScreen.cs" />
     <Compile Include="Functions\SubFunctions\Other.cs" />
