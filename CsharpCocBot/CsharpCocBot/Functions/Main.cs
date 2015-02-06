@@ -84,7 +84,7 @@
                     MainScreen.ZoomOut();
                     Thread.Sleep(1000);
 
-                    Village.TrainTroops();
+                    Barrack.TrainTroops();
                     Thread.Sleep(1000);
 
                     Village.RequestTroops();

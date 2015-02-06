@@ -12,14 +12,8 @@ using System.Windows;
 
 namespace CoC.Bot.Functions
 {
-    internal class Village
+    internal partial class Village
     {
-        public static bool CheckFullArmy()
-        {
-            bool campsFull = Tools.CoCHelper.SameColor(Tools.CoCHelper.GetPixelColor(ScreenData.ArmyFullNotif), ScreenData.ArmyFullNotif.Color, 6);
-            return campsFull;
-        }
-
         public static void CollectResources()
         {
             Point[] collectorPos = new Point[] { Main.Bot.LocationCollector1, Main.Bot.LocationCollector2, Main.Bot.LocationCollector3, Main.Bot.LocationCollector4, Main.Bot.LocationCollector5, Main.Bot.LocationCollector6, Main.Bot.LocationCollector7, Main.Bot.LocationCollector8, Main.Bot.LocationCollector9, Main.Bot.LocationCollector10, Main.Bot.LocationCollector11, Main.Bot.LocationCollector12, Main.Bot.LocationCollector13, Main.Bot.LocationCollector14, Main.Bot.LocationCollector15, Main.Bot.LocationCollector16, Main.Bot.LocationCollector17 };
@@ -41,59 +35,6 @@ namespace CoC.Bot.Functions
             }
         }
 
-        /// <summary>
-        /// Make Troop Donations.
-        /// </summary>
-        public static void DonateCC()
-        {
-            // NOTE: This is how you access Troop information specified by User
-
-            // Get all Troops that meets this criteria (Selected for Donate)
-            var troops = DataCollection.TroopTiers.SelectMany(tt => tt.Troops).Where(t => t.IsSelectedForDonate);
-
-            // We then check if the User selected any for Donate
-            if (troops.Count() > 0)
-            {
-                Main.Bot.WriteToOutput("Donating Troops...", GlobalVariables.OutputStates.Information);
-
-                foreach (var troop in troops)
-                {
-                    DonateCCTroopSpecific(troop);
-                }
-            }
-
-            //bool donate = false; // FIX THIS
-            //int _y = 119;
-
-            //Main.Bot.WriteToOutput("Donating Troops...", GlobalVariables.OutputStates.Information);
-            //Tools.CoCHelper.ClickBad(new Point(1, 1));
-
-            //if (Tools.CoCHelper.CheckPixelColorBad(new Point(331, 330), Color.FromArgb(240, 160, 59), 20))
-            //    Tools.CoCHelper.ClickBad(new Point(19, 349));
-
-            //Thread.Sleep(200);
-            //Tools.CoCHelper.ClickBad(new Point(189, 24));
-            //Thread.Sleep(200);
-
-            //while(donate)
-            //{
-            //    byte[][] offColors = new byte[][] {};
-            //}  
-        }
-
-        /// <summary>
-        /// Make Troop Specific Donations.
-        /// </summary>
-        /// <param name="troop">The troop.</param>
-        private static void DonateCCTroopSpecific(TroopModel troop)
-        {
-            // TODO: Do the clicking Stuff here
-            // Remember to get the needed information:
-            // troop.DonateKeywords
-            // troop.MaxDonationsPerRequest
-
-            Main.Bot.WriteToOutput(string.Format("Donating {0} {1}s...", troop.MaxDonationsPerRequest, ((Troop)troop.Id).Name()), GlobalVariables.OutputStates.Verified);
-        }
 
         public static void DropTrophies()
         {
@@ -173,14 +114,14 @@ namespace CoC.Bot.Functions
 
                     CollectResources();
 
-                    TrainTroops();
+                    Barrack.TrainTroops();
                     if (GlobalVariables.fullArmy)
                         break;
 
                     Thread.Sleep(1000);
                     DropTrophies();
                     Thread.Sleep(1000);
-                    DonateCC();
+                    ClanDonation.DonateCC();
                     sw.Stop();
 
                     double idleTime = (double)sw.ElapsedMilliseconds * 1000;
@@ -191,7 +132,7 @@ namespace CoC.Bot.Functions
 
         public static void RequestTroops()
         {
-            Point ccPos = new Point(354, 425);//Main.Bot.LocationClanCastle;
+			Point ccPos = Main.Bot.LocationClanCastle;
 
             if (ccPos.IsEmpty)
             {
@@ -199,15 +140,15 @@ namespace CoC.Bot.Functions
             }
 
             Main.Bot.WriteToOutput("Requesting for Clan Castle Troops...");
-            Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 50);
+            Tools.CoCHelper.ClickBad(ccPos, 1);
             Thread.Sleep(500);
             Tools.CoCHelper.Click(new ClickablePoint(ccPos));
 
-            Point requestTroop = ScreenData.GetRequestTroopsButton();
+            ClickablePoint requestTroop = GetRequestTroopsButton();
 
             if (!requestTroop.IsEmpty)
             {
-                Tools.CoCHelper.Click(new ClickablePoint(requestTroop));
+                Tools.CoCHelper.Click(requestTroop);
                 Thread.Sleep(1000);
                 if (Tools.CoCHelper.CheckPixelColorBad(new Point(340, 245), System.Drawing.Color.FromArgb(204, 64, 16), 20))
                 {
@@ -232,140 +173,5 @@ namespace CoC.Bot.Functions
             }
         }
 
-        public static bool CheckBarrackFull()
-        {
-            bool full = Tools.CoCHelper.IsInColorRange(ScreenData.BarbarianSlotGrey, ScreenData.BarbarianSlotGrey.Color, ScreenData.BarbarianSlotGrey.ShadeVariation);
-
-            if (full)
-                return true;
-            else
-                return false;
-        }
-
-        public static void TrainTroops()
-        {
-            Point[] barrackPos = new Point[] { Main.Bot.LocationBarrack1, Main.Bot.LocationBarrack2, Main.Bot.LocationBarrack3, Main.Bot.LocationBarrack4 };
-            Point[] darkBarrackPos = new Point[] { Main.Bot.LocationDarkBarrack1, Main.Bot.LocationDarkBarrack2 };
-            bool armyFull = false;
-
-            if (Main.Bot.IsUseBarracks1 && barrackPos[0].IsEmpty)
-            {
-                Main.Bot.LocateBarracks();
-            }
-
-            if ((Main.Bot.IsUseDarkBarracks1 && darkBarrackPos[0].IsEmpty) || (Main.Bot.IsUseDarkBarracks2 && darkBarrackPos[1].IsEmpty))
-            {
-                Main.Bot.LocateDarkBarracks();
-            }
-
-            Main.Bot.WriteToOutput("Training Troops...");
-
-            for (int i = 0; i < 4; i++)
-            {
-                Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
-                Thread.Sleep(500);
-
-                Tools.CoCHelper.Click(new ClickablePoint(barrackPos[i].X, barrackPos[i].Y), 1);
-                Thread.Sleep(500);
-
-                Point trainPos = ScreenData.GetTrainTroopsButton();
-
-                if (trainPos.IsEmpty)
-                {
-                    Main.Bot.WriteToOutput(string.Format("Barrack {0} is not available...", i + 1));
-                }
-                else
-                {
-                    Tools.CoCHelper.Click(new ClickablePoint(trainPos));
-                    Thread.Sleep(500);
-
-                    armyFull = CheckFullArmy();
-
-                    if (!armyFull)
-                    {
-                        int barrackId = 0;
-
-                        if (i == 0)
-                            barrackId = Main.Bot.SelectedBarrack1.Id;
-                        else if (i == 1)
-                            barrackId = Main.Bot.SelectedBarrack2.Id;
-                        else if (i == 2)
-                            barrackId = Main.Bot.SelectedBarrack3.Id;
-                        else if (i == 3)
-                            barrackId = Main.Bot.SelectedBarrack4.Id;
-
-                        while (!CheckBarrackFull())
-                        {
-                            TrainIt(barrackId, 5);
-                            Thread.Sleep(50);
-                        }
-                    }
-                    else
-                    {
-                        Main.Bot.WriteToOutput("Barracks Full...", GlobalVariables.OutputStates.Normal);
-                    }
-                }
-
-                Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 250);
-            }
-
-            // Train Dark Barracks only if the army isn't full
-            if (!armyFull)
-            {
-                for (int i = 0; i < 2; i++)
-                {
-                    Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
-                    Thread.Sleep(500);
-
-                    Tools.CoCHelper.Click(new ClickablePoint(barrackPos[i].X, barrackPos[i].Y), 1);
-                    Thread.Sleep(500);
-
-                    Point trainPos = ScreenData.GetTrainTroopsButton();
-
-                    if (trainPos.IsEmpty)
-                    {
-                        Main.Bot.WriteToOutput(string.Format("Dark Barrack {0} is not available...", i + 1));
-                    }
-                    else
-                    {
-                        Tools.CoCHelper.Click(new ClickablePoint(trainPos));
-                        Thread.Sleep(50);
-
-                        if (!armyFull)
-                        {
-                            int barrackId = 0;
-
-                            if (i == 0)
-                                barrackId = Main.Bot.SelectedDarkBarrack1.Id;
-                            else if (i == 1)
-                                barrackId = Main.Bot.SelectedDarkBarrack2.Id;
-
-                            while (!CheckBarrackFull())
-                            {
-                                TrainIt(barrackId, 5);
-                                Thread.Sleep(50);
-                            }
-                        }
-                    }
-
-                    Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 250);
-                }
-            }
-
-            Main.Bot.WriteToOutput("Training Troops Complete...");
-        }
-
-        public static bool TrainIt(int troopKind, int count)
-        {
-            Point pos = ScreenData.GetTrainPos(troopKind);
-
-            if (!pos.IsEmpty)
-            {
-                Tools.CoCHelper.Click(new ClickablePoint(pos), count, 100);
-                return true;
-            }
-
-            return false;
-        }
     }
 }

@@ -128,7 +128,7 @@
     <Compile Include="Data\ColorList\Generated\Wall.cs" />
     <Compile Include="Data\ColorList\Tools\ColorListsHelper.cs" />
     <Compile Include="Data\Enum\AttackMode.cs" />
-    <Compile Include="Data\ScreenData\ScreenData.TroopDrop.cs" />
+    <Compile Include="Data\ScreenData\ScreenData.DropPosition.cs" />
     <Compile Include="Data\Type\Building.cs" />
     <Compile Include="Data\BuildingLevels.cs" />
     <Compile Include="Data\DataCollection.cs" />
@@ -146,6 +146,9 @@
     <Compile Include="Data\DataHelper.cs" />
     <Compile Include="Data\Type\TroopTierModel.cs" />
     <Compile Include="Functions\Main.cs" />
+    <Compile Include="Functions\SubFunctions\Barrack.cs" />
+    <Compile Include="Functions\SubFunctions\ClanDonation.cs" />
+    <Compile Include="Functions\SubFunctions\Village.Position.cs" />
     <Compile Include="Samples\GettingAroundTheUI.cs" />
     <Compile Include="Tools\BlueStacksHelper.cs" />
     <Compile Include="Tools\CoCHelper.cs" />
@@ -253,7 +256,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Assets\LICENSE" />
-    <Compile Include="Data\ScreenData\ScreenData.TroopTrain.cs" />
+    <Compile Include="Data\ScreenData\ScreenData.GetTrainPos.cs" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
