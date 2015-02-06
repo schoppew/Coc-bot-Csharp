@@ -28,11 +28,5 @@
             base.OnSourceInitialized(e);
             this.SetPlacement(Settings.Default.WindowPlacement);
         }
-
-        private void Bar_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-                DragMove();
-        }
     }
 }

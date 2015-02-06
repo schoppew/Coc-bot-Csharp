@@ -8,7 +8,6 @@
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
-	using System.Windows.Documents;
     using System.Windows.Input;
 	using System.Windows.Media;
 	using System.Xml.Linq;
@@ -1664,10 +1663,10 @@
             get { return _aboutCommand; }
         }
 
-		//public ICommand MouseDownCommand
-		//{
-		//	get { return new RelayCommand<MouseButtonEventArgs>(MouseDownDragAndMoveWindow); }
-		//}
+		public ICommand MouseDownCommand
+		{
+			get { return new RelayCommand<MouseButtonEventArgs>(e => MouseDownDragAndMoveWindow(e)); }
+		}
 
 		public ICommand MinimizeToTrayCommand
 		{
