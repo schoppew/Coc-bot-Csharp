@@ -56,15 +56,23 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource {x:Type Label}}">
+    <Style TargetType="{x:Type Label}" BasedOn="{x:Null}">
         <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <!-- This prevents TextBlock from overriding custom Label style -->
+                    <TextBlock Text="{Binding}" Foreground="{Binding RelativeSource={RelativeSource AncestorType=Label}, Path=Foreground}" TextWrapping="NoWrap" TextTrimming="None" VerticalAlignment="Stretch" />
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
-    <Style TargetType="{x:Type TextBlock}">
+    <Style x:Key="TextBlockMessage" TargetType="{x:Type TextBlock}">
         <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="TextTrimming" Value="WordEllipsis"/>
+        <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
     </Style>
 
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
@@ -105,8 +113,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ScrollBarPageButton"
-		TargetType="{x:Type RepeatButton}">
+    <Style x:Key="ScrollBarPageButton" TargetType="{x:Type RepeatButton}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="IsTabStop" Value="False"/>

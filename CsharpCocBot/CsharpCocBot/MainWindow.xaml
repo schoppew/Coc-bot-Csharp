@@ -172,8 +172,8 @@
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.TrophySettings}" HorizontalAlignment="Right" Margin="0,0,16,18" VerticalAlignment="Bottom" Height="75" Width="210">
                                     <Grid>
-                                        <Label Content="{x:Static p:Resources.LabelMaxTrophies}" Height="26" HorizontalAlignment="Left" Margin="10,14,0,13" VerticalContentAlignment="Top" Width="83" Visibility="Visible" />
-                                        <TextBox Text="{Binding MaxTrophies, UpdateSourceTrigger=PropertyChanged}" MaxLength="4" Height="23" Margin="0,0,20,0" TextAlignment="Right" Width="80" HorizontalAlignment="Right">
+                                        <Label Content="{x:Static p:Resources.LabelMaxTrophies}" Height="26" HorizontalAlignment="Left" Margin="10,14,0,13" VerticalContentAlignment="Top" Width="93" Visibility="Visible" />
+                                        <TextBox Text="{Binding MaxTrophies, UpdateSourceTrigger=PropertyChanged}" MaxLength="4" Height="23" Margin="0,0,20,0" TextAlignment="Right" Width="70" HorizontalAlignment="Right">
                                             <i:Interaction.Behaviors>
                                                 <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="4" EmptyValue="0" />
                                             </i:Interaction.Behaviors>
@@ -555,7 +555,7 @@
                                                     </i:Interaction.Behaviors>
                                                 </TextBox>
                                                 <TextBlock Text="{Binding TroopTierSelectedInfoMessage}" Visibility="{Binding ShouldHideTierInfoMessage, Converter={StaticResource BooleanToVisibilityConverter}}" Height="90" HorizontalAlignment="Right" Margin="0,44,13,75" VerticalAlignment="Center" Width="182" TextWrapping="Wrap" TextAlignment="Center" FontSize="24" />
-                                                <TextBlock Text="{x:Static p:Resources.DonateMessage}" Height="29" HorizontalAlignment="Right" Margin="0,0,13,10" VerticalAlignment="Bottom" Width="182" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
+                                                <TextBlock Text="{x:Static p:Resources.DonateMessage}" Height="29" HorizontalAlignment="Right" Margin="0,0,13,10" VerticalAlignment="Bottom" Width="182" TextWrapping="Wrap" TextTrimming="None" TextAlignment="Center" FontSize="11" />
                                             </Grid>
                                         </GroupBox>
                                     </Grid>
@@ -573,7 +573,7 @@
                         </TabItem>
                     </TabControl>
                     <Border BorderBrush="{x:Null}" Margin="9,0,89,15" Height="23" VerticalAlignment="Bottom" Grid.Row="1" Width="380">
-                        <TextBlock x:Name="lblMessage" Text="{Binding Message, NotifyOnTargetUpdated=True}">
+                        <TextBlock x:Name="lblMessage" Text="{Binding Message, NotifyOnTargetUpdated=True}" Style="{StaticResource TextBlockMessage}">
                             <TextBlock.Triggers>
                                 <EventTrigger RoutedEvent="Binding.TargetUpdated">
                                     <BeginStoryboard>
