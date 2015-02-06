@@ -56,7 +56,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type Label}" BasedOn="{x:Null}">
+    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource {x:Type Label}}">
         <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
         <Setter Property="ContentTemplate">
             <Setter.Value>
