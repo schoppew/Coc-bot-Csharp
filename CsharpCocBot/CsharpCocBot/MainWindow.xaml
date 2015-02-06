@@ -534,7 +534,20 @@
                             </Grid>
                         </TabItem>
                     </TabControl>
-                    <Label x:Name="lblMessage" Content="{Binding Message}" Height="26" HorizontalAlignment="Left" Margin="9,0,0,15" VerticalAlignment="Bottom" VerticalContentAlignment="Top" Width="381" Grid.Row="1" />
+                    <Border BorderBrush="{x:Null}" Margin="9,0,89,15" Height="23" VerticalAlignment="Bottom" Grid.Row="1" Width="380">
+                        <TextBlock x:Name="lblMessage" Text="{Binding Message, NotifyOnTargetUpdated=True}">
+                            <TextBlock.Triggers>
+                                <EventTrigger RoutedEvent="Binding.TargetUpdated">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="Opacity" Duration="0:0:0" To="1.0" />
+                                            <DoubleAnimation Storyboard.TargetProperty="Opacity" Duration="0:0:2" From="1.0" To="0.0" BeginTime="0:0:5" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </TextBlock.Triggers>
+                        </TextBlock>
+                    </Border>
                     <Button Name="btnExit" Command="{Binding ExitCommand}" Height="23" HorizontalAlignment="Right" Margin="0,0,9,15" VerticalAlignment="Bottom" Width="75" Grid.Row="1" Visibility="Visible">
                         <Grid>
                             <Grid.ColumnDefinitions>
