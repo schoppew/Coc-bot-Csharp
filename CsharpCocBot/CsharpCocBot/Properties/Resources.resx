@@ -561,4 +561,10 @@ You can double click on the icon to show the window.</value>
   <data name="TakeSnapshotAllTowns" xml:space="preserve">
     <value>Take snapshot of all Towns</value>
   </data>
+  <data name="WaveSettings" xml:space="preserve">
+    <value>Wave Settings</value>
+  </data>
+  <data name="Waves" xml:space="preserve">
+    <value>Waves</value>
+  </data>
 </root>

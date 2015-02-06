@@ -1363,6 +1363,24 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Waves.
+        /// </summary>
+        public static string Waves {
+            get {
+                return ResourceManager.GetString("Waves", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wave Settings.
+        /// </summary>
+        public static string WaveSettings {
+            get {
+                return ResourceManager.GetString("WaveSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Weak Base Settings.
         /// </summary>
         public static string WeakBaseSettings {

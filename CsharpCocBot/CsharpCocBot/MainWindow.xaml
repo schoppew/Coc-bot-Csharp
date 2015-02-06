@@ -464,6 +464,42 @@
                                 </GroupBox>
                             </Grid>
                         </TabItem>
+                        <!-- Wave Settings Tab -->
+                        <TabItem Header="{x:Static p:Resources.WaveSettings}">
+                            <Grid Background="{DynamicResource BackgroundBrush}">
+                                <GroupBox Header="{x:Static p:Resources.Controls}" Margin="16,16,16,0" VerticalAlignment="Top" Height="62">
+                                    <Grid>
+                                        <Label Content="Troop:" Height="28" HorizontalAlignment="Left" Margin="16,5,0,10" />
+                                        <ComboBox Width="100" Height="23" VerticalAlignment="Top" Margin="70,7,0,0" HorizontalAlignment="Left" />
+                                        <Label Content="Qty:" Height="28" HorizontalAlignment="Left" Margin="175,5,0,10" />
+                                        <TextBox Height="23" Width="40" HorizontalAlignment="Left" Margin="210,7,0,10" />
+                                        <Label Content="Delay:" Height="28" HorizontalAlignment="Left" Margin="255,5,0,10" />
+                                        <TextBox Height="23" Width="40" HorizontalAlignment="Left" Margin="300,7,0,10" />
+                                        <Button Content="Add" Height="23" Width="59" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,7,16,0" />
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="{x:Static p:Resources.Waves}" Margin="16,0,16,16" VerticalAlignment="Bottom" Height="308">
+                                    <Grid>
+                                        <ListView SelectionMode="Single" Margin="16,16,16,45">
+                                            <ListView.ItemContainerStyle>
+                                                <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
+                                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                                </Style>
+                                            </ListView.ItemContainerStyle>
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridViewColumn Header="#" Width="20" DisplayMemberBinding="{Binding Number}" />
+                                                    <GridViewColumn Header="Troop" Width="250" />
+                                                    <GridViewColumn Header="Qty" Width="45" />
+                                                    <GridViewColumn Header="Delay (ms)" Width="65" />
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                        <Button Content="Remove Selected Wave" Height="23" Margin="16,0,16,10" VerticalAlignment="Bottom" />
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </TabItem>
                         <!-- Donate Settings Tab -->
                         <TabItem Header="{x:Static p:Resources.DonateSettings}">
                             <Grid Background="{DynamicResource BackgroundBrush}">
