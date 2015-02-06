@@ -124,7 +124,7 @@ namespace CoC.Bot.Functions
 				DetectableArea area = new DetectableArea(left, top, right, bottom, ScreenData.RequestTroopsButton.Color, ScreenData.RequestTroopsButton.ShadeVariation);
 				ClickablePoint p1 = Tools.CoCHelper.SearchPixelInRect(area);
 
-                if(p1.Point.X != -1 && p1.Point.Y != -1)
+                if(!p1.IsEmpty)
                 { 
 				    if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.RequestTroopsButton2.Point.X, p1.Point.Y + ScreenData.RequestTroopsButton2.Point.Y), ScreenData.RequestTroopsButton2.Color, ScreenData.RequestTroopsButton2.ShadeVariation))
 				    {
