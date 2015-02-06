@@ -265,7 +265,7 @@ namespace CoC.Bot.Functions
                 Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
                 Thread.Sleep(500);
 
-                Tools.CoCHelper.Click(new DetectablePoint(new Point(barrackPos[i].X, barrackPos[i].Y)), 1);
+                Tools.CoCHelper.Click(new ClickablePoint(barrackPos[i].X, barrackPos[i].Y), 1);
                 Thread.Sleep(500);
 
                 Point trainPos = ScreenData.GetTrainTroopsButton();
@@ -309,6 +309,7 @@ namespace CoC.Bot.Functions
                 Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 250);
             }
 
+            // Train Dark Barracks only if the army isn't full
             if (!armyFull)
             {
                 for (int i = 0; i < 2; i++)
@@ -316,7 +317,7 @@ namespace CoC.Bot.Functions
                     Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
                     Thread.Sleep(500);
 
-                    Tools.CoCHelper.Click(new Data.DetectablePoint(new Point(barrackPos[i].X, barrackPos[i].Y)), 1);
+                    Tools.CoCHelper.Click(new ClickablePoint(barrackPos[i].X, barrackPos[i].Y), 1);
                     Thread.Sleep(500);
 
                     Point trainPos = ScreenData.GetTrainTroopsButton();
