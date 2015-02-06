@@ -147,8 +147,7 @@
     <Compile Include="Data\Type\TroopTierModel.cs" />
     <Compile Include="Functions\Main.cs" />
     <Compile Include="Functions\SubFunctions\Barrack.cs" />
-    <Compile Include="Functions\SubFunctions\ClanDonation.cs" />
-    <Compile Include="Functions\SubFunctions\Village.Position.cs" />
+    <Compile Include="Functions\SubFunctions\RequestAndDonate.cs" />
     <Compile Include="Samples\GettingAroundTheUI.cs" />
     <Compile Include="Tools\BlueStacksHelper.cs" />
     <Compile Include="Tools\CoCHelper.cs" />

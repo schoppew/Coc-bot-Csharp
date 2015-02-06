@@ -87,7 +87,7 @@
                     Barrack.TrainTroops();
                     Thread.Sleep(1000);
 
-                    Village.RequestTroops();
+                    RequestAndDonate.RequestTroops();
                     Thread.Sleep(1000);
 
                     Village.CollectResources();
