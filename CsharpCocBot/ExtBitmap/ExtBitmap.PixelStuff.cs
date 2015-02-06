@@ -8,6 +8,18 @@ namespace ExtBitmap
 {
 	public partial class ExtBitmap
 	{
+		private void GetRGBOutOfInt(int color, out byte red, out byte green, out byte blue)
+		{
+			red = (byte)((color >> 16) & 0x00FF);
+			green = (byte)((color >> 8) & 0x00FF);
+			blue = (byte)(color & 0x00FF);
+		}
+
+		private int GetIntFromRGB(byte red, byte green, byte blue)
+		{
+			return (red << 16) | (green << 8) | blue;
+		}
+
 		private bool BytesAreCloseEnough(byte b1, byte b2, int maxVariation)
 		{
 			return (b1 <= (b2 + maxVariation)) && (b2 <= (b1 + maxVariation));
@@ -73,9 +85,8 @@ namespace ExtBitmap
 		/// <returns></returns>
 		private int FindPixelInRect(int left, int top, int right, int bottom, int color, int shadeVariation)
 		{
-			byte red = (byte)((color >> 16) & 0x00FF);
-			byte green = (byte)((color >> 8) & 0x00FF);
-			byte blue = (byte)(color & 0x00FF);
+			byte red, green, blue;			
+			GetRGBOutOfInt(color, out red, out green, out blue);
 			int pos1 = PosFromPoint(left, top);
 			while (bottom >= top)
 			{
@@ -130,9 +141,8 @@ namespace ExtBitmap
 
 		public int CountPixels(int color, int shadeVariation)
 		{
-			byte red = (byte)((color >> 16) & 0x00FF);
-			byte green = (byte)((color >> 8) & 0x00FF);
-			byte blue = (byte)(color & 0x00FF);
+			byte red, green, blue;
+			GetRGBOutOfInt(color, out red, out green, out blue);			
 			return CountPixels(red, green, blue, shadeVariation);
 		}
 	}

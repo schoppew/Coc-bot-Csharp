@@ -310,6 +310,30 @@ namespace CoC.Bot.Functions
                 return false;
         }
 
+		
+		static public Troop GetTroopToBeTrainedInBarrack(int barrackId, bool dark)
+		{
+			if (barrackId < 0 || barrackId > 3) throw new ArgumentException("barrackId should be between 0 and 3");
+			if (dark)
+				if (barrackId < 0 || barrackId > 1) throw new ArgumentException("barrackId should be between 0 and 1 when dark is true");
+			switch(barrackId)
+			{
+				case 0:
+					if (dark)
+						return (Troop)Main.Bot.SelectedDarkBarrack1.Id;
+					return (Troop)Main.Bot.SelectedBarrack1.Id;
+				case 1:
+					if (dark)
+						return (Troop)Main.Bot.SelectedDarkBarrack2.Id;
+					return (Troop)Main.Bot.SelectedBarrack2.Id;
+				case 2:
+					return (Troop)Main.Bot.SelectedBarrack3.Id;
+				case 3:
+					return (Troop)Main.Bot.SelectedBarrack4.Id;
+			}
+			return Troop.None;
+		}
+
         public static void TrainTroops()
         {
             Point[] barrackPos = new Point[] { Main.Bot.LocationBarrack1, Main.Bot.LocationBarrack2, Main.Bot.LocationBarrack3, Main.Bot.LocationBarrack4 };
@@ -330,7 +354,7 @@ namespace CoC.Bot.Functions
 
             for (int i = 0; i < 4; i++)
             {
-                Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
+                Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 200);
                 Thread.Sleep(500);
 
                 Tools.CoCHelper.Click(new Data.DetectablePoint(new Point(barrackPos[i].X, barrackPos[i].Y)), 1);
@@ -351,16 +375,7 @@ namespace CoC.Bot.Functions
 
                     if (!armyFull)
                     {
-                        int barrackId = 0;
-
-                        if (i == 0)
-                            barrackId = Main.Bot.SelectedBarrack1.Id;
-                        else if (i == 1)
-                            barrackId = Main.Bot.SelectedBarrack2.Id;
-                        else if (i == 2)
-                            barrackId = Main.Bot.SelectedBarrack3.Id;
-                        else if (i == 3)
-                            barrackId = Main.Bot.SelectedBarrack4.Id;
+						Troop barrackId = GetTroopToBeTrainedInBarrack(i, false);
 
                         while (!CheckBarrackFull())
                         {
@@ -374,14 +389,14 @@ namespace CoC.Bot.Functions
                     }
                 }
 
-                Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 250);
+                Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 250);
             }
 
             if (!armyFull)
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
+                    Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 200);
                     Thread.Sleep(500);
 
                     Tools.CoCHelper.Click(new Data.DetectablePoint(new Point(barrackPos[i].X, barrackPos[i].Y)), 1);
@@ -399,13 +414,8 @@ namespace CoC.Bot.Functions
                         Thread.Sleep(50);
 
                         if(!armyFull)
-                        { 
-                            int barrackId = 0;
-
-                            if (i == 0)
-                                barrackId = Main.Bot.SelectedDarkBarrack1.Id;
-                            else if (i == 1)
-                                barrackId = Main.Bot.SelectedDarkBarrack2.Id;
+                        {
+							Troop barrackId = GetTroopToBeTrainedInBarrack(i, true);
 
                             while (!CheckBarrackFull())
                             {
@@ -422,9 +432,9 @@ namespace CoC.Bot.Functions
             Main.Bot.WriteToOutput("Training Troops Complete...");
         }
 
-        public static bool TrainIt(int troopKind, int count)
+        public static bool TrainIt(Troop troopKind, int count)
         {
-            Point pos = GetTrainPos(troopKind);
+			ClickablePoint pos = ScreenData.GetTrainPos(troopKind);
 
             if (!pos.IsEmpty)
             {
@@ -435,9 +445,10 @@ namespace CoC.Bot.Functions
             return false;
         }
 
-        public static Point GetTrainPos(int troopKind)
-        {
-            switch ((Data.Troop)troopKind)
+        //public static Point GetTrainPos(Troop troopKind)
+       // {
+			//return ScreenData.GetTrainPos(troopKind);
+            /*switch ((Data.Troop)troopKind)
             {
                 case Data.Troop.Barbarian:
                     return new Point(224, 323);
@@ -476,7 +487,7 @@ namespace CoC.Bot.Functions
                         Main.Bot.WriteToOutput(string.Format("Don't know how to train the troop {0} yet...", troopKind));
                         return Point.Empty;
                     }
-            }
-        }
+            }*/
+      //  }
 	}
 }

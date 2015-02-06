@@ -14,7 +14,7 @@ namespace CoC.Bot.Data
 	/// </summary>
 	public class ClickablePoint 
 	{
-		Point Point { get; set; }
+		public Point Point { get; private set; }
 
 		public ClickablePoint()
 		{
@@ -33,6 +33,8 @@ namespace CoC.Bot.Data
 
 		
 		virtual public bool IsEmpty { get { return Point.IsEmpty; } }
+		
+		public static ClickablePoint Empty = new ClickablePoint();
 
 		public static explicit operator ClickablePoint(Point p)
 		{
