@@ -15,6 +15,9 @@ namespace CoC.Bot.Data
     {
         /*
          */
+        public static DetectablePoint ClashApp3 = new DetectablePoint(-10, -10, 0xEDDAA5, 10);
+        public static DetectablePoint ClashApp2 = new DetectablePoint(10, 10, 0xA95A2E, 10);
+        public static DetectableArea ClashApp = new DetectableArea(0, 0, 860, 720, Color.FromArgb(87, 16, 1), 10);
         public static DetectablePoint BarbarianSlotGrey = new DetectablePoint(194, 315, 0xB3B3B3, 6);
         public static DetectablePoint TrainTroopsButton2 = new DetectablePoint(0, 10, 0xFFFFFF, 4);
         public static DetectableArea TrainTroopsButton = new DetectableArea(196, 558, 665, 643, Color.FromArgb(67, 38, 3), 4);

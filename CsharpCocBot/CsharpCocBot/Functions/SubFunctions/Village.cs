@@ -144,7 +144,11 @@ namespace CoC.Bot.Functions
             Thread.Sleep(500);
             Tools.CoCHelper.Click(new ClickablePoint(ccPos));
 
+<<<<<<< HEAD
             ClickablePoint requestTroop = GetRequestTroopsButton();
+=======
+            Point requestTroop = GetRequestTroopsButton();
+>>>>>>> origin/master
 
             if (!requestTroop.IsEmpty)
             {
@@ -173,5 +177,213 @@ namespace CoC.Bot.Functions
             }
         }
 
+<<<<<<< HEAD
+=======
+        public static bool CheckBarrackFull()
+        {
+            bool full = Tools.CoCHelper.IsInColorRange(ScreenData.BarbarianSlotGrey, ScreenData.BarbarianSlotGrey.Color, ScreenData.BarbarianSlotGrey.ShadeVariation);
+
+            if (full)
+                return true;
+            else
+                return false;
+        }
+
+        public static void TrainTroops()
+        {
+            Point[] barrackPos = new Point[] { Main.Bot.LocationBarrack1, Main.Bot.LocationBarrack2, Main.Bot.LocationBarrack3, Main.Bot.LocationBarrack4 };
+            Point[] darkBarrackPos = new Point[] { Main.Bot.LocationDarkBarrack1, Main.Bot.LocationDarkBarrack2 };
+            bool armyFull = false;
+
+            if (Main.Bot.IsUseBarracks1 && barrackPos[0].IsEmpty)
+            {
+                Main.Bot.LocateBarracks();
+            }
+
+            if ((Main.Bot.IsUseDarkBarracks1 && darkBarrackPos[0].IsEmpty) || (Main.Bot.IsUseDarkBarracks2 && darkBarrackPos[1].IsEmpty))
+            {
+                Main.Bot.LocateDarkBarracks();
+            }
+
+            Main.Bot.WriteToOutput("Training Troops...");
+
+            for (int i = 0; i < 4; i++)
+            {
+                Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
+                Thread.Sleep(500);
+
+                Tools.CoCHelper.Click(new ClickablePoint(barrackPos[i].X, barrackPos[i].Y), 1);
+                Thread.Sleep(500);
+
+                Point trainPos = GetTrainTroopsButton();
+
+                if (trainPos.IsEmpty)
+                {
+                    Main.Bot.WriteToOutput(string.Format("Barrack {0} is not available...", i + 1));
+                }
+                else
+                {
+                    Tools.CoCHelper.Click(new ClickablePoint(trainPos));
+                    Thread.Sleep(500);
+
+                    armyFull = CheckFullArmy();
+
+                    if (!armyFull)
+                    {
+                        int barrackId = 0;
+
+                        if (i == 0)
+                            barrackId = Main.Bot.SelectedBarrack1.Id;
+                        else if (i == 1)
+                            barrackId = Main.Bot.SelectedBarrack2.Id;
+                        else if (i == 2)
+                            barrackId = Main.Bot.SelectedBarrack3.Id;
+                        else if (i == 3)
+                            barrackId = Main.Bot.SelectedBarrack4.Id;
+
+                        while (!CheckBarrackFull())
+                        {
+                            TrainIt(barrackId, 5);
+                            Thread.Sleep(50);
+                        }
+                    }
+                    else
+                    {
+                        Main.Bot.WriteToOutput("Barracks Full...", GlobalVariables.OutputStates.Normal);
+                    }
+                }
+
+                Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 250);
+            }
+
+            // Train Dark Barracks only if the army isn't full
+            if (!armyFull)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
+                    Thread.Sleep(500);
+
+                    Tools.CoCHelper.Click(new ClickablePoint(barrackPos[i].X, barrackPos[i].Y), 1);
+                    Thread.Sleep(500);
+
+                    Point trainPos = GetTrainTroopsButton();
+
+                    if (trainPos.IsEmpty)
+                    {
+                        Main.Bot.WriteToOutput(string.Format("Dark Barrack {0} is not available...", i + 1));
+                    }
+                    else
+                    {
+                        Tools.CoCHelper.Click(new ClickablePoint(trainPos));
+                        Thread.Sleep(50);
+
+                        if (!armyFull)
+                        {
+                            int barrackId = 0;
+
+                            if (i == 0)
+                                barrackId = Main.Bot.SelectedDarkBarrack1.Id;
+                            else if (i == 1)
+                                barrackId = Main.Bot.SelectedDarkBarrack2.Id;
+
+                            while (!CheckBarrackFull())
+                            {
+                                TrainIt(barrackId, 5);
+                                Thread.Sleep(50);
+                            }
+                        }
+                    }
+
+                    Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 250);
+                }
+            }
+
+            Main.Bot.WriteToOutput("Training Troops Complete...");
+        }
+
+        public static bool TrainIt(int troopKind, int count)
+        {
+            Point pos = ScreenData.GetTrainPos((Troop) troopKind);
+
+            if (!pos.IsEmpty)
+            {
+                Tools.CoCHelper.Click(new ClickablePoint(pos), count, 100);
+                return true;
+            }
+
+            return false;
+        }
+
+        public static ClickablePoint GetRequestTroopsButton()
+        {
+            int left = ScreenData.RequestTroopsButton.Left;
+            int top = ScreenData.RequestTroopsButton.Top;
+            int right = ScreenData.RequestTroopsButton.Right;
+            int bottom = ScreenData.RequestTroopsButton.Bottom;
+            int count = 0;
+
+            do
+            {
+                DetectableArea area = new DetectableArea(left, top, right, bottom, ScreenData.RequestTroopsButton.Color, ScreenData.RequestTroopsButton.ShadeVariation);
+                ClickablePoint p1 = Tools.CoCHelper.SearchPixelInRect(area);
+
+                if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.RequestTroopsButton2.Point.X, p1.Point.Y + ScreenData.RequestTroopsButton2.Point.Y), ScreenData.RequestTroopsButton2.Color, ScreenData.RequestTroopsButton2.ShadeVariation))
+                {
+                    return p1;
+                }
+                else
+                {
+                    if (count >= 6)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        left = p1.Point.X;
+                        top = p1.Point.Y;
+                        count++;
+                    }
+                }
+            } while (true);
+
+            return new ClickablePoint();
+        }
+
+        public static ClickablePoint GetTrainTroopsButton()
+        {
+            int left = ScreenData.TrainTroopsButton.Left;
+            int top = ScreenData.TrainTroopsButton.Top;
+            int right = ScreenData.TrainTroopsButton.Right;
+            int bottom = ScreenData.TrainTroopsButton.Bottom;
+            int count = 0;
+
+            do
+            {
+                DetectableArea area = new DetectableArea(left, top, right, bottom, ScreenData.TrainTroopsButton.Color, ScreenData.TrainTroopsButton.ShadeVariation);
+                ClickablePoint p1 = Tools.CoCHelper.SearchPixelInRect(area);
+
+                if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.TrainTroopsButton2.Point.X, p1.Point.Y + ScreenData.TrainTroopsButton2.Point.Y), ScreenData.TrainTroopsButton2.Color, ScreenData.TrainTroopsButton2.ShadeVariation))
+                {
+                    return p1;
+                }
+                else
+                {
+                    if (count >= 6)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        left = p1.Point.X;
+                        top = p1.Point.Y;
+                        count++;
+                    }
+                }
+            } while (true);
+
+            return new ClickablePoint();
+        }
+>>>>>>> origin/master
     }
 }
