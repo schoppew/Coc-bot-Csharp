@@ -71,7 +71,7 @@ namespace CoC.Bot.Functions
 		#region Request
 		public static void RequestTroops()
 		{
-			ClickablePoint ccPos = (ClickablePoint)Main.Bot.LocationClanCastle;
+            ClickablePoint ccPos = new ClickablePoint(356, 432); // (ClickablePoint)Main.Bot.LocationClanCastle;
 
 			if (ccPos.IsEmpty)
 			{
@@ -79,10 +79,8 @@ namespace CoC.Bot.Functions
 			}
 
 			Main.Bot.WriteToOutput("Requesting for Clan Castle Troops...");
-			Tools.CoCHelper.Click(ccPos, 1);
-			Thread.Sleep(500);
-			Tools.CoCHelper.Click(new ClickablePoint(ccPos));
-
+			Tools.CoCHelper.Click(ccPos);
+			Thread.Sleep(200);
 
 			ClickablePoint requestTroop = GetRequestTroopsButton();
 
@@ -126,23 +124,26 @@ namespace CoC.Bot.Functions
 				DetectableArea area = new DetectableArea(left, top, right, bottom, ScreenData.RequestTroopsButton.Color, ScreenData.RequestTroopsButton.ShadeVariation);
 				ClickablePoint p1 = Tools.CoCHelper.SearchPixelInRect(area);
 
-				if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.RequestTroopsButton2.Point.X, p1.Point.Y + ScreenData.RequestTroopsButton2.Point.Y), ScreenData.RequestTroopsButton2.Color, ScreenData.RequestTroopsButton2.ShadeVariation))
-				{
-					return p1;
-				}
-				else
-				{
-					if (count >= 6)
-					{
-						break;
-					}
-					else
-					{
-						left = p1.Point.X;
-						top = p1.Point.Y;
-						count++;
-					}
-				}
+                if(p1.Point.X != -1 && p1.Point.Y != -1)
+                { 
+				    if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.RequestTroopsButton2.Point.X, p1.Point.Y + ScreenData.RequestTroopsButton2.Point.Y), ScreenData.RequestTroopsButton2.Color, ScreenData.RequestTroopsButton2.ShadeVariation))
+				    {
+					    return p1;
+				    }
+				    else
+				    {
+					    if (count >= 6)
+					    {
+						    break;
+					    }
+					    else
+					    {
+						    left = p1.Point.X;
+						    top = p1.Point.Y;
+						    count++;
+					    }
+				    }
+                }
 			} while (true);
 
 			return new ClickablePoint();

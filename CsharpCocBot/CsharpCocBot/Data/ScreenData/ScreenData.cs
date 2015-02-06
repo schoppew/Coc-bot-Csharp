@@ -21,7 +21,7 @@ namespace CoC.Bot.Data
         public static DetectablePoint BarbarianSlotGrey = new DetectablePoint(194, 315, 0xB3B3B3, 6);
         public static DetectablePoint TrainTroopsButton2 = new DetectablePoint(0, 10, 0xFFFFFF, 4);
         public static DetectableArea TrainTroopsButton = new DetectableArea(196, 558, 665, 643, Color.FromArgb(67, 38, 3), 4);
-        public static DetectablePoint RequestTroopsButton2 = new DetectablePoint(0, 10, 0x27291D, 4);
+        public static DetectablePoint RequestTroopsButton2 = new DetectablePoint(0, 10, 0xA5A076, 4);
         public static DetectableArea RequestTroopsButton = new DetectableArea(196, 558, 665, 643, Color.FromArgb(185, 54, 48), 4);
         public static ClickablePoint DropSingleBarb = new ClickablePoint(34, 310);
         public static DetectablePoint ArmyFullNotif = new DetectablePoint(121, 149, 0xD4535E, 6);

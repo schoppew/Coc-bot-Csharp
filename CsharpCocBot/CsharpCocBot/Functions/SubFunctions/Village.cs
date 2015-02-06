@@ -102,7 +102,7 @@ namespace CoC.Bot.Functions
             if (!GlobalVariables.fullArmy)
             {
                 Main.Bot.WriteToOutput("~~~ Waiting for full army ~~~");
-                while (!GlobalVariables.fullArmy)
+                while (!GlobalVariables.fullArmy) // Fix this. Make it reference a method to check if the army is full
                 {
                     sw.Start();
 

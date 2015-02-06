@@ -60,23 +60,26 @@ namespace CoC.Bot.Functions
 				DetectableArea area = new DetectableArea(left, top, right, bottom, ScreenData.TrainTroopsButton.Color, ScreenData.TrainTroopsButton.ShadeVariation);
 				ClickablePoint p1 = Tools.CoCHelper.SearchPixelInRect(area);
 
-				if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.TrainTroopsButton2.Point.X, p1.Point.Y + ScreenData.TrainTroopsButton2.Point.Y), ScreenData.TrainTroopsButton2.Color, ScreenData.TrainTroopsButton2.ShadeVariation))
-				{
-					return p1;
-				}
-				else
-				{
-					if (count >= 6)
-					{
-						break;
-					}
-					else
-					{
-						left = p1.Point.X;
-						top = p1.Point.Y;
-						count++;
-					}
-				}
+                if(p1.Point.X != -1 && p1.Point.Y != -1)
+                { 
+				    if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.TrainTroopsButton2.Point.X, p1.Point.Y + ScreenData.TrainTroopsButton2.Point.Y), ScreenData.TrainTroopsButton2.Color, ScreenData.TrainTroopsButton2.ShadeVariation))
+				    {
+					    return p1;
+				    }
+				    else
+				    {
+					    if (count >= 6)
+					    {
+						    break;
+					    }
+					    else
+					    {
+						    left = p1.Point.X;
+						    top = p1.Point.Y;
+						    count++;
+					    }
+				    }
+            }
 			} while (true);
 
 			return new ClickablePoint();
@@ -84,13 +87,25 @@ namespace CoC.Bot.Functions
 
 		public static bool CheckBarrackFull()
 		{
+            // BARRACK MUST BE OPEN FOR THIS
 			return Tools.CoCHelper.CheckPixelColor(ScreenData.BarbarianSlotGrey);
 		}
 
-		public static bool CheckFullArmy()
+		public static bool CheckFullArmy(bool barrackOpen)
 		{
-			bool campsFull = Tools.CoCHelper.SameColor(Tools.CoCHelper.GetPixelColor(ScreenData.ArmyFullNotif), ScreenData.ArmyFullNotif.Color, 6);
-			return campsFull;
+            bool campsFull;
+
+            if(!barrackOpen)
+            {
+                Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 100);
+                Thread.Sleep(200);
+                Tools.CoCHelper.Click(new ClickablePoint(Main.Bot.LocationBarrack1));
+                Thread.Sleep(200);
+                Tools.CoCHelper.Click(GetTrainTroopsButton());
+            }
+            
+            campsFull = Tools.CoCHelper.SameColor(Tools.CoCHelper.GetPixelColor(ScreenData.ArmyFullNotif), ScreenData.ArmyFullNotif.Color, 6);
+            return campsFull;
 		}
 
 
@@ -134,7 +149,7 @@ namespace CoC.Bot.Functions
 						Tools.CoCHelper.Click(new ClickablePoint(trainPos));
 						Thread.Sleep(500);
 
-						armyFull = CheckFullArmy();
+						armyFull = CheckFullArmy(true);
 
 						if (!armyFull)
 						{
