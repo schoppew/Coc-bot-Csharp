@@ -46,10 +46,7 @@ namespace CoC.Bot.Data
 				case Data.Troop.LavaHound:
 					return new ClickablePoint(218, 438); //-----------
 				default:
-					{
-						Main.Bot.WriteToOutput(string.Format("Don't know how to train the troop {0} yet...", troopKind.Name()));
-						return ClickablePoint.Empty;
-					}
+                    return new ClickablePoint();
 			}
 		}
     }

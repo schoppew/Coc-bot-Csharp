@@ -203,7 +203,7 @@ namespace CoC.Bot.Functions
             Thread.Sleep(500);
             Tools.CoCHelper.Click(new ClickablePoint(ccPos));
 
-            Point requestTroop = ScreenData.GetRequestTroopsButton();
+            Point requestTroop = GetRequestTroopsButton();
 
             if (!requestTroop.IsEmpty)
             {
@@ -268,7 +268,7 @@ namespace CoC.Bot.Functions
                 Tools.CoCHelper.Click(new ClickablePoint(barrackPos[i].X, barrackPos[i].Y), 1);
                 Thread.Sleep(500);
 
-                Point trainPos = ScreenData.GetTrainTroopsButton();
+                Point trainPos = GetTrainTroopsButton();
 
                 if (trainPos.IsEmpty)
                 {
@@ -320,7 +320,7 @@ namespace CoC.Bot.Functions
                     Tools.CoCHelper.Click(new ClickablePoint(barrackPos[i].X, barrackPos[i].Y), 1);
                     Thread.Sleep(500);
 
-                    Point trainPos = ScreenData.GetTrainTroopsButton();
+                    Point trainPos = GetTrainTroopsButton();
 
                     if (trainPos.IsEmpty)
                     {
@@ -357,7 +357,7 @@ namespace CoC.Bot.Functions
 
         public static bool TrainIt(int troopKind, int count)
         {
-            Point pos = ScreenData.GetTrainPos(troopKind);
+            Point pos = ScreenData.GetTrainPos((Troop) troopKind);
 
             if (!pos.IsEmpty)
             {
@@ -366,6 +366,76 @@ namespace CoC.Bot.Functions
             }
 
             return false;
+        }
+
+        public static ClickablePoint GetRequestTroopsButton()
+        {
+            int left = ScreenData.RequestTroopsButton.Left;
+            int top = ScreenData.RequestTroopsButton.Top;
+            int right = ScreenData.RequestTroopsButton.Right;
+            int bottom = ScreenData.RequestTroopsButton.Bottom;
+            int count = 0;
+
+            do
+            {
+                DetectableArea area = new DetectableArea(left, top, right, bottom, ScreenData.RequestTroopsButton.Color, ScreenData.RequestTroopsButton.ShadeVariation);
+                ClickablePoint p1 = Tools.CoCHelper.SearchPixelInRect(area);
+
+                if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.RequestTroopsButton2.Point.X, p1.Point.Y + ScreenData.RequestTroopsButton2.Point.Y), ScreenData.RequestTroopsButton2.Color, ScreenData.RequestTroopsButton2.ShadeVariation))
+                {
+                    return p1;
+                }
+                else
+                {
+                    if (count >= 6)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        left = p1.Point.X;
+                        top = p1.Point.Y;
+                        count++;
+                    }
+                }
+            } while (true);
+
+            return new ClickablePoint();
+        }
+
+        public static ClickablePoint GetTrainTroopsButton()
+        {
+            int left = ScreenData.TrainTroopsButton.Left;
+            int top = ScreenData.TrainTroopsButton.Top;
+            int right = ScreenData.TrainTroopsButton.Right;
+            int bottom = ScreenData.TrainTroopsButton.Bottom;
+            int count = 0;
+
+            do
+            {
+                DetectableArea area = new DetectableArea(left, top, right, bottom, ScreenData.TrainTroopsButton.Color, ScreenData.TrainTroopsButton.ShadeVariation);
+                ClickablePoint p1 = Tools.CoCHelper.SearchPixelInRect(area);
+
+                if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.TrainTroopsButton2.Point.X, p1.Point.Y + ScreenData.TrainTroopsButton2.Point.Y), ScreenData.TrainTroopsButton2.Color, ScreenData.TrainTroopsButton2.ShadeVariation))
+                {
+                    return p1;
+                }
+                else
+                {
+                    if (count >= 6)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        left = p1.Point.X;
+                        top = p1.Point.Y;
+                        count++;
+                    }
+                }
+            } while (true);
+
+            return new ClickablePoint();
         }
     }
 }

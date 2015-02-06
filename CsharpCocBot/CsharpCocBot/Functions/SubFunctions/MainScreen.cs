@@ -26,7 +26,7 @@ namespace CoC.Bot.Functions
 
                 if (!CheckObstacles())
                 {
-                    ClickablePoint appPos = ScreenData.GetAppPos();
+                    ClickablePoint appPos = GetAppPos();
                     Tools.CoCHelper.Click(appPos, 1);
                 }
 
@@ -49,7 +49,7 @@ namespace CoC.Bot.Functions
                 else
                 {
                     KeyboardHelper.SendVirtualKeyToBS(KeyboardHelper.VirtualKeys.VK_DOWN);
-                    Thread.Sleep(500);
+                    Thread.Sleep(300);
                     count++;
                 }
             }
@@ -74,7 +74,7 @@ namespace CoC.Bot.Functions
 
 			Main.Bot.WriteToOutput("Unable to load Clash of Clans, Restarting...");
 
-            ClickablePoint appPos = ScreenData.GetAppPos();
+            ClickablePoint appPos = GetAppPos();
             Tools.CoCHelper.Click(appPos, 1);
 
             Thread.Sleep(10000);
@@ -191,6 +191,21 @@ namespace CoC.Bot.Functions
                 }
 
             } while (true);
+        }
+
+        public static ClickablePoint GetAppPos()
+        {
+            ClickablePoint p1 = Tools.CoCHelper.SearchPixelInRect(ScreenData.ClashApp);
+
+            if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.ClashApp2.Point.X, p1.Point.Y + ScreenData.ClashApp2.Point.Y), ScreenData.ClashApp2.Color, ScreenData.ClashApp2.ShadeVariation))
+            {
+                if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.ClashApp3.Point.X, p1.Point.Y + ScreenData.ClashApp3.Point.Y), ScreenData.ClashApp3.Color, ScreenData.ClashApp3.ShadeVariation))
+                {
+                    return p1;
+                }
+            }
+
+            return new ClickablePoint();
         }
     }
 }
