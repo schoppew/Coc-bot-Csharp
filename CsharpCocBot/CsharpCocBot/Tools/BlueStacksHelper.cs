@@ -69,12 +69,12 @@ namespace CoC.Bot.Tools
 			}
 		}
 
-		public static bool Click(int x, int y, int nbClick = 1, int delay = 0)
+		public static bool Click(int x, int y, int nbClick = 1, int delay = 20)
 		{
 			return Click(new Win32.POINT(x, y), nbClick, delay);
 		}
 
-		public static bool Click(Win32.POINT point, int nbClick = 1, int delay = 0)
+		public static bool Click(Win32.POINT point, int nbClick = 1, int delay = 20)
 		{
 			if (bshandle == IntPtr.Zero)
 				bshandle = GetBlueStacksWindowHandle();

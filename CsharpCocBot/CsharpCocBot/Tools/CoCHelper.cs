@@ -12,7 +12,7 @@ namespace CoC.Bot.Tools
 {
 	static public class CoCHelper
 	{
-		static public bool Click(ClickablePoint point, int nbClick = 1, int delay = 0)
+		static public bool Click(ClickablePoint point, int nbClick = 1, int delay = 20)
 		{
 			return BlueStacksHelper.Click(point, nbClick, delay);
 		}
