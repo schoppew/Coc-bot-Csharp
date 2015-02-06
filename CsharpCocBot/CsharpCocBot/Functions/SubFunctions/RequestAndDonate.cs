@@ -71,7 +71,7 @@ namespace CoC.Bot.Functions
 		#region Request
 		public static void RequestTroops()
 		{
-            ClickablePoint ccPos = new ClickablePoint(356, 432); // (ClickablePoint)Main.Bot.LocationClanCastle;
+            ClickablePoint ccPos = (ClickablePoint)Main.Bot.LocationClanCastle;
 
 			if (ccPos.IsEmpty)
 			{
