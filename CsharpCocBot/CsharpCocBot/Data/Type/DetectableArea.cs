@@ -22,5 +22,9 @@ namespace CoC.Bot.Data
 		// Will make that cleaner later
 		public int Left, Top, Right, Bottom, ShadeVariation;
 		public Color Color;
+		public override string ToString()
+		{
+			return string.Format("[{0}x{1}-{2}x{3}, 0x{4}]", Left, Top, Right, Bottom, Color.ToArgb().ToString("X8")) ;
+		}
 	}
 }

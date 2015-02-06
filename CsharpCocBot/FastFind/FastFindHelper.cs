@@ -51,7 +51,7 @@ namespace FastFind
                 if (FastFindWrapper.SnapShot(0, 0, 0, 0, DEFAULT_SNAP) == 0)
                 {
                     lastFullCapture = null;
-                    Debug.Assert(false, "FF Capture failed");
+                    Debug.Assert(false, "FF Capture failed (full screen)");
                     return false;
                 }
                 lastFullCapture = Stopwatch.StartNew();
@@ -68,7 +68,7 @@ namespace FastFind
 			FastFindWrapper.SetHWnd(GetHWnd(), true); // Bind FastFind with BlueStack window, considers only ClientArea
             if (FastFindWrapper.SnapShot(left, top, right, bottom, CUSTOM_SNAP) == 0)
             {
-                Debug.Assert(false, "FF Capture failed");
+                Debug.Assert(false, string.Format("FF Capture failed with capture area: ({0},{1})-({2},{3})", left, top, right, bottom));
                 return false;
             }
             return true;

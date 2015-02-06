@@ -72,7 +72,7 @@ namespace MouseAndKeyboard
         }
 
         // SendMessage and PostMessage should work on hidden forms, use them with the WM_MOUSEXXXX codes and provide the mouse location in the wp or lp parameter, I forget which.
-		public static bool ClickOnPoint2(IntPtr wndHandle, Win32.POINT clientPoint, int times = 1, int delay = 0)
+		public static bool ClickOnPoint2(IntPtr wndHandle, Win32.POINT clientPoint, int times = 1, int delay = 20)
         {
             //BlueStacksHelper.ActivateBlueStacks();
             try
