@@ -26,7 +26,7 @@ namespace CoC.Bot.Functions
 
                 if (!CheckObstacles())
                 {
-                    Data.ClickablePoint appPos = new Data.ClickablePoint(GetAppPos());
+                    ClickablePoint appPos = ScreenData.GetAppPos();
                     Tools.CoCHelper.Click(appPos, 1);
                 }
 
@@ -36,28 +36,13 @@ namespace CoC.Bot.Functions
             Main.Bot.WriteToOutput("Main Screen Located", GlobalVariables.OutputStates.Information);
         }
 
-        public static Point GetAppPos()
-        {
-            Point p1 = FastFind.FastFindHelper.FullScreenPixelSearch(Color.FromArgb(87, 16, 1), 10, true);
-
-            if (FastFind.FastFindHelper.IsInColorRange(new Point(p1.X + 10, p1.Y + 10), Color.FromArgb(169, 90, 46), 10))
-            {
-                if (FastFind.FastFindHelper.IsInColorRange(new Point(p1.X - 10, p1.Y - 10), Color.FromArgb(237, 218, 165), 10))
-                {
-                    return p1;
-                }
-            }
-
-            return new Point(-1, -1);
-        }
-
         public static void ZoomOut()
         {
             Main.Bot.WriteToOutput("Zooming Out", GlobalVariables.OutputStates.Normal);
 
             int count = 0;
 
-            while(!FastFind.FastFindHelper.SameColor(FastFind.FastFindHelper.GetPixelColor(1, 1, true), Color.FromArgb(0, 0, 0)))
+            while(!Tools.CoCHelper.SameColor(Tools.CoCHelper.GetPixelColor(ScreenData.TopLeftClient), Color.Black))
             {
                 if(count >= 15)
                     break;
@@ -88,8 +73,8 @@ namespace CoC.Bot.Functions
             }
 
 			Main.Bot.WriteToOutput("Unable to load Clash of Clans, Restarting...");
-            
-            Data.ClickablePoint appPos = new Data.ClickablePoint(GetAppPos());
+
+            ClickablePoint appPos = ScreenData.GetAppPos();
             Tools.CoCHelper.Click(appPos, 1);
 
             Thread.Sleep(10000);

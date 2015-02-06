@@ -15,6 +15,9 @@ namespace CoC.Bot.Data
     {
         /*
          */
+        public static DetectablePoint ClashApp3 = new DetectablePoint(-10, -10, 0xEDDAA5, 10);
+        public static DetectablePoint ClashApp2 = new DetectablePoint(10, 10, 0xA95A2E, 10);
+        public static DetectableArea ClashApp = new DetectableArea(0, 0, 860, 720, Color.FromArgb(87, 16, 1), 10);
         public static DetectablePoint BarbarianSlotGrey = new DetectablePoint(194, 315, 0xB3B3B3, 6);
         public static DetectablePoint TrainTroopsButton2 = new DetectablePoint(0, 10, 0xFFFFFF, 4);
         public static DetectableArea TrainTroopsButton = new DetectableArea(196, 558, 665, 643, Color.FromArgb(67, 38, 3), 4);
@@ -173,6 +176,21 @@ namespace CoC.Bot.Data
                     }
                 }
             } while (true);
+
+            return new ClickablePoint();
+        }
+
+        public static ClickablePoint GetAppPos()
+        {
+            ClickablePoint p1 = Tools.CoCHelper.SearchPixelInRect(ScreenData.ClashApp);
+
+            if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.ClashApp2.Point.X, p1.Point.Y + ScreenData.ClashApp2.Point.Y), ScreenData.ClashApp2.Color, ScreenData.ClashApp2.ShadeVariation))
+            {
+                if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.ClashApp3.Point.X, p1.Point.Y + ScreenData.ClashApp3.Point.Y), ScreenData.ClashApp3.Color, ScreenData.ClashApp3.ShadeVariation))
+                {
+                    return p1;
+                }
+            }
 
             return new ClickablePoint();
         }
