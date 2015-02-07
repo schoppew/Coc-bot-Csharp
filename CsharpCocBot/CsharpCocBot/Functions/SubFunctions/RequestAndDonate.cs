@@ -71,7 +71,7 @@ namespace CoC.Bot.Functions
 		#region Request
 		public static void RequestTroops()
 		{
-            ClickablePoint ccPos = (ClickablePoint)Main.Bot.LocationClanCastle; //new ClickablePoint(356, 432);
+            ClickablePoint ccPos = new ClickablePoint(356, 432); //(ClickablePoint)Main.Bot.LocationClanCastle; 
 
 			if (ccPos.IsEmpty)
 			{
@@ -89,20 +89,19 @@ namespace CoC.Bot.Functions
 				Tools.CoCHelper.Click(requestTroop);
 				Thread.Sleep(2000);
 
-                // TODO: Fix The CheckPixelColor Method below. It keeps returning white, and not the color it is supposed to.
-                // System.Drawing.Color c = Tools.CoCHelper.GetPixelColor(ScreenData.RequestTroopsRedCancel);
-                // System.Windows.MessageBox.Show(c.ToString());
-
-				if (Tools.CoCHelper.CheckPixelColor(ScreenData.RequestTroopsRedCancel))
+                // FF, this only works if forceCapture is Enabled. I modified the CheckPixelColor method slightly until the problem is fixed.
+				if (Tools.CoCHelper.CheckPixelColor(ScreenData.RequestTroopsRedCancel, true))
 				{
 					if (!string.IsNullOrEmpty(Main.Bot.RequestTroopsMessage))
 					{
 						Tools.CoCHelper.Click(ScreenData.RequestTroopsText);
 						Thread.Sleep(300);
-						KeyboardHelper.SendToBS(Main.Bot.RequestTroopsMessage);
+						KeyboardHelper.SendToBS(Main.Bot.RequestTroopsMessage); // TODO: Sending Keystrokes to BlueStacks does not work! Tags: Ph!d, FastFrench
 					}
 					Thread.Sleep(1000);
 					Tools.CoCHelper.Click(ScreenData.RequestTroopsGreenSend);
+
+                    Main.Bot.WriteToOutput("Request successfully made...");
 				}
 				else
 				{
@@ -129,25 +128,27 @@ namespace CoC.Bot.Functions
 				DetectableArea area = new DetectableArea(left, top, right, bottom, ScreenData.RequestTroopsButton.Color, ScreenData.RequestTroopsButton.ShadeVariation);
 				ClickablePoint p1 = Tools.CoCHelper.SearchPixelInRect(area);
 
-                if(!p1.IsEmpty)
+                if(!p1.IsEmpty && !(p1.Point.X == -1 || p1.Point.Y == -1))
                 { 
 				    if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.RequestTroopsButton2.Point.X, p1.Point.Y + ScreenData.RequestTroopsButton2.Point.Y), ScreenData.RequestTroopsButton2.Color, ScreenData.RequestTroopsButton2.ShadeVariation))
 				    {
 					    return p1;
 				    }
-				    else
-				    {
-					    if (count >= 6)
-					    {
-						    break;
-					    }
-					    else
-					    {
-						    left = p1.Point.X;
-						    top = p1.Point.Y;
-						    count++;
-					    }
-				    }
+                }
+
+                if (count >= 6)
+                {
+                    break;
+                }
+                else
+                {
+                    if (!p1.IsEmpty && !(p1.Point.X == -1 || p1.Point.Y == -1))
+                    {
+                        left = p1.Point.X;
+                        top = p1.Point.Y;
+                    }
+
+                    count++;
                 }
 			} while (true);
 

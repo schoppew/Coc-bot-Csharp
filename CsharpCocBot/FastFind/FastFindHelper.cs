@@ -222,9 +222,9 @@ namespace FastFind
                     (Math.Abs(((int)PixelColor & 0x000000FF) - ((int)ColorToFind & 0x000000FF)) <= ShadeVariation);
         }
 
-        static public bool IsInColorRange(Point point, Color color, int shadeVariation = 0)
+        static public bool IsInColorRange(Point point, Color color, int shadeVariation = 0, bool fn = false)
         {
-            int pixel = GetPixel(point);
+            int pixel = GetPixel(point, fn);
             return IsInShadeVariation(pixel, color.ToArgb(), shadeVariation);
         }
 

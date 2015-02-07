@@ -30,6 +30,8 @@ Deployment Considerations
 ToDo's
 =============================
 
+	» [@] [C] Fix Sending Keystrokes to BlueStacks. 
+		- When I try to send text to BlueStacks for requesting troops, it just doesn't send the text.
 	» [@] [C] Display Estimated Troop Training Time
 	» [@] [U] Implement Wave Settings Tab
 		- Allows for custom Waves using the troop data provided in Troop Settings Tab

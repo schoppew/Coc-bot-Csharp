@@ -34,9 +34,9 @@ namespace CoC.Bot.Tools
 			return (ClickablePoint)FastFindHelper.PixelSearch(left, top, right, bottom, color1, variation);
 		}
 
-		static public bool CheckPixelColor(DetectablePoint data)
+		static public bool CheckPixelColor(DetectablePoint data, bool fn = false)
 		{
-			return FastFindHelper.IsInColorRange(data, data.Color, data.ShadeVariation);			
+			return FastFindHelper.IsInColorRange(data, data.Color, data.ShadeVariation, fn);			
 		}
 
 		[Obsolete("Add a DetectablePoint variable in Data.ScreenData.ScreenData for that. All screen coordinates should be centralized and named. No hard-coded coordinates anywhere else!")]
@@ -45,9 +45,9 @@ namespace CoC.Bot.Tools
 			return FastFindHelper.IsInColorRange(point, color, shadeVariation);
 		}
 
-		static public Color GetPixelColor(ClickablePoint point)
+		static public Color GetPixelColor(ClickablePoint point, bool fn = false)
 		{
-			return FastFindHelper.GetPixelColor(point);
+			return FastFindHelper.GetPixelColor(point, fn);
 		}
 
 		static public bool IsInColorRange(ClickablePoint point, Color color, int shadeVariation=0)

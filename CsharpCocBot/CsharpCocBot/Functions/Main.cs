@@ -28,6 +28,7 @@
 		{
 			// Store in properties so we can access in the SubFunctions
 			Bot = vm;
+            Functions.Main.Bot.ClearOutput();
 
 			Bot.WriteToOutput(string.Format(Properties.Resources.OutputWelcomeMessage, Properties.Resources.AppName));
 			Bot.WriteToOutput(Properties.Resources.OutputBotIsStarting);
@@ -75,7 +76,6 @@
 				while (Bot.IsExecuting)
 				{
                     FastFind.FastFindWrapper.SetHWnd(Tools.BlueStacksHelper.GetBlueStacksWindowHandle(), true);
-                    Main.Bot.ClearOutput();
 
                     Thread.Sleep(1000);
                     MainScreen.CheckMainScreen();

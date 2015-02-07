@@ -18,20 +18,29 @@ namespace CoC.Bot.Functions
         {
             Point[] collectorPos = new Point[] { Main.Bot.LocationCollector1, Main.Bot.LocationCollector2, Main.Bot.LocationCollector3, Main.Bot.LocationCollector4, Main.Bot.LocationCollector5, Main.Bot.LocationCollector6, Main.Bot.LocationCollector7, Main.Bot.LocationCollector8, Main.Bot.LocationCollector9, Main.Bot.LocationCollector10, Main.Bot.LocationCollector11, Main.Bot.LocationCollector12, Main.Bot.LocationCollector13, Main.Bot.LocationCollector14, Main.Bot.LocationCollector15, Main.Bot.LocationCollector16, Main.Bot.LocationCollector17 };
 
-            if (collectorPos[0].IsEmpty)
+            if (collectorPos[0].IsEmpty || collectorPos[0].X == 0 || collectorPos[0].Y == 0)
             {
                 Main.Bot.LocateCollectors();
             }
 
-            Main.Bot.WriteToOutput("Collecting Resources...");
-            Thread.Sleep(250);
-
-            for (int i = 0; i < 17; i++)
+            // FF, do not change this to just checking if collectorPos[0].isEmpty. It needs to check if the x or y values are 0 as well to work.
+            if (!collectorPos[0].IsEmpty && collectorPos[0].X != 0 && collectorPos[0].Y != 0)
             {
-                Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 50);
+                Main.Bot.WriteToOutput("Collecting Resources...");
                 Thread.Sleep(250);
-                Tools.CoCHelper.Click(new ClickablePoint(collectorPos[i]));
-                Thread.Sleep(250);
+
+                for (int i = 0; i < 17; i++)
+                {
+                    Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 50);
+                    Thread.Sleep(250);
+                    Tools.CoCHelper.Click(new ClickablePoint(collectorPos[i]));
+                    Thread.Sleep(250);
+                }
+            }
+            else
+            {
+                Main.Bot.WriteToOutput("Collectors Unavailable...", GlobalVariables.OutputStates.Normal);
+        
             }
         }
 
@@ -101,31 +110,38 @@ namespace CoC.Bot.Functions
 
             if (!GlobalVariables.fullArmy)
             {
-                Main.Bot.WriteToOutput("~~~ Waiting for full army ~~~");
-                while (!GlobalVariables.fullArmy) // Fix this. Make it reference a method to check if the army is full
+                Main.Bot.WriteToOutput("~~~ Waiting for full army ~~~", GlobalVariables.OutputStates.Verified);
+                while (!Barrack.CheckFullArmy(false))
                 {
                     sw.Start();
 
                     Thread.Sleep(1000);
                     MainScreen.CheckMainScreen();
+
                     Thread.Sleep(1000);
                     MainScreen.ZoomOut();
-                    Thread.Sleep(30000);
 
+                    Main.Bot.WriteToOutput("Going idle for 30 seconds...", GlobalVariables.OutputStates.Information);
+                    Thread.Sleep(30000);
                     CollectResources();
 
                     Barrack.TrainTroops();
-                    if (GlobalVariables.fullArmy)
+                    if (Barrack.CheckFullArmy(false))
                         break;
 
                     Thread.Sleep(1000);
                     DropTrophies();
+
                     Thread.Sleep(1000);
 					RequestAndDonate.DonateCC();
+
                     sw.Stop();
 
-                    double idleTime = (double)sw.ElapsedMilliseconds * 1000;
-                    Main.Bot.WriteToOutput(string.Format("Time Idle: {0} hours {1} minutes {2} seconds", Math.Floor(Math.Floor(idleTime / 60) / 60), Math.Floor(Math.Floor(idleTime / 60) % 60), Math.Floor(idleTime % 60)), GlobalVariables.OutputStates.Warning);
+                    double idleTime = (double)sw.ElapsedMilliseconds / 1000;
+                    TimeSpan ts = TimeSpan.FromSeconds(idleTime);
+
+                    string output = string.Format("Time Idle: {0:D2} hours {1:D2} minutes {2:D2} seconds", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+                    Main.Bot.WriteToOutput(output, GlobalVariables.OutputStates.Verified);
                 }
             }
         }        
