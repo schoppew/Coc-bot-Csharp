@@ -71,7 +71,7 @@ namespace CoC.Bot.Functions
 		#region Request
 		public static void RequestTroops()
 		{
-            ClickablePoint ccPos = (ClickablePoint)Main.Bot.LocationClanCastle;
+            ClickablePoint ccPos = (ClickablePoint)Main.Bot.LocationClanCastle; //new ClickablePoint(356, 432);
 
 			if (ccPos.IsEmpty)
 			{
@@ -80,29 +80,34 @@ namespace CoC.Bot.Functions
 
 			Main.Bot.WriteToOutput("Requesting for Clan Castle Troops...");
 			Tools.CoCHelper.Click(ccPos);
-			Thread.Sleep(200);
+			Thread.Sleep(500);
 
 			ClickablePoint requestTroop = GetRequestTroopsButton();
 
 			if (!requestTroop.IsEmpty)
 			{
 				Tools.CoCHelper.Click(requestTroop);
-				Thread.Sleep(1000);
-				if (Tools.CoCHelper.CheckPixelColorBad(new Point(340, 245), System.Drawing.Color.FromArgb(204, 64, 16), 20))
+				Thread.Sleep(2000);
+
+                // TODO: Fix The CheckPixelColor Method below. It keeps returning white, and not the color it is supposed to.
+                // System.Drawing.Color c = Tools.CoCHelper.GetPixelColor(ScreenData.RequestTroopsRedCancel);
+                // System.Windows.MessageBox.Show(c.ToString());
+
+				if (Tools.CoCHelper.CheckPixelColor(ScreenData.RequestTroopsRedCancel))
 				{
 					if (!string.IsNullOrEmpty(Main.Bot.RequestTroopsMessage))
 					{
-						Tools.CoCHelper.ClickBad(new Point(430, 140), 1);
-						Thread.Sleep(1000);
+						Tools.CoCHelper.Click(ScreenData.RequestTroopsText);
+						Thread.Sleep(300);
 						KeyboardHelper.SendToBS(Main.Bot.RequestTroopsMessage);
 					}
 					Thread.Sleep(1000);
-					Tools.CoCHelper.ClickBad(new Point(524, 228), 1);
+					Tools.CoCHelper.Click(ScreenData.RequestTroopsGreenSend);
 				}
 				else
 				{
 					Main.Bot.WriteToOutput("Request's already been made...");
-					Tools.CoCHelper.ClickBad(new Point(1, 1), 2);
+					Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 50);
 				}
 			}
 			else

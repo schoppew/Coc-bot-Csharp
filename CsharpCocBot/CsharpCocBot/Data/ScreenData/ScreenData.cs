@@ -15,6 +15,10 @@ namespace CoC.Bot.Data
     {
         /*
          */
+        public static ClickablePoint RequestTroopsGreenSend = new ClickablePoint(524, 228);
+        public static DetectablePoint RequestTroopsRedCancel = new DetectablePoint(275, 254, 0xCC4610, 10);
+        public static ClickablePoint RequestTroopsText = new ClickablePoint(430, 118);
+
         public static DetectablePoint ClashApp3 = new DetectablePoint(-10, -10, 0xEDDAA5, 10);
         public static DetectablePoint ClashApp2 = new DetectablePoint(10, 10, 0xA95A2E, 10);
         public static DetectableArea ClashApp = new DetectableArea(0, 0, 860, 720, Color.FromArgb(87, 16, 1), 10);
