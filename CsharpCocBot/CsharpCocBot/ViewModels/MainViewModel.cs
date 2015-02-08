@@ -7,7 +7,7 @@
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
-    using System.Windows;
+	using System.Windows;
     using System.Windows.Input;
 	using System.Windows.Media;
 	using System.Xml.Linq;
@@ -24,8 +24,6 @@
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-		private readonly INotifyService notifyService = new NotifyService();
-
         /// <summary>
         /// Initializes a new instance of the <see cref="MainViewModel"/> class.
         /// </summary>
@@ -2009,7 +2007,7 @@
         {
 			WriteToOutput(Properties.Resources.OutputBotIsStopping, GlobalVariables.OutputStates.Information);
             
-            MessageBox.Show("You clicked on the Stop button!", "Stop", MessageBoxButton.OK, MessageBoxImage.Information);
+            // Any extra stuff we need to do goes here!
 
             WriteToOutput(Properties.Resources.OutputBotStopped, GlobalVariables.OutputStates.Verified);
         }
@@ -2034,10 +2032,34 @@
         /// </summary>
         public void LocateCollectors()
         {
-			// Code for showing that it works
-			Notify("Locate Collectors and Gold Mines...");
-            WriteToOutput("Locate Collectors and Gold Mines...");
-            MessageBox.Show("You clicked on the Locate Collectors Manually button!", "Locate Collectors Manually", MessageBoxButton.OK, MessageBoxImage.Information);
+			var msgBox = GetService<IMessageBoxService>();
+			if (msgBox != null)
+			{
+				if (msgBox.Show("Do you want to start locating the Collectors and Gold Mines?", "Locate Collectors/Gold Mines Manually", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+					return;
+
+				var p = BlueStacksHelper.GetClickPosition(2000);
+				if (p.IsEmpty) return;
+
+				msgBox.Show(string.Format("You clicked on X={0}, Y={1}. Please test those coords with BlueStacksHelper.Click() method.", p.X, p.Y), "Location Test", MessageBoxButton.OK, MessageBoxImage.Information);
+
+				// TODO: This is a fixed number, use a GlobalVariables so is consistent between all code (Total Collectors = 17)
+				/*
+				for (int i = 1; i < 18; i++)
+				{
+					if (msgBox.Show(string.Format("Click OK, then click on your collector # {0}. Press Cancel to abort the process.", i), string.Format("Locate collector # {0}", i), MessageBoxButton.OKCancel, MessageBoxImage.Information) == MessageBoxResult.Cancel)
+						break;
+
+					var p = BlueStacksHelper.GetClickPosition(2000);
+					if (p.IsEmpty) continue;
+
+					string message = string.Format("Collector # {0} have the following {1},{2} coords.", i, p.X, p.Y);
+					System.Diagnostics.Debug.WriteLine(message);
+
+					GlobalVariables.Log.WriteToLog(message);
+				}
+				 */
+			}
         }
 
         /// <summary>
@@ -2046,8 +2068,9 @@
         private void SearchMode()
         {
 			// Code for showing that it works
-            WriteToOutput("Search Mode...");
-            MessageBox.Show("You clicked on the Search Mode button!", "Search Mode", MessageBoxButton.OK, MessageBoxImage.Information);
+			WriteToOutput("Search Mode...");
+			Notify("Search Mode...");
+			System.Diagnostics.Debug.WriteLine("Search Mode...");
         }
 
         /// <summary>
@@ -2057,8 +2080,7 @@
         {
 			// Code for showing that it works
 			Notify("Locating Clan Castle...");
-            WriteToOutput("Locating Clan Castle...");
-            MessageBox.Show("You clicked on the Locate Clan Castle Manually button!", "Locate Clan Castle Manually", MessageBoxButton.OK, MessageBoxImage.Information);
+			System.Diagnostics.Debug.WriteLine("Locate Clan Castle...");
         }
 
         /// <summary>
@@ -2068,8 +2090,7 @@
         {
 			// Code for showing that it works
 			Notify("Locating Barracks...");
-            WriteToOutput("Locate Barracks...");
-            MessageBox.Show("You clicked on the Locate Barracks Manually button!", "Locate Barracks Manually", MessageBoxButton.OK, MessageBoxImage.Information);
+			System.Diagnostics.Debug.WriteLine("Locate Barracks...");
         }
 
         /// <summary>
@@ -2079,8 +2100,7 @@
         {
 			// Code for showing that it works
 			Notify("Locating Dark Barracks...");
-            WriteToOutput("Locate Dark Barracks...");
-            MessageBox.Show("You clicked on the Locate Dark Barracks Manually button!", "Locate Dark Barracks Manually", MessageBoxButton.OK, MessageBoxImage.Information);
+			System.Diagnostics.Debug.WriteLine("Locate Dark Barracks...");
         }
 
         #endregion
@@ -2211,6 +2231,11 @@
 			Output = _outputProcessed = reader.ReadOuterXml();
 
 			Message = message;
+
+#if DEBUG
+			if (DesignerProperties.GetIsInDesignMode(new DependencyObject())) return;
+#endif
+
 			GlobalVariables.Log.WriteToLog(message);
 		}
 
@@ -2247,7 +2272,11 @@
 		/// <param name="message">The message.</param>
 		public void Notify(string message)
 		{
-			notifyService.Notify(message);
+			//var notifyService = GetService<INotifyService>();
+			//if (notifyService != null)
+			//	notifyService.Notify(message);
+
+			GetService<INotifyService>().Notify(message);
 		}
 
 		private void TrainQuantityTextExecuted(object parameter)

@@ -83,6 +83,16 @@ namespace CoC.Bot.Tools
 			return MouseHelper.ClickOnPoint2(bshandle, point, nbClick, delay);			
 		}
 
+		public static POINT GetClickPosition(int delay = 20)
+		{
+			if (bshandle == IntPtr.Zero)
+				bshandle = GetBlueStacksWindowHandle();
+			if (bshandle == IntPtr.Zero)
+				return new POINT();
+
+			return MouseHelper.GetPointOnClick(bshandle, delay);		
+		}
+
 		#region Properties
 
 		/// <summary>

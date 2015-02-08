@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
-//using System.Windows.Forms; // this is WPF, we don't need WinForms here
-
-namespace MouseAndKeyboard
+﻿namespace MouseAndKeyboard
 {
-    static public class MouseHelper
+	using System;
+	using System.Collections.Generic;
+	using System.Diagnostics;
+	using System.Linq;
+	using System.Runtime.InteropServices;
+	using System.Threading;
+
+	public static class MouseHelper
     {
 		#region Window handle provider
 		public delegate IntPtr HandleProvider();
@@ -60,8 +56,7 @@ namespace MouseAndKeyboard
             //Cursor.Position = oldPos; // ref to System.Windows.Forms
         }
 
-
-        static void PostMessageSafe(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+        private static void PostMessageSafe(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
         {
 			bool returnValue = Win32.Win32.PostMessage(hWnd, msg, wParam, lParam);
             if (!returnValue)
@@ -96,5 +91,33 @@ namespace MouseAndKeyboard
             return true;
         }
 
+		public static Win32.POINT GetPointOnClick(IntPtr wndHandle, int delay = 20)
+		{
+			Win32.POINT clientPoint = new Win32.POINT();
+
+			if (wndHandle != IntPtr.Zero)
+			{
+				Thread.Sleep(delay);
+				while (true)
+				{
+					// Listen to Left Mouse Click event
+					//      0	= Has not been pressed since the last call
+					//      1	= Is not currently pressed, but has been pressed since the last call
+					// -32767	= Is currently pressed
+					var keyState = Win32.Win32.GetAsyncKeyState((ushort)KeyboardHelper.VirtualKeys.VK_LBUTTON);
+					if (keyState == Int16.MinValue)
+					{
+						if (Win32.Win32.GetCursorPos(ref clientPoint))
+						{
+							// get screen coordinates
+							Win32.Win32.ClientToScreen(wndHandle, ref clientPoint);
+							break;
+						}
+					}
+				}
+			}
+
+			return clientPoint;
+		}
     }
 }

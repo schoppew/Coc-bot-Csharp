@@ -470,11 +470,11 @@
                                 <GroupBox Header="{x:Static p:Resources.Troops}" Margin="16,16,16,0" VerticalAlignment="Top" Height="62">
                                     <Grid>
                                         <Label Content="Troop:" Height="28" HorizontalAlignment="Left" Margin="16,5,0,10" />
-                                        <ComboBox Width="100" Height="23" VerticalAlignment="Top" Margin="70,7,0,0" HorizontalAlignment="Left" />
-                                        <Label Content="Qty:" Height="28" HorizontalAlignment="Left" Margin="175,5,0,10" />
-                                        <TextBox Height="23" Width="40" HorizontalAlignment="Left" Margin="210,7,0,10" />
-                                        <Label Content="Delay:" Height="28" HorizontalAlignment="Left" Margin="255,5,0,10" />
-                                        <TextBox Height="23" Width="40" HorizontalAlignment="Left" Margin="300,7,0,10" />
+                                        <ComboBox Width="100" Height="23" VerticalAlignment="Top" Margin="65,7,0,0" HorizontalAlignment="Left" />
+                                        <Label Content="Qty:" Height="28" HorizontalAlignment="Left" Margin="170,5,0,7" />
+                                        <TextBox Height="23" Width="40" HorizontalAlignment="Left" Margin="205,7,0,10" />
+                                        <Label Content="Delay:" Height="28" HorizontalAlignment="Left" Margin="250,5,0,7" />
+                                        <TextBox Height="23" Width="40" HorizontalAlignment="Left" Margin="295,7,0,10" />
                                         <Button Content="Add" Height="23" Width="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,7,16,0" />
                                     </Grid>
                                 </GroupBox>

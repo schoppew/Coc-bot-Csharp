@@ -7,14 +7,11 @@ namespace Win32
 {
     public class Win32
     {
-		
         public const int ULW_ALPHA = 2;
 
         public const byte AC_SRC_OVER = 0;
 
         public const byte AC_SRC_ALPHA = 1;
-
-
 
         [DllImportAttribute("user32.dll")]
         public extern static Bool UpdateLayeredWindow(IntPtr handle, IntPtr hdcDst, ref Point pptDst, ref Size psize, IntPtr hdcSrc, ref Point pprSrc, int crKey, ref BLENDFUNCTION pblend, int dwFlags);
@@ -133,7 +130,6 @@ namespace Win32
         public const uint WM_RBUTTONDBLCLK = 0x206;
         public const uint WM_KEYDOWN = 0x100;
         public const uint WM_KEYUP = 0x101;
-
 
         // The FindWindow function retrieves a handle to the top-level window whose class name
         // and window name match the specified strings. This function does not search child windows.
@@ -294,7 +290,6 @@ namespace Win32
 		[DllImport("USER32.DLL", SetLastError = true)]
 		public static extern bool DestroyWindow(IntPtr hWnd);
 
-
 		/// <summary>
 		/// Gives focus to a given window.
 		/// </summary>
@@ -302,7 +297,6 @@ namespace Win32
 		/// <returns></returns>
 		[DllImport("USER32.DLL")]
 		public static extern bool SetForegroundWindow(IntPtr hWnd);
-
 
 		/// <summary>
 		/// Gets the maximum number of milliseconds that can elapse between a
@@ -315,24 +309,22 @@ namespace Win32
 		[DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
 		public static extern int GetDoubleClickTime();
 
-
 		/// <summary>
 		/// Gets the screen coordinates of the current mouse position.
 		/// </summary>
 		[DllImport("USER32.DLL", SetLastError = true)]
 		public static extern bool GetPhysicalCursorPos(ref POINT lpPoint);
 
-
 		[DllImport("USER32.DLL", SetLastError = true)]
 		public static extern bool GetCursorPos(ref POINT lpPoint);
 
-		
+		[DllImport("user32.dll")]
+		public static extern short GetAsyncKeyState(UInt16 virtualKeyCode);
+
 		[DllImport("shell32.dll")]
 		public static extern UInt32 SHAppBarMessage(UInt32 dwMessage, ref APPBARDATA data);
 
 		[DllImport("user32.dll")]
 		public static extern Int32 SystemParametersInfo(UInt32 uiAction, UInt32 uiParam, IntPtr pvParam, UInt32 fWinIni);
-
     }
-
 }

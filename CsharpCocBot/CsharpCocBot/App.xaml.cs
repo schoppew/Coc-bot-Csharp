@@ -22,7 +22,6 @@
 		{
 			if (SingleInstance<App>.InitializeAsFirstInstance(Unique))
 			{
-				CoCHelper.Initialize();
 				var application = new App();
 				application.InitializeComponent();
 				application.Run();
@@ -60,6 +59,10 @@
             _colorCache[14] = Color.FromArgb(0xFF, 0xFF, 0xFF, 0xFF);
 
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+
+			UI.Services.ServiceInjector.InjectServices();
+
+			CoCHelper.Initialize();
         }
 
         private void Application_Startup(object sender, StartupEventArgs e)

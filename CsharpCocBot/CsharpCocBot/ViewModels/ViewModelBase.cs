@@ -9,7 +9,7 @@
     /// <summary>
     /// Provides common functionality for ViewModel classes
     /// </summary>
-    public abstract class ViewModelBase : INotifyPropertyChanged
+	public abstract class ViewModelBase : INotifyPropertyChanged
     {
         /// <summary>
         /// Occurs when a property value changes.
@@ -56,6 +56,15 @@
             if (handler != null)
                 handler(this, e);
         }
+
+		/// <summary>
+		/// Retrieves a service object identified by <typeparamref name="TServiceContract"/>.
+		/// </summary>
+		/// <typeparam name="TServiceContract">The type identifier of the service.</typeparam>
+		public TServiceContract GetService<TServiceContract>() where TServiceContract : class
+		{
+			return UI.Services.ServiceContainer.Instance.GetService<TServiceContract>();
+		}
     }
 
     /// <summary>

@@ -217,8 +217,12 @@
     <Compile Include="UI\Interactivity\TriggerBase.cs" />
     <Compile Include="UI\Interactivity\TriggerCollection.cs" />
     <Compile Include="UI\Interactivity\TypeConstraintAttribute.cs" />
+    <Compile Include="UI\Services\IMessageBoxService.cs" />
     <Compile Include="UI\Services\INotifyService.cs" />
+    <Compile Include="UI\Services\MessageBoxService.cs" />
     <Compile Include="UI\Services\NotifyService.cs" />
+    <Compile Include="UI\Services\ServiceContainer.cs" />
+    <Compile Include="UI\Services\ServiceInjector.cs" />
     <Compile Include="UI\Utils\SaveWindowPlacementState.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
