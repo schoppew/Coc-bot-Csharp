@@ -82,6 +82,9 @@
         {
             string logPath = Path.Combine(_logDir, string.Format("{0}_{1}", _logQueue.First().LogDate, _logFile));
 
+			if (!Directory.Exists(_logDir))
+				return;
+
             using (var fs = File.Open(logPath, FileMode.Append, FileAccess.Write))
             {
                 using (var log = new StreamWriter(fs))
@@ -89,7 +92,7 @@
                     while (_logQueue.Count > 0)
                     {
                         LogEntry entry = _logQueue.Dequeue();
-                        log.WriteLine(string.Format("{0}\t{1}", entry.LogTime, entry.Message));
+                        log.WriteLine(string.Format("[{0}]\t{1}", entry.LogTime, entry.Message));
                     }
                 }
             }

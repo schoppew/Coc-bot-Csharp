@@ -2035,7 +2035,7 @@
 			var msgBox = GetService<IMessageBoxService>();
 			if (msgBox != null)
 			{
-				if (msgBox.Show("Do you want to start locating the Collectors and Gold Mines?", "Locate Collectors/Gold Mines Manually", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+				if (msgBox.Show("Do you want to start locating the Collectors, Mines and Drills?", "Locate Extractors Manually", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
 					return;
 
 				var p = BlueStacksHelper.GetClickPosition(2000);
@@ -2047,13 +2047,13 @@
 				/*
 				for (int i = 1; i < 18; i++)
 				{
-					if (msgBox.Show(string.Format("Click OK, then click on your collector # {0}. Press Cancel to abort the process.", i), string.Format("Locate collector # {0}", i), MessageBoxButton.OKCancel, MessageBoxImage.Information) == MessageBoxResult.Cancel)
+					if (msgBox.Show(string.Format("Click OK, then click on your resource extractor # {0}. Press Cancel to abort the process.", i), string.Format("Locate resource extractor # {0}", i), MessageBoxButton.OKCancel, MessageBoxImage.Information) == MessageBoxResult.Cancel)
 						break;
 
 					var p = BlueStacksHelper.GetClickPosition(2000);
 					if (p.IsEmpty) continue;
 
-					string message = string.Format("Collector # {0} have the following {1},{2} coords.", i, p.X, p.Y);
+					string message = string.Format("Resource Extractor # {0} have the following {1},{2} coords.", i, p.X, p.Y);
 					System.Diagnostics.Debug.WriteLine(message);
 
 					GlobalVariables.Log.WriteToLog(message);
@@ -2231,11 +2231,6 @@
 			Output = _outputProcessed = reader.ReadOuterXml();
 
 			Message = message;
-
-#if DEBUG
-			if (DesignerProperties.GetIsInDesignMode(new DependencyObject())) return;
-#endif
-
 			GlobalVariables.Log.WriteToLog(message);
 		}
 
