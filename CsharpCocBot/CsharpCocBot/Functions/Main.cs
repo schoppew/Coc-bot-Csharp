@@ -90,6 +90,9 @@
                     RequestAndDonate.RequestTroops();
                     Thread.Sleep(1000);
 
+                    RequestAndDonate.DonateCC();
+                    Thread.Sleep(1000);
+
                     Village.CollectResources();
                     Thread.Sleep(1000);
 

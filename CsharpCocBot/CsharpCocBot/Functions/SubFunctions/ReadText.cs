@@ -43,7 +43,7 @@ namespace CoC.Bot.Functions
             return -1;
         }
 
-        public string GetString(int _y)
+        public static string GetString(int _y)
         {
             return "";
         }

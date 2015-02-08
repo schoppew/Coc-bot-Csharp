@@ -15,6 +15,12 @@ namespace CoC.Bot.Data
     {
         /*
          */
+        public static DetectableArea ChatNotificationButtonArea = new DetectableArea(283, 643, 305, 672, Color.FromArgb(0x598800), 20);
+
+        public static DetectablePoint DonateButtonColor3 = new DetectablePoint(0, 12, 0x45571A, 10);
+        public static DetectablePoint DonateButtonColor2 = new DetectablePoint(2, 2, 0xFFFFFF, 10);
+        public static DetectablePoint DonateButtonColor1 = new DetectablePoint(0, -10, 0xF0F4E9, 10);
+        public static DetectableArea ChatArea = new DetectableArea(0, 119, 315, 674, Color.FromArgb(37, 37, 34), 6);
         public static ClickablePoint RequestTroopsGreenSend = new ClickablePoint(524, 228);
         public static DetectablePoint RequestTroopsRedCancel = new DetectablePoint(275, 254, 0xCC4610, 10);
         public static ClickablePoint RequestTroopsText = new ClickablePoint(430, 118);
