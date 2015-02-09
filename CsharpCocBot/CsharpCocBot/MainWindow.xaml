@@ -10,7 +10,7 @@
         xmlns:ctrls="clr-namespace:CoC.Bot.UI.Controls"
         xmlns:d="clr-namespace:CoC.Bot.Data"
         xmlns:p="clr-namespace:CoC.Bot.Properties"
-        Title="[TBC] Clash of Clans Bot" Icon="/Assets/Images/Icon.ico" Height="600" Width="500" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+        Title="{Binding AppTitleGeneral}" Icon="/Assets/Images/Icon.ico" Height="600" Width="500" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
 
     <Window.Resources>
         <vm:MainViewModel x:Key="MainViewModel" />
@@ -467,18 +467,18 @@
                             <Grid Background="{DynamicResource BackgroundBrush}">
                                 <GroupBox Header="{x:Static p:Resources.Troops}" Margin="16,16,16,0" VerticalAlignment="Top" Height="62">
                                     <Grid>
-                                        <Label Content="Troop:" Height="28" HorizontalAlignment="Left" Margin="16,5,0,10" />
-                                        <ComboBox Width="100" Height="23" VerticalAlignment="Top" Margin="65,7,0,0" HorizontalAlignment="Left" />
-                                        <Label Content="Qty:" Height="28" HorizontalAlignment="Left" Margin="170,5,0,7" />
-                                        <TextBox Height="23" Width="40" HorizontalAlignment="Left" Margin="205,7,0,10" />
-                                        <Label Content="Delay:" Height="28" HorizontalAlignment="Left" Margin="250,5,0,7" />
-                                        <TextBox Height="23" Width="40" HorizontalAlignment="Left" Margin="295,7,0,10" />
-                                        <Button Content="Add" Height="23" Width="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,7,16,0" />
+                                        <Label Content="{x:Static p:Resources.LabelTroop}" Height="28" HorizontalAlignment="Left" Margin="16,5,0,10" IsEnabled="{Binding IsCustomWave}" />
+                                        <ComboBox Width="100" Height="23" VerticalAlignment="Top" Margin="65,7,0,0" HorizontalAlignment="Left" IsEnabled="{Binding IsCustomWave}" />
+                                        <Label Content="{x:Static p:Resources.LabelQuantity}" Height="28" HorizontalAlignment="Left" Margin="170,5,0,7" IsEnabled="{Binding IsCustomWave}" />
+                                        <TextBox Height="23" Width="40" HorizontalAlignment="Left" Margin="205,7,0,10" IsEnabled="{Binding IsCustomWave}" />
+                                        <Label Content="{x:Static p:Resources.LabelDelay}" Height="28" HorizontalAlignment="Left" Margin="250,5,0,7" IsEnabled="{Binding IsCustomWave}" />
+                                        <TextBox Height="23" Width="40" HorizontalAlignment="Left" Margin="295,7,0,10" IsEnabled="{Binding IsCustomWave}" />
+                                        <Button Content="{x:Static p:Resources.Add}" Height="23" Width="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,7,16,0" IsEnabled="{Binding IsCustomWave}" />
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.Waves}" Margin="16,0,16,16" VerticalAlignment="Bottom" Height="308">
                                     <Grid>
-                                        <ListView SelectionMode="Single" Margin="16,16,16,45">
+                                        <ListView SelectionMode="Single" Margin="16,16,16,45" IsEnabled="{Binding IsCustomWave}">
                                             <ListView.ItemContainerStyle>
                                                 <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
                                                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -487,14 +487,14 @@
                                             <ListView.View>
                                                 <GridView>
                                                     <GridViewColumn Header="#" Width="20" DisplayMemberBinding="{Binding Number}" />
-                                                    <GridViewColumn Header="Troop" Width="250" />
-                                                    <GridViewColumn Header="Qty" Width="45" />
-                                                    <GridViewColumn Header="Delay (ms)" Width="65" />
+                                                    <GridViewColumn Header="{x:Static p:Resources.Troop}" Width="250" />
+                                                    <GridViewColumn Header="{x:Static p:Resources.Quantity}" Width="45" />
+                                                    <GridViewColumn Header="{x:Static p:Resources.DelayMilliseconds}" Width="65" />
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>
-                                        <CheckBox Content="Use custom Wave" HorizontalAlignment="Left" Margin="16,0,0,13" VerticalAlignment="Bottom"/>
-                                        <Button Content="Remove Selected Wave" Height="23" Margin="169,0,16,10" VerticalAlignment="Bottom" />
+                                        <CheckBox Content="{x:Static p:Resources.UseCustomWave}" IsChecked="{Binding IsCustomWave, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="16,0,0,13" VerticalAlignment="Bottom"/>
+                                        <Button Content="{x:Static p:Resources.RemoveSelectedWave}" Height="23" Margin="169,0,16,10" VerticalAlignment="Bottom" IsEnabled="{Binding IsCustomWave}" />
                                     </Grid>
                                 </GroupBox>
                             </Grid>

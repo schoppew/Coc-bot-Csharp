@@ -110,6 +110,8 @@
         /// <value>The application title.</value>
         public static string AppTitle { get { return string.Format("{0} v{1}", Properties.Resources.AppName, typeof(App).Assembly.GetName().Version.ToString(3)); } }
 
+		public static string AppTitleGeneral { get { return Properties.Resources.AppTitleGeneral; } }
+
         /// <summary>
         /// Gets the application settings.
         /// </summary>
@@ -1051,6 +1053,28 @@
 					return true;
 				else
 					return false;
+			}
+		}
+
+		#endregion
+
+		#region Wave Settings
+
+		private bool _isCustomWave;
+		/// <summary>
+		/// Gets or sets a value indicating whether it should use custom Wave.
+		/// </summary>
+		/// <value><c>true</c> if custom Wave; otherwise, <c>false</c>.</value>
+		public bool IsCustomWave
+		{
+			get { return _isCustomWave; }
+			set
+			{
+				if (_isCustomWave != value)
+				{
+					_isCustomWave = value;
+					OnPropertyChanged();
+				}
 			}
 		}
 
@@ -2398,6 +2422,9 @@
             SelectedDarkBarrack1 = DataCollection.DarkBarracksTroops.Where(b1 => b1.Id == AppSettings.SelectedDarkBarrack1).DefaultIfEmpty(DataCollection.DarkBarracksTroops.First()).First();
             SelectedDarkBarrack2 = DataCollection.DarkBarracksTroops.Where(b2 => b2.Id == AppSettings.SelectedDarkBarrack2).DefaultIfEmpty(DataCollection.DarkBarracksTroops.First()).First();
 
+			// Wave Settings
+			IsCustomWave = AppSettings.IsCustomWave;
+
             // Donate Settings
             IsRequestTroops = AppSettings.IsRequestTroops;
             RequestTroopsMessage = AppSettings.RequestTroopsMessage;
@@ -2499,6 +2526,9 @@
 
             AppSettings.SelectedDarkBarrack1 = SelectedDarkBarrack1.Id;
             AppSettings.SelectedDarkBarrack2 = SelectedDarkBarrack2.Id;
+
+			// Wave Settings
+			AppSettings.IsCustomWave = IsCustomWave;
 
             // Donate Settings
             AppSettings.IsRequestTroops = IsRequestTroops;

@@ -567,4 +567,31 @@ You can double click on the icon to show the window.</value>
   <data name="Waves" xml:space="preserve">
     <value>Waves</value>
   </data>
+  <data name="AppTitleGeneral" xml:space="preserve">
+    <value>[TBC] Clash of Clans Bot</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="DelayMilliseconds" xml:space="preserve">
+    <value>Delay (ms)</value>
+  </data>
+  <data name="LabelDelay" xml:space="preserve">
+    <value>Delay:</value>
+  </data>
+  <data name="LabelQuantity" xml:space="preserve">
+    <value>Qty.:</value>
+  </data>
+  <data name="LabelTroop" xml:space="preserve">
+    <value>Troop:</value>
+  </data>
+  <data name="RemoveSelectedWave" xml:space="preserve">
+    <value>Remove Selected Wave</value>
+  </data>
+  <data name="Troop" xml:space="preserve">
+    <value>Troop</value>
+  </data>
+  <data name="UseCustomWave" xml:space="preserve">
+    <value>Use custom Wave</value>
+  </data>
 </root>
