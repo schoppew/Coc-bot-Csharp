@@ -77,9 +77,27 @@ namespace UnitTests
 			int eb2Native = ebNoBkgrd.NativeGetPixel(150, 150).ToArgb() & 0x00FFFFFF;
 			int eb1fast = ebBkgrd.GetPixel(150, 150 );
 			int eb2fast = ebNoBkgrd.GetPixel(150, 150 );
-			int c1 = ebNoBkgrd.CountPixels(eb1Native, 0);
-			int c2 = FastFindWrapper.ColorCount(eb1Native, 0, 0);
+			
+			int c1=0, c2=0;
+			c1 = ebNoBkgrd.CountPixels(eb1Native, 0);
+			c2 = FastFindWrapper.ColorCount(eb1Native, 0, 0);
 			Assert.IsTrue(c1 == c2, "ebBkgrd and eb1fast count for a given color");
+
+			using (Chrono chrono = new Chrono("ExtBitmap Count with no Shade Variation (Full BS screen x50)"))
+				for (int i = 0; i < 50; i++)
+					c1 = ebNoBkgrd.CountPixels(eb1Native, 0);
+			using (Chrono chrono = new Chrono("FastFind Count with no Shade Variation (Full BS screen x50)"))
+				for (int i = 0; i < 50; i++)
+					c2 = FastFindWrapper.ColorCount(eb1Native, 0, 0);
+			Assert.IsTrue(c1 == c2, "ebBkgrd and eb1fast count for a given color (No SV)");
+
+			using (Chrono chrono = new Chrono("ExtBitmap Count with Shade Variation (Full BS screen x50)"))
+				for (int i = 0; i < 50; i++)
+					c1 = ebNoBkgrd.CountPixels(eb1Native, 30);
+			using (Chrono chrono = new Chrono("FastFind Count with Shade Variation (Full BS screen x50)"))
+				for (int i = 0; i < 50; i++)
+					c2 = FastFindWrapper.ColorCount(eb1Native, 0, 30);
+			Assert.IsTrue(c1 == c2, "ebBkgrd and eb1fast count for a given color (SV=30)");			
 
 			Assert.AreEqual(ff, eb1Native, "eb1Native color count in ebNoBkgrd");
 			Assert.AreEqual(eb1Native, eb2Native, "ebBkgrd.NativeGetPixel vs ebNoBkgrd.NativeGetPixel");

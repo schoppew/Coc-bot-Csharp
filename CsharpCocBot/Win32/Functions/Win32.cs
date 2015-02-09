@@ -342,5 +342,8 @@ namespace Win32
 
 		[DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
 		public static extern bool UnhookWindowsHookEx(int idHook);
+
+		[DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+		public static extern int CallNextHookEx(int idHook, int nCode, IntPtr wParam, IntPtr lParam);
     }
 }

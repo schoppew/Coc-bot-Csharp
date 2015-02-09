@@ -45,7 +45,7 @@ namespace UnitTests
 		{
 			if (starting)
 			{
-				File.AppendAllText(@"Logs\TU_log.txt", string.Format(@"\r\n====================== {0} =======================\r\", DateTime.Now.ToString()));
+				File.AppendAllText(@"Logs\TU_log.txt", string.Format("\r\n====================== {0} =======================\r\n", DateTime.Now.ToString()));
 				starting = false;
 			}
 			File.AppendAllText(@"Logs\TU_log.txt", line + "\r\n");

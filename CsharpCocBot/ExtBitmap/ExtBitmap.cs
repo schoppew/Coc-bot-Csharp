@@ -124,12 +124,11 @@ namespace ExtBitmap
 			else
 			{
 				stride = -stride;
-				//int absStride = -stride;
 
 				for (int i = 0; i < Height; i++)
 				{
 					IntPtr pointer = new IntPtr(bData.Scan0.ToInt32() - stride * i);
-					System.Runtime.InteropServices.Marshal.Copy(pointer, data, stride * i /*(Height - i - 1)*/, stride);
+					System.Runtime.InteropServices.Marshal.Copy(pointer, data, stride * i, stride);
 				}
 			}
 			BitMap.UnlockBits(bData);
@@ -163,9 +162,7 @@ namespace ExtBitmap
 			int pos = PixelPos(x, y);
 			if (pos == -1) return false;
 			GetRGBOutOfInt(color, out data[pos + 2], out data[pos + 1], out data[pos]);
-			//data[pos] = (byte)(color & 0x000000FF);
-			//data[pos + 1] = (byte)((color >> 8) & 0x000000FF);
-			//data[pos + 2] = (byte)((color >> 16) & 0x000000FF);
+
 			return true;
 		}
 
@@ -174,10 +171,21 @@ namespace ExtBitmap
 			if (BitMap == null) return false;
 			if (data == null) return false;
 			BitmapData bData = BitMap.LockBits(new Rectangle(0, 0, BitMap.Width, BitMap.Height), ImageLockMode.WriteOnly, BitMap.PixelFormat);
-			int size = bData.Stride * bData.Height;
+			bool bottomToTop = stride < 0;
+			int size = Math.Abs(bData.Stride) * bData.Height;
 			Debug.Assert(size == data.Length);
-			//data = new byte[size];
-			System.Runtime.InteropServices.Marshal.Copy(data, 0, bData.Scan0, data.Length);
+
+			if (!bottomToTop)
+				System.Runtime.InteropServices.Marshal.Copy(bData.Scan0, data, 0, size);
+			else
+			{				
+				for (int i = 0; i < Height; i++)
+				{
+					IntPtr pointer = new IntPtr(bData.Scan0.ToInt32() - stride * i);
+					System.Runtime.InteropServices.Marshal.Copy(data, stride * i, pointer, stride);
+				}
+			}
+			
 			BitMap.UnlockBits(bData);
 			return true;
 		}
