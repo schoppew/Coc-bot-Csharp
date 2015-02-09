@@ -45,9 +45,9 @@ namespace FastFind
         /// <returns></returns>
         static public bool TakeFullScreenCapture(bool forceNew = false)
         {
-            if ((lastFullCapture != null && lastFullCapture.ElapsedMilliseconds > MINIMUM_DELAY_BETWEEN_CAPTURES) || forceNew)
+            if (lastFullCapture == null || lastFullCapture.ElapsedMilliseconds > MINIMUM_DELAY_BETWEEN_CAPTURES || forceNew)
             {
-				FastFindWrapper.SetHWnd(GetHWnd(), true); // Bind FastFind with BlueStack window, considers only ClientArea
+								FastFindWrapper.SetHWnd(GetHWnd(), true); // Bind FastFind with BlueStack window, considers only ClientArea
                 if (FastFindWrapper.SnapShot(0, 0, 0, 0, DEFAULT_SNAP) == 0)
                 {
                     lastFullCapture = null;
@@ -65,7 +65,7 @@ namespace FastFind
         /// <returns></returns>
 		static private bool TakeCustomCapture(int left, int top, int right, int bottom)
         {
-			FastFindWrapper.SetHWnd(GetHWnd(), true); // Bind FastFind with BlueStack window, considers only ClientArea
+						FastFindWrapper.SetHWnd(GetHWnd(), true); // Bind FastFind with BlueStack window, considers only ClientArea
             if (FastFindWrapper.SnapShot(left, top, right, bottom, CUSTOM_SNAP) == 0)
             {
                 Debug.Assert(false, string.Format("FF Capture failed with capture area: ({0},{1})-({2},{3})", left, top, right, bottom));
