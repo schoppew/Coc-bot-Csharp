@@ -57,6 +57,9 @@ ToDo's
 	» [@] Implement Spells Tab
 		- Set the number of Spells to create per SpellType, useful if you don't have spells and forgot to put them on queue
 		- Use of spells?
+	» [@] [U/C] Support for Plugins
+		- Custom code which allows the extension of the bot
+		- Allow to create new Tabs
 
 
 ToDo's In Progress

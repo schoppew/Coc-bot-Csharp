@@ -1,4 +1,4 @@
-﻿<Window
+﻿<Window x:Class="CoC.Bot.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:i="clr-namespace:CoC.Bot.UI.Interactivity"
@@ -10,8 +10,6 @@
         xmlns:ctrls="clr-namespace:CoC.Bot.UI.Controls"
         xmlns:d="clr-namespace:CoC.Bot.Data"
         xmlns:p="clr-namespace:CoC.Bot.Properties"
-        xmlns:tb="clr-namespace:CoC.Bot.UI.Controls.NotifyIcon"
-        xmlns:d1="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d1" x:Class="CoC.Bot.MainWindow"
         Title="[TBC] Clash of Clans Bot" Icon="/Assets/Images/Icon.ico" Height="600" Width="500" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
 
     <Window.Resources>
@@ -82,7 +80,7 @@
             </Rectangle>
             <Grid x:Name="Root" Margin="2" Background="#A0333333">
                 <Grid>
-                    <Label Padding="0" HorizontalContentAlignment="Center">
+                    <Label Padding="0" HorizontalContentAlignment="Center" Style="{StaticResource LabelTitle}">
                         <Grid>
                             <TextBlock Text="{Binding Title, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" IsHitTestVisible="False" Margin="10" FontSize="12"/>
                             <TextBlock Text="{Binding Title, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" IsHitTestVisible="False" Margin="10" FontSize="12">
@@ -119,7 +117,7 @@
                         <Label Content="{Binding AppTitle}" Height="32" HorizontalAlignment="Left" Margin="131,4,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontFamily="Segoe UI Symbol" />
                         <Label Content="{x:Static p:Resources.AppDescription}" Height="28" HorizontalAlignment="Left" Margin="132,26,0,0" VerticalAlignment="Top" FontSize="10" FontFamily="Segoe UI Symbol" />
                     </Grid>
-                    <TabControl x:Name="Tab" Margin="9,9,9,49" Grid.Row="1">
+                    <TabControl Margin="9,9,9,49" Grid.Row="1">
                         <TabControl.ItemContainerStyle>
                             <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource {x:Type TabItem}}">
                                 <Setter Property="FontSize" Value="12"/>
@@ -546,7 +544,7 @@
                                         </ctrls:TreeViewEx>
                                         <GroupBox Header="{Binding SelectedItem, Converter={StaticResource SelectedTreeViewItemConverter}, ElementName=donateTreeView, Mode=OneWay}" HorizontalAlignment="Right" Margin="0,8,16,16" Width="220">
                                             <Grid>
-                                                <CheckBox x:Name="chkDonateToAll" Content="{x:Static p:Resources.DonateToAll}" IsChecked="{Binding IsCurrentDonateAll}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
+                                                <CheckBox Content="{x:Static p:Resources.DonateToAll}" IsChecked="{Binding IsCurrentDonateAll}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
                                                 <TextBox Text="{Binding CurrentDonateKeywords, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsChecked, Converter={StaticResource InverseBoolConverter}, ElementName=chkDonateToAll}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="16,32,16,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Height="100" />
                                                 <Label Content="{x:Static p:Resources.LabelMaxDonationsPerRequest}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" Height="25" HorizontalAlignment="Right" Margin="0,137,59,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="138" />
                                                 <TextBox Text="{Binding CurrentMaxDonationsPerRequest, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" MaxLength="1" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,139,16,0" VerticalAlignment="Top" Width="40">
@@ -573,7 +571,7 @@
                         </TabItem>
                     </TabControl>
                     <Border BorderBrush="{x:Null}" Margin="9,0,89,15" Height="23" VerticalAlignment="Bottom" Grid.Row="1" Width="380">
-                        <TextBlock x:Name="lblMessage" Text="{Binding Message, NotifyOnTargetUpdated=True}" Style="{StaticResource TextBlockMessage}">
+                        <TextBlock Text="{Binding Message, NotifyOnTargetUpdated=True}" Style="{StaticResource TextBlockMessage}">
                             <TextBlock.Triggers>
                                 <EventTrigger RoutedEvent="Binding.TargetUpdated">
                                     <BeginStoryboard>
@@ -586,7 +584,7 @@
                             </TextBlock.Triggers>
                         </TextBlock>
                     </Border>
-                    <Button x:Name="btnExit" Command="{Binding ExitCommand}" Height="23" HorizontalAlignment="Right" Margin="0,0,9,15" VerticalAlignment="Bottom" Width="75" Grid.Row="1" Visibility="Visible">
+                    <Button Command="{Binding ExitCommand}" Height="23" HorizontalAlignment="Right" Margin="0,0,9,15" VerticalAlignment="Bottom" Width="75" Grid.Row="1" Visibility="Visible">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
