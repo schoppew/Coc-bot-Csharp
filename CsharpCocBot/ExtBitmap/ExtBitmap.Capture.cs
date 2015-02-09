@@ -30,7 +30,7 @@ namespace ExtBitmap
 		static IntPtr GetHWnd()
 		{
 			if (CustomProvider != null) return CustomProvider();
-			return IntPtr.Zero;
+			return Win32.Win32.GetDesktopWindow();
 		}
 		#endregion Window handle provider
 

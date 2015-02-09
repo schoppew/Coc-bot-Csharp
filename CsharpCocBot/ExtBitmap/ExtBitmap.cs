@@ -116,10 +116,22 @@ namespace ExtBitmap
 			stride = bData.Stride;
 			bitsPerPixel = GetBitsPerPixel(bData.PixelFormat);
 			bytesPerPixel = bitsPerPixel / 8;
-			size = bData.Stride * bData.Height;
+			size = Math.Abs(bData.Stride * bData.Height);
 
 			data = new byte[size];
-			System.Runtime.InteropServices.Marshal.Copy(bData.Scan0, data, 0, size);
+			if (stride>0)
+				System.Runtime.InteropServices.Marshal.Copy(bData.Scan0, data, 0, size);
+			else
+			{
+				stride = -stride;
+				//int absStride = -stride;
+
+				for (int i = 0; i < Height; i++)
+				{
+					IntPtr pointer = new IntPtr(bData.Scan0.ToInt32() - stride * i);
+					System.Runtime.InteropServices.Marshal.Copy(pointer, data, stride * (Height - i - 1), stride);
+				}
+			}
 			BitMap.UnlockBits(bData);
 			return true;
 		}

@@ -51,19 +51,17 @@ namespace CoC.Bot.Tools
 
 		// this will start Bluestack and Clash Of Clans in it (if they are both installed). 
 		// TODO
-		public static bool StartClashOfClanFull()
+		public static bool StartClashOfClanAndWait(int maxDelayMs = 20000)
 		{
-			int TODO; 
-				var key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\BlueStacks", true);
-				if (key==null) return false;
-				string path = Path.Combine((string)Registry.GetValue(key.Name, "InstallDir", @"C:\Program Files (x86)\BlueStacks\"), "HD-RunApp.exe");
-				string commandLine = "Android com.supercell.clashofclans com.supercell.clashofclans.GameApp"; // Clash of Clan app
-				ProcessStartInfo psi = new ProcessStartInfo(path+" "+commandLine);
-				var p = new Process(); p.StartInfo = psi;
+			var key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\BlueStacks", true);
+			if (key==null) return false;
+			string path = Path.Combine((string)Registry.GetValue(key.Name, "InstallDir", @"C:\Program Files (x86)\BlueStacks\"), "HD-RunApp.exe");
+			string commandLine = "Android com.supercell.clashofclans com.supercell.clashofclans.GameApp"; // Clash of Clan app
+			ProcessStartInfo psi = new ProcessStartInfo(path,commandLine);
+			var p = new Process(); p.StartInfo = psi;
 
-				if (!p.Start()) return false; //start the process
-				p.WaitForExit(); // wait for the installation to finish
-				return true;
+			if (!p.Start()) return false; //start the process
+			return p.WaitForExit(maxDelayMs); // wait for the installation to finish, 20 seconds max by default			
 		}
 
 		

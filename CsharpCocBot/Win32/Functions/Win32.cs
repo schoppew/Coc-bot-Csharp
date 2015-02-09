@@ -326,5 +326,8 @@ namespace Win32
 
 		[DllImport("user32.dll")]
 		public static extern Int32 SystemParametersInfo(UInt32 uiAction, UInt32 uiParam, IntPtr pvParam, UInt32 fWinIni);
+
+		[DllImport("user32.dll", SetLastError = false)]
+		public static extern IntPtr GetDesktopWindow();
     }
 }

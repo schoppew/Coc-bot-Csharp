@@ -47,7 +47,7 @@ namespace FastFind
         {
             if (lastFullCapture == null || lastFullCapture.ElapsedMilliseconds > MINIMUM_DELAY_BETWEEN_CAPTURES || forceNew)
             {
-								FastFindWrapper.SetHWnd(GetHWnd(), true); // Bind FastFind with BlueStack window, considers only ClientArea
+				FastFindWrapper.SetHWnd(GetHWnd(), true); // Bind FastFind with BlueStack window, considers only ClientArea
                 if (FastFindWrapper.SnapShot(0, 0, 0, 0, DEFAULT_SNAP) == 0)
                 {
                     lastFullCapture = null;
