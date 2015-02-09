@@ -75,10 +75,13 @@ namespace UnitTests
 			int ff = FastFindHelper.GetPixel(150, 150);
 			int eb1Native = ebBkgrd.NativeGetPixel(150, 150).ToArgb() & 0x00FFFFFF;
 			int eb2Native = ebNoBkgrd.NativeGetPixel(150, 150).ToArgb() & 0x00FFFFFF;
-			int eb1fast = ebBkgrd.GetPixel(150, 150);
-			int eb2fast = ebNoBkgrd.GetPixel(150, 150);
+			int eb1fast = ebBkgrd.GetPixel(150, 150 );
+			int eb2fast = ebNoBkgrd.GetPixel(150, 150 );
+			int c1 = ebNoBkgrd.CountPixels(eb1Native, 0);
+			int c2 = FastFindWrapper.ColorCount(eb1Native, 0, 0);
+			Assert.IsTrue(c1 == c2, "ebBkgrd and eb1fast count for a given color");
 
-			Assert.AreEqual(ff, eb1Native, "FastFindHelper.GetPixel vs ebBkgrd.NativeGetPixel");
+			Assert.AreEqual(ff, eb1Native, "eb1Native color count in ebNoBkgrd");
 			Assert.AreEqual(eb1Native, eb2Native, "ebBkgrd.NativeGetPixel vs ebNoBkgrd.NativeGetPixel");
 			Assert.AreEqual(eb2Native, eb1fast, "ebNoBkgrd.NativeGetPixel vs ebBkgrd.GetPixel");
 			Assert.AreEqual(eb1fast, eb2fast, "ebBkgrd.GetPixel vs ebNoBkgrd.GetPixel");
