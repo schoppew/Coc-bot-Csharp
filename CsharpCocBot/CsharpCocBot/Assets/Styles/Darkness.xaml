@@ -56,13 +56,17 @@
         </Setter>
     </Style>
 
+    <Style x:Key="LabelTitle" TargetType="{x:Type Label}">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+    </Style>
+
     <Style TargetType="{x:Type Label}" BasedOn="{StaticResource {x:Type Label}}">
         <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
         <Setter Property="ContentTemplate">
             <Setter.Value>
                 <DataTemplate>
                     <!-- This prevents TextBlock from overriding custom Label style -->
-                    <TextBlock Text="{Binding}" Foreground="{Binding RelativeSource={RelativeSource AncestorType=Label}, Path=Foreground}" TextWrapping="NoWrap" TextTrimming="None" VerticalAlignment="Stretch" />
+                    <TextBlock Text="{Binding}" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Label}}}" TextWrapping="NoWrap" TextTrimming="None" VerticalAlignment="Stretch" />
                 </DataTemplate>
             </Setter.Value>
         </Setter>
@@ -106,6 +110,52 @@
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}"/>
+                            <Setter Property="Opacity" TargetName="Border" Value="0.5" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ToggleButtonStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid SnapsToDevicePixels="True" Background="{TemplateBinding Background}">
+                        <Rectangle x:Name="ShadeRectangle" IsHitTestVisible="False" Fill="{StaticResource ForegroundBrush}" Opacity="0"/>
+                        <Border x:Name="Border" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                            <ContentPresenter Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter Property="Opacity" Value="0.5" TargetName="ShadeRectangle"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Opacity" Value="0.5" TargetName="ShadeRectangle"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsPressed" Value="True"/>
+                                <Condition Property="IsEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Opacity" Value="0.25" TargetName="ShadeRectangle"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}"/>
+                            <Setter Property="Opacity" TargetName="Border" Value="0.5" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -845,7 +895,7 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <ScrollViewer Name="svTP" SnapsToDevicePixels="True" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled">
+                        <ScrollViewer x:Name="svTP" SnapsToDevicePixels="True" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled">
                             <ScrollViewer.Style>
                                 <Style TargetType="{x:Type ScrollViewer}">
                                     <Setter Property="Focusable" Value="False"/>
@@ -857,7 +907,7 @@
                                                         <ColumnDefinition Width="*"/>
                                                         <ColumnDefinition Width="Auto"/>
                                                     </Grid.ColumnDefinitions>
-                                                    <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" VirtualizingStackPanel.IsVirtualizing="False" SnapsToDevicePixels="True" Grid.Column="0" Content="{TemplateBinding ScrollViewer.Content}"/>
+                                                    <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" VirtualizingPanel.IsVirtualizing="False" SnapsToDevicePixels="True" Grid.Column="0" Content="{TemplateBinding ContentControl.Content}"/>
                                                     <Grid x:Name="gScrollButtons" HorizontalAlignment="Right" Grid.Column="1">
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="*"/>
@@ -865,10 +915,9 @@
                                                         </Grid.RowDefinitions>
                                                         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5,0,0,2">
                                                             <RepeatButton Style="{StaticResource ScrollBarLeftButton}" Margin="2"
-                                                                          Command="ScrollBar.PageLeftCommand" IsEnabled="{Binding ElementName=svTP, Path=HorizontalOffset, 
-                                                                          Converter={StaticResource scrollbarOnFarLeftConverter}}" />
+																Command="ScrollBar.PageLeftCommand" IsEnabled="{Binding HorizontalOffset, Converter={StaticResource scrollbarOnFarLeftConverter}, ElementName=svTP}" />
                                                             <RepeatButton Style="{StaticResource ScrollBarRightButton}" Margin="2"
-                                                                          Command="ScrollBar.PageRightCommand">
+																Command="ScrollBar.PageRightCommand">
                                                                 <RepeatButton.IsEnabled>
                                                                     <MultiBinding Converter="{StaticResource scrollbarOnFarRightConverter}">
                                                                         <Binding ElementName="svTP" Path="HorizontalOffset"/>
@@ -1132,9 +1181,14 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <!-- RichTextBox -->
     <Style TargetType="{x:Type RichTextBox}">
+        <Style.Resources>
+            <Style TargetType="{x:Type Paragraph}">
+                <Setter Property="Margin" Value="0"/>
+            </Style>
+        </Style.Resources>
         <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
@@ -1158,11 +1212,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Resources>
-            <Style TargetType="{x:Type Paragraph}">
-                <Setter Property="Margin" Value="0"/>
-            </Style>
-        </Style.Resources>
     </Style>
 
     <!-- Expander -->

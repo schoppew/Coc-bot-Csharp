@@ -184,6 +184,7 @@ namespace CoC.Bot.Data
         {
             switch (strategy)
             {
+				case DeployStrategy.OneSide: return Properties.Resources.DeployStrategyOneSide;
                 case DeployStrategy.TwoSides: return Properties.Resources.DeployStrategyTwoSides;
                 case DeployStrategy.ThreeSides: return Properties.Resources.DeployStrategyThreeSides;
                 case DeployStrategy.FourSides: return Properties.Resources.DeployStrategyFourSides;

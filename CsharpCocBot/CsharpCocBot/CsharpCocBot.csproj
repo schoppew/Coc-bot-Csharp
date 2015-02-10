@@ -145,6 +145,7 @@
     <Compile Include="Data\Enum\Troop.cs" />
     <Compile Include="Data\DataHelper.cs" />
     <Compile Include="Data\Type\TroopTierModel.cs" />
+    <Compile Include="Data\Type\WaveModel.cs" />
     <Compile Include="Functions\Main.cs" />
     <Compile Include="Functions\SubFunctions\Barrack.cs" />
     <Compile Include="Functions\SubFunctions\RequestAndDonate.cs" />
@@ -164,10 +165,13 @@
     <Compile Include="UI\Commands\IEventArgsConverter.cs" />
     <Compile Include="UI\Commands\RelayCommand.cs" />
     <Compile Include="Tools\XmlHelper.cs" />
+    <Compile Include="UI\Controls\DragDrop\DragDropHelper.cs" />
+    <Compile Include="UI\Controls\DragDrop\DraggedAdorner.cs" />
     <Compile Include="UI\Controls\Formatters\ITextFormatter.cs" />
     <Compile Include="UI\Controls\Formatters\PlainTextFormatter.cs" />
     <Compile Include="UI\Controls\Formatters\RtfFormatter.cs" />
     <Compile Include="UI\Controls\Formatters\XamlFormatter.cs" />
+    <Compile Include="UI\Controls\DragDrop\InsertionAdorner.cs" />
     <Compile Include="UI\Controls\NotifyIcon\BalloonIcon.cs" />
     <Compile Include="UI\Controls\NotifyIcon\Interop\SystemInfo.cs" />
     <Compile Include="UI\Controls\NotifyIcon\Interop\TrayInfo.cs" />

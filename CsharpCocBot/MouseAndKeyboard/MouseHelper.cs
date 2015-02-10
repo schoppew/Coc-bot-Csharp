@@ -91,6 +91,13 @@
             return true;
         }
 
+		/// <summary>
+		/// FF: If this doesn't work (and I guess it won't), we may have to use SetCapture/ReleaseCapture Win32 api
+		/// http://winapi.freetechsecrets.com/win32/WIN32SetCapture.htm
+		/// </summary>
+		/// <param name="wndHandle"></param>
+		/// <param name="delay"></param>
+		/// <returns></returns>
 		public static Win32.POINT GetPointOnClick(IntPtr wndHandle, int delay = 20)
 		{
 			Win32.POINT clientPoint = new Win32.POINT();

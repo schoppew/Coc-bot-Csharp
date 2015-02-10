@@ -129,6 +129,15 @@ namespace ExtBitmap
 			int lastPos = size - bytesPerPixel;
 			int pos = 0;
 			int count = 0;
+			//if (shadeVariation == 0)
+			//{
+			//	while (pos <= lastPos)
+			//	{
+			//		if (blue == data[pos] && green == data[pos+1] && red == data[pos+2]) count++;					
+			//		pos += bytesPerPixel;
+			//	}			
+			//	return count;
+			//}
 			while (pos <= lastPos)
 			{
 				if (IsInShadeVariation(red, green, blue, data[pos + 2], data[pos + 1], data[pos], shadeVariation))

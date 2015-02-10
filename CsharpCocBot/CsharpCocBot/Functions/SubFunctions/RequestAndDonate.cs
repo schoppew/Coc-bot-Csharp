@@ -224,8 +224,8 @@ namespace CoC.Bot.Functions
                     Tools.CoCHelper.Click(requestTroop);
                     Thread.Sleep(2000);
 
-                    // FF, this only works if forceCapture is Enabled. I modified the CheckPixelColor method slightly until the problem is fixed.
-                    if (Tools.CoCHelper.CheckPixelColor(ScreenData.RequestTroopsRedCancel, true))
+                    // FF, this only works if forceCapture is Enabled. I modified the CheckPixelColor method slightly until the problem is fixed. => Please check this again, should be fixed
+                    if (Tools.CoCHelper.CheckPixelColor(ScreenData.RequestTroopsRedCancel))
                     {
                         if (!string.IsNullOrEmpty(Main.Bot.RequestTroopsMessage))
                         {

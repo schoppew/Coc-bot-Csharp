@@ -289,7 +289,7 @@ namespace CoC.Bot.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
         public int SelectedDeployStrategy {
             get {
                 return ((int)(this["SelectedDeployStrategy"]));
@@ -1820,6 +1820,18 @@ namespace CoC.Bot.Properties {
             }
             set {
                 this["IsTakeSnapshotAllLoots"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsCustomWave {
+            get {
+                return ((bool)(this["IsCustomWave"]));
+            }
+            set {
+                this["IsCustomWave"] = value;
             }
         }
     }

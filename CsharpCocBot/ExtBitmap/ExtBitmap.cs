@@ -116,10 +116,21 @@ namespace ExtBitmap
 			stride = bData.Stride;
 			bitsPerPixel = GetBitsPerPixel(bData.PixelFormat);
 			bytesPerPixel = bitsPerPixel / 8;
-			size = bData.Stride * bData.Height;
+			size = Math.Abs(bData.Stride * bData.Height);
 
 			data = new byte[size];
-			System.Runtime.InteropServices.Marshal.Copy(bData.Scan0, data, 0, size);
+			if (stride>0)
+				System.Runtime.InteropServices.Marshal.Copy(bData.Scan0, data, 0, size);
+			else
+			{
+				stride = -stride;
+
+				for (int i = 0; i < Height; i++)
+				{
+					IntPtr pointer = new IntPtr(bData.Scan0.ToInt32() - stride * i);
+					System.Runtime.InteropServices.Marshal.Copy(pointer, data, stride * i, stride);
+				}
+			}
 			BitMap.UnlockBits(bData);
 			return true;
 		}
@@ -136,7 +147,7 @@ namespace ExtBitmap
 		{
 			int pos = PixelPos(x, y);
 			if (pos == -1) return 0;
-			return ((data[pos + 2] << 16) & 0x00FF0000) + ((data[pos + 1] << 8) & 0x0000FF00) + (data[pos] & 0x000000FF);
+			return GetIntFromRGB(data[pos + 2], data[pos + 1], data[pos]);			
 		}
 
 		public Color GetPixelColor(int x, int y)
@@ -150,9 +161,8 @@ namespace ExtBitmap
 		{
 			int pos = PixelPos(x, y);
 			if (pos == -1) return false;
-			data[pos] = (byte)(color & 0x000000FF);
-			data[pos + 1] = (byte)((color >> 8) & 0x000000FF);
-			data[pos + 2] = (byte)((color >> 16) & 0x000000FF);
+			GetRGBOutOfInt(color, out data[pos + 2], out data[pos + 1], out data[pos]);
+
 			return true;
 		}
 
@@ -161,10 +171,21 @@ namespace ExtBitmap
 			if (BitMap == null) return false;
 			if (data == null) return false;
 			BitmapData bData = BitMap.LockBits(new Rectangle(0, 0, BitMap.Width, BitMap.Height), ImageLockMode.WriteOnly, BitMap.PixelFormat);
-			int size = bData.Stride * bData.Height;
+			bool bottomToTop = stride < 0;
+			int size = Math.Abs(bData.Stride) * bData.Height;
 			Debug.Assert(size == data.Length);
-			//data = new byte[size];
-			System.Runtime.InteropServices.Marshal.Copy(data, 0, bData.Scan0, data.Length);
+
+			if (!bottomToTop)
+				System.Runtime.InteropServices.Marshal.Copy(bData.Scan0, data, 0, size);
+			else
+			{				
+				for (int i = 0; i < Height; i++)
+				{
+					IntPtr pointer = new IntPtr(bData.Scan0.ToInt32() - stride * i);
+					System.Runtime.InteropServices.Marshal.Copy(data, stride * i, pointer, stride);
+				}
+			}
+			
 			BitMap.UnlockBits(bData);
 			return true;
 		}
@@ -176,7 +197,7 @@ namespace ExtBitmap
 
 			for (int i = 0; i < size; i += bytesPerPixel)
 			{
-				int pixel = ((data[i + 2] << 16) & 0x00FF0000) + ((data[i + 1] << 8) & 0x0000FF00) + (data[i] & 0x000000FF);
+				int pixel = GetIntFromRGB(data[i + 2], data[i + 1], data[i]);
 				int count = 0;
 				if (dico.TryGetValue(pixel, out count))
 					dico[pixel] = count + 1;

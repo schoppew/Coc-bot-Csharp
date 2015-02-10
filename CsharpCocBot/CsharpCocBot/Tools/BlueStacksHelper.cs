@@ -8,9 +8,10 @@ using System.Drawing;
 using Win32;
 using MouseAndKeyboard;
 using Microsoft.Win32;
+using System.IO;
 
 namespace CoC.Bot.Tools
-{
+{	
 	public static class BlueStacksHelper
 	{
 		private static IntPtr bshandle = IntPtr.Zero;
@@ -34,6 +35,40 @@ namespace CoC.Bot.Tools
 				bshandle = proc[0].MainWindowHandle;
 			}
 			return bshandle;
+		}
+
+		// This is the app that is run when you start BlueStacks from Desktop
+		public static string GetBluestackLauchExePath
+		{
+			get
+			{
+				var key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\BlueStacks", true);
+				if (key==null) return null;
+				string path = Path.Combine((string)Registry.GetValue(key.Name, "InstallDir",  @"C:\Program Files (x86)\BlueStacks\"), "HD-StartLauncher.exe");
+				return path;	
+			}		
+		}
+
+		// this will start Bluestack and Clash Of Clans in it (if they are both installed). 
+		// TODO
+		public static bool StartClashOfClanAndWait(int maxDelayMs = 20000)
+		{
+			var key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\BlueStacks", true);
+			if (key==null) return false;
+			string path = Path.Combine((string)Registry.GetValue(key.Name, "InstallDir", @"C:\Program Files (x86)\BlueStacks\"), "HD-RunApp.exe");
+			string commandLine = "Android com.supercell.clashofclans com.supercell.clashofclans.GameApp"; // Clash of Clan app
+			ProcessStartInfo psi = new ProcessStartInfo(path,commandLine);
+			var p = new Process(); p.StartInfo = psi;
+
+			if (!p.Start()) return false; //start the process
+			return p.WaitForExit(maxDelayMs); // wait for the installation to finish, 20 seconds max by default			
+		}
+
+		
+		static public bool IsBlueStackInstalled()
+		{
+			var key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\BlueStacks\Guests\Android\FrameBuffer\0", true);
+			return (key != null);				
 		}
 
 		public static bool SetDimensionsIntoRegistry()
