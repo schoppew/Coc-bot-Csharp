@@ -151,7 +151,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Attack Settings.
+        ///   Looks up a localized string similar to Attack.
         /// </summary>
         public static string AttackSettings {
             get {
@@ -421,7 +421,16 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Attack on all sides equally, gets most of outer base.
+        ///   Looks up a localized string similar to Attack on a single side, penetrates through base.
+        /// </summary>
+        public static string DeployStrategyOneSide {
+            get {
+                return ResourceManager.GetString("DeployStrategyOneSide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attack on three sides, gets outer and some inside of base.
         /// </summary>
         public static string DeployStrategyThreeSides {
             get {
@@ -493,7 +502,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Donate Settings.
+        ///   Looks up a localized string similar to Donate.
         /// </summary>
         public static string DonateSettings {
             get {
@@ -893,6 +902,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Locate.
+        /// </summary>
+        public static string LocateSettings {
+            get {
+                return ResourceManager.GetString("LocateSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bot fully Initialized!.
         /// </summary>
         public static string LogBotInitialized {
@@ -1237,7 +1255,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Search Mode.
+        ///   Looks up a localized string similar to Execute Bot in Search Mode Only.
         /// </summary>
         public static string SearchMode {
             get {
@@ -1246,7 +1264,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Search Settings.
+        ///   Looks up a localized string similar to Search.
         /// </summary>
         public static string SearchSettings {
             get {
@@ -1336,6 +1354,24 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Train Mode.
+        /// </summary>
+        public static string TrainMode {
+            get {
+                return ResourceManager.GetString("TrainMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select your preferred troop training style from the combobox..
+        /// </summary>
+        public static string TrainModeMessage {
+            get {
+                return ResourceManager.GetString("TrainModeMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Troop.
         /// </summary>
         public static string Troop {
@@ -1363,7 +1399,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Troop Settings.
+        ///   Looks up a localized string similar to Train.
         /// </summary>
         public static string TroopSettings {
             get {
@@ -1408,7 +1444,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use custom Wave.
+        ///   Looks up a localized string similar to Use custom Waves.
         /// </summary>
         public static string UseCustomWave {
             get {
@@ -1453,7 +1489,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wave Settings.
+        ///   Looks up a localized string similar to Wave.
         /// </summary>
         public static string WaveSettings {
             get {

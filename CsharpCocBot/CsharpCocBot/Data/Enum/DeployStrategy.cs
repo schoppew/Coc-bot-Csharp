@@ -2,8 +2,9 @@
 {
     public enum DeployStrategy
     {
-        TwoSides = 1,
-        ThreeSides = 2,
-        FourSides = 3
+		OneSide = 1,
+        TwoSides = 2,
+        ThreeSides = 3,
+        FourSides = 4
     };
 }

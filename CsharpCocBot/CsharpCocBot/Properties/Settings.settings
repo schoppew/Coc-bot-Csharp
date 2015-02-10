@@ -69,7 +69,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="SelectedDeployStrategy" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">3</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="SelectedDeployTroop" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>

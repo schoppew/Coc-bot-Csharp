@@ -139,7 +139,7 @@
     <value>Attack Mode</value>
   </data>
   <data name="AttackSettings" xml:space="preserve">
-    <value>Attack Settings</value>
+    <value>Attack</value>
   </data>
   <data name="AttackTheirKing" xml:space="preserve">
     <value>Attack King</value>
@@ -178,7 +178,7 @@
     <value>Attack on all sides equally, gets most of outer base</value>
   </data>
   <data name="DeployStrategyThreeSides" xml:space="preserve">
-    <value>Attack on all sides equally, gets most of outer base</value>
+    <value>Attack on three sides, gets outer and some inside of base</value>
   </data>
   <data name="DeployStrategyTwoSides" xml:space="preserve">
     <value>Attack on two sides, penetrates through base</value>
@@ -199,7 +199,7 @@
     <value>Donate Giants</value>
   </data>
   <data name="DonateSettings" xml:space="preserve">
-    <value>Donate Settings</value>
+    <value>Donate</value>
   </data>
   <data name="DonateToAll" xml:space="preserve">
     <value>Donate to All</value>
@@ -316,16 +316,16 @@
     <value>Royals and Clan Castle Settings</value>
   </data>
   <data name="SearchMode" xml:space="preserve">
-    <value>Search Mode</value>
+    <value>Execute Bot in Search Mode Only</value>
   </data>
   <data name="SearchSettings" xml:space="preserve">
-    <value>Search Settings</value>
+    <value>Search</value>
   </data>
   <data name="Troops" xml:space="preserve">
     <value>Troops</value>
   </data>
   <data name="TroopSettings" xml:space="preserve">
-    <value>Troop Settings</value>
+    <value>Train</value>
   </data>
   <data name="TroopsMessage" xml:space="preserve">
     <value>Bot will use this if custom troops is selected. Troop Capacity must match!</value>
@@ -562,7 +562,7 @@ You can double click on the icon to show the window.</value>
     <value>Take snapshot of all Towns</value>
   </data>
   <data name="WaveSettings" xml:space="preserve">
-    <value>Wave Settings</value>
+    <value>Wave</value>
   </data>
   <data name="Waves" xml:space="preserve">
     <value>Waves</value>
@@ -592,6 +592,18 @@ You can double click on the icon to show the window.</value>
     <value>Troop</value>
   </data>
   <data name="UseCustomWave" xml:space="preserve">
-    <value>Use custom Wave</value>
+    <value>Use custom Waves</value>
+  </data>
+  <data name="LocateSettings" xml:space="preserve">
+    <value>Locate</value>
+  </data>
+  <data name="DeployStrategyOneSide" xml:space="preserve">
+    <value>Attack on a single side, penetrates through base</value>
+  </data>
+  <data name="TrainMode" xml:space="preserve">
+    <value>Train Mode</value>
+  </data>
+  <data name="TrainModeMessage" xml:space="preserve">
+    <value>Select your preferred troop training style from the combobox.</value>
   </data>
 </root>
