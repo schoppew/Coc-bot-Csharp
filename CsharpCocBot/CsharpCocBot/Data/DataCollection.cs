@@ -1,9 +1,10 @@
 ﻿namespace CoC.Bot.Data
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Linq;
+	using System;
+	using System.Collections.Generic;
+	using System.Collections.ObjectModel;
+	using System.ComponentModel;
+	using System.Linq;
 
     /// <summary>
     /// The Data Collection.
@@ -34,6 +35,11 @@
         /// The Deploy Troops
         /// </summary>
         internal static BindingList<Model> DeployTroops = new BindingList<Model>();
+
+		/// <summary>
+		/// The Custom Wave
+		/// </summary>
+		internal static ObservableCollection<WaveModel> CustomWave = new ObservableCollection<WaveModel>();
 
         /// <summary>
         /// The Troop Tiers and child Troops

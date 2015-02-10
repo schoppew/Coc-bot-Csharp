@@ -58,7 +58,7 @@ ToDo's
 		- Set the number of Spells to create per SpellType, useful if you don't have spells and forgot to put them on queue
 		- Use of spells?
 	» [@] [U/C] Support for Plugins
-		- Custom code which allows the extension of the bot
+		- Custom code which allows the customization/extension of the bot
 		- Allow to create new Tabs
 
 
@@ -66,6 +66,12 @@ ToDo's In Progress
 =============================
 
 	» [C] Provides an higher level helper for FastFind integration
+	» [U/C] Implement Wave Settings Tab
+		- Remove # column (short list, not a big use of it)
+		- Create a custom collection which is a copy of the AllAttackTroops but with modificable Quantity (so we can subtract when adding the troop to the wave)
+		- Remove the Troop from the ComboBox when all troops (Quantity) have been added, add back if removed from ListView
+		- When changing the values of AllAttackTroops, the Wave (ListView and ComboBox) should reflect the changes
+		- Make the Buttons disabled (if ComboBox and ListView have no selected item)
 
 
 ToDo's Completed

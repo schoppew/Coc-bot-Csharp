@@ -25,6 +25,14 @@
         <c:BooleanToHideShowPathConverter x:Key="BooleanToHideShowPathConverter" />
         <c:BooleanToHideShowImageSourceConverter x:Key="BooleanToHideShowImageSourceConverter" />
         <c:BooleanToOverlayConverter x:Key="BooleanToOverlayConverter" />
+        <DataTemplate x:Key="CustomWaveDragTemplate">
+            <Grid Margin="20,0,0,0">
+                <Border Background="{StaticResource BackgroundBrush}" BorderThickness="1" BorderBrush="{StaticResource ForegroundBrush}">
+                    <TextBlock Text="{Binding Path=Troop.Name}" Margin="2" TextAlignment="Center" FontWeight="Bold" Style="{StaticResource TextBlockMessage}" />
+                </Border>
+            </Grid>
+        </DataTemplate>
+
     </Window.Resources>
 
     <!--<Window.DataContext>
@@ -296,7 +304,7 @@
                             <Grid Background="{DynamicResource BackgroundBrush}">
                                 <GroupBox Header="{x:Static p:Resources.Troops}" HorizontalAlignment="Left" Margin="16,16,0,0" VerticalAlignment="Top" Height="305" Width="210">
                                     <Grid>
-                                        <ListView Margin="16,10,16,68" ItemsSource="{Binding AllAttackTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAttackTroop, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsCustomTroopsEnabled}" SelectionMode="Single">
+                                        <ListView ItemsSource="{Binding AllAttackTroops, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsCustomTroopsEnabled}" SelectionMode="Single" Margin="16,10,16,68">
                                             <ListView.ItemContainerStyle>
                                                 <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
                                                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -468,17 +476,25 @@
                                 <GroupBox Header="{x:Static p:Resources.Troops}" Margin="16,16,16,0" VerticalAlignment="Top" Height="62">
                                     <Grid>
                                         <Label Content="{x:Static p:Resources.LabelTroop}" Height="28" HorizontalAlignment="Left" Margin="16,5,0,10" IsEnabled="{Binding IsCustomWave}" />
-                                        <ComboBox Width="100" Height="23" VerticalAlignment="Top" Margin="65,7,0,0" HorizontalAlignment="Left" IsEnabled="{Binding IsCustomWave}" />
+                                        <ComboBox ItemsSource="{Binding TroopsForWave, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedTroopForWave}" DisplayMemberPath="Name" Width="100" Height="23" VerticalAlignment="Top" Margin="65,7,0,0" HorizontalAlignment="Left" IsEnabled="{Binding IsCustomWave}" />
                                         <Label Content="{x:Static p:Resources.LabelQuantity}" Height="28" HorizontalAlignment="Left" Margin="170,5,0,7" IsEnabled="{Binding IsCustomWave}" />
-                                        <TextBox Height="23" Width="40" HorizontalAlignment="Left" Margin="205,7,0,10" IsEnabled="{Binding IsCustomWave}" />
+                                        <TextBox Text="{Binding SelectedTroopForWaveQuantity, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" TextAlignment="Right" Height="23" Width="40" HorizontalAlignment="Left" Margin="205,7,0,10" IsEnabled="{Binding IsCustomWave}">
+                                            <i:Interaction.Behaviors>
+                                                <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="2" EmptyValue="0" />
+                                            </i:Interaction.Behaviors>
+                                        </TextBox>
                                         <Label Content="{x:Static p:Resources.LabelDelay}" Height="28" HorizontalAlignment="Left" Margin="250,5,0,7" IsEnabled="{Binding IsCustomWave}" />
-                                        <TextBox Height="23" Width="40" HorizontalAlignment="Left" Margin="295,7,0,10" IsEnabled="{Binding IsCustomWave}" />
-                                        <Button Content="{x:Static p:Resources.Add}" Height="23" Width="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,7,16,0" IsEnabled="{Binding IsCustomWave}" />
+                                        <TextBox Text="{Binding SelectedTroopForWaveDelay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" Height="23" Width="40" HorizontalAlignment="Left" Margin="295,7,0,10" IsEnabled="{Binding IsCustomWave}">
+                                            <i:Interaction.Behaviors>
+                                                <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="5" EmptyValue="0" />
+                                            </i:Interaction.Behaviors>
+                                        </TextBox>
+                                        <Button Content="{x:Static p:Resources.Add}" Command="{Binding AddTroopForCustomWaveCommand}" Height="23" Width="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,7,16,0" IsEnabled="{Binding IsCustomWave}" />
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.Waves}" Margin="16,0,16,16" VerticalAlignment="Bottom" Height="308">
                                     <Grid>
-                                        <ListView SelectionMode="Single" Margin="16,16,16,45" IsEnabled="{Binding IsCustomWave}">
+                                        <ListView ItemsSource="{Binding WaveTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedWaveTroop, UpdateSourceTrigger=PropertyChanged}" SelectionMode="Single" Margin="16,16,16,45" IsEnabled="{Binding IsCustomWave}" ctrls:DragDropHelper.IsDragSource="True" ctrls:DragDropHelper.IsDropTarget="True" ctrls:DragDropHelper.DragDropTemplate="{StaticResource CustomWaveDragTemplate}">
                                             <ListView.ItemContainerStyle>
                                                 <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
                                                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -487,14 +503,20 @@
                                             <ListView.View>
                                                 <GridView>
                                                     <GridViewColumn Header="#" Width="20" DisplayMemberBinding="{Binding Number}" />
-                                                    <GridViewColumn Header="{x:Static p:Resources.Troop}" Width="250" />
-                                                    <GridViewColumn Header="{x:Static p:Resources.Quantity}" Width="45" />
-                                                    <GridViewColumn Header="{x:Static p:Resources.DelayMilliseconds}" Width="65" />
+                                                    <GridViewColumn Header="{x:Static p:Resources.Troop}" DisplayMemberBinding="{Binding Troop.Name}" Width="250" />
+                                                    <GridViewColumn Header="{x:Static p:Resources.Quantity}" DisplayMemberBinding="{Binding DeployQuantity}" Width="45" />
+                                                    <GridViewColumn Header="{x:Static p:Resources.DelayMilliseconds}" Width="65">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding DeployDelay}" TextAlignment="Right" />
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>
                                         <CheckBox Content="{x:Static p:Resources.UseCustomWave}" IsChecked="{Binding IsCustomWave, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="16,0,0,13" VerticalAlignment="Bottom"/>
-                                        <Button Content="{x:Static p:Resources.RemoveSelectedWave}" Height="23" Margin="169,0,16,10" VerticalAlignment="Bottom" IsEnabled="{Binding IsCustomWave}" />
+                                        <Button Content="{x:Static p:Resources.RemoveSelectedWave}" Command="{Binding RemoveTroopForCustomWaveCommand}" Height="23" Margin="169,0,16,10" VerticalAlignment="Bottom" IsEnabled="{Binding IsCustomWave}" />
                                     </Grid>
                                 </GroupBox>
                             </Grid>

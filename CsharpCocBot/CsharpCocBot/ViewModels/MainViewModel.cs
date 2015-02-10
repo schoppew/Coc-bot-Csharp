@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+	using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Linq;
     using System.Text;
@@ -729,25 +730,6 @@
 		/// <value>All Attack Troops.</value>
 		public static IEnumerable<TroopModel> AllAttackTroops { get { return DataCollection.TroopTiers.SelectMany(tt => tt.Troops).Distinct(); } }
 
-		private TroopModel _selectedAttackTroop;
-		/// <summary>
-		/// [For use in UI only] Gets or sets the selected attack troop.
-		/// </summary>
-		/// <value>The selected attack troop.</value>
-		public TroopModel SelectedAttackTroop
-		{
-			get { return _selectedAttackTroop; }
-			set
-			{
-				if (_selectedAttackTroop != value)
-				{
-					_selectedAttackTroop = value;
-					OnPropertyChanged();
-					//OnPropertyChanged(() => TroopCapacity);
-				}
-			}
-		}
-
 		private int _troopCapacity;
 		/// <summary>
 		/// Gets the Total Troop capacity.
@@ -1059,6 +1041,101 @@
 		#endregion
 
 		#region Wave Settings
+
+		/// <summary>
+		/// [Used in UI for Binding] Gets available Troops for Wave based on Custom Troops.
+		/// </summary>
+		/// <value>Available Troops for Wave.</value>
+		public static IEnumerable<TroopModel> TroopsForWave { get { return AllAttackTroops.Where(t => t.TrainQuantity > 0).Distinct(); } }
+
+		private TroopModel _selectedTroopForWave;
+		/// <summary>
+		/// [For use in UI only] Gets or sets the selected troop for wave.
+		/// </summary>
+		/// <value>The selected troop for wave.</value>
+		public TroopModel SelectedTroopForWave
+		{
+			get { return _selectedTroopForWave; }
+			set
+			{
+				if (_selectedTroopForWave != value)
+				{
+					_selectedTroopForWave = value;
+					OnPropertyChanged();
+					OnPropertyChanged(() => SelectedTroopForWaveQuantity);
+				}
+			}
+		}
+
+		//private int _selectedWaveTroopQuantity;
+		/// <summary>
+		/// [For use in UI only] Gets or sets the selected troop for wave quantity.
+		/// </summary>
+		/// <value>The selected troop for wave quantity.</value>
+		public int SelectedTroopForWaveQuantity
+		{
+			get
+			{
+				var troop = (TroopModel)SelectedTroopForWave;
+				if (troop == null)
+					return 0;
+
+				return troop.TrainQuantity;
+			}
+			//set
+			//{
+			//	if (_selectedWaveTroopQuantity != value)
+			//	{
+			//		var troop = (TroopModel)SelectedWaveTroop;
+			//		troop.TrainQuantity = value;
+
+			//		_selectedWaveTroopQuantity = value;
+			//		OnPropertyChanged();
+			//	}
+			//}
+		}
+
+		private int _selectedTroopForWaveDelay;
+		/// <summary>
+		/// [For use in UI only] Gets or sets the selected troop for wave delay.
+		/// </summary>
+		/// <value>The selected troop for wave delay.</value>
+		public int SelectedTroopForWaveDelay
+		{
+			get { return _selectedTroopForWaveDelay; }
+			set
+			{
+				if (_selectedTroopForWaveDelay != value)
+				{
+					_selectedTroopForWaveDelay = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		/// <summary>
+		/// [Used in UI for Binding] Gets the custom Wave.
+		/// </summary>
+		/// <value>Custom Wave.</value>
+		public static ObservableCollection<WaveModel> WaveTroops { get { return DataCollection.CustomWave; } }
+
+		private WaveModel _selectedWaveTroop;
+		/// <summary>
+		/// [For use in UI only] Gets or sets the selected wave troop.
+		/// </summary>
+		/// <value>The selected wave troop.</value>
+		public WaveModel SelectedWaveTroop
+		{
+			get { return _selectedWaveTroop; }
+			set
+			{
+				if (_selectedWaveTroop != value)
+				{
+					_selectedWaveTroop = value;
+					OnPropertyChanged();
+				}
+			}
+		}
 
 		private bool _isCustomWave;
 		/// <summary>
@@ -1790,9 +1867,23 @@
 
 		#endregion
 
-        #region Donate Settings Commands
+		#region Wave Settings Commands
 
-        private DelegateCommand _locateClanCastleCommand;
+		public ICommand AddTroopForCustomWaveCommand
+		{
+			get { return new RelayCommand(() => AddTroopForCustomWave()); }
+		}
+
+		public ICommand RemoveTroopForCustomWaveCommand
+		{
+			get { return new RelayCommand(() => RemoveTroopForCustomWave()); }
+		}
+
+		#endregion
+
+		#region Donate Settings Commands
+
+		private DelegateCommand _locateClanCastleCommand;
         public ICommand LocateClanCastleCommand
         {
             get
@@ -2126,6 +2217,24 @@
 			Notify("Locating Dark Barracks...");
 			System.Diagnostics.Debug.WriteLine("Locate Dark Barracks...");
         }
+
+		/// <summary>
+		/// Adds the Troop for Custom Wave.
+		/// </summary>
+		private void AddTroopForCustomWave()
+		{
+			if (SelectedTroopForWave != null)
+				WaveTroops.Add(WaveModel.CreateNew(SelectedTroopForWave, SelectedTroopForWaveQuantity, SelectedTroopForWaveDelay));
+		}
+
+		/// <summary>
+		/// Removes the Troop for Custom Wave.
+		/// </summary>
+		private void RemoveTroopForCustomWave()
+		{
+			if (SelectedWaveTroop != null)
+				WaveTroops.Remove(SelectedWaveTroop);
+		}
 
         #endregion
 
