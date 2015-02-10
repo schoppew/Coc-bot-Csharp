@@ -21,6 +21,7 @@
         <!--<c:IntegerToStringConverter x:Key="IntegerToStringConverter" />-->
         <c:SelectedTreeViewItemConverter x:Key="SelectedTreeViewItemConverter" />
         <c:BooleanToStartStopStringConverter x:Key="BooleanToStartStopStringConverter" />
+        <c:BooleanToStartStopPathConverter x:Key="BooleanToStartStopPathConverter" />
         <c:BooleanToStartStopImageSourceConverter x:Key="BooleanToStartStopImageSourceConverter" />
         <c:BooleanToHideShowStringConverter x:Key="BooleanToHideShowStringConverter" />
         <c:BooleanToHideShowPathConverter x:Key="BooleanToHideShowPathConverter" />
@@ -157,7 +158,7 @@
                                                     <ColumnDefinition Width="Auto" />
                                                     <ColumnDefinition Width="*" />
                                                 </Grid.ColumnDefinitions>
-                                                <Image Source="{Binding StartStopState, Converter={StaticResource BooleanToStartStopImageSourceConverter}}" Width="16" Height="16" Margin="2" Grid.Column="0" />
+                                                <Path Data="{Binding StartStopState, Converter={StaticResource BooleanToStartStopPathConverter}}" Stretch="Uniform" Fill="#BBFFFFFF" Width="15" Height="15" Margin="2" Grid.Column="0" RenderTransformOrigin="0.5,0.5" />
                                                 <StackPanel Grid.Column="1" Margin="2">
                                                     <TextBlock Text="{Binding StartStopState, Converter={StaticResource BooleanToStartStopStringConverter}}" TextAlignment="Center" />
                                                 </StackPanel>
