@@ -2351,10 +2351,36 @@
 				run.Attr("Foreground", brush);
 
 			if (fontWight != null)
-				run.Attr("FontWeight", fontWight);
+			{
+				// Make the time output font weight consistent
+				if (fontWight == FontWeights.Normal)
+				{
+					run.Attr("FontWeight", fontWight);
 
-			run.Value = string.Format("[{0:HH:mm:ss}] {1}", DateTime.Now, message);
-			par.Add(run);
+					run.Value = string.Format("[{0:HH:mm:ss}] {1}", DateTime.Now, message);
+					par.Add(run);
+				}
+				else
+				{
+					run.Value = string.Format("[{0:HH:mm:ss}] ", DateTime.Now);
+					par.Add(run);
+
+					run = new XElement(ns + "Run");
+
+					if (brush != null)
+						run.Attr("Foreground", brush);
+
+					run.Attr("FontWeight", fontWight);
+
+					run.Value = message;
+					par.Add(run);
+				}
+			}
+			else
+			{
+				run.Value = string.Format("[{0:HH:mm:ss}] {1}", DateTime.Now, message);
+				par.Add(run);
+			}
 
 			root.Add(par);
 
