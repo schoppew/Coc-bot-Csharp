@@ -112,15 +112,79 @@
 
         public static void ReArmTraps()
         {
-            //TODO: Get Location of Trap - TAGS: Ph!d
-            //ClickablePoint trap = new ClickablePoint(Main.Bot.LocationAllTrapsRearm);
+            Main.Bot.WriteToOutput("Re-arming all traps...", GlobalVariables.OutputStates.Information);
+
+            ClickablePoint thPos = new ClickablePoint(109, 309); //(ClickablePoint) DataCollection.BuildingPoints.Where(b => b.Building == Building.TownHall);
+
+            if (thPos.IsEmpty)
+            {
+                //Main.Bot.LocateTownHall(); TAGS: Ph!d
+            }
 
             Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 50);
-            Thread.Sleep(300);
+            Thread.Sleep(500);
+            Tools.CoCHelper.Click(thPos);
+            Thread.Sleep(500);
 
-            //Tools.CoCHelper.Click(trap);
+            ClickablePoint trapsBtn = Tools.CoCHelper.SearchPixelInRect(ScreenData.ReArmTrapsButton);
 
-            //ClickablePoint reArmBtn = Tools.CoCHelper.SearchPixelInRect()
+            if (trapsBtn.IsEmpty)
+                Main.Bot.WriteToOutput("No traps to be re-armed...", GlobalVariables.OutputStates.Information);
+            else
+            {
+                ClickablePoint reArmBtnMiddle = new ClickablePoint(trapsBtn.Point.X - 30, trapsBtn.Point.Y + 30);
+                Tools.CoCHelper.Click(reArmBtnMiddle);
+                Thread.Sleep(500);
+                Tools.CoCHelper.Click(ScreenData.ReArmTrapsConfirmationButton);
+
+                Main.Bot.WriteToOutput("All traps re-armed...", GlobalVariables.OutputStates.Information);
+            }
+        }
+
+        public static ClickablePoint GetReArmTrapsButton()
+        {
+            int left = ScreenData.ReArmTrapsButton.Left;
+            int top = ScreenData.ReArmTrapsButton.Top;
+            int right = ScreenData.ReArmTrapsButton.Right;
+            int bottom = ScreenData.ReArmTrapsButton.Bottom;
+            int count = 0;
+
+            do
+            {
+                DetectableArea area = new DetectableArea(left, top, right, bottom, ScreenData.ReArmTrapsButton.Color, ScreenData.ReArmTrapsButton.ShadeVariation);
+                ClickablePoint p1 = Tools.CoCHelper.SearchPixelInRect(area);
+
+                if (!p1.IsEmpty && !(p1.Point.X == -1 || p1.Point.Y == -1))
+                {
+                    if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.TrainTroopsButton2.Point.X, p1.Point.Y + ScreenData.TrainTroopsButton2.Point.Y), ScreenData.TrainTroopsButton2.Color, ScreenData.TrainTroopsButton2.ShadeVariation))
+                    {
+                        return p1;
+                    }
+                }
+
+                if (count >= 6)
+                {
+                    break;
+                }
+                else
+                {
+                    if (!p1.IsEmpty && !(p1.Point.X == -1 || p1.Point.Y == -1))
+                    {
+                        left = p1.Point.X;
+                        top = p1.Point.Y;
+                    }
+
+                    count++;
+                }
+            } while (true);
+
+            return new ClickablePoint();
+        }
+
+
+        public static ClickablePoint GetReArmXbowsButton()
+        {
+            return null;
         }
 
         public static void Idle()

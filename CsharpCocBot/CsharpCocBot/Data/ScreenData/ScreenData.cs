@@ -15,7 +15,8 @@ namespace CoC.Bot.Data
     {
         /*
          */
-        public static DetectableArea ReArmTrapsButton = new DetectableArea(196, 558, 665, 643, Color.FromArgb(0, 0, 0, 0), 10);
+        public static ClickablePoint ReArmTrapsConfirmationButton = new ClickablePoint(515, 400);
+        public static DetectableArea ReArmTrapsButton = new DetectableArea(196, 558, 665, 643, Color.FromArgb(232, 209, 65), 10);
         public static DetectableArea ChatNotificationButtonArea = new DetectableArea(283, 643, 305, 672, Color.FromArgb(89, 136, 0), 20);
 
         public static DetectablePoint DonateButtonColor3 = new DetectablePoint(0, -3, 0x000000, 4);
