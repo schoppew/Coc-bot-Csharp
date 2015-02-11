@@ -13,6 +13,7 @@ namespace CoC.Bot.Functions
 	public static class RequestAndDonate
 	{
 		#region Donate
+
 		/// <summary>
 		/// Make Troop Donations.
 		/// </summary>
@@ -199,9 +200,11 @@ namespace CoC.Bot.Functions
 
             return new ClickablePoint();
         }
+
 		#endregion Donate
 
 		#region Request
+
 		public static void RequestTroops()
 		{
             if (Main.Bot.IsRequestTroops)
@@ -290,7 +293,7 @@ namespace CoC.Bot.Functions
 
 			return new ClickablePoint();
 		}
-		#endregion Request
 
+		#endregion Request
 	}
 }

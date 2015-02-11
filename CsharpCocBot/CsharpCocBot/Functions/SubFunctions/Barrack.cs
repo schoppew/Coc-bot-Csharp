@@ -101,7 +101,8 @@ namespace CoC.Bot.Functions
             {
                 Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 100);
                 Thread.Sleep(200);
-                Tools.CoCHelper.Click(new ClickablePoint(Main.Bot.LocationBarrack1));
+				Tools.CoCHelper.Click(new ClickablePoint(DataCollection.BuildingPoints.Where(b => b.Building == Building.Barrack1).First().Coordinates));
+				//Tools.CoCHelper.Click(new ClickablePoint(Main.Bot.LocationBarrack1));
                 Thread.Sleep(200);
                 Tools.CoCHelper.Click(GetTrainTroopsButton());
             }
@@ -113,8 +114,20 @@ namespace CoC.Bot.Functions
 
 		public static void TrainTroops()
 		{
-			ClickablePoint[] barrackPos = new ClickablePoint[] { (ClickablePoint)Main.Bot.LocationBarrack1, (ClickablePoint)Main.Bot.LocationBarrack2, (ClickablePoint)Main.Bot.LocationBarrack3, (ClickablePoint)Main.Bot.LocationBarrack4 };
-			ClickablePoint[] darkBarrackPos = new ClickablePoint[] { (ClickablePoint)Main.Bot.LocationDarkBarrack1, (ClickablePoint)Main.Bot.LocationDarkBarrack2 };
+			var barracks = DataCollection.BuildingPoints.Where(b => b.BuildingType == BuildingType.Barrack);
+			var darkBarracks = DataCollection.BuildingPoints.Where(b => b.BuildingType == BuildingType.DarkBarrack);
+
+			if (barracks.Count() <= 0)
+				return; // The DataCollection.BuildingPoints is empty. Something is wrong!
+
+			if (darkBarracks.Count() > 0)
+				return; // The DataCollection.BuildingPoints is empty. Something is wrong!
+
+			var barrackPos = barracks.Select(x => new ClickablePoint(x.Coordinates)).ToArray();
+			var darkBarrackPos = darkBarracks.Select(x => new ClickablePoint(x.Coordinates)).ToArray();
+			//ClickablePoint[] barrackPos = new ClickablePoint[] { (ClickablePoint)Main.Bot.LocationBarrack1, (ClickablePoint)Main.Bot.LocationBarrack2, (ClickablePoint)Main.Bot.LocationBarrack3, (ClickablePoint)Main.Bot.LocationBarrack4 };
+			//ClickablePoint[] darkBarrackPos = new ClickablePoint[] { (ClickablePoint)Main.Bot.LocationDarkBarrack1, (ClickablePoint)Main.Bot.LocationDarkBarrack2 };
+
 			bool armyFull = false;
 
             // FF, do not change this to just checking if barrackPos[0].isEmpty. It needs to check if the x or y values are 0 as well to work.

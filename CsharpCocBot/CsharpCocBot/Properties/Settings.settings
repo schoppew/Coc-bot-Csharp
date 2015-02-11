@@ -389,61 +389,55 @@
     <Setting Name="LocationDarkBarrack2" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationAllTrapsRearm" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationElixir1" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationAllXbowsRearm" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationElixir2" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector1" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationElixir3" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector2" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationElixir4" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector3" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationElixir5" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector4" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationElixir6" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector5" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationElixir7" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector6" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationGold1" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector7" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationGold2" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector8" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationGold3" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector9" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationGold4" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector10" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationGold5" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector11" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationGold6" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector12" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationGold7" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector13" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationDrill1" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector14" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationDrill2" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
-    <Setting Name="LocationCollector15" Type="System.Windows.Point" Scope="User">
-      <Value Profile="(Default)">0,0</Value>
-    </Setting>
-    <Setting Name="LocationCollector16" Type="System.Windows.Point" Scope="User">
-      <Value Profile="(Default)">0,0</Value>
-    </Setting>
-    <Setting Name="LocationCollector17" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationDrill3" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
     <Setting Name="IsTakeSnapshotAllTowns" Type="System.Boolean" Scope="User">
@@ -455,7 +449,7 @@
     <Setting Name="IsCustomWave" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="LocationTownhall" Type="System.Windows.Point" Scope="User">
+    <Setting Name="LocationTownHall" Type="System.Windows.Point" Scope="User">
       <Value Profile="(Default)">0,0</Value>
     </Setting>
   </Settings>

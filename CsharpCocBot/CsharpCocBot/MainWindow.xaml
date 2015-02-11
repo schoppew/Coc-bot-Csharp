@@ -29,6 +29,8 @@
         <c:BooleanToHideShowPathConverter x:Key="BooleanToHideShowPathConverter" />
         <c:BooleanToHideShowImageSourceConverter x:Key="BooleanToHideShowImageSourceConverter" />
         <c:BooleanToOverlayConverter x:Key="BooleanToOverlayConverter" />
+        <c:EnumToDescriptionConverter x:Key="EnumToDescriptionConverter" />
+        <c:PointToStringConverter x:Key="PointToStringConverter" />
         <DataTemplate x:Key="CustomWaveDragTemplate">
             <Grid Margin="20,0,0,0">
                 <Border Background="{StaticResource BackgroundBrush}" BorderThickness="1" BorderBrush="{StaticResource ForegroundBrush}">
@@ -568,7 +570,7 @@
                                         </ctrls:TreeViewEx>
                                         <GroupBox Header="{Binding SelectedItem, Converter={StaticResource SelectedTreeViewItemConverter}, ElementName=donateTreeView, Mode=OneWay}" HorizontalAlignment="Right" Margin="0,8,16,16" Width="220">
                                             <Grid>
-                                                <CheckBox Content="{x:Static p:Resources.DonateToAll}" IsChecked="{Binding IsCurrentDonateAll}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
+                                                <CheckBox x:Name="chkDonateToAll" Content="{x:Static p:Resources.DonateToAll}" IsChecked="{Binding IsCurrentDonateAll}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top"/>
                                                 <TextBox Text="{Binding CurrentDonateKeywords, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsChecked, Converter={StaticResource InverseBoolConverter}, ElementName=chkDonateToAll}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="16,32,16,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Height="130" />
                                                 <Label Content="{x:Static p:Resources.LabelMaxDonationsPerRequest}" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" Height="25" HorizontalAlignment="Right" Margin="0,0,59,51" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="138" />
                                                 <TextBox Text="{Binding CurrentMaxDonationsPerRequest, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" Visibility="{Binding ShouldHideDonateControls, Converter={StaticResource BooleanToVisibilityConverter}}" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,0,16,50" VerticalAlignment="Bottom" Width="40">
@@ -590,7 +592,7 @@
                                 <GroupBox Header="{x:Static p:Resources.ManualLocateControls}" Margin="16,16,16,0" VerticalAlignment="Top" Height="129" Width="432">
                                     <Grid>
                                         <Button Content="{x:Static p:Resources.LocateExtractorsManually}" Command="{Binding LocateExtractorsCommand}" Height="23" Margin="16,10,0,0" VerticalAlignment="Top" Visibility="Visible" HorizontalAlignment="Left" Width="185" />
-                                        <Button Content="{x:Static p:Resources.LocateTownhallManually}" Command="{Binding LocateTownhallCommand}" Height="23" Margin="16,10,0,42" VerticalAlignment="Bottom" Visibility="Visible" HorizontalAlignment="Left" Width="185" />
+                                        <Button Content="{x:Static p:Resources.LocateTownHallManually}" Command="{Binding LocateTownhallCommand}" Height="23" Margin="16,10,0,42" VerticalAlignment="Bottom" Visibility="Visible" HorizontalAlignment="Left" Width="185" />
                                         <Button Content="{x:Static p:Resources.LocateBarracksManually}" Command="{Binding LocateBarracksCommand}" Height="23" Margin="0,10,16,0" VerticalAlignment="Top" Visibility="Visible" HorizontalAlignment="Right" Width="185" />
                                         <Button Content="{x:Static p:Resources.LocateDarkBarracksManually}" Command="{Binding LocateDarkBarracksCommand}" Height="23" Margin="0,0,16,42" VerticalAlignment="Bottom" Visibility="Visible" HorizontalAlignment="Right" Width="185" />
                                         <Button Content="{x:Static p:Resources.LocateClanCastleManually}" Command="{Binding LocateClanCastleCommand}" Height="23" Margin="0,0,16,10" VerticalAlignment="Bottom" Visibility="Visible" HorizontalAlignment="Right" Width="185" />
@@ -598,7 +600,7 @@
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.Locations}" Margin="16,150,16,16">
                                     <Grid>
-                                        <ListView SelectionMode="Single" Margin="16,10,16,16">
+                                        <ListView ItemsSource="{Binding BuildingPoints, UpdateSourceTrigger=PropertyChanged}" SelectionMode="Single" Margin="16,10,16,16">
                                             <ListView.ItemContainerStyle>
                                                 <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
                                                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -606,10 +608,28 @@
                                             </ListView.ItemContainerStyle>
                                             <ListView.View>
                                                 <GridView>
-                                                    <GridViewColumn Header="Building" Width="165" />
-                                                    <GridViewColumn Header="Coords" Width="65" />
-                                                    <GridViewColumn Header="Locate" Width="75" />
-                                                    <GridViewColumn Header="Relocate" Width="75" />
+                                                    <GridViewColumn Header="Building" DisplayMemberBinding="{Binding Building, Converter={StaticResource EnumToDescriptionConverter}}" Width="145" />
+                                                    <GridViewColumn Header="Coords" Width="65">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding Coordinates, Converter={StaticResource PointToStringConverter}}" TextAlignment="Center" />
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
+                                                    <GridViewColumn Header="Locate" Width="75">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <Button Content="Locate" />
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
+                                                    <GridViewColumn Header="Relocate" Width="75">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <Button Content="Relocate" />
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>

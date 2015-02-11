@@ -911,11 +911,11 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locate Townhall.
+        ///   Looks up a localized string similar to Locate Town Hall.
         /// </summary>
-        public static string LocateTownhallManually {
+        public static string LocateTownHallManually {
             get {
-                return ResourceManager.GetString("LocateTownhallManually", resourceCulture);
+                return ResourceManager.GetString("LocateTownHallManually", resourceCulture);
             }
         }
         

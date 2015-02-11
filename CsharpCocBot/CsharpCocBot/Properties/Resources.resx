@@ -606,8 +606,8 @@ You can double click on the icon to show the window.</value>
   <data name="TrainModeMessage" xml:space="preserve">
     <value>Select your preferred troop training style from the combobox.</value>
   </data>
-  <data name="LocateTownhallManually" xml:space="preserve">
-    <value>Locate Townhall</value>
+  <data name="LocateTownHallManually" xml:space="preserve">
+    <value>Locate Town Hall</value>
   </data>
   <data name="Locations" xml:space="preserve">
     <value>Locations</value>

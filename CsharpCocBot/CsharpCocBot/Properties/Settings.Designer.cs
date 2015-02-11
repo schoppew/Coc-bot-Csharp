@@ -1574,228 +1574,204 @@ namespace CoC.Bot.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationAllTrapsRearm {
+        public global::System.Windows.Point LocationElixir1 {
             get {
-                return ((global::System.Windows.Point)(this["LocationAllTrapsRearm"]));
+                return ((global::System.Windows.Point)(this["LocationElixir1"]));
             }
             set {
-                this["LocationAllTrapsRearm"] = value;
+                this["LocationElixir1"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationAllXbowsRearm {
+        public global::System.Windows.Point LocationElixir2 {
             get {
-                return ((global::System.Windows.Point)(this["LocationAllXbowsRearm"]));
+                return ((global::System.Windows.Point)(this["LocationElixir2"]));
             }
             set {
-                this["LocationAllXbowsRearm"] = value;
+                this["LocationElixir2"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector1 {
+        public global::System.Windows.Point LocationElixir3 {
             get {
-                return ((global::System.Windows.Point)(this["LocationCollector1"]));
+                return ((global::System.Windows.Point)(this["LocationElixir3"]));
             }
             set {
-                this["LocationCollector1"] = value;
+                this["LocationElixir3"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector2 {
+        public global::System.Windows.Point LocationElixir4 {
             get {
-                return ((global::System.Windows.Point)(this["LocationCollector2"]));
+                return ((global::System.Windows.Point)(this["LocationElixir4"]));
             }
             set {
-                this["LocationCollector2"] = value;
+                this["LocationElixir4"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector3 {
+        public global::System.Windows.Point LocationElixir5 {
             get {
-                return ((global::System.Windows.Point)(this["LocationCollector3"]));
+                return ((global::System.Windows.Point)(this["LocationElixir5"]));
             }
             set {
-                this["LocationCollector3"] = value;
+                this["LocationElixir5"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector4 {
+        public global::System.Windows.Point LocationElixir6 {
             get {
-                return ((global::System.Windows.Point)(this["LocationCollector4"]));
+                return ((global::System.Windows.Point)(this["LocationElixir6"]));
             }
             set {
-                this["LocationCollector4"] = value;
+                this["LocationElixir6"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector5 {
+        public global::System.Windows.Point LocationElixir7 {
             get {
-                return ((global::System.Windows.Point)(this["LocationCollector5"]));
+                return ((global::System.Windows.Point)(this["LocationElixir7"]));
             }
             set {
-                this["LocationCollector5"] = value;
+                this["LocationElixir7"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector6 {
+        public global::System.Windows.Point LocationGold1 {
             get {
-                return ((global::System.Windows.Point)(this["LocationCollector6"]));
+                return ((global::System.Windows.Point)(this["LocationGold1"]));
             }
             set {
-                this["LocationCollector6"] = value;
+                this["LocationGold1"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector7 {
+        public global::System.Windows.Point LocationGold2 {
             get {
-                return ((global::System.Windows.Point)(this["LocationCollector7"]));
+                return ((global::System.Windows.Point)(this["LocationGold2"]));
             }
             set {
-                this["LocationCollector7"] = value;
+                this["LocationGold2"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector8 {
+        public global::System.Windows.Point LocationGold3 {
             get {
-                return ((global::System.Windows.Point)(this["LocationCollector8"]));
+                return ((global::System.Windows.Point)(this["LocationGold3"]));
             }
             set {
-                this["LocationCollector8"] = value;
+                this["LocationGold3"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector9 {
+        public global::System.Windows.Point LocationGold4 {
             get {
-                return ((global::System.Windows.Point)(this["LocationCollector9"]));
+                return ((global::System.Windows.Point)(this["LocationGold4"]));
             }
             set {
-                this["LocationCollector9"] = value;
+                this["LocationGold4"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector10 {
+        public global::System.Windows.Point LocationGold5 {
             get {
-                return ((global::System.Windows.Point)(this["LocationCollector10"]));
+                return ((global::System.Windows.Point)(this["LocationGold5"]));
             }
             set {
-                this["LocationCollector10"] = value;
+                this["LocationGold5"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector11 {
+        public global::System.Windows.Point LocationGold6 {
             get {
-                return ((global::System.Windows.Point)(this["LocationCollector11"]));
+                return ((global::System.Windows.Point)(this["LocationGold6"]));
             }
             set {
-                this["LocationCollector11"] = value;
+                this["LocationGold6"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector12 {
+        public global::System.Windows.Point LocationGold7 {
             get {
-                return ((global::System.Windows.Point)(this["LocationCollector12"]));
+                return ((global::System.Windows.Point)(this["LocationGold7"]));
             }
             set {
-                this["LocationCollector12"] = value;
+                this["LocationGold7"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector13 {
+        public global::System.Windows.Point LocationDrill1 {
             get {
-                return ((global::System.Windows.Point)(this["LocationCollector13"]));
+                return ((global::System.Windows.Point)(this["LocationDrill1"]));
             }
             set {
-                this["LocationCollector13"] = value;
+                this["LocationDrill1"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector14 {
+        public global::System.Windows.Point LocationDrill2 {
             get {
-                return ((global::System.Windows.Point)(this["LocationCollector14"]));
+                return ((global::System.Windows.Point)(this["LocationDrill2"]));
             }
             set {
-                this["LocationCollector14"] = value;
+                this["LocationDrill2"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector15 {
+        public global::System.Windows.Point LocationDrill3 {
             get {
-                return ((global::System.Windows.Point)(this["LocationCollector15"]));
+                return ((global::System.Windows.Point)(this["LocationDrill3"]));
             }
             set {
-                this["LocationCollector15"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector16 {
-            get {
-                return ((global::System.Windows.Point)(this["LocationCollector16"]));
-            }
-            set {
-                this["LocationCollector16"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationCollector17 {
-            get {
-                return ((global::System.Windows.Point)(this["LocationCollector17"]));
-            }
-            set {
-                this["LocationCollector17"] = value;
+                this["LocationDrill3"] = value;
             }
         }
         
@@ -1838,12 +1814,12 @@ namespace CoC.Bot.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
-        public global::System.Windows.Point LocationTownhall {
+        public global::System.Windows.Point LocationTownHall {
             get {
-                return ((global::System.Windows.Point)(this["LocationTownhall"]));
+                return ((global::System.Windows.Point)(this["LocationTownHall"]));
             }
             set {
-                this["LocationTownhall"] = value;
+                this["LocationTownHall"] = value;
             }
         }
     }

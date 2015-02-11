@@ -1114,7 +1114,7 @@
 		/// [Used in UI for Binding] Gets the custom Wave.
 		/// </summary>
 		/// <value>Custom Wave.</value>
-		public static ObservableCollection<WaveModel> WaveTroops { get { return DataCollection.CustomWave; } }
+		public static ObservableCollection<WaveModel> WaveTroops { get { return DataCollection.CustomWaves; } }
 
 		private WaveModel _selectedWaveTroop;
 		/// <summary>
@@ -1383,369 +1383,11 @@
 
 		#region Location Properties
 
-		private Point _locationClanCastle;
-		public Point LocationClanCastle
-		{
-			get { return _locationClanCastle; }
-			set
-			{
-				if (_locationClanCastle != value)
-				{
-					_locationClanCastle = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationBarrack1;
-		public Point LocationBarrack1
-		{
-			get { return _locationBarrack1; }
-			set
-			{
-				if (_locationBarrack1 != value)
-				{
-					_locationBarrack1 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationBarrack2;
-		public Point LocationBarrack2
-		{
-			get { return _locationBarrack2; }
-			set
-			{
-				if (_locationBarrack2 != value)
-				{
-					_locationBarrack2 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationBarrack3;
-		public Point LocationBarrack3
-		{
-			get { return _locationBarrack3; }
-			set
-			{
-				if (_locationBarrack3 != value)
-				{
-					_locationBarrack3 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationBarrack4;
-		public Point LocationBarrack4
-		{
-			get { return _locationBarrack4; }
-			set
-			{
-				if (_locationBarrack4 != value)
-				{
-					_locationBarrack4 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationDarkBarrack1;
-		public Point LocationDarkBarrack1
-		{
-			get { return _locationDarkBarrack1; }
-			set
-			{
-				if (_locationDarkBarrack1 != value)
-				{
-					_locationDarkBarrack1 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationDarkBarrack2;
-		public Point LocationDarkBarrack2
-		{
-			get { return _locationDarkBarrack2; }
-			set
-			{
-				if (_locationDarkBarrack2 != value)
-				{
-					_locationDarkBarrack2 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationAllTrapsRearm;
-		public Point LocationAllTrapsRearm
-		{
-			get { return _locationAllTrapsRearm; }
-			set
-			{
-				if (_locationAllTrapsRearm != value)
-				{
-					_locationAllTrapsRearm = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationAllXbowsRearm;
-		public Point LocationAllXbowsRearm
-		{
-			get { return _locationAllXbowsRearm; }
-			set
-			{
-				if (_locationAllXbowsRearm != value)
-				{
-					_locationAllXbowsRearm = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector1;
-		public Point LocationCollector1
-		{
-			get { return _locationCollector1; }
-			set
-			{
-				if (_locationCollector1 != value)
-				{
-					_locationCollector1 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector2;
-		public Point LocationCollector2
-		{
-			get { return _locationCollector2; }
-			set
-			{
-				if (_locationCollector2 != value)
-				{
-					_locationCollector2 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector3;
-		public Point LocationCollector3
-		{
-			get { return _locationCollector3; }
-			set
-			{
-				if (_locationCollector3 != value)
-				{
-					_locationCollector3 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector4;
-		public Point LocationCollector4
-		{
-			get { return _locationCollector4; }
-			set
-			{
-				if (_locationCollector4 != value)
-				{
-					_locationCollector4 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector5;
-		public Point LocationCollector5
-		{
-			get { return _locationCollector5; }
-			set
-			{
-				if (_locationCollector5 != value)
-				{
-					_locationCollector5 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector6;
-		public Point LocationCollector6
-		{
-			get { return _locationCollector6; }
-			set
-			{
-				if (_locationCollector6 != value)
-				{
-					_locationCollector6 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector7;
-		public Point LocationCollector7
-		{
-			get { return _locationCollector7; }
-			set
-			{
-				if (_locationCollector7 != value)
-				{
-					_locationCollector7 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector8;
-		public Point LocationCollector8
-		{
-			get { return _locationCollector8; }
-			set
-			{
-				if (_locationCollector8 != value)
-				{
-					_locationCollector8 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector9;
-		public Point LocationCollector9
-		{
-			get { return _locationCollector9; }
-			set
-			{
-				if (_locationCollector9 != value)
-				{
-					_locationCollector9 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector10;
-		public Point LocationCollector10
-		{
-			get { return _locationCollector10; }
-			set
-			{
-				if (_locationCollector10 != value)
-				{
-					_locationCollector10 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector11;
-		public Point LocationCollector11
-		{
-			get { return _locationCollector11; }
-			set
-			{
-				if (_locationCollector11 != value)
-				{
-					_locationCollector11 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector12;
-		public Point LocationCollector12
-		{
-			get { return _locationCollector12; }
-			set
-			{
-				if (_locationCollector12 != value)
-				{
-					_locationCollector12 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector13;
-		public Point LocationCollector13
-		{
-			get { return _locationCollector13; }
-			set
-			{
-				if (_locationCollector13 != value)
-				{
-					_locationCollector13 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector14;
-		public Point LocationCollector14
-		{
-			get { return _locationCollector14; }
-			set
-			{
-				if (_locationCollector14 != value)
-				{
-					_locationCollector14 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector15;
-		public Point LocationCollector15
-		{
-			get { return _locationCollector15; }
-			set
-			{
-				if (_locationCollector15 != value)
-				{
-					_locationCollector15 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector16;
-		public Point LocationCollector16
-		{
-			get { return _locationCollector16; }
-			set
-			{
-				if (_locationCollector16 != value)
-				{
-					_locationCollector16 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
-
-		private Point _locationCollector17;
-		public Point LocationCollector17
-		{
-			get { return _locationCollector17; }
-			set
-			{
-				if (_locationCollector17 != value)
-				{
-					_locationCollector17 = value;
-					OnPropertyChanged();
-				}
-			}
-		}
+		/// <summary>
+		/// [Used in UI for Binding] Gets the Building Points.
+		/// </summary>
+		/// <value>The Building points.</value>
+		public static ObservableCollection<BuildingPointModel> BuildingPoints { get { return DataCollection.BuildingPoints; } }
 
 		#endregion
 
@@ -2076,8 +1718,94 @@
                 DataCollection.DarkBarracksTroops.Add(Model.CreateNew((int)Troop.LavaHound, Properties.Resources.LavaHounds));
             }
 
-			// Fill Locations
-
+			// Fill Building Locations
+			if (DataCollection.BuildingPoints.Count == 0)
+			{
+				foreach (var bt in Enum.GetValues(typeof(Building)))
+				{
+					switch ((Building)bt)
+					{
+						case Building.TownHall:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.TownHall, BuildingType.Other, AppSettings.LocationTownHall.ToPOINT()));
+							break;
+						case Building.ClanCastle:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.ClanCastle, BuildingType.Other, AppSettings.LocationClanCastle.ToPOINT()));
+							break;
+						case Building.Barrack1:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Barrack1, BuildingType.Extractor, AppSettings.LocationBarrack1.ToPOINT()));
+							break;
+						case Building.Barrack2:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Barrack2, BuildingType.Extractor, AppSettings.LocationBarrack2.ToPOINT()));
+							break;
+						case Building.Barrack3:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Barrack3, BuildingType.Extractor, AppSettings.LocationBarrack3.ToPOINT()));
+							break;
+						case Building.Barrack4:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Barrack4, BuildingType.Extractor, AppSettings.LocationBarrack4.ToPOINT()));
+							break;
+						case Building.DarkBarrack1:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.DarkBarrack1, BuildingType.Extractor, AppSettings.LocationDarkBarrack1.ToPOINT()));
+							break;
+						case Building.DarkBarrack2:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.DarkBarrack2, BuildingType.Extractor, AppSettings.LocationDarkBarrack2.ToPOINT()));
+							break;
+						case Building.Elixir1:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Elixir1, BuildingType.Extractor, AppSettings.LocationElixir1.ToPOINT()));
+							break;
+						case Building.Elixir2:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Elixir2, BuildingType.Extractor, AppSettings.LocationElixir2.ToPOINT()));
+							break;
+						case Building.Elixir3:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Elixir3, BuildingType.Extractor, AppSettings.LocationElixir3.ToPOINT()));
+							break;
+						case Building.Elixir4:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Elixir4, BuildingType.Extractor, AppSettings.LocationElixir4.ToPOINT()));
+							break;
+						case Building.Elixir5:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Elixir5, BuildingType.Extractor, AppSettings.LocationElixir5.ToPOINT()));
+							break;
+						case Building.Elixir6:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Elixir6, BuildingType.Extractor, AppSettings.LocationElixir6.ToPOINT()));
+							break;
+						case Building.Elixir7:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Elixir7, BuildingType.Extractor, AppSettings.LocationElixir7.ToPOINT()));
+							break;
+						case Building.Gold1:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Gold1, BuildingType.Extractor, AppSettings.LocationGold1.ToPOINT()));
+							break;
+						case Building.Gold2:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Gold2, BuildingType.Extractor, AppSettings.LocationGold2.ToPOINT()));
+							break;
+						case Building.Gold3:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Gold3, BuildingType.Extractor, AppSettings.LocationGold3.ToPOINT()));
+							break;
+						case Building.Gold4:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Gold4, BuildingType.Extractor, AppSettings.LocationGold4.ToPOINT()));
+							break;
+						case Building.Gold5:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Gold5, BuildingType.Extractor, AppSettings.LocationGold5.ToPOINT()));
+							break;
+						case Building.Gold6:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Gold6, BuildingType.Extractor, AppSettings.LocationGold6.ToPOINT()));
+							break;
+						case Building.Gold7:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Gold7, BuildingType.Extractor, AppSettings.LocationGold7.ToPOINT()));
+							break;
+						case Building.Drill1:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Drill1, BuildingType.Extractor, AppSettings.LocationDrill1.ToPOINT()));
+							break;
+						case Building.Drill2:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Drill2, BuildingType.Extractor, AppSettings.LocationDrill2.ToPOINT()));
+							break;
+						case Building.Drill3:
+							DataCollection.BuildingPoints.Add(BuildingPointModel.CreateNew(Building.Drill3, BuildingType.Extractor, AppSettings.LocationDrill3.ToPOINT()));
+							break;
+						default:
+							// All other building types excluded!
+							break;
+					}
+				}
+			}
 
             GlobalVariables.Log.WriteToLog(Properties.Resources.LogBotInitialized);
         }
@@ -2594,36 +2322,36 @@
 
 			// Location Settings
 			// TODO: Change the type from Windows.Drawing.Point to System.Windows.Point and get rid of the reference
-			LocationClanCastle = AppSettings.LocationClanCastle.ToPOINT();
+			//LocationClanCastle = AppSettings.LocationClanCastle.ToPOINT();
 
-			LocationBarrack1 = AppSettings.LocationBarrack1.ToPOINT();
-			LocationBarrack2 = AppSettings.LocationBarrack2.ToPOINT();
-			LocationBarrack3 = AppSettings.LocationBarrack3.ToPOINT();
-			LocationBarrack4 = AppSettings.LocationBarrack4.ToPOINT();
+			//LocationBarrack1 = AppSettings.LocationBarrack1.ToPOINT();
+			//LocationBarrack2 = AppSettings.LocationBarrack2.ToPOINT();
+			//LocationBarrack3 = AppSettings.LocationBarrack3.ToPOINT();
+			//LocationBarrack4 = AppSettings.LocationBarrack4.ToPOINT();
 
-			LocationDarkBarrack1 = AppSettings.LocationDarkBarrack1.ToPOINT();
-			LocationDarkBarrack2 = AppSettings.LocationDarkBarrack2.ToPOINT();
+			//LocationDarkBarrack1 = AppSettings.LocationDarkBarrack1.ToPOINT();
+			//LocationDarkBarrack2 = AppSettings.LocationDarkBarrack2.ToPOINT();
 
-			LocationAllTrapsRearm = AppSettings.LocationAllTrapsRearm.ToPOINT();
-			LocationAllXbowsRearm = AppSettings.LocationAllXbowsRearm.ToPOINT();
+			//LocationAllTrapsRearm = AppSettings.LocationAllTrapsRearm.ToPOINT();
+			//LocationAllXbowsRearm = AppSettings.LocationAllXbowsRearm.ToPOINT();
 
-			LocationCollector1 = AppSettings.LocationCollector1.ToPOINT();
-			LocationCollector2 = AppSettings.LocationCollector2.ToPOINT();
-			LocationCollector3 = AppSettings.LocationCollector3.ToPOINT();
-			LocationCollector4 = AppSettings.LocationCollector4.ToPOINT();
-			LocationCollector5 = AppSettings.LocationCollector5.ToPOINT();
-			LocationCollector6 = AppSettings.LocationCollector6.ToPOINT();
-			LocationCollector7 = AppSettings.LocationCollector7.ToPOINT();
-			LocationCollector8 = AppSettings.LocationCollector8.ToPOINT();
-			LocationCollector9 = AppSettings.LocationCollector9.ToPOINT();
-			LocationCollector10 = AppSettings.LocationCollector10.ToPOINT();
-			LocationCollector11 = AppSettings.LocationCollector11.ToPOINT();
-			LocationCollector12 = AppSettings.LocationCollector12.ToPOINT();
-			LocationCollector13 = AppSettings.LocationCollector13.ToPOINT();
-			LocationCollector14 = AppSettings.LocationCollector14.ToPOINT();
-			LocationCollector15 = AppSettings.LocationCollector15.ToPOINT();
-			LocationCollector16 = AppSettings.LocationCollector16.ToPOINT();
-			LocationCollector17 = AppSettings.LocationCollector17.ToPOINT();
+			//LocationCollector1 = AppSettings.LocationElixir1.ToPOINT();
+			//LocationCollector2 = AppSettings.LocationElixir2.ToPOINT();
+			//LocationCollector3 = AppSettings.LocationElixir3.ToPOINT();
+			//LocationCollector4 = AppSettings.LocationElixir4.ToPOINT();
+			//LocationCollector5 = AppSettings.LocationElixir5.ToPOINT();
+			//LocationCollector6 = AppSettings.LocationElixir6.ToPOINT();
+			//LocationCollector7 = AppSettings.LocationElixir7.ToPOINT();
+			//LocationCollector8 = AppSettings.LocationGold1.ToPOINT();
+			//LocationCollector9 = AppSettings.LocationGold2.ToPOINT();
+			//LocationCollector10 = AppSettings.LocationGold3.ToPOINT();
+			//LocationCollector11 = AppSettings.LocationGold4.ToPOINT();
+			//LocationCollector12 = AppSettings.LocationGold5.ToPOINT();
+			//LocationCollector13 = AppSettings.LocationGold6.ToPOINT();
+			//LocationCollector14 = AppSettings.LocationGold7.ToPOINT();
+			//LocationCollector15 = AppSettings.LocationDrill1.ToPOINT();
+			//LocationCollector16 = AppSettings.LocationDrill2.ToPOINT();
+			//LocationCollector17 = AppSettings.LocationDrill3.ToPOINT();
         }
 
         /// <summary>
@@ -2793,36 +2521,36 @@
 
 			// Location Settings
 			// TODO: Change the type from Windows.Drawing.Point to System.Windows.Point and get rid of the reference
-			AppSettings.LocationClanCastle = LocationClanCastle.ToPoint();
+			//AppSettings.LocationClanCastle = LocationClanCastle.ToPoint();
 
-			AppSettings.LocationBarrack1 = LocationBarrack1.ToPoint();
-			AppSettings.LocationBarrack2 = LocationBarrack2.ToPoint();
-			AppSettings.LocationBarrack3 = LocationBarrack3.ToPoint();
-			AppSettings.LocationBarrack4 = LocationBarrack4.ToPoint();
+			//AppSettings.LocationBarrack1 = LocationBarrack1.ToPoint();
+			//AppSettings.LocationBarrack2 = LocationBarrack2.ToPoint();
+			//AppSettings.LocationBarrack3 = LocationBarrack3.ToPoint();
+			//AppSettings.LocationBarrack4 = LocationBarrack4.ToPoint();
 
-			AppSettings.LocationDarkBarrack1 = LocationDarkBarrack1.ToPoint();
-			AppSettings.LocationDarkBarrack2 = LocationDarkBarrack2.ToPoint();
+			//AppSettings.LocationDarkBarrack1 = LocationDarkBarrack1.ToPoint();
+			//AppSettings.LocationDarkBarrack2 = LocationDarkBarrack2.ToPoint();
 
-			AppSettings.LocationAllTrapsRearm = LocationAllTrapsRearm.ToPoint();
-			AppSettings.LocationAllXbowsRearm = LocationAllXbowsRearm.ToPoint();
+			//AppSettings.LocationAllTrapsRearm = LocationAllTrapsRearm.ToPoint();
+			//AppSettings.LocationAllXbowsRearm = LocationAllXbowsRearm.ToPoint();
 
-			AppSettings.LocationCollector1 = LocationCollector1.ToPoint();
-			AppSettings.LocationCollector2 = LocationCollector2.ToPoint();
-			AppSettings.LocationCollector3 = LocationCollector3.ToPoint();
-			AppSettings.LocationCollector4 = LocationCollector4.ToPoint();
-			AppSettings.LocationCollector5 = LocationCollector5.ToPoint();
-			AppSettings.LocationCollector6 = LocationCollector6.ToPoint();
-			AppSettings.LocationCollector7 = LocationCollector7.ToPoint();
-			AppSettings.LocationCollector8 = LocationCollector8.ToPoint();
-			AppSettings.LocationCollector9 = LocationCollector9.ToPoint();
-			AppSettings.LocationCollector10 = LocationCollector10.ToPoint();
-			AppSettings.LocationCollector11 = LocationCollector11.ToPoint();
-			AppSettings.LocationCollector12 = LocationCollector12.ToPoint();
-			AppSettings.LocationCollector13 = LocationCollector13.ToPoint();
-			AppSettings.LocationCollector14 = LocationCollector14.ToPoint();
-			AppSettings.LocationCollector15 = LocationCollector15.ToPoint();
-			AppSettings.LocationCollector16 = LocationCollector16.ToPoint();
-			AppSettings.LocationCollector17 = LocationCollector17.ToPoint();
+			//AppSettings.LocationElixir1 = LocationCollector1.ToPoint();
+			//AppSettings.LocationElixir2 = LocationCollector2.ToPoint();
+			//AppSettings.LocationElixir3 = LocationCollector3.ToPoint();
+			//AppSettings.LocationElixir4 = LocationCollector4.ToPoint();
+			//AppSettings.LocationElixir5 = LocationCollector5.ToPoint();
+			//AppSettings.LocationElixir6 = LocationCollector6.ToPoint();
+			//AppSettings.LocationElixir7 = LocationCollector7.ToPoint();
+			//AppSettings.LocationGold1 = LocationCollector8.ToPoint();
+			//AppSettings.LocationGold2 = LocationCollector9.ToPoint();
+			//AppSettings.LocationGold3 = LocationCollector10.ToPoint();
+			//AppSettings.LocationGold4 = LocationCollector11.ToPoint();
+			//AppSettings.LocationGold5 = LocationCollector12.ToPoint();
+			//AppSettings.LocationGold6 = LocationCollector13.ToPoint();
+			//AppSettings.LocationGold7 = LocationCollector14.ToPoint();
+			//AppSettings.LocationDrill1 = LocationCollector15.ToPoint();
+			//AppSettings.LocationDrill2 = LocationCollector16.ToPoint();
+			//AppSettings.LocationDrill3 = LocationCollector17.ToPoint();
 
             // Save it!
             AppSettings.Save();

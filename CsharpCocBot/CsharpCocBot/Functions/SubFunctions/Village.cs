@@ -1,47 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using CoC.Bot.Data;
-using MouseAndKeyboard;
-using Point = Win32.POINT;
-using System.Windows;
-
-namespace CoC.Bot.Functions
+﻿namespace CoC.Bot.Functions
 {
+	using System;
+	using System.Collections.Generic;
+	using System.Diagnostics;
+	using System.Linq;
+	using System.Threading;
+
+	using Data;
+
     internal partial class Village
     {
         public static void CollectResources()
         {
-            Point[] collectorPos = new Point[] { Main.Bot.LocationCollector1, Main.Bot.LocationCollector2, Main.Bot.LocationCollector3, Main.Bot.LocationCollector4, Main.Bot.LocationCollector5, Main.Bot.LocationCollector6, Main.Bot.LocationCollector7, Main.Bot.LocationCollector8, Main.Bot.LocationCollector9, Main.Bot.LocationCollector10, Main.Bot.LocationCollector11, Main.Bot.LocationCollector12, Main.Bot.LocationCollector13, Main.Bot.LocationCollector14, Main.Bot.LocationCollector15, Main.Bot.LocationCollector16, Main.Bot.LocationCollector17 };
+			var extractors = DataCollection.BuildingPoints.Where(b => b.BuildingType == BuildingType.Extractor);
+			if (extractors.Count() <= 0)
+				return; // The DataCollection.BuildingPoints is empty. Something is wrong!
 
-            if (collectorPos[0].IsEmpty || collectorPos[0].X == 0 || collectorPos[0].Y == 0)
-            {
-                Main.Bot.LocateExtractors();
-            }
+			//var positions = extractors.Select(x => new Point() { X = x.Coordinates.X, Y = x.Coordinates.Y }).ToArray();
+			var positions = extractors.Select(x => new ClickablePoint(x.Coordinates)).ToArray();
 
-            // FF, do not change this to just checking if collectorPos[0].isEmpty. It needs to check if the x or y values are 0 as well to work.
-            if (!collectorPos[0].IsEmpty && collectorPos[0].X != 0 && collectorPos[0].Y != 0)
-            {
-                Main.Bot.WriteToOutput("Collecting Resources...");
-                Thread.Sleep(250);
+			if (positions[0].IsEmpty || positions[0].Point.X == 0 || positions[0].Point.Y == 0)
+			{
+				Main.Bot.LocateExtractors();
+			}
 
-                for (int i = 0; i < 17; i++)
-                {
-                    Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 50);
-                    Thread.Sleep(250);
-                    Tools.CoCHelper.Click(new ClickablePoint(collectorPos[i]));
-                    Thread.Sleep(250);
-                }
-            }
-            else
-            {
-                Main.Bot.WriteToOutput("Collectors Unavailable...", GlobalVariables.OutputStates.Normal);
-        
-            }
+			// FF, do not change this to just checking if collectorPos[0].isEmpty. It needs to check if the x or y values are 0 as well to work.
+			if (!positions[0].IsEmpty && positions[0].Point.X != 0 && positions[0].Point.Y != 0)
+			{
+				Main.Bot.WriteToOutput("Collecting Resources...");
+				Thread.Sleep(250);
+
+				for (int i = 0; i < 17; i++)
+				{
+					Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 50);
+					Thread.Sleep(250);
+					Tools.CoCHelper.Click(new ClickablePoint(positions[i]));
+					Thread.Sleep(250);
+				}
+			}
+			else
+			{
+				Main.Bot.WriteToOutput("Collectors Unavailable...", GlobalVariables.OutputStates.Normal);
+
+			}
         }
 
 

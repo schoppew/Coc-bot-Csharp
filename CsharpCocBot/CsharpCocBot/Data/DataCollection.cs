@@ -37,9 +37,14 @@
         internal static BindingList<Model> DeployTroops = new BindingList<Model>();
 
 		/// <summary>
-		/// The Custom Wave
+		/// The Custom Waves
 		/// </summary>
-		internal static ObservableCollection<WaveModel> CustomWave = new ObservableCollection<WaveModel>();
+		internal static ObservableCollection<WaveModel> CustomWaves = new ObservableCollection<WaveModel>();
+
+		/// <summary>
+		/// The Building Points
+		/// </summary>
+		internal static ObservableCollection<BuildingPointModel> BuildingPoints = new ObservableCollection<BuildingPointModel>();
 
         /// <summary>
         /// The Troop Tiers and child Troops
