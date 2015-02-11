@@ -653,8 +653,23 @@
                         </TabItem>
                         <!-- Debug Tab -->
                         <TabItem Header="{x:Static p:Resources.Debug}" Visibility="{Binding IsDebug, Converter={StaticResource BooleanToVisibilityConverter}}" >
-                            <Grid Background="{DynamicResource BackgroundBrush}"/>
-                        </TabItem>
+                            <Grid Background="{DynamicResource BackgroundBrush}">
+                                <Button Content="{x:Static p:Resources.Start}" Command="{Binding LauchCurrentScreenAnalysisCommand}" Height="23" Width="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,7,16,0" />
+                                <ListView ItemsSource="{Binding DebugData, UpdateSourceTrigger=PropertyChanged}" SelectionMode="Single" Margin="16,100,16,16">
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
+                                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="100" />
+                                            <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Counter}" Width="100" />                                            
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                            </Grid>
+                </TabItem>
                     </TabControl>
                     <Border BorderBrush="{x:Null}" Margin="9,0,89,15" Height="23" VerticalAlignment="Bottom" Grid.Row="1" Width="380">
                         <TextBlock Text="{Binding Message, NotifyOnTargetUpdated=True}" Style="{StaticResource TextBlockMessage}">

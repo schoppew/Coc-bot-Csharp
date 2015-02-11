@@ -22,7 +22,8 @@ namespace ExtBitmap
 
 		private bool BytesAreCloseEnough(byte b1, byte b2, int maxVariation)
 		{
-			return (b1 <= (b2 + maxVariation)) && (b2 <= (b1 + maxVariation));
+			return (Math.Abs(b1-b2) <= maxVariation);
+			//return (b1 <= (b2 + maxVariation)) && (b2 <= (b1 + maxVariation));
 		}
 
 		private bool IsInShadeVariation(byte red, byte green, byte blue, byte red2, byte green2, byte blue2, int shadeVariation)
@@ -36,10 +37,10 @@ namespace ExtBitmap
 
 		private bool IsInShadeVariation(int PixelColor, int ColorToFind, int shadeVariation)
 		{
-			if (shadeVariation <= 0) return PixelColor == ColorToFind;
-			return (Math.Abs(((int)PixelColor & 0x00FF0000) - ((int)ColorToFind & 0x00FF0000)) >> 16 <= shadeVariation) &&
-					(Math.Abs(((int)PixelColor & 0x0000FF00) - ((int)ColorToFind & 0x0000FF00)) >> 8 <= shadeVariation) &&
-					(Math.Abs(((int)PixelColor & 0x000000FF) - ((int)ColorToFind & 0x000000FF)) <= shadeVariation);
+			if (shadeVariation <= 0) return (PixelColor & 0x00FFFFFF) == (ColorToFind & 0x00FFFFFF);
+			return BytesAreCloseEnough((byte)(PixelColor >> 16), (byte)(ColorToFind >> 16), shadeVariation) &&
+				   BytesAreCloseEnough((byte)(PixelColor >> 8), (byte)(ColorToFind >> 8), shadeVariation) &&
+				   BytesAreCloseEnough((byte)(PixelColor), (byte)(ColorToFind), shadeVariation);
 		}
 
 		private int FindFirstPixel(byte red, byte green, byte blue, int fromPos, int shadeVariation)

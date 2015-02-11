@@ -1,0 +1,55 @@
+
+====================== 11/02/2015 15:59:14 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.5519446
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.1163569
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0628483
+BlueStacks capture with ExtBitmap in Background mode failed in 00:00:00.0120418
+
+====================== 11/02/2015 15:59:39 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.5419034
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0755907
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0677425
+BlueStacks capture with ExtBitmap in Background mode failed in 00:00:00.0087442
+
+====================== 11/02/2015 16:09:44 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.5715932
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.1011263
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0581142
+
+====================== 11/02/2015 16:10:27 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.5160610
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0996765
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0692229
+
+====================== 11/02/2015 16:18:18 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.5915353
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.1408608
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0653063
+BlueStacks capture with ExtBitmap in Background mode failed in 00:00:35.8421511
+
+====================== 11/02/2015 16:27:23 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.5400594
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.1073127
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0566410
+BlueStacks capture with ExtBitmap in Background mode failed in 00:01:35.7511719
+
+====================== 11/02/2015 16:30:09 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.5245604
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.1659377
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0735641
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:12.5757637
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0136946
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0080445
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.7216283
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0329951
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:02.5012029
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.0650780

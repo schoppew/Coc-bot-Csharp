@@ -17,7 +17,7 @@ namespace ExtBitmap
         public Bitmap BitMap { get; private set; }
         public ExtBitmap2()
         {
-            data = null;
+            Data = null;
             FileName = null;
             dataChanged = false;
             BitMap = null;
@@ -40,13 +40,13 @@ namespace ExtBitmap
             {
                 BitMap.Dispose();
                 BitMap = null;
-                data = null;
+                Data = null;
                 dataChanged = false;
             }
         }
 
         public string FileName { get; set; }
-        int[] data;
+		public int[] Data { get; private set; }
         byte bitsPerPixel { get; set; }
         int bytesPerPixel { get; set; }
         int size { get; set; } // Total number of int in the data array
@@ -122,9 +122,9 @@ namespace ExtBitmap
             bytesPerPixel = bitsPerPixel / 8;
             size = Math.Abs(bData.Stride * bData.Height);
 
-            data = new int[size];
+            Data = new int[size];
             if (stride > 0)
-                System.Runtime.InteropServices.Marshal.Copy(bData.Scan0, data, 0, size);
+                System.Runtime.InteropServices.Marshal.Copy(bData.Scan0, Data, 0, size);
             else
             {
                 stride = -stride;
@@ -132,7 +132,7 @@ namespace ExtBitmap
                 for (int i = 0; i < Height; i++)
                 {
                     IntPtr pointer = new IntPtr(bData.Scan0.ToInt32() - stride * i * sizeof(int));
-                    System.Runtime.InteropServices.Marshal.Copy(pointer, data, stride * i, stride);
+                    System.Runtime.InteropServices.Marshal.Copy(pointer, Data, stride * i, stride);
                 }
             }
             BitMap.UnlockBits(bData);
@@ -141,7 +141,7 @@ namespace ExtBitmap
 
         private int PixelPos(int x, int y)
         {
-            if (data == null) return -1;
+            if (Data == null) return -1;
             if (x < 0 || x >= Width) return -1;
             if (y < 0 || x >= Height) return -1;
             return y * stride + x;
@@ -151,41 +151,41 @@ namespace ExtBitmap
         {
             int pos = PixelPos(x, y);
             if (pos == -1) return 0;
-            return data[pos];
+            return Data[pos];
         }
 
         public Color GetPixelColor(int x, int y)
         {
             int pos = PixelPos(x, y);
             if (pos == -1) return Color.Empty;
-            return Color.FromArgb(data[pos]);
+            return Color.FromArgb(Data[pos]);
         }
 
         public bool SetPixel(int x, int y, int color)
         {
             int pos = PixelPos(x, y);
             if (pos == -1) return false;
-            data[pos] = color;
+            Data[pos] = color;
             return true;
         }
 
         public bool SaveDataIntoBitmap()
         {
             if (BitMap == null) return false;
-            if (data == null) return false;
+            if (Data == null) return false;
             BitmapData bData = BitMap.LockBits(new Rectangle(0, 0, BitMap.Width, BitMap.Height), ImageLockMode.WriteOnly, BitMap.PixelFormat);
             bool bottomToTop = bData.Stride < 0;
             int size = Math.Abs(bData.Stride) * bData.Height / sizeof(int);
-            Debug.Assert(size == data.Length);
+            Debug.Assert(size == Data.Length);
 
             if (!bottomToTop)
-                System.Runtime.InteropServices.Marshal.Copy(bData.Scan0, data, 0, size);
+                System.Runtime.InteropServices.Marshal.Copy(bData.Scan0, Data, 0, size);
             else
             {
                 for (int i = 0; i < Height; i++)
                 {
                     IntPtr pointer = new IntPtr(bData.Scan0.ToInt32() - stride * sizeof(int) * i);
-                    System.Runtime.InteropServices.Marshal.Copy(data, stride * i, pointer, stride);
+                    System.Runtime.InteropServices.Marshal.Copy(Data, stride * i, pointer, stride);
                 }
             }
 
@@ -196,11 +196,11 @@ namespace ExtBitmap
         public Dictionary<int, int> CountColors()
         {
             Dictionary<int, int> dico = new Dictionary<int, int>();
-            if (BitMap == null || data == null) return dico;
+            if (BitMap == null || Data == null) return dico;
 
             for (int i = 0; i < size; i++)
             {
-                int pixel = data[i];
+                int pixel = Data[i];
                 int count = 0;
                 if (dico.TryGetValue(pixel, out count))
                     dico[pixel] = count + 1;

@@ -14,7 +14,7 @@ namespace FastFind
         // The default delay in ms between to captures. If calling for a capture more often, then by default will provide the previous one. 
         const int MINIMUM_DELAY_BETWEEN_CAPTURES = 1000;
         public const int DEFAULT_SNAP = 0;
-        public const int CUSTOM_SNAP = 0;
+        public const int CUSTOM_SNAP = 1;
 		#region Window handle provider
 		public delegate IntPtr HandleProvider();
 		static HandleProvider CustomProvider = null;
@@ -232,6 +232,5 @@ namespace FastFind
 		{
 			return IsInShadeVariation(color1.ToArgb(), color2.ToArgb(), shadeVariation);			
 		}
-
 	}
 }

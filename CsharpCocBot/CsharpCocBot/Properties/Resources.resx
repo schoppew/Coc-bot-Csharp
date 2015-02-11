@@ -636,4 +636,7 @@ You can double click on the icon to show the window.</value>
   <data name="LocateMessage" xml:space="preserve">
     <value>Click on any to manually locate all buildings of the type, click on 'Done Locating' to stop the action.</value>
   </data>
+  <data name="Analyse" xml:space="preserve">
+    <value>Analyse current window</value>
+  </data>
 </root>

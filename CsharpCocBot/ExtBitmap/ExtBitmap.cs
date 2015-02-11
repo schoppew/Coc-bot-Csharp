@@ -22,7 +22,11 @@ namespace ExtBitmap
 			dataChanged = false;
 			BitMap = null;
 		}
-
+        public bool HasAphaData
+        {
+            get;
+            private set;
+        }
 		#region IDisposable interface
 		public void Dispose()
 		{

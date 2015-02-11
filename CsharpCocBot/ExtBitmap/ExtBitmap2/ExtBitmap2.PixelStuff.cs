@@ -36,41 +36,42 @@ namespace ExtBitmap
 
 		private bool IsInShadeVariation(int PixelColor, int ColorToFind, int shadeVariation)
 		{
-			if (shadeVariation <= 0) return PixelColor == ColorToFind;
-			return (Math.Abs(((int)PixelColor & 0x00FF0000) - ((int)ColorToFind & 0x00FF0000)) >> 16 <= shadeVariation) &&
-					(Math.Abs(((int)PixelColor & 0x0000FF00) - ((int)ColorToFind & 0x0000FF00)) >> 8 <= shadeVariation) &&
-					(Math.Abs(((int)PixelColor & 0x000000FF) - ((int)ColorToFind & 0x000000FF)) <= shadeVariation);
+			if (shadeVariation <= 0) return (PixelColor & 0x00FFFFFF) == (ColorToFind & 0x00FFFFFF);
+			return BytesAreCloseEnough((byte)(PixelColor >> 16), (byte)(ColorToFind >> 16), shadeVariation) &&
+				   BytesAreCloseEnough((byte)(PixelColor >>  8), (byte)(ColorToFind >>  8), shadeVariation) &&
+				   BytesAreCloseEnough((byte)(PixelColor      ), (byte)(ColorToFind      ), shadeVariation);
 		}
 
-		private int FindFirstPixel(byte red, byte green, byte blue, int fromPos, int shadeVariation)
+		private int FindFirstPixel(int color, int fromPos, int shadeVariation)
 		{
 			if (shadeVariation == 0)
-				return FindFirstPixel(red, green, blue, fromPos);
+				return FindFirstPixel(color, fromPos);
 			int lastPos = size - bytesPerPixel;
 			while (fromPos <= lastPos)
 			{
-				if (IsInShadeVariation(red, green, blue, data[fromPos + 2], data[fromPos + 1], data[fromPos], shadeVariation)) return fromPos;
-				fromPos += bytesPerPixel;
+				if (IsInShadeVariation(color, Data[fromPos], shadeVariation)) return fromPos;
+				fromPos++;
 			}
 			return -1;
 		}
 
-		private int FindFirstPixel(byte red, byte green, byte blue, int fromPos)
+		private int FindFirstPixel(int color, int fromPos)
 		{
 			int lastPos = size - bytesPerPixel;
 			while (fromPos <= lastPos)
 			{
-				if (red == data[fromPos + 2] && green == data[fromPos + 1] && blue == data[fromPos]) return fromPos;
-				fromPos += bytesPerPixel;
+				if (color == (Data[fromPos] & 0x00FFFFFF)) return fromPos;
+				fromPos++;
 			}
 			return -1;
 		}
+	
 
-		private bool CompareColorWithPixelAtPos(byte red, byte green, byte blue, int pos, int shadeVariation)
+		private bool CompareColorWithPixelAtPos(int color, int pos, int shadeVariation)
 		{
 			if (shadeVariation == 0)
-				return blue == data[pos] && green == data[pos + 1] && red == data[pos + 2];
-			return IsInShadeVariation(red, green, blue, data[pos + 2], data[pos + 1], data[pos], shadeVariation);
+				return color == (Data[pos] & 0x00FFFFFF);
+			return IsInShadeVariation(color, Data[pos], shadeVariation);
 		}
 
 		/// <summary>
@@ -85,8 +86,6 @@ namespace ExtBitmap
 		/// <returns></returns>
 		private int FindPixelInRect(int left, int top, int right, int bottom, int color, int shadeVariation)
 		{
-			byte red, green, blue;			
-			GetRGBOutOfInt(color, out red, out green, out blue);
 			int pos1 = PosFromPoint(left, top);
 			while (bottom >= top)
 			{
@@ -94,11 +93,11 @@ namespace ExtBitmap
 				int x = left;
 				while (x++ <= right)
 				{
-					if (CompareColorWithPixelAtPos(red, green, blue, cursor, shadeVariation))
+					if (CompareColorWithPixelAtPos(color, cursor, shadeVariation))
 					{
 						return cursor;
 					}
-					cursor += bytesPerPixel;
+					cursor++;
 				}
 				pos1 += stride;
 				bottom--;
@@ -113,18 +112,18 @@ namespace ExtBitmap
 
 		private int PosFromPoint(Win32.POINT point)
 		{
-			return point.X * bytesPerPixel + stride * point.Y;
+			return point.X + stride * point.Y;
 		}
 
 		private Win32.POINT GetPointFromPos(int pos)
 		{
 			if (pos == -1 || pos >= size) return Win32.POINT.Empty;
 			int y = pos / stride;
-			int x = (pos % stride) / bytesPerPixel;
+			int x = pos % stride;
 			return new Win32.POINT(x, y);
 		}
 
-		private int CountPixels(byte red, byte green, byte blue, int shadeVariation)
+		private int CountPixels(int color, int shadeVariation)
 		{
 			int lastPos = size - bytesPerPixel;
 			int pos = 0;
@@ -140,19 +139,13 @@ namespace ExtBitmap
 			//}
 			while (pos <= lastPos)
 			{
-				if (IsInShadeVariation(red, green, blue, data[pos + 2], data[pos + 1], data[pos], shadeVariation))
+				if (IsInShadeVariation(color, Data[pos], shadeVariation))
 					count++;
 
-				pos += bytesPerPixel;
+				pos++;
 			}
 			return count;
 		}
 
-		public int CountPixels(int color, int shadeVariation)
-		{
-			byte red, green, blue;
-			GetRGBOutOfInt(color, out red, out green, out blue);			
-			return CountPixels(red, green, blue, shadeVariation);
-		}
 	}
 }
