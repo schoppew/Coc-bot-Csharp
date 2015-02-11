@@ -40,8 +40,6 @@ ToDo's
 		- This will contain a bunch of advanced functionality as the name suggests, like:
 			- Hability to use presets (Individual Settings)
 				- Those are saved as xml files and can be shared among users (loading them)
-		- A list with all the Building coordinates (barracks, collectors, heroes altars...)
-			- When selecting the Building on the list, the bot will select it on the game, this way is easier to track if location is wrong and correct it
 		- Upgrade Buildings Queue
 			- User can select from screen the building (bot will get the coords) to upgrade
 			- User must specify the amount of Gold/Elixir required in order to upgrade (say it cost 4M, and user set it to upgrade when it reaches 5M, this way it will not run out of resources to keep the bot from farming)
@@ -72,6 +70,11 @@ ToDo's In Progress
 		- Remove the Troop from the ComboBox when all troops (Quantity) have been added, add back if removed from ListView
 		- When changing the values of AllAttackTroops, the Wave (ListView and ComboBox) should reflect the changes
 		- Make the Buttons disabled (if ComboBox and ListView have no selected item)
+	» [U/C] Implement Location Settings Tab
+		- Convert the text button property to 'Stop Locating' or 'Done Locating' when a Location is being performed and apply the action
+			- Ex.: 'Clan Castle' -> 'Done Locating'
+		- Pass the Building enum as parameter to the Command for the single buildings
+		- Can't use 'Select' string resource in XAML, possible bug in XAML Designer?
 
 
 ToDo's Completed

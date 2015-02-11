@@ -277,6 +277,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Building.
+        /// </summary>
+        public static string Building {
+            get {
+                return ResourceManager.GetString("Building", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot set the same BehaviorCollection on multiple objects..
         /// </summary>
         public static string CannotHostBehaviorCollectionMultipleTimesExceptionMessage {
@@ -322,6 +331,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        public static string Clear {
+            get {
+                return ResourceManager.GetString("Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Conditions.
         /// </summary>
         public static string Conditions {
@@ -345,6 +363,15 @@ namespace CoC.Bot.Properties {
         public static string Controls {
             get {
                 return ResourceManager.GetString("Controls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coords..
+        /// </summary>
+        public static string Coordinates {
+            get {
+                return ResourceManager.GetString("Coordinates", resourceCulture);
             }
         }
         
@@ -911,6 +938,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click on any to manually locate all buildings of the type, click on &apos;Done Locating&apos; to stop the action..
+        /// </summary>
+        public static string LocateMessage {
+            get {
+                return ResourceManager.GetString("LocateMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gold Mines.
         /// </summary>
         public static string LocateMinesManually {
@@ -1251,6 +1287,15 @@ namespace CoC.Bot.Properties {
         public static string Quantity {
             get {
                 return ResourceManager.GetString("Quantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Relocate.
+        /// </summary>
+        public static string Relocate {
+            get {
+                return ResourceManager.GetString("Relocate", resourceCulture);
             }
         }
         

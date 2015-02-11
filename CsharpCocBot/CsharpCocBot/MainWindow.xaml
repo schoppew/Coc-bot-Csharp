@@ -598,6 +598,7 @@
                                         <Button Content="{x:Static p:Resources.LocateBarracksManually}" Command="{Binding LocateBarracksCommand}" Height="23" Margin="0,42,0,0" VerticalAlignment="Top" Visibility="Visible" HorizontalAlignment="Center" Width="110" />
                                         <Button Content="{x:Static p:Resources.LocateDarkBarracksManually}" Command="{Binding LocateDarkBarracksCommand}" Height="23" Margin="0,0,16,42" VerticalAlignment="Bottom" Visibility="Visible" HorizontalAlignment="Right" Width="110" />
                                         <Button Content="{x:Static p:Resources.LocateTownHallManually}" Command="{Binding LocateTownHallCommand}" Height="23" Margin="16,0,0,10" VerticalAlignment="Bottom" Visibility="Visible" HorizontalAlignment="Left" Width="110" />
+                                        <TextBlock Text="{x:Static p:Resources.LocateMessage}" Height="29" HorizontalAlignment="Right" Margin="0,0,16,8" VerticalAlignment="Bottom" Width="249" TextWrapping="Wrap" TextTrimming="None" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.Locations}" Margin="16,150,16,16">
@@ -610,8 +611,8 @@
                                             </ListView.ItemContainerStyle>
                                             <ListView.View>
                                                 <GridView>
-                                                    <GridViewColumn Header="Building" DisplayMemberBinding="{Binding Building, Converter={StaticResource EnumToDescriptionConverter}}" Width="100" />
-                                                    <GridViewColumn Header="Coords" Width="65">
+                                                    <GridViewColumn Header="{x:Static p:Resources.Building}" DisplayMemberBinding="{Binding Building, Converter={StaticResource EnumToDescriptionConverter}}" Width="100" />
+                                                    <GridViewColumn Header="{x:Static p:Resources.Coordinates}" Width="65">
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
                                                                 <TextBlock Text="{Binding Coordinates, Converter={StaticResource PointToStringConverter}}" TextAlignment="Center" />
@@ -621,21 +622,21 @@
                                                     <GridViewColumn Width="65">
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
-                                                                <Button Content="Locate" Command="{Binding LocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" />
+                                                                <Button Content="Select" Command="{Binding LocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" />
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
                                                     </GridViewColumn>
                                                     <GridViewColumn Width="75">
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
-                                                                <Button Content="Relocate" Command="{Binding RelocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" />
+                                                                <Button Content="{x:Static p:Resources.Relocate}" Command="{Binding RelocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" />
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
                                                     </GridViewColumn>
                                                     <GridViewColumn Width="55">
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
-                                                                <Button Content="Clear" Command="{Binding ClearLocationSingleBuildingCommand, Source={StaticResource MainViewModel}}" />
+                                                                <Button Content="{x:Static p:Resources.Clear}" Command="{Binding ClearLocationSingleBuildingCommand, Source={StaticResource MainViewModel}}" />
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
                                                     </GridViewColumn>

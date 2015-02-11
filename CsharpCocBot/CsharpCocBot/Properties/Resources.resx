@@ -621,4 +621,19 @@ You can double click on the icon to show the window.</value>
   <data name="LocateMinesManually" xml:space="preserve">
     <value>Gold Mines</value>
   </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Relocate" xml:space="preserve">
+    <value>Relocate</value>
+  </data>
+  <data name="Building" xml:space="preserve">
+    <value>Building</value>
+  </data>
+  <data name="Coordinates" xml:space="preserve">
+    <value>Coords.</value>
+  </data>
+  <data name="LocateMessage" xml:space="preserve">
+    <value>Click on any to manually locate all buildings of the type, click on 'Done Locating' to stop the action.</value>
+  </data>
 </root>
