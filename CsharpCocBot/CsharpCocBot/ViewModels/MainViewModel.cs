@@ -143,10 +143,7 @@
 		/// <value><c>true</c> if BlueStacks is hidden; otherwise, <c>false</c>.</value>
 		public bool HideRestoreBlueStacksState
 		{
-			get
-			{
-				return IsBlueStacksHidden ? true : false;
-			}
+			get { return IsBlueStacksHidden ? true : false; }
 		}
 
         /// <summary>
@@ -1812,17 +1809,6 @@
 
         #region Search Settings Commands
 
-        private DelegateCommand _locateCollectorsCommand;
-        public ICommand LocateCollectorsCommand
-        {
-            get
-            {
-                if (_locateCollectorsCommand == null)
-                    _locateCollectorsCommand = new DelegateCommand(() => LocateCollectors(), LocateCollectorsCanExecute);
-                return _locateCollectorsCommand;
-            }
-        }
-
         private DelegateCommand _searchModeCommand;
         public ICommand SearchModeCommand
         {
@@ -1843,28 +1829,6 @@
 			get { return new RelayCommand<object>(val => TrainQuantityTextExecuted(val)); }
 		}
 
-		private DelegateCommand _locateDarkBarracksCommand;
-		public ICommand LocateDarkBarracksCommand
-		{
-			get
-			{
-				if (_locateDarkBarracksCommand == null)
-					_locateDarkBarracksCommand = new DelegateCommand(() => LocateDarkBarracks(), LocateDarkBarracksCanExecute);
-				return _locateDarkBarracksCommand;
-			}
-		}
-
-		private DelegateCommand _locateBarracksCommand;
-		public ICommand LocateBarracksCommand
-		{
-			get
-			{
-				if (_locateBarracksCommand == null)
-					_locateBarracksCommand = new DelegateCommand(() => LocateBarracks(), LocateBarracksCanExecute);
-				return _locateBarracksCommand;
-			}
-		}
-
 		#endregion
 
 		#region Wave Settings Commands
@@ -1881,51 +1845,95 @@
 
 		#endregion
 
-		#region Donate Settings Commands
+		#region Locate Settings Commands
+
+		private DelegateCommand _locateExtractorsCommand;
+		public ICommand LocateExtractorsCommand
+		{
+			get
+			{
+				if (_locateExtractorsCommand == null)
+					_locateExtractorsCommand = new DelegateCommand(() => LocateExtractors(), LocateExtractorsCanExecute);
+				return _locateExtractorsCommand;
+			}
+		}
+
+		private DelegateCommand _locateTownhallCommand;
+		public ICommand LocateTownhallCommand
+		{
+			get
+			{
+				if (_locateTownhallCommand == null)
+					_locateTownhallCommand = new DelegateCommand(() => LocateTownhall(), LocateTownhallCanExecute);
+				return _locateTownhallCommand;
+			}
+		}
+
+		private DelegateCommand _locateBarracksCommand;
+		public ICommand LocateBarracksCommand
+		{
+			get
+			{
+				if (_locateBarracksCommand == null)
+					_locateBarracksCommand = new DelegateCommand(() => LocateBarracks(), LocateBarracksCanExecute);
+				return _locateBarracksCommand;
+			}
+		}
+
+		private DelegateCommand _locateDarkBarracksCommand;
+		public ICommand LocateDarkBarracksCommand
+		{
+			get
+			{
+				if (_locateDarkBarracksCommand == null)
+					_locateDarkBarracksCommand = new DelegateCommand(() => LocateDarkBarracks(), LocateDarkBarracksCanExecute);
+				return _locateDarkBarracksCommand;
+			}
+		}
 
 		private DelegateCommand _locateClanCastleCommand;
-        public ICommand LocateClanCastleCommand
-        {
-            get
-            {
-                if (_locateClanCastleCommand == null)
-                    _locateClanCastleCommand = new DelegateCommand(() => LocateClanCastle(), LocateClanCastleCanExecute);
-                return _locateClanCastleCommand;
-            }
-        }
+		public ICommand LocateClanCastleCommand
+		{
+			get
+			{
+				if (_locateClanCastleCommand == null)
+					_locateClanCastleCommand = new DelegateCommand(() => LocateClanCastle(), LocateClanCastleCanExecute);
+				return _locateClanCastleCommand;
+			}
+		}
 
-        #endregion
+		#endregion
 
-        #endregion
+		#endregion
 
-        #region Can Execute Methods
+		#region Can Execute Methods
 
-        /// <summary>
-        /// Determines whether the LocateCollectorsCommand command can be executed.
+		/// <summary>
+		/// Determines whether the SearchModeCommand command can be executed.
+		/// </summary>
+		/// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
+		private bool SearchModeCanExecute()
+		{
+			return true; // TODO: We need to define this
+		}
+
+		/// <summary>
+        /// Determines whether the LocateExtractorsCommand command can be executed.
         /// </summary>
         /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
-        private bool LocateCollectorsCanExecute()
+        private bool LocateExtractorsCanExecute()
         {
-            return !StartStopState; // only executes if bot is not working?
+            return !StartStopState; // only executes if bot is not running
         }
 
-        /// <summary>
-        /// Determines whether the SearchModeCommand command can be executed.
-        /// </summary>
-        /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
-        private bool SearchModeCanExecute()
-        {
-            return true; // TODO: We need to define this
-        }
-
-        /// <summary>
-        /// Determines whether the LocateClanCastleCommand command can be executed.
-        /// </summary>
-        /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
-        private bool LocateClanCastleCanExecute()
-        {
-            return !StartStopState; // only executes if bot is not working?
-        }
+		/// <summary>
+		/// Determines whether the LocateTownhallCommand command can be executed.
+		/// </summary>
+		/// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
+		private bool LocateTownhallCanExecute()
+		{
+			return !StartStopState; // only executes if bot is not running
+		}
 
         /// <summary>
         /// Determines whether the LocateBarracksCommand command can be executed.
@@ -1933,7 +1941,7 @@
         /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
         private bool LocateBarracksCanExecute()
         {
-            return !StartStopState; // only executes if bot is not working?
+			return !StartStopState; // only executes if bot is not running
         }
 
         /// <summary>
@@ -1942,8 +1950,17 @@
         /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
         private bool LocateDarkBarracksCanExecute()
         {
-            return !StartStopState; // only executes if bot is not working?
+			return !StartStopState; // only executes if bot is not running
         }
+
+		/// <summary>
+		/// Determines whether the LocateClanCastleCommand command can be executed.
+		/// </summary>
+		/// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
+		private bool LocateClanCastleCanExecute()
+		{
+			return !StartStopState; // only executes if bot is not running
+		}
 
         #endregion
 
@@ -2059,6 +2076,9 @@
                 DataCollection.DarkBarracksTroops.Add(Model.CreateNew((int)Troop.LavaHound, Properties.Resources.LavaHounds));
             }
 
+			// Fill Locations
+
+
             GlobalVariables.Log.WriteToLog(Properties.Resources.LogBotInitialized);
         }
 
@@ -2142,10 +2162,39 @@
 			BlueStacksHelper.RestoreBlueStacks();
 		}
 
+		/// <summary>
+		/// Starts the Search Mode.
+		/// </summary>
+		private void SearchMode()
+		{
+			// Code for showing that it works
+			WriteToOutput("Search Mode...");
+			Notify("Search Mode...");
+			System.Diagnostics.Debug.WriteLine("Search Mode...");
+		}
+
+		/// <summary>
+		/// Adds the Troop for Custom Wave.
+		/// </summary>
+		private void AddTroopForCustomWave()
+		{
+			if (SelectedTroopForWave != null)
+				WaveTroops.Add(WaveModel.CreateNew(SelectedTroopForWave, SelectedTroopForWaveQuantity, SelectedTroopForWaveDelay));
+		}
+
+		/// <summary>
+		/// Removes the Troop for Custom Wave.
+		/// </summary>
+		private void RemoveTroopForCustomWave()
+		{
+			if (SelectedWaveTroop != null)
+				WaveTroops.Remove(SelectedWaveTroop);
+		}
+
         /// <summary>
-        /// Manually locates the Collectors and Mines.
+        /// Manually locates the Collectors, Gold Mines and Dark Elixir Extractors.
         /// </summary>
-        public void LocateCollectors()
+        public void LocateExtractors()
         {
 			var msgBox = GetService<IMessageBoxService>();
 			if (msgBox != null)
@@ -2177,26 +2226,13 @@
 			}
         }
 
-        /// <summary>
-        /// Starts the Search Mode.
-        /// </summary>
-        private void SearchMode()
-        {
-			// Code for showing that it works
-			WriteToOutput("Search Mode...");
-			Notify("Search Mode...");
-			System.Diagnostics.Debug.WriteLine("Search Mode...");
-        }
+		/// <summary>
+		/// Manually locates the Townhall.
+		/// </summary>
+		private void LocateTownhall()
+		{
 
-        /// <summary>
-        /// Manually locates the Clan Castle.
-        /// </summary>
-        public void LocateClanCastle()
-        {
-			// Code for showing that it works
-			Notify("Locating Clan Castle...");
-			System.Diagnostics.Debug.WriteLine("Locate Clan Castle...");
-        }
+		}
 
         /// <summary>
         /// Manually locates the Barracks.
@@ -2219,21 +2255,13 @@
         }
 
 		/// <summary>
-		/// Adds the Troop for Custom Wave.
+		/// Manually locates the Clan Castle.
 		/// </summary>
-		private void AddTroopForCustomWave()
+		public void LocateClanCastle()
 		{
-			if (SelectedTroopForWave != null)
-				WaveTroops.Add(WaveModel.CreateNew(SelectedTroopForWave, SelectedTroopForWaveQuantity, SelectedTroopForWaveDelay));
-		}
-
-		/// <summary>
-		/// Removes the Troop for Custom Wave.
-		/// </summary>
-		private void RemoveTroopForCustomWave()
-		{
-			if (SelectedWaveTroop != null)
-				WaveTroops.Remove(SelectedWaveTroop);
+			// Code for showing that it works
+			Notify("Locating Clan Castle...");
+			System.Diagnostics.Debug.WriteLine("Locate Clan Castle...");
 		}
 
         #endregion

@@ -1834,5 +1834,17 @@ namespace CoC.Bot.Properties {
                 this["IsCustomWave"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0")]
+        public global::System.Windows.Point LocationTownhall {
+            get {
+                return ((global::System.Windows.Point)(this["LocationTownhall"]));
+            }
+            set {
+                this["LocationTownhall"] = value;
+            }
+        }
     }
 }

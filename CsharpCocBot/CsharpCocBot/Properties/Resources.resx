@@ -265,13 +265,13 @@
     <value>Request for:</value>
   </data>
   <data name="LocateBarracksManually" xml:space="preserve">
-    <value>Locate Barracks Manually</value>
+    <value>Locate Barracks</value>
   </data>
   <data name="LocateClanCastleManually" xml:space="preserve">
-    <value>Locate Clan Castle Manually</value>
+    <value>Locate Clan Castle</value>
   </data>
-  <data name="LocateCollectorsManually" xml:space="preserve">
-    <value>Locate Collectors Manually</value>
+  <data name="LocateExtractorsManually" xml:space="preserve">
+    <value>Locate Extractors</value>
   </data>
   <data name="MeetDarkElixir" xml:space="preserve">
     <value>Meet Dark Elixir</value>
@@ -470,7 +470,7 @@
     <value>Lava Hounds</value>
   </data>
   <data name="LocateDarkBarracksManually" xml:space="preserve">
-    <value>Locate Dark Barracks Manually</value>
+    <value>Locate Dark Barracks</value>
   </data>
   <data name="Minions" xml:space="preserve">
     <value>Minions</value>
@@ -605,5 +605,14 @@ You can double click on the icon to show the window.</value>
   </data>
   <data name="TrainModeMessage" xml:space="preserve">
     <value>Select your preferred troop training style from the combobox.</value>
+  </data>
+  <data name="LocateTownhallManually" xml:space="preserve">
+    <value>Locate Townhall</value>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>Locations</value>
+  </data>
+  <data name="ManualLocateControls" xml:space="preserve">
+    <value>Manual Locate Controls</value>
   </data>
 </root>

@@ -20,7 +20,7 @@ namespace CoC.Bot.Functions
 
             if (collectorPos[0].IsEmpty || collectorPos[0].X == 0 || collectorPos[0].Y == 0)
             {
-                Main.Bot.LocateCollectors();
+                Main.Bot.LocateExtractors();
             }
 
             // FF, do not change this to just checking if collectorPos[0].isEmpty. It needs to check if the x or y values are 0 as well to work.

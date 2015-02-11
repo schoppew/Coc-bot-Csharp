@@ -866,7 +866,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locate Barracks Manually.
+        ///   Looks up a localized string similar to Locate Barracks.
         /// </summary>
         public static string LocateBarracksManually {
             get {
@@ -875,7 +875,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locate Clan Castle Manually.
+        ///   Looks up a localized string similar to Locate Clan Castle.
         /// </summary>
         public static string LocateClanCastleManually {
             get {
@@ -884,20 +884,20 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locate Collectors Manually.
-        /// </summary>
-        public static string LocateCollectorsManually {
-            get {
-                return ResourceManager.GetString("LocateCollectorsManually", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locate Dark Barracks Manually.
+        ///   Looks up a localized string similar to Locate Dark Barracks.
         /// </summary>
         public static string LocateDarkBarracksManually {
             get {
                 return ResourceManager.GetString("LocateDarkBarracksManually", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locate Extractors.
+        /// </summary>
+        public static string LocateExtractorsManually {
+            get {
+                return ResourceManager.GetString("LocateExtractorsManually", resourceCulture);
             }
         }
         
@@ -907,6 +907,24 @@ namespace CoC.Bot.Properties {
         public static string LocateSettings {
             get {
                 return ResourceManager.GetString("LocateSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locate Townhall.
+        /// </summary>
+        public static string LocateTownhallManually {
+            get {
+                return ResourceManager.GetString("LocateTownhallManually", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locations.
+        /// </summary>
+        public static string Locations {
+            get {
+                return ResourceManager.GetString("Locations", resourceCulture);
             }
         }
         
@@ -925,6 +943,15 @@ namespace CoC.Bot.Properties {
         public static string LogBotInitializing {
             get {
                 return ResourceManager.GetString("LogBotInitializing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manual Locate Controls.
+        /// </summary>
+        public static string ManualLocateControls {
+            get {
+                return ResourceManager.GetString("ManualLocateControls", resourceCulture);
             }
         }
         
