@@ -7,6 +7,8 @@
 	/// </summary>
 	public enum Building
 	{
+		Unknown = 0,
+
 		[Description("Town Hall")]
 		TownHall = 1,
 

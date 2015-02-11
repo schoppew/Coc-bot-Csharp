@@ -2319,39 +2319,6 @@
             // Donate Settings
             IsRequestTroops = AppSettings.IsRequestTroops;
             RequestTroopsMessage = AppSettings.RequestTroopsMessage;
-
-			// Location Settings
-			// TODO: Change the type from Windows.Drawing.Point to System.Windows.Point and get rid of the reference
-			//LocationClanCastle = AppSettings.LocationClanCastle.ToPOINT();
-
-			//LocationBarrack1 = AppSettings.LocationBarrack1.ToPOINT();
-			//LocationBarrack2 = AppSettings.LocationBarrack2.ToPOINT();
-			//LocationBarrack3 = AppSettings.LocationBarrack3.ToPOINT();
-			//LocationBarrack4 = AppSettings.LocationBarrack4.ToPOINT();
-
-			//LocationDarkBarrack1 = AppSettings.LocationDarkBarrack1.ToPOINT();
-			//LocationDarkBarrack2 = AppSettings.LocationDarkBarrack2.ToPOINT();
-
-			//LocationAllTrapsRearm = AppSettings.LocationAllTrapsRearm.ToPOINT();
-			//LocationAllXbowsRearm = AppSettings.LocationAllXbowsRearm.ToPOINT();
-
-			//LocationCollector1 = AppSettings.LocationElixir1.ToPOINT();
-			//LocationCollector2 = AppSettings.LocationElixir2.ToPOINT();
-			//LocationCollector3 = AppSettings.LocationElixir3.ToPOINT();
-			//LocationCollector4 = AppSettings.LocationElixir4.ToPOINT();
-			//LocationCollector5 = AppSettings.LocationElixir5.ToPOINT();
-			//LocationCollector6 = AppSettings.LocationElixir6.ToPOINT();
-			//LocationCollector7 = AppSettings.LocationElixir7.ToPOINT();
-			//LocationCollector8 = AppSettings.LocationGold1.ToPOINT();
-			//LocationCollector9 = AppSettings.LocationGold2.ToPOINT();
-			//LocationCollector10 = AppSettings.LocationGold3.ToPOINT();
-			//LocationCollector11 = AppSettings.LocationGold4.ToPOINT();
-			//LocationCollector12 = AppSettings.LocationGold5.ToPOINT();
-			//LocationCollector13 = AppSettings.LocationGold6.ToPOINT();
-			//LocationCollector14 = AppSettings.LocationGold7.ToPOINT();
-			//LocationCollector15 = AppSettings.LocationDrill1.ToPOINT();
-			//LocationCollector16 = AppSettings.LocationDrill2.ToPOINT();
-			//LocationCollector17 = AppSettings.LocationDrill3.ToPOINT();
         }
 
         /// <summary>
@@ -2520,37 +2487,39 @@
             }
 
 			// Location Settings
-			// TODO: Change the type from Windows.Drawing.Point to System.Windows.Point and get rid of the reference
-			//AppSettings.LocationClanCastle = LocationClanCastle.ToPoint();
+			var defaultPoint = BuildingPointModel.CreateNew(Building.Unknown, BuildingType.Other, new Point());
 
-			//AppSettings.LocationBarrack1 = LocationBarrack1.ToPoint();
-			//AppSettings.LocationBarrack2 = LocationBarrack2.ToPoint();
-			//AppSettings.LocationBarrack3 = LocationBarrack3.ToPoint();
-			//AppSettings.LocationBarrack4 = LocationBarrack4.ToPoint();
+			AppSettings.LocationTownHall = DataCollection.BuildingPoints.Where(b => b.Building == Building.TownHall).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
 
-			//AppSettings.LocationDarkBarrack1 = LocationDarkBarrack1.ToPoint();
-			//AppSettings.LocationDarkBarrack2 = LocationDarkBarrack2.ToPoint();
+			AppSettings.LocationClanCastle = DataCollection.BuildingPoints.Where(b => b.Building == Building.ClanCastle).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
 
-			//AppSettings.LocationAllTrapsRearm = LocationAllTrapsRearm.ToPoint();
-			//AppSettings.LocationAllXbowsRearm = LocationAllXbowsRearm.ToPoint();
+			AppSettings.LocationBarrack1 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Barrack1).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationBarrack2 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Barrack2).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationBarrack3 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Barrack3).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationBarrack4 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Barrack4).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
 
-			//AppSettings.LocationElixir1 = LocationCollector1.ToPoint();
-			//AppSettings.LocationElixir2 = LocationCollector2.ToPoint();
-			//AppSettings.LocationElixir3 = LocationCollector3.ToPoint();
-			//AppSettings.LocationElixir4 = LocationCollector4.ToPoint();
-			//AppSettings.LocationElixir5 = LocationCollector5.ToPoint();
-			//AppSettings.LocationElixir6 = LocationCollector6.ToPoint();
-			//AppSettings.LocationElixir7 = LocationCollector7.ToPoint();
-			//AppSettings.LocationGold1 = LocationCollector8.ToPoint();
-			//AppSettings.LocationGold2 = LocationCollector9.ToPoint();
-			//AppSettings.LocationGold3 = LocationCollector10.ToPoint();
-			//AppSettings.LocationGold4 = LocationCollector11.ToPoint();
-			//AppSettings.LocationGold5 = LocationCollector12.ToPoint();
-			//AppSettings.LocationGold6 = LocationCollector13.ToPoint();
-			//AppSettings.LocationGold7 = LocationCollector14.ToPoint();
-			//AppSettings.LocationDrill1 = LocationCollector15.ToPoint();
-			//AppSettings.LocationDrill2 = LocationCollector16.ToPoint();
-			//AppSettings.LocationDrill3 = LocationCollector17.ToPoint();
+			AppSettings.LocationDarkBarrack1 = DataCollection.BuildingPoints.Where(b => b.Building == Building.DarkBarrack1).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationDarkBarrack2 = DataCollection.BuildingPoints.Where(b => b.Building == Building.DarkBarrack2).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+
+			AppSettings.LocationElixir1 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Elixir1).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationElixir2 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Elixir2).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationElixir3 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Elixir3).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationElixir4 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Elixir4).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationElixir5 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Elixir5).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationElixir6 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Elixir6).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationElixir7 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Elixir7).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+
+			AppSettings.LocationGold1 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Gold1).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationGold2 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Gold2).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationGold3 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Gold3).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationGold4 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Gold4).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationGold5 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Gold5).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationGold6 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Gold6).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationGold7 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Gold7).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+
+			AppSettings.LocationDrill1 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Drill1).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationDrill2 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Drill2).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
+			AppSettings.LocationDrill3 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Drill3).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
 
             // Save it!
             AppSettings.Save();
