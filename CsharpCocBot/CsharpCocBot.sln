@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpCocBot", "CsharpCocBot\CsharpCocBot.csproj", "{C9747428-F162-4D59-817A-BE0A5847D88C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpCocBot", "..\CsharpCocBot\CsharpCocBot\CsharpCocBot.csproj", "{C9747428-F162-4D59-817A-BE0A5847D88C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorOptimizer", "ColorOptimizer\ColorOptimizer.csproj", "{C99C9FA9-1274-49D4-9D3F-B401E7F02FAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorOptimizer", "..\CsharpCocBot\ColorOptimizer\ColorOptimizer.csproj", "{C99C9FA9-1274-49D4-9D3F-B401E7F02FAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtBitmap", "ExtBitmap\ExtBitmap.csproj", "{7BD14DBE-718B-40BF-86CC-C996F110DF22}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtBitmap", "..\CsharpCocBot\ExtBitmap\ExtBitmap.csproj", "{7BD14DBE-718B-40BF-86CC-C996F110DF22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastFind", "FastFind\FastFind.csproj", "{A17BCD52-C8CE-45A6-8A71-A00E73EB5AAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastFind", "..\CsharpCocBot\FastFind\FastFind.csproj", "{A17BCD52-C8CE-45A6-8A71-A00E73EB5AAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{DF37B51F-18D1-4824-A813-DD9F0F93A281}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MouseAndKeyboard", "..\CsharpCocBot\MouseAndKeyboard\MouseAndKeyboard.csproj", "{54321393-8A64-4114-8A32-7EA3BE810ED3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MouseAndKeyboard", "MouseAndKeyboard\MouseAndKeyboard.csproj", "{54321393-8A64-4114-8A32-7EA3BE810ED3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "..\CsharpCocBot\UnitTests\UnitTests.csproj", "{DF37B51F-18D1-4824-A813-DD9F0F93A281}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Win32", "Win32\Win32.csproj", "{C6D04F0B-DD48-456C-8065-7052CABBE1F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Win32", "..\CsharpCocBot\Win32\Win32.csproj", "{C6D04F0B-DD48-456C-8065-7052CABBE1F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,29 +34,53 @@ Global
 		{C9747428-F162-4D59-817A-BE0A5847D88C}.Release|x86.ActiveCfg = Release|x86
 		{C9747428-F162-4D59-817A-BE0A5847D88C}.Release|x86.Build.0 = Release|x86
 		{C99C9FA9-1274-49D4-9D3F-B401E7F02FAD}.Debug|x64.ActiveCfg = Debug|x64
+		{C99C9FA9-1274-49D4-9D3F-B401E7F02FAD}.Debug|x64.Build.0 = Debug|x64
 		{C99C9FA9-1274-49D4-9D3F-B401E7F02FAD}.Debug|x86.ActiveCfg = Debug|x86
+		{C99C9FA9-1274-49D4-9D3F-B401E7F02FAD}.Debug|x86.Build.0 = Debug|x86
 		{C99C9FA9-1274-49D4-9D3F-B401E7F02FAD}.Release|x64.ActiveCfg = Release|x64
+		{C99C9FA9-1274-49D4-9D3F-B401E7F02FAD}.Release|x64.Build.0 = Release|x64
 		{C99C9FA9-1274-49D4-9D3F-B401E7F02FAD}.Release|x86.ActiveCfg = Release|x86
+		{C99C9FA9-1274-49D4-9D3F-B401E7F02FAD}.Release|x86.Build.0 = Release|x86
 		{7BD14DBE-718B-40BF-86CC-C996F110DF22}.Debug|x64.ActiveCfg = Debug|x64
+		{7BD14DBE-718B-40BF-86CC-C996F110DF22}.Debug|x64.Build.0 = Debug|x64
 		{7BD14DBE-718B-40BF-86CC-C996F110DF22}.Debug|x86.ActiveCfg = Debug|x86
+		{7BD14DBE-718B-40BF-86CC-C996F110DF22}.Debug|x86.Build.0 = Debug|x86
 		{7BD14DBE-718B-40BF-86CC-C996F110DF22}.Release|x64.ActiveCfg = Release|x64
+		{7BD14DBE-718B-40BF-86CC-C996F110DF22}.Release|x64.Build.0 = Release|x64
 		{7BD14DBE-718B-40BF-86CC-C996F110DF22}.Release|x86.ActiveCfg = Release|x86
+		{7BD14DBE-718B-40BF-86CC-C996F110DF22}.Release|x86.Build.0 = Release|x86
 		{A17BCD52-C8CE-45A6-8A71-A00E73EB5AAA}.Debug|x64.ActiveCfg = Debug|x64
+		{A17BCD52-C8CE-45A6-8A71-A00E73EB5AAA}.Debug|x64.Build.0 = Debug|x64
 		{A17BCD52-C8CE-45A6-8A71-A00E73EB5AAA}.Debug|x86.ActiveCfg = Debug|x86
+		{A17BCD52-C8CE-45A6-8A71-A00E73EB5AAA}.Debug|x86.Build.0 = Debug|x86
 		{A17BCD52-C8CE-45A6-8A71-A00E73EB5AAA}.Release|x64.ActiveCfg = Release|x64
+		{A17BCD52-C8CE-45A6-8A71-A00E73EB5AAA}.Release|x64.Build.0 = Release|x64
 		{A17BCD52-C8CE-45A6-8A71-A00E73EB5AAA}.Release|x86.ActiveCfg = Release|x86
-		{DF37B51F-18D1-4824-A813-DD9F0F93A281}.Debug|x64.ActiveCfg = Debug|x64
-		{DF37B51F-18D1-4824-A813-DD9F0F93A281}.Debug|x86.ActiveCfg = Debug|x86
-		{DF37B51F-18D1-4824-A813-DD9F0F93A281}.Release|x64.ActiveCfg = Release|x64
-		{DF37B51F-18D1-4824-A813-DD9F0F93A281}.Release|x86.ActiveCfg = Release|x86
+		{A17BCD52-C8CE-45A6-8A71-A00E73EB5AAA}.Release|x86.Build.0 = Release|x86
 		{54321393-8A64-4114-8A32-7EA3BE810ED3}.Debug|x64.ActiveCfg = Debug|x64
+		{54321393-8A64-4114-8A32-7EA3BE810ED3}.Debug|x64.Build.0 = Debug|x64
 		{54321393-8A64-4114-8A32-7EA3BE810ED3}.Debug|x86.ActiveCfg = Debug|x86
+		{54321393-8A64-4114-8A32-7EA3BE810ED3}.Debug|x86.Build.0 = Debug|x86
 		{54321393-8A64-4114-8A32-7EA3BE810ED3}.Release|x64.ActiveCfg = Release|x64
+		{54321393-8A64-4114-8A32-7EA3BE810ED3}.Release|x64.Build.0 = Release|x64
 		{54321393-8A64-4114-8A32-7EA3BE810ED3}.Release|x86.ActiveCfg = Release|x86
+		{54321393-8A64-4114-8A32-7EA3BE810ED3}.Release|x86.Build.0 = Release|x86
+		{DF37B51F-18D1-4824-A813-DD9F0F93A281}.Debug|x64.ActiveCfg = Debug|x64
+		{DF37B51F-18D1-4824-A813-DD9F0F93A281}.Debug|x64.Build.0 = Debug|x64
+		{DF37B51F-18D1-4824-A813-DD9F0F93A281}.Debug|x86.ActiveCfg = Debug|x86
+		{DF37B51F-18D1-4824-A813-DD9F0F93A281}.Debug|x86.Build.0 = Debug|x86
+		{DF37B51F-18D1-4824-A813-DD9F0F93A281}.Release|x64.ActiveCfg = Release|x64
+		{DF37B51F-18D1-4824-A813-DD9F0F93A281}.Release|x64.Build.0 = Release|x64
+		{DF37B51F-18D1-4824-A813-DD9F0F93A281}.Release|x86.ActiveCfg = Release|x86
+		{DF37B51F-18D1-4824-A813-DD9F0F93A281}.Release|x86.Build.0 = Release|x86
 		{C6D04F0B-DD48-456C-8065-7052CABBE1F5}.Debug|x64.ActiveCfg = Debug|x64
+		{C6D04F0B-DD48-456C-8065-7052CABBE1F5}.Debug|x64.Build.0 = Debug|x64
 		{C6D04F0B-DD48-456C-8065-7052CABBE1F5}.Debug|x86.ActiveCfg = Debug|x86
+		{C6D04F0B-DD48-456C-8065-7052CABBE1F5}.Debug|x86.Build.0 = Debug|x86
 		{C6D04F0B-DD48-456C-8065-7052CABBE1F5}.Release|x64.ActiveCfg = Release|x64
+		{C6D04F0B-DD48-456C-8065-7052CABBE1F5}.Release|x64.Build.0 = Release|x64
 		{C6D04F0B-DD48-456C-8065-7052CABBE1F5}.Release|x86.ActiveCfg = Release|x86
+		{C6D04F0B-DD48-456C-8065-7052CABBE1F5}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
