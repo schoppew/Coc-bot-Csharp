@@ -178,7 +178,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Attack Townhall (outside).
+        ///   Looks up a localized string similar to Attack Town Hall (outside).
         /// </summary>
         public static string AttackTownhall {
             get {
@@ -700,7 +700,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Max. Townhall level:.
+        ///   Looks up a localized string similar to Max. Town Hall:.
         /// </summary>
         public static string LabelMaximumTownhallLevel {
             get {
@@ -866,7 +866,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locate Barracks.
+        ///   Looks up a localized string similar to Barracks.
         /// </summary>
         public static string LocateBarracksManually {
             get {
@@ -875,7 +875,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locate Clan Castle.
+        ///   Looks up a localized string similar to Clan Castle.
         /// </summary>
         public static string LocateClanCastleManually {
             get {
@@ -884,7 +884,16 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locate Dark Barracks.
+        ///   Looks up a localized string similar to Elixir Collectors.
+        /// </summary>
+        public static string LocateCollectorsManually {
+            get {
+                return ResourceManager.GetString("LocateCollectorsManually", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dark Barracks.
         /// </summary>
         public static string LocateDarkBarracksManually {
             get {
@@ -893,11 +902,20 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locate Extractors.
+        ///   Looks up a localized string similar to Dark Elixir Drills.
         /// </summary>
-        public static string LocateExtractorsManually {
+        public static string LocateDrillsManually {
             get {
-                return ResourceManager.GetString("LocateExtractorsManually", resourceCulture);
+                return ResourceManager.GetString("LocateDrillsManually", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gold Mines.
+        /// </summary>
+        public static string LocateMinesManually {
+            get {
+                return ResourceManager.GetString("LocateMinesManually", resourceCulture);
             }
         }
         
@@ -911,7 +929,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locate Town Hall.
+        ///   Looks up a localized string similar to Town Hall.
         /// </summary>
         public static string LocateTownHallManually {
             get {
@@ -992,7 +1010,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Meet Townhall Level.
+        ///   Looks up a localized string similar to Meet Town Hall Level.
         /// </summary>
         public static string MeetTownhallLevel {
             get {

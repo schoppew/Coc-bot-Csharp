@@ -21,7 +21,7 @@
 
 			if (positions[0].IsEmpty || positions[0].Point.X == 0 || positions[0].Point.Y == 0)
 			{
-				Main.Bot.LocateExtractors();
+				Main.Bot.LocateCollectors();
 			}
 
 			// FF, do not change this to just checking if collectorPos[0].isEmpty. It needs to check if the x or y values are 0 as well to work.

@@ -148,7 +148,7 @@
     <value>Attack Queen</value>
   </data>
   <data name="AttackTownhall" xml:space="preserve">
-    <value>Attack Townhall (outside)</value>
+    <value>Attack Town Hall (outside)</value>
   </data>
   <data name="AttackUsingClanCastle" xml:space="preserve">
     <value>Attack using Clan Castle troops if available</value>
@@ -265,13 +265,13 @@
     <value>Request for:</value>
   </data>
   <data name="LocateBarracksManually" xml:space="preserve">
-    <value>Locate Barracks</value>
+    <value>Barracks</value>
   </data>
   <data name="LocateClanCastleManually" xml:space="preserve">
-    <value>Locate Clan Castle</value>
+    <value>Clan Castle</value>
   </data>
-  <data name="LocateExtractorsManually" xml:space="preserve">
-    <value>Locate Extractors</value>
+  <data name="LocateCollectorsManually" xml:space="preserve">
+    <value>Elixir Collectors</value>
   </data>
   <data name="MeetDarkElixir" xml:space="preserve">
     <value>Meet Dark Elixir</value>
@@ -376,13 +376,13 @@
     <value>Hog Rider</value>
   </data>
   <data name="LabelMaximumTownhallLevel" xml:space="preserve">
-    <value>Max. Townhall level:</value>
+    <value>Max. Town Hall:</value>
   </data>
   <data name="LavaHound" xml:space="preserve">
     <value>Lava Hound</value>
   </data>
   <data name="MeetTownhallLevel" xml:space="preserve">
-    <value>Meet Townhall Level</value>
+    <value>Meet Town Hall Level</value>
   </data>
   <data name="Pekka" xml:space="preserve">
     <value>P.E.K.K.A</value>
@@ -470,7 +470,7 @@
     <value>Lava Hounds</value>
   </data>
   <data name="LocateDarkBarracksManually" xml:space="preserve">
-    <value>Locate Dark Barracks</value>
+    <value>Dark Barracks</value>
   </data>
   <data name="Minions" xml:space="preserve">
     <value>Minions</value>
@@ -607,12 +607,18 @@ You can double click on the icon to show the window.</value>
     <value>Select your preferred troop training style from the combobox.</value>
   </data>
   <data name="LocateTownHallManually" xml:space="preserve">
-    <value>Locate Town Hall</value>
+    <value>Town Hall</value>
   </data>
   <data name="Locations" xml:space="preserve">
     <value>Locations</value>
   </data>
   <data name="ManualLocateControls" xml:space="preserve">
     <value>Manual Locate Controls</value>
+  </data>
+  <data name="LocateDrillsManually" xml:space="preserve">
+    <value>Dark Elixir Drills</value>
+  </data>
+  <data name="LocateMinesManually" xml:space="preserve">
+    <value>Gold Mines</value>
   </data>
 </root>

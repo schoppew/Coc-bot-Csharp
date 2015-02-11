@@ -213,7 +213,7 @@
                                         <Label Content="{x:Static p:Resources.LabelMinimumElixir}" Height="25" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelMinimumDarkElixir}" Height="25" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="113" />
                                         <Label Content="{x:Static p:Resources.LabelMinimumTrophyCount}" Height="25" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="113" />
-                                        <Label Content="{x:Static p:Resources.LabelMaximumTownhallLevel}" Height="25" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="115" />
+                                        <Label Content="{x:Static p:Resources.LabelMaximumTownhallLevel}" Height="25" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="113" />
                                         <TextBox Text="{Binding MinimumGold, UpdateSourceTrigger=PropertyChanged}" b:TextBoxBehaviour.SelectAllTextOnFocus="True" TextAlignment="Right" HorizontalAlignment="Right" Height="23" Margin="0,12,10,0" VerticalAlignment="Top" Width="60">
                                             <i:Interaction.Behaviors>
                                                 <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="6" EmptyValue="0" />
@@ -299,7 +299,7 @@
                                     <Grid>
                                         <ComboBox ItemsSource="{Binding DeployStrategies, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedDeployStrategy}" DisplayMemberPath="Name" Height="23" Width="388" VerticalAlignment="Top" Margin="16,10,16,0" />
                                         <ComboBox ItemsSource="{Binding DeployTroops, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedDeployTroop}" DisplayMemberPath="Name" Height="23" Width="210" VerticalAlignment="Bottom" Margin="16,0,164,10" HorizontalAlignment="Left" />
-                                        <CheckBox Content="{x:Static p:Resources.AttackTownhall}" IsChecked="{Binding IsAttackTownhall}" HorizontalAlignment="Right" Margin="0,0,16,13" VerticalAlignment="Bottom" Width="155" IsEnabled="False" />
+                                        <CheckBox Content="{x:Static p:Resources.AttackTownhall}" IsChecked="{Binding IsAttackTownhall}" HorizontalAlignment="Right" Margin="0,0,16,13" VerticalAlignment="Bottom" Width="162" IsEnabled="False" />
                                     </Grid>
                                 </GroupBox>
                             </Grid>
@@ -591,11 +591,13 @@
                             <Grid Background="{DynamicResource BackgroundBrush}">
                                 <GroupBox Header="{x:Static p:Resources.ManualLocateControls}" Margin="16,16,16,0" VerticalAlignment="Top" Height="129" Width="432">
                                     <Grid>
-                                        <Button Content="{x:Static p:Resources.LocateExtractorsManually}" Command="{Binding LocateExtractorsCommand}" Height="23" Margin="16,10,0,0" VerticalAlignment="Top" Visibility="Visible" HorizontalAlignment="Left" Width="185" />
-                                        <Button Content="{x:Static p:Resources.LocateTownHallManually}" Command="{Binding LocateTownhallCommand}" Height="23" Margin="16,10,0,42" VerticalAlignment="Bottom" Visibility="Visible" HorizontalAlignment="Left" Width="185" />
-                                        <Button Content="{x:Static p:Resources.LocateBarracksManually}" Command="{Binding LocateBarracksCommand}" Height="23" Margin="0,10,16,0" VerticalAlignment="Top" Visibility="Visible" HorizontalAlignment="Right" Width="185" />
-                                        <Button Content="{x:Static p:Resources.LocateDarkBarracksManually}" Command="{Binding LocateDarkBarracksCommand}" Height="23" Margin="0,0,16,42" VerticalAlignment="Bottom" Visibility="Visible" HorizontalAlignment="Right" Width="185" />
-                                        <Button Content="{x:Static p:Resources.LocateClanCastleManually}" Command="{Binding LocateClanCastleCommand}" Height="23" Margin="0,0,16,10" VerticalAlignment="Bottom" Visibility="Visible" HorizontalAlignment="Right" Width="185" />
+                                        <Button Content="{x:Static p:Resources.LocateCollectorsManually}" Command="{Binding LocateCollectorsCommand}" Height="23" Margin="16,10,0,0" VerticalAlignment="Top" Visibility="Visible" HorizontalAlignment="Left" Width="110" />
+                                        <Button Content="{x:Static p:Resources.LocateMinesManually}" Command="{Binding LocateMinesCommand}" Height="23" Margin="0,10,0,0" VerticalAlignment="Top" Visibility="Visible" HorizontalAlignment="Center" Width="110" />
+                                        <Button Content="{x:Static p:Resources.LocateDrillsManually}" Command="{Binding LocateDrillsCommand}" Height="23" Margin="0,10,16,0" VerticalAlignment="Top" Visibility="Visible" HorizontalAlignment="Right" Width="110" />
+                                        <Button Content="{x:Static p:Resources.LocateClanCastleManually}" Command="{Binding LocateClanCastleCommand}" Height="23" Margin="0,0,294,42" VerticalAlignment="Bottom" Visibility="Visible" HorizontalAlignment="Right" Width="110" />
+                                        <Button Content="{x:Static p:Resources.LocateBarracksManually}" Command="{Binding LocateBarracksCommand}" Height="23" Margin="0,42,0,0" VerticalAlignment="Top" Visibility="Visible" HorizontalAlignment="Center" Width="110" />
+                                        <Button Content="{x:Static p:Resources.LocateDarkBarracksManually}" Command="{Binding LocateDarkBarracksCommand}" Height="23" Margin="0,0,16,42" VerticalAlignment="Bottom" Visibility="Visible" HorizontalAlignment="Right" Width="110" />
+                                        <Button Content="{x:Static p:Resources.LocateTownHallManually}" Command="{Binding LocateTownHallCommand}" Height="23" Margin="16,0,0,10" VerticalAlignment="Bottom" Visibility="Visible" HorizontalAlignment="Left" Width="110" />
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.Locations}" Margin="16,150,16,16">
@@ -608,7 +610,7 @@
                                             </ListView.ItemContainerStyle>
                                             <ListView.View>
                                                 <GridView>
-                                                    <GridViewColumn Header="Building" DisplayMemberBinding="{Binding Building, Converter={StaticResource EnumToDescriptionConverter}}" Width="145" />
+                                                    <GridViewColumn Header="Building" DisplayMemberBinding="{Binding Building, Converter={StaticResource EnumToDescriptionConverter}}" Width="100" />
                                                     <GridViewColumn Header="Coords" Width="65">
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
@@ -616,17 +618,24 @@
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
                                                     </GridViewColumn>
-                                                    <GridViewColumn Header="Locate" Width="75">
+                                                    <GridViewColumn Width="65">
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
-                                                                <Button Content="Locate" />
+                                                                <Button Content="Locate" Command="{Binding LocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" />
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
                                                     </GridViewColumn>
-                                                    <GridViewColumn Header="Relocate" Width="75">
+                                                    <GridViewColumn Width="75">
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
-                                                                <Button Content="Relocate" />
+                                                                <Button Content="Relocate" Command="{Binding RelocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" />
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
+                                                    <GridViewColumn Width="55">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <Button Content="Clear" Command="{Binding ClearLocationSingleBuildingCommand, Source={StaticResource MainViewModel}}" />
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
                                                     </GridViewColumn>

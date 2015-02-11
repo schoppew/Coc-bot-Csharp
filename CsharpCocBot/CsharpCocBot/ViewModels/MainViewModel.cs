@@ -1489,25 +1489,47 @@
 
 		#region Locate Settings Commands
 
-		private DelegateCommand _locateExtractorsCommand;
-		public ICommand LocateExtractorsCommand
+		private DelegateCommand _locateCollectorsCommand;
+		public ICommand LocateCollectorsCommand
 		{
 			get
 			{
-				if (_locateExtractorsCommand == null)
-					_locateExtractorsCommand = new DelegateCommand(() => LocateExtractors(), LocateExtractorsCanExecute);
-				return _locateExtractorsCommand;
+				if (_locateCollectorsCommand == null)
+					_locateCollectorsCommand = new DelegateCommand(() => LocateCollectors(), LocateCollectorsCanExecute);
+				return _locateCollectorsCommand;
 			}
 		}
 
-		private DelegateCommand _locateTownhallCommand;
-		public ICommand LocateTownhallCommand
+		private DelegateCommand _locateMinesCommand;
+		public ICommand LocateMinesCommand
 		{
 			get
 			{
-				if (_locateTownhallCommand == null)
-					_locateTownhallCommand = new DelegateCommand(() => LocateTownhall(), LocateTownhallCanExecute);
-				return _locateTownhallCommand;
+				if (_locateMinesCommand == null)
+					_locateMinesCommand = new DelegateCommand(() => LocateMines(), LocateMinesCanExecute);
+				return _locateMinesCommand;
+			}
+		}
+
+		private DelegateCommand _locateDrillsCommand;
+		public ICommand LocateDrillsCommand
+		{
+			get
+			{
+				if (_locateDrillsCommand == null)
+					_locateDrillsCommand = new DelegateCommand(() => LocateDrills(), LocateDrillsCanExecute);
+				return _locateDrillsCommand;
+			}
+		}
+
+		private DelegateCommand _locateClanCastleCommand;
+		public ICommand LocateClanCastleCommand
+		{
+			get
+			{
+				if (_locateClanCastleCommand == null)
+					_locateClanCastleCommand = new DelegateCommand(() => LocateClanCastle(), LocateClanCastleCanExecute);
+				return _locateClanCastleCommand;
 			}
 		}
 
@@ -1533,15 +1555,30 @@
 			}
 		}
 
-		private DelegateCommand _locateClanCastleCommand;
-		public ICommand LocateClanCastleCommand
+		private DelegateCommand _locateTownHallCommand;
+		public ICommand LocateTownHallCommand
 		{
 			get
 			{
-				if (_locateClanCastleCommand == null)
-					_locateClanCastleCommand = new DelegateCommand(() => LocateClanCastle(), LocateClanCastleCanExecute);
-				return _locateClanCastleCommand;
+				if (_locateTownHallCommand == null)
+					_locateTownHallCommand = new DelegateCommand(() => LocateTownHall(), LocateTownHallCanExecute);
+				return _locateTownHallCommand;
 			}
+		}
+
+		public ICommand LocateSingleBuildingCommand
+		{
+			get { return new RelayCommand(() => LocateSingleBuilding()); }
+		}
+
+		public ICommand RelocateSingleBuildingCommand
+		{
+			get { return new RelayCommand(() => RelocateSingleBuilding()); }
+		}
+
+		public ICommand ClearLocationSingleBuildingCommand
+		{
+			get { return new RelayCommand(() => ClearLocationSingleBuilding()); }
 		}
 
 		#endregion
@@ -1560,19 +1597,37 @@
 		}
 
 		/// <summary>
-        /// Determines whether the LocateExtractorsCommand command can be executed.
+        /// Determines whether the LocateCollectorsCommand command can be executed.
         /// </summary>
         /// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
-        private bool LocateExtractorsCanExecute()
+        private bool LocateCollectorsCanExecute()
         {
             return !StartStopState; // only executes if bot is not running
         }
 
 		/// <summary>
-		/// Determines whether the LocateTownhallCommand command can be executed.
+		/// Determines whether the LocateMinesCommand command can be executed.
 		/// </summary>
 		/// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
-		private bool LocateTownhallCanExecute()
+		private bool LocateMinesCanExecute()
+		{
+			return !StartStopState; // only executes if bot is not running
+		}
+
+		/// <summary>
+		/// Determines whether the LocateDrillsCommand command can be executed.
+		/// </summary>
+		/// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
+		private bool LocateDrillsCanExecute()
+		{
+			return !StartStopState; // only executes if bot is not running
+		}
+
+		/// <summary>
+		/// Determines whether the LocateClanCastleCommand command can be executed.
+		/// </summary>
+		/// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
+		private bool LocateClanCastleCanExecute()
 		{
 			return !StartStopState; // only executes if bot is not running
 		}
@@ -1596,10 +1651,10 @@
         }
 
 		/// <summary>
-		/// Determines whether the LocateClanCastleCommand command can be executed.
+		/// Determines whether the LocateTownhallCommand command can be executed.
 		/// </summary>
 		/// <returns><c>true</c> if can execute, <c>false</c> otherwise</returns>
-		private bool LocateClanCastleCanExecute()
+		private bool LocateTownHallCanExecute()
 		{
 			return !StartStopState; // only executes if bot is not running
 		}
@@ -1890,6 +1945,8 @@
 			BlueStacksHelper.RestoreBlueStacks();
 		}
 
+		#region Search Settings Methods
+
 		/// <summary>
 		/// Starts the Search Mode.
 		/// </summary>
@@ -1900,6 +1957,10 @@
 			Notify("Search Mode...");
 			System.Diagnostics.Debug.WriteLine("Search Mode...");
 		}
+
+		#endregion
+
+		#region Wave Settings Methods
 
 		/// <summary>
 		/// Adds the Troop for Custom Wave.
@@ -1919,10 +1980,14 @@
 				WaveTroops.Remove(SelectedWaveTroop);
 		}
 
-        /// <summary>
-        /// Manually locates the Collectors, Gold Mines and Dark Elixir Extractors.
+		#endregion
+
+		#region Locate Settings Methods
+
+		/// <summary>
+        /// Manually locates the Elixir Collectors.
         /// </summary>
-        public void LocateExtractors()
+        public void LocateCollectors()
         {
 			var msgBox = GetService<IMessageBoxService>();
 			if (msgBox != null)
@@ -1955,11 +2020,33 @@
         }
 
 		/// <summary>
-		/// Manually locates the Townhall.
+		/// Manually locates the Gold Mines.
 		/// </summary>
-		private void LocateTownhall()
+		public void LocateMines()
 		{
+			// Code for showing that it works
+			Notify("Locating Gold Mines...");
+			System.Diagnostics.Debug.WriteLine("Locate Gold Mines...");
+		}
 
+		/// <summary>
+		/// Manually locates the Dark Elixir Drills.
+		/// </summary>
+		public void LocateDrills()
+		{
+			// Code for showing that it works
+			Notify("Locating Dark Elixir Drills...");
+			System.Diagnostics.Debug.WriteLine("Locate Dark Elixir Drills...");
+		}
+
+		/// <summary>
+		/// Manually locates the Clan Castle.
+		/// </summary>
+		public void LocateClanCastle()
+		{
+			// Code for showing that it works
+			Notify("Locating Clan Castle...");
+			System.Diagnostics.Debug.WriteLine("Locate Clan Castle...");
 		}
 
         /// <summary>
@@ -1983,16 +2070,51 @@
         }
 
 		/// <summary>
-		/// Manually locates the Clan Castle.
+		/// Manually locates the Townhall.
 		/// </summary>
-		public void LocateClanCastle()
+		private void LocateTownHall()
 		{
 			// Code for showing that it works
-			Notify("Locating Clan Castle...");
-			System.Diagnostics.Debug.WriteLine("Locate Clan Castle...");
+			Notify("Locating Town Hall...");
+			System.Diagnostics.Debug.WriteLine("Locate Town Hall...");
 		}
 
-        #endregion
+		/// <summary>
+		/// Manually locates a single building.
+		/// </summary>
+		/// <returns>System.Object.</returns>
+		private void LocateSingleBuilding()
+		{
+			// Code for showing that it works
+			Notify("Locate Building...");
+			System.Diagnostics.Debug.WriteLine("Locate Building...");
+		}
+
+		/// <summary>
+		/// Manually relocates a single building.
+		/// </summary>
+		/// <returns>System.Object.</returns>
+		private void RelocateSingleBuilding()
+		{
+			// Code for showing that it works
+			Notify("Relocate Building...");
+			System.Diagnostics.Debug.WriteLine("Relocate Building...");
+		}
+
+		/// <summary>
+		/// Manually clears a location of a single building.
+		/// </summary>
+		/// <returns>System.Object.</returns>
+		private void ClearLocationSingleBuilding()
+		{
+			// Code for showing that it works
+			Notify("Clear Location...");
+			System.Diagnostics.Debug.WriteLine("Clear Location...");
+		}
+
+		#endregion
+
+		#endregion
 
 		#region App Specific
 
