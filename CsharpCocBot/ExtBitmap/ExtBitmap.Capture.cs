@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using ExtBitmap;
@@ -98,7 +100,10 @@ namespace ExtBitmap
 			if (backgroundMode)
 			{
 				if (result)
+				{
 					result = Win32.Win32.PrintWindow(hWnd, hMemDC, 0);
+					if (!result) Win32.Win32.ThrowWin32ErrorIfNeeded("Win32.PrintWindow");
+				}
 				if (result)
 					Win32.Win32.SelectObject(hMemDC, hBitmap);
 			}

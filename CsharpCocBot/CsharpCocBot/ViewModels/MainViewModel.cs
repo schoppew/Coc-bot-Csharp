@@ -23,7 +23,7 @@
     /// <summary>
     /// Provides functionality for the MainWindow
     /// </summary>
-    public class MainViewModel : ViewModelBase
+    public partial class MainViewModel : ViewModelBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MainViewModel"/> class.
@@ -2648,5 +2648,7 @@
         }
 
         #endregion
-    }
+		
+
+	}
 }

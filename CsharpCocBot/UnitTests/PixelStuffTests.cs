@@ -93,10 +93,10 @@ namespace UnitTests
 
 			using (Chrono chrono = new Chrono("ExtBitmap Count with Shade Variation (Full BS screen x50)"))
 				for (int i = 0; i < 50; i++)
-					c1 = ebNoBkgrd.CountPixels(eb1Native, 30);
+					c1 = ebNoBkgrd.CountPixels(eb1Native, 1);
 			using (Chrono chrono = new Chrono("FastFind Count with Shade Variation (Full BS screen x50)"))
 				for (int i = 0; i < 50; i++)
-					c2 = FastFindWrapper.ColorCount(eb1Native, 0, 30);
+					c2 = FastFindWrapper.ColorCount(eb1Native, 0, 1);
 			Assert.IsTrue(c1 == c2, "ebBkgrd and eb1fast count for a given color (SV=30)");			
 
 			Assert.AreEqual(ff, eb1Native, "eb1Native color count in ebNoBkgrd");
@@ -104,6 +104,7 @@ namespace UnitTests
 			Assert.AreEqual(eb2Native, eb1fast, "ebNoBkgrd.NativeGetPixel vs ebBkgrd.GetPixel");
 			Assert.AreEqual(eb1fast, eb2fast, "ebBkgrd.GetPixel vs ebNoBkgrd.GetPixel");
 		}
+
 
 	}
 }

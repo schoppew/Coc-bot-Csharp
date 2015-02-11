@@ -9,7 +9,7 @@
     /// <summary>
     /// The Data Collection.
     /// </summary>
-    internal static class DataCollection
+    internal static partial class DataCollection
     {
         /// <summary>
         /// The Troop Compositions

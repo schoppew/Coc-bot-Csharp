@@ -11,7 +11,7 @@ namespace ExtBitmap
         public int FindFirstNonTransparentPixelPosition()
         {
             for (int i=0; i<size; i++)
-                if ((data[i] & 0xFF000000) == 0xFF000000)
+                if ((Data[i] & 0xFF000000) == 0xFF000000)
                     return i;
             return -1;
         }
@@ -19,16 +19,24 @@ namespace ExtBitmap
         public int FindNextBitmapPos(ExtBitmap searchedImage, int fromPos, int left, int top, int right, int bottom, int shadeVariation)
         {
 
-            Point pFrom=GetPointFromPos(fromPos);
-            //int pos = PosFromPoint(xFrom, yFrom);
-            int xMax = right - searchedImage.Width + 1;
-            int yMax = bottom - searchedImage.Width + 1;
-            int lastLinePos = PosFromPoint(xMax, pFrom.Y);
-            while (fromPos < lastLinePos)
-            {
-                if (
-                fromPos += bytesPerPixel;
-            }
+			int TODO;
+			Point pFrom = GetPointFromPos(fromPos);
+			//int pos = PosFromPoint(xFrom, yFrom);
+			int xMax = right - searchedImage.Width + 1;
+			int yMax = bottom - searchedImage.Width + 1;
+			int lastLinePos = PosFromPoint(xMax, pFrom.Y);
+			int firstPixel = FindFirstNonTransparentPixelPosition();
+			Point firstPixelPt = GetPointFromPos(lastLinePos);
+			int firstPixelColor = GetPixel(firstPixelPt.X, firstPixelPt.Y);
+			xMax -= firstPixelPt.X;
+			yMax -= firstPixelPt.Y;
+
+			while (fromPos < lastLinePos)
+			{
+				//if (searchedImage. searchedImage.data
+				fromPos += bytesPerPixel;
+			}
+			return -1;
         }
     }
 }

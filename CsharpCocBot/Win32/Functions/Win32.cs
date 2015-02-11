@@ -5,7 +5,7 @@ using Point = Win32.POINT;
 
 namespace Win32
 {
-    public class Win32
+    static public partial class Win32
     {
         public const int ULW_ALPHA = 2;
 
