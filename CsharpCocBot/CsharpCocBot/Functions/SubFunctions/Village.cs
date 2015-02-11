@@ -75,6 +75,11 @@
             }
         }
 
+        public static void UpgradeWalls()
+        {
+            //TODO: Create UI Elements/Properties for Upgrading Walls. TAGS: Ph!d
+        }
+
         public int GetTownHallLevel()
         {
             return -1;
@@ -103,6 +108,19 @@
         public void LocateClanCastle()
         {
 
+        }
+
+        public static void ReArmTraps()
+        {
+            //TODO: Get Location of Trap - TAGS: Ph!d
+            //ClickablePoint trap = new ClickablePoint(Main.Bot.LocationAllTrapsRearm);
+
+            Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 50);
+            Thread.Sleep(300);
+
+            //Tools.CoCHelper.Click(trap);
+
+            //ClickablePoint reArmBtn = Tools.CoCHelper.SearchPixelInRect()
         }
 
         public static void Idle()

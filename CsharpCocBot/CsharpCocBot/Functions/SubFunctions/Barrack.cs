@@ -239,5 +239,10 @@ namespace CoC.Bot.Functions
 			Main.Bot.WriteToOutput("Training Troops Complete...");
 		}
 
+        public static void Boost()
+        {
+            //TODO: Create UI Elements/Properties for Boosting Barracks. TAGS: Ph!d
+        }
+
 	}
 }

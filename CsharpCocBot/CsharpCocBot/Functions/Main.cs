@@ -73,18 +73,23 @@
 			// Run Everything related to the bot in the background
 			var thread = new Thread(() =>
 			{
-				while (Bot.IsExecuting)
-				{
+                while (Bot.IsExecuting)
+                {
                     FastFind.FastFindWrapper.SetHWnd(Tools.BlueStacksHelper.GetBlueStacksWindowHandle(), true);
 
-                    Thread.Sleep(1000);
                     MainScreen.CheckMainScreen();
                     Thread.Sleep(1000);
 
                     MainScreen.ZoomOut();
                     Thread.Sleep(1000);
 
+                    Village.ReArmTraps();
+                    Thread.Sleep(1000);
+
                     Barrack.TrainTroops();
+                    Thread.Sleep(1000);
+
+                    Barrack.Boost();
                     Thread.Sleep(1000);
 
                     RequestAndDonate.RequestTroops();
@@ -96,11 +101,14 @@
                     Village.CollectResources();
                     Thread.Sleep(1000);
 
+                    Village.UpgradeWalls();
+                    Thread.Sleep(1000);
+
                     Village.Idle();
                     Thread.Sleep(1000);
 
-					//Attack.AttackMain();
-				};
+                    //Attack.AttackMain();
+                };
 			})
 			{
 				IsBackground = true

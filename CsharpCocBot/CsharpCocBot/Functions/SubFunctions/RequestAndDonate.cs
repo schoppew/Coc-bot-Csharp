@@ -190,7 +190,6 @@ namespace CoC.Bot.Functions
                 {
                     if (!p1.IsEmpty && !(p1.Point.X == -1 || p1.Point.Y == -1))
                     {
-                        left = p1.Point.X;
                         top = p1.Point.Y;
                     }
 
