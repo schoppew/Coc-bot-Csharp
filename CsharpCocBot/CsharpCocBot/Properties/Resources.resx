@@ -301,7 +301,7 @@
     <value>Other Search Settings</value>
   </data>
   <data name="OtherSettings" xml:space="preserve">
-    <value>Other Settings</value>
+    <value>Other</value>
   </data>
   <data name="DarkBarracks" xml:space="preserve">
     <value>Dark Barracks</value>
@@ -638,5 +638,26 @@ You can double click on the icon to show the window.</value>
   </data>
   <data name="Analyse" xml:space="preserve">
     <value>Analyse current window</value>
+  </data>
+  <data name="LocateSingleMessage" xml:space="preserve">
+    <value>Click on 'Select' to verify the location, click on 'Relocate' to update the location.</value>
+  </data>
+  <data name="AdvancedSettings" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="DebugSettings" xml:space="preserve">
+    <value>Debug Settings</value>
+  </data>
+  <data name="RearmInfernos" xml:space="preserve">
+    <value>Rearm Infernos</value>
+  </data>
+  <data name="RearmSettings" xml:space="preserve">
+    <value>Rearm Settings</value>
+  </data>
+  <data name="RearmTraps" xml:space="preserve">
+    <value>Rearm Traps</value>
+  </data>
+  <data name="RearmXbows" xml:space="preserve">
+    <value>Rearm Xbows</value>
   </data>
 </root>

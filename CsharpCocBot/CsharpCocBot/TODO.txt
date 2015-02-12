@@ -64,19 +64,18 @@ ToDo's In Progress
 =============================
 
 	» [C] Provides an higher level helper for FastFind integration
-	» [U/C] Remove extra row created at the bottom of the ListView
-		- In DataGrid is CanUserAddRows="False"
-		- In experimental project the extra row is not shown... Code is the same... Weird magics happening?
-			- Seems like a bug in ScrollViewer
 	» [U/C] Implement Wave Settings Tab
 		- Remove # column (short list, not a big use of it)
 		- Create a custom collection which is a copy of the AllAttackTroops but with modificable Quantity (so we can subtract when adding the troop to the wave)
 		- Remove the Troop from the ComboBox when all troops (Quantity) have been added, add back if removed from ListView
 		- When changing the values of AllAttackTroops, the Wave (ListView and ComboBox) should reflect the changes
 		- Make the Buttons disabled (if ComboBox and ListView have no selected item)
+		- Add King and Queen to ComboBox
 	» [U/C] Implement Location Settings Tab
 		- Convert the text button property to 'Stop Locating' or 'Done Locating' when a Location is being performed and apply the action
 			- Ex.: 'Clan Castle' -> 'Done Locating'
+		- Disable other locate buttons when locating a certain building type
+			- Implement Busy?
 		- Pass the Building enum as parameter to the Command for the single buildings
 		- Can't use 'Select' string resource in XAML, possible bug in XAML Designer?
 
@@ -85,6 +84,10 @@ ToDo's Completed
 =============================
 
 	[6.0.0.0]
+	» [#] Remove extra row created at the bottom of the ListViews
+		- In DataGrid is CanUserAddRows="False"
+		- In experimental project the extra row is not shown... Code is the same... Weird magics happening?
+			- Seems like a bug in ScrollViewer
 	» [^] Reflect the changes immediately after Troop Quantity Changes
 	» [#] Write to Output no possible if in background thread
 	» [+] Implement RichTextBox for colored Output

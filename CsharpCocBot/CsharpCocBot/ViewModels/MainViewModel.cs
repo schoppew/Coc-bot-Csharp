@@ -2441,6 +2441,11 @@
             // Donate Settings
             IsRequestTroops = AppSettings.IsRequestTroops;
             RequestTroopsMessage = AppSettings.RequestTroopsMessage;
+
+			// Other Settings
+			IsRearmTraps = AppSettings.IsRearmTraps;
+			IsRearmXbows = AppSettings.IsRearmXbows;
+			IsRearmInfernos = AppSettings.IsRearmInfernos;
         }
 
         /// <summary>
@@ -2643,12 +2648,15 @@
 			AppSettings.LocationDrill2 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Drill2).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
 			AppSettings.LocationDrill3 = DataCollection.BuildingPoints.Where(b => b.Building == Building.Drill3).DefaultIfEmpty(defaultPoint).First().Coordinates.ToPoint();
 
+			// Other Settings
+			AppSettings.IsRearmTraps = IsRearmTraps;
+			AppSettings.IsRearmXbows = IsRearmXbows;
+			AppSettings.IsRearmInfernos = IsRearmInfernos;
+
             // Save it!
             AppSettings.Save();
         }
 
         #endregion
-		
-
 	}
 }

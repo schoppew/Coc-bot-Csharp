@@ -315,10 +315,15 @@
                                                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                                                 </Style>
                                             </ListView.ItemContainerStyle>
+                                            <ListView.Resources>
+                                                <Style TargetType="{x:Type GridViewColumnHeader}" BasedOn="{StaticResource {x:Type GridViewColumnHeader}}">
+                                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                </Style>
+                                            </ListView.Resources>
                                             <ListView.View>
                                                 <GridView AllowsColumnReorder="False">
                                                     <GridView.Columns>
-                                                        <GridViewColumn Header="{x:Static p:Resources.Troops}" Width="90" DisplayMemberBinding="{Binding Name}" />
+                                                        <GridViewColumn Header="{x:Static p:Resources.Troop}" Width="90" DisplayMemberBinding="{Binding Name}" />
                                                         <GridViewColumn Header="{x:Static p:Resources.Quantity}" Width="45">
                                                             <GridViewColumn.CellTemplate>
                                                                 <DataTemplate>
@@ -506,6 +511,11 @@
                                                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                                                 </Style>
                                             </ListView.ItemContainerStyle>
+                                            <ListView.Resources>
+                                                <Style TargetType="{x:Type GridViewColumnHeader}" BasedOn="{StaticResource {x:Type GridViewColumnHeader}}">
+                                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                </Style>
+                                            </ListView.Resources>
                                             <ListView.View>
                                                 <GridView AllowsColumnReorder="False">
                                                     <GridViewColumn Header="#" Width="20" DisplayMemberBinding="{Binding Number}" />
@@ -640,6 +650,19 @@
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>
+                                        <TextBlock Text="{x:Static p:Resources.LocateSingleMessage}" Height="20" HorizontalAlignment="Center" Margin="16,0,16,8" VerticalAlignment="Bottom" Width="388" TextWrapping="Wrap" TextTrimming="None" TextAlignment="Center" FontSize="11" />
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </TabItem>
+                        <!-- Other Tab -->
+                        <TabItem Header="{x:Static p:Resources.OtherSettings}">
+                            <Grid Background="{DynamicResource BackgroundBrush}">
+                                <GroupBox Header="{x:Static p:Resources.RearmSettings}" Margin="16,16,16,326">
+                                    <Grid>
+                                        <CheckBox Content="{x:Static p:Resources.RearmTraps}" IsChecked="{Binding IsRearmTraps}" HorizontalAlignment="Left" Margin="30,12,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.RearmXbows}" IsChecked="{Binding IsRearmXbows}" HorizontalAlignment="Left" Margin="153,12,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="{x:Static p:Resources.RearmInfernos}" IsChecked="{Binding IsRearmInfernos}" HorizontalAlignment="Right" Margin="0,12,30,0" VerticalAlignment="Top"/>
                                     </Grid>
                                 </GroupBox>
                             </Grid>
@@ -651,20 +674,24 @@
                         <!-- Debug Tab -->
                         <TabItem Header="{x:Static p:Resources.Debug}" Visibility="{Binding IsDebug, Converter={StaticResource BooleanToVisibilityConverter}}" >
                             <Grid Background="{DynamicResource BackgroundBrush}">
-                                <Button Content="{x:Static p:Resources.Start}" Command="{Binding LauchCurrentScreenAnalysisCommand}" Height="23" Width="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,7,16,0" />
-                                <ListView ItemsSource="{Binding DebugData, UpdateSourceTrigger=PropertyChanged}" SelectionMode="Single" Margin="16,100,16,16">
-                                    <ListView.ItemContainerStyle>
-                                        <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
-                                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                                        </Style>
-                                    </ListView.ItemContainerStyle>
-                                    <ListView.View>
-                                        <GridView>
-                                            <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="100" />
-                                            <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Counter}" Width="100" />
-                                        </GridView>
-                                    </ListView.View>
-                                </ListView>
+                                <GroupBox Header="{x:Static p:Resources.DebugSettings}" Margin="16,16,16,16">
+                                    <Grid>
+                                        <Button Content="{x:Static p:Resources.Start}" Command="{Binding LauchCurrentScreenAnalysisCommand}" Height="23" Width="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,7,16,0" />
+                                        <ListView ItemsSource="{Binding DebugData, UpdateSourceTrigger=PropertyChanged}" SelectionMode="Single" Margin="16,100,16,16">
+                                            <ListView.ItemContainerStyle>
+                                                <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
+                                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                                </Style>
+                                            </ListView.ItemContainerStyle>
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="320" />
+                                                    <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Counter}" Width="50" />
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                    </Grid>
+                                </GroupBox>
                             </Grid>
                         </TabItem>
                     </TabControl>

@@ -1822,5 +1822,41 @@ namespace CoC.Bot.Properties {
                 this["LocationTownHall"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsRearmTraps {
+            get {
+                return ((bool)(this["IsRearmTraps"]));
+            }
+            set {
+                this["IsRearmTraps"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsRearmXbows {
+            get {
+                return ((bool)(this["IsRearmXbows"]));
+            }
+            set {
+                this["IsRearmXbows"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsRearmInfernos {
+            get {
+                return ((bool)(this["IsRearmInfernos"]));
+            }
+            set {
+                this["IsRearmInfernos"] = value;
+            }
+        }
     }
 }
