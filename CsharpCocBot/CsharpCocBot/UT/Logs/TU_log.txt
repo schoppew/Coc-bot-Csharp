@@ -729,3 +729,28 @@ FastFind Count with no Shade Variation (Full BS screen x50) (//) completed in 00
 ExtBitmap2 Count with no Shade Variation (Full BS screen x50) (//) completed in 00:00:00.2211047
 ExtBitmap2 Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.6748704
 ExtBitmap Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.9634654
+
+====================== 12/02/2015 19:54:21 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.9853444
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0843494
+		Size 1920x1080
+Full screen capture with FastFind succeeded in 00:00:00.0702330
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0163148
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0110264
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0083364
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0274259
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0143098
+		Size 860x720
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0393726
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.4716788
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.2765400
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.1499169
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:01.9747951
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) completed in 00:00:03.9941124
+ExtBitmap Count with no Shade Variation (Full BS screen x50) (//) completed in 00:00:00.2753159
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) (//) completed in 00:00:00.2151666
+ExtBitmap Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.7938695
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.6800891

@@ -461,5 +461,8 @@
     <Setting Name="IsRearmInfernos" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="AnalysisDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">F:\Jeux\AllTowns\AllTowns</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

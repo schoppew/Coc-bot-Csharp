@@ -1858,5 +1858,17 @@ namespace CoC.Bot.Properties {
                 this["IsRearmInfernos"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("F:\\Jeux\\AllTowns\\AllTowns")]
+        public string AnalysisDirectory {
+            get {
+                return ((string)(this["AnalysisDirectory"]));
+            }
+            set {
+                this["AnalysisDirectory"] = value;
+            }
+        }
     }
 }

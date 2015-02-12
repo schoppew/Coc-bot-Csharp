@@ -18,7 +18,7 @@ namespace ExtBitmap
 		#region Window handle provider
 		public delegate IntPtr HandleProvider();
 		static HandleProvider CustomProvider = null;
-
+		
 		/// <summary>
 		/// Use this method to provide a the proper Window Handle to bind with the right window.
 		/// If you don't set this, then FastFind will work on FullScreen. 
@@ -42,12 +42,14 @@ namespace ExtBitmap
 		// Full client area variant of BackgroundSnapShot
 		public bool SnapShot(bool backgroundMode = true)
 		{
+			FileName = "FS Capture";
 			IntPtr hWnd = GetHWnd();
 			return SnapShot(GetBSArea(hWnd), backgroundMode);
 		}
 
 		public bool SnapShot(Rectangle rect, bool backgroundMode = true)
 		{
+			if (string.IsNullOrEmpty(FileName)) FileName = "Rect Capture";
 			IntPtr hWnd = GetHWnd();
 			CaptureClientArea = rect;
 			ClientToWindow(hWnd, ref rect);

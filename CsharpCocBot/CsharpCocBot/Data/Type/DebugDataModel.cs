@@ -23,8 +23,8 @@ namespace CoC.Bot.Data.Type
 			}
 		}
 
-		private int _count;
-		public int Count
+		private decimal _count;
+		public decimal Count
 		{
 			get { return _count; }
 			set

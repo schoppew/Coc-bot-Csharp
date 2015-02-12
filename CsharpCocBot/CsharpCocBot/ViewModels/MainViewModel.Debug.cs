@@ -20,6 +20,9 @@
     using UI.Commands;
 	using UI.Services;
 	using CoC.Bot.Data.Type;
+	using CoC.Bot.Data.ColorList.Tools;
+	using CoC.Bot.Data.ColorList;
+	using System.IO;
 
     /// <summary>
     /// Provides functionality for the MainWindow
@@ -47,6 +50,13 @@
 		/// </summary>
 		private void LauchCurrentScreenAnalysis()
 		{
+			ExtBitmap.ExtBitmap bitmap = new ExtBitmap.ExtBitmap();
+			
+			bitmap.SnapShot(false);
+			if (!string.IsNullOrEmpty(AppSettings.AnalysisDirectory) && Directory.Exists(AppSettings.AnalysisDirectory))
+				AllColorLists.MakeStatsFromDirectory("STATS.csv", AppSettings.AnalysisDirectory);
+			else
+				AllColorLists.MakeStats("STATS.cvs", bitmap);
 			// Just do it !
 		}
 
