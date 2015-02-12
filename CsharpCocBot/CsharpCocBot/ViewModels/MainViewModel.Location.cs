@@ -118,7 +118,7 @@
 
 		public ICommand LocateSingleBuildingCommand
 		{
-			get { return new RelayCommand<Building>(b => LocateSingleBuilding(b)); }
+			get { return new RelayCommand<Building>(b => LocateSingleBuilding(b), b => LocationSingleBuildingCanExecute(b)); }
 		}
 
 		public ICommand RelocateSingleBuildingCommand
@@ -128,7 +128,7 @@
 
 		public ICommand ClearLocationSingleBuildingCommand
 		{
-			get { return new RelayCommand<Building>(b => ClearLocationSingleBuilding(b)); }
+			get { return new RelayCommand<Building>(b => ClearLocationSingleBuilding(b), b => LocationSingleBuildingCanExecute(b)); }
 		}
 
 		public ICommand StopLocatingCommand
@@ -201,6 +201,21 @@
 		private bool LocateTownHallCanExecute()
 		{
 			return !StartStopState; // only executes if bot is not running
+		}
+
+		/// <summary>
+		/// Determines whether the LocateSingleBuildingCommand and/or the ClearLocationSingleBuildingCommand command can be executed.
+		/// </summary>
+		/// <param name="building">The building.</param>
+		/// <returns><c>true</c> if can execute, <c>false</c> otherwise.</returns>
+		private bool LocationSingleBuildingCanExecute(Building building)
+		{
+			var bPoint = DataCollection.BuildingPoints.Where(b => b.Building == building).FirstOrDefault();
+
+			if (bPoint == null)
+				return false;
+
+			return bPoint.Coordinates.IsEmpty;
 		}
 
 		#endregion

@@ -337,6 +337,7 @@ namespace Win32
 		public static extern bool ReleaseCapture();
 
 		public delegate int HookProc(int nCode, IntPtr wParam, IntPtr lParam);
+
 		[DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
 		public static extern int SetWindowsHookEx(int idHook, HookProc lpfn, IntPtr hInstance, int threadId);
 

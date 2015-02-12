@@ -38,7 +38,7 @@ namespace CoC.Bot.Tools
 		}
 
 		// This is the app that is run when you start BlueStacks from Desktop
-		public static string GetBluestackLauchExePath
+		public static string GetBluestackLaunchExePath
 		{
 			get
 			{
