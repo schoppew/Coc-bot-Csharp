@@ -117,6 +117,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModels\MainViewModel.Attack.cs" />
+    <Compile Include="ViewModels\MainViewModel.Donate.cs" />
+    <Compile Include="ViewModels\MainViewModel.Location.cs" />
     <Compile Include="ViewModels\MainViewModel.Other.cs" />
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -240,6 +243,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModels\MainViewModel.Debug.cs" />
+    <Compile Include="ViewModels\MainViewModel.Search.cs" />
+    <Compile Include="ViewModels\MainViewModel.Troop.cs" />
+    <Compile Include="ViewModels\MainViewModel.Wave.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>

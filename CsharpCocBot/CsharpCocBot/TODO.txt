@@ -30,6 +30,7 @@ Deployment Considerations
 ToDo's
 =============================
 
+	» [C] Make code cleaner and easy to maintain: Create ViewModels, Views for each Tab
 	» [@] [C] Fix Sending Keystrokes to BlueStacks. 
 		- When I try to send text to BlueStacks for requesting troops, it just doesn't send the text.
 	» [@] [C] Display Estimated Troop Training Time
