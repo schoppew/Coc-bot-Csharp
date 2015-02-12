@@ -66,6 +66,8 @@ ToDo's In Progress
 	» [C] Provides an higher level helper for FastFind integration
 	» [U/C] Remove extra row created at the bottom of the ListView
 		- In DataGrid is CanUserAddRows="False"
+		- In experimental project the extra row is not shown... Code is the same... Weird magics happening?
+			- Seems like a bug in ScrollViewer
 	» [U/C] Implement Wave Settings Tab
 		- Remove # column (short list, not a big use of it)
 		- Create a custom collection which is a copy of the AllAttackTroops but with modificable Quantity (so we can subtract when adding the troop to the wave)

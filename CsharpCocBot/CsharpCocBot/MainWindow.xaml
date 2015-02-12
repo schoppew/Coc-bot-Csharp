@@ -309,7 +309,7 @@
                             <Grid Background="{DynamicResource BackgroundBrush}">
                                 <GroupBox Header="{x:Static p:Resources.Troops}" HorizontalAlignment="Left" Margin="16,16,0,16" Width="210">
                                     <Grid>
-                                        <ListView ItemsSource="{Binding AllAttackTroops, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsCustomTroopsEnabled}" SelectionMode="Single" Margin="16,10,16,68">
+                                        <ListView ItemsSource="{Binding AllAttackTroops, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsCustomTroopsEnabled}" SelectionMode="Single" Margin="16,10,16,88">
                                             <ListView.ItemContainerStyle>
                                                 <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
                                                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -317,42 +317,44 @@
                                             </ListView.ItemContainerStyle>
                                             <ListView.View>
                                                 <GridView AllowsColumnReorder="False">
-                                                    <GridViewColumn Header="{x:Static p:Resources.Troops}" Width="90" DisplayMemberBinding="{Binding Name}" />
-                                                    <GridViewColumn Header="{x:Static p:Resources.Quantity}" Width="45">
-                                                        <GridViewColumn.CellTemplate>
-                                                            <DataTemplate>
-                                                                <TextBox x:Name="TroopTrainQtyText" Text="{Binding TrainQuantity, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center">
-                                                                    <TextBox.Style>
-                                                                        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
-                                                                            <Setter Property="Background" Value="Transparent"/>
-                                                                            <Setter Property="BorderBrush" Value="Transparent"/>
-                                                                            <Style.Triggers>
-                                                                                <Trigger Property="IsFocused" Value="True">
-                                                                                    <Setter Property="IsReadOnly" Value="False" />
-                                                                                </Trigger>
-                                                                                <Trigger Property="IsFocused" Value="False">
-                                                                                    <Setter Property="IsReadOnly" Value="True" />
-                                                                                </Trigger>
-                                                                            </Style.Triggers>
-                                                                        </Style>
-                                                                    </TextBox.Style>
-                                                                    <i:Interaction.Behaviors>
-                                                                        <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="3" EmptyValue="0" />
-                                                                    </i:Interaction.Behaviors>
-                                                                    <i:Interaction.Triggers>
-                                                                        <i:EventTrigger EventName="TextChanged">
-                                                                            <cmd:EventToCommand Command="{Binding TrainQuantityTextChangedCommand, Source={StaticResource MainViewModel}}" CommandParameter="{Binding Text, ElementName=TroopTrainQtyText}" />
-                                                                        </i:EventTrigger>
-                                                                    </i:Interaction.Triggers>
-                                                                </TextBox>
-                                                            </DataTemplate>
-                                                        </GridViewColumn.CellTemplate>
-                                                    </GridViewColumn>
+                                                    <GridView.Columns>
+                                                        <GridViewColumn Header="{x:Static p:Resources.Troops}" Width="90" DisplayMemberBinding="{Binding Name}" />
+                                                        <GridViewColumn Header="{x:Static p:Resources.Quantity}" Width="45">
+                                                            <GridViewColumn.CellTemplate>
+                                                                <DataTemplate>
+                                                                    <TextBox x:Name="TroopTrainQtyText" Text="{Binding TrainQuantity, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center">
+                                                                        <TextBox.Style>
+                                                                            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+                                                                                <Setter Property="Background" Value="Transparent"/>
+                                                                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                                                                <Style.Triggers>
+                                                                                    <Trigger Property="IsFocused" Value="True">
+                                                                                        <Setter Property="IsReadOnly" Value="False" />
+                                                                                    </Trigger>
+                                                                                    <Trigger Property="IsFocused" Value="False">
+                                                                                        <Setter Property="IsReadOnly" Value="True" />
+                                                                                    </Trigger>
+                                                                                </Style.Triggers>
+                                                                            </Style>
+                                                                        </TextBox.Style>
+                                                                        <i:Interaction.Behaviors>
+                                                                            <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="3" EmptyValue="0" />
+                                                                        </i:Interaction.Behaviors>
+                                                                        <i:Interaction.Triggers>
+                                                                            <i:EventTrigger EventName="TextChanged">
+                                                                                <cmd:EventToCommand Command="{Binding TrainQuantityTextChangedCommand, Source={StaticResource MainViewModel}}" CommandParameter="{Binding Text, ElementName=TroopTrainQtyText}" />
+                                                                            </i:EventTrigger>
+                                                                        </i:Interaction.Triggers>
+                                                                    </TextBox>
+                                                                </DataTemplate>
+                                                            </GridViewColumn.CellTemplate>
+                                                        </GridViewColumn>
+                                                    </GridView.Columns>
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>
-                                        <Label Content="{x:Static p:Resources.LabelTroopCapacity}" Height="25" HorizontalAlignment="Left" Margin="16,0,0,41" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="100" IsEnabled="{Binding IsCustomTroopsEnabled}" />
-                                        <Label Content="{Binding TroopCapacity, UpdateSourceTrigger=PropertyChanged}" Height="25" HorizontalAlignment="Right" Margin="0,0,47,41" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="35" IsEnabled="{Binding IsCustomTroopsEnabled}" />
+                                        <Label Content="{x:Static p:Resources.LabelTroopCapacity}" Height="25" HorizontalAlignment="Left" Margin="16,0,0,60" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="100" IsEnabled="{Binding IsCustomTroopsEnabled}" />
+                                        <Label Content="{Binding TroopCapacity, UpdateSourceTrigger=PropertyChanged}" Height="25" HorizontalAlignment="Right" Margin="0,0,47,60" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="35" IsEnabled="{Binding IsCustomTroopsEnabled}" />
                                         <TextBlock Text="{x:Static p:Resources.TroopsMessage}" Height="30" Margin="8,0,8,8" VerticalAlignment="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
@@ -603,15 +605,20 @@
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.Locations}" Margin="16,150,16,16">
                                     <Grid>
-                                        <ListView ItemsSource="{Binding BuildingPoints, UpdateSourceTrigger=PropertyChanged}" SelectionMode="Single" Margin="16,10,16,16">
+                                        <ListView ItemsSource="{Binding BuildingPoints, UpdateSourceTrigger=PropertyChanged}" SelectionMode="Single" Margin="16,10,16,37">
                                             <ListView.ItemContainerStyle>
                                                 <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
                                                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                                                 </Style>
                                             </ListView.ItemContainerStyle>
+                                            <ListView.Resources>
+                                                <Style TargetType="{x:Type GridViewColumnHeader}" BasedOn="{StaticResource {x:Type GridViewColumnHeader}}">
+                                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                </Style>
+                                            </ListView.Resources>
                                             <ListView.View>
                                                 <GridView AllowsColumnReorder="False">
-                                                    <GridViewColumn Header="{x:Static p:Resources.Building}" DisplayMemberBinding="{Binding Building, Converter={StaticResource EnumToDescriptionConverter}}" Width="100" />
+                                                    <GridViewColumn Header="{x:Static p:Resources.Building}" DisplayMemberBinding="{Binding Building, Converter={StaticResource EnumToDescriptionConverter}}" Width="105" />
                                                     <GridViewColumn Header="{x:Static p:Resources.Coordinates}" Width="65">
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
@@ -619,24 +626,14 @@
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
                                                     </GridViewColumn>
-                                                    <GridViewColumn Width="65">
+                                                    <GridViewColumn Header="{x:Static p:Resources.Controls}" Width="187">
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
-                                                                <Button Content="Select" Command="{Binding LocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" />
-                                                            </DataTemplate>
-                                                        </GridViewColumn.CellTemplate>
-                                                    </GridViewColumn>
-                                                    <GridViewColumn Width="75">
-                                                        <GridViewColumn.CellTemplate>
-                                                            <DataTemplate>
-                                                                <Button Content="{x:Static p:Resources.Relocate}" Command="{Binding RelocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" />
-                                                            </DataTemplate>
-                                                        </GridViewColumn.CellTemplate>
-                                                    </GridViewColumn>
-                                                    <GridViewColumn Width="55">
-                                                        <GridViewColumn.CellTemplate>
-                                                            <DataTemplate>
-                                                                <Button Content="{x:Static p:Resources.Clear}" Command="{Binding ClearLocationSingleBuildingCommand, Source={StaticResource MainViewModel}}" />
+                                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                                    <Button Content="Select" Command="{Binding LocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" Width="50" />
+                                                                    <Button Content="{x:Static p:Resources.Relocate}" Command="{Binding RelocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" Width="60" Margin="10,0,0,0" />
+                                                                    <Button Content="{x:Static p:Resources.Clear}" Command="{Binding ClearLocationSingleBuildingCommand, Source={StaticResource MainViewModel}}" Width="40" Margin="10,0,0,0" />
+                                                                </StackPanel>
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
                                                     </GridViewColumn>
@@ -664,12 +661,12 @@
                                     <ListView.View>
                                         <GridView>
                                             <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="100" />
-                                            <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Counter}" Width="100" />                                            
+                                            <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Counter}" Width="100" />
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
                             </Grid>
-                </TabItem>
+                        </TabItem>
                     </TabControl>
                     <Border BorderBrush="{x:Null}" Margin="9,0,89,15" Height="23" VerticalAlignment="Bottom" Grid.Row="1" Width="380">
                         <TextBlock Text="{Binding Message, NotifyOnTargetUpdated=True}" Style="{StaticResource TextBlockMessage}">
