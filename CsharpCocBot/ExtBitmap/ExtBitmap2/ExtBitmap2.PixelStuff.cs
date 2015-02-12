@@ -38,8 +38,17 @@ namespace ExtBitmap
 		{
 			if (shadeVariation <= 0) return (PixelColor & 0x00FFFFFF) == (ColorToFind & 0x00FFFFFF);
 			return BytesAreCloseEnough((byte)(PixelColor >> 16), (byte)(ColorToFind >> 16), shadeVariation) &&
-				   BytesAreCloseEnough((byte)(PixelColor >>  8), (byte)(ColorToFind >>  8), shadeVariation) &&
-				   BytesAreCloseEnough((byte)(PixelColor      ), (byte)(ColorToFind      ), shadeVariation);
+					 BytesAreCloseEnough((byte)(PixelColor >> 8), (byte)(ColorToFind >> 8), shadeVariation) &&
+					 BytesAreCloseEnough((byte)(PixelColor), (byte)(ColorToFind), shadeVariation);
+			//int dif = (PixelColor ^ ColorToFind) & 0x00FFFFFF;			
+			//if (shadeVariation <= 0) return dif == 0;
+			//if ((dif & 0x00FF) > shadeVariation) return false;
+			//if (((dif>>8) & 0x00FF) > shadeVariation) return false;
+			//if (((dif>>16) & 0x00FF) > shadeVariation) return false;
+			//return true;
+			//return BytesAreCloseEnough((byte)(PixelColor >> 16), (byte)(ColorToFind >> 16), shadeVariation) &&
+			//		 BytesAreCloseEnough((byte)(PixelColor >>  8), (byte)(ColorToFind >>  8), shadeVariation) &&
+			//		 BytesAreCloseEnough((byte)(PixelColor      ), (byte)(ColorToFind      ), shadeVariation);
 		}
 
 		private int FindFirstPixel(int color, int fromPos, int shadeVariation)
@@ -123,7 +132,7 @@ namespace ExtBitmap
 			return new Win32.POINT(x, y);
 		}
 
-		private int CountPixels(int color, int shadeVariation)
+		public int CountPixels(int color, int shadeVariation)
 		{
 			int lastPos = size - bytesPerPixel;
 			int pos = 0;

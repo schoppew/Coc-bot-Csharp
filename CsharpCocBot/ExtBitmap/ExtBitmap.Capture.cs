@@ -133,6 +133,8 @@ namespace ExtBitmap
 			IntPtr hWnd = GetHWnd();
 			
 			FreeCurrentImage();
+			if (rect.IsEmpty)
+				rect = GetBSArea(hWnd);
 			Point topleft = new Point(rect.Left, rect.Top);
 			Point bottomright = new Point(rect.Right, rect.Bottom);
 			if (!Win32.Win32.ClientToScreen(hWnd, ref topleft)) return false;
