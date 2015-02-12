@@ -624,8 +624,8 @@ You can double click on the icon to show the window.</value>
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
   </data>
-  <data name="Relocate" xml:space="preserve">
-    <value>Relocate</value>
+  <data name="Locate" xml:space="preserve">
+    <value>Locate</value>
   </data>
   <data name="Building" xml:space="preserve">
     <value>Building</value>
@@ -640,7 +640,7 @@ You can double click on the icon to show the window.</value>
     <value>Analyse current window</value>
   </data>
   <data name="LocateSingleMessage" xml:space="preserve">
-    <value>Click on 'Select' to verify the location, click on 'Relocate' to update the location.</value>
+    <value>Click on 'Select' to verify the location, click on 'Locate' to update the location.</value>
   </data>
   <data name="AdvancedSettings" xml:space="preserve">
     <value>Advanced</value>

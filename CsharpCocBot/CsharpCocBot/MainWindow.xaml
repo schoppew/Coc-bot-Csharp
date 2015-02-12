@@ -640,7 +640,7 @@
                                                             <DataTemplate>
                                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                                                     <Button Content="Select" Command="{Binding LocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" CommandParameter="{Binding Building}" Width="50" />
-                                                                    <Button Content="{x:Static p:Resources.Relocate}" Command="{Binding RelocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" CommandParameter="{Binding Building}" Width="60" Margin="10,0,0,0" />
+                                                                    <Button Content="{x:Static p:Resources.Locate}" Command="{Binding RelocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" CommandParameter="{Binding Building}" Width="60" Margin="10,0,0,0" />
                                                                     <Button Content="{x:Static p:Resources.Clear}" Command="{Binding ClearLocationSingleBuildingCommand, Source={StaticResource MainViewModel}}" CommandParameter="{Binding Building}" Width="40" Margin="10,0,0,0" />
                                                                 </StackPanel>
                                                             </DataTemplate>

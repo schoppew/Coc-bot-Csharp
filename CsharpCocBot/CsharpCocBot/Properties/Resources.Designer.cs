@@ -929,6 +929,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Locate.
+        /// </summary>
+        public static string Locate {
+            get {
+                return ResourceManager.GetString("Locate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Barracks.
         /// </summary>
         public static string LocateBarracksManually {
@@ -1001,7 +1010,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Click on &apos;Select&apos; to verify the location, click on &apos;Relocate&apos; to update the location..
+        ///   Looks up a localized string similar to Click on &apos;Select&apos; to verify the location, click on &apos;Locate&apos; to update the location..
         /// </summary>
         public static string LocateSingleMessage {
             get {
@@ -1377,15 +1386,6 @@ namespace CoC.Bot.Properties {
         public static string RearmXbows {
             get {
                 return ResourceManager.GetString("RearmXbows", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Relocate.
-        /// </summary>
-        public static string Relocate {
-            get {
-                return ResourceManager.GetString("Relocate", resourceCulture);
             }
         }
         

@@ -20,7 +20,6 @@
 	using UI.Commands;
 	using UI.Services;
 	using CoC.Bot.Data.Type;
-	using System.Windows.Media.Effects;
 
 	/// <summary>
 	/// Provides functionality for the MainWindow
