@@ -279,3 +279,453 @@ BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0355371
 		Size 860x720
 BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0127029
 		Size 860x720
+
+====================== 12/02/2015 16:59:04 =======================
+LaunchBlueStacksAndWait failed in 00:00:21.1401638
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.4428865
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0813687
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0276162
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0131762
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0161457
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0452194
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0277028
+		Size 860x720
+
+====================== 12/02/2015 17:02:53 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:06.5075920
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.3075404
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0919087
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0363942
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0109436
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0069492
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0521308
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0152463
+		Size 860x720
+
+====================== 12/02/2015 17:06:17 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:06.3076970
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.1509398
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0773249
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0408731
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0102020
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0071809
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0320129
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0167230
+		Size 860x720
+
+====================== 12/02/2015 17:29:03 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:05.0907239
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.2406001
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0921391
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0175110
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0081362
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0096602
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0346415
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0138170
+		Size 860x720
+
+====================== 12/02/2015 17:32:36 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:04.1154402
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0858716
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.1235206
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0246190
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0105045
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0066271
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0225139
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0126903
+		Size 860x720
+
+====================== 12/02/2015 17:33:33 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.8010295
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0922910
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0654858
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0370687
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0082898
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0065717
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0185601
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0111693
+		Size 860x720
+
+====================== 12/02/2015 17:33:50 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:04.7055837
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.1283584
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0587549
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0241109
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0068750
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0060610
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0281568
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0129083
+		Size 860x720
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.0474504
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0309667
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.3588661
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) completed in 00:00:03.5390746
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:01.4884955
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.1017959
+
+====================== 12/02/2015 18:03:55 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:04.3394641
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.1856867
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0680551
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0251143
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0085995
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0072031
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0225259
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0130619
+		Size 860x720
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.1682644
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0310960
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:02.8445564
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) completed in 00:00:09.0335189
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:02.0037984
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.1266697
+
+====================== 12/02/2015 18:05:49 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:04.4670840
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0915486
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0696870
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0194045
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0122440
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0142117
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0387911
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0134181
+		Size 860x720
+
+====================== 12/02/2015 18:06:05 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.7328672
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.1068957
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0648078
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0165826
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0124769
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0074028
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0205163
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0121518
+		Size 860x720
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.0403821
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0311532
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.3962514
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) completed in 00:00:03.6244176
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:01.0812066
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.0963783
+
+====================== 12/02/2015 18:21:22 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.7202217
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0955758
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0843391
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0249676
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0115942
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0075308
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0220578
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0107110
+		Size 860x720
+
+====================== 12/02/2015 18:23:09 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.6561054
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0787790
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0622232
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0211618
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0103044
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0074228
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0423818
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0113536
+		Size 860x720
+
+====================== 12/02/2015 18:23:24 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.6640783
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0994873
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0660814
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0398850
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0078597
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0062039
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0191340
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0109760
+		Size 860x720
+
+====================== 12/02/2015 18:23:34 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.6179364
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0842008
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0682338
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0122905
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0071169
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0062419
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0119769
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0127952
+		Size 860x720
+
+====================== 12/02/2015 18:34:31 =======================
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0206298
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0078158
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0075201
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0338146
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0123724
+		Size 860x720
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.4427385
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0282669
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.7789733
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) completed in 00:00:03.8474005
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:01.7395435
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.1203245
+
+====================== 12/02/2015 18:38:36 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.6646414
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0971651
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0748111
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0541893
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0073213
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0085155
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0169529
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0109717
+		Size 860x720
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.4194442
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0291210
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.4799424
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) completed in 00:00:03.7641429
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:01.6507420
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.1170457
+ExtBitmap Count with no Shade Variation (Full BS screen x50) (//) completed in 00:00:00.3202704
+FastFind Count with no Shade Variation (Full BS screen x50) (//) completed in 00:00:00.0329775
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) (//) completed in 00:00:00.2533697
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.7317067
+ExtBitmap Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.9924888
+FastFind Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.1155597
+
+====================== 12/02/2015 18:48:01 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.6338970
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0826960
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0691661
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.1114455
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0077138
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0067133
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0185013
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0204387
+		Size 860x720
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.4609266
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0430665
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.8774478
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) completed in 00:00:04.1816714
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:01.6293757
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.1244422
+
+====================== 12/02/2015 19:03:37 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.6668370
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0960541
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0687761
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0254493
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0088739
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0087702
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0146614
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0107294
+		Size 860x720
+
+====================== 12/02/2015 19:03:48 =======================
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0276781
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0165135
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0068788
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0323090
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0121877
+		Size 860x720
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.4774828
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0338778
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.6532422
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) completed in 00:00:03.9700623
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:01.7808864
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.1250356
+
+====================== 12/02/2015 19:04:04 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.6893842
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0956842
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0724214
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0573696
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0084255
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0069659
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0263832
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0104789
+		Size 860x720
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.4019557
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0284418
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.4036495
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) completed in 00:00:03.4772870
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:01.5096817
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.1109950
+
+====================== 12/02/2015 19:07:15 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.6640053
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0892174
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0815919
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0707613
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0081016
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0066762
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0165250
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0155411
+		Size 860x720
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.4264357
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0314919
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.4714192
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) completed in 00:00:03.6803469
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:01.5710256
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.1123325
+
+====================== 12/02/2015 19:08:20 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.4973263
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0797449
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0696469
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0156128
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0075850
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0272416
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0264084
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0148811
+		Size 860x720
+
+====================== 12/02/2015 19:08:45 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.7097176
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0898514
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0723835
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0714790
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0085257
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0060985
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0234555
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0120627
+		Size 860x720
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.4109235
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0286146
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.3834288
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) completed in 00:00:03.4558055
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:01.5098515
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.1013198
+
+====================== 12/02/2015 19:09:29 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.7372071
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0948560
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0724244
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0730665
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0086755
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0072040
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0174990
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0121497
+		Size 860x720
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.4066937
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0298480
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.3869355
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) completed in 00:00:03.4532422
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:01.5534028
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.1068445
+
+====================== 12/02/2015 19:10:20 =======================
+LaunchBlueStacksAndWait succeeded in 00:00:03.5689333
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0899576
+		Size 1600x1200
+Full screen capture with FastFind succeeded in 00:00:00.0609944
+BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0699562
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0083470
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 00:00:00.0067479
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0228151
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0113378
+		Size 860x720
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.4146238
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0281534
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.3732732
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) completed in 00:00:03.5205648
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:01.6127769
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.1176460
+ExtBitmap Count with no Shade Variation (Full BS screen x50) (//) completed in 00:00:00.3298619
+FastFind Count with no Shade Variation (Full BS screen x50) (//) completed in 00:00:00.0306450
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) (//) completed in 00:00:00.2211047
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.6748704
+ExtBitmap Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.9634654

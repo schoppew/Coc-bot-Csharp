@@ -13,7 +13,7 @@ namespace CoC.Bot.Data.ColorList.Tools
 			if (item.ColorCount == 0) return 0;
 			int count = 0;
 			foreach (int color in item.Colors)
-				count += bitmap.CountPixels(color, shadeVariation);
+				count += bitmap.CountPixels(color, shadeVariation, true);
 			return (decimal)(count * 100.0)/item.MinPixelCount;			
 		}
 	}

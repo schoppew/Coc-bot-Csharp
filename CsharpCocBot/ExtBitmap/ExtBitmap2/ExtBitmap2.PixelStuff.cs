@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ExtBitmap
@@ -10,9 +13,9 @@ namespace ExtBitmap
 	{
 		private void GetRGBOutOfInt(int color, out byte red, out byte green, out byte blue)
 		{
-			red = (byte)((color >> 16) & 0x00FF);
-			green = (byte)((color >> 8) & 0x00FF);
-			blue = (byte)(color & 0x00FF);
+			red = (byte)(color >> 16);
+			green = (byte)(color >> 8);
+			blue = (byte)color;
 		}
 
 		private int GetIntFromRGB(byte red, byte green, byte blue)
@@ -25,30 +28,11 @@ namespace ExtBitmap
 			return (b1 <= (b2 + maxVariation)) && (b2 <= (b1 + maxVariation));
 		}
 
-		private bool IsInShadeVariation(byte red, byte green, byte blue, byte red2, byte green2, byte blue2, int shadeVariation)
-		{
-			if (shadeVariation == 0)
-				return red == red2 && blue == blue2 && green == green2;
-			return BytesAreCloseEnough(red, red2, shadeVariation) &&
-					BytesAreCloseEnough(blue, blue2, shadeVariation) &&
-					BytesAreCloseEnough(green, green2, shadeVariation);
-		}
-
 		private bool IsInShadeVariation(int PixelColor, int ColorToFind, int shadeVariation)
 		{
-			if (shadeVariation <= 0) return (PixelColor & 0x00FFFFFF) == (ColorToFind & 0x00FFFFFF);
 			return BytesAreCloseEnough((byte)(PixelColor >> 16), (byte)(ColorToFind >> 16), shadeVariation) &&
-					 BytesAreCloseEnough((byte)(PixelColor >> 8), (byte)(ColorToFind >> 8), shadeVariation) &&
-					 BytesAreCloseEnough((byte)(PixelColor), (byte)(ColorToFind), shadeVariation);
-			//int dif = (PixelColor ^ ColorToFind) & 0x00FFFFFF;			
-			//if (shadeVariation <= 0) return dif == 0;
-			//if ((dif & 0x00FF) > shadeVariation) return false;
-			//if (((dif>>8) & 0x00FF) > shadeVariation) return false;
-			//if (((dif>>16) & 0x00FF) > shadeVariation) return false;
-			//return true;
-			//return BytesAreCloseEnough((byte)(PixelColor >> 16), (byte)(ColorToFind >> 16), shadeVariation) &&
-			//		 BytesAreCloseEnough((byte)(PixelColor >>  8), (byte)(ColorToFind >>  8), shadeVariation) &&
-			//		 BytesAreCloseEnough((byte)(PixelColor      ), (byte)(ColorToFind      ), shadeVariation);
+						 BytesAreCloseEnough((byte)(PixelColor >> 8), (byte)(ColorToFind >> 8), shadeVariation) &&
+						 BytesAreCloseEnough((byte)(PixelColor), (byte)(ColorToFind), shadeVariation);			
 		}
 
 		private int FindFirstPixel(int color, int fromPos, int shadeVariation)
@@ -67,6 +51,7 @@ namespace ExtBitmap
 		private int FindFirstPixel(int color, int fromPos)
 		{
 			int lastPos = size - bytesPerPixel;
+			color = color & 0x00FFFFFF;
 			while (fromPos <= lastPos)
 			{
 				if (color == (Data[fromPos] & 0x00FFFFFF)) return fromPos;
@@ -74,7 +59,7 @@ namespace ExtBitmap
 			}
 			return -1;
 		}
-	
+
 
 		private bool CompareColorWithPixelAtPos(int color, int pos, int shadeVariation)
 		{
@@ -132,29 +117,62 @@ namespace ExtBitmap
 			return new Win32.POINT(x, y);
 		}
 
-		public int CountPixels(int color, int shadeVariation)
+		private int CountPixels(int color, int shadeVariation)
 		{
 			int lastPos = size - bytesPerPixel;
 			int pos = 0;
 			int count = 0;
-			//if (shadeVariation == 0)
-			//{
-			//	while (pos <= lastPos)
-			//	{
-			//		if (blue == data[pos] && green == data[pos+1] && red == data[pos+2]) count++;					
-			//		pos += bytesPerPixel;
-			//	}			
-			//	return count;
-			//}
+			color = color & 0x00FFFFFF;
+			if (shadeVariation == 0)
+			{
+				while (pos <= lastPos)
+					if (color == (Data[pos++] & 0x00FFFFFF)) count++;
+				return count;
+			}
 			while (pos <= lastPos)
 			{
-				if (IsInShadeVariation(color, Data[pos], shadeVariation))
+				if (IsInShadeVariation(color, Data[pos++], shadeVariation))
 					count++;
-
-				pos++;
 			}
 			return count;
 		}
 
+		private int ParallelCountPixels(int color, int shadeVariation)
+		{
+			int count = 0;
+
+			Parallel.For<int>(0,
+				 Height,
+				 () => 0,
+				 (j, loop, subtotal) =>
+				 {
+					 int pos1 = j * stride;
+					 int pos2 = pos1 + stride;
+					 //int subCount = 0;
+					 if (shadeVariation == 0)
+					 {
+						 for (int _pos = pos1; _pos < pos2; _pos++)
+							 if (color == (Data[_pos] & 0x00FFFFFF)) subtotal++;
+					 }
+					 else
+						 for (int _pos = pos1; _pos < pos2; _pos++)
+							 if (IsInShadeVariation(color, Data[_pos], shadeVariation))
+								 subtotal++;
+					 return subtotal;
+
+				 },
+				(x) => Interlocked.Add(ref count, x)
+				);
+			return count;
+		}
+
+		public int CountPixels(int color, int shadeVariation, bool parallelProcessing)
+		{
+			byte red, green, blue;
+			GetRGBOutOfInt(color, out red, out green, out blue);
+			if (parallelProcessing)
+				return ParallelCountPixels(color, shadeVariation);
+			return CountPixels(color, shadeVariation);
+		}
 	}
 }

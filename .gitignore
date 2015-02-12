@@ -51,7 +51,7 @@ Temporary Items
 CsharpCocBot/CsharpCocBot/obj/
 CsharpCocBot/CsharpCocBot/bin/
 CsharpCocBot/CsharpCocBot/exe/
-CsharpCocBot/CsharpCocBot/UT/
+CsharpCocBot/CsharpCocBot/UT/*.dll
 CsharpCocBot/Tools/
 CsharpCocBot/ColorOptimizer/obj/
 CsharpCocBot/ColorOptimizer/bin/
@@ -79,3 +79,4 @@ CsharpCocBot/UnitTests/exe/
 *.rar
 *.coverage
 CsharpCocBot - Copie/
+CsharpCocBot/CsharpCocBot/UT/ExtBitmap.dll

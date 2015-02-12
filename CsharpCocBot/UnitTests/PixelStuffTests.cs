@@ -103,36 +103,66 @@ namespace UnitTests
 			Assert.AreEqual(eb2fast2 & 0x00FFFFFF, eb1Native & 0x00FFFFFF, "ExtBitmap2.GetPixel vs ExtGetPixel");
 
 			int c1=0, c2=0, c3 = 0;
-			c1 = ebNoBkgrd.CountPixels(eb1Native, 0);
+
+			c1 = ebNoBkgrd.CountPixels(eb1Native, 0, false);
 			c2 = FastFindWrapper.ColorCount(eb1Native, 0, 0);
-			c3 = ebNoBkgrd2.CountPixels(eb1Native, 0);
+			c3 = ebNoBkgrd2.CountPixels(eb1Native, 0, false);
 			Assert.AreEqual(c1, c2, "ebBkgrd and eb1fast count for a given color");
 			Assert.AreEqual(c1, c3, "ExtBitmap.CountPixels and ExtBitmap2.CountPixels");
-			c1 = ebNoBkgrd.CountPixels(eb1Native, 10);
-			c2 = FastFindWrapper.ColorCount(eb1Native, 0, 10);
-			c3 = ebNoBkgrd2.CountPixels(eb1Native, 10);
+			c1 = ebNoBkgrd.CountPixels(eb1Native, 30, false);
+			c2 = FastFindWrapper.ColorCount(eb1Native, 0, 30);
+			c3 = ebNoBkgrd2.CountPixels(eb1Native, 30, false);
 			Assert.AreEqual(c1, c2, "ebBkgrd and eb1fast count for a given color (SV=30)");
 			Assert.AreEqual(c1, c3, "ExtBitmap.CountPixels and ExtBitmap2.CountPixels (SV=30)");
 
 			using (Chrono chrono = new Chrono("ExtBitmap Count with no Shade Variation (Full BS screen x50)"))
 				for (int i = 0; i < 50; i++)
-					c1 = ebNoBkgrd.CountPixels(eb1Native, 0);
+					c1 = ebNoBkgrd.CountPixels(eb1Native, 0, false);
 			using (Chrono chrono = new Chrono("FastFind Count with no Shade Variation (Full BS screen x50)"))
 				for (int i = 0; i < 50; i++)
 					c2 = FastFindWrapper.ColorCount(eb1Native, 0, 0);
 			using (Chrono chrono = new Chrono("ExtBitmap2 Count with no Shade Variation (Full BS screen x50)"))
 				for (int i = 0; i < 50; i++)
-					c3 = ebNoBkgrd2.CountPixels(eb1Native, 0);
+					c3 = ebNoBkgrd2.CountPixels(eb1Native, 0, false);
 
 			using (Chrono chrono = new Chrono("ExtBitmap2 Count with Shade Variation (Full BS screen x50)"))
 				for (int i = 0; i < 50; i++)
-					c3 = ebNoBkgrd2.CountPixels(eb1Native, 30);
+					c3 = ebNoBkgrd2.CountPixels(eb1Native, 30, false);
 			using (Chrono chrono = new Chrono("ExtBitmap Count with Shade Variation (Full BS screen x50)"))
 				for (int i = 0; i < 50; i++)
-					c1 = ebNoBkgrd.CountPixels(eb1Native, 30);
+					c1 = ebNoBkgrd.CountPixels(eb1Native, 30, false);
 			using (Chrono chrono = new Chrono("FastFind Count with Shade Variation (Full BS screen x50)"))
 				for (int i = 0; i < 50; i++)
 					c2 = FastFindWrapper.ColorCount(eb1Native, 0, 30);
+
+
+			c1 = ebNoBkgrd.CountPixels(eb1Native, 0, true);
+			c2 = FastFindWrapper.ColorCount(eb1Native, 0, 0);
+			Assert.AreEqual(c1, c2, "ebBkgrd and eb1fast count for a given color (//)");
+			c3 = ebNoBkgrd2.CountPixels(eb1Native, 0, true);
+			Assert.AreEqual(c1, c3, "ExtBitmap.CountPixels and ExtBitmap2.CountPixels (//)");
+			c1 = ebNoBkgrd.CountPixels(eb1Native, 30, true);
+			c2 = FastFindWrapper.ColorCount(eb1Native, 0, 30);
+			c3 = ebNoBkgrd2.CountPixels(eb1Native, 30, true);
+			Assert.AreEqual(c1, c2, "ebBkgrd and eb1fast count for a given color (SV=30) (//)");
+			Assert.AreEqual(c1, c3, "ExtBitmap.CountPixels and ExtBitmap2.CountPixels (SV=30) (//)");
+
+			using (Chrono chrono = new Chrono("ExtBitmap Count with no Shade Variation (Full BS screen x50) (//)"))
+				for (int i = 0; i < 50; i++)
+					c1 = ebNoBkgrd.CountPixels(eb1Native, 0, true);
+			using (Chrono chrono = new Chrono("FastFind Count with no Shade Variation (Full BS screen x50) (//)"))
+				for (int i = 0; i < 50; i++)
+					c2 = FastFindWrapper.ColorCount(eb1Native, 0, 0);
+			using (Chrono chrono = new Chrono("ExtBitmap2 Count with no Shade Variation (Full BS screen x50) (//)"))
+				for (int i = 0; i < 50; i++)
+					c3 = ebNoBkgrd2.CountPixels(eb1Native, 0, true);
+
+			using (Chrono chrono = new Chrono("ExtBitmap2 Count with Shade Variation (Full BS screen x50) (//)"))
+				for (int i = 0; i < 50; i++)
+					c3 = ebNoBkgrd2.CountPixels(eb1Native, 30, true);
+			using (Chrono chrono = new Chrono("ExtBitmap Count with Shade Variation (Full BS screen x50) (//)"))
+				for (int i = 0; i < 50; i++)
+					c1 = ebNoBkgrd.CountPixels(eb1Native, 30, true);			
 		}
 
 
