@@ -20,6 +20,7 @@
 	using UI.Commands;
 	using UI.Services;
 	using CoC.Bot.Data.Type;
+	using System.Windows.Media.Effects;
 
 	/// <summary>
 	/// Provides functionality for the MainWindow
@@ -130,6 +131,11 @@
 			get { return new RelayCommand(() => ClearLocationSingleBuilding()); }
 		}
 
+		public ICommand StopLocatingCommand
+		{
+			get { return new RelayCommand(() => StopLocating()); }
+		}
+
 		#endregion
 
 		#region Can Execute Methods
@@ -206,6 +212,8 @@
 		/// </summary>
 		public void LocateCollectors()
 		{
+			IsBusy = true;
+
 			var msgBox = GetService<IMessageBoxService>();
 			if (msgBox != null)
 			{
@@ -241,6 +249,8 @@
 		/// </summary>
 		public void LocateMines()
 		{
+			IsBusy = true;
+
 			// Code for showing that it works
 			Notify("Locating Gold Mines...");
 			System.Diagnostics.Debug.WriteLine("Locate Gold Mines...");
@@ -251,6 +261,8 @@
 		/// </summary>
 		public void LocateDrills()
 		{
+			IsBusy = true;
+
 			// Code for showing that it works
 			Notify("Locating Dark Elixir Drills...");
 			System.Diagnostics.Debug.WriteLine("Locate Dark Elixir Drills...");
@@ -261,6 +273,8 @@
 		/// </summary>
 		public void LocateClanCastle()
 		{
+			IsBusy = true;
+
 			// Code for showing that it works
 			Notify("Locating Clan Castle...");
 			System.Diagnostics.Debug.WriteLine("Locate Clan Castle...");
@@ -271,6 +285,8 @@
 		/// </summary>
 		public void LocateBarracks()
 		{
+			IsBusy = true;
+
 			// Code for showing that it works
 			Notify("Locating Barracks...");
 			System.Diagnostics.Debug.WriteLine("Locate Barracks...");
@@ -281,6 +297,8 @@
 		/// </summary>
 		public void LocateDarkBarracks()
 		{
+			IsBusy = true;
+
 			// Code for showing that it works
 			Notify("Locating Dark Barracks...");
 			System.Diagnostics.Debug.WriteLine("Locate Dark Barracks...");
@@ -291,6 +309,9 @@
 		/// </summary>
 		private void LocateTownHall()
 		{
+			IsBusy = true;
+			//Mouse.OverrideCursor = Cursors.Wait;
+
 			// Code for showing that it works
 			Notify("Locating Town Hall...");
 			System.Diagnostics.Debug.WriteLine("Locate Town Hall...");
@@ -313,6 +334,8 @@
 		/// <returns>System.Object.</returns>
 		private void RelocateSingleBuilding()
 		{
+			IsBusy = true;
+
 			// Code for showing that it works
 			Notify("Relocate Building...");
 			System.Diagnostics.Debug.WriteLine("Relocate Building...");
@@ -327,6 +350,15 @@
 			// Code for showing that it works
 			Notify("Clear Location...");
 			System.Diagnostics.Debug.WriteLine("Clear Location...");
+		}
+
+		/// <summary>
+		/// Stops the locating process.
+		/// </summary>
+		private void StopLocating()
+		{
+			IsBusy = false;
+			//Mouse.OverrideCursor = null;
 		}
 
 		#endregion

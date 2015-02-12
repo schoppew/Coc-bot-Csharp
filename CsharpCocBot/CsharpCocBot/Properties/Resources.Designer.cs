@@ -574,6 +574,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Done Locating.
+        /// </summary>
+        public static string DoneLocating {
+            get {
+                return ResourceManager.GetString("DoneLocating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dragons.
         /// </summary>
         public static string Dragons {
@@ -1006,6 +1015,15 @@ namespace CoC.Bot.Properties {
         public static string LocateTownHallManually {
             get {
                 return ResourceManager.GetString("LocateTownHallManually", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOCATING....
+        /// </summary>
+        public static string LocatingMessage {
+            get {
+                return ResourceManager.GetString("LocatingMessage", resourceCulture);
             }
         }
         

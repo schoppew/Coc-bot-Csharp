@@ -38,7 +38,6 @@
                 </Border>
             </Grid>
         </DataTemplate>
-
     </Window.Resources>
 
     <!--<Window.DataContext>
@@ -92,7 +91,7 @@
                     </LinearGradientBrush>
                 </Rectangle.Stroke>
             </Rectangle>
-            <Grid x:Name="Root" Margin="2" Background="#A0333333">
+            <Grid x:Name="Root" Margin="2" Background="#A0333333" IsEnabled="{Binding IsBusy,Converter={StaticResource InverseBoolConverter}}">
                 <Grid>
                     <Label Padding="0" HorizontalContentAlignment="Center" Style="{StaticResource LabelTitle}">
                         <Grid>
@@ -722,6 +721,27 @@
                         </Grid>
                     </Button>
                 </Grid>
+                <Grid.Style>
+                    <Style TargetType="{x:Type Grid}">
+                        <Style.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <BlurEffect Radius="10.0"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+            </Grid>
+            <Grid x:Name="gridBusy" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsBusy, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="0,-20,0,0" IsEnabled="{Binding IsBusy}">
+                <ctrls:BusyDecorator IsBusyIndicatorShowing="{Binding IsEnabled, ElementName=gridBusy}">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0" Orientation="Vertical">
+                        <TextBox Text="{x:Static p:Resources.LocatingMessage}" IsReadOnly="True" IsHitTestVisible="False" Foreground="#FFFFFFFF" FontSize="16" TextAlignment="Center" BorderThickness="0" Margin="0,8,0,0" BorderBrush="{x:Null}" Background="Transparent" />
+                        <Button Content="{x:Static p:Resources.DoneLocating}" Command="{Binding StopLocatingCommand}" FontSize="14" Margin="0,18,0,0" Width="100" Height="25" />
+                    </StackPanel>
+                </ctrls:BusyDecorator>
             </Grid>
         </Grid>
     </Border>

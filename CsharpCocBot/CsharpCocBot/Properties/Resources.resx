@@ -660,4 +660,10 @@ You can double click on the icon to show the window.</value>
   <data name="RearmXbows" xml:space="preserve">
     <value>Rearm Xbows</value>
   </data>
+  <data name="DoneLocating" xml:space="preserve">
+    <value>Done Locating</value>
+  </data>
+  <data name="LocatingMessage" xml:space="preserve">
+    <value>LOCATING...</value>
+  </data>
 </root>

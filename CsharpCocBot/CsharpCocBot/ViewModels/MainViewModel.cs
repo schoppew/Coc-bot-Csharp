@@ -155,6 +155,24 @@
             get { return IsExecuting ? true : false; }
         }
 
+		private bool _isBusy;
+		/// <summary>
+		/// Gets or sets a value indicating whether this bot is busy.
+		/// </summary>
+		/// <value><c>true</c> if this bot is busy; otherwise, <c>false</c>.</value>
+		public bool IsBusy
+		{
+			get { return _isBusy; }
+			set
+			{
+				if (_isBusy != value)
+				{
+					_isBusy = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
         #endregion
 
         #region General Properties
@@ -545,7 +563,7 @@
         }
 
         /// <summary>
-        /// Hide the bot
+        /// Hide BlueStacks
         /// </summary>
         private void HideBlueStacks()
         {
@@ -553,6 +571,9 @@
 			BlueStacksHelper.HideBlueStacks();
         }
 
+		/// <summary>
+		/// Show BlueStacks
+		/// </summary>
 		private void RestoreBlueStacks()
 		{
 			WriteToOutput(Properties.Resources.OutputRestoreBlueStacks, GlobalVariables.OutputStates.Information);

@@ -117,6 +117,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UI\Controls\BusyIndicator\BackgroundVisualHost.cs" />
+    <Compile Include="UI\Controls\BusyIndicator\BusyDecorator.cs" />
+    <Compile Include="UI\Controls\BusyIndicator\CreateContentFunction.cs" />
+    <Compile Include="UI\Controls\BusyIndicator\VisualTargetPresentationSource.cs" />
     <Compile Include="ViewModels\MainViewModel.Attack.cs" />
     <Compile Include="ViewModels\MainViewModel.Donate.cs" />
     <Compile Include="ViewModels\MainViewModel.Location.cs" />
@@ -291,6 +295,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="app.manifest" />
+    <Page Include="UI\Controls\BusyIndicator\BusyIndicator.Resource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -355,6 +363,9 @@
       <Project>{c6d04f0b-dd48-456c-8065-7052cabbe1f5}</Project>
       <Name>Win32</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\BusyWheel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
