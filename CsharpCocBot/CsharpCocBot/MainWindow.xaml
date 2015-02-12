@@ -739,7 +739,7 @@
                 <ctrls:BusyDecorator IsBusyIndicatorShowing="{Binding IsEnabled, ElementName=gridBusy}">
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0" Orientation="Vertical">
                         <TextBox Text="{x:Static p:Resources.LocatingMessage}" IsReadOnly="True" IsHitTestVisible="False" Foreground="#FFFFFFFF" FontSize="16" TextAlignment="Center" BorderThickness="0" Margin="0,8,0,0" BorderBrush="{x:Null}" Background="Transparent" />
-                        <Button Content="{x:Static p:Resources.DoneLocating}" Command="{Binding StopLocatingCommand}" FontSize="14" Margin="0,18,0,0" Width="100" Height="25" />
+                        <Button Content="{x:Static p:Resources.DoneLocating}" Command="{Binding StopLocatingCommand}" FontSize="14" Margin="0,18,0,0" Width="120" Height="25" />
                     </StackPanel>
                 </ctrls:BusyDecorator>
             </Grid>

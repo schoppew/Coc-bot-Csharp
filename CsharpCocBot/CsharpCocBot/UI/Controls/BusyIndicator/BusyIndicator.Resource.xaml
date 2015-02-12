@@ -13,23 +13,23 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type Control}">
-                                <FrameworkTemplate.Resources>
+                                <ControlTemplate.Resources>
                                     <ResourceDictionary>
                                         <Storyboard x:Key="SpinAnimation" RepeatBehavior="Forever">
-                                            <DoubleAnimation Storyboard.TargetName="target" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" From="0" To="360" Timeline.Duration="0:0:1" />
+                                            <DoubleAnimation Storyboard.TargetName="rotTransform" Storyboard.TargetProperty="Angle" From="0" To="360" Duration="0:0:0.8" RepeatBehavior="Forever"/>
                                         </Storyboard>
                                     </ResourceDictionary>
-                                </FrameworkTemplate.Resources>
-                                <Image Name="target" Width="32" Height="32" RenderTransformOrigin="0.0,0.0" Source="/CoC.Bot;component/Assets/Images/BusyWheel.png" Stretch="Uniform">
-                                    <UIElement.RenderTransform>
+                                </ControlTemplate.Resources>
+                                <Path Data="M379.648,164.731C260.098,164.731 162.864,263.079 162.864,384 162.864,504.921 260.098,603.269 379.648,603.269 499.196,603.269 596.431,504.921 596.431,384 596.431,263.079 499.196,164.731 379.648,164.731z M628.818,154.651L560.947,219.377C599.741,263.079 623.551,320.606 623.551,384 623.551,520.256 514.323,630.7 379.648,630.7 244.936,630.7 135.744,520.256 135.744,384 135.744,323.342 157.454,267.903 193.365,224.957L120.617,165.559C71.7159,224.813 42.1761,300.987 42.1761,384 42.1761,572.202 193.579,725.341 379.648,725.341 565.716,725.341 717.119,572.202 717.119,384 717.119,295.695 683.451,215.309 628.818,154.651z M379.648,0C589.312,8E-06 759.294,171.931 759.294,384 759.294,596.069 589.312,768 379.648,768 169.982,768 -4E-06,596.069 0,384 -4E-06,171.931 169.982,8E-06 379.648,0z" Stretch="Uniform" Fill="#BBFFFFFF" Width="32" Height="32" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
                                         <TransformGroup>
-                                            <ScaleTransform />
-                                            <SkewTransform />
-                                            <RotateTransform CenterX="16" CenterY="16" />
-                                            <TranslateTransform />
+                                            <TransformGroup.Children>
+                                                <RotateTransform x:Name="rotTransform" Angle="0" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
                                         </TransformGroup>
-                                    </UIElement.RenderTransform>
-                                </Image>
+                                    </Path.RenderTransform>
+                                </Path>
                                 <ControlTemplate.Triggers>
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard Storyboard="{StaticResource SpinAnimation}" />
