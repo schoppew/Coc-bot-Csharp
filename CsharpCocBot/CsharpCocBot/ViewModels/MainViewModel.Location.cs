@@ -118,17 +118,17 @@
 
 		public ICommand LocateSingleBuildingCommand
 		{
-			get { return new RelayCommand(() => LocateSingleBuilding()); }
+			get { return new RelayCommand<Building>(b => LocateSingleBuilding(b)); }
 		}
 
 		public ICommand RelocateSingleBuildingCommand
 		{
-			get { return new RelayCommand(() => RelocateSingleBuilding()); }
+			get { return new RelayCommand<Building>(b => RelocateSingleBuilding(b)); }
 		}
 
 		public ICommand ClearLocationSingleBuildingCommand
 		{
-			get { return new RelayCommand(() => ClearLocationSingleBuilding()); }
+			get { return new RelayCommand<Building>(b => ClearLocationSingleBuilding(b)); }
 		}
 
 		public ICommand StopLocatingCommand
@@ -307,7 +307,7 @@
 		/// <summary>
 		/// Manually locates the Townhall.
 		/// </summary>
-		private void LocateTownHall()
+		public void LocateTownHall()
 		{
 			IsBusy = true;
 			//Mouse.OverrideCursor = Cursors.Wait;
@@ -320,36 +320,36 @@
 		/// <summary>
 		/// Manually locates a single building.
 		/// </summary>
-		/// <returns>System.Object.</returns>
-		private void LocateSingleBuilding()
+		/// <param name="building">The Building.</param>
+		private void LocateSingleBuilding(Building building)
 		{
-			// Code for showing that it works
-			Notify("Locate Building...");
-			System.Diagnostics.Debug.WriteLine("Locate Building...");
+			System.Diagnostics.Debug.WriteLine(building);
+
+			ProcessSingleBuildingLocation(building, SingleBuildingAction.Select);
 		}
 
 		/// <summary>
 		/// Manually relocates a single building.
 		/// </summary>
-		/// <returns>System.Object.</returns>
-		private void RelocateSingleBuilding()
+		/// <param name="building">The Building.</param>
+		private void RelocateSingleBuilding(Building building)
 		{
+			System.Diagnostics.Debug.WriteLine(building);
+
 			IsBusy = true;
 
-			// Code for showing that it works
-			Notify("Relocate Building...");
-			System.Diagnostics.Debug.WriteLine("Relocate Building...");
+			ProcessSingleBuildingLocation(building, SingleBuildingAction.Relocate);
 		}
 
 		/// <summary>
 		/// Manually clears a location of a single building.
 		/// </summary>
-		/// <returns>System.Object.</returns>
-		private void ClearLocationSingleBuilding()
+		/// <param name="building">The Building.</param>
+		private void ClearLocationSingleBuilding(Building building)
 		{
-			// Code for showing that it works
-			Notify("Clear Location...");
-			System.Diagnostics.Debug.WriteLine("Clear Location...");
+			System.Diagnostics.Debug.WriteLine(building);
+
+			ProcessSingleBuildingLocation(building, SingleBuildingAction.Clear);
 		}
 
 		/// <summary>
@@ -359,6 +359,37 @@
 		{
 			IsBusy = false;
 			//Mouse.OverrideCursor = null;
+			// TODO: Mouse UnHook
+		}
+
+		private enum SingleBuildingAction { Select, Relocate, Clear };
+
+		/// <summary>
+		/// Processes a single Building location.
+		/// </summary>
+		/// <param name="building">The Building.</param>
+		/// <param name="action">The SingleBuildingAction.</param>
+		private void ProcessSingleBuildingLocation(Building building, SingleBuildingAction action)
+		{
+			var bPoint = DataCollection.BuildingPoints.Where(b => b.Building == building).FirstOrDefault();
+
+			if (bPoint == null)
+				return;
+
+			switch (action)
+			{
+				case SingleBuildingAction.Select:
+					Tools.CoCHelper.Click(new ClickablePoint(bPoint.Coordinates));
+					break;
+				case SingleBuildingAction.Relocate:
+					// TODO: Mouse Hook
+					break;
+				case SingleBuildingAction.Clear:
+					bPoint.Coordinates = new Point();
+					break;
+				default:
+					break;
+			}
 		}
 
 		#endregion

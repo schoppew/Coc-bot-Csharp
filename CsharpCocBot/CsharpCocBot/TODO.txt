@@ -73,10 +73,6 @@ ToDo's In Progress
 		- Make the Buttons disabled (if ComboBox and ListView have no selected item)
 		- Add King and Queen to ComboBox
 	» [U/C] Implement Location Settings Tab
-		- Convert the text button property to 'Stop Locating' or 'Done Locating' when a Location is being performed and apply the action
-			- Ex.: 'Clan Castle' -> 'Done Locating'
-		- Disable other locate buttons when locating a certain building type
-			- Implement Busy?
 		- Pass the Building enum as parameter to the Command for the single buildings
 		- Can't use 'Select' string resource in XAML, possible bug in XAML Designer?
 

@@ -614,7 +614,7 @@
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.Locations}" Margin="16,150,16,16">
                                     <Grid>
-                                        <ListView ItemsSource="{Binding BuildingPoints, UpdateSourceTrigger=PropertyChanged}" SelectionMode="Single" Margin="16,10,16,37">
+                                        <ListView ItemsSource="{Binding BuildingPoints, UpdateSourceTrigger=PropertyChanged}" SelectionMode="Single" Margin="16,10,16,30">
                                             <ListView.ItemContainerStyle>
                                                 <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
                                                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -639,9 +639,9 @@
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
                                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                                                    <Button Content="Select" Command="{Binding LocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" Width="50" />
-                                                                    <Button Content="{x:Static p:Resources.Relocate}" Command="{Binding RelocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" Width="60" Margin="10,0,0,0" />
-                                                                    <Button Content="{x:Static p:Resources.Clear}" Command="{Binding ClearLocationSingleBuildingCommand, Source={StaticResource MainViewModel}}" Width="40" Margin="10,0,0,0" />
+                                                                    <Button Content="Select" Command="{Binding LocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" CommandParameter="{Binding Building}" Width="50" />
+                                                                    <Button Content="{x:Static p:Resources.Relocate}" Command="{Binding RelocateSingleBuildingCommand, Source={StaticResource MainViewModel}}" CommandParameter="{Binding Building}" Width="60" Margin="10,0,0,0" />
+                                                                    <Button Content="{x:Static p:Resources.Clear}" Command="{Binding ClearLocationSingleBuildingCommand, Source={StaticResource MainViewModel}}" CommandParameter="{Binding Building}" Width="40" Margin="10,0,0,0" />
                                                                 </StackPanel>
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
@@ -649,7 +649,7 @@
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>
-                                        <TextBlock Text="{x:Static p:Resources.LocateSingleMessage}" Height="20" HorizontalAlignment="Center" Margin="16,0,16,8" VerticalAlignment="Bottom" Width="388" TextWrapping="Wrap" TextTrimming="None" TextAlignment="Center" FontSize="11" />
+                                        <TextBlock Text="{x:Static p:Resources.LocateSingleMessage}" Height="17" HorizontalAlignment="Center" Margin="16,0,16,8" VerticalAlignment="Bottom" Width="388" TextWrapping="Wrap" TextTrimming="None" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
                             </Grid>
