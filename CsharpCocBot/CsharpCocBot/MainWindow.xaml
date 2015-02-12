@@ -316,7 +316,7 @@
                                                 </Style>
                                             </ListView.ItemContainerStyle>
                                             <ListView.View>
-                                                <GridView>
+                                                <GridView AllowsColumnReorder="False">
                                                     <GridViewColumn Header="{x:Static p:Resources.Troops}" Width="90" DisplayMemberBinding="{Binding Name}" />
                                                     <GridViewColumn Header="{x:Static p:Resources.Quantity}" Width="45">
                                                         <GridViewColumn.CellTemplate>
@@ -505,7 +505,7 @@
                                                 </Style>
                                             </ListView.ItemContainerStyle>
                                             <ListView.View>
-                                                <GridView>
+                                                <GridView AllowsColumnReorder="False">
                                                     <GridViewColumn Header="#" Width="20" DisplayMemberBinding="{Binding Number}" />
                                                     <GridViewColumn Header="{x:Static p:Resources.Troop}" DisplayMemberBinding="{Binding Troop.Name}" Width="250" />
                                                     <GridViewColumn Header="{x:Static p:Resources.Quantity}" DisplayMemberBinding="{Binding DeployQuantity}" Width="45" />
@@ -610,7 +610,7 @@
                                                 </Style>
                                             </ListView.ItemContainerStyle>
                                             <ListView.View>
-                                                <GridView>
+                                                <GridView AllowsColumnReorder="False">
                                                     <GridViewColumn Header="{x:Static p:Resources.Building}" DisplayMemberBinding="{Binding Building, Converter={StaticResource EnumToDescriptionConverter}}" Width="100" />
                                                     <GridViewColumn Header="{x:Static p:Resources.Coordinates}" Width="65">
                                                         <GridViewColumn.CellTemplate>

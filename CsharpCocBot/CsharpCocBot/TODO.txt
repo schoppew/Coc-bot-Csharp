@@ -64,6 +64,8 @@ ToDo's In Progress
 =============================
 
 	» [C] Provides an higher level helper for FastFind integration
+	» [U/C] Remove extra row created at the bottom of the ListView
+		- In DataGrid is CanUserAddRows="False"
 	» [U/C] Implement Wave Settings Tab
 		- Remove # column (short list, not a big use of it)
 		- Create a custom collection which is a copy of the AllAttackTroops but with modificable Quantity (so we can subtract when adding the troop to the wave)
