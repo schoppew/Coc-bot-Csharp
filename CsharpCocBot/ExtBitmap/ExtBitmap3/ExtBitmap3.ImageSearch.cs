@@ -5,7 +5,7 @@ using System.Text;
 using Point = Win32.POINT;
 namespace ExtBitmap
 {
-    unsafe public partial class ExtBitmap2
+    unsafe public partial class ExtBitmap3
     {
         // Beware: use this method only it has the apha chanel preserved.
         public int FindFirstNonTransparentPixelPosition()

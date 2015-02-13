@@ -89,6 +89,10 @@
     <Compile Include="ExtBitmap2\ExtBitmap2.cs" />
     <Compile Include="ExtBitmap2\ExtBitmap2.ImageSearch.cs" />
     <Compile Include="ExtBitmap2\ExtBitmap2.PixelStuff.cs" />
+    <Compile Include="ExtBitmap3\ExtBitmap3.Capture.cs" />
+    <Compile Include="ExtBitmap3\ExtBitmap3.cs" />
+    <Compile Include="ExtBitmap3\ExtBitmap3.ImageSearch.cs" />
+    <Compile Include="ExtBitmap3\ExtBitmap3.PixelStuff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

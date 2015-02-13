@@ -22,8 +22,8 @@ namespace FastFind
     [DllImport(fastFindDllName)]
     public static extern bool ResetExcludedAreas();
 
-	//[DllImport(fastFindDllName)] - Works but not reliable enough, don't use it
-	//public static extern bool LoadFromFile(int NoSnapShot, [MarshalAs(UnmanagedType.BStr)]string szFileName /* With extension*/);
+	[DllImport(fastFindDllName)] //- Works but not reliable enough, don't use it
+	public static extern bool LoadFromFile(int NoSnapShot, [MarshalAs(UnmanagedType.BStr)]string szFileName /* With extension*/);
 
     // Configuration 
     // ==============

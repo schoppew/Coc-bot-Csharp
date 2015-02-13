@@ -20,6 +20,7 @@ namespace UnitTests
 	public class Chrono : IDisposable
 	{
 		static bool starting = true;
+		int _nbLoop;
 		Stopwatch sw;
 		string _description;
 		public string Comment { get; set; }
@@ -30,13 +31,14 @@ namespace UnitTests
 		public delegate void StringEventHandler(
 			Object sender,
 			string description,
-			TimeSpan elapsedTime
+			double elapsedms
 		);
 
-		public Chrono(string description)
+		public Chrono(string description, int nbLoop=1)
 		{
 			if (!Directory.Exists("Logs"))
 				Directory.CreateDirectory("Logs");
+			_nbLoop = nbLoop;
 			sw = Stopwatch.StartNew();
 			_description = description;
 		}
@@ -46,6 +48,7 @@ namespace UnitTests
 			if (starting)
 			{
 				File.AppendAllText(@"Logs\TU_log.txt", string.Format("\r\n====================== {0} =======================\r\n", DateTime.Now.ToString()));
+				
 				starting = false;
 			}
 			File.AppendAllText(@"Logs\TU_log.txt", line + "\r\n");
@@ -55,22 +58,22 @@ namespace UnitTests
 		}
 		public void Dispose()
 		{
-			TimeSpan ts = sw.Elapsed;
+			double elapsed = sw.Elapsed.TotalMilliseconds / _nbLoop;
 			if (callOnComplete != null)
 			{
-				callOnComplete(this, _description, ts);
+				callOnComplete(this, _description, elapsed);
 			}
 			string line = null;
 			switch (Success)
 			{
 				case null:
-					line = string.Format("{0} completed in {1}", _description, ts.ToString());
+					line = string.Format("{0} completed in {1:00.000}ms", _description, elapsed);
 					break;
 				case true:
-					line = string.Format("{0} succeeded in {1}", _description, ts.ToString());
+					line = string.Format("{0} succeeded in {1:00.000}ms", _description, elapsed);
 					break;
 				case false:
-					line = string.Format("{0} failed in {1}", _description, ts.ToString());
+					line = string.Format("{0} failed in {1:00.000}ms", _description, elapsed);
 					break;
 			}
 			Debug.WriteLine(line);

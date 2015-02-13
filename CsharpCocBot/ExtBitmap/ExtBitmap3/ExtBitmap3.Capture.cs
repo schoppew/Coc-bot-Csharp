@@ -11,7 +11,7 @@ using Point = Win32.POINT;
 using Rect = Win32.RECT;
 namespace ExtBitmap
 {
-	unsafe public partial class ExtBitmap2
+	unsafe public partial class ExtBitmap3
 	{
 		#region Window handle provider
 		public delegate IntPtr HandleProvider();

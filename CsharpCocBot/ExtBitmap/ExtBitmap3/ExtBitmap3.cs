@@ -12,10 +12,10 @@ using System.Threading.Tasks;
 
 namespace ExtBitmap
 {
-    unsafe public partial class ExtBitmap2 : IDisposable
+    unsafe public partial class ExtBitmap3 : IDisposable
     {
         public Bitmap BitMap { get; private set; }
-        public ExtBitmap2()
+        public ExtBitmap3()
         {
             Data = null;
             FileName = null;
@@ -120,7 +120,7 @@ namespace ExtBitmap
             stride = bData.Stride/sizeof(int);
             bitsPerPixel = GetBitsPerPixel(bData.PixelFormat);
             bytesPerPixel = bitsPerPixel / 8;
-			size = Math.Abs(stride * bData.Height);
+            size = Math.Abs(stride * bData.Height);
 
             Data = new int[size];
             if (stride > 0)
