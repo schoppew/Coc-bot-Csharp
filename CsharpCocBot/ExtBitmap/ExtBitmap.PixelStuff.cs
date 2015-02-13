@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ExtBitmap
 {
-	public partial class ExtBitmap
+	unsafe public partial class ExtBitmap
 	{
 		private void GetRGBOutOfInt(int color, out byte red, out byte green, out byte blue)
 		{
@@ -127,6 +127,49 @@ namespace ExtBitmap
 			return new Win32.POINT(x, y);
 		}
 
+		unsafe private int ParallelUnsafeCountPixels(byte red, byte green, byte blue, int shadeVariation)
+		{
+			int lastPos = size - bytesPerPixel;
+			int count = 0;
+
+			Parallel.For<int>(0,
+							 Height,
+							 () => 0,
+							 (j, loop, subtotal) =>
+							 {
+								 fixed (byte* pos = data)
+								 {
+									 byte* _pos = pos + j * stride;
+									 byte* pos2 = _pos + stride;
+									 //byte* pos = ((byte*)data) + j * stride;
+									 //int pos1 = j * stride;
+									 //int pos2 = pos1 + stride - 1;
+									 //int subCount = 0;
+									 if (shadeVariation == 0)
+									 {
+										 do
+										 {
+											 if (blue == *_pos && green == *(_pos+1) && red == *(_pos+2)) subtotal++;
+											 _pos += bytesPerPixel;
+										 } while (_pos < pos2);
+										 
+									 }
+									 else
+										 do
+										 {
+											 if (IsInShadeVariation(red, green, blue, *(_pos+2), *(_pos+1), *_pos, shadeVariation))
+												 subtotal++;
+											 _pos += bytesPerPixel;
+										 } while (_pos < pos2);
+										 
+									 return subtotal;
+								 }
+							 },
+							(x) => Interlocked.Add(ref count, x)
+							);
+			return count;
+		}
+
 		private int ParallelCountPixels(byte red, byte green, byte blue, int shadeVariation)
 		{
 			int lastPos = size - bytesPerPixel;
@@ -184,13 +227,43 @@ namespace ExtBitmap
 			return count;
 		}
 
+		private int UnsafeCountPixels(byte red, byte green, byte blue, int shadeVariation)
+		{
+			int lastPos = size - bytesPerPixel;
+			int count = 0;
+			//int pos = 0;
+			fixed (byte* pData = data)
+			{
+				byte* pPos = pData;
+				byte* pLastPos = pData + lastPos;
+
+				if (shadeVariation == 0)
+				{
+					while (pPos <= pLastPos)
+					{
+						if (blue == *pPos && green == *(pPos+1) && red == *(pPos+2)) count++;
+						pPos+= bytesPerPixel;
+					}
+					return count;
+				}
+
+				while (pPos <= pLastPos)
+				{
+					if (IsInShadeVariation(red, green, blue, *(pPos + 2), *(pPos + 1), *pPos, shadeVariation))
+						count++;
+					pPos += bytesPerPixel;
+				}
+			}
+			return count;
+		}
+
 		public int CountPixels(int color, int shadeVariation, bool parallelProcessing)
 		{
 			byte red, green, blue;
 			GetRGBOutOfInt(color, out red, out green, out blue);
 			if (parallelProcessing)
-				return ParallelCountPixels(red, green, blue, shadeVariation);
-			return CountPixels(red, green, blue, shadeVariation);
+				return ParallelUnsafeCountPixels(red, green, blue, shadeVariation);
+			return UnsafeCountPixels(red, green, blue, shadeVariation);
 		}
 	}
 }

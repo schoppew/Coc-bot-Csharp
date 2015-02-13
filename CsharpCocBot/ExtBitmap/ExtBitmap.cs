@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ExtBitmap
 {
-	public partial class ExtBitmap : IDisposable
+	unsafe public partial class ExtBitmap : IDisposable
 	{
 		public Bitmap BitMap { get; private set; }
 		public ExtBitmap()

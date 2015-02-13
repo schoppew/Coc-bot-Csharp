@@ -730,20 +730,7 @@ ExtBitmap2 Count with no Shade Variation (Full BS screen x50) (//) completed in 
 ExtBitmap2 Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.6748704
 ExtBitmap Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.9634654
 
-====================== 12/02/2015 19:54:21 =======================
-LaunchBlueStacksAndWait succeeded in 00:00:03.9853444
-Full screen capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0843494
-		Size 1920x1080
-Full screen capture with FastFind succeeded in 00:00:00.0702330
-BlueStacks capture with ExtBitmap in Background mode succeeded in 00:00:00.0163148
-		Size 860x720
-BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 00:00:00.0110264
-		Size 860x720
-BlueStacks capture with FastFind succeeded in 00:00:00.0083364
-BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 00:00:00.0274259
-		Size 860x720
-BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 00:00:00.0143098
-		Size 860x720
+====================== 12/02/2015 19:54:21 (NOT unsafe, DEBUG) =======================
 FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0393726
 ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.4716788
 ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.2765400
@@ -754,3 +741,25 @@ ExtBitmap Count with no Shade Variation (Full BS screen x50) (//) completed in 0
 ExtBitmap2 Count with no Shade Variation (Full BS screen x50) (//) completed in 00:00:00.2151666
 ExtBitmap Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.7938695
 ExtBitmap2 Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.6800891
+====================== 13/02/2015 09:48:39 (UNSAFE, DEBUG) =======================
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0332797
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.3357075
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:01.3760705
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.1194018
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:01.5653646
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) completed in 00:00:03.5711536
+ExtBitmap Count with no Shade Variation (Full BS screen x50) (//) completed in 00:00:00.1368722
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) (//) completed in 00:00:00.0714772
+ExtBitmap Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.5840180
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.3151020
+====================== 13/02/2015 09:54:35 (UNSAFE + Release) =======================
+FastFind Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0341010
+ExtBitmap Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.0391147
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) completed in 00:00:00.2180073
+FastFind Count with Shade Variation (Full BS screen x50) completed in 00:00:00.1136712
+ExtBitmap Count with Shade Variation (Full BS screen x50) completed in 00:00:00.3416217
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) completed in 00:00:00.8894864
+ExtBitmap Count with no Shade Variation (Full BS screen x50) (//) completed in 00:00:00.0157843
+ExtBitmap2 Count with no Shade Variation (Full BS screen x50) (//) completed in 00:00:00.0194754
+ExtBitmap Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.1119630
+ExtBitmap2 Count with Shade Variation (Full BS screen x50) (//) completed in 00:00:00.1072507
