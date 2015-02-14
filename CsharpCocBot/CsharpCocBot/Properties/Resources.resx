@@ -634,7 +634,7 @@ You can double click on the icon to show the window.</value>
     <value>Coords.</value>
   </data>
   <data name="LocateMessage" xml:space="preserve">
-    <value>Click on any to manually locate all buildings of the type, click on 'Done Locating' to stop the action.</value>
+    <value>Click on any to manually locate all buildings of the type, click on 'Done' to stop the action.</value>
   </data>
   <data name="Analyse" xml:space="preserve">
     <value>Analyse current window</value>
@@ -660,8 +660,8 @@ You can double click on the icon to show the window.</value>
   <data name="RearmXbows" xml:space="preserve">
     <value>Rearm Xbows</value>
   </data>
-  <data name="DoneLocating" xml:space="preserve">
-    <value>Done Locating</value>
+  <data name="Done" xml:space="preserve">
+    <value>Done</value>
   </data>
   <data name="LocatingMessage" xml:space="preserve">
     <value>LOCATING...</value>

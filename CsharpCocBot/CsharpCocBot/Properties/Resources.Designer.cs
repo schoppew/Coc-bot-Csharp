@@ -574,11 +574,11 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Done Locating.
+        ///   Looks up a localized string similar to Done.
         /// </summary>
-        public static string DoneLocating {
+        public static string Done {
             get {
-                return ResourceManager.GetString("DoneLocating", resourceCulture);
+                return ResourceManager.GetString("Done", resourceCulture);
             }
         }
         
@@ -920,7 +920,7 @@ namespace CoC.Bot.Properties {
         ///software and other kinds of works.
         ///
         ///  The licenses for most software and other practical works are designed
-        ///to take away your freedom to share  [rest of string was truncated]&quot;;.
+        ///to take away your free [rest of string was truncated]&quot;;.
         /// </summary>
         public static string LICENSE {
             get {
@@ -983,7 +983,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Click on any to manually locate all buildings of the type, click on &apos;Done Locating&apos; to stop the action..
+        ///   Looks up a localized string similar to Click on any to manually locate all buildings of the type, click on &apos;Done&apos; to stop the action..
         /// </summary>
         public static string LocateMessage {
             get {
