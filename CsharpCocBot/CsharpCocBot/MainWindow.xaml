@@ -693,10 +693,10 @@
                                             </Path.RenderTransform>
                                         </Path>
                                         <Path Data="M20,0 L0,0 M20,0 L20,20" IsEnabled="{Binding IsChecked, ElementName=botSettingsDisabled, Converter={StaticResource InverseBoolConverter}}" Stroke="#BBFFFFFF" StrokeDashArray="2,1" StrokeThickness="2" Height="20" Width="20" Margin="343,16,57,57" />
-                                        <CheckBox Content="Gold Full" IsEnabled="{Binding IsChecked, ElementName=botSettingsDisabled, Converter={StaticResource InverseBoolConverter}}" HorizontalAlignment="Left" Margin="149,41,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="Gold Full" IsChecked="True" IsEnabled="{Binding IsChecked, ElementName=botSettingsDisabled, Converter={StaticResource InverseBoolConverter}}" HorizontalAlignment="Left" Margin="149,41,0,0" VerticalAlignment="Top"/>
                                         <CheckBox Content="Elixir Full" IsEnabled="{Binding IsChecked, ElementName=botSettingsDisabled, Converter={StaticResource InverseBoolConverter}}" HorizontalAlignment="Left" Margin="233,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.045,1.125"/>
                                         <CheckBox Content="Max. Trophy" IsEnabled="{Binding IsChecked, ElementName=botSettingsDisabled, Converter={StaticResource InverseBoolConverter}}" HorizontalAlignment="Right" Margin="0,41,22,0" VerticalAlignment="Top"/>
-                                        <TextBlock Text="Bot will run when the following conditions are meet." Height="17" HorizontalAlignment="Center" Margin="141,0,10,8" VerticalAlignment="Bottom" Width="269" TextWrapping="Wrap" TextTrimming="None" TextAlignment="Center" FontSize="11" />
+                                        <TextBlock Text="The action will execute when above condition is meet." Height="18" HorizontalAlignment="Right" Margin="0,0,10,8" VerticalAlignment="Bottom" Width="265" TextWrapping="Wrap" TextTrimming="None" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
                             </Grid>
