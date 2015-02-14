@@ -82,6 +82,9 @@
 			}
 		}
 
+        // Testing the and/or idea for Bot Settings
+        public string[] AndOrCondition { get { return new string[] { "And", "Or" }; } }
+
 		#endregion
 	}
 }

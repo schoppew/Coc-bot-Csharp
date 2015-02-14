@@ -657,11 +657,46 @@
                         <!-- Other Tab -->
                         <TabItem Header="{x:Static p:Resources.OtherSettings}">
                             <Grid Background="{DynamicResource BackgroundBrush}">
-                                <GroupBox Header="{x:Static p:Resources.RearmSettings}" Margin="16,16,16,326">
+                                <GroupBox Header="{x:Static p:Resources.RearmSettings}" Margin="16,16,16,0" VerticalAlignment="Top" Height="65">
                                     <Grid>
                                         <CheckBox Content="{x:Static p:Resources.RearmTraps}" IsChecked="{Binding IsRearmTraps}" HorizontalAlignment="Left" Margin="30,12,0,0" VerticalAlignment="Top"/>
                                         <CheckBox Content="{x:Static p:Resources.RearmXbows}" IsChecked="{Binding IsRearmXbows}" HorizontalAlignment="Left" Margin="153,12,0,0" VerticalAlignment="Top"/>
                                         <CheckBox Content="{x:Static p:Resources.RearmInfernos}" IsChecked="{Binding IsRearmInfernos}" HorizontalAlignment="Right" Margin="0,12,30,0" VerticalAlignment="Top"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="Bot Settings" Margin="16,0,16,16" VerticalAlignment="Bottom" Height="115">
+                                    <Grid>
+                                        <RadioButton Content="Halt Attack Mode" Margin="10,7,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="125" />
+                                        <RadioButton Content="Shutdown PC" Margin="10,27,0,0" VerticalAlignment="Top" Width="125" HorizontalAlignment="Left" />
+                                        <RadioButton Content="Sleep PC" Margin="10,47,0,0" VerticalAlignment="Top" Width="125" HorizontalAlignment="Left" />
+                                        <RadioButton Content="Disabled" IsChecked="True" Margin="10,67,0,0" VerticalAlignment="Top" Width="125" HorizontalAlignment="Left" />
+                                        <!--<Path Data="M0,20 L0,0 L20,0" Stroke="#BBFFFFFF" StrokeDashArray="2,1" StrokeThickness="2" Height="20" Width="20" Margin="190,10,210,63">
+                                            <Path.RenderTransform>
+                                                <RotateTransform Angle="90"/>
+                                            </Path.RenderTransform>
+                                        </Path>-->
+                                        <ComboBox ItemsSource="{Binding AndOrCondition}" SelectedIndex="1" Width="40" Height="23" VerticalAlignment="Top" Margin="203,5,0,0" HorizontalAlignment="Left" />
+                                        <ComboBox ItemsSource="{Binding AndOrCondition}" SelectedIndex="1" Width="40" Height="23" VerticalAlignment="Top" Margin="0,5,90,0" HorizontalAlignment="Right" />
+                                        <Path Data="M20,0 L0,0 M20,0 L20,20" Stroke="#BBFFFFFF" StrokeDashArray="2,1" StrokeThickness="2" Height="20" Width="20" Margin="183,36,217,37">
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <RotateTransform Angle="-90"/>
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                        <Path Data="M20,0 L0,0 M20,0 L20,20" Stroke="#BBFFFFFF" StrokeDashArray="2,1" StrokeThickness="2" Height="20" Width="20" Margin="243.5,16,156.5,57" />
+                                        <Path Data="M20,0 L0,0 M20,0 L20,20" Stroke="#BBFFFFFF" StrokeDashArray="2,1" StrokeThickness="2" Height="20" Width="20" Margin="269,36,131,37">
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <RotateTransform Angle="-90"/>
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                        <Path Data="M20,0 L0,0 M20,0 L20,20" Stroke="#BBFFFFFF" StrokeDashArray="2,1" StrokeThickness="2" Height="20" Width="20" Margin="330,16,70,57" />
+                                        <CheckBox Content="Gold Full" HorizontalAlignment="Left" Margin="149,41,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="Elixir Full" HorizontalAlignment="Left" Margin="233,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.045,1.125"/>
+                                        <CheckBox Content="Max. Trophy" HorizontalAlignment="Right" Margin="0,41,22,0" VerticalAlignment="Top"/>
+                                        <TextBlock Text="Bot will run when the following conditions are meet." Height="17" HorizontalAlignment="Center" Margin="141,0,10,8" VerticalAlignment="Bottom" Width="269" TextWrapping="Wrap" TextTrimming="None" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
                             </Grid>
@@ -676,7 +711,7 @@
                                 <GroupBox Header="{x:Static p:Resources.DebugSettings}" Margin="16,16,16,16">
                                     <Grid>
                                         <Button Content="{x:Static p:Resources.Start}" Command="{Binding LauchCurrentScreenAnalysisCommand}" Height="23" Width="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,7,16,0" />
-                                        <ListView ItemsSource="{Binding DebugData, UpdateSourceTrigger=PropertyChanged}" SelectionMode="Single" Margin="16,100,16,16">
+                                        <ListView ItemsSource="{Binding DebugData, UpdateSourceTrigger=PropertyChanged}" SelectionMode="Single" Margin="16,40,16,16">
                                             <ListView.ItemContainerStyle>
                                                 <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
                                                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
