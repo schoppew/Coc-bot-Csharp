@@ -9,7 +9,7 @@ namespace CoC.Bot.Data.Type
 {
 	public class DebugDataModel : ViewModelBase
 	{
-		string _description;
+		private string _description;
 		public string Description
 		{
 			get { return _description; }

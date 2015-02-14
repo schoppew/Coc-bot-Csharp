@@ -684,8 +684,8 @@
                                             </ListView.ItemContainerStyle>
                                             <ListView.View>
                                                 <GridView>
-                                                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="320" />
-                                                    <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Counter}" Width="50" />
+                                                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="300" />
+                                                    <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Count}" Width="60" />
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>

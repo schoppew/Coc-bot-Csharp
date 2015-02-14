@@ -44,7 +44,7 @@ namespace CoC.Bot.Data.ColorList
 
 		static public void MakeStats(string csvFullFileName, ExtBitmap.ExtBitmap bitmap)
 		{
-			DataCollection.DebugData = new System.Collections.ObjectModel.ObservableCollection<Type.DebugDataModel>();
+            //DataCollection.DebugData = new System.Collections.ObjectModel.ObservableCollection<Type.DebugDataModel>();
 			List<string> detailedReport = new List<string>();
 			List<string> syntheticReport = new List<string>();
 			try
