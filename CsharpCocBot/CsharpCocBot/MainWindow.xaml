@@ -669,33 +669,33 @@
                                         <RadioButton Content="Halt Attack Mode" Margin="10,7,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="125" />
                                         <RadioButton Content="Shutdown PC" Margin="10,27,0,0" VerticalAlignment="Top" Width="125" HorizontalAlignment="Left" />
                                         <RadioButton Content="Sleep PC" Margin="10,47,0,0" VerticalAlignment="Top" Width="125" HorizontalAlignment="Left" />
-                                        <RadioButton Content="Disabled" IsChecked="True" Margin="10,67,0,0" VerticalAlignment="Top" Width="125" HorizontalAlignment="Left" />
+                                        <RadioButton x:Name="botSettingsDisabled" Content="Disabled" IsChecked="True" Margin="10,67,0,0" VerticalAlignment="Top" Width="125" HorizontalAlignment="Left" />
                                         <!--<Path Data="M0,20 L0,0 L20,0" Stroke="#BBFFFFFF" StrokeDashArray="2,1" StrokeThickness="2" Height="20" Width="20" Margin="190,10,210,63">
                                             <Path.RenderTransform>
                                                 <RotateTransform Angle="90"/>
                                             </Path.RenderTransform>
                                         </Path>-->
-                                        <ComboBox ItemsSource="{Binding AndOrCondition}" SelectedIndex="1" Width="40" Height="23" VerticalAlignment="Top" Margin="203,5,0,0" HorizontalAlignment="Left" />
-                                        <ComboBox ItemsSource="{Binding AndOrCondition}" SelectedIndex="1" Width="40" Height="23" VerticalAlignment="Top" Margin="0,5,90,0" HorizontalAlignment="Right" />
-                                        <Path Data="M20,0 L0,0 M20,0 L20,20" Stroke="#BBFFFFFF" StrokeDashArray="2,1" StrokeThickness="2" Height="20" Width="20" Margin="183,36,217,37">
+                                        <ComboBox ItemsSource="{Binding AndOrCondition}" SelectedIndex="0" IsEnabled="{Binding IsChecked, ElementName=botSettingsDisabled, Converter={StaticResource InverseBoolConverter}}" Width="48" Height="23" VerticalAlignment="Top" Margin="199,5,0,0" HorizontalAlignment="Left" />
+                                        <ComboBox ItemsSource="{Binding AndOrCondition}" SelectedIndex="1" IsEnabled="{Binding IsChecked, ElementName=botSettingsDisabled, Converter={StaticResource InverseBoolConverter}}" Width="48" Height="23" VerticalAlignment="Top" Margin="0,5,77,0" HorizontalAlignment="Right" />
+                                        <Path Data="M20,0 L0,0 M20,0 L20,20" IsEnabled="{Binding IsChecked, ElementName=botSettingsDisabled, Converter={StaticResource InverseBoolConverter}}" Stroke="#BBFFFFFF" StrokeDashArray="2,1" StrokeThickness="2" Height="20" Width="20" Margin="179,36,221,37">
                                             <Path.RenderTransform>
                                                 <TransformGroup>
                                                     <RotateTransform Angle="-90"/>
                                                 </TransformGroup>
                                             </Path.RenderTransform>
                                         </Path>
-                                        <Path Data="M20,0 L0,0 M20,0 L20,20" Stroke="#BBFFFFFF" StrokeDashArray="2,1" StrokeThickness="2" Height="20" Width="20" Margin="243.5,16,156.5,57" />
-                                        <Path Data="M20,0 L0,0 M20,0 L20,20" Stroke="#BBFFFFFF" StrokeDashArray="2,1" StrokeThickness="2" Height="20" Width="20" Margin="269,36,131,37">
+                                        <Path Data="M20,0 L0,0 M20,0 L20,20" IsEnabled="{Binding IsChecked, ElementName=botSettingsDisabled, Converter={StaticResource InverseBoolConverter}}" Stroke="#BBFFFFFF" StrokeDashArray="2,1" StrokeThickness="2" Height="20" Width="20" Margin="247.5,16,152.5,57" />
+                                        <Path Data="M20,0 L0,0 M20,0 L20,20" IsEnabled="{Binding IsChecked, ElementName=botSettingsDisabled, Converter={StaticResource InverseBoolConverter}}" Stroke="#BBFFFFFF" StrokeDashArray="2,1" StrokeThickness="2" Height="20" Width="20" Margin="273,36,127,37">
                                             <Path.RenderTransform>
                                                 <TransformGroup>
                                                     <RotateTransform Angle="-90"/>
                                                 </TransformGroup>
                                             </Path.RenderTransform>
                                         </Path>
-                                        <Path Data="M20,0 L0,0 M20,0 L20,20" Stroke="#BBFFFFFF" StrokeDashArray="2,1" StrokeThickness="2" Height="20" Width="20" Margin="330,16,70,57" />
-                                        <CheckBox Content="Gold Full" HorizontalAlignment="Left" Margin="149,41,0,0" VerticalAlignment="Top"/>
-                                        <CheckBox Content="Elixir Full" HorizontalAlignment="Left" Margin="233,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.045,1.125"/>
-                                        <CheckBox Content="Max. Trophy" HorizontalAlignment="Right" Margin="0,41,22,0" VerticalAlignment="Top"/>
+                                        <Path Data="M20,0 L0,0 M20,0 L20,20" IsEnabled="{Binding IsChecked, ElementName=botSettingsDisabled, Converter={StaticResource InverseBoolConverter}}" Stroke="#BBFFFFFF" StrokeDashArray="2,1" StrokeThickness="2" Height="20" Width="20" Margin="343,16,57,57" />
+                                        <CheckBox Content="Gold Full" IsEnabled="{Binding IsChecked, ElementName=botSettingsDisabled, Converter={StaticResource InverseBoolConverter}}" HorizontalAlignment="Left" Margin="149,41,0,0" VerticalAlignment="Top"/>
+                                        <CheckBox Content="Elixir Full" IsEnabled="{Binding IsChecked, ElementName=botSettingsDisabled, Converter={StaticResource InverseBoolConverter}}" HorizontalAlignment="Left" Margin="233,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.045,1.125"/>
+                                        <CheckBox Content="Max. Trophy" IsEnabled="{Binding IsChecked, ElementName=botSettingsDisabled, Converter={StaticResource InverseBoolConverter}}" HorizontalAlignment="Right" Margin="0,41,22,0" VerticalAlignment="Top"/>
                                         <TextBlock Text="Bot will run when the following conditions are meet." Height="17" HorizontalAlignment="Center" Margin="141,0,10,8" VerticalAlignment="Bottom" Width="269" TextWrapping="Wrap" TextTrimming="None" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
