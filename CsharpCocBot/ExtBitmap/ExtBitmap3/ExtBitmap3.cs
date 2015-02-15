@@ -46,7 +46,7 @@ namespace ExtBitmap
         }
 
         public string FileName { get; set; }
-		public int[] Data { get; private set; }
+		public Int32[] Data { get; private set; }
         byte bitsPerPixel { get; set; }
         int bytesPerPixel { get; set; }
         int size { get; set; } // Total number of int in the data array
@@ -117,12 +117,12 @@ namespace ExtBitmap
             BitmapData bData = BitMap.LockBits(new Rectangle(0, 0, BitMap.Width, BitMap.Height), ImageLockMode.ReadOnly, BitMap.PixelFormat);
             Height = bData.Height;
             Width = bData.Width;
-            stride = bData.Stride/sizeof(int);
+            stride = bData.Stride/sizeof(Int32);
             bitsPerPixel = GetBitsPerPixel(bData.PixelFormat);
             bytesPerPixel = bitsPerPixel / 8;
             size = Math.Abs(stride * bData.Height);
 
-            Data = new int[size];
+            Data = new Int32[size];
             if (stride > 0)
                 System.Runtime.InteropServices.Marshal.Copy(bData.Scan0, Data, 0, size);
             else
@@ -131,7 +131,7 @@ namespace ExtBitmap
 
                 for (int i = 0; i < Height; i++)
                 {
-                    IntPtr pointer = new IntPtr(bData.Scan0.ToInt32() - stride * i * sizeof(int));
+                    IntPtr pointer = new IntPtr(bData.Scan0.ToInt32() - stride * i * sizeof(Int32));
                     System.Runtime.InteropServices.Marshal.Copy(pointer, Data, stride * i, stride);
                 }
             }
@@ -175,7 +175,7 @@ namespace ExtBitmap
             if (Data == null) return false;
             BitmapData bData = BitMap.LockBits(new Rectangle(0, 0, BitMap.Width, BitMap.Height), ImageLockMode.WriteOnly, BitMap.PixelFormat);
             bool bottomToTop = bData.Stride < 0;
-            int size = Math.Abs(bData.Stride) * bData.Height / sizeof(int);
+            int size = Math.Abs(bData.Stride) * bData.Height / sizeof(Int32);
             Debug.Assert(size == Data.Length);
 
             if (!bottomToTop)
@@ -184,7 +184,7 @@ namespace ExtBitmap
             {
                 for (int i = 0; i < Height; i++)
                 {
-                    IntPtr pointer = new IntPtr(bData.Scan0.ToInt32() - stride * sizeof(int) * i);
+                    IntPtr pointer = new IntPtr(bData.Scan0.ToInt32() - stride * sizeof(Int32) * i);
                     System.Runtime.InteropServices.Marshal.Copy(Data, stride * i, pointer, stride);
                 }
             }

@@ -129,7 +129,7 @@ namespace UnitTests
 				if (chrono.Success == true)
 					chrono.Comment = string.Format("Size {0}x{1}", ebBkgrd.Width, ebBkgrd.Height);
 			}
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			
 			ExtBitmap.ExtBitmap ebNoBkgrd = new ExtBitmap.ExtBitmap();
 			using (Chrono chrono = new Chrono("BlueStacks capture with ExtBitmap NOT in Background mode"))
@@ -139,14 +139,14 @@ namespace UnitTests
 				if (chrono.Success == true)
 					chrono.Comment = string.Format("Size {0}x{1}", ebNoBkgrd.Width, ebNoBkgrd.Height);
 			}
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			using (Chrono chrono = new Chrono("BlueStacks capture with FastFind"))
 			{
 				chrono.Success = FastFindHelper.TakeFullScreenCapture(true);
 				Assert.IsTrue(chrono.Success == true, "FastFind BS capture");
 			}
 			ExtBitmap.ExtBitmap ebDotNet = new ExtBitmap.ExtBitmap();
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			using (Chrono chrono = new Chrono("BlueStacks capture with ExtBitmap.DotNetSnapShot"))
 			{
 				chrono.Success = ebDotNet.DotNetSnapShot(Rectangle.Empty);
@@ -155,7 +155,7 @@ namespace UnitTests
 					chrono.Comment = string.Format("Size {0}x{1}", ebDotNet.Width, ebDotNet.Height);
 			}
 			ExtBitmap.ExtBitmap2 ebNoBkgrd2 = new ExtBitmap.ExtBitmap2();
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			using (Chrono chrono = new Chrono("BlueStacks capture with ExtBitmap2 NOT in Background mode"))
 			{
 				chrono.Success = ebNoBkgrd2.SnapShot(false);
@@ -164,7 +164,7 @@ namespace UnitTests
 					chrono.Comment = string.Format("Size {0}x{1}", ebNoBkgrd2.Width, ebNoBkgrd2.Height);
 			}
 			ExtBitmap.ExtBitmap3 ebNoBkgrd3 = new ExtBitmap.ExtBitmap3();
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			using (Chrono chrono = new Chrono("BlueStacks capture with ExtBitmap3 NOT in Background mode"))
 			{
 				chrono.Success = ebNoBkgrd3.SnapShot(false);
@@ -172,7 +172,7 @@ namespace UnitTests
 				if (chrono.Success == true)
 					chrono.Comment = string.Format("Size {0}x{1}", ebNoBkgrd3.Width, ebNoBkgrd3.Height);
 			}
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			
 			int ff = FastFindHelper.GetPixel(150, 150);
 			int eb1Native = ebBkgrd.NativeGetPixel(150, 150).ToArgb() & 0x00FFFFFF;
@@ -210,36 +210,36 @@ namespace UnitTests
 			using (Chrono chrono = new Chrono("\r\n**SEQUENTIAL PROCESSING**\r\nCount with no Shade Variation (Full BS screen x" + nbLoop.ToString()+ ")\r\n\t\tFastFind:", nbLoop))
 				for (int i = 0; i < nbLoop; i++)
 					c1 = FastFindWrapper.ColorCount(eb1Native, 0, 0);
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			using (Chrono chrono = new Chrono("\t\tExtBitmap:", nbLoop))
 				for (int i = 0; i < nbLoop; i++)
 					c2 = ebNoBkgrd.CountPixels(eb1Native, 0, false);
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			using (Chrono chrono = new Chrono("\t\tExtBitmap2:", nbLoop))
 				for (int i = 0; i < nbLoop; i++)
 					c3 = ebNoBkgrd2.CountPixels(eb1Native, 0, false);
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			using (Chrono chrono = new Chrono("\t\tExtBitmap3:", nbLoop))
 				for (int i = 0; i < nbLoop; i++)
 					c7 = ebNoBkgrd3.CountPixels(eb1Native, 0, false);
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			
 			using (Chrono chrono = new Chrono("Count with Shade Variation (Full BS screen x" + nbLoop.ToString() + ")\r\n\t\tFastFind:", nbLoop))
 				for (int i = 0; i < nbLoop; i++)
 					c4 = FastFindWrapper.ColorCount(eb1Native, 0, shadeVariation);
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			using (Chrono chrono = new Chrono("\t\tExtBitmap:", nbLoop))
 				for (int i = 0; i < nbLoop; i++)
 					c5 = ebNoBkgrd.CountPixels(eb1Native, shadeVariation, false);
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			using (Chrono chrono = new Chrono("\t\tExtBitmap2:", nbLoop))
 				for (int i = 0; i < nbLoop; i++)
 					c6 = ebNoBkgrd2.CountPixels(eb1Native, shadeVariation, false);
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			using (Chrono chrono = new Chrono("\t\tExtBitmap3:", nbLoop))
 				for (int i = 0; i < nbLoop; i++)
 					c8 = ebNoBkgrd3.CountPixels(eb1Native, shadeVariation, false);
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			
 
 			c2 = ebNoBkgrd.CountPixels(eb1Native, 0, true);
@@ -258,28 +258,28 @@ namespace UnitTests
 			using (Chrono chrono = new Chrono("\r\n**PARALLEL PROCESSING**\r\nCount with no Shade Variation (Full BS screen x" + nbLoop.ToString() + ")\r\n\t\tExtBitmap:", nbLoop))
 				for (int i = 0; i < nbLoop; i++)
 					c2 = ebNoBkgrd.CountPixels(eb1Native, 0, true);
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			using (Chrono chrono = new Chrono("\t\tExtBitmap2:", nbLoop))
 				for (int i = 0; i < nbLoop; i++)
 					c3 = ebNoBkgrd2.CountPixels(eb1Native, 0, true);
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			using (Chrono chrono = new Chrono("\t\tExtBitmap3:", nbLoop))
 				for (int i = 0; i < nbLoop; i++)
 					c7 = ebNoBkgrd3.CountPixels(eb1Native, 0, true);
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			
 			using (Chrono chrono = new Chrono("Count with Shade Variation (Full BS screen x" + nbLoop.ToString() + ")\r\n\t\tExtBitmap:", nbLoop))
 				for (int i = 0; i < nbLoop; i++)
 					c5 = ebNoBkgrd.CountPixels(eb1Native, shadeVariation, true);
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			using (Chrono chrono = new Chrono("\t\tExtBitmap2:", nbLoop))
 				for (int i = 0; i < nbLoop; i++)
 					c6 = ebNoBkgrd2.CountPixels(eb1Native, shadeVariation, true);
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			using (Chrono chrono = new Chrono("\t\tExtBitmap3:", nbLoop))
 				for (int i = 0; i < nbLoop; i++)
 					c8 = ebNoBkgrd2.CountPixels(eb1Native, shadeVariation, true);
-			Thread.Sleep(100);
+			//Thread.Sleep(100);
 			
 		}
 	}

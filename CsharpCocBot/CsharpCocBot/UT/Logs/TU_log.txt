@@ -1335,3 +1335,147 @@ Count with Shade Variation (Full BS screen x1000)
 		ExtBitmap: completed in 06,873ms
 		ExtBitmap2: completed in 05,242ms
 		ExtBitmap3: completed in 05,341ms
+
+====================== 14/02/2015 20:26:41 =======================
+LaunchBlueStacksAndWait succeeded in 3934,331ms
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 97,251ms
+		Size 1920x1080
+Full screen capture with FastFind succeeded in 96,230ms
+Screen capture with ExtBitmap in Background mode succeeded in 75,233ms
+		Size 1920x1080
+Screen capture with ExtBitmap2 in Background mode succeeded in 64,291ms
+		Size 1920x1080
+Screen capture with ExtBitmap3 in Background mode succeeded in 92,339ms
+		Size 1920x1080
+Screen capture with FastFind succeeded in 70,164ms
+		Size 1920x1080
+BlueStacks capture with ExtBitmap in Background mode succeeded in 15,071ms
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 09,129ms
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 09,608ms
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 46,527ms
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 14,413ms
+		Size 860x720
+BlueStacks capture with ExtBitmap3 NOT in Background mode succeeded in 10,764ms
+		Size 860x720
+
+====================== 14/02/2015 20:26:54 =======================
+LaunchBlueStacksAndWait succeeded in 3658,176ms
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 62,799ms
+		Size 1920x1080
+Full screen capture with FastFind succeeded in 75,277ms
+Screen capture with ExtBitmap in Background mode succeeded in 58,807ms
+		Size 1920x1080
+Screen capture with ExtBitmap2 in Background mode succeeded in 81,179ms
+		Size 1920x1080
+Screen capture with ExtBitmap3 in Background mode succeeded in 65,672ms
+		Size 1920x1080
+Screen capture with FastFind succeeded in 62,636ms
+		Size 1920x1080
+BlueStacks capture with ExtBitmap in Background mode succeeded in 48,025ms
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 09,518ms
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 08,550ms
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 22,855ms
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 13,485ms
+		Size 860x720
+BlueStacks capture with ExtBitmap3 NOT in Background mode succeeded in 09,206ms
+		Size 860x720
+
+**SEQUENTIAL PROCESSING**
+Count with no Shade Variation (Full BS screen x1000)
+		FastFind: completed in 00,660ms
+		ExtBitmap: completed in 06,817ms
+		ExtBitmap2: completed in 03,165ms
+		ExtBitmap3: completed in 03,133ms
+Count with Shade Variation (Full BS screen x1000)
+		FastFind: completed in 02,258ms
+		ExtBitmap: completed in 31,648ms
+		ExtBitmap2: completed in 18,081ms
+		ExtBitmap3: completed in 18,327ms
+
+**PARALLEL PROCESSING**
+Count with no Shade Variation (Full BS screen x1000)
+		ExtBitmap: completed in 03,080ms
+		ExtBitmap2: completed in 01,307ms
+		ExtBitmap3: completed in 01,324ms
+Count with Shade Variation (Full BS screen x1000)
+		ExtBitmap: completed in 11,403ms
+		ExtBitmap2: completed in 06,772ms
+		ExtBitmap3: completed in 06,811ms
+
+====================== 14/02/2015 20:33:27 =======================
+LaunchBlueStacksAndWait succeeded in 3645,116ms
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 75,484ms
+		Size 1920x1080
+Full screen capture with FastFind succeeded in 47,004ms
+Screen capture with ExtBitmap in Background mode succeeded in 64,564ms
+		Size 1920x1080
+Screen capture with ExtBitmap2 in Background mode succeeded in 51,809ms
+		Size 1920x1080
+Screen capture with ExtBitmap3 in Background mode succeeded in 77,390ms
+		Size 1920x1080
+Screen capture with FastFind succeeded in 53,214ms
+		Size 1920x1080
+BlueStacks capture with ExtBitmap in Background mode succeeded in 17,436ms
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 11,008ms
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 08,917ms
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 59,087ms
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 10,500ms
+		Size 860x720
+BlueStacks capture with ExtBitmap3 NOT in Background mode succeeded in 08,886ms
+		Size 860x720
+
+====================== 14/02/2015 20:33:47 =======================
+LaunchBlueStacksAndWait succeeded in 3632,506ms
+Full screen capture with ExtBitmap NOT in Background mode succeeded in 91,999ms
+		Size 1920x1080
+Full screen capture with FastFind succeeded in 70,352ms
+Screen capture with ExtBitmap in Background mode succeeded in 79,443ms
+		Size 1920x1080
+Screen capture with ExtBitmap2 in Background mode succeeded in 71,345ms
+		Size 1920x1080
+Screen capture with ExtBitmap3 in Background mode succeeded in 80,321ms
+		Size 1920x1080
+Screen capture with FastFind succeeded in 64,084ms
+		Size 1920x1080
+BlueStacks capture with ExtBitmap in Background mode succeeded in 15,498ms
+		Size 860x720
+BlueStacks capture with ExtBitmap NOT in Background mode succeeded in 09,402ms
+		Size 860x720
+BlueStacks capture with FastFind succeeded in 07,971ms
+BlueStacks capture with ExtBitmap.DotNetSnapShot succeeded in 43,700ms
+		Size 860x720
+BlueStacks capture with ExtBitmap2 NOT in Background mode succeeded in 09,339ms
+		Size 860x720
+BlueStacks capture with ExtBitmap3 NOT in Background mode succeeded in 08,940ms
+		Size 860x720
+
+**SEQUENTIAL PROCESSING**
+Count with no Shade Variation (Full BS screen x1000)
+		FastFind: completed in 00,631ms
+		ExtBitmap: completed in 06,670ms
+		ExtBitmap2: completed in 03,104ms
+		ExtBitmap3: completed in 03,097ms
+Count with Shade Variation (Full BS screen x1000)
+		FastFind: completed in 02,247ms
+		ExtBitmap: completed in 30,660ms
+		ExtBitmap2: completed in 18,306ms
+		ExtBitmap3: completed in 18,280ms
+
+**PARALLEL PROCESSING**
+Count with no Shade Variation (Full BS screen x1000)
+		ExtBitmap: completed in 03,077ms
+		ExtBitmap2: completed in 01,307ms
+		ExtBitmap3: completed in 01,340ms
+Count with Shade Variation (Full BS screen x1000)
+		ExtBitmap: completed in 11,465ms
+		ExtBitmap2: completed in 06,002ms
+		ExtBitmap3: completed in 05,616ms
