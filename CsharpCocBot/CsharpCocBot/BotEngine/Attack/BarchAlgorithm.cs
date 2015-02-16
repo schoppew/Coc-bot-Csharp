@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CoC.Bot.Functions.Attack_Algorithms
+namespace CoC.Bot.BotEngine
 {
     class BarchAlgorithm
     {

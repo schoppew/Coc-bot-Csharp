@@ -8,7 +8,7 @@ using CoC.Bot.Data;
 using MouseAndKeyboard;
 using Point = Win32.POINT;
 
-namespace CoC.Bot.Functions
+namespace CoC.Bot.BotEngine
 {
 	public static class RequestAndDonate
 	{
@@ -46,8 +46,7 @@ namespace CoC.Bot.Functions
 		{
 			// TODO: Do the clicking Stuff here
 			// Remember to get the needed information:
-			// troop.DonateKeywords
-			// troop.MaxDonationsPerRequest
+			// troop.DonateKeywords			
 			int _y = 119;
 
 			Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 50); // Click out of anything

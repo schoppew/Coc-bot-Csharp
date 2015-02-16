@@ -1,4 +1,4 @@
-﻿namespace CoC.Bot.Functions
+﻿namespace CoC.Bot.BotEngine
 {
 	using System;
 	using System.Collections.Generic;
@@ -28,7 +28,7 @@
 		{
 			// Store in properties so we can access in the SubFunctions
 			Bot = vm;
-            Functions.Main.Bot.ClearOutput();
+            Main.Bot.ClearOutput();
 
 			Bot.WriteToOutput(string.Format(Properties.Resources.OutputWelcomeMessage, Properties.Resources.AppName));
 			Bot.WriteToOutput(Properties.Resources.OutputBotIsStarting);

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CoC.Bot.Functions;
-
+﻿
 namespace CoC.Bot.Data
 {
     public static partial class ScreenData

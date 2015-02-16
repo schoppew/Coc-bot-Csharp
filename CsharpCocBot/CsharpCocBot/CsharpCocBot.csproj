@@ -159,9 +159,9 @@
     <Compile Include="Data\DataHelper.cs" />
     <Compile Include="Data\Type\TroopTierModel.cs" />
     <Compile Include="Data\Type\WaveModel.cs" />
-    <Compile Include="Functions\Main.cs" />
-    <Compile Include="Functions\SubFunctions\Barrack.cs" />
-    <Compile Include="Functions\SubFunctions\RequestAndDonate.cs" />
+    <Compile Include="BotEngine\Main.cs" />
+    <Compile Include="BotEngine\Train\Barrack.cs" />
+    <Compile Include="BotEngine\RequestAndDonate.cs" />
     <Compile Include="Samples\GettingAroundTheUI.cs" />
     <Compile Include="Tools\BlueStacksHelper.cs" />
     <Compile Include="Tools\CoCHelper.cs" />
@@ -206,15 +206,15 @@
     <Compile Include="UI\Converters\LeftMarginMultiplierConverter.cs" />
     <Compile Include="UI\Converters\PointToStringConverter.cs" />
     <Compile Include="UI\Converters\ScrollbarOnFarConverter.cs" />
-    <Compile Include="Functions\SubFunctions\AttackAlgorithms\BarchAlgorithm.cs" />
-    <Compile Include="Functions\SubFunctions\Attack.cs" />
-    <Compile Include="Functions\SubFunctions\DeadBase.cs" />
-    <Compile Include="Functions\SubFunctions\MainScreen.cs" />
-    <Compile Include="Functions\SubFunctions\Other.cs" />
-    <Compile Include="Functions\SubFunctions\Pixels.cs" />
-    <Compile Include="Functions\SubFunctions\ReadText.cs" />
-    <Compile Include="Functions\SubFunctions\Search.cs" />
-    <Compile Include="Functions\SubFunctions\Village.cs" />
+    <Compile Include="BotEngine\Attack\BarchAlgorithm.cs" />
+    <Compile Include="BotEngine\Attack\Attack.cs" />
+    <Compile Include="BotEngine\FindTarget\DeadBase.cs" />
+    <Compile Include="BotEngine\MainScreen.cs" />
+    <Compile Include="BotEngine\Other.cs" />
+    <Compile Include="BotEngine\ScreenReading\Pixels.cs" />
+    <Compile Include="BotEngine\ScreenReading\ReadText.cs" />
+    <Compile Include="BotEngine\FindTarget\Search.cs" />
+    <Compile Include="BotEngine\Village.cs" />
     <Compile Include="UI\Converters\SelectedTreeViewItemConverter.cs" />
     <Compile Include="UI\Interactivity\AttachableCollection.cs" />
     <Compile Include="UI\Interactivity\Behavior.cs" />
@@ -364,6 +364,7 @@
       <Name>Win32</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

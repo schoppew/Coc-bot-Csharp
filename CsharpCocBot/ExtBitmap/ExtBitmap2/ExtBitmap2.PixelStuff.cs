@@ -170,10 +170,10 @@ namespace ExtBitmap
 		{
 			int count = 0;
 			color = color & 0x00FFFFFF;
-			fixed (int* pData = Data)
+			fixed (Int32* pData = Data)
 			{
-				int* pos = pData;
-				int* lastPos = pos + size;
+				Int32* pos = pData;
+				Int32* lastPos = pos + size;
 
 				if (shadeVariation == 0)
 				{
@@ -200,10 +200,10 @@ namespace ExtBitmap
 				 {
 					 //int pos1 = j * stride;
 					 //int pos2 = pos1 + stride;
-					 fixed (int* pData = Data)
+					 fixed (Int32* pData = Data)
 					 {
-						 int* pos = pData + j * stride;
-						 int* pos2 = pos + stride;
+						 Int32* pos = pData + j * stride;
+						 Int32* pos2 = pos + stride;
 						 //int subCount = 0;
 						 if (shadeVariation == 0)
 						 {

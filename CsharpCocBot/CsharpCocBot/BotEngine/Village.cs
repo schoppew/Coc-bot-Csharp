@@ -1,4 +1,4 @@
-﻿namespace CoC.Bot.Functions
+﻿namespace CoC.Bot.BotEngine
 {
 	using System;
 	using System.Collections.Generic;

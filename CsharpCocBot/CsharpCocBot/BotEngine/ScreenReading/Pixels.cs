@@ -5,7 +5,7 @@ using System.Text;
 using System.Drawing;
 using CoC.Bot.Tools.FastFind;
 
-namespace CoC.Bot.Functions
+namespace CoC.Bot.BotEngine
 {
     class Pixels
     {

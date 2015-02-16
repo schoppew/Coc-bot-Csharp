@@ -7,10 +7,37 @@ using System.Threading.Tasks;
 using CoC.Bot.Data;
 using Point = Win32.POINT;
 
-namespace CoC.Bot.Functions
+namespace CoC.Bot.BotEngine
 {
 	public static class Barrack
 	{
+		static public bool RemoveAllTraining()
+		{
+			// Todo: do the proper clicks to remove all the troops in queues in all barracks. 
+			// This should be called before an attack. 
+			return false;
+		}
+
+		static public void TrainPlanner()
+		{
+			// Todo: IsUseBarracks1... check real meaning of those
+			int nbBarracks = 0;
+			int[] barrack = new int[4]; // Remembers which is 1st, 2nde and so barrack. 
+			if (Main.Bot.IsUseBarracks1) barrack[nbBarracks++] = 1;
+			if (Main.Bot.IsUseBarracks2) barrack[nbBarracks++] = 2;
+			if (Main.Bot.IsUseBarracks3) barrack[nbBarracks++] = 3;
+			if (Main.Bot.IsUseBarracks4) barrack[nbBarracks++] = 4;
+
+			int nbBlackBarracks = 0;
+			int[] blackBarrack = new int[4]; // Remembers which is 1st, 2nde and so barrack. 
+			if (Main.Bot.IsUseDarkBarracks1) blackBarrack[nbBlackBarracks++] = 1;
+			if (Main.Bot.IsUseDarkBarracks2) blackBarrack[nbBlackBarracks++] = 2;		
+
+			// Todo: fill each barrack according to number of each troop to be done
+			
+			//foreach (TroopModel troop in  Data.TroopModel DataCollection.BarracksTroops BarracksTroops)
+		}
+
 		static public Troop GetTroopToBeTrainedInBarrack(int barrackId, bool dark)
 		{
 			if (barrackId < 0 || barrackId > 3) throw new ArgumentException("barrackId should be between 0 and 3");

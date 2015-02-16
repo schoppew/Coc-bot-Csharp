@@ -19,6 +19,7 @@
     using Tools.FastFind;
     using UI.Commands;
 	using UI.Services;
+	using CoC.Bot.BotEngine;
 
     /// <summary>
     /// Provides functionality for the MainWindow
@@ -547,7 +548,7 @@
         /// </summary>
         private void Start()
         {
-			Functions.Main.Initialize(this); // <--- Main entry point
+			Main.Initialize(this); // <--- Main entry point
         }
 
         /// <summary>

@@ -59,6 +59,7 @@ namespace ExtBitmap
 		{
 			int lastPos = size;
 			color = color & 0x00FFFFFF;
+			
 			while (fromPos < lastPos)
 			{
 				if (color == (Data[fromPos] & 0x00FFFFFF)) return fromPos;
@@ -129,20 +130,37 @@ namespace ExtBitmap
 		{
 			int count = 0;
 			color = color & 0x00FFFFFF;
-			fixed (int* pData = Data)
+			fixed (Int32* pData = Data)
 			{
-				int* pos = pData;
-				int* lastPos = pos + size;
-
+				
 				if (shadeVariation == 0)
 				{
+					Int32* pos = pData;
+					Int32* lastPos = pos + size;
 					while (pos < lastPos)
 						if (color == (*(pos++) & 0x00FFFFFF)) count++;					
 				}
-				while (pos < lastPos)
+				else
 				{
-					if (IsInShadeVariation(color, *(pos++), shadeVariation))
-						count++;
+					byte* pos = (byte*)pData;
+					byte* lastPos = pos + size;
+					byte red, green, blue;
+					GetRGBOutOfInt(color, out red, out green, out blue);
+						
+					while (pos < lastPos)
+					{
+
+						while (pos < lastPos)
+						{
+							if (BytesAreCloseEnough(*pos, blue, shadeVariation) &&
+								BytesAreCloseEnough(*(pos + 1), green, shadeVariation) &&
+								BytesAreCloseEnough(*(pos + 2), red, shadeVariation))
+								count++;
+							pos += bytesPerPixel;
+						}
+					}
+					//if (IsInShadeVariation(color, *(pos++), shadeVariation))
+					//	count++;
 				}
 			}
 			return count;
@@ -157,13 +175,13 @@ namespace ExtBitmap
 				 () => 0,
 				 (j, loop, subtotal) =>
 				 {
-					 fixed (int* pData = Data)
+					 fixed (Int32* pData = Data)
 					 {
 
 						 if (shadeVariation == 0)
 						 {
-							 int* pos = pData + j * stride;
-							 int* pos2 = pos + stride;
+							 Int32* pos = pData + j * stride;
+							 Int32* pos2 = pos + stride;
 							 while (pos < pos2)
 								 if (color == (*(pos++) & 0x00FFFFFF)) subtotal++;
 						 }
@@ -171,9 +189,8 @@ namespace ExtBitmap
 						 {
 							 byte red, green, blue;
 							 GetRGBOutOfInt(color, out red, out green, out blue);
-							 byte* bData = (byte*)pData;
-							 byte* pos = bData + j * stride * bytesPerPixel;
-							 byte* pos2 = pos + stride * bytesPerPixel;
+							 byte* pos = (byte*)pData;
+							 byte* pos2 = pos + size;
 							 while (pos < pos2)
 							 {
 								 if (BytesAreCloseEnough(*pos, blue, shadeVariation) &&

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace CoC.Bot.Functions
+namespace CoC.Bot.BotEngine
 {
     class Other
     {

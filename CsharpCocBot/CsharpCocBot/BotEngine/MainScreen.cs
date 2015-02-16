@@ -11,7 +11,7 @@ using CoC.Bot.Data;
 using MouseAndKeyboard;
 using Point = Win32.POINT;
 
-namespace CoC.Bot.Functions
+namespace CoC.Bot.BotEngine
 {
     
     internal class MainScreen
