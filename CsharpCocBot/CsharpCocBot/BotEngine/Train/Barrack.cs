@@ -28,10 +28,10 @@ namespace CoC.Bot.BotEngine
 			if (Main.Bot.IsUseBarracks3) barrack[nbBarracks++] = 3;
 			if (Main.Bot.IsUseBarracks4) barrack[nbBarracks++] = 4;
 
-			int nbBlackBarracks = 0;
-			int[] blackBarrack = new int[4]; // Remembers which is 1st, 2nde and so barrack. 
-			if (Main.Bot.IsUseDarkBarracks1) blackBarrack[nbBlackBarracks++] = 1;
-			if (Main.Bot.IsUseDarkBarracks2) blackBarrack[nbBlackBarracks++] = 2;		
+			int nbDarkBarracks = 0;
+			int[] darkBarrack = new int[4]; // Remembers which is 1st, 2nde and so barrack. 
+			if (Main.Bot.IsUseDarkBarracks1) darkBarrack[nbDarkBarracks++] = 1;
+			if (Main.Bot.IsUseDarkBarracks2) darkBarrack[nbDarkBarracks++] = 2;		
 
 			// Todo: fill each barrack according to number of each troop to be done
 			

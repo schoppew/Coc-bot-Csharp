@@ -26,7 +26,7 @@ namespace CoC.Bot.Data
         /// </summary>
         /// <param name="troop">The troop.</param>
         /// <returns><c>true</c> if the specified troop is Dark Elixir; otherwise, <c>false</c>.</returns>
-        public static bool IsBlack(this Troop troop)
+        public static bool IsDark(this Troop troop)
         {
             return troop <= Troop.LavaHound && troop >= Troop.Minion;
         }
@@ -110,10 +110,54 @@ namespace CoC.Bot.Data
             }
         }
 
-        public static IEnumerable<Troop> EnumTroops(bool ElixirTroop, bool BlackTroops, bool Heroes)
+		/// <summary>
+		/// Returns the number of seconds needed to train one of this.
+		/// </summary>
+		/// <param name="troop">The Troop.</param>
+		/// <returns>System.Int32.</returns>
+		public static int TimeToTrain(this Troop troop)
+		{
+			switch (troop)
+			{
+				case Troop.King:
+				case Troop.Queen:
+					return 0; // Heroes are not trained (and recovery time depends on the level)
+				case Troop.Barbarian:
+					return 20;
+				case Troop.Archer:
+					return 25;
+				case Troop.Goblin:
+					return 30;
+				case Troop.WallBreaker:
+				case Troop.Giant:
+				case Troop.HogRider:
+					return 2 * 60;
+				case Troop.Minion:
+					return 45;
+				case Troop.Wizard:
+				case Troop.Balloon:
+				case Troop.Valkyrie:
+					return 8 * 60;
+				case Troop.Witch:
+					return 20 * 60;
+				case Troop.Healer:
+					return 15 * 60;
+				case Troop.Dragon:
+					return 30 * 60;
+				case Troop.Pekka:
+				case Troop.LavaHound:
+				case Troop.Golem:
+					return 45 * 60;				
+				default:
+					Debug.Assert(false, string.Format("Oops... one is missing ({0})?", troop.Name()));
+					return 0;
+			}
+		}
+
+        public static IEnumerable<Troop> EnumTroops(bool ElixirTroop, bool DarkTroops, bool Heroes)
         {
             foreach (Troop troop in Enum.GetValues(typeof(Troop)))
-                if (ElixirTroop && troop.IsNormal() || BlackTroops && troop.IsBlack() || Heroes && troop.IsHero())
+                if (ElixirTroop && troop.IsNormal() || DarkTroops && troop.IsDark() || Heroes && troop.IsHero())
                     yield return troop;
         }
         public static IEnumerable<string> EnumTroopNames(bool ElixirTroop, bool BlackTroops, bool Heroes)

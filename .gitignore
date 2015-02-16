@@ -36,6 +36,7 @@ $RECYCLE.BIN/
 .Trashes
 
 # Directories potentially created on remote AFP share
+
 *.Cache
 *.cache
 *.exe
@@ -48,10 +49,10 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+CsharpCocBot/CsharpCocBot/UT/
 CsharpCocBot/CsharpCocBot/obj/
 CsharpCocBot/CsharpCocBot/bin/
 CsharpCocBot/CsharpCocBot/exe/
-CsharpCocBot/CsharpCocBot/UT/
 CsharpCocBot/Tools/
 CsharpCocBot/ColorOptimizer/obj/
 CsharpCocBot/ColorOptimizer/bin/
