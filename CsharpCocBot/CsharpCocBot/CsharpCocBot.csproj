@@ -117,6 +117,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BotEngine\Train\TrainingElement.cs" />
+    <Compile Include="BotEngine\Train\TroopToTrainInBarracks.cs" />
+    <Compile Include="BotEngine\Train\TroopToTrainInBarrack.cs" />
     <Compile Include="UI\Controls\BusyIndicator\BackgroundVisualHost.cs" />
     <Compile Include="UI\Controls\BusyIndicator\BusyDecorator.cs" />
     <Compile Include="UI\Controls\BusyIndicator\CreateContentFunction.cs" />

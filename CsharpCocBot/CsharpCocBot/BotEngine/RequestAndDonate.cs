@@ -93,7 +93,7 @@ namespace CoC.Bot.BotEngine
 							else
 							{
 								//FIX
-								Main.Bot.WriteToOutput(string.Format("Donating {0} {1}s...", troop.MaxDonationsPerRequest, ((Troop)troop.Id).Name()), GlobalVariables.OutputStates.Verified);
+								Main.Bot.WriteToOutput(string.Format("Donating {0} {1}s...", troop.MaxDonationsPerRequest, troop.Troop.Name()), GlobalVariables.OutputStates.Verified);
 
 								Tools.CoCHelper.Click(donateBtn);
 								ClickablePoint barb = new ClickablePoint(donateBtn.Point.X + 108, donateBtn.Point.Y - 58);

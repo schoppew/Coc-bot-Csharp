@@ -375,28 +375,28 @@
 				switch ((TroopType)tier)
 				{
 					case TroopType.Tier1:
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Barbarian].TrainQuantity * Troop.Barbarian.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Archer].TrainQuantity * Troop.Archer.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Goblin].TrainQuantity * Troop.Goblin.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Barbarian].TrainQuantity * Troop.Barbarian.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Archer].TrainQuantity * Troop.Archer.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Goblin].TrainQuantity * Troop.Goblin.CampSlots();
 						break;
 					case TroopType.Tier2:
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Giant].TrainQuantity * Troop.Giant.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.WallBreaker].TrainQuantity * Troop.WallBreaker.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Balloon].TrainQuantity * Troop.Balloon.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Wizard].TrainQuantity * Troop.Wizard.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Giant].TrainQuantity * Troop.Giant.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.WallBreaker].TrainQuantity * Troop.WallBreaker.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Balloon].TrainQuantity * Troop.Balloon.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Wizard].TrainQuantity * Troop.Wizard.CampSlots();
 						break;
 					case TroopType.Tier3:
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Healer].TrainQuantity * Troop.Healer.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Dragon].TrainQuantity * Troop.Dragon.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Pekka].TrainQuantity * Troop.Pekka.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Healer].TrainQuantity * Troop.Healer.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Dragon].TrainQuantity * Troop.Dragon.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Pekka].TrainQuantity * Troop.Pekka.CampSlots();
 						break;
 					case TroopType.DarkTroops:
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Minion].TrainQuantity * Troop.Minion.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.HogRider].TrainQuantity * Troop.HogRider.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Valkyrie].TrainQuantity * Troop.Valkyrie.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Golem].TrainQuantity * Troop.Golem.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Witch].TrainQuantity * Troop.Witch.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.LavaHound].TrainQuantity * Troop.LavaHound.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Minion].TrainQuantity * Troop.Minion.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.HogRider].TrainQuantity * Troop.HogRider.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Valkyrie].TrainQuantity * Troop.Valkyrie.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Golem].TrainQuantity * Troop.Golem.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Witch].TrainQuantity * Troop.Witch.CampSlots();
+						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.LavaHound].TrainQuantity * Troop.LavaHound.CampSlots();
 						break;
 					default:
 						// Troop Type Heroes, do nothing!

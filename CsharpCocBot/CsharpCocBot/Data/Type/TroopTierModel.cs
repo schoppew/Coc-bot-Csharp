@@ -91,9 +91,14 @@
                 
             }
 
-            public new TroopModel this[int t]
+			public new TroopModel this[int t]
+			{
+				get { return base.Items.Where(i => i.Id == t).FirstOrDefault(); }
+			}
+
+            public TroopModel this[Troop t]
             {
-                get { return base.Items.Where(i => i.Id == (int)t).FirstOrDefault(); }
+                get { return base.Items.Where(i => i.Troop == t).FirstOrDefault(); }
             }
 
             /// <summary>
@@ -103,7 +108,7 @@
             /// <returns>TroopModel.</returns>
             public TroopModel Get(Troop type)
             {
-                return base.Items.Where(i => i.Id == (int)type).FirstOrDefault();
+                return base.Items.Where(i => i.Troop == type).FirstOrDefault();
             }
         }
 

@@ -935,88 +935,88 @@
                 switch ((TroopType)tier)
                 {
                     case TroopType.Tier1:
-                        AppSettings.TroopsQtyBarbarians = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Barbarian].TrainQuantity;
-                        AppSettings.TroopsQtyArchers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Archer].TrainQuantity;
-                        AppSettings.TroopsQtyGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Goblin].TrainQuantity;
+                        AppSettings.TroopsQtyBarbarians = DataCollection.TroopTiers[(int)tier].Troops[Troop.Barbarian].TrainQuantity;
+                        AppSettings.TroopsQtyArchers = DataCollection.TroopTiers[(int)tier].Troops[Troop.Archer].TrainQuantity;
+                        AppSettings.TroopsQtyGoblins = DataCollection.TroopTiers[(int)tier].Troops[Troop.Goblin].TrainQuantity;
 
-                        AppSettings.IsDonateAllBarbarians = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Barbarian].IsDonateAll;
-                        AppSettings.IsDonateAllArchers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Archer].IsDonateAll;
-                        AppSettings.IsDonateAllGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Goblin].IsDonateAll;
+                        AppSettings.IsDonateAllBarbarians = DataCollection.TroopTiers[(int)tier].Troops[Troop.Barbarian].IsDonateAll;
+                        AppSettings.IsDonateAllArchers = DataCollection.TroopTiers[(int)tier].Troops[Troop.Archer].IsDonateAll;
+                        AppSettings.IsDonateAllGoblins = DataCollection.TroopTiers[(int)tier].Troops[Troop.Goblin].IsDonateAll;
 
-                        AppSettings.DonateKeywordsBarbarians = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Barbarian].DonateKeywords;
-                        AppSettings.DonateKeywordsArchers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Archer].DonateKeywords;
-                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Goblin].DonateKeywords;
+                        AppSettings.DonateKeywordsBarbarians = DataCollection.TroopTiers[(int)tier].Troops[Troop.Barbarian].DonateKeywords;
+                        AppSettings.DonateKeywordsArchers = DataCollection.TroopTiers[(int)tier].Troops[Troop.Archer].DonateKeywords;
+                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[Troop.Goblin].DonateKeywords;
                         
-                        AppSettings.MaxDonationsPerRequestBarbarians = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Barbarian].MaxDonationsPerRequest;
-                        AppSettings.MaxDonationsPerRequestArchers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Archer].MaxDonationsPerRequest;
-                        AppSettings.MaxDonationsPerRequestGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Goblin].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestBarbarians = DataCollection.TroopTiers[(int)tier].Troops[Troop.Barbarian].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestArchers = DataCollection.TroopTiers[(int)tier].Troops[Troop.Archer].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestGoblins = DataCollection.TroopTiers[(int)tier].Troops[Troop.Goblin].MaxDonationsPerRequest;
                         break;
                     case TroopType.Tier2:
-                        AppSettings.TroopsQtyGiants = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Giant].TrainQuantity;
-                        AppSettings.TroopsQtyWallBreakers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.WallBreaker].TrainQuantity;
-                        AppSettings.TroopsQtyBalloons = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Balloon].TrainQuantity;
-                        AppSettings.TroopsQtyWizards = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Wizard].TrainQuantity;
+                        AppSettings.TroopsQtyGiants = DataCollection.TroopTiers[(int)tier].Troops[Troop.Giant].TrainQuantity;
+                        AppSettings.TroopsQtyWallBreakers = DataCollection.TroopTiers[(int)tier].Troops[Troop.WallBreaker].TrainQuantity;
+                        AppSettings.TroopsQtyBalloons = DataCollection.TroopTiers[(int)tier].Troops[Troop.Balloon].TrainQuantity;
+                        AppSettings.TroopsQtyWizards = DataCollection.TroopTiers[(int)tier].Troops[Troop.Wizard].TrainQuantity;
 
-                        AppSettings.IsDonateAllGiants = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Giant].IsDonateAll;
-                        AppSettings.IsDonateAllWallBreakers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.WallBreaker].IsDonateAll;
-                        AppSettings.IsDonateAllBalloons = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Balloon].IsDonateAll;
-                        AppSettings.IsDonateAllWizards = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Wizard].IsDonateAll;
+                        AppSettings.IsDonateAllGiants = DataCollection.TroopTiers[(int)tier].Troops[Troop.Giant].IsDonateAll;
+                        AppSettings.IsDonateAllWallBreakers = DataCollection.TroopTiers[(int)tier].Troops[Troop.WallBreaker].IsDonateAll;
+                        AppSettings.IsDonateAllBalloons = DataCollection.TroopTiers[(int)tier].Troops[Troop.Balloon].IsDonateAll;
+                        AppSettings.IsDonateAllWizards = DataCollection.TroopTiers[(int)tier].Troops[Troop.Wizard].IsDonateAll;
 
-                        AppSettings.DonateKeywordsBarbarians = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Giant].DonateKeywords;
-                        AppSettings.DonateKeywordsArchers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.WallBreaker].DonateKeywords;
-                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Balloon].DonateKeywords;
-                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Wizard].DonateKeywords;
+                        AppSettings.DonateKeywordsBarbarians = DataCollection.TroopTiers[(int)tier].Troops[Troop.Giant].DonateKeywords;
+                        AppSettings.DonateKeywordsArchers = DataCollection.TroopTiers[(int)tier].Troops[Troop.WallBreaker].DonateKeywords;
+                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[Troop.Balloon].DonateKeywords;
+                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[Troop.Wizard].DonateKeywords;
 
-                        AppSettings.MaxDonationsPerRequestGiants = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Giant].MaxDonationsPerRequest;
-                        AppSettings.MaxDonationsPerRequestWallBreakers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.WallBreaker].MaxDonationsPerRequest;
-                        AppSettings.MaxDonationsPerRequestBalloons = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Balloon].MaxDonationsPerRequest;
-                        AppSettings.MaxDonationsPerRequestWizards = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Wizard].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestGiants = DataCollection.TroopTiers[(int)tier].Troops[Troop.Giant].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestWallBreakers = DataCollection.TroopTiers[(int)tier].Troops[Troop.WallBreaker].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestBalloons = DataCollection.TroopTiers[(int)tier].Troops[Troop.Balloon].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestWizards = DataCollection.TroopTiers[(int)tier].Troops[Troop.Wizard].MaxDonationsPerRequest;
                         break;
                     case TroopType.Tier3:
-                        AppSettings.TroopsQtyHealers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Healer].TrainQuantity;
-                        AppSettings.TroopsQtyDragons = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Dragon].TrainQuantity;
-                        AppSettings.TroopsQtyPekkas = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Pekka].TrainQuantity;
+                        AppSettings.TroopsQtyHealers = DataCollection.TroopTiers[(int)tier].Troops[Troop.Healer].TrainQuantity;
+                        AppSettings.TroopsQtyDragons = DataCollection.TroopTiers[(int)tier].Troops[Troop.Dragon].TrainQuantity;
+                        AppSettings.TroopsQtyPekkas = DataCollection.TroopTiers[(int)tier].Troops[Troop.Pekka].TrainQuantity;
 
-                        AppSettings.IsDonateAllHealers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Healer].IsDonateAll;
-                        AppSettings.IsDonateAllDragons = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Dragon].IsDonateAll;
-                        AppSettings.IsDonateAllPekkas = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Pekka].IsDonateAll;
+                        AppSettings.IsDonateAllHealers = DataCollection.TroopTiers[(int)tier].Troops[Troop.Healer].IsDonateAll;
+                        AppSettings.IsDonateAllDragons = DataCollection.TroopTiers[(int)tier].Troops[Troop.Dragon].IsDonateAll;
+                        AppSettings.IsDonateAllPekkas = DataCollection.TroopTiers[(int)tier].Troops[Troop.Pekka].IsDonateAll;
 
-                        AppSettings.DonateKeywordsBarbarians = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Healer].DonateKeywords;
-                        AppSettings.DonateKeywordsArchers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Dragon].DonateKeywords;
-                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Pekka].DonateKeywords;
+                        AppSettings.DonateKeywordsBarbarians = DataCollection.TroopTiers[(int)tier].Troops[Troop.Healer].DonateKeywords;
+                        AppSettings.DonateKeywordsArchers = DataCollection.TroopTiers[(int)tier].Troops[Troop.Dragon].DonateKeywords;
+                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[Troop.Pekka].DonateKeywords;
 
-                        AppSettings.MaxDonationsPerRequestHealers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Healer].MaxDonationsPerRequest;
-                        AppSettings.MaxDonationsPerRequestDragons = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Dragon].MaxDonationsPerRequest;
-                        AppSettings.MaxDonationsPerRequestPekkas = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Pekka].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestHealers = DataCollection.TroopTiers[(int)tier].Troops[Troop.Healer].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestDragons = DataCollection.TroopTiers[(int)tier].Troops[Troop.Dragon].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestPekkas = DataCollection.TroopTiers[(int)tier].Troops[Troop.Pekka].MaxDonationsPerRequest;
                         break;
                     case TroopType.DarkTroops:
-                        AppSettings.TroopsQtyMinions = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Minion].TrainQuantity;
-                        AppSettings.TroopsQtyHogRiders = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.HogRider].TrainQuantity;
-                        AppSettings.TroopsQtyValkyries = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Valkyrie].TrainQuantity;
-                        AppSettings.TroopsQtyGolems = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Golem].TrainQuantity;
-                        AppSettings.TroopsQtyWitches = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Witch].TrainQuantity;
-                        AppSettings.TroopsQtyLavaHounds = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.LavaHound].TrainQuantity;
+                        AppSettings.TroopsQtyMinions = DataCollection.TroopTiers[(int)tier].Troops[Troop.Minion].TrainQuantity;
+                        AppSettings.TroopsQtyHogRiders = DataCollection.TroopTiers[(int)tier].Troops[Troop.HogRider].TrainQuantity;
+                        AppSettings.TroopsQtyValkyries = DataCollection.TroopTiers[(int)tier].Troops[Troop.Valkyrie].TrainQuantity;
+                        AppSettings.TroopsQtyGolems = DataCollection.TroopTiers[(int)tier].Troops[Troop.Golem].TrainQuantity;
+                        AppSettings.TroopsQtyWitches = DataCollection.TroopTiers[(int)tier].Troops[Troop.Witch].TrainQuantity;
+                        AppSettings.TroopsQtyLavaHounds = DataCollection.TroopTiers[(int)tier].Troops[Troop.LavaHound].TrainQuantity;
 
-                        AppSettings.IsDonateAllMinions = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Minion].IsDonateAll;
-                        AppSettings.IsDonateAllHogRiders = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.HogRider].IsDonateAll;
-                        AppSettings.IsDonateAllValkyries = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Valkyrie].IsDonateAll;
-                        AppSettings.IsDonateAllGolems = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Golem].IsDonateAll;
-                        AppSettings.IsDonateAllWitches = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Witch].IsDonateAll;
-                        AppSettings.IsDonateAllLavaHounds = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.LavaHound].IsDonateAll;
+                        AppSettings.IsDonateAllMinions = DataCollection.TroopTiers[(int)tier].Troops[Troop.Minion].IsDonateAll;
+                        AppSettings.IsDonateAllHogRiders = DataCollection.TroopTiers[(int)tier].Troops[Troop.HogRider].IsDonateAll;
+                        AppSettings.IsDonateAllValkyries = DataCollection.TroopTiers[(int)tier].Troops[Troop.Valkyrie].IsDonateAll;
+                        AppSettings.IsDonateAllGolems = DataCollection.TroopTiers[(int)tier].Troops[Troop.Golem].IsDonateAll;
+                        AppSettings.IsDonateAllWitches = DataCollection.TroopTiers[(int)tier].Troops[Troop.Witch].IsDonateAll;
+                        AppSettings.IsDonateAllLavaHounds = DataCollection.TroopTiers[(int)tier].Troops[Troop.LavaHound].IsDonateAll;
 
-                        AppSettings.DonateKeywordsBarbarians = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Minion].DonateKeywords;
-                        AppSettings.DonateKeywordsArchers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.HogRider].DonateKeywords;
-                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Valkyrie].DonateKeywords;
-                        AppSettings.DonateKeywordsBarbarians = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Golem].DonateKeywords;
-                        AppSettings.DonateKeywordsArchers = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Witch].DonateKeywords;
-                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.LavaHound].DonateKeywords;
+                        AppSettings.DonateKeywordsBarbarians = DataCollection.TroopTiers[(int)tier].Troops[Troop.Minion].DonateKeywords;
+                        AppSettings.DonateKeywordsArchers = DataCollection.TroopTiers[(int)tier].Troops[Troop.HogRider].DonateKeywords;
+                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[Troop.Valkyrie].DonateKeywords;
+                        AppSettings.DonateKeywordsBarbarians = DataCollection.TroopTiers[(int)tier].Troops[Troop.Golem].DonateKeywords;
+                        AppSettings.DonateKeywordsArchers = DataCollection.TroopTiers[(int)tier].Troops[Troop.Witch].DonateKeywords;
+                        AppSettings.DonateKeywordsGoblins = DataCollection.TroopTiers[(int)tier].Troops[Troop.LavaHound].DonateKeywords;
 
-                        AppSettings.MaxDonationsPerRequestMinions = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Minion].MaxDonationsPerRequest;
-                        AppSettings.MaxDonationsPerRequestHogRiders = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.HogRider].MaxDonationsPerRequest;
-                        AppSettings.MaxDonationsPerRequestValkyries = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Valkyrie].MaxDonationsPerRequest;
-                        AppSettings.MaxDonationsPerRequestGolems = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Golem].MaxDonationsPerRequest;
-                        AppSettings.MaxDonationsPerRequestWitches = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.Witch].MaxDonationsPerRequest;
-                        AppSettings.MaxDonationsPerRequestLavaHounds = DataCollection.TroopTiers[(int)tier].Troops[(int)Troop.LavaHound].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestMinions = DataCollection.TroopTiers[(int)tier].Troops[Troop.Minion].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestHogRiders = DataCollection.TroopTiers[(int)tier].Troops[Troop.HogRider].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestValkyries = DataCollection.TroopTiers[(int)tier].Troops[Troop.Valkyrie].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestGolems = DataCollection.TroopTiers[(int)tier].Troops[Troop.Golem].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestWitches = DataCollection.TroopTiers[(int)tier].Troops[Troop.Witch].MaxDonationsPerRequest;
+                        AppSettings.MaxDonationsPerRequestLavaHounds = DataCollection.TroopTiers[(int)tier].Troops[Troop.LavaHound].MaxDonationsPerRequest;
                         break;
                     default:
                         // Troop Type Heroes, do nothing!

@@ -69,6 +69,18 @@
             }
         }
 
+		/// <summary>
+		/// Do not use Id! Use this instead....
+		/// </summary>
+		public Troop Troop
+		{
+			get { return (Troop)_id; }
+			set
+			{
+				Id = (int)Troop;
+			}
+		}
+
         private string _name;
         public string Name
         {

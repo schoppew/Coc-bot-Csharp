@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using CoC.Bot.BotEngine.Train;
 using CoC.Bot.Data;
 using Point = Win32.POINT;
 
@@ -17,25 +18,39 @@ namespace CoC.Bot.BotEngine
 			// This should be called before an attack. 
 			return false;
 		}
-
+		
+		
 		static public void TrainPlanner()
 		{
-			// Todo: IsUseBarracks1... check real meaning of those
-			int nbBarracks = 0;
-			int[] barrack = new int[4]; // Remembers which is 1st, 2nde and so barrack. 
-			if (Main.Bot.IsUseBarracks1) barrack[nbBarracks++] = 1;
-			if (Main.Bot.IsUseBarracks2) barrack[nbBarracks++] = 2;
-			if (Main.Bot.IsUseBarracks3) barrack[nbBarracks++] = 3;
-			if (Main.Bot.IsUseBarracks4) barrack[nbBarracks++] = 4;
-
-			int nbDarkBarracks = 0;
-			int[] darkBarrack = new int[4]; // Remembers which is 1st, 2nde and so barrack. 
-			if (Main.Bot.IsUseDarkBarracks1) darkBarrack[nbDarkBarracks++] = 1;
-			if (Main.Bot.IsUseDarkBarracks2) darkBarrack[nbDarkBarracks++] = 2;		
-
-			// Todo: fill each barrack according to number of each troop to be done
+			// Todo: This collection must be stored in some global shared place. 
+			//       It is needed to train troops, and need to be updated when troops are donated
+			TroopToTrainInBarracks barracks = new TroopToTrainInBarracks(); 
+			foreach (var building in DataCollection.BuildingPoints)
+				barracks.AddBarrack(building);
 			
-			//foreach (TroopModel troop in  Data.TroopModel DataCollection.BarracksTroops BarracksTroops)
+			// Todo: fill each barrack according to number of each troop to be done
+			int TellMeHowToGetThisDataFromUI;
+			IEnumerable<TroopModel> TroopsToBeTrained=null;
+
+
+			// All the magic is here ;=)			
+			foreach (TroopModel troop in TroopsToBeTrained.OrderByDescending(t=>t.Troop.TimeToTrain()))
+			{
+				barracks.AddTroop(troop.Troop);
+			}
+
+			// Here you can retreive in each barrack what has to be trained. 
+			// Just like that:
+			//TrainingElement te;
+			//foreach(var barrack in barracks)
+			//	while ((te = barrack.Pop()) != null)
+			//	{
+			//		Troop troopToTrain = te.Troop;
+			//		int Quantity = te.TotalCount - te.TrainingStarted;
+			//		<Train It>
+			//		te.TrainingStarted = te.TotalCount;
+			//	}
+				
 		}
 
 		static public Troop GetTroopToBeTrainedInBarrack(int barrackId, bool dark)
@@ -87,28 +102,28 @@ namespace CoC.Bot.BotEngine
 				DetectableArea area = new DetectableArea(left, top, right, bottom, ScreenData.TrainTroopsButton.Color, ScreenData.TrainTroopsButton.ShadeVariation);
 				ClickablePoint p1 = Tools.CoCHelper.SearchPixelInRect(area);
 
-                if(!p1.IsEmpty && !(p1.Point.X == -1 || p1.Point.Y == -1))
-                { 
-				    if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.TrainTroopsButton2.Point.X, p1.Point.Y + ScreenData.TrainTroopsButton2.Point.Y), ScreenData.TrainTroopsButton2.Color, ScreenData.TrainTroopsButton2.ShadeVariation))
-				    {
-					    return p1;
-				    }
-                }
+				if (!p1.IsEmpty && !(p1.Point.X == -1 || p1.Point.Y == -1))
+				{
+					if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.TrainTroopsButton2.Point.X, p1.Point.Y + ScreenData.TrainTroopsButton2.Point.Y), ScreenData.TrainTroopsButton2.Color, ScreenData.TrainTroopsButton2.ShadeVariation))
+					{
+						return p1;
+					}
+				}
 
-                if (count >= 6)
-                {
-                    break;
-                }
-                else
-                {
-                    if (!p1.IsEmpty && !(p1.Point.X == -1 || p1.Point.Y == -1))
-                    {
-                        left = p1.Point.X;
-                        top = p1.Point.Y;
-                    }
+				if (count >= 6)
+				{
+					break;
+				}
+				else
+				{
+					if (!p1.IsEmpty && !(p1.Point.X == -1 || p1.Point.Y == -1))
+					{
+						left = p1.Point.X;
+						top = p1.Point.Y;
+					}
 
-                    count++;
-                }
+					count++;
+				}
 			} while (true);
 
 			return new ClickablePoint();
@@ -116,26 +131,26 @@ namespace CoC.Bot.BotEngine
 
 		public static bool CheckBarrackFull()
 		{
-            // BARRACK MUST BE OPEN FOR THIS
+			// BARRACK MUST BE OPEN FOR THIS
 			return Tools.CoCHelper.CheckPixelColor(ScreenData.BarbarianSlotGrey);
 		}
 
 		public static bool CheckFullArmy(bool barrackOpen)
 		{
-            bool campsFull;
+			bool campsFull;
 
-            if(!barrackOpen)
-            {
-                Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 100);
-                Thread.Sleep(200);
+			if (!barrackOpen)
+			{
+				Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 100);
+				Thread.Sleep(200);
 				Tools.CoCHelper.Click(new ClickablePoint(DataCollection.BuildingPoints.Where(b => b.Building == Building.Barrack1).First().Coordinates));
 				//Tools.CoCHelper.Click(new ClickablePoint(Main.Bot.LocationBarrack1));
-                Thread.Sleep(200);
-                Tools.CoCHelper.Click(GetTrainTroopsButton());
-            }
-            
-            campsFull = Tools.CoCHelper.SameColor(Tools.CoCHelper.GetPixelColor(ScreenData.ArmyFullNotif), ScreenData.ArmyFullNotif.Color, 6);
-            return campsFull;
+				Thread.Sleep(200);
+				Tools.CoCHelper.Click(GetTrainTroopsButton());
+			}
+
+			campsFull = Tools.CoCHelper.SameColor(Tools.CoCHelper.GetPixelColor(ScreenData.ArmyFullNotif), ScreenData.ArmyFullNotif.Color, 6);
+			return campsFull;
 		}
 
 
@@ -157,119 +172,119 @@ namespace CoC.Bot.BotEngine
 
 			bool armyFull = false;
 
-            // FF, do not change this to just checking if barrackPos[0].isEmpty. It needs to check if the x or y values are 0 as well to work.
+			// FF, do not change this to just checking if barrackPos[0].isEmpty. It needs to check if the x or y values are 0 as well to work.
 			if (Main.Bot.IsUseBarracks1 && (barrackPos[0].IsEmpty || barrackPos[0].Point.X == 0 || barrackPos[0].Point.Y == 0))
 			{
 				Main.Bot.LocateBarracks();
 			}
 
-            // FF, do not change this to just checking if darkBarrackPos[0].isEmpty. It needs to check if the x or y values are 0 as well to work.
-            if ((Main.Bot.IsUseDarkBarracks1 && (darkBarrackPos[0].IsEmpty || darkBarrackPos[0].Point.X == 0 || darkBarrackPos[0].Point.Y == 0)) || (Main.Bot.IsUseDarkBarracks2 && (darkBarrackPos[1].IsEmpty || darkBarrackPos[1].Point.X == 0 || darkBarrackPos[1].Point.Y == 0)))
+			// FF, do not change this to just checking if darkBarrackPos[0].isEmpty. It needs to check if the x or y values are 0 as well to work.
+			if ((Main.Bot.IsUseDarkBarracks1 && (darkBarrackPos[0].IsEmpty || darkBarrackPos[0].Point.X == 0 || darkBarrackPos[0].Point.Y == 0)) || (Main.Bot.IsUseDarkBarracks2 && (darkBarrackPos[1].IsEmpty || darkBarrackPos[1].Point.X == 0 || darkBarrackPos[1].Point.Y == 0)))
 			{
 				Main.Bot.LocateDarkBarracks();
 			}
 
-            Main.Bot.WriteToOutput("Training Barracks Troops...");
+			Main.Bot.WriteToOutput("Training Barracks Troops...");
 
-            for (int i = 0; i < 4; i++)
-            {
-                // FF, do not change this to just checking if barrackPos[0].isEmpty. It needs to check if the x or y values are 0 as well to work.
-                if (barrackPos[i].IsEmpty || barrackPos[i].Point.X == 0 || barrackPos[i].Point.Y == 0)
-                    Main.Bot.WriteToOutput(string.Format("Barrack {0} is not set...", i + 1));
-                else
-                {
-                    Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
-                    Thread.Sleep(500);
+			for (int i = 0; i < 4; i++)
+			{
+				// FF, do not change this to just checking if barrackPos[0].isEmpty. It needs to check if the x or y values are 0 as well to work.
+				if (barrackPos[i].IsEmpty || barrackPos[i].Point.X == 0 || barrackPos[i].Point.Y == 0)
+					Main.Bot.WriteToOutput(string.Format("Barrack {0} is not set...", i + 1));
+				else
+				{
+					Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
+					Thread.Sleep(500);
 
-                    Tools.CoCHelper.Click(barrackPos[i], 1);
-                    Thread.Sleep(500);
+					Tools.CoCHelper.Click(barrackPos[i], 1);
+					Thread.Sleep(500);
 
-                    Point trainPos = Barrack.GetTrainTroopsButton();
+					Point trainPos = Barrack.GetTrainTroopsButton();
 
-                    if (trainPos.IsEmpty)
-                    {
-                        Main.Bot.WriteToOutput(string.Format("Barrack {0} is not available...", i + 1));
-                    }
-                    else
-                    {
-                        Tools.CoCHelper.Click(new ClickablePoint(trainPos));
-                        Thread.Sleep(500);
+					if (trainPos.IsEmpty)
+					{
+						Main.Bot.WriteToOutput(string.Format("Barrack {0} is not available...", i + 1));
+					}
+					else
+					{
+						Tools.CoCHelper.Click(new ClickablePoint(trainPos));
+						Thread.Sleep(500);
 
-                        armyFull = CheckFullArmy(true);
+						armyFull = CheckFullArmy(true);
 
-                        if (!armyFull)
-                        {
-                            Troop troop = GetTroopToBeTrainedInBarrack(i, false);
+						if (!armyFull)
+						{
+							Troop troop = GetTroopToBeTrainedInBarrack(i, false);
 
-                            while (!CheckBarrackFull())
-                            {
-                                TrainIt(troop, 5);
-                                Thread.Sleep(50);
-                            }
-                        }
-                        else
-                        {
-                            Main.Bot.WriteToOutput("Barracks Full...", GlobalVariables.OutputStates.Normal);
-                        }
-                    }
+							while (!CheckBarrackFull())
+							{
+								TrainIt(troop, 5);
+								Thread.Sleep(50);
+							}
+						}
+						else
+						{
+							Main.Bot.WriteToOutput("Barracks Full...", GlobalVariables.OutputStates.Normal);
+						}
+					}
 
-                    Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 250);
-                }
-            }
+					Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 250);
+				}
+			}
 
 			// Train Dark Barracks only if the army isn't full
-            if (!armyFull)
-            {
-                Main.Bot.WriteToOutput("Training Dark Barracks Troops...");
+			if (!armyFull)
+			{
+				Main.Bot.WriteToOutput("Training Dark Barracks Troops...");
 
-                for (int i = 0; i < 2; i++)
-                {
-                    // FF, do not change this to just checking if darkBarrackPos[0].isEmpty. It needs to check if the x or y values are 0 as well to work.
-                    if (darkBarrackPos[i].IsEmpty || darkBarrackPos[i].Point.X == 0 || darkBarrackPos[i].Point.Y == 0)
-                        Main.Bot.WriteToOutput(string.Format("Dark Barrack {0} is not set...", i + 1));
-                    else
-                    {
-                        Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
-                        Thread.Sleep(500);
+				for (int i = 0; i < 2; i++)
+				{
+					// FF, do not change this to just checking if darkBarrackPos[0].isEmpty. It needs to check if the x or y values are 0 as well to work.
+					if (darkBarrackPos[i].IsEmpty || darkBarrackPos[i].Point.X == 0 || darkBarrackPos[i].Point.Y == 0)
+						Main.Bot.WriteToOutput(string.Format("Dark Barrack {0} is not set...", i + 1));
+					else
+					{
+						Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 200);
+						Thread.Sleep(500);
 
-                        Tools.CoCHelper.Click(darkBarrackPos[i], 1);
-                        Thread.Sleep(500);
+						Tools.CoCHelper.Click(darkBarrackPos[i], 1);
+						Thread.Sleep(500);
 
-                        Point trainPos = GetTrainTroopsButton();
+						Point trainPos = GetTrainTroopsButton();
 
-                        if (trainPos.IsEmpty)
-                        {
-                            Main.Bot.WriteToOutput(string.Format("Dark Barrack {0} is not available...", i + 1));
-                        }
-                        else
-                        {
-                            Tools.CoCHelper.Click(new ClickablePoint(trainPos));
-                            Thread.Sleep(50);
+						if (trainPos.IsEmpty)
+						{
+							Main.Bot.WriteToOutput(string.Format("Dark Barrack {0} is not available...", i + 1));
+						}
+						else
+						{
+							Tools.CoCHelper.Click(new ClickablePoint(trainPos));
+							Thread.Sleep(50);
 
-                            if (!armyFull)
-                            {
-                                Troop troop = GetTroopToBeTrainedInBarrack(i, true);
+							if (!armyFull)
+							{
+								Troop troop = GetTroopToBeTrainedInBarrack(i, true);
 
-                                while (!CheckBarrackFull())
-                                {
-                                    TrainIt(troop, 5);
-                                    Thread.Sleep(50);
-                                }
-                            }
-                        }
+								while (!CheckBarrackFull())
+								{
+									TrainIt(troop, 5);
+									Thread.Sleep(50);
+								}
+							}
+						}
 
-                        Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 250);
-                    }
-                }
-            }
+						Tools.CoCHelper.Click(Data.ScreenData.TopLeftClient, 2, 250);
+					}
+				}
+			}
 
 			Main.Bot.WriteToOutput("Training Troops Complete...");
 		}
 
-        public static void Boost()
-        {
-            //TODO: Create UI Elements/Properties for Boosting Barracks. TAGS: Ph!d
-        }
+		public static void Boost()
+		{
+			//TODO: Create UI Elements/Properties for Boosting Barracks. TAGS: Ph!d
+		}
 
 	}
 }
