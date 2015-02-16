@@ -10,38 +10,30 @@
 
     internal partial class Village
     {
-        public static void CollectResources()
+        public static void CollectResources(bool firstTry = true)
         {
 			var extractors = DataCollection.BuildingPoints.Where(b => b.BuildingType == BuildingType.Extractor);
-			if (extractors.Count() <= 0)
-				return; // The DataCollection.BuildingPoints is empty. Something is wrong!
-
-			//var positions = extractors.Select(x => new Point() { X = x.Coordinates.X, Y = x.Coordinates.Y }).ToArray();
-			var positions = extractors.Select(x => new ClickablePoint(x.Coordinates)).ToArray();
-
-			if (positions[0].IsEmpty || positions[0].Point.X == 0 || positions[0].Point.Y == 0)
+			int nbExtractorsSet = extractors.Count(ext=>!ext.Coordinates.IsEmptyOrZero);
+			if (nbExtractorsSet==0)
 			{
-				Main.Bot.LocateCollectors();
-			}
-
-			// FF, do not change this to just checking if collectorPos[0].isEmpty. It needs to check if the x or y values are 0 as well to work.
-			if (!positions[0].IsEmpty && positions[0].Point.X != 0 && positions[0].Point.Y != 0)
-			{
-				Main.Bot.WriteToOutput("Collecting Resources...");
-				Thread.Sleep(250);
-
-				for (int i = 0; i < 17; i++)
+				if (!firstTry) // Skip this: do not loop, as the user probably don't want to set the extractors 
 				{
-					Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 50);
-					Thread.Sleep(250);
-					Tools.CoCHelper.Click(new ClickablePoint(positions[i]));
-					Thread.Sleep(250);
+					Main.Bot.WriteToOutput("No extractor location set => skip collecting ressources", GlobalVariables.OutputStates.Warning);
+					return;
 				}
+				Main.Bot.LocateCollectors();
+				CollectResources(false);				// Restart
+				return;
 			}
-			else
-			{
-				Main.Bot.WriteToOutput("Collectors Unavailable...", GlobalVariables.OutputStates.Normal);
 
+			Main.Bot.WriteToOutput("Collecting Resources...", GlobalVariables.OutputStates.Information);				
+			foreach (var extractor in extractors)
+			{
+				if (extractor.Coordinates.IsEmptyOrZero) continue;
+				Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 50);
+				Thread.Sleep(200);
+				Tools.CoCHelper.Click((ClickablePoint)extractor.Coordinates);
+				Thread.Sleep(200);				
 			}
         }
 

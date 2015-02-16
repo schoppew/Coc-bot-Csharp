@@ -40,6 +40,15 @@ namespace Win32
 			}
 		}
 
+		public bool IsEmptyOrZero
+		{
+			get
+			{
+				return ((X == Empty.X) && (Y == Empty.Y)) || ((X == 0) && (Y == 0));
+			}
+		}
+
+		
 		public override bool Equals(object obj)
 		{
 			if (obj is POINT) return Equals((POINT)obj);
