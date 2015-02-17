@@ -1,22 +1,15 @@
-﻿namespace CoC.Bot.BotEngine
+﻿using System;
+using System.IO;
+using System.Text;
+using System.Threading;
+using CoC.Bot.Properties;
+using CoC.Bot.Tools;
+using CoC.Bot.ViewModels;
+using FastFind;
+
+namespace CoC.Bot.BotEngine
 {
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
-	using System.Linq;
-	using System.Reflection;
-	using System.Text;
-	using System.Threading;
-	using System.Threading.Tasks;
-	using System.Windows;
-    using System.Drawing;
-
-	using ViewModels;
-
-	using Tools;
-	using Tools.FastFind;
-
-	/// <summary>
+    /// <summary>
 	/// The Main entry point for the Bot Functions.
 	/// </summary>
 	public class Main
@@ -28,15 +21,15 @@
 		{
 			// Store in properties so we can access in the SubFunctions
 			Bot = vm;
-            Main.Bot.ClearOutput();
+            Bot.ClearOutput();
 
-			Bot.WriteToOutput(string.Format(Properties.Resources.OutputWelcomeMessage, Properties.Resources.AppName));
-			Bot.WriteToOutput(Properties.Resources.OutputBotIsStarting);
+			Bot.WriteToOutput(string.Format(Resources.OutputWelcomeMessage, Resources.AppName));
+			Bot.WriteToOutput(Resources.OutputBotIsStarting);
 
 			// Check if BlueStacks is running
 			if (!BlueStacksHelper.IsBlueStacksRunning)
 			{
-				Bot.WriteToOutput(Properties.Resources.OutputBSNotFound, GlobalVariables.OutputStates.Error);
+				Bot.WriteToOutput(Resources.OutputBSNotFound, GlobalVariables.OutputStates.Error);
 
 				Bot.IsExecuting = false;
 				return;
@@ -44,19 +37,19 @@
 
 			if (!BlueStacksHelper.IsRunningWithRequiredDimensions)
 			{
-				Bot.WriteToOutput(Properties.Resources.OutputBSNotRunningWithDimensions);
-				Bot.WriteToOutput(Properties.Resources.OutputBSApplyDimensionsIntoRegistry);
+				Bot.WriteToOutput(Resources.OutputBSNotRunningWithDimensions);
+				Bot.WriteToOutput(Resources.OutputBSApplyDimensionsIntoRegistry);
 
 				if (!BlueStacksHelper.SetDimensionsIntoRegistry())
 				{
 					// Woops! Something went wrong, log the error!
-					Bot.WriteToOutput(Properties.Resources.OutputBSApplyDimensionsError, GlobalVariables.OutputStates.Error);
+					Bot.WriteToOutput(Resources.OutputBSApplyDimensionsError, GlobalVariables.OutputStates.Error);
 
 					Bot.IsExecuting = false;
 					return;
 				}
 				else
-					Bot.WriteToOutput(Properties.Resources.OutputBSAppliedDimensionsIntoRegistry);
+					Bot.WriteToOutput(Resources.OutputBSAppliedDimensionsIntoRegistry);
 
 				// Restart BlueStacks
 				// Wait until restart and continue...
@@ -75,7 +68,7 @@
 			{
                 while (Bot.IsExecuting)
                 {
-                    FastFind.FastFindWrapper.SetHWnd(Tools.BlueStacksHelper.GetBlueStacksWindowHandle(), true);
+                    FastFindWrapper.SetHWnd(BlueStacksHelper.GetBlueStacksWindowHandle(), true);
 
                     MainScreen.CheckMainScreen();
                     Thread.Sleep(1000);
@@ -156,7 +149,7 @@
 			{
 				try
 				{
-					File.WriteAllText(Path.Combine(GlobalVariables.AppPath, "LICENSE"), Properties.Resources.LICENSE, Encoding.UTF8);
+					File.WriteAllText(Path.Combine(GlobalVariables.AppPath, "LICENSE"), Resources.LICENSE, Encoding.UTF8);
 				}
 				catch (Exception)
 				{
