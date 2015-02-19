@@ -6,6 +6,7 @@
     using System.Drawing;
     using System.IO;
     using System.Reflection;
+using CoC.Bot.PluginMngr;
 
     public static class GlobalVariables
     {
@@ -48,16 +49,18 @@
 
         #endregion
 
-        public static Bitmap hBitmap;
-        public static Bitmap hHBitmap;
+		//public static Bitmap hBitmap;
+		//public static Bitmap hHBitmap;
 
-        public static IntPtr HWnD;
+		//public static IntPtr HWnD;
 
-        public static int hLogFileHandle;
+        //public static int hLogFileHandle;
         public static bool restart = false;
         public static bool runState = false;
         public static bool backgroundMode = true;
 
         public static bool fullArmy = false;
+
+		public static PluginLoader PluginLoader { get; set; }
     }
 }

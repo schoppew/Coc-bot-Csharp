@@ -100,7 +100,9 @@
 
 			Init();
             GetUserSettings();
-			
+
+			GlobalVariables.PluginLoader = new PluginMngr.PluginLoader(this);
+
             Message = Properties.Resources.StartMessage;
         }
 
@@ -494,8 +496,7 @@
 					}
 				}
 			}
-
-            GlobalVariables.Log.WriteToLog(Properties.Resources.LogBotInitialized);
+			GlobalVariables.Log.WriteToLog(Properties.Resources.LogBotInitialized);
         }
 
         #endregion

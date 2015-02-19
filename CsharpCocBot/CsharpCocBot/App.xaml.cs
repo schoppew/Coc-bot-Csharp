@@ -63,6 +63,7 @@
 			UI.Services.ServiceInjector.InjectServices();
 
 			CoCHelper.Initialize();
+            
         }
 
         private void Application_Startup(object sender, StartupEventArgs e)

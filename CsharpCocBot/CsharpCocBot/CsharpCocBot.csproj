@@ -120,6 +120,8 @@
     <Compile Include="BotEngine\Train\TrainingElement.cs" />
     <Compile Include="BotEngine\Train\TroopToTrainInBarracks.cs" />
     <Compile Include="BotEngine\Train\TroopToTrainInBarrack.cs" />
+    <Compile Include="PluginMngr\PluginLoader.cs" />
+    <Compile Include="PluginMngr\SimpleServicesProvider.cs" />
     <Compile Include="UI\Controls\BusyIndicator\BackgroundVisualHost.cs" />
     <Compile Include="UI\Controls\BusyIndicator\BusyDecorator.cs" />
     <Compile Include="UI\Controls\BusyIndicator\CreateContentFunction.cs" />
@@ -361,6 +363,10 @@
     <ProjectReference Include="..\MouseAndKeyboard\MouseAndKeyboard.csproj">
       <Project>{54321393-8a64-4114-8a32-7ea3be810ed3}</Project>
       <Name>MouseAndKeyboard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PluginContracts\PluginContracts.csproj">
+      <Project>{be9648b5-c16f-42f7-9256-cf7df1d58df3}</Project>
+      <Name>PluginContracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\Win32\Win32.csproj">
       <Project>{c6d04f0b-dd48-456c-8065-7052cabbe1f5}</Project>

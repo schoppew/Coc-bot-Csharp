@@ -72,6 +72,9 @@ CsharpCocBot/MouseAndKeyboard/exe/
 CsharpCocBot/UnitTests/bin/
 CsharpCocBot/UnitTests/obj/
 CsharpCocBot/UnitTests/exe/
+CsharpCocBot/PluginContracts/bin/
+CsharpCocBot/PluginContracts/obj/
+CsharpCocBot/PluginContracts/exe/
 *.baml
 *.cache
 *.suo
@@ -80,3 +83,5 @@ CsharpCocBot/UnitTests/exe/
 *.rar
 *.coverage
 CsharpCocBot - Copie/
+CsharpCocBot/CsharpCocBot/UT/FastFindHelper.dll
+CsharpCocBot/BitmapDetector.zip

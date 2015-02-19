@@ -20,7 +20,7 @@ namespace CoC.Bot.BotEngine
 		public static void Initialize(MainViewModel vm)
 		{
 			// Store in properties so we can access in the SubFunctions
-			Bot = vm;
+			Bot = vm;			
             Bot.ClearOutput();
 
 			Bot.WriteToOutput(string.Format(Resources.OutputWelcomeMessage, Resources.AppName));

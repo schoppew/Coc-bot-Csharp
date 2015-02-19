@@ -464,5 +464,8 @@
     <Setting Name="AnalysisDirectory" Type="System.String" Scope="User">
       <Value Profile="(Default)">F:\Jeux\AllTowns\AllTowns</Value>
     </Setting>
+    <Setting Name="PluginsPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\Plugins</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -16,7 +16,7 @@ namespace ExtBitmap
             return -1;
         }
 
-        public int FindNextBitmapPos(ExtBitmap searchedImage, int fromPos, int left, int top, int right, int bottom, int shadeVariation)
+        public int FindNextBitmapPos(ExtBitmap searchedImage, int fromPos, int left, int top, int right, int bottom, int shadeVariation, bool ignoreAlphaChannel = true)
         {
 			int TODO;
             Point pFrom=GetPointFromPos(fromPos);
