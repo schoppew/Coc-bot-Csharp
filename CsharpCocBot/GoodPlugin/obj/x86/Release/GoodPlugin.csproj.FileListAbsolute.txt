@@ -2,3 +2,4 @@ C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\CsharpCocBot\ex
 C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\CsharpCocBot\exe\Plugins\GoodPlugin.pdb
 C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\GoodPlugin\obj\x86\Release\GoodPlugin.dll
 C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\GoodPlugin\obj\x86\Release\GoodPlugin.pdb
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\GoodPlugin\obj\x86\Release\GoodPlugin.csprojResolveAssemblyReference.cache

@@ -7,7 +7,7 @@ using CoC.Bot.Plugin;
 
 namespace PluginContracts
 {
-    public class PluginExemple : BasePlugin
+    public class PluginExample : BasePlugin
     {
 		public override string Author { get { return "FastFrench"; } }
 		public override string Version { get { return "1.0"; } }

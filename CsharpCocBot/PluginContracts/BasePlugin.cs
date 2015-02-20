@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CoC.Bot.Plugin;
 
 namespace PluginContracts
 {
@@ -10,7 +11,7 @@ namespace PluginContracts
 	/// <summary>
 	/// Derive your own plugin to easily implement the mandatory interface
 	/// </summary>
-	public abstract class BasePlugin
+	public abstract class BasePlugin : ICocPlugin
 	{
 		protected ICocBot MainBot { get; set; }
 		abstract public string Author { get; }
