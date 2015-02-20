@@ -56,6 +56,15 @@
             }
         }
 
+		public TroopType TroopType
+		{
+			get { return (TroopType)_id; }
+			set
+			{
+				Id = (int)TroopType;
+			}
+		}
+
         private string _name;
         public string Name
         {
@@ -131,6 +140,11 @@
             {
                 get { return base.Items.Where(i => i.Id == (int)t).FirstOrDefault(); }
             }
+
+			public TroopTierModel this[TroopType t]
+			{
+				get { return base.Items.Where(i => i.TroopType == t).FirstOrDefault(); }
+			}
 
             /// <summary>
             /// Gets the specified Troop Tier, or a default value if the sequence contains no elements.
