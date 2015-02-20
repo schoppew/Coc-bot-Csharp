@@ -1,0 +1,9 @@
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\WrongPlugin\obj\x86\Release\WrongPlugin.csprojResolveAssemblyReference.cache
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\WrongPlugin\bin\x86\Release\WrongPlugin.dll
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\WrongPlugin\bin\x86\Release\WrongPlugin.pdb
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\WrongPlugin\bin\x86\Release\PluginContracts.dll
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\WrongPlugin\bin\x86\Release\PluginContracts.pdb
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\WrongPlugin\obj\x86\Release\WrongPlugin.dll
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\WrongPlugin\obj\x86\Release\WrongPlugin.pdb
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\CsharpCocBot\exe\Plugins\WrongPlugin.dll
+C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\CsharpCocBot\exe\Plugins\WrongPlugin.pdb

@@ -12,6 +12,7 @@ namespace CoC.Bot.Plugin
 	{
 		string Author { get; }
 		string Version { get; }
+		string Name { get; }
 		string Description { get; }
 		string Copyright { get; }
 
