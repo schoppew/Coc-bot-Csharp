@@ -367,7 +367,7 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Check the boxes that you want to meet. The bot will stop at a base when it meets the conditions. If all unchecked, bot will stop if gold or elixir are met..
+        ///   Looks up a localized string similar to Bot will stop at a base when it meets the conditions. If all unchecked, bot will stop if gold or elixir are met..
         /// </summary>
         public static string ConditionsMessage {
             get {
@@ -1078,6 +1078,24 @@ namespace CoC.Bot.Properties {
         public static string MaxLevel {
             get {
                 return ResourceManager.GetString("MaxLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meet All.
+        /// </summary>
+        public static string MeetAll {
+            get {
+                return ResourceManager.GetString("MeetAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meet Any.
+        /// </summary>
+        public static string MeetAny {
+            get {
+                return ResourceManager.GetString("MeetAny", resourceCulture);
             }
         }
         

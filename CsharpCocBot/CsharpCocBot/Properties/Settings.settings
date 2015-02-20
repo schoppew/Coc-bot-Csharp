@@ -467,5 +467,8 @@
     <Setting Name="PluginsPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">.\Plugins</Value>
     </Setting>
+    <Setting Name="SelectedSearchCondition" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -203,7 +203,9 @@
                                         <CheckBox Content="{x:Static p:Resources.MeetDarkElixir}" IsChecked="{Binding IsMeetDarkElixir}" HorizontalAlignment="Left" Margin="30,54,0,0" VerticalAlignment="Top"/>
                                         <CheckBox Content="{x:Static p:Resources.MeetTrophyCount}" IsChecked="{Binding IsMeetTrophyCount}" HorizontalAlignment="Left" Margin="30,76,0,0" VerticalAlignment="Top"/>
                                         <CheckBox Content="{x:Static p:Resources.MeetTownhallLevel}" IsChecked="{Binding IsMeetTownhallLevel}" HorizontalAlignment="Left" Margin="30,98,0,0" VerticalAlignment="Top"/>
-                                        <TextBlock Text="{x:Static p:Resources.ConditionsMessage}" Height="75" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
+                                        <RadioButton Content="{x:Static p:Resources.MeetAny}" IsChecked="{Binding SelectedSearchCondition, ConverterParameter=Any, Converter={StaticResource EnumToBooleanConverter}}" Margin="18,0,0,70" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" />
+                                        <RadioButton Content="{x:Static p:Resources.MeetAll}" IsChecked="{Binding SelectedSearchCondition, ConverterParameter=All, Converter={StaticResource EnumToBooleanConverter}}" Margin="0,0,10,70" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" />
+                                        <TextBlock Text="{x:Static p:Resources.ConditionsMessage}" Height="45" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="178" TextWrapping="Wrap" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox Header="{x:Static p:Resources.Factors}" HorizontalAlignment="Right" Margin="0,16,16,0" VerticalAlignment="Top" Height="239" Width="210">

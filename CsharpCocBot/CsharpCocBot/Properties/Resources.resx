@@ -166,7 +166,7 @@
     <value>Conditions</value>
   </data>
   <data name="ConditionsMessage" xml:space="preserve">
-    <value>Check the boxes that you want to meet. The bot will stop at a base when it meets the conditions. If all unchecked, bot will stop if gold or elixir are met.</value>
+    <value>Bot will stop at a base when it meets the conditions. If all unchecked, bot will stop if gold or elixir are met.</value>
   </data>
   <data name="Controls" xml:space="preserve">
     <value>Controls</value>
@@ -665,5 +665,11 @@ You can double click on the icon to show the window.</value>
   </data>
   <data name="LocatingMessage" xml:space="preserve">
     <value>LOCATING...</value>
+  </data>
+  <data name="MeetAll" xml:space="preserve">
+    <value>Meet All</value>
+  </data>
+  <data name="MeetAny" xml:space="preserve">
+    <value>Meet Any</value>
   </data>
 </root>

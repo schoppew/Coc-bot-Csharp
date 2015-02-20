@@ -26,6 +26,8 @@
 	/// </summary>
 	public partial class MainViewModel : ViewModelBase
 	{
+		public enum SearchCondition { Any = 1, All = 2 };
+
 		#region Properties
 
 		private bool _isMeetGold;
@@ -113,6 +115,20 @@
 				if (_isMeetTownhallLevel != value)
 				{
 					_isMeetTownhallLevel = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		private SearchCondition _selectedSearchCondition;
+		public SearchCondition SelectedSearchCondition
+		{
+			get { return _selectedSearchCondition; }
+			set
+			{
+				if (_selectedSearchCondition != value)
+				{
+					_selectedSearchCondition = value;
 					OnPropertyChanged();
 				}
 			}

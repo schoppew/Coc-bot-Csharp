@@ -797,6 +797,7 @@
             IsMeetDarkElixir = AppSettings.IsMeetDarkElixir;
             IsMeetTrophyCount = AppSettings.IsMeetTrophyCount;
             IsMeetTownhallLevel = AppSettings.IsMeetTownhallLevel;
+			SelectedSearchCondition = (SearchCondition)AppSettings.SelectedSearchCondition;
 
             MinimumGold = AppSettings.MinGold;
             MinimumElixir = AppSettings.MinElixir;
@@ -874,6 +875,7 @@
             AppSettings.IsMeetDarkElixir = IsMeetDarkElixir;
             AppSettings.IsMeetTrophyCount = IsMeetTrophyCount;
             AppSettings.IsMeetTownhallLevel = IsMeetTownhallLevel;
+			AppSettings.SelectedSearchCondition = (int)SelectedSearchCondition;
 
             AppSettings.MinGold = MinimumGold;
             AppSettings.MinElixir = MinimumElixir;
