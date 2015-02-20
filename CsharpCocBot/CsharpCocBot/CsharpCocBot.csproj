@@ -167,7 +167,6 @@
     <Compile Include="BotEngine\Main.cs" />
     <Compile Include="BotEngine\Train\Barrack.cs" />
     <Compile Include="BotEngine\RequestAndDonate.cs" />
-    <Compile Include="Samples\GettingAroundTheUI.cs" />
     <Compile Include="Tools\BlueStacksHelper.cs" />
     <Compile Include="Tools\CoCHelper.cs" />
     <Compile Include="Data\Type\ColorList.cs" />
