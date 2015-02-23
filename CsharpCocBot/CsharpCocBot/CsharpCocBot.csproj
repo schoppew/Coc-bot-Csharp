@@ -117,9 +117,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BotEngine\ScreenReading\OCRChar.cs" />
+    <Compile Include="BotEngine\ScreenReading\OCRPoint.cs" />
     <Compile Include="BotEngine\Train\TrainingElement.cs" />
     <Compile Include="BotEngine\Train\TroopToTrainInBarracks.cs" />
     <Compile Include="BotEngine\Train\TroopToTrainInBarrack.cs" />
+    <Compile Include="Data\ScreenData\ScreenData.OCR.cs" />
     <Compile Include="PluginMngr\PluginLoader.cs" />
     <Compile Include="PluginMngr\SimpleServicesProvider.cs" />
     <Compile Include="UI\Controls\BusyIndicator\BackgroundVisualHost.cs" />
