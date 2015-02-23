@@ -7,3 +7,8 @@ C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\WrongPlugin\obj
 C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\WrongPlugin\obj\x86\Release\WrongPlugin.pdb
 C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\CsharpCocBot\exe\Plugins\WrongPlugin.dll
 C:\Users\bernard.muller\Documents\GitHub\Coc-bot-C-\CsharpCocBot\CsharpCocBot\exe\Plugins\WrongPlugin.pdb
+F:\Jeux\Coc-bot-Csharp\CsharpCocBot\CsharpCocBot\exe\Plugins\WrongPlugin.dll
+F:\Jeux\Coc-bot-Csharp\CsharpCocBot\CsharpCocBot\exe\Plugins\WrongPlugin.pdb
+F:\Jeux\Coc-bot-Csharp\CsharpCocBot\WrongPlugin\obj\x86\Release\WrongPlugin.csprojResolveAssemblyReference.cache
+F:\Jeux\Coc-bot-Csharp\CsharpCocBot\WrongPlugin\obj\x86\Release\WrongPlugin.dll
+F:\Jeux\Coc-bot-Csharp\CsharpCocBot\WrongPlugin\obj\x86\Release\WrongPlugin.pdb
