@@ -88,7 +88,7 @@
 		/// [Used in UI for Binding] Gets the Troops.
 		/// </summary>
 		/// <value>The Troops.</value>
-		public static BindingList<Model> BarrackTroops { get { return DataCollection.BarracksTroops; } }
+		public static BindingList<Model> BarrackTroops { get; private set; }
 
 		private bool _isUseBarracks1;
 		/// <summary>
@@ -175,6 +175,7 @@
 				if (_selectedBarrack1 != value)
 				{
 					_selectedBarrack1 = value;
+					System.Diagnostics.Debug.WriteLine(_selectedBarrack1.Name);
 					OnPropertyChanged();
 				}
 			}
@@ -193,6 +194,7 @@
 				if (_selectedBarrack2 != value)
 				{
 					_selectedBarrack2 = value;
+					System.Diagnostics.Debug.WriteLine(_selectedBarrack2.Name);
 					OnPropertyChanged();
 				}
 			}
@@ -211,6 +213,7 @@
 				if (_selectedBarrack3 != value)
 				{
 					_selectedBarrack3 = value;
+					System.Diagnostics.Debug.WriteLine(_selectedBarrack3.Name);
 					OnPropertyChanged();
 				}
 			}
@@ -229,6 +232,7 @@
 				if (_selectedBarrack4 != value)
 				{
 					_selectedBarrack4 = value;
+					System.Diagnostics.Debug.WriteLine(_selectedBarrack4.Name);
 					OnPropertyChanged();
 				}
 			}
@@ -274,7 +278,7 @@
 		/// [Used in UI for Binding] Gets the Dark Troops.
 		/// </summary>
 		/// <value>The Dark Troops.</value>
-		public static BindingList<Model> DarkBarrackTroops { get { return DataCollection.DarkBarracksTroops; } }
+		public static BindingList<Model> DarkBarrackTroops { get; private set; }
 
 		private Model _selectedDarkBarrack1;
 		/// <summary>
@@ -289,6 +293,7 @@
 				if (_selectedDarkBarrack1 != value)
 				{
 					_selectedDarkBarrack1 = value;
+					System.Diagnostics.Debug.WriteLine(_selectedDarkBarrack1.Name);
 					OnPropertyChanged();
 				}
 			}
@@ -307,6 +312,7 @@
 				if (_selectedDarkBarrack2 != value)
 				{
 					_selectedDarkBarrack2 = value;
+					System.Diagnostics.Debug.WriteLine(_selectedDarkBarrack2.Name);
 					OnPropertyChanged();
 				}
 			}
@@ -355,6 +361,10 @@
 
 		#region Methods
 
+		/// <summary>
+		/// Fires when TrainQuantity TextChanged is executed.
+		/// </summary>
+		/// <param name="parameter">The parameter.</param>
 		private void TrainQuantityTextExecuted(object parameter)
 		{
 			System.Diagnostics.Debug.WriteLine(parameter);
@@ -370,39 +380,25 @@
 		{
 			int value = 0;
 
-			foreach (var tier in Enum.GetValues(typeof(TroopType)))
-			{
-				switch ((TroopType)tier)
-				{
-					case TroopType.Tier1:
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Barbarian].TrainQuantity * Troop.Barbarian.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Archer].TrainQuantity * Troop.Archer.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Goblin].TrainQuantity * Troop.Goblin.CampSlots();
-						break;
-					case TroopType.Tier2:
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Giant].TrainQuantity * Troop.Giant.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.WallBreaker].TrainQuantity * Troop.WallBreaker.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Balloon].TrainQuantity * Troop.Balloon.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Wizard].TrainQuantity * Troop.Wizard.CampSlots();
-						break;
-					case TroopType.Tier3:
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Healer].TrainQuantity * Troop.Healer.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Dragon].TrainQuantity * Troop.Dragon.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Pekka].TrainQuantity * Troop.Pekka.CampSlots();
-						break;
-					case TroopType.DarkTroops:
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Minion].TrainQuantity * Troop.Minion.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.HogRider].TrainQuantity * Troop.HogRider.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Valkyrie].TrainQuantity * Troop.Valkyrie.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Golem].TrainQuantity * Troop.Golem.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.Witch].TrainQuantity * Troop.Witch.CampSlots();
-						value += DataCollection.TroopTiers[(int)tier].Troops[Troop.LavaHound].TrainQuantity * Troop.LavaHound.CampSlots();
-						break;
-					default:
-						// Troop Type Heroes, do nothing!
-						break;
-				}
-			}
+			value += DataCollection.TroopTiers[TroopType.Tier1].Troops[Troop.Barbarian].TrainQuantity * Troop.Barbarian.CampSlots();
+			value += DataCollection.TroopTiers[TroopType.Tier1].Troops[Troop.Archer].TrainQuantity * Troop.Archer.CampSlots();
+			value += DataCollection.TroopTiers[TroopType.Tier1].Troops[Troop.Goblin].TrainQuantity * Troop.Goblin.CampSlots();
+
+			value += DataCollection.TroopTiers[TroopType.Tier2].Troops[Troop.Giant].TrainQuantity * Troop.Giant.CampSlots();
+			value += DataCollection.TroopTiers[TroopType.Tier2].Troops[Troop.WallBreaker].TrainQuantity * Troop.WallBreaker.CampSlots();
+			value += DataCollection.TroopTiers[TroopType.Tier2].Troops[Troop.Balloon].TrainQuantity * Troop.Balloon.CampSlots();
+			value += DataCollection.TroopTiers[TroopType.Tier2].Troops[Troop.Wizard].TrainQuantity * Troop.Wizard.CampSlots();
+
+			value += DataCollection.TroopTiers[TroopType.Tier3].Troops[Troop.Healer].TrainQuantity * Troop.Healer.CampSlots();
+			value += DataCollection.TroopTiers[TroopType.Tier3].Troops[Troop.Dragon].TrainQuantity * Troop.Dragon.CampSlots();
+			value += DataCollection.TroopTiers[TroopType.Tier3].Troops[Troop.Pekka].TrainQuantity * Troop.Pekka.CampSlots();
+
+			value += DataCollection.TroopTiers[TroopType.DarkTroops].Troops[Troop.Minion].TrainQuantity * Troop.Minion.CampSlots();
+			value += DataCollection.TroopTiers[TroopType.DarkTroops].Troops[Troop.HogRider].TrainQuantity * Troop.HogRider.CampSlots();
+			value += DataCollection.TroopTiers[TroopType.DarkTroops].Troops[Troop.Valkyrie].TrainQuantity * Troop.Valkyrie.CampSlots();
+			value += DataCollection.TroopTiers[TroopType.DarkTroops].Troops[Troop.Golem].TrainQuantity * Troop.Golem.CampSlots();
+			value += DataCollection.TroopTiers[TroopType.DarkTroops].Troops[Troop.Witch].TrainQuantity * Troop.Witch.CampSlots();
+			value += DataCollection.TroopTiers[TroopType.DarkTroops].Troops[Troop.LavaHound].TrainQuantity * Troop.LavaHound.CampSlots();
 
 			return value;
 		}

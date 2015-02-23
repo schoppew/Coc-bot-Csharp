@@ -184,7 +184,7 @@
                                 <GroupBox Header="{x:Static p:Resources.TrophySettings}" HorizontalAlignment="Right" Margin="0,0,16,18" VerticalAlignment="Bottom" Height="75" Width="210">
                                     <Grid>
                                         <Label Content="{x:Static p:Resources.LabelMaxTrophies}" Height="26" HorizontalAlignment="Left" Margin="10,14,0,13" VerticalContentAlignment="Top" Width="93" Visibility="Visible" />
-                                        <TextBox Text="{Binding MaxTrophies, UpdateSourceTrigger=PropertyChanged}" MaxLength="4" Height="23" Margin="0,0,20,0" TextAlignment="Right" Width="70" HorizontalAlignment="Right">
+                                        <TextBox ToolTip="{x:Static p:Resources.MaxTrophiesMessage}" Text="{Binding MaxTrophies, UpdateSourceTrigger=PropertyChanged}" MaxLength="4" Height="23" Margin="0,0,20,0" TextAlignment="Right" Width="70" HorizontalAlignment="Right">
                                             <i:Interaction.Behaviors>
                                                 <b:TextBoxBehaviour RegularExpression="^\d+$" MaxLength="4" EmptyValue="0" />
                                             </i:Interaction.Behaviors>
@@ -519,10 +519,9 @@
                                             </ListView.Resources>
                                             <ListView.View>
                                                 <GridView AllowsColumnReorder="False">
-                                                    <GridViewColumn Header="#" Width="20" DisplayMemberBinding="{Binding Number}" />
-                                                    <GridViewColumn Header="{x:Static p:Resources.Troop}" DisplayMemberBinding="{Binding Troop.Name}" Width="250" />
-                                                    <GridViewColumn Header="{x:Static p:Resources.Quantity}" DisplayMemberBinding="{Binding DeployQuantity}" Width="45" />
-                                                    <GridViewColumn Header="{x:Static p:Resources.DelayMilliseconds}" Width="65">
+                                                    <GridViewColumn Header="{x:Static p:Resources.Troop}" DisplayMemberBinding="{Binding Troop.Name}" Width="260" />
+                                                    <GridViewColumn Header="{x:Static p:Resources.Quantity}" DisplayMemberBinding="{Binding DeployQuantity}" Width="50" />
+                                                    <GridViewColumn Header="{x:Static p:Resources.DelayMilliseconds}" Width="70">
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
                                                                 <TextBlock Text="{Binding DeployDelay}" TextAlignment="Right" />

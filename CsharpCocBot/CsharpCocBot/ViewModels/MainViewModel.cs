@@ -383,30 +383,26 @@
             }
 
             // Fill the Barracks Troops
-            if (DataCollection.BarracksTroops.Count == 0)
-            {
-                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Barbarian, Properties.Resources.Barbarians));
-                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Archer, Properties.Resources.Archers));
-                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Goblin, Properties.Resources.Goblins));
-                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Giant, Properties.Resources.Giants));
-                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.WallBreaker, Properties.Resources.WallBreakers));
-                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Balloon, Properties.Resources.Balloons));
-                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Wizard, Properties.Resources.Wizards));
-                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Healer, Properties.Resources.Healers));
-                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Dragon, Properties.Resources.Dragons));
-                DataCollection.BarracksTroops.Add(Model.CreateNew((int)Troop.Pekka, Properties.Resources.Pekkas));
-            }
+			BarrackTroops = new BindingList<Model>();
+			BarrackTroops.Add(Model.CreateNew((int)Troop.Barbarian, Properties.Resources.Barbarians));
+			BarrackTroops.Add(Model.CreateNew((int)Troop.Archer, Properties.Resources.Archers));
+			BarrackTroops.Add(Model.CreateNew((int)Troop.Goblin, Properties.Resources.Goblins));
+			BarrackTroops.Add(Model.CreateNew((int)Troop.Giant, Properties.Resources.Giants));
+			BarrackTroops.Add(Model.CreateNew((int)Troop.WallBreaker, Properties.Resources.WallBreakers));
+			BarrackTroops.Add(Model.CreateNew((int)Troop.Balloon, Properties.Resources.Balloons));
+			BarrackTroops.Add(Model.CreateNew((int)Troop.Wizard, Properties.Resources.Wizards));
+			BarrackTroops.Add(Model.CreateNew((int)Troop.Healer, Properties.Resources.Healers));
+			BarrackTroops.Add(Model.CreateNew((int)Troop.Dragon, Properties.Resources.Dragons));
+			BarrackTroops.Add(Model.CreateNew((int)Troop.Pekka, Properties.Resources.Pekkas));
 
             // Fill the Dark Barracks Troops
-            if (DataCollection.DarkBarracksTroops.Count == 0)
-            {
-                DataCollection.DarkBarracksTroops.Add(Model.CreateNew((int)Troop.Minion, Properties.Resources.Minions));
-                DataCollection.DarkBarracksTroops.Add(Model.CreateNew((int)Troop.HogRider, Properties.Resources.HogRiders));
-                DataCollection.DarkBarracksTroops.Add(Model.CreateNew((int)Troop.Valkyrie, Properties.Resources.Valkyries));
-                DataCollection.DarkBarracksTroops.Add(Model.CreateNew((int)Troop.Golem, Properties.Resources.Golems));
-                DataCollection.DarkBarracksTroops.Add(Model.CreateNew((int)Troop.Witch, Properties.Resources.Witches));
-                DataCollection.DarkBarracksTroops.Add(Model.CreateNew((int)Troop.LavaHound, Properties.Resources.LavaHounds));
-            }
+			DarkBarrackTroops = new BindingList<Model>();
+			DarkBarrackTroops.Add(Model.CreateNew((int)Troop.Minion, Properties.Resources.Minions));
+			DarkBarrackTroops.Add(Model.CreateNew((int)Troop.HogRider, Properties.Resources.HogRiders));
+			DarkBarrackTroops.Add(Model.CreateNew((int)Troop.Valkyrie, Properties.Resources.Valkyries));
+			DarkBarrackTroops.Add(Model.CreateNew((int)Troop.Golem, Properties.Resources.Golems));
+			DarkBarrackTroops.Add(Model.CreateNew((int)Troop.Witch, Properties.Resources.Witches));
+			DarkBarrackTroops.Add(Model.CreateNew((int)Troop.LavaHound, Properties.Resources.LavaHounds));
 
 			// Fill Building Locations
 			if (DataCollection.BuildingPoints.Count == 0)
@@ -837,16 +833,16 @@
             IsUseBarracks3 = AppSettings.IsUseBarracks3;
             IsUseBarracks4 = AppSettings.IsUseBarracks4;
 
-            SelectedBarrack1 = DataCollection.BarracksTroops.Where(b1 => b1.Id == AppSettings.SelectedBarrack1).DefaultIfEmpty(DataCollection.BarracksTroops.First()).First();
-            SelectedBarrack2 = DataCollection.BarracksTroops.Where(b2 => b2.Id == AppSettings.SelectedBarrack2).DefaultIfEmpty(DataCollection.BarracksTroops.First()).First();
-            SelectedBarrack3 = DataCollection.BarracksTroops.Where(b3 => b3.Id == AppSettings.SelectedBarrack3).DefaultIfEmpty(DataCollection.BarracksTroops.First()).First();
-            SelectedBarrack4 = DataCollection.BarracksTroops.Where(b4 => b4.Id == AppSettings.SelectedBarrack4).DefaultIfEmpty(DataCollection.BarracksTroops.First()).First();
+            SelectedBarrack1 = BarrackTroops.Where(b1 => b1.Id == AppSettings.SelectedBarrack1).DefaultIfEmpty(BarrackTroops.First()).First();
+            SelectedBarrack2 = BarrackTroops.Where(b2 => b2.Id == AppSettings.SelectedBarrack2).DefaultIfEmpty(BarrackTroops.First()).First();
+            SelectedBarrack3 = BarrackTroops.Where(b3 => b3.Id == AppSettings.SelectedBarrack3).DefaultIfEmpty(BarrackTroops.First()).First();
+            SelectedBarrack4 = BarrackTroops.Where(b4 => b4.Id == AppSettings.SelectedBarrack4).DefaultIfEmpty(BarrackTroops.First()).First();
 
             IsUseDarkBarracks1 = AppSettings.IsUseDarkBarracks1;
             IsUseDarkBarracks2 = AppSettings.IsUseDarkBarracks2;
 
-            SelectedDarkBarrack1 = DataCollection.DarkBarracksTroops.Where(b1 => b1.Id == AppSettings.SelectedDarkBarrack1).DefaultIfEmpty(DataCollection.DarkBarracksTroops.First()).First();
-            SelectedDarkBarrack2 = DataCollection.DarkBarracksTroops.Where(b2 => b2.Id == AppSettings.SelectedDarkBarrack2).DefaultIfEmpty(DataCollection.DarkBarracksTroops.First()).First();
+			SelectedDarkBarrack1 = DarkBarrackTroops.Where(b1 => b1.Id == AppSettings.SelectedDarkBarrack1).DefaultIfEmpty(DarkBarrackTroops.First()).First();
+			SelectedDarkBarrack2 = DarkBarrackTroops.Where(b2 => b2.Id == AppSettings.SelectedDarkBarrack2).DefaultIfEmpty(DarkBarrackTroops.First()).First();
 
 			// Wave Settings
 			IsCustomWave = AppSettings.IsCustomWave;

@@ -920,7 +920,7 @@ namespace CoC.Bot.Properties {
         ///software and other kinds of works.
         ///
         ///  The licenses for most software and other practical works are designed
-        ///to take away your free [rest of string was truncated]&quot;;.
+        ///to take away your freedom to share  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string LICENSE {
             get {
@@ -1078,6 +1078,15 @@ namespace CoC.Bot.Properties {
         public static string MaxLevel {
             get {
                 return ResourceManager.GetString("MaxLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bot will lose trophies if your trophy count is greater than this..
+        /// </summary>
+        public static string MaxTrophiesMessage {
+            get {
+                return ResourceManager.GetString("MaxTrophiesMessage", resourceCulture);
             }
         }
         

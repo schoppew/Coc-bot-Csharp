@@ -321,7 +321,7 @@
 		/// <summary>
 		/// Manually locates the Townhall.
 		/// </summary>
-		public void LocateTownHall()
+		private void LocateTownHall()
 		{
 			IsBusy = true;
 			//Mouse.OverrideCursor = Cursors.Wait;

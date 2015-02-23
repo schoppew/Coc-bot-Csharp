@@ -121,6 +121,10 @@
 		}
 
 		private SearchCondition _selectedSearchCondition;
+		/// <summary>
+		/// Gets or sets the selected Search condition.
+		/// </summary>
+		/// <value>The selected Search condition.</value>
 		public SearchCondition SelectedSearchCondition
 		{
 			get { return _selectedSearchCondition; }

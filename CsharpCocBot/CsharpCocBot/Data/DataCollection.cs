@@ -17,16 +17,6 @@
         internal static BindingList<Model> TroopCompositions = new BindingList<Model>();
 
         /// <summary>
-        /// The Barracks Troops
-        /// </summary>
-        internal static BindingList<Model> BarracksTroops = new BindingList<Model>();
-
-        /// <summary>
-        /// The Dark Barracks troops
-        /// </summary>
-        internal static BindingList<Model> DarkBarracksTroops = new BindingList<Model>();
-
-        /// <summary>
         /// The Deploy Strategies
         /// </summary>
         internal static BindingList<Model> DeployStrategies = new BindingList<Model>();
