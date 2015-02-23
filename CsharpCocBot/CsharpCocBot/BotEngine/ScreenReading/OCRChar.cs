@@ -2,7 +2,7 @@
 
 namespace CoC.Bot.BotEngine.ScreenReading
 {
-	internal class OCRChar
+    public class OCRChar
 	{
 		public OCRChar(int width, params OCRPoint[] points)
 		{

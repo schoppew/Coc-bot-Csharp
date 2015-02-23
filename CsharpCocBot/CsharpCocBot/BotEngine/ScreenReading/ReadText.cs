@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Drawing;
 using CoC.Bot.Data;
-using Win32;
-using CoC.Bot.Tools;
-using CoC.Bot.BotEngine.ScreenReading;
 
 namespace CoC.Bot.BotEngine
 {
 	internal class ReadText
 	{
 
-		public char GetChar(ref int x, int y)
+		private static char GetChar(ref int x, int y)
 		{
 			foreach (var pair in ScreenData.OCRData)
 				if (pair.Value.ReadChar(ref x, y))
@@ -52,9 +45,31 @@ namespace CoC.Bot.BotEngine
 			throw new NotImplementedException();
 		}
 
-		public static string GetString(int _y)
+		public static string GetString(int y)
 		{
-			throw new NotImplementedException();
+		    for (int i = 0; i < 4; i++)
+		    {
+		        int xTemp = 35;
+                
+		        if (GetChar(ref xTemp, y) == char.Parse("|"))
+		        {
+		            y += 1;
+		        }
+		        else
+		        {
+		            break;
+		        }
+		    }
+
+		    int x = 35;
+		    string output = "";
+
+		    do
+		    {
+		        output += GetChar(ref x, y);
+		    } while (output.Substring(output.Length - 3, output.Length - 1).Equals("  "));
+
+		    return output;
 		}
 
 		public int GetTrophy(int _x, int _y)

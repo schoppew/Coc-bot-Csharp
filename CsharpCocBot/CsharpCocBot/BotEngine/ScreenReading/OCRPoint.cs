@@ -3,7 +3,7 @@ using CoC.Bot.Tools;
 
 namespace CoC.Bot.BotEngine.ScreenReading
 {
-	internal class OCRPoint
+    public class OCRPoint
 	{
 		public OCRPoint(int dx, int dy, int color, int shadeVariation = 6)
 		{
