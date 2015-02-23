@@ -10,7 +10,9 @@ namespace CoC.Bot.Data
 	static public partial class ScreenData
 	{
 		#region OCR Data
-		public static readonly Dictionary<char, OCRChar> OCRData = new Dictionary<char, OCRChar>
+		static public Dictionary<char, OCRChar> GetOCRData()
+		{
+			return new Dictionary<char, OCRChar>
 		{		
 			{ 'A', new OCRChar( 7, new OCRPoint(1, 8, 0xE7E7E7, 6), new OCRPoint(5, 7, 0xDBDCDB, 6), new OCRPoint(6, 8, 0xD5D6D5, 6)) },
 			{ 'a', new OCRChar( 5, new OCRPoint(5, 3, 0xACAEAC, 6), new OCRPoint(1, 4, 0xC2C3C2, 6), new OCRPoint(4, 7, 0xDADBDA, 6)) },
@@ -65,11 +67,12 @@ namespace CoC.Bot.Data
 			{ 'Y', new OCRChar( 7, new OCRPoint(2, 1, 0xA1A3A1, 6), new OCRPoint(5, 5, 0x8C8E8C, 6), new OCRPoint(3, 8, 0xD5D6D5, 6)) },
 			{ 'y', new OCRChar( 6, new OCRPoint(1, 8, 0x5D615D, 6), new OCRPoint(3, 7, 0xEEEEEE, 6), new OCRPoint(3, 10, 0xE8E9E8, 6)) },
 			{ 'Z', new OCRChar( 7, new OCRPoint(2, 2, 0x505450, 6), new OCRPoint(1, 7, 0x707370, 6), new OCRPoint(5, 7, 0x888B88, 6)) },
-			{ 'Z', new OCRChar( 7, new OCRPoint(2, 2, 0x505450, 6), new OCRPoint(1, 7, 0x707370, 6), new OCRPoint(5, 7, 0x888B88, 6)) },
 			{ 'z', new OCRChar( 4, new OCRPoint(1, 4, 0x757775, 6), new OCRPoint(3, 5, 0x757875, 6), new OCRPoint(2, 8, 0xDADBDA, 6)) },
 			{ ',', new OCRChar( 3, new OCRPoint(1, 7, 0xE8E8E8, 6), new OCRPoint(1, 8, 0xFEFEFE, 6), new OCRPoint(1, 9, 0xA5A7A5, 6)) },
 			{ ' ', new OCRChar( 2, new OCRPoint(1, 3, 0x404440, 6), new OCRPoint(1, 7, 0x404440, 6), new OCRPoint(2, 5, 0x404440, 6)) }
 		};
+		}
+		public static readonly Dictionary<char, OCRChar> OCRData = GetOCRData();
 		#endregion OCR Data
 	}
 }
