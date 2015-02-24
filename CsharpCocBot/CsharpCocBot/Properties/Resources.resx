@@ -675,4 +675,7 @@ You can double click on the icon to show the window.</value>
   <data name="MaxTrophiesMessage" xml:space="preserve">
     <value>Bot will lose trophies if your trophy count is greater than this.</value>
   </data>
+  <data name="Graph" xml:space="preserve">
+    <value>Graph</value>
+  </data>
 </root>

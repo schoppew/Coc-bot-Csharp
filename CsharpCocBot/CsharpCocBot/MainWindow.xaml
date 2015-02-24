@@ -11,6 +11,7 @@
         xmlns:cmd="clr-namespace:CoC.Bot.UI.Commands"
         xmlns:c="clr-namespace:CoC.Bot.UI.Converters"
         xmlns:ctrls="clr-namespace:CoC.Bot.UI.Controls"
+        xmlns:chart="clr-namespace:CoC.Bot.Chart;assembly=CoC.Bot.Chart"
         xmlns:d="clr-namespace:CoC.Bot.Data"
         xmlns:p="clr-namespace:CoC.Bot.Properties"
         Title="{Binding AppTitleGeneral}" Icon="/Assets/Images/Icon.ico" Height="600" Width="500" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
@@ -38,6 +39,17 @@
                 </Border>
             </Grid>
         </DataTemplate>
+        <chart:ResourceDictionaryCollection x:Key="ResourcesColorPalette">
+            <ResourceDictionary>
+                <SolidColorBrush x:Key="Brush1" Color="#FFD19F24" />
+            </ResourceDictionary>
+            <ResourceDictionary>
+                <SolidColorBrush x:Key="Brush2" Color="#FF8A3CD3" />
+            </ResourceDictionary>
+            <ResourceDictionary>
+                <SolidColorBrush x:Key="Brush3" Color="#FF191818" />
+            </ResourceDictionary>
+        </chart:ResourceDictionaryCollection>
     </Window.Resources>
 
     <!--<Window.DataContext>
@@ -700,6 +712,16 @@
                                         <TextBlock Text="The action will execute when above condition is meet." Height="18" HorizontalAlignment="Right" Margin="0,0,10,8" VerticalAlignment="Bottom" Width="265" TextWrapping="Wrap" TextTrimming="None" TextAlignment="Center" FontSize="11" />
                                     </Grid>
                                 </GroupBox>
+                            </Grid>
+                        </TabItem>
+                        <!-- Graph Tab -->
+                        <TabItem Header="{x:Static p:Resources.Graph}">
+                            <Grid Background="{DynamicResource BackgroundBrush}">
+                                <chart:PieChart Palette="{StaticResource ResourcesColorPalette}" Background="{x:Null}" Foreground="#FFEEEEEE" ChartTitle="Actual Loot Obtained" ChartSubTitle="The actual loot obtained since Bot started" SelectedItem="{Binding SelectedResource, Mode=TwoWay}">
+                                    <chart:PieChart.Series>
+                                        <chart:ChartSeries SeriesTitle="Resources" DisplayMember="Resource" ValueMember="Amount" ItemsSource="{Binding Resources}" />
+                                    </chart:PieChart.Series>
+                                </chart:PieChart>
                             </Grid>
                         </TabItem>
                         <!-- Help Tab | Is hidden for now -->

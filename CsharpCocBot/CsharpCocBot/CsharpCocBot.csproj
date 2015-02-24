@@ -122,7 +122,9 @@
     <Compile Include="BotEngine\Train\TrainingElement.cs" />
     <Compile Include="BotEngine\Train\TroopToTrainInBarracks.cs" />
     <Compile Include="BotEngine\Train\TroopToTrainInBarrack.cs" />
+    <Compile Include="Data\Enum\Resource.cs" />
     <Compile Include="Data\ScreenData\ScreenData.OCR.cs" />
+    <Compile Include="Data\Type\GraphModel.cs" />
     <Compile Include="PluginMngr\PluginLoader.cs" />
     <Compile Include="PluginMngr\SimpleServicesProvider.cs" />
     <Compile Include="UI\Controls\BusyIndicator\BackgroundVisualHost.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="UI\Controls\BusyIndicator\VisualTargetPresentationSource.cs" />
     <Compile Include="ViewModels\MainViewModel.Attack.cs" />
     <Compile Include="ViewModels\MainViewModel.Donate.cs" />
+    <Compile Include="ViewModels\MainViewModel.Graph.cs" />
     <Compile Include="ViewModels\MainViewModel.Location.cs" />
     <Compile Include="ViewModels\MainViewModel.Other.cs" />
     <Page Include="App.xaml">
@@ -354,6 +357,10 @@
     <Resource Include="Assets\Images\ShowThumb.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CoC.Bot.Chart\CoC.Bot.Chart.csproj">
+      <Project>{e9e69268-3a78-4796-a854-0b890d66c6a3}</Project>
+      <Name>CoC.Bot.Chart</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExtBitmap\ExtBitmap.csproj">
       <Project>{7bd14dbe-718b-40bf-86cc-c996f110df22}</Project>
       <Name>ExtBitmap</Name>

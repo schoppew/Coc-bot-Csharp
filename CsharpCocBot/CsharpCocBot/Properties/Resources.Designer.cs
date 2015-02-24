@@ -664,6 +664,15 @@ namespace CoC.Bot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Graph.
+        /// </summary>
+        public static string Graph {
+            get {
+                return ResourceManager.GetString("Graph", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Healers.
         /// </summary>
         public static string Healers {

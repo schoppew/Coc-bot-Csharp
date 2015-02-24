@@ -24,13 +24,13 @@
     /// <summary>
     /// Provides functionality for the MainWindow
     /// </summary>
-    public partial class MainViewModel : ViewModelBase
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MainViewModel"/> class.
-        /// </summary>
-        public MainViewModel()
-        {
+	public partial class MainViewModel : ViewModelBase
+	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MainViewModel"/> class.
+		/// </summary>
+		public MainViewModel()
+		{
 			/*
 			 * -------------------------------------------------------------------------------------------------------------
 			 * UI Usage Notes
@@ -99,7 +99,7 @@
 			 */
 
 			Init();
-            GetUserSettings();
+			GetUserSettings();
 
 			if (!(bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
 			{
@@ -108,36 +108,36 @@
 				GlobalVariables.PluginLoader = new PluginMngr.PluginLoader(this);
 			}
 
-            Message = Properties.Resources.StartMessage;
-        }
+			Message = Properties.Resources.StartMessage;
+		}
 
-        #region Properties
+		#region Properties
 
-        /// <summary>
-        /// Gets the application title.
-        /// </summary>
-        /// <value>The application title.</value>
-        public static string AppTitle { get { return string.Format("{0} v{1}", Properties.Resources.AppName, typeof(App).Assembly.GetName().Version.ToString(3)); } }
+		/// <summary>
+		/// Gets the application title.
+		/// </summary>
+		/// <value>The application title.</value>
+		public static string AppTitle { get { return string.Format("{0} v{1}", Properties.Resources.AppName, typeof(App).Assembly.GetName().Version.ToString(3)); } }
 
 		public static string AppTitleGeneral { get { return Properties.Resources.AppTitleGeneral; } }
 
-        /// <summary>
-        /// Gets the application settings.
-        /// </summary>
-        /// <value>The application settings.</value>
-        internal static Properties.Settings AppSettings { get { return Properties.Settings.Default; } }
+		/// <summary>
+		/// Gets the application settings.
+		/// </summary>
+		/// <value>The application settings.</value>
+		internal static Properties.Settings AppSettings { get { return Properties.Settings.Default; } }
 
-        internal LogWriter Log { get; private set; }
+		internal LogWriter Log { get; private set; }
 
 		public static bool IsDebug { get { return GlobalVariables.IsDebug; } }
 
-        #region Behaviour Properties
+		#region Behaviour Properties
 
-        /// <summary>
-        /// Gets or sets a value indicating whether this bot is executing.
-        /// </summary>
-        /// <value><c>true</c> if this bot is executing; otherwise, <c>false</c>.</value>
-        public bool IsExecuting { get; set; }
+		/// <summary>
+		/// Gets or sets a value indicating whether this bot is executing.
+		/// </summary>
+		/// <value><c>true</c> if this bot is executing; otherwise, <c>false</c>.</value>
+		public bool IsExecuting { get; set; }
 
 		/// <summary>
 		/// Gets or sets a value indicating whether BlueStacks is hidden.
@@ -145,23 +145,23 @@
 		/// <value><c>true</c> if BlueStacks is hidden; otherwise, <c>false</c>.</value>
 		public bool IsBlueStacksHidden { get; set; }
 
-        /// <summary>
+		/// <summary>
 		/// Gets or sets a value indicating the BlueStacks Hide/Restore State.
-        /// </summary>
+		/// </summary>
 		/// <value><c>true</c> if BlueStacks is hidden; otherwise, <c>false</c>.</value>
 		public bool HideRestoreBlueStacksState
 		{
 			get { return IsBlueStacksHidden ? true : false; }
 		}
 
-        /// <summary>
-        /// Gets a value indicating the Start/Stop State.
-        /// </summary>
-        /// <value><c>true</c> if Executing; otherwise, <c>false</c>.</value>
-        public bool StartStopState
-        {
-            get { return IsExecuting ? true : false; }
-        }
+		/// <summary>
+		/// Gets a value indicating the Start/Stop State.
+		/// </summary>
+		/// <value><c>true</c> if Executing; otherwise, <c>false</c>.</value>
+		public bool StartStopState
+		{
+			get { return IsExecuting ? true : false; }
+		}
 
 		private bool _isBusy;
 		/// <summary>
@@ -181,9 +181,9 @@
 			}
 		}
 
-        #endregion
+		#endregion
 
-        #region General Properties
+		#region General Properties
 
 		private static string _output;
 		/// <summary>
@@ -203,53 +203,53 @@
 			}
 		}
 
-        private string _message;
-        /// <summary>
-        /// Gets or sets the status message.
-        /// </summary>
-        /// <value>The status message.</value>
-        public string Message
-        {
-            get { return _message; }
-            set
-            {
-                if (_message != value)
-                {
-                    _message = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+		private string _message;
+		/// <summary>
+		/// Gets or sets the status message.
+		/// </summary>
+		/// <value>The status message.</value>
+		public string Message
+		{
+			get { return _message; }
+			set
+			{
+				if (_message != value)
+				{
+					_message = value;
+					OnPropertyChanged();
+				}
+			}
+		}
 
-        private int _maxTrophies;
-        /// <summary>
-        /// Gets or sets the maximum Trophies.
-        /// </summary>
-        /// <value>The maximum Trophies.</value>
-        public int MaxTrophies
-        {
-            get { return _maxTrophies; }
-            set
-            {
-                if (_maxTrophies != value)
-                {
-                    _maxTrophies = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+		private int _maxTrophies;
+		/// <summary>
+		/// Gets or sets the maximum Trophies.
+		/// </summary>
+		/// <value>The maximum Trophies.</value>
+		public int MaxTrophies
+		{
+			get { return _maxTrophies; }
+			set
+			{
+				if (_maxTrophies != value)
+				{
+					_maxTrophies = value;
+					OnPropertyChanged();
+				}
+			}
+		}
 
-        #endregion
+		#endregion
 
 		#endregion
 
 		#region Commands
 
 		private AboutCommand _aboutCommand = new AboutCommand();
-        public ICommand AboutCommand
-        {
-            get { return _aboutCommand; }
-        }
+		public ICommand AboutCommand
+		{
+			get { return _aboutCommand; }
+		}
 
 		public ICommand MouseDownCommand
 		{
@@ -266,24 +266,24 @@
 			get { return new RelayCommand(() => Minimize()); }
 		}
 
-        public ICommand ExitCommand
-        {
-            get { return new RelayCommand(() => Exit()); }
-        }
+		public ICommand ExitCommand
+		{
+			get { return new RelayCommand(() => Exit()); }
+		}
 
-        #region General Settings Commands
+		#region General Settings Commands
 
-        public ICommand StartStopCommand
-        {
-            get
-            {
-                return new RelayCommand(() =>
-                {
-                    StartStop();
+		public ICommand StartStopCommand
+		{
+			get
+			{
+				return new RelayCommand(() =>
+				{
+					StartStop();
 					OnPropertyChanged(() => StartStopState);
-                });
-            }
-        }
+				});
+			}
+		}
 
 		public ICommand HideRestoreBlueStacksCommand
 		{
@@ -297,97 +297,97 @@
 			}
 		}
 
-        #endregion
+		#endregion
 
 		#endregion
 
-        #region Initialization
+		#region Initialization
 
-        /// <summary>
-        /// Initializes everything that is needed.
-        /// </summary>
-        private void Init()
-        {
-            GlobalVariables.Log.WriteToLog(Properties.Resources.LogBotInitializing);
+		/// <summary>
+		/// Initializes everything that is needed.
+		/// </summary>
+		private void Init()
+		{
+			GlobalVariables.Log.WriteToLog(Properties.Resources.LogBotInitializing);
 
-            // Fill the Deploy Strategies
-            if (DataCollection.DeployStrategies.Count == 0)
-            {
-                foreach (var ds in Enum.GetValues(typeof(DeployStrategy)))
-                {
-                    DataCollection.DeployStrategies.Add(Model.CreateNew((int)ds, ((DeployStrategy)ds).Name()));
-                }
-            }
+			// Fill the Deploy Strategies
+			if (DataCollection.DeployStrategies.Count == 0)
+			{
+				foreach (var ds in Enum.GetValues(typeof(DeployStrategy)))
+				{
+					DataCollection.DeployStrategies.Add(Model.CreateNew((int)ds, ((DeployStrategy)ds).Name()));
+				}
+			}
 
-            // Fill the Deploy Troops
-            if (DataCollection.DeployTroops.Count == 0)
-            {
-                foreach (var dt in Enum.GetValues(typeof(DeployTroop)))
-                {
-                    DataCollection.DeployTroops.Add(Model.CreateNew((int)dt, ((DeployTroop)dt).Name()));
-                }
-            }
-            
-            // Fill the Troop Tiers
-            if (DataCollection.TroopTiers.Count == 0)
-            {
-                foreach (var tier in Enum.GetValues(typeof(TroopType)))
-                {
-                    switch ((TroopType)tier)
-                    {
-                        case TroopType.Tier1:
-                            DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.Tier1.Name()));
+			// Fill the Deploy Troops
+			if (DataCollection.DeployTroops.Count == 0)
+			{
+				foreach (var dt in Enum.GetValues(typeof(DeployTroop)))
+				{
+					DataCollection.DeployTroops.Add(Model.CreateNew((int)dt, ((DeployTroop)dt).Name()));
+				}
+			}
 
-                            var t1 = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
-                            t1.Troops.Add(TroopModel.CreateNew((int)Troop.Barbarian, Troop.Barbarian.Name(), AppSettings.TroopsQtyBarbarians, AppSettings.IsDonateBarbarians, AppSettings.IsDonateAllBarbarians, AppSettings.DonateKeywordsBarbarians, AppSettings.MaxDonationsPerRequestBarbarians));
-                            t1.Troops.Add(TroopModel.CreateNew((int)Troop.Archer, Troop.Archer.Name(), AppSettings.TroopsQtyArchers, AppSettings.IsDonateArchers, AppSettings.IsDonateAllArchers, AppSettings.DonateKeywordsArchers, AppSettings.MaxDonationsPerRequestArchers));
-                            t1.Troops.Add(TroopModel.CreateNew((int)Troop.Goblin, Troop.Goblin.Name(), AppSettings.TroopsQtyGoblins, AppSettings.IsDonateGoblins, AppSettings.IsDonateAllGoblins, AppSettings.DonateKeywordsGoblins, AppSettings.MaxDonationsPerRequestGoblins));
-                            break;
-                        case TroopType.Tier2:
-                            DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.Tier2.Name()));
+			// Fill the Troop Tiers
+			if (DataCollection.TroopTiers.Count == 0)
+			{
+				foreach (var tier in Enum.GetValues(typeof(TroopType)))
+				{
+					switch ((TroopType)tier)
+					{
+						case TroopType.Tier1:
+							DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.Tier1.Name()));
 
-                            var t2 = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
-                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.Giant, Troop.Giant.Name(), AppSettings.TroopsQtyGiants, AppSettings.IsDonateGiants, AppSettings.IsDonateAllGiants, AppSettings.DonateKeywordsGiants, AppSettings.MaxDonationsPerRequestGiants));
-                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.WallBreaker, Troop.WallBreaker.Name(), AppSettings.TroopsQtyWallBreakers, AppSettings.IsDonateWallBreakers, AppSettings.IsDonateAllWallBreakers, AppSettings.DonateKeywordsWallBreakers, AppSettings.MaxDonationsPerRequestWallBreakers));
-                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.Balloon, Troop.Balloon.Name(), AppSettings.TroopsQtyBalloons, AppSettings.IsDonateBalloons, AppSettings.IsDonateAllBalloons, AppSettings.DonateKeywordsBalloons, AppSettings.MaxDonationsPerRequestBalloons));
-                            t2.Troops.Add(TroopModel.CreateNew((int)Troop.Wizard, Troop.Wizard.Name(), AppSettings.TroopsQtyWizards, AppSettings.IsDonateWizards, AppSettings.IsDonateAllWizards, AppSettings.DonateKeywordsWizards, AppSettings.MaxDonationsPerRequestWizards));
-                            break;
-                        case TroopType.Tier3:
-                            DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.Tier3.Name()));
+							var t1 = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
+							t1.Troops.Add(TroopModel.CreateNew((int)Troop.Barbarian, Troop.Barbarian.Name(), AppSettings.TroopsQtyBarbarians, AppSettings.IsDonateBarbarians, AppSettings.IsDonateAllBarbarians, AppSettings.DonateKeywordsBarbarians, AppSettings.MaxDonationsPerRequestBarbarians));
+							t1.Troops.Add(TroopModel.CreateNew((int)Troop.Archer, Troop.Archer.Name(), AppSettings.TroopsQtyArchers, AppSettings.IsDonateArchers, AppSettings.IsDonateAllArchers, AppSettings.DonateKeywordsArchers, AppSettings.MaxDonationsPerRequestArchers));
+							t1.Troops.Add(TroopModel.CreateNew((int)Troop.Goblin, Troop.Goblin.Name(), AppSettings.TroopsQtyGoblins, AppSettings.IsDonateGoblins, AppSettings.IsDonateAllGoblins, AppSettings.DonateKeywordsGoblins, AppSettings.MaxDonationsPerRequestGoblins));
+							break;
+						case TroopType.Tier2:
+							DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.Tier2.Name()));
 
-                            var t3 = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
-                            t3.Troops.Add(TroopModel.CreateNew((int)Troop.Healer, Troop.Healer.Name(), AppSettings.TroopsQtyHealers, AppSettings.IsDonateHealers, AppSettings.IsDonateAllHealers, AppSettings.DonateKeywordsHealers, AppSettings.MaxDonationsPerRequestHealers));
-                            t3.Troops.Add(TroopModel.CreateNew((int)Troop.Dragon, Troop.Dragon.Name(), AppSettings.TroopsQtyDragons, AppSettings.IsDonateDragons, AppSettings.IsDonateAllDragons, AppSettings.DonateKeywordsDragons, AppSettings.MaxDonationsPerRequestDragons));
-                            t3.Troops.Add(TroopModel.CreateNew((int)Troop.Pekka, Troop.Pekka.Name(), AppSettings.TroopsQtyPekkas, AppSettings.IsDonatePekkas, AppSettings.IsDonateAllPekkas, AppSettings.DonateKeywordsPekkas, AppSettings.MaxDonationsPerRequestPekkas));
-                            break;
-                        case TroopType.DarkTroops:
-                            DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.DarkTroops.Name()));
+							var t2 = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
+							t2.Troops.Add(TroopModel.CreateNew((int)Troop.Giant, Troop.Giant.Name(), AppSettings.TroopsQtyGiants, AppSettings.IsDonateGiants, AppSettings.IsDonateAllGiants, AppSettings.DonateKeywordsGiants, AppSettings.MaxDonationsPerRequestGiants));
+							t2.Troops.Add(TroopModel.CreateNew((int)Troop.WallBreaker, Troop.WallBreaker.Name(), AppSettings.TroopsQtyWallBreakers, AppSettings.IsDonateWallBreakers, AppSettings.IsDonateAllWallBreakers, AppSettings.DonateKeywordsWallBreakers, AppSettings.MaxDonationsPerRequestWallBreakers));
+							t2.Troops.Add(TroopModel.CreateNew((int)Troop.Balloon, Troop.Balloon.Name(), AppSettings.TroopsQtyBalloons, AppSettings.IsDonateBalloons, AppSettings.IsDonateAllBalloons, AppSettings.DonateKeywordsBalloons, AppSettings.MaxDonationsPerRequestBalloons));
+							t2.Troops.Add(TroopModel.CreateNew((int)Troop.Wizard, Troop.Wizard.Name(), AppSettings.TroopsQtyWizards, AppSettings.IsDonateWizards, AppSettings.IsDonateAllWizards, AppSettings.DonateKeywordsWizards, AppSettings.MaxDonationsPerRequestWizards));
+							break;
+						case TroopType.Tier3:
+							DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.Tier3.Name()));
 
-                            var dt = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
-                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Minion, Troop.Minion.Name(), AppSettings.TroopsQtyMinions, AppSettings.IsDonateMinions, AppSettings.IsDonateAllMinions, AppSettings.DonateKeywordsMinions, AppSettings.MaxDonationsPerRequestMinions));
-                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.HogRider, Troop.HogRider.Name(), AppSettings.TroopsQtyHogRiders, AppSettings.IsDonateHogRiders, AppSettings.IsDonateAllHogRiders, AppSettings.DonateKeywordsHogRiders, AppSettings.MaxDonationsPerRequestHogRiders));
-                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Valkyrie, Troop.Valkyrie.Name(), AppSettings.TroopsQtyValkyries, AppSettings.IsDonateValkyries, AppSettings.IsDonateAllValkyries, AppSettings.DonateKeywordsValkyries, AppSettings.MaxDonationsPerRequestValkyries));
-                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Golem, Troop.Golem.Name(), AppSettings.TroopsQtyGolems, AppSettings.IsDonateGolems, AppSettings.IsDonateAllGolems, AppSettings.DonateKeywordsGolems, AppSettings.MaxDonationsPerRequestGolems));
-                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.Witch, Troop.Witch.Name(), AppSettings.TroopsQtyWitches, AppSettings.IsDonateWitches, AppSettings.IsDonateAllWitches, AppSettings.DonateKeywordsWitches, AppSettings.MaxDonationsPerRequestWitches));
-                            dt.Troops.Add(TroopModel.CreateNew((int)Troop.LavaHound, Troop.LavaHound.Name(), AppSettings.TroopsQtyLavaHounds, AppSettings.IsDonateLavaHounds, AppSettings.IsDonateAllLavaHounds, AppSettings.DonateKeywordsLavaHounds, AppSettings.MaxDonationsPerRequestLavaHounds));
-                            break;
-                        default:
-                            // Troop Type Heroes, do nothing!
-                            break;
-                    }
-                }
-            }
+							var t3 = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
+							t3.Troops.Add(TroopModel.CreateNew((int)Troop.Healer, Troop.Healer.Name(), AppSettings.TroopsQtyHealers, AppSettings.IsDonateHealers, AppSettings.IsDonateAllHealers, AppSettings.DonateKeywordsHealers, AppSettings.MaxDonationsPerRequestHealers));
+							t3.Troops.Add(TroopModel.CreateNew((int)Troop.Dragon, Troop.Dragon.Name(), AppSettings.TroopsQtyDragons, AppSettings.IsDonateDragons, AppSettings.IsDonateAllDragons, AppSettings.DonateKeywordsDragons, AppSettings.MaxDonationsPerRequestDragons));
+							t3.Troops.Add(TroopModel.CreateNew((int)Troop.Pekka, Troop.Pekka.Name(), AppSettings.TroopsQtyPekkas, AppSettings.IsDonatePekkas, AppSettings.IsDonateAllPekkas, AppSettings.DonateKeywordsPekkas, AppSettings.MaxDonationsPerRequestPekkas));
+							break;
+						case TroopType.DarkTroops:
+							DataCollection.TroopTiers.Add(TroopTierModel.CreateNew((int)tier, TroopType.DarkTroops.Name()));
 
-            // Fill the Troop Compositions
-            if (DataCollection.TroopCompositions.Count == 0)
-            {
-                foreach (var tc in Enum.GetValues(typeof(TroopComposition)))
-                {
-                    DataCollection.TroopCompositions.Add(Model.CreateNew((int)tc, ((TroopComposition)tc).Name()));
-                }
-            }
+							var dt = DataCollection.TroopTiers.First(tt => tt.Id == (int)tier);
+							dt.Troops.Add(TroopModel.CreateNew((int)Troop.Minion, Troop.Minion.Name(), AppSettings.TroopsQtyMinions, AppSettings.IsDonateMinions, AppSettings.IsDonateAllMinions, AppSettings.DonateKeywordsMinions, AppSettings.MaxDonationsPerRequestMinions));
+							dt.Troops.Add(TroopModel.CreateNew((int)Troop.HogRider, Troop.HogRider.Name(), AppSettings.TroopsQtyHogRiders, AppSettings.IsDonateHogRiders, AppSettings.IsDonateAllHogRiders, AppSettings.DonateKeywordsHogRiders, AppSettings.MaxDonationsPerRequestHogRiders));
+							dt.Troops.Add(TroopModel.CreateNew((int)Troop.Valkyrie, Troop.Valkyrie.Name(), AppSettings.TroopsQtyValkyries, AppSettings.IsDonateValkyries, AppSettings.IsDonateAllValkyries, AppSettings.DonateKeywordsValkyries, AppSettings.MaxDonationsPerRequestValkyries));
+							dt.Troops.Add(TroopModel.CreateNew((int)Troop.Golem, Troop.Golem.Name(), AppSettings.TroopsQtyGolems, AppSettings.IsDonateGolems, AppSettings.IsDonateAllGolems, AppSettings.DonateKeywordsGolems, AppSettings.MaxDonationsPerRequestGolems));
+							dt.Troops.Add(TroopModel.CreateNew((int)Troop.Witch, Troop.Witch.Name(), AppSettings.TroopsQtyWitches, AppSettings.IsDonateWitches, AppSettings.IsDonateAllWitches, AppSettings.DonateKeywordsWitches, AppSettings.MaxDonationsPerRequestWitches));
+							dt.Troops.Add(TroopModel.CreateNew((int)Troop.LavaHound, Troop.LavaHound.Name(), AppSettings.TroopsQtyLavaHounds, AppSettings.IsDonateLavaHounds, AppSettings.IsDonateAllLavaHounds, AppSettings.DonateKeywordsLavaHounds, AppSettings.MaxDonationsPerRequestLavaHounds));
+							break;
+						default:
+							// Troop Type Heroes, do nothing!
+							break;
+					}
+				}
+			}
 
-            // Fill the Barracks Troops
+			// Fill the Troop Compositions
+			if (DataCollection.TroopCompositions.Count == 0)
+			{
+				foreach (var tc in Enum.GetValues(typeof(TroopComposition)))
+				{
+					DataCollection.TroopCompositions.Add(Model.CreateNew((int)tc, ((TroopComposition)tc).Name()));
+				}
+			}
+
+			// Fill the Barracks Troops
 			BarrackTroops = new BindingList<Model>();
 			BarrackTroops.Add(Model.CreateNew((int)Troop.Barbarian, Properties.Resources.Barbarians));
 			BarrackTroops.Add(Model.CreateNew((int)Troop.Archer, Properties.Resources.Archers));
@@ -497,26 +497,41 @@
 					}
 				}
 			}
+
+			// Chart Initialization
+			Resources = new ObservableCollection<GraphModel>();
+			// TODO: Uncomment following lines for release, and remove the demo data code
+			//Resources.Add(GraphModel.CreateNew(Resource.Gold, 0));
+			//Resources.Add(GraphModel.CreateNew(Resource.Elixir, 0));
+			//Resources.Add(GraphModel.CreateNew(Resource.DarkElixir, 0));
+
+			// Demo Data
+			var rnd = new Random();
+			rnd.Next();
+			Resources.Add(GraphModel.CreateNew(Resource.Gold, rnd.Next(5000000, 8000000)));
+			Resources.Add(GraphModel.CreateNew(Resource.Elixir, rnd.Next(6000000, 8000000)));
+			Resources.Add(GraphModel.CreateNew(Resource.DarkElixir, rnd.Next(10000, 100000)));
+
 			GlobalVariables.Log.WriteToLog(Properties.Resources.LogBotInitialized);
-        }
+		}
 
-        #endregion
+		#endregion
 
-        #region Main Methods
+		#region Main Methods
 
-        /// <summary>
-        /// Starts or Stops the bot execution.
-        /// </summary>
-        private void StartStop()
-        {
-            if (!IsExecuting)
-            {
-                IsExecuting = true;
-                Start();
-            }
-            else
-            {
-                IsExecuting = false;
+		/// <summary>
+		/// Starts or Stops the bot execution.
+		/// </summary>
+		private void StartStop()
+		{
+			if (!IsExecuting)
+			{
+				IsExecuting = true;
+				Start();
+			}
+			else
+			{
+				IsExecuting = false;
 
 				if (IsBlueStacksHidden)
 				{
@@ -524,9 +539,9 @@
 					OnPropertyChanged(() => HideRestoreBlueStacksState);
 				}
 
-                Stop();
-            }
-        }
+				Stop();
+			}
+		}
 
 		/// <summary>
 		/// Hides or Restores BlueStacks.
@@ -545,34 +560,34 @@
 			}
 		}
 
-        /// <summary>
-        /// Starts the bot functionality
-        /// </summary>
-        private void Start()
-        {
+		/// <summary>
+		/// Starts the bot functionality
+		/// </summary>
+		private void Start()
+		{
 			Main.Initialize(this); // <--- Main entry point
-        }
+		}
 
-        /// <summary>
-        /// Stops the bot functionality
-        /// </summary>
-        private void Stop()
-        {
+		/// <summary>
+		/// Stops the bot functionality
+		/// </summary>
+		private void Stop()
+		{
 			WriteToOutput(Properties.Resources.OutputBotIsStopping, GlobalVariables.OutputStates.Information);
-            
-            // Any extra stuff we need to do goes here!
 
-            WriteToOutput(Properties.Resources.OutputBotStopped, GlobalVariables.OutputStates.Verified);
-        }
+			// Any extra stuff we need to do goes here!
 
-        /// <summary>
-        /// Hide BlueStacks
-        /// </summary>
-        private void HideBlueStacks()
-        {
+			WriteToOutput(Properties.Resources.OutputBotStopped, GlobalVariables.OutputStates.Verified);
+		}
+
+		/// <summary>
+		/// Hide BlueStacks
+		/// </summary>
+		private void HideBlueStacks()
+		{
 			WriteToOutput(Properties.Resources.OutputHideBlueStacks, GlobalVariables.OutputStates.Information);
 			BlueStacksHelper.HideBlueStacks();
-        }
+		}
 
 		/// <summary>
 		/// Show BlueStacks
@@ -780,71 +795,71 @@
 			GetService<INotifyService>().Notify(message);
 		}
 
-        #endregion
+		#endregion
 
 		#region Application User Settings Methods
 
 		/// <summary>
-        /// Gets the application user settings.
-        /// </summary>
-        private void GetUserSettings()
-        {
-            // General
-            MaxTrophies = AppSettings.MaxTrophies;
+		/// Gets the application user settings.
+		/// </summary>
+		private void GetUserSettings()
+		{
+			// General
+			MaxTrophies = AppSettings.MaxTrophies;
 
-            // Search Settings
-            IsMeetGold = AppSettings.IsMeetGold;
-            IsMeetElixir = AppSettings.IsMeetElixir;
-            IsMeetDarkElixir = AppSettings.IsMeetDarkElixir;
-            IsMeetTrophyCount = AppSettings.IsMeetTrophyCount;
-            IsMeetTownhallLevel = AppSettings.IsMeetTownhallLevel;
+			// Search Settings
+			IsMeetGold = AppSettings.IsMeetGold;
+			IsMeetElixir = AppSettings.IsMeetElixir;
+			IsMeetDarkElixir = AppSettings.IsMeetDarkElixir;
+			IsMeetTrophyCount = AppSettings.IsMeetTrophyCount;
+			IsMeetTownhallLevel = AppSettings.IsMeetTownhallLevel;
 			SelectedSearchCondition = (SearchCondition)AppSettings.SelectedSearchCondition;
 
-            MinimumGold = AppSettings.MinGold;
-            MinimumElixir = AppSettings.MinElixir;
-            MinimumDarkElixir = AppSettings.MinDarkElixir;
-            MinimumTrophyCount = AppSettings.MinTrophyCount;
-            MaximumTownhallLevel = AppSettings.MinTownhallLevel;
+			MinimumGold = AppSettings.MinGold;
+			MinimumElixir = AppSettings.MinElixir;
+			MinimumDarkElixir = AppSettings.MinDarkElixir;
+			MinimumTrophyCount = AppSettings.MinTrophyCount;
+			MaximumTownhallLevel = AppSettings.MinTownhallLevel;
 
-            IsAlertWhenBaseFound = AppSettings.IsAlertWhenBaseFound;
+			IsAlertWhenBaseFound = AppSettings.IsAlertWhenBaseFound;
 			IsTakeSnapshotAllTowns = AppSettings.IsTakeSnapshotAllTowns;
 			IsTakeSnapshotAllLoots = AppSettings.IsTakeSnapshotAllLoots;
 
-            // Attack Settings
-            SelectedMaxCannonLevel = AppSettings.MaxCannonLevel;
-            SelectedMaxArcherTowerLevel = AppSettings.MaxArcherTowerLevel;
-            SelectedMaxMortarLevel = AppSettings.MaxMortarLevel;
-            SelectedMaxWizardTowerLevel = AppSettings.MaxWizardTowerLevel;
-            SelectedMaxXbowLevel = AppSettings.MaxXbowLevel;
+			// Attack Settings
+			SelectedMaxCannonLevel = AppSettings.MaxCannonLevel;
+			SelectedMaxArcherTowerLevel = AppSettings.MaxArcherTowerLevel;
+			SelectedMaxMortarLevel = AppSettings.MaxMortarLevel;
+			SelectedMaxWizardTowerLevel = AppSettings.MaxWizardTowerLevel;
+			SelectedMaxXbowLevel = AppSettings.MaxXbowLevel;
 
-            IsAttackTheirKing = AppSettings.IsAttackTheirKing;
-            IsAttackTheirQueen = AppSettings.IsAttackTheirQueen;
+			IsAttackTheirKing = AppSettings.IsAttackTheirKing;
+			IsAttackTheirQueen = AppSettings.IsAttackTheirQueen;
 
-            SelectedAttackMode = (AttackMode)AppSettings.SelectedAttackMode;
+			SelectedAttackMode = (AttackMode)AppSettings.SelectedAttackMode;
 
-            SelectedKingAttackMode = (HeroAttackMode)AppSettings.SelectedKingAttackMode;
-            SelectedQueenAttackMode = (HeroAttackMode)AppSettings.SelectedQueenAttackMode;
-            IsAttackUsingClanCastle = AppSettings.IsAttackUsingClanCastle;
+			SelectedKingAttackMode = (HeroAttackMode)AppSettings.SelectedKingAttackMode;
+			SelectedQueenAttackMode = (HeroAttackMode)AppSettings.SelectedQueenAttackMode;
+			IsAttackUsingClanCastle = AppSettings.IsAttackUsingClanCastle;
 
-            SelectedDeployStrategy = DataCollection.DeployStrategies.Where(ds => ds.Id == AppSettings.SelectedDeployStrategy).DefaultIfEmpty(DataCollection.DeployStrategies.Last()).First();
-            SelectedDeployTroop = DataCollection.DeployTroops.Where(dt => dt.Id == AppSettings.SelectedDeployTroop).DefaultIfEmpty(DataCollection.DeployTroops.First()).First();
-            IsAttackTownhall = AppSettings.IsAttackTownhall;
+			SelectedDeployStrategy = DataCollection.DeployStrategies.Where(ds => ds.Id == AppSettings.SelectedDeployStrategy).DefaultIfEmpty(DataCollection.DeployStrategies.Last()).First();
+			SelectedDeployTroop = DataCollection.DeployTroops.Where(dt => dt.Id == AppSettings.SelectedDeployTroop).DefaultIfEmpty(DataCollection.DeployTroops.First()).First();
+			IsAttackTownhall = AppSettings.IsAttackTownhall;
 
-            // Troop Settings
-            SelectedTroopComposition = DataCollection.TroopCompositions.Where(tc => tc.Id == AppSettings.SelectedTroopComposition).DefaultIfEmpty(DataCollection.TroopCompositions.First()).First();
+			// Troop Settings
+			SelectedTroopComposition = DataCollection.TroopCompositions.Where(tc => tc.Id == AppSettings.SelectedTroopComposition).DefaultIfEmpty(DataCollection.TroopCompositions.First()).First();
 
-            IsUseBarracks1 = AppSettings.IsUseBarracks1;
-            IsUseBarracks2 = AppSettings.IsUseBarracks2;
-            IsUseBarracks3 = AppSettings.IsUseBarracks3;
-            IsUseBarracks4 = AppSettings.IsUseBarracks4;
+			IsUseBarracks1 = AppSettings.IsUseBarracks1;
+			IsUseBarracks2 = AppSettings.IsUseBarracks2;
+			IsUseBarracks3 = AppSettings.IsUseBarracks3;
+			IsUseBarracks4 = AppSettings.IsUseBarracks4;
 
-            SelectedBarrack1 = BarrackTroops.Where(b1 => b1.Id == AppSettings.SelectedBarrack1).DefaultIfEmpty(BarrackTroops.First()).First();
-            SelectedBarrack2 = BarrackTroops.Where(b2 => b2.Id == AppSettings.SelectedBarrack2).DefaultIfEmpty(BarrackTroops.First()).First();
-            SelectedBarrack3 = BarrackTroops.Where(b3 => b3.Id == AppSettings.SelectedBarrack3).DefaultIfEmpty(BarrackTroops.First()).First();
-            SelectedBarrack4 = BarrackTroops.Where(b4 => b4.Id == AppSettings.SelectedBarrack4).DefaultIfEmpty(BarrackTroops.First()).First();
+			SelectedBarrack1 = BarrackTroops.Where(b1 => b1.Id == AppSettings.SelectedBarrack1).DefaultIfEmpty(BarrackTroops.First()).First();
+			SelectedBarrack2 = BarrackTroops.Where(b2 => b2.Id == AppSettings.SelectedBarrack2).DefaultIfEmpty(BarrackTroops.First()).First();
+			SelectedBarrack3 = BarrackTroops.Where(b3 => b3.Id == AppSettings.SelectedBarrack3).DefaultIfEmpty(BarrackTroops.First()).First();
+			SelectedBarrack4 = BarrackTroops.Where(b4 => b4.Id == AppSettings.SelectedBarrack4).DefaultIfEmpty(BarrackTroops.First()).First();
 
-            IsUseDarkBarracks1 = AppSettings.IsUseDarkBarracks1;
-            IsUseDarkBarracks2 = AppSettings.IsUseDarkBarracks2;
+			IsUseDarkBarracks1 = AppSettings.IsUseDarkBarracks1;
+			IsUseDarkBarracks2 = AppSettings.IsUseDarkBarracks2;
 
 			SelectedDarkBarrack1 = DarkBarrackTroops.Where(b1 => b1.Id == AppSettings.SelectedDarkBarrack1).DefaultIfEmpty(DarkBarrackTroops.First()).First();
 			SelectedDarkBarrack2 = DarkBarrackTroops.Where(b2 => b2.Id == AppSettings.SelectedDarkBarrack2).DefaultIfEmpty(DarkBarrackTroops.First()).First();
@@ -852,87 +867,87 @@
 			// Wave Settings
 			IsCustomWave = AppSettings.IsCustomWave;
 
-            // Donate Settings
-            IsRequestTroops = AppSettings.IsRequestTroops;
-            RequestTroopsMessage = AppSettings.RequestTroopsMessage;
+			// Donate Settings
+			IsRequestTroops = AppSettings.IsRequestTroops;
+			RequestTroopsMessage = AppSettings.RequestTroopsMessage;
 
 			// Other Settings
 			IsRearmTraps = AppSettings.IsRearmTraps;
 			IsRearmXbows = AppSettings.IsRearmXbows;
 			IsRearmInfernos = AppSettings.IsRearmInfernos;
-        }
+		}
 
-        /// <summary>
-        /// Saves the application user settings.
-        /// </summary>
-        private void SaveUserSettings()
-        {
-            // General
-            AppSettings.MaxTrophies = MaxTrophies;
+		/// <summary>
+		/// Saves the application user settings.
+		/// </summary>
+		private void SaveUserSettings()
+		{
+			// General
+			AppSettings.MaxTrophies = MaxTrophies;
 
-            // Search Settings
-            AppSettings.IsMeetGold = IsMeetGold;
-            AppSettings.IsMeetElixir = IsMeetElixir;
-            AppSettings.IsMeetDarkElixir = IsMeetDarkElixir;
-            AppSettings.IsMeetTrophyCount = IsMeetTrophyCount;
-            AppSettings.IsMeetTownhallLevel = IsMeetTownhallLevel;
+			// Search Settings
+			AppSettings.IsMeetGold = IsMeetGold;
+			AppSettings.IsMeetElixir = IsMeetElixir;
+			AppSettings.IsMeetDarkElixir = IsMeetDarkElixir;
+			AppSettings.IsMeetTrophyCount = IsMeetTrophyCount;
+			AppSettings.IsMeetTownhallLevel = IsMeetTownhallLevel;
 			AppSettings.SelectedSearchCondition = (int)SelectedSearchCondition;
 
-            AppSettings.MinGold = MinimumGold;
-            AppSettings.MinElixir = MinimumElixir;
-            AppSettings.MinDarkElixir = MinimumDarkElixir;
-            AppSettings.MinTrophyCount = MinimumTrophyCount;
-            AppSettings.MinTownhallLevel = MaximumTownhallLevel;
+			AppSettings.MinGold = MinimumGold;
+			AppSettings.MinElixir = MinimumElixir;
+			AppSettings.MinDarkElixir = MinimumDarkElixir;
+			AppSettings.MinTrophyCount = MinimumTrophyCount;
+			AppSettings.MinTownhallLevel = MaximumTownhallLevel;
 
-            AppSettings.IsAlertWhenBaseFound = IsAlertWhenBaseFound;
+			AppSettings.IsAlertWhenBaseFound = IsAlertWhenBaseFound;
 			AppSettings.IsTakeSnapshotAllTowns = IsTakeSnapshotAllTowns;
 			AppSettings.IsTakeSnapshotAllLoots = IsTakeSnapshotAllLoots;
 
-            // Attack Settings
-            AppSettings.MaxCannonLevel = SelectedMaxCannonLevel;
-            AppSettings.MaxArcherTowerLevel = SelectedMaxArcherTowerLevel;
-            AppSettings.MaxMortarLevel = SelectedMaxMortarLevel;
-            AppSettings.MaxWizardTowerLevel = SelectedMaxWizardTowerLevel;
-            AppSettings.MaxXbowLevel = SelectedMaxXbowLevel;
+			// Attack Settings
+			AppSettings.MaxCannonLevel = SelectedMaxCannonLevel;
+			AppSettings.MaxArcherTowerLevel = SelectedMaxArcherTowerLevel;
+			AppSettings.MaxMortarLevel = SelectedMaxMortarLevel;
+			AppSettings.MaxWizardTowerLevel = SelectedMaxWizardTowerLevel;
+			AppSettings.MaxXbowLevel = SelectedMaxXbowLevel;
 
-            AppSettings.IsAttackTheirKing = IsAttackTheirKing;
-            AppSettings.IsAttackTheirQueen = IsAttackTheirQueen;
+			AppSettings.IsAttackTheirKing = IsAttackTheirKing;
+			AppSettings.IsAttackTheirQueen = IsAttackTheirQueen;
 
-            AppSettings.SelectedAttackMode = (int)SelectedAttackMode;
+			AppSettings.SelectedAttackMode = (int)SelectedAttackMode;
 
-            AppSettings.SelectedKingAttackMode = (int)SelectedKingAttackMode;
-            AppSettings.SelectedQueenAttackMode = (int)SelectedQueenAttackMode;
-            AppSettings.IsAttackUsingClanCastle = IsAttackUsingClanCastle;
+			AppSettings.SelectedKingAttackMode = (int)SelectedKingAttackMode;
+			AppSettings.SelectedQueenAttackMode = (int)SelectedQueenAttackMode;
+			AppSettings.IsAttackUsingClanCastle = IsAttackUsingClanCastle;
 
-            AppSettings.SelectedDeployStrategy = SelectedDeployStrategy.Id;
-            AppSettings.SelectedDeployTroop = SelectedDeployTroop.Id;
-            AppSettings.IsAttackTownhall = IsAttackTownhall;
+			AppSettings.SelectedDeployStrategy = SelectedDeployStrategy.Id;
+			AppSettings.SelectedDeployTroop = SelectedDeployTroop.Id;
+			AppSettings.IsAttackTownhall = IsAttackTownhall;
 
-            // Troop Settings
-            AppSettings.SelectedTroopComposition = SelectedTroopComposition.Id;
+			// Troop Settings
+			AppSettings.SelectedTroopComposition = SelectedTroopComposition.Id;
 
-            AppSettings.IsUseBarracks1 = IsUseBarracks1;
-            AppSettings.IsUseBarracks2 = IsUseBarracks2;
-            AppSettings.IsUseBarracks3 = IsUseBarracks3;
-            AppSettings.IsUseBarracks4 = IsUseBarracks4;
+			AppSettings.IsUseBarracks1 = IsUseBarracks1;
+			AppSettings.IsUseBarracks2 = IsUseBarracks2;
+			AppSettings.IsUseBarracks3 = IsUseBarracks3;
+			AppSettings.IsUseBarracks4 = IsUseBarracks4;
 
-            AppSettings.SelectedBarrack1 = SelectedBarrack1.Id;
-            AppSettings.SelectedBarrack2 = SelectedBarrack2.Id;
-            AppSettings.SelectedBarrack3 = SelectedBarrack3.Id;
-            AppSettings.SelectedBarrack4 = SelectedBarrack4.Id;
+			AppSettings.SelectedBarrack1 = SelectedBarrack1.Id;
+			AppSettings.SelectedBarrack2 = SelectedBarrack2.Id;
+			AppSettings.SelectedBarrack3 = SelectedBarrack3.Id;
+			AppSettings.SelectedBarrack4 = SelectedBarrack4.Id;
 
-            AppSettings.IsUseDarkBarracks1 = IsUseDarkBarracks1;
-            AppSettings.IsUseDarkBarracks2 = IsUseDarkBarracks2;
+			AppSettings.IsUseDarkBarracks1 = IsUseDarkBarracks1;
+			AppSettings.IsUseDarkBarracks2 = IsUseDarkBarracks2;
 
-            AppSettings.SelectedDarkBarrack1 = SelectedDarkBarrack1.Id;
-            AppSettings.SelectedDarkBarrack2 = SelectedDarkBarrack2.Id;
+			AppSettings.SelectedDarkBarrack1 = SelectedDarkBarrack1.Id;
+			AppSettings.SelectedDarkBarrack2 = SelectedDarkBarrack2.Id;
 
 			// Wave Settings
 			AppSettings.IsCustomWave = IsCustomWave;
 
-            // Donate Settings
-            AppSettings.IsRequestTroops = IsRequestTroops;
-            AppSettings.RequestTroopsMessage = RequestTroopsMessage;
+			// Donate Settings
+			AppSettings.IsRequestTroops = IsRequestTroops;
+			AppSettings.RequestTroopsMessage = RequestTroopsMessage;
 
 			// Donate Settings - Tier 1
 			AppSettings.TroopsQtyBarbarians = DataCollection.TroopTiers[TroopType.Tier1].Troops[Troop.Barbarian].TrainQuantity;
@@ -1058,10 +1073,10 @@
 			AppSettings.IsRearmXbows = IsRearmXbows;
 			AppSettings.IsRearmInfernos = IsRearmInfernos;
 
-            // Save it!
-            AppSettings.Save();
-        }
+			// Save it!
+			AppSettings.Save();
+		}
 
-        #endregion
+		#endregion
 	}
 }
