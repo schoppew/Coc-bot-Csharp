@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using CoC.Bot.Data;
+using CoC.Bot.Tools;
 using MouseAndKeyboard;
 using Point = Win32.POINT;
 
@@ -44,75 +47,97 @@ namespace CoC.Bot.BotEngine
 		/// <param name="troop">The troop.</param>
 		private static void DonateCCTroopSpecific(TroopModel troop)
 		{
-			// TODO: Do the clicking Stuff here
-			// Remember to get the needed information:
-			// troop.DonateKeywords			
-			int _y = 119;
+			// TODO: Fix GetDonationButton() then implement actual donating	
 
-			Tools.CoCHelper.Click(ScreenData.TopLeftClient, 2, 50); // Click out of anything
+			CoCHelper.Click(ScreenData.TopLeftClient, 2, 50); // Click out of anything
 			Thread.Sleep(300);
-			Tools.CoCHelper.Click(ScreenData.OpenChatBtn); // Click Green Chat Tab
+			CoCHelper.Click(ScreenData.OpenChatBtn); // Click Green Chat Tab
 			Thread.Sleep(300);
-			Tools.CoCHelper.Click((ClickablePoint)ScreenData.IsClanTabSelected); //Clicks Clan Chat Tab
+			CoCHelper.Click(ScreenData.IsClanTabSelected); // Clicks Clan Chat Tab
 			Thread.Sleep(300);
 
-			ClickablePoint donatePos = GetDonateButton();
+		    ClickablePoint donatePos;
+		    ClickablePoint showMore;
 
-			if (!donatePos.IsEmpty)
-			{
-				string requestText = ReadText.GetString(donatePos.Point.Y - 28);
+		    do
+		    {
+		        donatePos = GetDonateButton();
+		        showMore = GetNotificationButton();
 
-				if (string.IsNullOrEmpty(requestText))
-					requestText = ReadText.GetString(donatePos.Point.Y - 17);
-				else
-					requestText = requestText + Environment.NewLine + ReadText.GetString(donatePos.Point.Y - 17);
+                MessageBox.Show(donatePos.Point.X + "x" + donatePos.Point.Y);
 
-				Main.Bot.WriteToOutput("Requested Troops: " + requestText, GlobalVariables.OutputStates.Information);
+		        if (donatePos.IsEmpty)
+		        {
+		            if (showMore.IsEmpty)
+		                break;
+		            CoCHelper.Click(showMore);
+		            Thread.Sleep(500);
+		        }
+		        else
+		        {
+                    MessageBox.Show(donatePos.Point.X + "x" + donatePos.Point.Y);
+                    // Donate
+		        }
+		    } while (!showMore.IsEmpty);
 
-				string[] str = troop.DonateKeywords.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
+            Main.Bot.WriteToOutput("Finished donating...");
 
-				for (int i = 0; i < str.Length; i++)
-				{
-					if (requestText.Contains(str[i]))
-					{
-						ClickablePoint showMore;
 
-						do
-						{
-							ClickablePoint donateBtn = GetDonateButton();
-							showMore = GetNotificationButton();
+            //if (!donatePos.IsEmpty)
+            //{
+            //    string requestText = ReadText.GetString(donatePos.Point.Y - 28);
 
-							if (donateBtn.IsEmpty)
-							{
-								if (showMore.IsEmpty)
-								{
-									Main.Bot.WriteToOutput("No Donation Opportunities For " + troop.Name + "s...", GlobalVariables.OutputStates.Normal);
-									break;
-								}
-							}
-							else
-							{
-								//FIX
-								Main.Bot.WriteToOutput(string.Format("Donating {0} {1}s...", troop.MaxDonationsPerRequest, troop.Troop.Name()), GlobalVariables.OutputStates.Verified);
+            //    if (string.IsNullOrEmpty(requestText))
+            //        requestText = ReadText.GetString(donatePos.Point.Y - 17);
+            //    else
+            //        requestText = requestText + Environment.NewLine + ReadText.GetString(donatePos.Point.Y - 17);
 
-								Tools.CoCHelper.Click(donateBtn);
-								ClickablePoint barb = new ClickablePoint(donateBtn.Point.X + 108, donateBtn.Point.Y - 58);
-								Tools.CoCHelper.Click(barb, troop.MaxDonationsPerRequest);
+            //    Main.Bot.WriteToOutput("Requested Troops: " + requestText, GlobalVariables.OutputStates.Information);
 
-								if (!showMore.IsEmpty)
-								{
-									Tools.CoCHelper.Click(showMore);
-									Thread.Sleep(500);
-									showMore = GetNotificationButton();
-								}
-							}
+            //    string[] str = troop.DonateKeywords.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
 
-						} while (!showMore.IsEmpty);
-					}
-				}
-			}
-			else
-				Main.Bot.WriteToOutput("No clan members to donate to...", GlobalVariables.OutputStates.Normal);
+            //    for (int i = 0; i < str.Length; i++)
+            //    {
+            //        if (requestText.Contains(str[i]))
+            //        {
+            //            ClickablePoint showMore;
+
+            //            do
+            //            {
+            //                ClickablePoint donateBtn = GetDonateButton();
+            //                showMore = GetNotificationButton();
+
+            //                if (donateBtn.IsEmpty)
+            //                {
+            //                    if (showMore.IsEmpty)
+            //                    {
+            //                        Main.Bot.WriteToOutput("No Donation Opportunities For " + troop.Name + "s...", GlobalVariables.OutputStates.Normal);
+            //                        break;
+            //                    }
+            //                }
+            //                else
+            //                {
+            //                    //FIX
+            //                    Main.Bot.WriteToOutput(string.Format("Donating {0} {1}s...", troop.MaxDonationsPerRequest, troop.Troop.Name()), GlobalVariables.OutputStates.Verified);
+
+            //                    Tools.CoCHelper.Click(donateBtn);
+            //                    ClickablePoint barb = new ClickablePoint(donateBtn.Point.X + 108, donateBtn.Point.Y - 58);
+            //                    Tools.CoCHelper.Click(barb, troop.MaxDonationsPerRequest);
+
+            //                    if (!showMore.IsEmpty)
+            //                    {
+            //                        Tools.CoCHelper.Click(showMore);
+            //                        Thread.Sleep(500);
+            //                        showMore = GetNotificationButton();
+            //                    }
+            //                }
+
+            //            } while (!showMore.IsEmpty);
+            //        }
+            //    }
+            //}
+            //else
+            //    Main.Bot.WriteToOutput("No clan members to donate to...", GlobalVariables.OutputStates.Normal);
 
 			Tools.CoCHelper.Click(ScreenData.CloseChat);
 		}
@@ -165,35 +190,21 @@ namespace CoC.Bot.BotEngine
 			do
 			{
 				DetectableArea area = new DetectableArea(left, top, right, bottom, ScreenData.ChatArea.Color, ScreenData.ChatArea.ShadeVariation);
-				ClickablePoint p1 = Tools.CoCHelper.SearchPixelInRect(area);
+				ClickablePoint p1 = CoCHelper.SearchPixelInRect(area);
 
-				if (!p1.IsEmpty && !(p1.Point.X == -1 || p1.Point.Y == -1))
-				{
-					if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.DonateButtonColor1.Point.X, p1.Point.Y + ScreenData.DonateButtonColor1.Point.Y), ScreenData.DonateButtonColor1.Color, ScreenData.DonateButtonColor1.ShadeVariation))
-					{
-						if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.DonateButtonColor2.Point.X, p1.Point.Y + ScreenData.DonateButtonColor2.Point.Y), ScreenData.DonateButtonColor2.Color, ScreenData.DonateButtonColor2.ShadeVariation))
-						{
-							if (Tools.CoCHelper.IsInColorRange(new ClickablePoint(p1.Point.X + ScreenData.DonateButtonColor3.Point.X, p1.Point.Y + ScreenData.DonateButtonColor3.Point.Y), ScreenData.DonateButtonColor3.Color, ScreenData.DonateButtonColor3.ShadeVariation))
-							{
-								return p1;
-							}
-						}
-					}
-				}
+			    if (!p1.IsEmpty && !(p1.Point.X == -1 || p1.Point.Y == -1))
+			    {
+			        return p1;
+			    }                       
 
 				if (count >= 100)
-				{
 					break;
-				}
-				else
-				{
-					if (!p1.IsEmpty && !(p1.Point.X == -1 || p1.Point.Y == -1))
-					{
-						top = p1.Point.Y;
-					}
+				
 
-					count++;
-				}
+			    if (!p1.IsEmpty && !(p1.Point.X == -1 || p1.Point.Y == -1))
+			        top = p1.Point.Y;
+
+			    count++;
 			} while (true);
 
 			return new ClickablePoint();
