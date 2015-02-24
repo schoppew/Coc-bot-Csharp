@@ -26,7 +26,7 @@ namespace CoC.Bot.Chart
         protected override Size ArrangeOverride(Size finalSize)
         {
             Size cellSize = new Size(finalSize.Width, finalSize.Height / Children.Count);
-            int row = 0, col = 0;
+            int col = 0;
 
             double leftposition = 0;
             foreach (UIElement child in Children)

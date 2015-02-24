@@ -49,7 +49,6 @@ namespace CoC.Bot.Chart
 
         Border mainBorder = null;
         TextBlock mainTextBlock = null;
-        double initialheight = 0.0;
         private void InternalOnApplyTemplate()
         {
             mainBorder = GetTemplateChild("PART_Border") as Border; 

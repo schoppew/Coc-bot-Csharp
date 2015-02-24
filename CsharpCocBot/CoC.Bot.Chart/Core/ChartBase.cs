@@ -447,7 +447,7 @@ namespace CoC.Bot.Chart
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                 }
             }

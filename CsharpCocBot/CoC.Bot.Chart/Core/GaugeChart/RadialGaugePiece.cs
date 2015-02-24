@@ -306,7 +306,7 @@ namespace CoC.Bot.Chart
                     SetValue(RadialGaugePiece.BackgroundGeometryProperty, CloneDeep(segmentPathDataBackground as PathGeometry));
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -399,7 +399,7 @@ namespace CoC.Bot.Chart
 
                 return segmentPath.Data;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
             return null;

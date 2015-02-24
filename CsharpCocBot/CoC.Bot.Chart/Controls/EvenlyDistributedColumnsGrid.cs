@@ -71,7 +71,7 @@ namespace CoC.Bot.Chart
                
                 return availableSize;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new Size(0,0);
             }            

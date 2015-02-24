@@ -261,7 +261,7 @@ namespace CoC.Bot.Chart
 					LayoutSegment(0.0, 360.0, radius, DoughnutInnerRadiusRatio, center, IsDoughnut); // This works for empty chart but last Serie is used
 				}
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -426,7 +426,7 @@ namespace CoC.Bot.Chart
                     label.SetValue(Canvas.LeftProperty, pointerMoreOuter.X - (label.ActualWidth));
                 }                
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }

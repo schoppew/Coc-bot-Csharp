@@ -113,7 +113,7 @@ namespace CoC.Bot.Chart
                 storyScaleX.Begin();
    
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
