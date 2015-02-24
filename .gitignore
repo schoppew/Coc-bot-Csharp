@@ -75,6 +75,7 @@ CsharpCocBot/UnitTests/exe/
 CsharpCocBot/PluginContracts/bin/
 CsharpCocBot/PluginContracts/obj/
 CsharpCocBot/PluginContracts/exe/
+CsharpCocBot/CoC.Bot.Chart/obj/
 *.baml
 *.cache
 *.suo
@@ -85,3 +86,4 @@ CsharpCocBot/PluginContracts/exe/
 CsharpCocBot - Copie/
 CsharpCocBot/CsharpCocBot/UT/FastFindHelper.dll
 CsharpCocBot/BitmapDetector.zip
+CsharpCocBot/CoC.Bot.Chart/obj/Release/GeneratedInternalTypeHelper.g.i.cs
