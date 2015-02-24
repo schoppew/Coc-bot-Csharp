@@ -91,7 +91,7 @@
                     </LinearGradientBrush>
                 </Rectangle.Stroke>
             </Rectangle>
-            <Grid x:Name="Root" Margin="2" Background="#A0333333" IsEnabled="{Binding IsBusy,Converter={StaticResource InverseBoolConverter}}">
+            <Grid x:Name="Root" Margin="2" Background="#A0333333" IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}">
                 <Grid>
                     <Label Padding="0" HorizontalContentAlignment="Center" Style="{StaticResource LabelTitle}">
                         <Grid>
@@ -702,8 +702,8 @@
                                 </GroupBox>
                             </Grid>
                         </TabItem>
-                        <!-- Help Tab -->
-                        <TabItem Header="{x:Static p:Resources.Help}">
+                        <!-- Help Tab | Is hidden for now -->
+                        <TabItem Header="{x:Static p:Resources.Help}" Visibility="Collapsed">
                             <Grid Background="{DynamicResource BackgroundBrush}"/>
                         </TabItem>
                         <!-- Debug Tab -->

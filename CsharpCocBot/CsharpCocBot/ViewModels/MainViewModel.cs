@@ -101,7 +101,12 @@
 			Init();
             GetUserSettings();
 
-			GlobalVariables.PluginLoader = new PluginMngr.PluginLoader(this);
+			if (!(bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
+			{
+				// Execute the following if is not in Design Mode
+				// Note: This avoids breaking live data on XAML designer
+				GlobalVariables.PluginLoader = new PluginMngr.PluginLoader(this);
+			}
 
             Message = Properties.Resources.StartMessage;
         }
@@ -395,7 +400,7 @@
 			BarrackTroops.Add(Model.CreateNew((int)Troop.Dragon, Properties.Resources.Dragons));
 			BarrackTroops.Add(Model.CreateNew((int)Troop.Pekka, Properties.Resources.Pekkas));
 
-            // Fill the Dark Barracks Troops
+			// Fill the Dark Barracks Troops
 			DarkBarrackTroops = new BindingList<Model>();
 			DarkBarrackTroops.Add(Model.CreateNew((int)Troop.Minion, Properties.Resources.Minions));
 			DarkBarrackTroops.Add(Model.CreateNew((int)Troop.HogRider, Properties.Resources.HogRiders));
