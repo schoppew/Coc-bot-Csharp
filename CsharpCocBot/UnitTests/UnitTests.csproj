@@ -92,10 +92,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ColorOptimizer\ColorOptimizer.csproj">
-      <Project>{c99c9fa9-1274-49d4-9d3f-b401e7f02fad}</Project>
-      <Name>ColorOptimizer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CsharpCocBot\CsharpCocBot.csproj">
       <Project>{c9747428-f162-4d59-817a-be0a5847d88c}</Project>
       <Name>CsharpCocBot</Name>
