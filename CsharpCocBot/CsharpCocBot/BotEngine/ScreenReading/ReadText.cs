@@ -106,9 +106,7 @@ namespace CoC.Bot.BotEngine
 
             while (string.IsNullOrEmpty(GetDigit(ref x, y + i, "DarkElixir")))
             {
-                if (i >= 15)
-                    break;
-
+                if (i >= 15) break;
                 i++;
             }
 
@@ -122,6 +120,28 @@ namespace CoC.Bot.BotEngine
             darkElixir += GetDigit(ref x, y + i, "DarkElixir");
 
             return darkElixir;
+        }
+
+        public static string GetNormal(int xStart, int yStart)
+        {
+            int x = xStart;
+            int y = yStart;
+            int i = 0;
+
+            var normal = GetDigit(ref x, y, "Normal");
+
+            while (string.IsNullOrEmpty(normal))
+            {
+                if (i >= 50) break;
+                i++;
+                x++;
+                normal = GetDigit(ref x, y, "Normal");
+            }
+
+            normal += GetDigit(ref x, y, "Normal");
+            normal += GetDigit(ref x, y, "Normal");
+
+            return normal;
         }
 
         public static string GetDigit(ref int x, int y, string type)
@@ -852,11 +872,6 @@ namespace CoC.Bot.BotEngine
         }
 
 		#region Not implemented function
-
-		public int GetNormal(int _x, int _y)
-		{
-			throw new NotImplementedException();
-		}
 
 		public static int GetOther(int _x, int _y, string kind)
 		{

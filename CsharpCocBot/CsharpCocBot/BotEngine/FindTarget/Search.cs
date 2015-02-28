@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Web.UI;
-using System.Windows.Media.Animation;
 using CoC.Bot.Data;
+using CoC.Bot.Tools;
 using Point = Win32.POINT;
 namespace CoC.Bot.BotEngine
 {
@@ -16,11 +10,6 @@ namespace CoC.Bot.BotEngine
         public static string Gold;
         public static string Elixir;
         public static string DarkElixir;
-
-        public bool CheckNextButton()
-        {
-            return false;
-        }
 
         public static bool CompareResources()
         {
@@ -51,21 +40,23 @@ namespace CoC.Bot.BotEngine
         {
             Gold = ReadText.GetGold(51, 66);
             Elixir = ReadText.GetElixir(51, 95);
-            DarkElixir = "";
+            DarkElixir = ReadText.GetDarkElixir(51, 123);
 
             Main.Bot.WriteToOutput("[G]: " + Gold + "; [E]: " + Elixir + "; [DE]: " + DarkElixir + ";");
         }
 
         public static void PrepareSearch()
         {
-            Tools.CoCHelper.Click(ScreenData.AttackButton);
+            Main.Bot.WriteToOutput("Preparing Search...");
+
+            CoCHelper.Click(ScreenData.AttackButton);
             Thread.Sleep(1000);
-            Tools.CoCHelper.Click(ScreenData.MatchButton);
+            CoCHelper.Click(ScreenData.MatchButton);
             Thread.Sleep(3000);
 
-            if (Tools.CoCHelper.CheckPixelColor(ScreenData.HasShield))
+            if (CoCHelper.CheckPixelColor(ScreenData.HasShield))
             {
-                Tools.CoCHelper.Click(ScreenData.BreakShield);
+                CoCHelper.Click(ScreenData.BreakShield);
             }
         }
 
@@ -89,12 +80,10 @@ namespace CoC.Bot.BotEngine
             while (true)
             {
                 var timeout = 0;
-                while (!Tools.CoCHelper.CheckPixelColor(ScreenData.NextBtn))
+                while (!CoCHelper.CheckPixelColor(ScreenData.NextBtn))
                 {
                     if (timeout >= 20) // After 10 seconds
-                    {
                         return false;
-                    }
 
                     timeout++;
                     Thread.Sleep(500);
@@ -111,7 +100,7 @@ namespace CoC.Bot.BotEngine
                         }
 
                         Main.Bot.WriteToOutput("~~~~~~~ Not Dead Base, Skipping ~~~~~~~");
-                        Tools.CoCHelper.Click(ScreenData.NextBtn);
+                        CoCHelper.Click(ScreenData.NextBtn);
                     }
                     else if (Main.Bot.SelectedAttackMode.Equals(AttackMode.WeakBases))
                     {
@@ -122,7 +111,7 @@ namespace CoC.Bot.BotEngine
                         }
 
                         Main.Bot.WriteToOutput("~~~~~~~ Not Weak Base, Skipping ~~~~~~~");
-                        Tools.CoCHelper.Click(ScreenData.NextBtn);
+                        CoCHelper.Click(ScreenData.NextBtn);
                     }
                     else
                     {
@@ -131,8 +120,8 @@ namespace CoC.Bot.BotEngine
                 }
                 else
                 {
-                    Tools.CoCHelper.Click(ScreenData.NextBtn);
-                    Thread.Sleep(500);
+                    CoCHelper.Click(ScreenData.NextBtn);
+                    Thread.Sleep(1000);
                 }
             }
         }
