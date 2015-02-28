@@ -10,7 +10,7 @@ namespace CoC.Bot.BotEngine
 {
     class Attack
     {
-        private static Dictionary<Troop, int> troopDict = new Dictionary<Troop, int>();
+        public static Dictionary<Troop, int> troopDict = new Dictionary<Troop, int>();
  
 		public static void Initialize()
 		{
@@ -38,23 +38,28 @@ namespace CoC.Bot.BotEngine
 
         public static void Start()
         {
+            int divisor;
+
             Main.Bot.WriteToOutput("====== Beginning Attack ======", GlobalVariables.OutputStates.Verified);
 
-            //switch (Main.Bot.SelectedDeployStrategy)
-            //{
-            //    case DeployStrategy.OneSide:
-            //        // Stuff
-            //        break;
-            //    case DeployStrategy.TwoSides:
-            //        // Stuff
-            //        break;
-            //    case DeployStrategy.ThreeSides:
-            //        // Stuff
-            //        break;
-            //    case DeployStrategy.FourSides:
-            //        // Stuff
-            //        break;
-            //}
+            switch (Main.Bot.SelectedDeployStrategy.Id)
+            {
+                case (int) DeployStrategy.OneSide:
+                    divisor = 1;
+                    break;
+                case (int) DeployStrategy.TwoSides:
+                    divisor = 2;
+                    break;
+                case (int) DeployStrategy.ThreeSides:
+                    divisor = 3;
+                    break;
+                case (int) DeployStrategy.FourSides:
+                    divisor = 4;
+                    break;
+            }
+
+            //barch
+            BarchAlgorithm.Start(divisor);
         }
 
         public static void DropClanCastle()
