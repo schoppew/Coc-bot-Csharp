@@ -11,14 +11,25 @@
 		{
 			Search.PrepareSearch();
 			Thread.Sleep(1000);
-			Search.VillageSearch(); // DO THIS
-			Thread.Sleep(1000);
-			PrepareAttack(); // DO THIS
-			Thread.Sleep(1000);
-			Start(); // DO THIS
-			Thread.Sleep(1000);
-			MainScreen.ReturnHome();
-			Thread.Sleep(1000);
+
+		    if (Search.VillageSearch())
+		    {
+                Thread.Sleep(1000);
+
+                PrepareAttack(); // DO THIS
+                Thread.Sleep(1000);
+
+                Start(); // DO THIS
+                Thread.Sleep(1000);
+
+                MainScreen.ReturnHome();
+                Thread.Sleep(1000);
+		    }
+		    else
+		    {
+		        Main.Bot.WriteToOutput("Timeout...");
+		    }
+
 		}
 
         // THIS METHOD IS WRONG, MUST CREATE PROPERTY FOR BARCHING, ALL TROOPS, ETC

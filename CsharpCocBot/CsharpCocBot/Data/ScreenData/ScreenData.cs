@@ -15,6 +15,7 @@ namespace CoC.Bot.Data
     {
         /*
          */
+        public static ClickablePoint AttackButton = new ClickablePoint(60, 614);
         public static ClickablePoint ReArmTrapsConfirmationButton = new ClickablePoint(515, 400);
         public static DetectableArea ReArmTrapsButton = new DetectableArea(196, 558, 665, 643, Color.FromArgb(232, 209, 65), 10);
         public static DetectableArea ChatNotificationButtonArea = new DetectableArea(283, 643, 305, 672, Color.FromArgb(89, 136, 0), 20);
@@ -50,7 +51,6 @@ namespace CoC.Bot.Data
         public static DetectablePoint CancelFight2 = new DetectablePoint(830, 59, 0xD80408, 20);
 
         public static DetectableArea Inactivity = new DetectableArea(457, 300, 458, 330, Color.FromArgb(51, 181, 229), 10);
-        public static ClickablePoint AttaqueButton = new ClickablePoint(60, 614);
         public static ClickablePoint MatchButton = new ClickablePoint(217, 510);
         public static DetectablePoint HasShield = new DetectablePoint(513, 416, 0x5DAC10, 50);
         public static ClickablePoint BreakShield = new ClickablePoint(513, 416);
@@ -79,7 +79,7 @@ namespace CoC.Bot.Data
         public static DetectablePoint TrainGoblin = new DetectablePoint(581, 366, 0x39D8E0, 20);
         public static DetectablePoint TrainWallbreaker = new DetectablePoint(688, 366, 0x3AD8E0, 20);
 
-        public static ClickablePoint NextBtn = new ClickablePoint(750, 500);
+        public static DetectablePoint NextBtn = new DetectablePoint(750, 500, 0xE89828, 50);
 
         // ; Someone asking troupes : Color 0xD0E978 in x = 121
 
