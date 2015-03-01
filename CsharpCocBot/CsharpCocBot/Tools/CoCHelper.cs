@@ -66,7 +66,6 @@ namespace CoC.Bot.Tools
 		static public void Initialize()
 		{
 			FastFindHelper.SetHWndProvider(BlueStacksHelper.GetBlueStacksWindowHandle); // Set this so the wrapper can find the window when needed
-			ExtBitmap.ExtBitmap.SetHWndProvider(BlueStacksHelper.GetBlueStacksWindowHandle); // Set this so the wrapper can find the window when needed
 			MouseAndKeyboard.KeyboardHelper.SetHWndProvider(BlueStacksHelper.GetBlueStacksWindowHandle); // Set this so the wrapper can find the window when needed
 			MouseAndKeyboard.MouseHelper.SetHWndProvider(BlueStacksHelper.GetBlueStacksWindowHandle); // Set this so the wrapper can find the window when needed
 		}

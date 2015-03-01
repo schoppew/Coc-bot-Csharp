@@ -1,0 +1,5 @@
+F:\GitHub\OldGitHub\Coc-bot-Csharp\CsharpCocBot\CsharpCocBot\exe\Plugins\GoodPlugin.dll
+F:\GitHub\OldGitHub\Coc-bot-Csharp\CsharpCocBot\CsharpCocBot\exe\Plugins\GoodPlugin.pdb
+F:\GitHub\OldGitHub\Coc-bot-Csharp\CsharpCocBot\GoodPlugin\obj\x86\Debug\GoodPlugin.csprojResolveAssemblyReference.cache
+F:\GitHub\OldGitHub\Coc-bot-Csharp\CsharpCocBot\GoodPlugin\obj\x86\Debug\GoodPlugin.dll
+F:\GitHub\OldGitHub\Coc-bot-Csharp\CsharpCocBot\GoodPlugin\obj\x86\Debug\GoodPlugin.pdb

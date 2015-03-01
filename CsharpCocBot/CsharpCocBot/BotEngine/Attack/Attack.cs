@@ -38,7 +38,7 @@ namespace CoC.Bot.BotEngine
 
         public static void Start()
         {
-            int divisor;
+            int divisor=456;
 
             Main.Bot.WriteToOutput("====== Beginning Attack ======", GlobalVariables.OutputStates.Verified);
 

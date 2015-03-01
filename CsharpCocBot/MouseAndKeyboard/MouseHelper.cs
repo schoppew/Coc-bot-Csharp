@@ -41,15 +41,12 @@
             /// set cursor on coords, and press mouse
             //Cursor.Position = new Point(clientPoint.x, clientPoint.y); // ref to System.Windows.Forms
 
-			var inputMouseDown = new Win32.INPUT();
-            inputMouseDown.Type = 0; /// input type mouse
-            inputMouseDown.Data.Mouse.Flags = 0x0002; /// left button down
-
+			
 			var inputMouseUp = new Win32.INPUT();
             inputMouseUp.Type = 0; /// input type mouse
             inputMouseUp.Data.Mouse.Flags = 0x0004; /// left button up
 
-			var inputs = new Win32.INPUT[] { inputMouseDown, inputMouseUp };
+			var inputs = new Win32.INPUT[] { inputMouseUp };
 			Win32.Win32.SendInput((uint)inputs.Length, inputs, Marshal.SizeOf(typeof(Win32.INPUT)));
 
             /// return mouse 
@@ -58,12 +55,7 @@
 
         private static void PostMessageSafe(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
         {
-			bool returnValue = Win32.Win32.PostMessage(hWnd, msg, wParam, lParam);
-            if (!returnValue)
-            {
-                // An error occured
-                throw new System.ComponentModel.Win32Exception(Marshal.GetLastWin32Error());
-            }
+			bool returnValue = Win32.Win32.PostMessage(hWnd, msg, wParam, lParam);            
         }
 
         // SendMessage and PostMessage should work on hidden forms, use them with the WM_MOUSEXXXX codes and provide the mouse location in the wp or lp parameter, I forget which.
@@ -77,9 +69,7 @@
                 {
                     for (int x = 0; x < times; x++)
                     {
-						PostMessageSafe(wndHandle, Win32.Win32.WM_LBUTTONDOWN, (IntPtr)0x01, (IntPtr)((clientPoint.X) | ((clientPoint.Y) << 16)));
-						PostMessageSafe(wndHandle, Win32.Win32.WM_LBUTTONUP, (IntPtr)0x01, (IntPtr)((clientPoint.X) | ((clientPoint.Y) << 16)));
-                        Thread.Sleep(delay);
+						PostMessageSafe(wndHandle, Win32.Win32.WM_LBUTTONUP, (IntPtr)0x01, (IntPtr)((clientPoint.X) | ((clientPoint.Y) << 16)));                        
                     }
                 }
             }
@@ -117,8 +107,7 @@
 						if (Win32.Win32.GetCursorPos(ref clientPoint))
 						{
 							// get screen coordinates
-							Win32.Win32.ClientToScreen(wndHandle, ref clientPoint);
-							break;
+							Win32.Win32.ClientToScreen(wndHandle, ref clientPoint);							
 						}
 					}
 				}

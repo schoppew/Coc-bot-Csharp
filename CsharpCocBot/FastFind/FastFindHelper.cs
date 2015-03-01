@@ -11,8 +11,8 @@ namespace FastFind
 {
     static public class FastFindHelper
     {
-        // The default delay in ms between to captures. If calling for a capture more often, then by default will provide the previous one. 
-        const int MINIMUM_DELAY_BETWEEN_CAPTURES = 1000;
+        // The default delay in s between to captures. If calling for a capture more often, then by default will provide the previous one. 
+        const int MINIMUM_DELAY_BETWEEN_CAPTURES = 1;
         public const int DEFAULT_SNAP = 0;
         public const int CUSTOM_SNAP = 1;
 		#region Window handle provider
@@ -45,7 +45,7 @@ namespace FastFind
         /// <returns></returns>
         static public bool TakeFullScreenCapture(bool forceNew = false)
         {
-            if (lastFullCapture == null || lastFullCapture.ElapsedMilliseconds > MINIMUM_DELAY_BETWEEN_CAPTURES || forceNew)
+            if (lastFullCapture == null || forceNew)
             {
 				FastFindWrapper.SetHWnd(GetHWnd(), true); // Bind FastFind with BlueStack window, considers only ClientArea
                 if (FastFindWrapper.SnapShot(0, 0, 0, 0, DEFAULT_SNAP) == 0)

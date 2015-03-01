@@ -140,12 +140,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Data\ColorList\AllColorLists.cs" />
-    <Compile Include="Data\ColorList\ColorListBase.cs" />
-    <Compile Include="Data\ColorList\ColorListItem.cs" />
-    <Compile Include="Data\ColorList\Generated\TH.cs" />
-    <Compile Include="Data\ColorList\Generated\Wall.cs" />
-    <Compile Include="Data\ColorList\Tools\ColorListsHelper.cs" />
     <Compile Include="Data\DataCollection.cs" />
     <Compile Include="Data\DataCollection.Debug.cs" />
     <Compile Include="Data\Enum\AttackMode.cs" />
@@ -360,10 +354,6 @@
     <ProjectReference Include="..\CoC.Bot.Chart\CoC.Bot.Chart.csproj">
       <Project>{e9e69268-3a78-4796-a854-0b890d66c6a3}</Project>
       <Name>CoC.Bot.Chart</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExtBitmap\ExtBitmap.csproj">
-      <Project>{7bd14dbe-718b-40bf-86cc-c996f110df22}</Project>
-      <Name>ExtBitmap</Name>
     </ProjectReference>
     <ProjectReference Include="..\FastFind\FastFind.csproj">
       <Project>{a17bcd52-c8ce-45a6-8a71-a00e73eb5aaa}</Project>

@@ -20,9 +20,7 @@
 	using UI.Commands;
 	using UI.Services;
 	using CoC.Bot.Data.Type;
-	using CoC.Bot.Data.ColorList.Tools;
-	using CoC.Bot.Data.ColorList;
-
+	
 	/// <summary>
 	/// Provides functionality for the MainWindow
 	/// </summary>
